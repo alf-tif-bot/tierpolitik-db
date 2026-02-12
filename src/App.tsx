@@ -59,6 +59,31 @@ export default function App() {
 
   return (
     <main className="container">
+      <header className="site-header panel">
+        <div className="site-header-top">
+          <a href="https://www.tierimfokus.ch" target="_blank" rel="noopener noreferrer" className="site-brand" aria-label="Tier im Fokus">
+            <img src="/branding/TIF_Logo_Button.png" alt="Tier im Fokus" />
+            <strong>tier im fokus</strong>
+          </a>
+
+          <nav className="site-nav" aria-label="Tier im Fokus Links">
+            <a href="https://www.tierimfokus.ch/medien" target="_blank" rel="noopener noreferrer">» Medien</a>
+            <a href="https://www.tierimfokus.ch/kontakt" target="_blank" rel="noopener noreferrer">» Kontakt</a>
+            <a href="https://www.tierimfokus.ch/newsletter" target="_blank" rel="noopener noreferrer">» Newsletter</a>
+            <a href="https://www.tierimfokus.ch/spenden" target="_blank" rel="noopener noreferrer">» Spenden</a>
+          </nav>
+        </div>
+
+        <div className="site-support-row">
+          <span>— Mit Unterstützung von</span>
+          <div className="support-logos" aria-label="Demo-Partnerlogos">
+            <span className="support-logo">Demo Stiftung A</span>
+            <span className="support-logo">Partner B</span>
+            <span className="support-logo">Förderkreis C</span>
+          </div>
+        </div>
+      </header>
+
       <header className="hero-head">
         <div className="language-switch row">
           <div className="chips">
