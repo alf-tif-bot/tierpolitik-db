@@ -184,7 +184,7 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, lang, t 
         </table>
       </div>
 
-      <div className="row">
+      <div className="row pagination-row">
         <button onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>{t.back}</button>
         <span>{t.page} {table.getState().pagination.pageIndex + 1} / {table.getPageCount()}</span>
         <button onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>{t.next}</button>
