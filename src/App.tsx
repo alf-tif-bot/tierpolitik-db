@@ -53,8 +53,8 @@ export default function App() {
   return (
     <main className="container">
       <header className="panel">
-        <h1>Tierpolitik Vorstösse Datenbank</h1>
-        <p className="brand-sub">Interne Prototyp-Ansicht</p>
+        <h1>Tierpolitik-Monitor Schweiz</h1>
+        <p className="brand-sub">Die wichtigsten parlamentarischen Vorstösse rund um Tierschutz und Tierrechte.</p>
       </header>
 
       <FiltersPanel data={data} filters={filters} onChange={setFilters} onReset={() => setFilters(defaultFilters())} activeCount={activeFilterCount} />
