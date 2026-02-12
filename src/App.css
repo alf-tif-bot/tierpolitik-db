@@ -377,6 +377,7 @@ legend {
 
 .table-controls {
   gap: 0.95rem;
+  margin-bottom: 0.6rem;
 }
 
 .table-controls > label {
