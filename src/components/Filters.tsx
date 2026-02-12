@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, type RefObject } from 'react'
 import type { I18nText, Language } from '../i18n'
 import { translateContent, translateStatus } from '../i18n'
 import type { Ebene, Status, Vorstoss } from '../types'
@@ -10,6 +10,7 @@ type Props = {
   onChange: (next: Filters) => void
   lang: Language
   t: I18nText
+  searchInputRef?: RefObject<HTMLInputElement | null>
 }
 
 function toggleValue<T extends string>(arr: T[], value: T): T[] {
@@ -18,7 +19,7 @@ function toggleValue<T extends string>(arr: T[], value: T): T[] {
 
 type FilterItem = { value: string; label: string }
 
-export function FiltersPanel({ data, filters, onChange, lang, t }: Props) {
+export function FiltersPanel({ data, filters, onChange, lang, t, searchInputRef }: Props) {
   const [showAdvanced, setShowAdvanced] = useState(false)
 
   const ebenen: FilterItem[] = [
@@ -53,6 +54,7 @@ export function FiltersPanel({ data, filters, onChange, lang, t }: Props) {
         <label>
           {t.search}
           <input
+            ref={searchInputRef}
             value={filters.globalQuery}
             onChange={(e) => onChange({ ...filters, globalQuery: e.target.value })}
             placeholder={t.searchPlaceholder}

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import rawData from '../data/vorstoesse.json'
 import './App.css'
 import { DetailDrawer } from './components/DetailDrawer'
@@ -28,6 +28,8 @@ export default function App() {
   const [selected, setSelected] = useState<Vorstoss | null>(null)
   const [profile, setProfile] = useState<ProfileState>(null)
   const [visibleColumns, setVisibleColumns] = useState<{ key: string; label: string }[]>([])
+  const [selectedRowIndex, setSelectedRowIndex] = useState(0)
+  const searchInputRef = useRef<HTMLInputElement>(null)
 
   const t = i18n[lang]
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
@@ -55,6 +57,68 @@ export default function App() {
   useEffect(() => {
     setVisibleColumns(allColumnsMeta.slice(0, 8))
   }, [allColumnsMeta])
+
+  useEffect(() => {
+    if (!filtered.length) {
+      setSelectedRowIndex(0)
+      return
+    }
+    setSelectedRowIndex((prev) => Math.min(prev, filtered.length - 1))
+  }, [filtered])
+
+  useEffect(() => {
+    const isTypingTarget = (el: EventTarget | null) => {
+      const node = el as HTMLElement | null
+      if (!node) return false
+      return node.tagName === 'INPUT' || node.tagName === 'TEXTAREA' || node.tagName === 'SELECT' || node.isContentEditable
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.metaKey || event.ctrlKey || event.altKey) return
+
+      if (event.key === 'Escape') {
+        if (selected) {
+          setSelected(null)
+          clearHashId()
+          event.preventDefault()
+        }
+        if (profile) {
+          setProfile(null)
+          event.preventDefault()
+        }
+        return
+      }
+
+      if (isTypingTarget(event.target)) return
+
+      if (event.key === '/' || event.key.toLowerCase() === 'f') {
+        event.preventDefault()
+        searchInputRef.current?.focus()
+        searchInputRef.current?.select()
+        return
+      }
+
+      if (selected || profile || !filtered.length) return
+
+      if (event.key.toLowerCase() === 'j') {
+        event.preventDefault()
+        setSelectedRowIndex((prev) => Math.min(prev + 1, filtered.length - 1))
+      }
+
+      if (event.key.toLowerCase() === 'k') {
+        event.preventDefault()
+        setSelectedRowIndex((prev) => Math.max(prev - 1, 0))
+      }
+
+      if (event.key === 'Enter') {
+        event.preventDefault()
+        openDetail(filtered[selectedRowIndex])
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [filtered, selectedRowIndex, selected, profile])
 
   const openDetail = (item: Vorstoss) => {
     setSelected(item)
@@ -101,14 +165,21 @@ export default function App() {
         <p className="brand-sub">{t.subtitle}</p>
       </header>
 
-      <FiltersPanel data={data} filters={filters} onChange={setFilters} lang={lang} t={t} />
+      <FiltersPanel data={data} filters={filters} onChange={setFilters} lang={lang} t={t} searchInputRef={searchInputRef} />
 
       <section className="db-intro">
         <h2>{t.dbIntroTitle}</h2>
         <p>{t.dbIntroSubtitle}</p>
       </section>
 
-      <TableView data={filtered} onOpenDetail={openDetail} onVisibleColumnsChange={onVisibleColumnsChange} lang={lang} t={t} />
+      <TableView
+        data={filtered}
+        onOpenDetail={openDetail}
+        onVisibleColumnsChange={onVisibleColumnsChange}
+        highlightedId={filtered[selectedRowIndex]?.id}
+        lang={lang}
+        t={t}
+      />
 
       <ExportButtons filtered={filtered} visibleColumns={visibleColumns} allColumns={allColumnsMeta} t={t} />
 

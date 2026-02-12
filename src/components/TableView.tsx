@@ -31,6 +31,7 @@ type Props = {
   data: Vorstoss[]
   onOpenDetail: (v: Vorstoss) => void
   onVisibleColumnsChange: (cols: { key: string; label: string }[]) => void
+  highlightedId?: string
   lang: Language
   t: I18nText
 }
@@ -39,7 +40,7 @@ const TABLE_PREFS_KEY = 'tierpolitik.table.prefs.v1'
 
 const normalizeTitle = (value: string) => value.replace(/^Vorstoss\s+\d+\s*:\s*/i, '')
 
-export function TableView({ data, onOpenDetail, onVisibleColumnsChange, lang, t }: Props) {
+export function TableView({ data, onOpenDetail, onVisibleColumnsChange, highlightedId, lang, t }: Props) {
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
     geschaeftsnummer: false,
     themen: false,
@@ -176,7 +177,13 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, lang, t 
             </thead>
             <tbody>
               {table.getRowModel().rows.map((r) => (
-                <tr key={r.id} onClick={() => onOpenDetail(r.original)} tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && onOpenDetail(r.original)}>
+                <tr
+                  key={r.id}
+                  className={r.original.id === highlightedId ? 'row-highlight' : ''}
+                  onClick={() => onOpenDetail(r.original)}
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === 'Enter' && onOpenDetail(r.original)}
+                >
                   {r.getVisibleCells().map((c, idx) => <td key={c.id} className={idx === 0 ? 'cell-title' : ''}>{flexRender(c.column.columnDef.cell, c.getContext())}</td>)}
                 </tr>
               ))}
