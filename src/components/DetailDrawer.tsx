@@ -28,7 +28,7 @@ export function DetailDrawer({ item, onClose }: Props) {
         <p><strong>Ebene:</strong> {item.ebene}</p>
         <p><strong>Kanton:</strong> {item.kanton ?? '-'}</p>
         <p><strong>Region/Gemeinde:</strong> {item.regionGemeinde ?? '-'}</p>
-        <p><strong>Status:</strong> {item.status}</p>
+        <p><strong>Status:</strong> <span className={`status-badge status-${item.status.toLowerCase().replace(/\s+/g, '-')}`}>{item.status}</span></p>
         <p><strong>Datum eingereicht:</strong> {item.datumEingereicht}</p>
         <p><strong>Themen:</strong> {item.themen.join(', ')}</p>
         <p><strong>Schlagwörter:</strong> {item.schlagwoerter.join(', ')}</p>

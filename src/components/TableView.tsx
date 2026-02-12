@@ -35,7 +35,15 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange }: Props)
     { accessorKey: 'ebene', header: 'Ebene' },
     { accessorKey: 'kanton', header: 'Kanton', cell: (i) => i.getValue<string | null>() ?? '-' },
     { accessorKey: 'regionGemeinde', header: 'Region/Gemeinde', cell: (i) => i.getValue<string | null>() ?? '-' },
-    { accessorKey: 'status', header: 'Status' },
+    {
+      accessorKey: 'status',
+      header: 'Status',
+      cell: (i) => {
+        const value = i.getValue<string>()
+        const slug = value.toLowerCase().replace(/\s+/g, '-')
+        return <span className={`status-badge status-${slug}`}>{value}</span>
+      },
+    },
     { accessorKey: 'datumEingereicht', header: 'Datum eingereicht' },
     { accessorKey: 'schlagwoerter', header: 'Schlagwörter', cell: (i) => i.getValue<string[]>().join(', ') },
     { accessorKey: 'einreichende', header: 'Einreichende', cell: (i) => i.getValue<Vorstoss['einreichende']>().map((p) => p.name).join(', ') },

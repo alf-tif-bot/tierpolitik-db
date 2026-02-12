@@ -60,6 +60,22 @@ button {
 
 button:hover { background: #eaf2ff; }
 
+.status-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.18rem 0.55rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.status-eingereicht { background: #e8f1ff; color: #174ea6; border-color: #bed3fb; }
+.status-in-beratung { background: #fff8e6; color: #8a5a00; border-color: #f3deaa; }
+.status-angenommen { background: #e8f8ee; color: #0d6b38; border-color: #bde5c9; }
+.status-abgelehnt { background: #fdecec; color: #9b1c1c; border-color: #f6c9c9; }
+.status-abgeschrieben { background: #eef0f3; color: #425466; border-color: #d4dae2; }
+.status-zurueckgezogen { background: #f7eefe; color: #6e2a9e; border-color: #ddc2f6; }
+
 .chip {
   border-radius: 999px;
   padding: 0.35rem 0.75rem;
@@ -160,4 +176,33 @@ a { color: #0a4fa8; }
 @media (max-width: 760px) {
   .container { padding: 0.7rem; }
   h1 { font-size: 1.25rem; }
+
+  .panel {
+    padding: 0.75rem;
+    border-radius: 12px;
+  }
+
+  .row {
+    gap: 0.45rem;
+  }
+
+  th,
+  td {
+    padding: 0.48rem;
+    font-size: 0.9rem;
+  }
+
+  .chips {
+    gap: 0.35rem;
+  }
+
+  .chip {
+    padding: 0.3rem 0.62rem;
+    font-size: 0.88rem;
+  }
+
+  .drawer {
+    width: 100%;
+    padding: 0.85rem;
+  }
 }
