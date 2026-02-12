@@ -85,23 +85,26 @@ export default function App() {
 
       <DetailDrawer item={selected} onClose={closeDetail} lang={lang} t={t} />
 
-      <footer className="site-header panel">
+      <footer className="site-footer panel">
         <div className="site-header-top">
-          <a href="https://www.tierimfokus.ch" target="_blank" rel="noopener noreferrer" className="site-brand" aria-label="Tier im Fokus">
-            <img src="/branding/TIF_Logo_Button.png" alt="Tier im Fokus" />
-            <strong>tier im fokus</strong>
-          </a>
+          <div>
+            <span className="footer-kicker">{t.projectBy}</span>
+            <a href="https://www.tierimfokus.ch" target="_blank" rel="noopener noreferrer" className="site-brand" aria-label="Tier im Fokus">
+              <img src="/branding/TIF_Logo_Button.png" alt="Tier im Fokus" />
+              <strong>tier im fokus</strong>
+            </a>
+          </div>
 
           <nav className="site-nav" aria-label="Tier im Fokus Links">
-            <a href="https://www.tierimfokus.ch/medien" target="_blank" rel="noopener noreferrer">» Medien</a>
-            <a href="https://www.tierimfokus.ch/kontakt" target="_blank" rel="noopener noreferrer">» Kontakt</a>
-            <a href="https://www.tierimfokus.ch/newsletter" target="_blank" rel="noopener noreferrer">» Newsletter</a>
-            <a href="https://www.tierimfokus.ch/spenden" target="_blank" rel="noopener noreferrer">» Spenden</a>
+            <a href="https://www.tierimfokus.ch/medien" target="_blank" rel="noopener noreferrer">Medien</a>
+            <a href="https://www.tierimfokus.ch/kontakt" target="_blank" rel="noopener noreferrer">Kontakt</a>
+            <a href="https://www.tierimfokus.ch/newsletter" target="_blank" rel="noopener noreferrer">Newsletter</a>
+            <a href="https://www.tierimfokus.ch/spenden" target="_blank" rel="noopener noreferrer">Spenden</a>
           </nav>
         </div>
 
         <div className="site-support-row">
-          <span>Mit Unterstützung von</span>
+          <span className="support-label">Mit Unterstützung von</span>
           <div className="support-logos" aria-label="Demo-Partnerlogos">
             <img className="support-logo-img" src="/branding/demo-org-tierschutz.jpg" alt="Demo Orga Tierschutz" />
             <img className="support-logo-img" src="/branding/demo-org-tierschutz.jpg" alt="Demo Orga Tierschutz" />
