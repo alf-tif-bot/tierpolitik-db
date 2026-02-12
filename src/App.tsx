@@ -63,9 +63,9 @@ export default function App() {
         <strong>Treffer: {filtered.length}</strong>
       </div>
 
-      <ExportButtons filtered={filtered} visibleColumns={visibleColumns} allColumns={allColumnsMeta} />
-
       <TableView data={filtered} onOpenDetail={openDetail} onVisibleColumnsChange={onVisibleColumnsChange} />
+
+      <ExportButtons filtered={filtered} visibleColumns={visibleColumns} allColumns={allColumnsMeta} />
 
       <DetailDrawer item={selected} onClose={closeDetail} />
 

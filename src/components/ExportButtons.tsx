@@ -19,10 +19,40 @@ export function ExportButtons({ filtered, visibleColumns, allColumns }: Props) {
   }
 
   return (
-    <div className="row wrap">
-      <button onClick={() => exportCsv('visible')}>CSV Export (sichtbare Spalten)</button>
-      <button onClick={() => exportCsv('all')}>CSV Export (alle Spalten)</button>
-      <button onClick={exportJson}>JSON Export (gefiltert)</button>
+    <div className="export-links" aria-label="Export">
+      <span className="export-label">Export:</span>
+      <a
+        href="#"
+        className="export-link"
+        onClick={(e) => {
+          e.preventDefault()
+          exportCsv('visible')
+        }}
+      >
+        CSV (sichtbare Spalten)
+      </a>
+      <span className="export-sep">·</span>
+      <a
+        href="#"
+        className="export-link"
+        onClick={(e) => {
+          e.preventDefault()
+          exportCsv('all')
+        }}
+      >
+        CSV (alle Spalten)
+      </a>
+      <span className="export-sep">·</span>
+      <a
+        href="#"
+        className="export-link"
+        onClick={(e) => {
+          e.preventDefault()
+          exportJson()
+        }}
+      >
+        JSON (gefiltert)
+      </a>
     </div>
   )
 }

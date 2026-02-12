@@ -153,6 +153,33 @@ a { color: #0a4fa8; }
 .drawer ul { margin: 0; padding-left: 1.1rem; }
 .drawer li { margin: 0.35rem 0; }
 
+.export-links {
+  margin: 0.6rem 0 0.2rem;
+  font-size: 0.92rem;
+  color: #6a7a92;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.export-label {
+  color: #6a7a92;
+}
+
+.export-link {
+  color: #446b9e;
+  text-decoration: none;
+}
+
+.export-link:hover {
+  text-decoration: underline;
+}
+
+.export-sep {
+  color: #92a0b5;
+}
+
 .project-footer {
   margin: 1.2rem 0 0.4rem;
   padding: 0.8rem 0;
@@ -184,8 +211,14 @@ a { color: #0a4fa8; }
   }
 
   .brand-sub,
-  .project-footer {
+  .project-footer,
+  .export-label,
+  .export-sep {
     color: #c7d0dc;
+  }
+
+  .export-link {
+    color: #9fcbff;
   }
 
   th {
@@ -231,6 +264,11 @@ a { color: #0a4fa8; }
   .chips { gap: 0.35rem; }
   .chip { padding: 0.3rem 0.62rem; font-size: 0.88rem; }
   .drawer { width: 100%; padding: 0.85rem; }
+
+  .export-links {
+    font-size: 0.86rem;
+    gap: 0.25rem;
+  }
 
   .project-footer {
     margin-top: 1rem;
