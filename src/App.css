@@ -47,13 +47,12 @@ h1 {
 .hero-monitor-logo {
   width: 82px;
   height: 82px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 16px;
-  border: 1px solid #d9d1c8;
-  background: #f3efe9;
+  border: none;
+  background: transparent;
   flex: 0 0 auto;
 }
-
 .language-switch {
   margin-bottom: 0;
   color: #6a7a92;
@@ -706,13 +705,7 @@ a { color: #0a4fa8; }
     background: linear-gradient(180deg, #172433 0%, #121b27 100%);
     border-color: #2f4664;
   }
-
-  .hero-monitor-logo {
-    border-color: #425264;
-    background: #1f2730;
-  }
-
-  .support-label,
+.support-label,
   .site-support-row {
     color: #c4d8f2;
   }
@@ -908,7 +901,7 @@ a { color: #0a4fa8; }
 }
 
 :root[data-theme='dark'] .table-wrap { background: #1b2128; }
-:root[data-theme='dark'] .hero-monitor-logo { border-color: #425264; background: #1f2730; }
+:root[data-theme='dark']
 :root[data-theme='dark'] .site-footer { background: linear-gradient(180deg, #172433 0%, #121b27 100%); border-color: #2f4664; }
 :root[data-theme='dark'] .site-nav a { color: #d9eaff; border-color: #446086; background: #223750; }
 :root[data-theme='dark'] .site-nav a:hover { background: #2b4565; }
@@ -1027,3 +1020,4 @@ a { color: #0a4fa8; }
     height: 2rem;
   }
 }
+

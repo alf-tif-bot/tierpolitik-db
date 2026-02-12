@@ -94,7 +94,7 @@ export default function App() {
           </div>
         </div>
         <div className="title-row">
-          <img className="hero-monitor-logo" src="/branding/monitor-icon.jpg" alt="Tierpolitik Monitor" />
+          <img className="hero-monitor-logo" src="/branding/monitor-icon.png" alt="Tierpolitik Monitor" />
           <h1>{t.title}</h1>
         </div>
         <p className="brand-sub">{t.subtitle}</p>
