@@ -73,15 +73,6 @@ h1 {
   color: #edf4ff;
 }
 
-.footer-kicker {
-  display: inline-block;
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #a9c1de;
-  margin-bottom: 0.35rem;
-}
-
 .footer-blurb {
   margin: 0.6rem 0 0;
   max-width: 720px;
@@ -482,7 +473,6 @@ a { color: #0a4fa8; }
     border-color: #2f4664;
   }
 
-  .footer-kicker,
   .support-label,
   .site-support-row {
     color: #c4d8f2;

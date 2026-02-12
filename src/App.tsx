@@ -88,7 +88,6 @@ export default function App() {
       <footer className="site-footer panel">
         <div className="site-header-top">
           <div>
-            <span className="footer-kicker">{t.projectBy}</span>
             <a href="https://www.tierimfokus.ch" target="_blank" rel="noopener noreferrer" className="site-brand" aria-label="Tier im Fokus">
               <img src="/branding/TIF_Logo_Button.png" alt="Tier im Fokus" />
               <strong>tier im fokus</strong>
