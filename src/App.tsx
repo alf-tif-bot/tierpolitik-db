@@ -62,7 +62,7 @@ export default function App() {
 
   return (
     <main className="container">
-      <h1>Tierpolitik Vorstoesse Datenbank</h1>
+      <h1>Tierpolitik Vorstösse Datenbank</h1>
 
       <div className="row wrap">
         <button className="chip" onClick={() => quickFilter('kantonal')}>Nur Kantonal</button>

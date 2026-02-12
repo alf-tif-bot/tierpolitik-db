@@ -24,19 +24,19 @@ export function DetailDrawer({ item, onClose }: Props) {
         </div>
 
         <p>{item.kurzbeschreibung}</p>
-        <p><strong>Geschaeftsnummer:</strong> {item.geschaeftsnummer}</p>
+        <p><strong>Geschäftsnummer:</strong> {item.geschaeftsnummer}</p>
         <p><strong>Ebene:</strong> {item.ebene}</p>
         <p><strong>Kanton:</strong> {item.kanton ?? '-'}</p>
         <p><strong>Region/Gemeinde:</strong> {item.regionGemeinde ?? '-'}</p>
         <p><strong>Status:</strong> {item.status}</p>
         <p><strong>Datum eingereicht:</strong> {item.datumEingereicht}</p>
         <p><strong>Themen:</strong> {item.themen.join(', ')}</p>
-        <p><strong>Schlagwoerter:</strong> {item.schlagwoerter.join(', ')}</p>
+        <p><strong>Schlagwörter:</strong> {item.schlagwoerter.join(', ')}</p>
         <p><strong>Einreichende:</strong> {item.einreichende.map((p) => `${p.name} (${p.partei})`).join(', ')}</p>
 
         <div className="row wrap">
           <button onClick={() => navigator.clipboard.writeText(permalink)}>Link kopieren</button>
-          <a href={item.linkGeschaeft} target="_blank" rel="noopener"><button>Geschaeft oeffnen</button></a>
+          <a href={item.linkGeschaeft} target="_blank" rel="noopener"><button>Geschäft öffnen</button></a>
         </div>
 
         <h3>Timeline</h3>

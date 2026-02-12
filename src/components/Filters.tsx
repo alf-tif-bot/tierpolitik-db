@@ -28,7 +28,7 @@ export function FiltersPanel({ data, filters, onChange, onReset, activeCount }: 
           <input
             value={filters.globalQuery}
             onChange={(e) => onChange({ ...filters, globalQuery: e.target.value })}
-            placeholder="Titel, Kurzbeschreibung, Geschaeftsnummer ..."
+            placeholder="Titel, Kurzbeschreibung, Geschäftsnummer ..."
           />
         </label>
         <label>
@@ -46,7 +46,7 @@ export function FiltersPanel({ data, filters, onChange, onReset, activeCount }: 
         <Multi title="Status" values={statuses} selected={filters.status} onToggle={(v) => onChange({ ...filters, status: toggleValue(filters.status, v as Status) })} />
         <Multi title="Kanton" values={kantone} selected={filters.kantone} onToggle={(v) => onChange({ ...filters, kantone: toggleValue(filters.kantone, v) })} />
         <Multi title="Themen" values={themen} selected={filters.themen} onToggle={(v) => onChange({ ...filters, themen: toggleValue(filters.themen, v) })} />
-        <Multi title="Schlagwoerter" values={schlagwoerter} selected={filters.schlagwoerter} onToggle={(v) => onChange({ ...filters, schlagwoerter: toggleValue(filters.schlagwoerter, v) })} />
+        <Multi title="Schlagwörter" values={schlagwoerter} selected={filters.schlagwoerter} onToggle={(v) => onChange({ ...filters, schlagwoerter: toggleValue(filters.schlagwoerter, v) })} />
       </div>
 
       <div className="row">

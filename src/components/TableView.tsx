@@ -9,10 +9,10 @@ export const allColumnsMeta = [
   { key: 'regionGemeinde', label: 'Region/Gemeinde' },
   { key: 'status', label: 'Status' },
   { key: 'datumEingereicht', label: 'Datum eingereicht' },
-  { key: 'schlagwoerter', label: 'Schlagwoerter' },
+  { key: 'schlagwoerter', label: 'Schlagwörter' },
   { key: 'einreichende', label: 'Einreichende' },
   { key: 'linkGeschaeft', label: 'Link' },
-  { key: 'geschaeftsnummer', label: 'Geschaeftsnummer' },
+  { key: 'geschaeftsnummer', label: 'Geschäftsnummer' },
   { key: 'themen', label: 'Themen' },
   { key: 'kurzbeschreibung', label: 'Kurzbeschreibung' },
 ]
@@ -37,10 +37,10 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange }: Props)
     { accessorKey: 'regionGemeinde', header: 'Region/Gemeinde', cell: (i) => i.getValue<string | null>() ?? '-' },
     { accessorKey: 'status', header: 'Status' },
     { accessorKey: 'datumEingereicht', header: 'Datum eingereicht' },
-    { accessorKey: 'schlagwoerter', header: 'Schlagwoerter', cell: (i) => i.getValue<string[]>().join(', ') },
+    { accessorKey: 'schlagwoerter', header: 'Schlagwörter', cell: (i) => i.getValue<string[]>().join(', ') },
     { accessorKey: 'einreichende', header: 'Einreichende', cell: (i) => i.getValue<Vorstoss['einreichende']>().map((p) => p.name).join(', ') },
-    { accessorKey: 'linkGeschaeft', header: 'Link', cell: (i) => <a href={i.getValue<string>()} target="_blank" rel="noopener">Oeffnen</a> },
-    { accessorKey: 'geschaeftsnummer', header: 'Geschaeftsnummer' },
+    { accessorKey: 'linkGeschaeft', header: 'Link', cell: (i) => <a href={i.getValue<string>()} target="_blank" rel="noopener">Öffnen</a> },
+    { accessorKey: 'geschaeftsnummer', header: 'Geschäftsnummer' },
     { accessorKey: 'themen', header: 'Themen', cell: (i) => i.getValue<string[]>().join(', ') },
     { accessorKey: 'kurzbeschreibung', header: 'Kurzbeschreibung' },
   ], [])
@@ -77,7 +77,7 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange }: Props)
         </details>
 
         <label>
-          Seitenlaenge
+          Seitenlänge
           <select value={table.getState().pagination.pageSize} onChange={(e) => table.setPageSize(Number(e.target.value))}>
             <option value={10}>10</option>
             <option value={25}>25</option>

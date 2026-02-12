@@ -11,7 +11,16 @@ export type Filters = {
   bis: string
 }
 
-const norm = (v: string) => v.toLowerCase().trim()
+const normalizeUmlauts = (value: string) =>
+  value
+    .toLowerCase()
+    .trim()
+    .normalize('NFKC')
+    .replace(/ä/g, 'ae')
+    .replace(/ö/g, 'oe')
+    .replace(/ü/g, 'ue')
+
+const norm = (v: string) => normalizeUmlauts(v)
 
 export function matchesGlobal(v: Vorstoss, query: string): boolean {
   if (!query.trim()) return true
@@ -23,11 +32,9 @@ export function matchesGlobal(v: Vorstoss, query: string): boolean {
     ...v.einreichende.map((p) => `${p.name} ${p.partei}`),
     ...v.schlagwoerter,
     ...v.themen,
-  ]
-    .join(' ')
-    .toLowerCase()
+  ].join(' ')
 
-  return haystack.includes(q)
+  return norm(haystack).includes(q)
 }
 
 export function applyFilters(data: Vorstoss[], f: Filters): Vorstoss[] {
