@@ -1,0 +1,73 @@
+import type { Ebene, Status, Vorstoss } from '../types'
+import type { Filters } from '../utils/filtering'
+
+type Props = {
+  data: Vorstoss[]
+  filters: Filters
+  onChange: (next: Filters) => void
+  onReset: () => void
+  activeCount: number
+}
+
+function toggleValue<T extends string>(arr: T[], value: T): T[] {
+  return arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value]
+}
+
+export function FiltersPanel({ data, filters, onChange, onReset, activeCount }: Props) {
+  const ebenen = ['Bund', 'Kanton', 'Gemeinde'] as Ebene[]
+  const statuses = ['Eingereicht', 'In Beratung', 'Angenommen', 'Abgelehnt', 'Abgeschrieben'] as Status[]
+  const kantone = [...new Set(data.map((d) => d.kanton).filter(Boolean) as string[])].sort()
+  const themen = [...new Set(data.flatMap((d) => d.themen))].sort()
+  const schlagwoerter = [...new Set(data.flatMap((d) => d.schlagwoerter))].sort()
+
+  return (
+    <section className="panel">
+      <div className="filter-grid">
+        <label>
+          Suche
+          <input
+            value={filters.globalQuery}
+            onChange={(e) => onChange({ ...filters, globalQuery: e.target.value })}
+            placeholder="Titel, Kurzbeschreibung, Geschaeftsnummer ..."
+          />
+        </label>
+        <label>
+          Von
+          <input type="date" value={filters.von} onChange={(e) => onChange({ ...filters, von: e.target.value })} />
+        </label>
+        <label>
+          Bis
+          <input type="date" value={filters.bis} onChange={(e) => onChange({ ...filters, bis: e.target.value })} />
+        </label>
+      </div>
+
+      <div className="multi-row">
+        <Multi title="Ebene" values={ebenen} selected={filters.ebenen} onToggle={(v) => onChange({ ...filters, ebenen: toggleValue(filters.ebenen, v as Ebene) })} />
+        <Multi title="Status" values={statuses} selected={filters.status} onToggle={(v) => onChange({ ...filters, status: toggleValue(filters.status, v as Status) })} />
+        <Multi title="Kanton" values={kantone} selected={filters.kantone} onToggle={(v) => onChange({ ...filters, kantone: toggleValue(filters.kantone, v) })} />
+        <Multi title="Themen" values={themen} selected={filters.themen} onToggle={(v) => onChange({ ...filters, themen: toggleValue(filters.themen, v) })} />
+        <Multi title="Schlagwoerter" values={schlagwoerter} selected={filters.schlagwoerter} onToggle={(v) => onChange({ ...filters, schlagwoerter: toggleValue(filters.schlagwoerter, v) })} />
+      </div>
+
+      <div className="row">
+        <span>Aktive Filter: {activeCount}</span>
+        <button onClick={onReset}>Filter zuruecksetzen</button>
+      </div>
+    </section>
+  )
+}
+
+function Multi({ title, values, selected, onToggle }: { title: string; values: string[]; selected: string[]; onToggle: (v: string) => void }) {
+  return (
+    <fieldset>
+      <legend>{title}</legend>
+      <div className="chips">
+        {values.map((v) => (
+          <button key={v} className={selected.includes(v) ? 'chip active' : 'chip'} onClick={() => onToggle(v)} type="button">
+            {v}
+          </button>
+        ))}
+      </div>
+    </fieldset>
+  )
+}
