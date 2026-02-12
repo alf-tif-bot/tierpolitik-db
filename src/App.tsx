@@ -181,7 +181,7 @@ export default function App() {
         onSubscribe={openSubscribe}
       />
 
-      <footer className="site-footer">
+      <footer className="site-footer panel">
         <div className="site-header-top">
           <div>
             <a href="https://www.tierimfokus.ch" target="_blank" rel="noopener noreferrer" className="site-brand" aria-label="Tier im Fokus">
