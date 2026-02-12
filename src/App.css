@@ -15,8 +15,8 @@ body { margin: 0; }
 
 h1 {
   margin: 0 0 0.35rem;
-  font-size: 2rem;
-  line-height: 1.08;
+  font-size: 2.35rem;
+  line-height: 1.06;
   font-weight: 900;
   letter-spacing: -0.02em;
   color: #16345a;
@@ -794,7 +794,7 @@ a { color: #0a4fa8; }
 
 @media (max-width: 760px) {
   .container { padding: 0.7rem; }
-  h1 { font-size: 1.25rem; }
+  h1 { font-size: 1.55rem; }
 
   .site-header-top {
     flex-direction: column;
