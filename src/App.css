@@ -74,7 +74,12 @@ button:hover { background: #eaf2ff; }
 .status-zurueckgezogen { background: #f7eefe; color: #6e2a9e; border-color: #ddc2f6; }
 
 .chip { border-radius: 999px; padding: 0.35rem 0.75rem; }
-.chip.active { background: #dbeaff; border-color: #95b7ea; }
+.chip.active {
+  background: #dbeaff;
+  border-color: #95b7ea;
+  color: #0f2e57;
+  font-weight: 600;
+}
 
 .filter-grid {
   display: grid;
@@ -245,6 +250,19 @@ a { color: #0a4fa8; }
   button:hover { background: #3a4756; }
 
   a { color: #8cc4ff; }
+
+  .chip {
+    color: #e8edf4;
+    border-color: #5e6f84;
+    background: #2a3441;
+  }
+
+  .chip.active {
+    color: #0b1f3b;
+    background: #cfe2ff;
+    border-color: #9fc0f0;
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 35%);
+  }
 
   .footer-logo.light { display: none; }
   .footer-logo.dark { display: block; }
