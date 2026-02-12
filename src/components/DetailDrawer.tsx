@@ -43,6 +43,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
   const statusSlug = item.status.toLowerCase().replace(/\s+/g, '-')
 
   const metaRows = [
+    { label: t.type, value: item.typ },
     { label: t.businessNo, value: item.geschaeftsnummer },
     { label: t.level, value: level },
     { label: t.canton, value: item.kanton ?? '-' },

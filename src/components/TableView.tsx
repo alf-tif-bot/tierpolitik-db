@@ -15,6 +15,7 @@ import { formatDateCH } from '../utils/date'
 
 export const getAllColumnsMeta = (t: I18nText) => [
   { key: 'titel', label: t.titleCol },
+  { key: 'typ', label: t.type },
   { key: 'status', label: t.status },
   { key: 'datumEingereicht', label: t.dateSubmitted },
   { key: 'ebene', label: t.level },
@@ -56,6 +57,7 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, highligh
 
   const columns = useMemo<ColumnDef<Vorstoss>[]>(() => [
     { accessorKey: 'titel', header: t.titleCol, cell: (i) => normalizeTitle(translateContent(i.getValue<string>(), lang)) },
+    { accessorKey: 'typ', header: t.type },
     {
       accessorKey: 'status',
       header: t.status,

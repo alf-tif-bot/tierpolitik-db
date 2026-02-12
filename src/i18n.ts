@@ -31,6 +31,7 @@ export type I18nText = {
   status: string
   canton: string
   themes: string
+  type: string
   keywords: string
   detailsSearchShow: string
   detailsSearchHide: string
@@ -83,6 +84,7 @@ export const i18n: Record<Language, I18nText> = {
     status: 'Status',
     canton: 'Kanton',
     themes: 'Themen',
+    type: 'Typ',
     keywords: 'Schlagwörter',
     detailsSearchShow: 'Detailsuche anzeigen',
     detailsSearchHide: 'Detailsuche ausblenden',
@@ -129,6 +131,7 @@ export const i18n: Record<Language, I18nText> = {
     status: 'Statut',
     canton: 'Canton',
     themes: 'Thèmes',
+    type: 'Type',
     keywords: 'Mots-clés',
     detailsSearchShow: 'Afficher la recherche avancée',
     detailsSearchHide: 'Masquer la recherche avancée',
@@ -175,6 +178,7 @@ export const i18n: Record<Language, I18nText> = {
     status: 'Stato',
     canton: 'Cantone',
     themes: 'Temi',
+    type: 'Tipo',
     keywords: 'Parole chiave',
     detailsSearchShow: 'Mostra ricerca avanzata',
     detailsSearchHide: 'Nascondi ricerca avanzata',
@@ -221,6 +225,7 @@ export const i18n: Record<Language, I18nText> = {
     status: 'Status',
     canton: 'Canton',
     themes: 'Themes',
+    type: 'Type',
     keywords: 'Keywords',
     detailsSearchShow: 'Show advanced search',
     detailsSearchHide: 'Hide advanced search',

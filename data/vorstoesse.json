@@ -1,7 +1,7 @@
 [
   {
     "id": "vp-2026-01",
-    "titel": "Vorstoss 1: Nutztierhaltung verbessern",
+    "titel": "Der Kreis schliesst sich im Westen: Die neue Personenunterführung Untermatt als legaler Graffiti-Ort",
     "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von nutztierhaltung mit messbaren Kriterien und staerkerem Vollzug.",
     "geschaeftsnummer": "GS-2026-100",
     "ebene": "Bund",
@@ -61,7 +61,8 @@
     "metadaten": {
       "sprache": "de",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Interpellation"
   },
   {
     "id": "vp-2026-02",
@@ -125,7 +126,8 @@
     "metadaten": {
       "sprache": "fr",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Motion"
   },
   {
     "id": "vp-2026-03",
@@ -189,7 +191,8 @@
     "metadaten": {
       "sprache": "it",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Postulat"
   },
   {
     "id": "vp-2026-04",
@@ -253,7 +256,8 @@
     "metadaten": {
       "sprache": "de",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Volksinitiative"
   },
   {
     "id": "vp-2026-05",
@@ -317,7 +321,8 @@
     "metadaten": {
       "sprache": "fr",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Anfrage"
   },
   {
     "id": "vp-2026-06",
@@ -381,7 +386,8 @@
     "metadaten": {
       "sprache": "it",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Interpellation"
   },
   {
     "id": "vp-2026-07",
@@ -445,7 +451,8 @@
     "metadaten": {
       "sprache": "de",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Motion"
   },
   {
     "id": "vp-2026-08",
@@ -509,7 +516,8 @@
     "metadaten": {
       "sprache": "fr",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Postulat"
   },
   {
     "id": "vp-2026-09",
@@ -573,7 +581,8 @@
     "metadaten": {
       "sprache": "it",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Volksinitiative"
   },
   {
     "id": "vp-2026-10",
@@ -637,7 +646,8 @@
     "metadaten": {
       "sprache": "de",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Anfrage"
   },
   {
     "id": "vp-2026-11",
@@ -701,7 +711,8 @@
     "metadaten": {
       "sprache": "fr",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Interpellation"
   },
   {
     "id": "vp-2026-12",
@@ -765,7 +776,8 @@
     "metadaten": {
       "sprache": "it",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Motion"
   },
   {
     "id": "vp-2026-13",
@@ -829,7 +841,8 @@
     "metadaten": {
       "sprache": "de",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Postulat"
   },
   {
     "id": "vp-2026-14",
@@ -893,7 +906,8 @@
     "metadaten": {
       "sprache": "fr",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Volksinitiative"
   },
   {
     "id": "vp-2026-15",
@@ -957,7 +971,8 @@
     "metadaten": {
       "sprache": "it",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Anfrage"
   },
   {
     "id": "vp-2026-16",
@@ -1021,7 +1036,8 @@
     "metadaten": {
       "sprache": "de",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Interpellation"
   },
   {
     "id": "vp-2026-17",
@@ -1085,7 +1101,8 @@
     "metadaten": {
       "sprache": "fr",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Motion"
   },
   {
     "id": "vp-2026-18",
@@ -1149,7 +1166,8 @@
     "metadaten": {
       "sprache": "it",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Postulat"
   },
   {
     "id": "vp-2026-19",
@@ -1213,7 +1231,8 @@
     "metadaten": {
       "sprache": "de",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Volksinitiative"
   },
   {
     "id": "vp-2026-20",
@@ -1277,6 +1296,7 @@
     "metadaten": {
       "sprache": "fr",
       "zuletztGeprueftVon": "Redaktion Prototyp"
-    }
+    },
+    "typ": "Anfrage"
   }
 ]
