@@ -35,6 +35,8 @@ h1 {
   margin-bottom: 0.65rem;
   color: #6a7a92;
   font-size: 0.9rem;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .language-switch .chips {

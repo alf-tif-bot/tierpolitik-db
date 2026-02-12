@@ -14,8 +14,8 @@ export function DetailDrawer({ item, onClose, lang, t }: Props) {
   if (!item) return null
 
   const timeline: Array<{ datum: string; label: string; url?: string }> = [
-    ...item.resultate.map((r) => ({ datum: r.datum, label: `Resultat: ${r.status} - ${r.bemerkung}` })),
-    ...item.medien.map((m) => ({ datum: m.datum, label: `Medien: ${m.titel} (${m.quelle})`, url: m.url })),
+    ...item.resultate.map((r) => ({ datum: r.datum, label: `${t.result}: ${translateStatus(r.status, lang)} - ${r.bemerkung}` })),
+    ...item.medien.map((m) => ({ datum: m.datum, label: `${t.media}: ${m.titel} (${m.quelle})`, url: m.url })),
   ].sort((a, b) => a.datum.localeCompare(b.datum))
 
   const permalink = `${window.location.origin}${window.location.pathname}#${item.id}`
@@ -30,7 +30,7 @@ export function DetailDrawer({ item, onClose, lang, t }: Props) {
 
         <p>{item.kurzbeschreibung}</p>
         <p><strong>{t.businessNo}:</strong> {item.geschaeftsnummer}</p>
-        <p><strong>{t.level}:</strong> {item.ebene}</p>
+        <p><strong>{t.level}:</strong> {item.ebene === 'Bund' ? t.section.federal : item.ebene === 'Kanton' ? t.section.cantonal : item.ebene === 'Gemeinde' ? t.section.municipal : item.ebene}</p>
         <p><strong>{t.canton}:</strong> {item.kanton ?? '-'}</p>
         <p><strong>{t.region}:</strong> {item.regionGemeinde ?? '-'}</p>
         <p><strong>{t.status}:</strong> <span className={`status-badge status-${item.status.toLowerCase().replace(/\s+/g, '-')}`}>{translateStatus(item.status, lang)}</span></p>

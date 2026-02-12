@@ -30,7 +30,7 @@ export function FiltersPanel({ data, filters, onChange, onReset, activeCount, la
   ]
 
   const statuses: FilterItem[] = [
-    'Eingereicht', 'In Beratung', 'Angenommen', 'Abgelehnt', 'Abgeschrieben',
+    'Eingereicht', 'In Beratung', 'Angenommen', 'Abgelehnt', 'Abgeschrieben', 'Zurückgezogen',
   ].map((s) => ({ value: s, label: translateStatus(s, lang) }))
 
   const kantone = [

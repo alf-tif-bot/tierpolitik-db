@@ -37,8 +37,18 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, lang, t 
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
 
   const columns = useMemo<ColumnDef<Vorstoss>[]>(() => [
-    { accessorKey: 'titel', header: 'Titel' },
-    { accessorKey: 'ebene', header: t.level },
+    { accessorKey: 'titel', header: t.titleCol },
+    {
+      accessorKey: 'ebene',
+      header: t.level,
+      cell: (i) => {
+        const value = i.getValue<string>()
+        if (value === 'Bund') return t.section.federal
+        if (value === 'Kanton') return t.section.cantonal
+        if (value === 'Gemeinde') return t.section.municipal
+        return value
+      },
+    },
     { accessorKey: 'kanton', header: t.canton, cell: (i) => i.getValue<string | null>() ?? '-' },
     { accessorKey: 'regionGemeinde', header: t.region, cell: (i) => i.getValue<string | null>() ?? '-' },
     {
@@ -55,7 +65,7 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, lang, t 
     { accessorKey: 'linkGeschaeft', header: 'Link', cell: (i) => <a href={i.getValue<string>()} target="_blank" rel="noopener">{t.open}</a> },
     { accessorKey: 'geschaeftsnummer', header: t.businessNo },
     { accessorKey: 'themen', header: t.themes, cell: (i) => i.getValue<string[]>().join(', ') },
-    { accessorKey: 'kurzbeschreibung', header: 'Kurzbeschreibung' },
+    { accessorKey: 'kurzbeschreibung', header: t.shortDescription },
   ], [lang, t])
 
   const table = useReactTable({

@@ -1,19 +1,20 @@
-export type Language = 'de' | 'fr' | 'it'
+export type Language = 'de' | 'fr' | 'it' | 'en'
 
 export const languageNames: Record<Language, string> = {
   de: 'DE',
   fr: 'FR',
   it: 'IT',
+  en: 'ENG',
 }
 
 export const statusLabels: Record<string, Record<Language, string>> = {
-  Eingereicht: { de: 'Eingereicht', fr: 'Déposé', it: 'Presentato' },
-  'In Beratung': { de: 'In Beratung', fr: 'En délibération', it: 'In discussione' },
-  Angenommen: { de: 'Angenommen', fr: 'Accepté', it: 'Accolto' },
-  Abgelehnt: { de: 'Abgelehnt', fr: 'Rejeté', it: 'Respinto' },
-  Abgeschrieben: { de: 'Abgeschrieben', fr: 'Classé', it: 'Archiviato' },
-  Zurueckgezogen: { de: 'Zurückgezogen', fr: 'Retiré', it: 'Ritirato' },
-  Zurückgezogen: { de: 'Zurückgezogen', fr: 'Retiré', it: 'Ritirato' },
+  Eingereicht: { de: 'Eingereicht', fr: 'Déposé', it: 'Presentato', en: 'Submitted' },
+  'In Beratung': { de: 'In Beratung', fr: 'En délibération', it: 'In discussione', en: 'In review' },
+  Angenommen: { de: 'Angenommen', fr: 'Accepté', it: 'Accolto', en: 'Accepted' },
+  Abgelehnt: { de: 'Abgelehnt', fr: 'Rejeté', it: 'Respinto', en: 'Rejected' },
+  Abgeschrieben: { de: 'Abgeschrieben', fr: 'Classé', it: 'Archiviato', en: 'Closed' },
+  Zurueckgezogen: { de: 'Zurückgezogen', fr: 'Retiré', it: 'Ritirato', en: 'Withdrawn' },
+  Zurückgezogen: { de: 'Zurückgezogen', fr: 'Retiré', it: 'Ritirato', en: 'Withdrawn' },
 }
 
 export type I18nText = {
@@ -54,6 +55,10 @@ export type I18nText = {
   copyLink: string
   openBusiness: string
   timeline: string
+  titleCol: string
+  shortDescription: string
+  media: string
+  result: string
   section: {
     federal: string
     cantonal: string
@@ -100,6 +105,10 @@ export const i18n: Record<Language, I18nText> = {
     copyLink: 'Link kopieren',
     openBusiness: 'Geschäft öffnen',
     timeline: 'Timeline',
+    titleCol: 'Titel',
+    shortDescription: 'Kurzbeschreibung',
+    media: 'Medien',
+    result: 'Resultat',
     section: { federal: 'Bund', cantonal: 'Kanton', municipal: 'Gemeinde' },
   },
   fr: {
@@ -140,6 +149,10 @@ export const i18n: Record<Language, I18nText> = {
     copyLink: 'Copier le lien',
     openBusiness: 'Ouvrir l’objet',
     timeline: 'Chronologie',
+    titleCol: 'Titre',
+    shortDescription: 'Description courte',
+    media: 'Médias',
+    result: 'Résultat',
     section: { federal: 'Fédéral', cantonal: 'Cantonal', municipal: 'Communal' },
   },
   it: {
@@ -180,7 +193,55 @@ export const i18n: Record<Language, I18nText> = {
     copyLink: 'Copia link',
     openBusiness: 'Apri atto',
     timeline: 'Cronologia',
+    titleCol: 'Titolo',
+    shortDescription: 'Descrizione breve',
+    media: 'Media',
+    result: 'Esito',
     section: { federal: 'Federale', cantonal: 'Cantonale', municipal: 'Comunale' },
+  },
+  en: {
+    title: 'Swiss Animal Policy Monitor',
+    subtitle: 'Key parliamentary initiatives on animal protection and animal rights.',
+    language: 'Language',
+    results: 'Results',
+    projectBy: 'A project by',
+    search: 'Search',
+    searchPlaceholder: 'Title, summary, reference number ...',
+    level: 'Level',
+    status: 'Status',
+    canton: 'Canton',
+    themes: 'Themes',
+    keywords: 'Keywords',
+    detailsSearchShow: 'Show advanced search',
+    detailsSearchHide: 'Hide advanced search',
+    detailsActive: 'Advanced filters active',
+    activeFilters: 'Active filters',
+    resetFilters: 'Reset filters',
+    from: 'From',
+    to: 'To',
+    export: 'Export',
+    csvVisible: 'CSV (visible columns)',
+    csvAll: 'CSV (all columns)',
+    jsonFiltered: 'JSON (filtered)',
+    columnsToggle: 'Show/hide columns',
+    pageSize: 'Page size',
+    open: 'Open',
+    back: 'Back',
+    next: 'Next',
+    page: 'Page',
+    close: 'Close',
+    businessNo: 'Reference number',
+    region: 'Region/Municipality',
+    dateSubmitted: 'Submission date',
+    submitters: 'Submitters',
+    copyLink: 'Copy link',
+    openBusiness: 'Open dossier',
+    timeline: 'Timeline',
+    titleCol: 'Title',
+    shortDescription: 'Short description',
+    media: 'Media',
+    result: 'Outcome',
+    section: { federal: 'Federal', cantonal: 'Cantonal', municipal: 'Municipal' },
   },
 }
 
