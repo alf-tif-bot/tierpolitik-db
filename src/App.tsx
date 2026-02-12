@@ -62,7 +62,6 @@ export default function App() {
     <main className="container">
       <header className="hero-head">
         <div className="language-switch row">
-          <span>{t.language}:</span>
           <div className="chips">
             {(Object.keys(languageNames) as Language[]).map((code) => (
               <button key={code} className={lang === code ? 'chip active' : 'chip'} type="button" onClick={() => setLang(code)}>
