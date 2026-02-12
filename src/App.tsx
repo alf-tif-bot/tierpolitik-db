@@ -43,16 +43,6 @@ export default function App() {
     clearHashId()
   }
 
-  const activeFilterCount = [
-    filters.globalQuery,
-    filters.von,
-    filters.bis,
-    filters.ebenen.length,
-    filters.status.length,
-    filters.kantone.length,
-    filters.themen.length,
-  ].filter(Boolean).length
-
   const onVisibleColumnsChange = useCallback((cols: { key: string; label: string }[]) => {
     setVisibleColumns(cols)
   }, [])
@@ -73,7 +63,7 @@ export default function App() {
         <p className="brand-sub">{t.subtitle}</p>
       </header>
 
-      <FiltersPanel data={data} filters={filters} onChange={setFilters} onReset={() => setFilters(defaultFilters())} activeCount={activeFilterCount} lang={lang} t={t} />
+      <FiltersPanel data={data} filters={filters} onChange={setFilters} lang={lang} t={t} />
 
       <div className="row wrap">
         <strong>{t.results}: {filtered.length}</strong>

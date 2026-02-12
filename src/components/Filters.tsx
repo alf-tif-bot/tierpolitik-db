@@ -8,8 +8,6 @@ type Props = {
   data: Vorstoss[]
   filters: Filters
   onChange: (next: Filters) => void
-  onReset: () => void
-  activeCount: number
   lang: Language
   t: I18nText
 }
@@ -20,7 +18,7 @@ function toggleValue<T extends string>(arr: T[], value: T): T[] {
 
 type FilterItem = { value: string; label: string }
 
-export function FiltersPanel({ data, filters, onChange, onReset, activeCount, lang, t }: Props) {
+export function FiltersPanel({ data, filters, onChange, lang, t }: Props) {
   const [showAdvanced, setShowAdvanced] = useState(false)
 
   const ebenen: FilterItem[] = [
@@ -73,9 +71,6 @@ export function FiltersPanel({ data, filters, onChange, onReset, activeCount, la
         </button>
 
         {!showAdvanced && advancedActiveCount > 0 && <span className="advanced-hint">{t.detailsActive}: {advancedActiveCount}</span>}
-
-        <span>{t.activeFilters}: {activeCount}</span>
-        <button onClick={onReset}>{t.resetFilters}</button>
       </div>
 
       {showAdvanced && (

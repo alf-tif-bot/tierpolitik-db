@@ -71,7 +71,7 @@ export const i18n: Record<Language, I18nText> = {
     title: 'Tierpolitik-Monitor Schweiz',
     subtitle: 'Die wichtigsten parlamentarischen Vorstösse rund um Tierschutz und Tierrechte.',
     language: 'Sprache',
-    results: 'Treffer',
+    results: 'Fälle',
     projectBy: 'Ein Projekt von',
     search: 'Suche',
     searchPlaceholder: 'Titel, Kurzbeschreibung, Geschäftsnummer ...',
