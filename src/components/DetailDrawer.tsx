@@ -10,6 +10,8 @@ type Props = {
   t: I18nText
 }
 
+const normalizeTitle = (value: string) => value.replace(/^Vorstoss\s+\d+\s*:\s*/i, '')
+
 type TimelineItem = {
   datum: string
   label: string
@@ -52,7 +54,7 @@ export function DetailDrawer({ item, onClose, lang, t }: Props) {
       <aside className="drawer" onClick={(e) => e.stopPropagation()}>
         <div className="row drawer-head">
           <div>
-            <h2>{translateContent(item.titel, lang)}</h2>
+            <h2>{normalizeTitle(translateContent(item.titel, lang))}</h2>
             <div className="drawer-status-row">
               <span className={`status-badge status-${statusSlug}`}>{translateStatus(item.status, lang)}</span>
             </div>

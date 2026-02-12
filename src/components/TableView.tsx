@@ -37,6 +37,8 @@ type Props = {
 
 const TABLE_PREFS_KEY = 'tierpolitik.table.prefs.v1'
 
+const normalizeTitle = (value: string) => value.replace(/^Vorstoss\s+\d+\s*:\s*/i, '')
+
 export function TableView({ data, onOpenDetail, onVisibleColumnsChange, lang, t }: Props) {
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
     geschaeftsnummer: false,
@@ -73,7 +75,7 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, lang, t 
   }, [columnVisibility, sorting, pagination.pageSize])
 
   const columns = useMemo<ColumnDef<Vorstoss>[]>(() => [
-    { accessorKey: 'titel', header: t.titleCol, cell: (i) => translateContent(i.getValue<string>(), lang) },
+    { accessorKey: 'titel', header: t.titleCol, cell: (i) => normalizeTitle(translateContent(i.getValue<string>(), lang)) },
     {
       accessorKey: 'ebene',
       header: t.level,
