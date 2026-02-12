@@ -14,14 +14,34 @@ body { margin: 0; }
 }
 
 h1 {
-  margin: 0 0 0.45rem;
-  font-size: 1.55rem;
-  font-weight: 800;
+  margin: 0 0 0.35rem;
+  font-size: 2rem;
+  line-height: 1.08;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #16345a;
+  text-wrap: balance;
+}
+
+.hero-head {
+  margin: 0.5rem 0 0.9rem;
+  padding: 0.2rem 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.hero-head h1 {
+  background: linear-gradient(90deg, #173a64 0%, #27568f 55%, #3a78c2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .brand-sub {
   margin: 0;
-  color: #455873;
+  color: #b9c9dc;
+  font-size: 1.02rem;
 }
 
 .panel {
@@ -252,6 +272,13 @@ a { color: #0a4fa8; }
   .export-sep,
   .advanced-hint {
     color: #c7d0dc;
+  }
+
+  .hero-head h1 {
+    background: linear-gradient(90deg, #f7fbff 0%, #d8e8ff 55%, #b8d2ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .advanced-search {

@@ -52,7 +52,7 @@ export default function App() {
 
   return (
     <main className="container">
-      <header className="panel">
+      <header className="hero-head">
         <h1>Tierpolitik-Monitor Schweiz</h1>
         <p className="brand-sub">Die wichtigsten parlamentarischen Vorstösse rund um Tierschutz und Tierrechte.</p>
       </header>
