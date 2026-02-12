@@ -32,9 +32,16 @@ h1 {
 }
 
 .hero-top {
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-start;
-  margin-bottom: 0.55rem;
+  margin-bottom: 0.45rem;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.2rem;
 }
 
 .hero-monitor-logo {
@@ -44,6 +51,7 @@ h1 {
   border-radius: 16px;
   border: 1px solid #d7e2ef;
   background: #fff;
+  flex: 0 0 auto;
 }
 
 .language-switch {
@@ -847,9 +855,13 @@ a { color: #0a4fa8; }
     align-items: center;
   }
 
+  .title-row {
+    gap: 0.65rem;
+  }
+
   .hero-monitor-logo {
-    width: 64px;
-    height: 64px;
+    width: 58px;
+    height: 58px;
     border-radius: 14px;
   }
 

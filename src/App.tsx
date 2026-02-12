@@ -64,7 +64,6 @@ export default function App() {
     <main className="container">
       <header className="hero-head">
         <div className="hero-top row">
-          <img className="hero-monitor-logo" src="/branding/monitor-icon.jpg" alt="Tierpolitik Monitor" />
           <div className="language-switch row">
             <div className="chips">
               {(Object.keys(languageNames) as Language[]).map((code) => (
@@ -75,7 +74,10 @@ export default function App() {
             </div>
           </div>
         </div>
-        <h1>{t.title}</h1>
+        <div className="title-row">
+          <img className="hero-monitor-logo" src="/branding/monitor-icon.jpg" alt="Tierpolitik Monitor" />
+          <h1>{t.title}</h1>
+        </div>
         <p className="brand-sub">{t.subtitle}</p>
       </header>
 
