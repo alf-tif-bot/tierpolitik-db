@@ -34,7 +34,6 @@ export function DetailDrawer({ item, onClose, lang, t }: Props) {
     })),
   ].sort((a, b) => a.datum.localeCompare(b.datum))
 
-  const permalink = `${window.location.origin}${window.location.pathname}#${item.id}`
   const level = item.ebene === 'Bund' ? t.section.federal : item.ebene === 'Kanton' ? t.section.cantonal : item.ebene === 'Gemeinde' ? t.section.municipal : item.ebene
   const statusSlug = item.status.toLowerCase().replace(/\s+/g, '-')
 
@@ -77,7 +76,6 @@ export function DetailDrawer({ item, onClose, lang, t }: Props) {
           <a href={item.linkGeschaeft} target="_blank" rel="noopener">
             <button className="btn-primary">{t.openBusiness}</button>
           </a>
-          <button className="btn-secondary" onClick={() => navigator.clipboard.writeText(permalink)}>{t.copyLink}</button>
         </div>
 
         <h3>{t.timeline}</h3>
