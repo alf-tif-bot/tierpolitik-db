@@ -101,7 +101,7 @@ export default function App() {
         </div>
 
         <div className="site-support-row">
-          <span>— Mit Unterstützung von</span>
+          <span>Mit Unterstützung von</span>
           <div className="support-logos" aria-label="Demo-Partnerlogos">
             <img className="support-logo-img" src="/branding/demo-org-tierschutz.jpg" alt="Demo Orga Tierschutz" />
             <img className="support-logo-img" src="/branding/demo-org-tierschutz.jpg" alt="Demo Orga Tierschutz" />
