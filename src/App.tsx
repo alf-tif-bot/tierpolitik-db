@@ -46,16 +46,6 @@ export default function App() {
     filters.schlagwoerter.length,
   ].filter(Boolean).length
 
-  const quickFilter = (kind: 'kantonal' | 'beratung' | 'letzte90') => {
-    if (kind === 'kantonal') setFilters({ ...defaultFilters(), ebenen: ['Kanton'] })
-    if (kind === 'beratung') setFilters({ ...defaultFilters(), status: ['In Beratung'] })
-    if (kind === 'letzte90') {
-      const today = new Date()
-      const from = new Date(today.getTime() - 90 * 86400000).toISOString().slice(0, 10)
-      setFilters({ ...defaultFilters(), von: from, bis: today.toISOString().slice(0, 10) })
-    }
-  }
-
   const onVisibleColumnsChange = useCallback((cols: { key: string; label: string }[]) => {
     setVisibleColumns(cols)
   }, [])
@@ -63,12 +53,6 @@ export default function App() {
   return (
     <main className="container">
       <h1>Tierpolitik Vorstösse Datenbank</h1>
-
-      <div className="row wrap">
-        <button className="chip" onClick={() => quickFilter('kantonal')}>Nur Kantonal</button>
-        <button className="chip" onClick={() => quickFilter('beratung')}>In Beratung</button>
-        <button className="chip" onClick={() => quickFilter('letzte90')}>Letzte 90 Tage</button>
-      </div>
 
       <FiltersPanel data={data} filters={filters} onChange={setFilters} onReset={() => setFilters(defaultFilters())} activeCount={activeFilterCount} />
 

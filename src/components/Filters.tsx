@@ -17,6 +17,7 @@ export function FiltersPanel({ data, filters, onChange, onReset, activeCount }: 
   const ebenen = ['Bund', 'Kanton', 'Gemeinde'] as Ebene[]
   const statuses = ['Eingereicht', 'In Beratung', 'Angenommen', 'Abgelehnt', 'Abgeschrieben'] as Status[]
   const kantone = [
+    'CH (ganze Schweiz)',
     'AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU', 'NE',
     'NW', 'OW', 'SG', 'SH', 'SO', 'SZ', 'TG', 'TI', 'UR', 'VD', 'VS', 'ZG', 'ZH',
   ]
