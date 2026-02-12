@@ -1,5 +1,5 @@
 import type { I18nText, Language } from '../i18n'
-import { translateStatus } from '../i18n'
+import { translateContent, translateStatus } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
 
@@ -24,19 +24,19 @@ export function DetailDrawer({ item, onClose, lang, t }: Props) {
     <div className="drawer-backdrop" onClick={onClose}>
       <aside className="drawer" onClick={(e) => e.stopPropagation()}>
         <div className="row drawer-head">
-          <h2>{item.titel}</h2>
+          <h2>{translateContent(item.titel, lang)}</h2>
           <button onClick={onClose}>{t.close}</button>
         </div>
 
-        <p>{item.kurzbeschreibung}</p>
+        <p>{translateContent(item.kurzbeschreibung, lang)}</p>
         <p><strong>{t.businessNo}:</strong> {item.geschaeftsnummer}</p>
         <p><strong>{t.level}:</strong> {item.ebene === 'Bund' ? t.section.federal : item.ebene === 'Kanton' ? t.section.cantonal : item.ebene === 'Gemeinde' ? t.section.municipal : item.ebene}</p>
         <p><strong>{t.canton}:</strong> {item.kanton ?? '-'}</p>
         <p><strong>{t.region}:</strong> {item.regionGemeinde ?? '-'}</p>
         <p><strong>{t.status}:</strong> <span className={`status-badge status-${item.status.toLowerCase().replace(/\s+/g, '-')}`}>{translateStatus(item.status, lang)}</span></p>
         <p><strong>{t.dateSubmitted}:</strong> {formatDateCH(item.datumEingereicht)}</p>
-        <p><strong>{t.themes}:</strong> {item.themen.join(', ')}</p>
-        <p><strong>{t.keywords}:</strong> {item.schlagwoerter.join(', ')}</p>
+        <p><strong>{t.themes}:</strong> {item.themen.map((v) => translateContent(v, lang)).join(', ')}</p>
+        <p><strong>{t.keywords}:</strong> {item.schlagwoerter.map((v) => translateContent(v, lang)).join(', ')}</p>
         <p><strong>{t.submitters}:</strong> {item.einreichende.map((p) => `${p.name} (${p.partei})`).join(', ')}</p>
 
         <div className="row wrap">

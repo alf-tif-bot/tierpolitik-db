@@ -245,6 +245,85 @@ export const i18n: Record<Language, I18nText> = {
   },
 }
 
+const contentDictionary: Record<Language, Array<[RegExp, string]>> = {
+  de: [
+    [/staerkerem/gi, 'stärkerem'],
+    [/nutztierhaltung/gi, 'Nutztierhaltung'],
+    [/geschaeft/gi, 'Geschäft'],
+  ],
+  fr: [
+    [/Vorstoss/gi, 'Intervention'],
+    [/Frei erfundener Vorstoss zur Verbesserung von/gi, 'Intervention fictive visant à améliorer'],
+    [/mit messbaren Kriterien und staerkerem Vollzug\./gi, 'avec des critères mesurables et une mise en œuvre renforcée.'],
+    [/verbessern/gi, 'améliorer'],
+    [/Nutztierhaltung/gi, 'élevage'],
+    [/Versuche/gi, 'expérimentation animale'],
+    [/Import/gi, 'importations'],
+    [/Kennzeichnung/gi, 'étiquetage'],
+    [/Subventionen/gi, 'subventions'],
+    [/Transport/gi, 'transport'],
+    [/Heimtiere/gi, 'animaux de compagnie'],
+    [/Jagd/gi, 'chasse'],
+    [/Tierwohl/gi, 'bien-être animal'],
+    [/Transparenz/gi, 'transparence'],
+    [/Vollzug/gi, 'application'],
+    [/Foerderung/gi, 'promotion'],
+    [/Kontrolle/gi, 'contrôle'],
+    [/Label/gi, 'label'],
+    [/Verbot/gi, 'interdiction'],
+    [/Strafe/gi, 'sanction'],
+  ],
+  it: [
+    [/Vorstoss/gi, 'Iniziativa'],
+    [/Frei erfundener Vorstoss zur Verbesserung von/gi, 'Iniziativa fittizia per migliorare'],
+    [/mit messbaren Kriterien und staerkerem Vollzug\./gi, 'con criteri misurabili e un’applicazione più rigorosa.'],
+    [/verbessern/gi, 'migliorare'],
+    [/Nutztierhaltung/gi, 'allevamento'],
+    [/Versuche/gi, 'sperimentazione animale'],
+    [/Import/gi, 'importazioni'],
+    [/Kennzeichnung/gi, 'etichettatura'],
+    [/Subventionen/gi, 'sussidi'],
+    [/Transport/gi, 'trasporto'],
+    [/Heimtiere/gi, 'animali da compagnia'],
+    [/Jagd/gi, 'caccia'],
+    [/Tierwohl/gi, 'benessere animale'],
+    [/Transparenz/gi, 'trasparenza'],
+    [/Vollzug/gi, 'applicazione'],
+    [/Foerderung/gi, 'promozione'],
+    [/Kontrolle/gi, 'controllo'],
+    [/Label/gi, 'etichetta'],
+    [/Verbot/gi, 'divieto'],
+    [/Strafe/gi, 'sanzione'],
+  ],
+  en: [
+    [/Vorstoss/gi, 'Initiative'],
+    [/Frei erfundener Vorstoss zur Verbesserung von/gi, 'Sample initiative to improve'],
+    [/mit messbaren Kriterien und staerkerem Vollzug\./gi, 'with measurable criteria and stronger enforcement.'],
+    [/verbessern/gi, 'improve'],
+    [/Nutztierhaltung/gi, 'livestock farming'],
+    [/Versuche/gi, 'animal testing'],
+    [/Import/gi, 'imports'],
+    [/Kennzeichnung/gi, 'labelling'],
+    [/Subventionen/gi, 'subsidies'],
+    [/Transport/gi, 'transport'],
+    [/Heimtiere/gi, 'companion animals'],
+    [/Jagd/gi, 'hunting'],
+    [/Tierwohl/gi, 'animal welfare'],
+    [/Transparenz/gi, 'transparency'],
+    [/Vollzug/gi, 'enforcement'],
+    [/Foerderung/gi, 'promotion'],
+    [/Kontrolle/gi, 'control'],
+    [/Label/gi, 'label'],
+    [/Verbot/gi, 'ban'],
+    [/Strafe/gi, 'penalty'],
+  ],
+}
+
 export function translateStatus(status: string, lang: Language): string {
   return statusLabels[status]?.[lang] ?? status
+}
+
+export function translateContent(text: string, lang: Language): string {
+  const rules = contentDictionary[lang]
+  return rules.reduce((acc, [rx, replacement]) => acc.replace(rx, replacement), text)
 }

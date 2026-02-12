@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import type { I18nText, Language } from '../i18n'
-import { translateStatus } from '../i18n'
+import { translateContent, translateStatus } from '../i18n'
 import type { Ebene, Status, Vorstoss } from '../types'
 import type { Filters } from '../utils/filtering'
 
@@ -39,6 +39,8 @@ export function FiltersPanel({ data, filters, onChange, onReset, activeCount, la
   ]
   const themen = [...new Set(data.flatMap((d) => d.themen))].sort()
   const schlagwoerter = [...new Set(data.flatMap((d) => d.schlagwoerter))].sort()
+  const themenItems: FilterItem[] = themen.map((v) => ({ value: v, label: translateContent(v, lang) }))
+  const schlagwoerterItems: FilterItem[] = schlagwoerter.map((v) => ({ value: v, label: translateContent(v, lang) }))
 
   const advancedActiveCount = useMemo(() => {
     return [
@@ -94,8 +96,8 @@ export function FiltersPanel({ data, filters, onChange, onReset, activeCount, la
 
           <div className="multi-row">
             <Multi title={t.canton} values={kantone} selected={filters.kantone} onToggle={(v) => onChange({ ...filters, kantone: toggleValue(filters.kantone, v) })} />
-            <Multi title={t.themes} values={themen} selected={filters.themen} onToggle={(v) => onChange({ ...filters, themen: toggleValue(filters.themen, v) })} />
-            <Multi title={t.keywords} values={schlagwoerter} selected={filters.schlagwoerter} onToggle={(v) => onChange({ ...filters, schlagwoerter: toggleValue(filters.schlagwoerter, v) })} />
+            <MultiItems title={t.themes} values={themenItems} selected={filters.themen} onToggle={(v) => onChange({ ...filters, themen: toggleValue(filters.themen, v) })} />
+            <MultiItems title={t.keywords} values={schlagwoerterItems} selected={filters.schlagwoerter} onToggle={(v) => onChange({ ...filters, schlagwoerter: toggleValue(filters.schlagwoerter, v) })} />
           </div>
         </div>
       )}

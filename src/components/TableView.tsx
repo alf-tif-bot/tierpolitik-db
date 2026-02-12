@@ -1,7 +1,7 @@
 import { flexRender, getCoreRowModel, getPaginationRowModel, getSortedRowModel, useReactTable, type ColumnDef, type VisibilityState } from '@tanstack/react-table'
 import { useEffect, useMemo, useState } from 'react'
 import type { I18nText, Language } from '../i18n'
-import { translateStatus } from '../i18n'
+import { translateContent, translateStatus } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
 
@@ -37,7 +37,7 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, lang, t 
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
 
   const columns = useMemo<ColumnDef<Vorstoss>[]>(() => [
-    { accessorKey: 'titel', header: t.titleCol },
+    { accessorKey: 'titel', header: t.titleCol, cell: (i) => translateContent(i.getValue<string>(), lang) },
     {
       accessorKey: 'ebene',
       header: t.level,
@@ -61,11 +61,11 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, lang, t 
       },
     },
     { accessorKey: 'datumEingereicht', header: t.dateSubmitted, cell: (i) => formatDateCH(i.getValue<string>()) },
-    { accessorKey: 'schlagwoerter', header: t.keywords, cell: (i) => i.getValue<string[]>().join(', ') },
+    { accessorKey: 'schlagwoerter', header: t.keywords, cell: (i) => i.getValue<string[]>().map((v) => translateContent(v, lang)).join(', ') },
     { accessorKey: 'linkGeschaeft', header: 'Link', cell: (i) => <a href={i.getValue<string>()} target="_blank" rel="noopener">{t.open}</a> },
     { accessorKey: 'geschaeftsnummer', header: t.businessNo },
-    { accessorKey: 'themen', header: t.themes, cell: (i) => i.getValue<string[]>().join(', ') },
-    { accessorKey: 'kurzbeschreibung', header: t.shortDescription },
+    { accessorKey: 'themen', header: t.themes, cell: (i) => i.getValue<string[]>().map((v) => translateContent(v, lang)).join(', ') },
+    { accessorKey: 'kurzbeschreibung', header: t.shortDescription, cell: (i) => translateContent(i.getValue<string>(), lang) },
   ], [lang, t])
 
   const table = useReactTable({
