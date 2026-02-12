@@ -6,6 +6,9 @@ import { formatDateCH } from '../utils/date'
 type Props = {
   item: Vorstoss | null
   onClose: () => void
+  onOpenPersonProfile: (name: string) => void
+  onOpenPartyProfile: (party: string) => void
+  onSubscribe: (context: string) => void
   lang: Language
   t: I18nText
 }
@@ -19,7 +22,7 @@ type TimelineItem = {
   url?: string
 }
 
-export function DetailDrawer({ item, onClose, lang, t }: Props) {
+export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyProfile, onSubscribe, lang, t }: Props) {
   if (!item) return null
 
   const timeline: TimelineItem[] = [
@@ -46,7 +49,6 @@ export function DetailDrawer({ item, onClose, lang, t }: Props) {
     { label: t.region, value: item.regionGemeinde ?? '-' },
     { label: t.dateSubmitted, value: formatDateCH(item.datumEingereicht) },
     { label: t.themes, value: item.themen.map((v) => translateContent(v, lang)).join(', ') },
-    { label: t.submitters, value: item.einreichende.map((p) => `${p.name} (${p.partei})`).join(', ') },
   ]
 
   return (
@@ -72,12 +74,24 @@ export function DetailDrawer({ item, onClose, lang, t }: Props) {
               <span className="detail-value">{row.value}</span>
             </div>
           ))}
+          <div className="detail-card">
+            <span className="detail-label">{t.submitters}</span>
+            <div className="detail-links">
+              {item.einreichende.map((p) => (
+                <div key={`${p.name}-${p.partei}`} className="detail-link-row">
+                  <button className="text-link-btn" onClick={() => onOpenPersonProfile(p.name)}>{p.name}</button>
+                  <button className="text-link-btn" onClick={() => onOpenPartyProfile(p.partei)}>{p.partei}</button>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="row wrap drawer-actions">
           <a href={item.linkGeschaeft} target="_blank" rel="noopener">
             <button className="btn-primary">{t.openBusiness}</button>
           </a>
+          <button className="btn-secondary" onClick={() => onSubscribe(`Vorstoss ${item.geschaeftsnummer}`)}>E-Mail abonnieren</button>
         </div>
 
         <h3>{t.timeline}</h3>

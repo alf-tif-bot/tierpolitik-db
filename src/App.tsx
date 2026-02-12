@@ -4,6 +4,7 @@ import './App.css'
 import { DetailDrawer } from './components/DetailDrawer'
 import { ExportButtons } from './components/ExportButtons'
 import { FiltersPanel } from './components/Filters'
+import { ProfileDrawer } from './components/ProfileDrawer'
 import { getAllColumnsMeta, TableView } from './components/TableView'
 import { i18n, languageNames, type Language } from './i18n'
 import { validateVorstoesse, type Vorstoss } from './types'
@@ -12,10 +13,16 @@ import { clearHashId, getHashId, setHashId } from './utils/urlHash'
 
 const data = validateVorstoesse(rawData)
 
+type ProfileState =
+  | { kind: 'person'; value: string }
+  | { kind: 'party'; value: string }
+  | null
+
 export default function App() {
   const [lang, setLang] = useState<Language>('de')
   const [filters, setFilters] = useState<Filters>(defaultFilters)
   const [selected, setSelected] = useState<Vorstoss | null>(null)
+  const [profile, setProfile] = useState<ProfileState>(null)
   const [visibleColumns, setVisibleColumns] = useState<{ key: string; label: string }[]>([])
 
   const t = i18n[lang]
@@ -47,6 +54,12 @@ export default function App() {
     setVisibleColumns(cols)
   }, [])
 
+  const openSubscribe = (context: string) => {
+    const subject = encodeURIComponent(`Abo Anfrage: ${context}`)
+    const body = encodeURIComponent(`Bitte informiert mich per E-Mail über Updates zu: ${context}`)
+    window.open(`mailto:kulturfenster@gmail.com?subject=${subject}&body=${body}`, '_blank', 'noopener,noreferrer')
+  }
+
   return (
     <main className="container">
       <header className="hero-head">
@@ -73,7 +86,27 @@ export default function App() {
 
       <ExportButtons filtered={filtered} visibleColumns={visibleColumns} allColumns={allColumnsMeta} t={t} />
 
-      <DetailDrawer item={selected} onClose={closeDetail} lang={lang} t={t} />
+      <DetailDrawer
+        item={selected}
+        onClose={closeDetail}
+        onOpenPersonProfile={(name) => setProfile({ kind: 'person', value: name })}
+        onOpenPartyProfile={(party) => setProfile({ kind: 'party', value: party })}
+        onSubscribe={openSubscribe}
+        lang={lang}
+        t={t}
+      />
+
+      <ProfileDrawer
+        profile={profile}
+        data={data}
+        lang={lang}
+        onClose={() => setProfile(null)}
+        onOpenDetail={(item) => {
+          setProfile(null)
+          openDetail(item)
+        }}
+        onSubscribe={openSubscribe}
+      />
 
       <footer className="site-footer panel">
         <div className="site-header-top">
