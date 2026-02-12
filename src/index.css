@@ -3,19 +3,3 @@ body,
 #root {
   min-height: 100%;
 }
-
-a {
-  color: #0b63c5;
-}
-
-button {
-  padding: 0.4rem 0.6rem;
-  border: 1px solid #c9d3e0;
-  background: #f3f7fb;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #e7f0fb;
-}

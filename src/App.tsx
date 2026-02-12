@@ -52,7 +52,14 @@ export default function App() {
 
   return (
     <main className="container">
-      <h1>Tierpolitik Vorstösse Datenbank</h1>
+      <header className="brand-head panel">
+        <img className="brand-logo light" src="/branding/TIF_Logo_gruen_schwarz.png" alt="Tier im Fokus" />
+        <img className="brand-logo dark" src="/branding/TIF_Logo_gruen_weiss.png" alt="Tier im Fokus" />
+        <div>
+          <h1>Tierpolitik Vorstösse Datenbank</h1>
+          <p className="brand-sub">Interne Prototyp-Ansicht im TIF-Stil</p>
+        </div>
+      </header>
 
       <FiltersPanel data={data} filters={filters} onChange={setFilters} onReset={() => setFilters(defaultFilters())} activeCount={activeFilterCount} />
 
