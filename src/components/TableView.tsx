@@ -26,7 +26,7 @@ type Props = {
   data: Vorstoss[]
   onOpenDetail: (v: Vorstoss) => void
   onVisibleColumnsChange: (cols: { key: string; label: string }[]) => void
-  highlightedId?: string
+  keyboardEnabled?: boolean
   lang: Language
   t: I18nText
 }
@@ -34,8 +34,9 @@ type Props = {
 const TABLE_PREFS_KEY = 'tierpolitik.table.prefs.v1'
 const normalizeTitle = (value: string) => value.replace(/^Vorstoss\s+\d+\s*:\s*/i, '')
 
-export function TableView({ data, onOpenDetail, onVisibleColumnsChange, highlightedId, lang, t }: Props) {
+export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboardEnabled = true, lang, t }: Props) {
   const [sorting, setSorting] = useState<SortingState>([])
+  const [highlightedRow, setHighlightedRow] = useState(0)
 
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
 
@@ -97,6 +98,52 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, highligh
     onVisibleColumnsChange(allColumnsMeta)
   }, [allColumnsMeta, onVisibleColumnsChange])
 
+  useEffect(() => {
+    const pageRows = table.getRowModel().rows
+    if (!pageRows.length) {
+      setHighlightedRow(0)
+      return
+    }
+    setHighlightedRow((prev) => Math.min(prev, pageRows.length - 1))
+  }, [table.getState().pagination.pageIndex, table.getState().pagination.pageSize, sorting, data.length])
+
+  useEffect(() => {
+    if (!keyboardEnabled) return
+
+    const isTypingTarget = (el: EventTarget | null) => {
+      const node = el as HTMLElement | null
+      if (!node) return false
+      return node.tagName === 'INPUT' || node.tagName === 'TEXTAREA' || node.tagName === 'SELECT' || node.isContentEditable
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.metaKey || event.ctrlKey || event.altKey) return
+      if (isTypingTarget(event.target)) return
+
+      const pageRows = table.getRowModel().rows
+      if (!pageRows.length) return
+
+      if (event.key.toLowerCase() === 'j') {
+        event.preventDefault()
+        setHighlightedRow((prev) => Math.min(prev + 1, pageRows.length - 1))
+      }
+
+      if (event.key.toLowerCase() === 'k') {
+        event.preventDefault()
+        setHighlightedRow((prev) => Math.max(prev - 1, 0))
+      }
+
+      if (event.key === 'Enter') {
+        event.preventDefault()
+        const row = pageRows[highlightedRow]
+        if (row) onOpenDetail(row.original)
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [keyboardEnabled, highlightedRow, onOpenDetail, table, data.length])
+
   return (
     <section className="panel">
       <div className="table-wrap">
@@ -122,11 +169,14 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, highligh
               ))}
             </thead>
             <tbody>
-              {table.getRowModel().rows.map((r) => (
+              {table.getRowModel().rows.map((r, idx) => (
                 <tr
                   key={r.id}
-                  className={r.original.id === highlightedId ? 'row-highlight' : ''}
-                  onClick={() => onOpenDetail(r.original)}
+                  className={idx === highlightedRow ? 'row-highlight' : ''}
+                  onClick={() => {
+                    setHighlightedRow(idx)
+                    onOpenDetail(r.original)
+                  }}
                   tabIndex={0}
                   onKeyDown={(e) => e.key === 'Enter' && onOpenDetail(r.original)}
                 >
