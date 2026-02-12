@@ -1,6 +1,7 @@
 import { flexRender, getCoreRowModel, getPaginationRowModel, getSortedRowModel, useReactTable, type ColumnDef, type VisibilityState } from '@tanstack/react-table'
 import { useEffect, useMemo, useState } from 'react'
 import type { Vorstoss } from '../types'
+import { formatDateCH } from '../utils/date'
 
 export const allColumnsMeta = [
   { key: 'titel', label: 'Titel' },
@@ -44,7 +45,7 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange }: Props)
         return <span className={`status-badge status-${slug}`}>{value}</span>
       },
     },
-    { accessorKey: 'datumEingereicht', header: 'Datum eingereicht' },
+    { accessorKey: 'datumEingereicht', header: 'Datum eingereicht', cell: (i) => formatDateCH(i.getValue<string>()) },
     { accessorKey: 'schlagwoerter', header: 'Schlagwörter', cell: (i) => i.getValue<string[]>().join(', ') },
     { accessorKey: 'einreichende', header: 'Einreichende', cell: (i) => i.getValue<Vorstoss['einreichende']>().map((p) => p.name).join(', ') },
     { accessorKey: 'linkGeschaeft', header: 'Link', cell: (i) => <a href={i.getValue<string>()} target="_blank" rel="noopener">Öffnen</a> },

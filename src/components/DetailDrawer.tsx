@@ -1,4 +1,5 @@
 import type { Vorstoss } from '../types'
+import { formatDateCH } from '../utils/date'
 
 type Props = {
   item: Vorstoss | null
@@ -29,7 +30,7 @@ export function DetailDrawer({ item, onClose }: Props) {
         <p><strong>Kanton:</strong> {item.kanton ?? '-'}</p>
         <p><strong>Region/Gemeinde:</strong> {item.regionGemeinde ?? '-'}</p>
         <p><strong>Status:</strong> <span className={`status-badge status-${item.status.toLowerCase().replace(/\s+/g, '-')}`}>{item.status}</span></p>
-        <p><strong>Datum eingereicht:</strong> {item.datumEingereicht}</p>
+        <p><strong>Datum eingereicht:</strong> {formatDateCH(item.datumEingereicht)}</p>
         <p><strong>Themen:</strong> {item.themen.join(', ')}</p>
         <p><strong>Schlagwörter:</strong> {item.schlagwoerter.join(', ')}</p>
         <p><strong>Einreichende:</strong> {item.einreichende.map((p) => `${p.name} (${p.partei})`).join(', ')}</p>
@@ -43,7 +44,7 @@ export function DetailDrawer({ item, onClose }: Props) {
         <ul>
           {timeline.map((t, i) => (
             <li key={`${t.datum}-${i}`}>
-              <strong>{t.datum}</strong> - {t.url ? <a href={t.url} target="_blank" rel="noopener">{t.label}</a> : t.label}
+              <strong>{formatDateCH(t.datum)}</strong> - {t.url ? <a href={t.url} target="_blank" rel="noopener">{t.label}</a> : t.label}
             </li>
           ))}
         </ul>
