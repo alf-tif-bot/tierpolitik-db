@@ -19,7 +19,7 @@ export function DetailDrawer({ item, onClose }: Props) {
   return (
     <div className="drawer-backdrop" onClick={onClose}>
       <aside className="drawer" onClick={(e) => e.stopPropagation()}>
-        <div className="row">
+        <div className="row drawer-head">
           <h2>{item.titel}</h2>
           <button onClick={onClose}>Schliessen</button>
         </div>

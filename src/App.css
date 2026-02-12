@@ -144,9 +144,7 @@ td {
 }
 
 th {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  position: static;
   background: #f7faff;
 }
 
@@ -157,21 +155,55 @@ tbody tr:hover { background: #f8fbff; }
 .drawer-backdrop {
   position: fixed;
   inset: 0;
-  background: rgb(0 10 25 / 45%);
+  z-index: 1200;
+  background: rgb(7 17 35 / 55%);
+  backdrop-filter: blur(2px);
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
 
 .drawer {
-  width: min(760px, 100%);
-  height: 100%;
+  width: min(900px, 96vw);
+  max-height: 92vh;
   overflow: auto;
   background: #fff;
-  padding: 1rem;
-  box-shadow: -10px 0 24px rgb(0 0 0 / 20%);
+  border: 1px solid #d9e3f0;
+  border-radius: 18px;
+  padding: 1.2rem;
+  box-shadow: 0 22px 50px rgb(7 17 35 / 35%);
 }
 
 a { color: #0a4fa8; }
+
+.drawer-head {
+  justify-content: space-between;
+}
+
+.drawer h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.drawer h3 {
+  margin-top: 1.1rem;
+  margin-bottom: 0.55rem;
+}
+
+.drawer p {
+  margin: 0.45rem 0;
+  line-height: 1.45;
+}
+
+.drawer ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.drawer li {
+  margin: 0.35rem 0;
+}
 
 @media (max-width: 760px) {
   .container { padding: 0.7rem; }
