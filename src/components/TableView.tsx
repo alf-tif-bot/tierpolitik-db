@@ -1,19 +1,21 @@
 import { flexRender, getCoreRowModel, getPaginationRowModel, getSortedRowModel, useReactTable, type ColumnDef, type VisibilityState } from '@tanstack/react-table'
 import { useEffect, useMemo, useState } from 'react'
+import type { I18nText, Language } from '../i18n'
+import { translateStatus } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
 
-export const allColumnsMeta = [
+export const getAllColumnsMeta = (t: I18nText) => [
   { key: 'titel', label: 'Titel' },
-  { key: 'ebene', label: 'Ebene' },
-  { key: 'kanton', label: 'Kanton' },
-  { key: 'regionGemeinde', label: 'Region/Gemeinde' },
-  { key: 'status', label: 'Status' },
-  { key: 'datumEingereicht', label: 'Datum eingereicht' },
-  { key: 'schlagwoerter', label: 'Schlagwörter' },
+  { key: 'ebene', label: t.level },
+  { key: 'kanton', label: t.canton },
+  { key: 'regionGemeinde', label: t.region },
+  { key: 'status', label: t.status },
+  { key: 'datumEingereicht', label: t.dateSubmitted },
+  { key: 'schlagwoerter', label: t.keywords },
   { key: 'linkGeschaeft', label: 'Link' },
-  { key: 'geschaeftsnummer', label: 'Geschäftsnummer' },
-  { key: 'themen', label: 'Themen' },
+  { key: 'geschaeftsnummer', label: t.businessNo },
+  { key: 'themen', label: t.themes },
   { key: 'kurzbeschreibung', label: 'Kurzbeschreibung' },
 ]
 
@@ -21,36 +23,40 @@ type Props = {
   data: Vorstoss[]
   onOpenDetail: (v: Vorstoss) => void
   onVisibleColumnsChange: (cols: { key: string; label: string }[]) => void
+  lang: Language
+  t: I18nText
 }
 
-export function TableView({ data, onOpenDetail, onVisibleColumnsChange }: Props) {
+export function TableView({ data, onOpenDetail, onVisibleColumnsChange, lang, t }: Props) {
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
     geschaeftsnummer: false,
     themen: false,
     kurzbeschreibung: false,
   })
 
+  const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
+
   const columns = useMemo<ColumnDef<Vorstoss>[]>(() => [
     { accessorKey: 'titel', header: 'Titel' },
-    { accessorKey: 'ebene', header: 'Ebene' },
-    { accessorKey: 'kanton', header: 'Kanton', cell: (i) => i.getValue<string | null>() ?? '-' },
-    { accessorKey: 'regionGemeinde', header: 'Region/Gemeinde', cell: (i) => i.getValue<string | null>() ?? '-' },
+    { accessorKey: 'ebene', header: t.level },
+    { accessorKey: 'kanton', header: t.canton, cell: (i) => i.getValue<string | null>() ?? '-' },
+    { accessorKey: 'regionGemeinde', header: t.region, cell: (i) => i.getValue<string | null>() ?? '-' },
     {
       accessorKey: 'status',
-      header: 'Status',
+      header: t.status,
       cell: (i) => {
         const value = i.getValue<string>()
         const slug = value.toLowerCase().replace(/\s+/g, '-')
-        return <span className={`status-badge status-${slug}`}>{value}</span>
+        return <span className={`status-badge status-${slug}`}>{translateStatus(value, lang)}</span>
       },
     },
-    { accessorKey: 'datumEingereicht', header: 'Datum eingereicht', cell: (i) => formatDateCH(i.getValue<string>()) },
-    { accessorKey: 'schlagwoerter', header: 'Schlagwörter', cell: (i) => i.getValue<string[]>().join(', ') },
-    { accessorKey: 'linkGeschaeft', header: 'Link', cell: (i) => <a href={i.getValue<string>()} target="_blank" rel="noopener">Öffnen</a> },
-    { accessorKey: 'geschaeftsnummer', header: 'Geschäftsnummer' },
-    { accessorKey: 'themen', header: 'Themen', cell: (i) => i.getValue<string[]>().join(', ') },
+    { accessorKey: 'datumEingereicht', header: t.dateSubmitted, cell: (i) => formatDateCH(i.getValue<string>()) },
+    { accessorKey: 'schlagwoerter', header: t.keywords, cell: (i) => i.getValue<string[]>().join(', ') },
+    { accessorKey: 'linkGeschaeft', header: 'Link', cell: (i) => <a href={i.getValue<string>()} target="_blank" rel="noopener">{t.open}</a> },
+    { accessorKey: 'geschaeftsnummer', header: t.businessNo },
+    { accessorKey: 'themen', header: t.themes, cell: (i) => i.getValue<string[]>().join(', ') },
     { accessorKey: 'kurzbeschreibung', header: 'Kurzbeschreibung' },
-  ], [])
+  ], [lang, t])
 
   const table = useReactTable({
     data,
@@ -69,13 +75,13 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange }: Props)
       .map((c) => allColumnsMeta.find((m) => m.key === c.id))
       .filter(Boolean) as { key: string; label: string }[]
     onVisibleColumnsChange(visibleCols)
-  }, [columnVisibility, onVisibleColumnsChange, table])
+  }, [allColumnsMeta, columnVisibility, onVisibleColumnsChange, table])
 
   return (
     <section className="panel">
       <div className="row wrap">
         <details>
-          <summary>Spalten ein-/ausblenden</summary>
+          <summary>{t.columnsToggle}</summary>
           <div className="chips">
             {table.getAllLeafColumns().map((c) => (
               <label key={c.id}><input type="checkbox" checked={c.getIsVisible()} onChange={c.getToggleVisibilityHandler()} /> {allColumnsMeta.find((m) => m.key === c.id)?.label ?? c.id}</label>
@@ -84,7 +90,7 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange }: Props)
         </details>
 
         <label>
-          Seitenlänge
+          {t.pageSize}
           <select value={table.getState().pagination.pageSize} onChange={(e) => table.setPageSize(Number(e.target.value))}>
             <option value={10}>10</option>
             <option value={25}>25</option>
@@ -118,9 +124,9 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange }: Props)
       </div>
 
       <div className="row">
-        <button onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>Zurück</button>
-        <span>Seite {table.getState().pagination.pageIndex + 1} / {table.getPageCount()}</span>
-        <button onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>Weiter</button>
+        <button onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>{t.back}</button>
+        <span>{t.page} {table.getState().pagination.pageIndex + 1} / {table.getPageCount()}</span>
+        <button onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>{t.next}</button>
       </div>
     </section>
   )

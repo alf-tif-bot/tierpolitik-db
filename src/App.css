@@ -31,6 +31,16 @@ h1 {
   background: transparent;
 }
 
+.language-switch {
+  margin-bottom: 0.65rem;
+  color: #6a7a92;
+  font-size: 0.9rem;
+}
+
+.language-switch .chips {
+  padding-top: 0;
+}
+
 .hero-head h1 {
   background: linear-gradient(90deg, #173a64 0%, #27568f 55%, #3a78c2 100%);
   -webkit-background-clip: text;

@@ -1,3 +1,4 @@
+import type { I18nText } from '../i18n'
 import type { Vorstoss } from '../types'
 import { buildCsv, downloadText } from '../utils/csv'
 
@@ -5,9 +6,10 @@ type Props = {
   filtered: Vorstoss[]
   visibleColumns: { key: string; label: string }[]
   allColumns: { key: string; label: string }[]
+  t: I18nText
 }
 
-export function ExportButtons({ filtered, visibleColumns, allColumns }: Props) {
+export function ExportButtons({ filtered, visibleColumns, allColumns, t }: Props) {
   const exportCsv = (mode: 'visible' | 'all') => {
     const columns = mode === 'visible' ? visibleColumns : allColumns
     const csv = buildCsv(filtered, columns)
@@ -19,8 +21,8 @@ export function ExportButtons({ filtered, visibleColumns, allColumns }: Props) {
   }
 
   return (
-    <div className="export-links" aria-label="Export">
-      <span className="export-label">Export:</span>
+    <div className="export-links" aria-label={t.export}>
+      <span className="export-label">{t.export}:</span>
       <a
         href="#"
         className="export-link"
@@ -29,7 +31,7 @@ export function ExportButtons({ filtered, visibleColumns, allColumns }: Props) {
           exportCsv('visible')
         }}
       >
-        CSV (sichtbare Spalten)
+        {t.csvVisible}
       </a>
       <span className="export-sep">·</span>
       <a
@@ -40,7 +42,7 @@ export function ExportButtons({ filtered, visibleColumns, allColumns }: Props) {
           exportCsv('all')
         }}
       >
-        CSV (alle Spalten)
+        {t.csvAll}
       </a>
       <span className="export-sep">·</span>
       <a
@@ -51,7 +53,7 @@ export function ExportButtons({ filtered, visibleColumns, allColumns }: Props) {
           exportJson()
         }}
       >
-        JSON (gefiltert)
+        {t.jsonFiltered}
       </a>
     </div>
   )
