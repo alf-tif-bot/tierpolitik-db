@@ -31,12 +31,27 @@ h1 {
   background: transparent;
 }
 
+.hero-top {
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.55rem;
+}
+
+.hero-monitor-logo {
+  width: 82px;
+  height: 82px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid #d7e2ef;
+  background: #fff;
+}
+
 .language-switch {
-  margin-bottom: 0.65rem;
+  margin-bottom: 0;
   color: #6a7a92;
   font-size: 0.9rem;
   justify-content: flex-end;
-  width: 100%;
+  width: auto;
 }
 
 .language-switch .chips {
@@ -656,6 +671,11 @@ a { color: #0a4fa8; }
     border-color: #2f4664;
   }
 
+  .hero-monitor-logo {
+    border-color: #425264;
+    background: #1f2730;
+  }
+
   .support-label,
   .site-support-row {
     color: #c4d8f2;
@@ -827,6 +847,16 @@ a { color: #0a4fa8; }
 @media (max-width: 760px) {
   .container { padding: 0.7rem; }
   h1 { font-size: 1.55rem; }
+
+  .hero-top {
+    align-items: center;
+  }
+
+  .hero-monitor-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+  }
 
   .site-header-top {
     flex-direction: column;

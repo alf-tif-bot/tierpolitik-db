@@ -63,13 +63,16 @@ export default function App() {
   return (
     <main className="container">
       <header className="hero-head">
-        <div className="language-switch row">
-          <div className="chips">
-            {(Object.keys(languageNames) as Language[]).map((code) => (
-              <button key={code} className={lang === code ? 'chip active' : 'chip'} type="button" onClick={() => setLang(code)}>
-                {languageNames[code]}
-              </button>
-            ))}
+        <div className="hero-top row">
+          <img className="hero-monitor-logo" src="/branding/monitor-icon.jpg" alt="Tierpolitik Monitor" />
+          <div className="language-switch row">
+            <div className="chips">
+              {(Object.keys(languageNames) as Language[]).map((code) => (
+                <button key={code} className={lang === code ? 'chip active' : 'chip'} type="button" onClick={() => setLang(code)}>
+                  {languageNames[code]}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
         <h1>{t.title}</h1>
