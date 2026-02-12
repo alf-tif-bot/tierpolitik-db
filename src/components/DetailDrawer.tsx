@@ -10,44 +10,88 @@ type Props = {
   t: I18nText
 }
 
+type TimelineItem = {
+  datum: string
+  label: string
+  kind: 'result' | 'media'
+  url?: string
+}
+
 export function DetailDrawer({ item, onClose, lang, t }: Props) {
   if (!item) return null
 
-  const timeline: Array<{ datum: string; label: string; url?: string }> = [
-    ...item.resultate.map((r) => ({ datum: r.datum, label: `${t.result}: ${translateStatus(r.status, lang)} - ${r.bemerkung}` })),
-    ...item.medien.map((m) => ({ datum: m.datum, label: `${t.media}: ${m.titel} (${m.quelle})`, url: m.url })),
+  const timeline: TimelineItem[] = [
+    ...item.resultate.map((r) => ({
+      datum: r.datum,
+      label: `${translateStatus(r.status, lang)} · ${r.bemerkung}`,
+      kind: 'result' as const,
+    })),
+    ...item.medien.map((m) => ({
+      datum: m.datum,
+      label: `${m.titel} (${m.quelle})`,
+      kind: 'media' as const,
+      url: m.url,
+    })),
   ].sort((a, b) => a.datum.localeCompare(b.datum))
 
   const permalink = `${window.location.origin}${window.location.pathname}#${item.id}`
+  const level = item.ebene === 'Bund' ? t.section.federal : item.ebene === 'Kanton' ? t.section.cantonal : item.ebene === 'Gemeinde' ? t.section.municipal : item.ebene
+  const statusSlug = item.status.toLowerCase().replace(/\s+/g, '-')
+
+  const metaRows = [
+    { label: t.businessNo, value: item.geschaeftsnummer },
+    { label: t.level, value: level },
+    { label: t.canton, value: item.kanton ?? '-' },
+    { label: t.region, value: item.regionGemeinde ?? '-' },
+    { label: t.dateSubmitted, value: formatDateCH(item.datumEingereicht) },
+    { label: t.themes, value: item.themen.map((v) => translateContent(v, lang)).join(', ') },
+    { label: t.submitters, value: item.einreichende.map((p) => `${p.name} (${p.partei})`).join(', ') },
+  ]
 
   return (
     <div className="drawer-backdrop" onClick={onClose}>
       <aside className="drawer" onClick={(e) => e.stopPropagation()}>
         <div className="row drawer-head">
-          <h2>{translateContent(item.titel, lang)}</h2>
+          <div>
+            <h2>{translateContent(item.titel, lang)}</h2>
+            <div className="drawer-status-row">
+              <span className={`status-badge status-${statusSlug}`}>{translateStatus(item.status, lang)}</span>
+            </div>
+          </div>
           <button onClick={onClose}>{t.close}</button>
         </div>
 
-        <p>{translateContent(item.kurzbeschreibung, lang)}</p>
-        <p><strong>{t.businessNo}:</strong> {item.geschaeftsnummer}</p>
-        <p><strong>{t.level}:</strong> {item.ebene === 'Bund' ? t.section.federal : item.ebene === 'Kanton' ? t.section.cantonal : item.ebene === 'Gemeinde' ? t.section.municipal : item.ebene}</p>
-        <p><strong>{t.canton}:</strong> {item.kanton ?? '-'}</p>
-        <p><strong>{t.region}:</strong> {item.regionGemeinde ?? '-'}</p>
-        <p><strong>{t.status}:</strong> <span className={`status-badge status-${item.status.toLowerCase().replace(/\s+/g, '-')}`}>{translateStatus(item.status, lang)}</span></p>
-        <p><strong>{t.dateSubmitted}:</strong> {formatDateCH(item.datumEingereicht)}</p>
-        <p><strong>{t.themes}:</strong> {item.themen.map((v) => translateContent(v, lang)).join(', ')}</p>
-        <p><strong>{t.submitters}:</strong> {item.einreichende.map((p) => `${p.name} (${p.partei})`).join(', ')}</p>
+        <p className="drawer-summary">{translateContent(item.kurzbeschreibung, lang)}</p>
 
-        <div className="row wrap">
-          <button onClick={() => navigator.clipboard.writeText(permalink)}>{t.copyLink}</button>
-          <a href={item.linkGeschaeft} target="_blank" rel="noopener"><button>{t.openBusiness}</button></a>
+        <h3>Falldaten</h3>
+        <div className="detail-grid">
+          {metaRows.map((row) => (
+            <div className="detail-card" key={row.label}>
+              <span className="detail-label">{row.label}</span>
+              <span className="detail-value">{row.value}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="row wrap drawer-actions">
+          <a href={item.linkGeschaeft} target="_blank" rel="noopener">
+            <button className="btn-primary">{t.openBusiness}</button>
+          </a>
+          <button className="btn-secondary" onClick={() => navigator.clipboard.writeText(permalink)}>{t.copyLink}</button>
         </div>
 
         <h3>{t.timeline}</h3>
-        <ul>
+        <ul className="timeline-list">
           {timeline.map((entry, i) => (
-            <li key={`${entry.datum}-${i}`}>
-              <strong>{formatDateCH(entry.datum)}</strong> - {entry.url ? <a href={entry.url} target="_blank" rel="noopener">{entry.label}</a> : entry.label}
+            <li key={`${entry.datum}-${i}`} className={`timeline-item ${entry.kind}`}>
+              <div className="timeline-dot" />
+              <div className="timeline-content">
+                <div className="timeline-meta">
+                  <strong>{formatDateCH(entry.datum)}</strong>
+                  <span>{entry.kind === 'media' ? t.media : t.result}</span>
+                </div>
+                {entry.url ? <a href={entry.url} target="_blank" rel="noopener">{entry.label}</a> : <span>{entry.label}</span>}
+              </div>
             </li>
           ))}
         </ul>
