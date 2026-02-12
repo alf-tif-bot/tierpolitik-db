@@ -277,15 +277,30 @@ legend {
 }
 
 .table-wrap {
-  overflow: visible;
+  overflow: hidden;
   border: 1px solid #e0e8f3;
   border-radius: 12px;
+  background: #fff;
 }
 
 .table-scroll {
   overflow-x: auto;
+  border-radius: 12px;
 }
 
+.table-controls {
+  gap: 0.95rem;
+}
+
+.table-controls > label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.table-controls select {
+  min-width: 72px;
+}
 table {
   width: 100%;
   min-width: 980px;
@@ -305,6 +320,14 @@ th {
   top: 0;
   z-index: 4;
   background: #f7faff;
+}
+
+thead tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+
+thead tr:first-child th:last-child {
+  border-top-right-radius: 10px;
 }
 
 .sort-btn {
@@ -577,6 +600,10 @@ a { color: #0a4fa8; }
     background: #1b2128;
     color: #f5f7fa;
     border-color: #3a4552;
+  }
+
+  .table-wrap {
+    background: #1b2128;
   }
 
   .site-footer {

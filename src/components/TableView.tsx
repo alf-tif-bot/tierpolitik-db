@@ -130,7 +130,7 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, lang, t 
 
   return (
     <section className="panel">
-      <div className="row wrap">
+      <div className="row wrap table-controls">
         <details>
           <summary>{t.columnsToggle}</summary>
           <div className="chips">
