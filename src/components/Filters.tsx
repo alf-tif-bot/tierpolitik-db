@@ -66,7 +66,7 @@ export function FiltersPanel({ data, filters, onChange, lang, t }: Props) {
       </div>
 
       <div className="row wrap filter-actions">
-        <button type="button" onClick={() => setShowAdvanced((s) => !s)}>
+        <button type="button" className="text-link-btn" onClick={() => setShowAdvanced((s) => !s)}>
           {showAdvanced ? t.detailsSearchHide : t.detailsSearchShow}
         </button>
 

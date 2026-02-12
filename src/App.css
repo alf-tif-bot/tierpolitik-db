@@ -189,6 +189,20 @@ button {
 
 button:hover { background: #eaf2ff; }
 
+.text-link-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #446b9e;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.text-link-btn:hover {
+  background: transparent;
+  color: #2d578f;
+}
+
 .status-badge {
   display: inline-block;
   border-radius: 999px;
@@ -679,6 +693,14 @@ a { color: #0a4fa8; }
     background: #2b3642;
     color: #f8fbff;
     border-color: #5f7387;
+  }
+
+  .text-link-btn {
+    color: #9fcbff;
+  }
+
+  .text-link-btn:hover {
+    color: #c2deff;
   }
 
   .hero-head h1 {
