@@ -226,7 +226,7 @@ a { color: #0a4fa8; }
 }
 
 .footer-logo {
-  height: 1.3rem;
+  height: 2.4rem;
   width: auto;
 }
 
@@ -327,5 +327,9 @@ a { color: #0a4fa8; }
   .project-footer {
     margin-top: 1rem;
     font-size: 0.92rem;
+  }
+
+  .footer-logo {
+    height: 2rem;
   }
 }
