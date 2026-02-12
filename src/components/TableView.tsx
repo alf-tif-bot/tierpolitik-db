@@ -158,11 +158,10 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, lang, t 
             <thead>
               {table.getHeaderGroups().map((hg) => (
                 <tr key={hg.id}>
-                  {hg.headers.map((h, idx) => {
+                  {hg.headers.map((h) => {
                     const sorted = h.column.getIsSorted()
-                    const isSticky = idx === 0
                     return (
-                      <th key={h.id} className={`${isSticky ? 'sticky-col' : ''} ${sorted ? 'is-sorted' : ''}`}>
+                      <th key={h.id} className={sorted ? 'is-sorted' : ''}>
                         <button className="sort-btn" type="button" onClick={h.column.getToggleSortingHandler()}>
                           <span>{flexRender(h.column.columnDef.header, h.getContext())}</span>
                           <span className="sort-indicator" aria-hidden>
@@ -178,7 +177,7 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, lang, t 
             <tbody>
               {table.getRowModel().rows.map((r) => (
                 <tr key={r.id} onClick={() => onOpenDetail(r.original)} tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && onOpenDetail(r.original)}>
-                  {r.getVisibleCells().map((c, idx) => <td key={c.id} className={idx === 0 ? 'sticky-col cell-title' : ''}>{flexRender(c.column.columnDef.cell, c.getContext())}</td>)}
+                  {r.getVisibleCells().map((c, idx) => <td key={c.id} className={idx === 0 ? 'cell-title' : ''}>{flexRender(c.column.columnDef.cell, c.getContext())}</td>)}
                 </tr>
               ))}
             </tbody>
