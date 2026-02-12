@@ -52,13 +52,9 @@ export default function App() {
 
   return (
     <main className="container">
-      <header className="brand-head panel">
-        <img className="brand-logo light" src="/branding/TIF_Logo_gruen_schwarz.png" alt="Tier im Fokus" />
-        <img className="brand-logo dark" src="/branding/TIF_Logo_gruen_weiss.png" alt="Tier im Fokus" />
-        <div>
-          <h1>Tierpolitik Vorstösse Datenbank</h1>
-          <p className="brand-sub">Interne Prototyp-Ansicht im TIF-Stil</p>
-        </div>
+      <header className="panel">
+        <h1>Tierpolitik Vorstösse Datenbank</h1>
+        <p className="brand-sub">Interne Prototyp-Ansicht</p>
       </header>
 
       <FiltersPanel data={data} filters={filters} onChange={setFilters} onReset={() => setFilters(defaultFilters())} activeCount={activeFilterCount} />
@@ -72,6 +68,12 @@ export default function App() {
       <TableView data={filtered} onOpenDetail={openDetail} onVisibleColumnsChange={onVisibleColumnsChange} />
 
       <DetailDrawer item={selected} onClose={closeDetail} />
+
+      <footer className="project-footer">
+        <span>Ein Projekt von</span>
+        <img className="footer-logo light" src="/branding/TIF_Logo_gruen_schwarz.png" alt="Tier im Fokus" />
+        <img className="footer-logo dark" src="/branding/TIF_Logo_gruen_weiss.png" alt="Tier im Fokus" />
+      </footer>
     </main>
   )
 }

@@ -1,13 +1,7 @@
 :root {
-  font-family: 'Poppins', Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: #26282a;
-  background: #fafaff;
-
-  --tif-cedar: #c05c4f;
-  --tif-raisin-black: #26282a;
-  --tif-platinum: #e3e3dd;
-  --tif-ghost-white: #fafaff;
-  --tif-laurel-green: #98ae9a;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #102033;
+  background: #f3f6fb;
 }
 
 * { box-sizing: border-box; }
@@ -19,19 +13,6 @@ body { margin: 0; }
   padding: 1.2rem;
 }
 
-.brand-head {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.brand-logo {
-  width: 180px;
-  height: auto;
-}
-
-.brand-logo.dark { display: none; }
-
 h1 {
   margin: 0 0 0.45rem;
   font-size: 1.55rem;
@@ -40,7 +21,7 @@ h1 {
 
 .brand-sub {
   margin: 0;
-  color: #4a4c4e;
+  color: #455873;
 }
 
 .panel {
@@ -62,18 +43,19 @@ input, select {
   border-radius: 10px;
   padding: 0.5rem 0.6rem;
   background: #fff;
+  color: #102033;
 }
 
 button {
-  border: 1px solid #c7d6cd;
+  border: 1px solid #c3d2e6;
   border-radius: 10px;
   padding: 0.45rem 0.7rem;
-  background: #edf3ee;
+  background: #f4f8ff;
   cursor: pointer;
-  color: var(--tif-raisin-black);
+  color: #102033;
 }
 
-button:hover { background: #e2ebe4; }
+button:hover { background: #eaf2ff; }
 
 .status-badge {
   display: inline-block;
@@ -92,7 +74,7 @@ button:hover { background: #e2ebe4; }
 .status-zurueckgezogen { background: #f7eefe; color: #6e2a9e; border-color: #ddc2f6; }
 
 .chip { border-radius: 999px; padding: 0.35rem 0.75rem; }
-.chip.active { background: #dfe9e2; border-color: #98ae9a; }
+.chip.active { background: #dbeaff; border-color: #95b7ea; }
 
 .filter-grid {
   display: grid;
@@ -134,7 +116,7 @@ th, td {
   vertical-align: top;
 }
 
-th { position: static; background: #f4f7f3; }
+th { position: static; background: #f7faff; }
 
 tbody tr { cursor: pointer; }
 tbody tr:hover { background: #f8fbff; }
@@ -162,7 +144,7 @@ tbody tr:hover { background: #f8fbff; }
   box-shadow: 0 22px 50px rgb(7 17 35 / 35%);
 }
 
-a { color: var(--tif-cedar); }
+a { color: #0a4fa8; }
 
 .drawer-head { justify-content: space-between; }
 .drawer h2 { margin: 0; font-size: 1.4rem; }
@@ -171,55 +153,73 @@ a { color: var(--tif-cedar); }
 .drawer ul { margin: 0; padding-left: 1.1rem; }
 .drawer li { margin: 0.35rem 0; }
 
+.project-footer {
+  margin: 1.2rem 0 0.4rem;
+  padding: 0.8rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: #55657b;
+}
+
+.footer-logo {
+  height: 1.3rem;
+  width: auto;
+}
+
+.footer-logo.dark { display: none; }
+
 @media (prefers-color-scheme: dark) {
   body {
-    background: var(--tif-raisin-black);
-    color: var(--tif-platinum);
+    background: #111418;
+    color: #f5f7fa;
   }
 
   .panel,
   table,
   .drawer {
-    background: #1f2123;
-    color: var(--tif-platinum);
-    border-color: #323538;
+    background: #1b2128;
+    color: #f5f7fa;
+    border-color: #3a4552;
   }
 
-  th { background: #262a2d; }
-  td { border-bottom-color: #323538; }
-  tbody tr:hover { background: #2b3034; }
+  .brand-sub,
+  .project-footer {
+    color: #c7d0dc;
+  }
+
+  th {
+    background: #242c35;
+    color: #f5f7fa;
+  }
+
+  td { border-bottom-color: #35404d; }
+  tbody tr:hover { background: #27313c; }
 
   input,
   select {
-    background: #262a2d;
-    color: var(--tif-platinum);
-    border-color: #3a4045;
+    background: #242c35;
+    color: #f5f7fa;
+    border-color: #4a596a;
   }
 
   button {
-    background: #314338;
-    border-color: #4f6a58;
-    color: var(--tif-ghost-white);
+    background: #2b3642;
+    border-color: #5f7387;
+    color: #f8fbff;
   }
 
-  button:hover { background: #3a4f43; }
+  button:hover { background: #3a4756; }
 
-  .brand-logo.light { display: none; }
-  .brand-logo.dark { display: block; }
+  a { color: #8cc4ff; }
+
+  .footer-logo.light { display: none; }
+  .footer-logo.dark { display: block; }
 }
 
 @media (max-width: 760px) {
   .container { padding: 0.7rem; }
   h1 { font-size: 1.25rem; }
-
-  .brand-head {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .brand-logo {
-    width: 150px;
-  }
 
   .panel {
     padding: 0.75rem;
@@ -231,4 +231,9 @@ a { color: var(--tif-cedar); }
   .chips { gap: 0.35rem; }
   .chip { padding: 0.3rem 0.62rem; font-size: 0.88rem; }
   .drawer { width: 100%; padding: 0.85rem; }
+
+  .project-footer {
+    margin-top: 1rem;
+    font-size: 0.92rem;
+  }
 }
