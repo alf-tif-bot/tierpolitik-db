@@ -103,7 +103,7 @@ h1 {
 
 .brand-sub {
   margin: 0;
-  color: #b9c9dc;
+  color: #5f7088;
   font-size: 1.02rem;
 }
 
@@ -938,6 +938,24 @@ a { color: #0a4fa8; }
   border-color: #dde5f0;
 }
 
+:root[data-theme='light'] .hero-head h1 {
+  background: linear-gradient(90deg, #173a64 0%, #27568f 55%, #3a78c2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+:root[data-theme='light'] .brand-sub,
+:root[data-theme='light'] .db-intro p,
+:root[data-theme='light'] .advanced-hint,
+:root[data-theme='light'] .drawer-summary {
+  color: #5f7088;
+}
+
+:root[data-theme='light'] .db-intro h2 {
+  color: #1f3f66;
+}
+
 :root[data-theme='light'] th { background: #f7faff; color: #102033; }
 :root[data-theme='light'] td { border-bottom-color: #edf2f9; }
 :root[data-theme='light'] tbody tr:nth-child(even) td { background: #fbfdff; }
@@ -950,6 +968,8 @@ a { color: #0a4fa8; }
 :root[data-theme='light'] .language-switch .chip.active { background: transparent; border: none; }
 :root[data-theme='light'] .language-switch .chip { color: #6f8098; }
 :root[data-theme='light'] .language-switch .chip.active { color: #274d7f; }
+:root[data-theme='light'] .text-link-btn { color: #446b9e; }
+:root[data-theme='light'] .text-link-btn:hover { color: #2d578f; }
 
 @media (max-width: 760px) {
   .container { padding: 0.7rem; }
