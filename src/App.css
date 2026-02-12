@@ -53,6 +53,9 @@ h1 {
   background: transparent;
   flex: 0 0 auto;
 }
+
+.logo-dark { display: none; }
+.logo-light { display: block; }
 .language-switch {
   margin-bottom: 0;
   color: #6a7a92;
@@ -924,6 +927,8 @@ a { color: #0a4fa8; }
 :root[data-theme='dark'] .language-switch .chip.active { background: transparent; border: none; box-shadow: none; }
 :root[data-theme='dark'] .language-switch .chip { color: #aebed1; }
 :root[data-theme='dark'] .language-switch .chip.active { color: #f0f6ff; }
+:root[data-theme='dark'] .logo-dark { display: block; }
+:root[data-theme='dark'] .logo-light { display: none; }
 
 :root[data-theme='light'] body {
   background: #f3f6fb;
@@ -968,6 +973,8 @@ a { color: #0a4fa8; }
 :root[data-theme='light'] .language-switch .chip.active { background: transparent; border: none; }
 :root[data-theme='light'] .language-switch .chip { color: #6f8098; }
 :root[data-theme='light'] .language-switch .chip.active { color: #274d7f; }
+:root[data-theme='light'] .logo-light { display: block; }
+:root[data-theme='light'] .logo-dark { display: none; }
 :root[data-theme='light'] .text-link-btn { color: #446b9e; }
 :root[data-theme='light'] .text-link-btn:hover { color: #2d578f; }
 
