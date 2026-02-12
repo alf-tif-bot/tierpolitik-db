@@ -257,6 +257,10 @@ a { color: #0a4fa8; }
   color: #55657b;
 }
 
+.project-footer a {
+  line-height: 0;
+}
+
 .footer-logo {
   height: 2.4rem;
   width: auto;

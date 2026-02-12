@@ -89,8 +89,10 @@ export default function App() {
 
       <footer className="project-footer">
         <span>{t.projectBy}</span>
-        <img className="footer-logo light" src="/branding/TIF_Logo_gruen_schwarz.png" alt="Tier im Fokus" />
-        <img className="footer-logo dark" src="/branding/TIF_Logo_gruen_weiss.png" alt="Tier im Fokus" />
+        <a href="https://www.tierimfokus.ch" target="_blank" rel="noopener noreferrer" aria-label="Tier im Fokus Website">
+          <img className="footer-logo light" src="/branding/TIF_Logo_gruen_schwarz.png" alt="Tier im Fokus" />
+          <img className="footer-logo dark" src="/branding/TIF_Logo_gruen_weiss.png" alt="Tier im Fokus" />
+        </a>
       </footer>
     </main>
   )
