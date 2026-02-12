@@ -30,7 +30,6 @@ export function matchesGlobal(v: Vorstoss, query: string): boolean {
     v.kurzbeschreibung,
     v.geschaeftsnummer,
     ...v.einreichende.map((p) => `${p.name} ${p.partei}`),
-    ...v.schlagwoerter,
     ...v.themen,
   ].join(' ')
 
@@ -44,7 +43,6 @@ export function applyFilters(data: Vorstoss[], f: Filters): Vorstoss[] {
     if (f.status.length && !f.status.includes(v.status)) return false
     if (f.kantone.length && (!v.kanton || !f.kantone.includes(v.kanton))) return false
     if (f.themen.length && !f.themen.some((t) => v.themen.includes(t))) return false
-    if (f.schlagwoerter.length && !f.schlagwoerter.some((t) => v.schlagwoerter.includes(t))) return false
     if (f.von && v.datumEingereicht < f.von) return false
     if (f.bis && v.datumEingereicht > f.bis) return false
     return true

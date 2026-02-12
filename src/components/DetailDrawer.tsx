@@ -36,7 +36,6 @@ export function DetailDrawer({ item, onClose, lang, t }: Props) {
         <p><strong>{t.status}:</strong> <span className={`status-badge status-${item.status.toLowerCase().replace(/\s+/g, '-')}`}>{translateStatus(item.status, lang)}</span></p>
         <p><strong>{t.dateSubmitted}:</strong> {formatDateCH(item.datumEingereicht)}</p>
         <p><strong>{t.themes}:</strong> {item.themen.map((v) => translateContent(v, lang)).join(', ')}</p>
-        <p><strong>{t.keywords}:</strong> {item.schlagwoerter.map((v) => translateContent(v, lang)).join(', ')}</p>
         <p><strong>{t.submitters}:</strong> {item.einreichende.map((p) => `${p.name} (${p.partei})`).join(', ')}</p>
 
         <div className="row wrap">

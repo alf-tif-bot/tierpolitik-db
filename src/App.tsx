@@ -51,7 +51,6 @@ export default function App() {
     filters.status.length,
     filters.kantone.length,
     filters.themen.length,
-    filters.schlagwoerter.length,
   ].filter(Boolean).length
 
   const onVisibleColumnsChange = useCallback((cols: { key: string; label: string }[]) => {
