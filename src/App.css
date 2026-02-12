@@ -82,6 +82,14 @@ h1 {
   margin-bottom: 0.35rem;
 }
 
+.footer-blurb {
+  margin: 0.6rem 0 0;
+  max-width: 720px;
+  color: #c7d8ec;
+  line-height: 1.45;
+  font-size: 0.94rem;
+}
+
 .site-header-top {
   display: flex;
   justify-content: space-between;

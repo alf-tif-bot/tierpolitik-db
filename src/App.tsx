@@ -93,6 +93,7 @@ export default function App() {
               <img src="/branding/TIF_Logo_Button.png" alt="Tier im Fokus" />
               <strong>tier im fokus</strong>
             </a>
+            <p className="footer-blurb">Tier im Fokus (TIF) wurde 2025 als erste Tierrechtsorganisation der Schweiz in ein Parlament gewählt und vertritt seither die Interessen der Tiere im Berner Stadtrat. Sie setzt sich dafür ein, dass Tiere eine politische Stimme erhalten.</p>
           </div>
 
           <nav className="site-nav" aria-label="Tier im Fokus Links">
