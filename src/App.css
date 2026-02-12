@@ -122,8 +122,8 @@ h1 {
 .site-footer {
   margin-top: 1.3rem;
   padding: 1rem 1.1rem;
-  background: linear-gradient(180deg, #0f172a 0%, #0b1220 100%);
-  border-color: #253247;
+  background: linear-gradient(180deg, #0F172A 0%, #0B1220 100%);
+  border: none;
   color: #9ca3af;
 }
 
@@ -712,8 +712,8 @@ a { color: #0a4fa8; }
   }
 
   .site-footer {
-    background: linear-gradient(180deg, #0f172a 0%, #0b1220 100%);
-    border-color: #253247;
+    background: linear-gradient(180deg, #0F172A 0%, #0B1220 100%);
+    border: none;
   }
 
   .support-label,
@@ -916,7 +916,7 @@ a { color: #0a4fa8; }
 
 :root[data-theme='dark'] .table-wrap { background: #1b2128; }
 :root[data-theme='dark']
-:root[data-theme='dark'] .site-footer { background: linear-gradient(180deg, #0f172a 0%, #0b1220 100%); border-color: #253247; }
+:root[data-theme='dark'] .site-footer { background: linear-gradient(180deg, #0F172A 0%, #0B1220 100%); border: none; }
 :root[data-theme='dark'] .site-nav a { color: #c7d2fe; border-color: #3b4a62; background: transparent; }
 :root[data-theme='dark'] .site-nav a:hover { background: rgb(199 210 254 / 8%); }
 :root[data-theme='dark'] .brand-sub,
