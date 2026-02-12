@@ -1,131 +1,103 @@
-# tierpolitik-vorstoesse-db
+# Tierpolitik Vorstoesse DB (Vite + React + TypeScript)
 
-Vollstaendiger Prototyp fuer eine durchsuchbare Datenbank zu tierpolitischen Vorstoessen in der Schweiz.
+Statischer Prototyp einer Notion-artigen Datenbank fuer politische Tierpolitik-Vorstoesse.
 
-## Tech Stack
+## Tech
 
 - Vite + React + TypeScript
-- TanStack Table (Sortierung, Pagination, Spaltensteuerung)
-- zod (Schema-Validierung fuer Daten)
+- Einfache CSS
+- TanStack Table
+- zod (Schema + Startvalidierung)
 
-## Setup
+## Projektstruktur
+
+- `data/vorstoesse.json`
+- `src/types.ts`
+- `src/components` (Table, Filters, DetailDrawer, Export)
+- `src/utils` (filtering, csv, urlHash)
+- `src/main.tsx`, `src/App.tsx`
+- `.github/workflows/deploy.yml`
+
+## Lokal starten
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Build pruefen:
+Build testen:
 
 ```bash
 npm run build
-npm run preview
 ```
 
-## Datenablage
+## JSON erweitern (Pflicht)
 
-Die Daten liegen in:
+Datei: `data/vorstoesse.json`
 
-- `public/data/vorstoesse.json` (wird von der App geladen)
-- `data/vorstoesse.json` (gleicher Inhalt als Repo-Datenquelle)
+### Pflichtfelder je Eintrag
 
-Die App laedt `BASE_URL + data/vorstoesse.json` und validiert mit zod beim Start.
-
-## Datenpflege
-
-### Pflichtfelder
-
-Alle Felder des Schemas sind verpflichtend, ausser `parteien` (optional). Felder mit `null` muessen vorhanden sein und explizit `null` enthalten, falls kein Wert bekannt ist.
+- `id` (Format: `vp-...`, eindeutig)
+- `titel`
+- `kurzbeschreibung`
+- `geschaeftsnummer`
+- `ebene` (`Bund | Kanton | Gemeinde`)
+- `kanton` (`string | null`)
+- `regionGemeinde` (`string | null`)
+- `status` (`Eingereicht | In Beratung | Angenommen | Abgelehnt | Abgeschrieben`)
+- `datumEingereicht` (ISO `YYYY-MM-DD`)
+- `datumAktualisiert` (ISO `YYYY-MM-DD`)
+- `themen` (Array)
+- `schlagwoerter` (Array)
+- `einreichende` (Array von Objekten `{name, rolle, partei}`)
+- `linkGeschaeft` (URL)
+- `resultate` (Array von `{datum, status, bemerkung}`)
+- `medien` (Array von `{datum, titel, quelle, url}`)
+- `metadaten` (`{sprache: de|fr|it, zuletztGeprueftVon}`)
 
 ### ID-Vergabe
 
-Empfehlung: stabile, sprechende IDs wie:
+- Stabil und eindeutig, z. B. `vp-2026-21`
+- Keine Wiederverwendung bestehender IDs
 
-- `ch-kt-zh-2026-001`
-- `ch-kom-bern-2025-014`
+### Schemafehler + Fix
 
-Wichtig:
+- Bei falschem Enum, Datum oder fehlendem Pflichtfeld bricht die Startvalidierung (zod) mit Fehler ab.
+- Fix: Feld korrigieren, App neu laden.
 
-- IDs duerfen nicht doppelt vorkommen
-- IDs sollten sich nach Publikation nicht mehr aendern (Permalinks mit `#id`)
+## Features
 
-### Schemafehler erkennen
+- Tabellenansicht mit Sortierung pro Spaltenklick
+- Globale Suche ueber Titel/Kurzbeschreibung/Geschaeftsnummer/Personen/Schlagwoerter/Themen
+- Multi-Filter (Ebene/Status/Kanton/Themen/Schlagwoerter + Zeitraum)
+- Quick-Filter Chips (Nur Kantonal, In Beratung, Letzte 90 Tage)
+- Spalten ein-/ausblenden
+- Pagination 10/25/50
+- Trefferanzahl + aktive Filter + Reset
+- Detail-Drawer (Zeilenklick) mit allen Feldern und Timeline (Resultate + Medien chronologisch)
+- Link kopieren (`#id` Permalink) + Geschaeft oeffnen
+- Hash-Routing: bei `#id` wird passender Eintrag direkt geoeffnet
+- Export: CSV (sichtbare Spalten oder alle), optional JSON (gefiltert)
+- Responsiv mit horizontalem Tabellen-Scroll
 
-Beim Laden validiert die App die JSON-Datei via zod. Bei Fehlern erscheint eine Fehlermeldung in der UI.
-Typische Fehler:
+## GitHub Pages Setup (Variante 1, via Actions)
 
-- Ungueltige URL (`link_geschaeft`, Dokument- oder Medienlinks)
-- Ungueltige ISO-Datumsstrings
-- Fehlende Pflichtfelder
-- Falsche Enum-Werte (z. B. Status)
-
-## Funktionen im Prototyp
-
-1. **Tabellenansicht**
-   - Spalten: Titel, Ebene, Kanton, Region/Gemeinde, Status, Datum eingereicht, Schlagwoerter, Einreichende, Link
-   - Sortierung
-   - Globale Suche
-   - Filter: Ebene, Status, Kanton, Themen, Schlagwoerter, Zeitraum von/bis
-   - Quick Chips: Nur Kantonal, In Beratung, Letzte 90 Tage
-   - Spalten ein/ausblenden
-   - Pagination 10/25/50
-   - Trefferanzahl, aktive Filter, Reset
-
-2. **Detailansicht (Drawer/Modal)**
-   - Anzeige aller Felder
-   - Chronologische Timeline aus Resultaten und Medien
-   - Buttons: Link kopieren (Permalink `#id`), Geschaeft oeffnen
-   - Direkter Aufruf via URL-Hash (`#id`)
-
-3. **Export**
-   - CSV Export gefilterte Daten (sichtbare Spalten oder alle)
-   - JSON Export gefilterte Daten
-
-4. **Mobile**
-   - Responsive Layout
-   - Horizontales Scrollen fuer Tabelle
-   - Filter auf kleinen Screens nutzbar
-
-## GitHub Pages Deployment (Step-by-step)
-
-1. Repo nach GitHub pushen (Branch `main`)
-2. In GitHub: **Settings -> Pages**
-3. Source auf **GitHub Actions** setzen
-4. Push auf `main` startet `.github/workflows/deploy.yml`
-5. Nach erfolgreichem Run ist die Seite unter der Pages-URL erreichbar
-
-Workflow nutzt:
-
-- `actions/configure-pages`
-- `actions/upload-pages-artifact`
-- `actions/deploy-pages`
-
-## Base Path und GH Pages
-
-`vite.config.ts` setzt `base` automatisch:
-
-- In GitHub Actions mit `GITHUB_REPOSITORY`: `/<repo-name>/`
-- Lokal/default: `/`
-
-Damit funktionieren Assets sowohl lokal als auch auf GitHub Pages.
+1. Neues GitHub-Repo erstellen.
+2. Projekt auf Branch `main` pushen.
+3. In GitHub: **Settings -> Pages -> Build and deployment**.
+4. **Source = GitHub Actions** setzen.
+5. Workflow `Deploy to GitHub Pages` laeuft bei Push auf `main`.
+6. URL nach Deploy im Actions-Run (Job `deploy`) oder in Settings -> Pages.
 
 ## Stolperfallen
 
-1. **Falscher Base Path**
-   - Symptom: leere Seite, fehlende JS/CSS Assets
-   - Loesung: `vite.config.ts` mit dynamischem `base` wie im Projekt
+- **Base Path**: Fuer Pages muss Vite `base` korrekt setzen (hier via `GITHUB_REPOSITORY`, Fallback `'/tierpolitik-vorstoesse-db/'`).
+- **404 bei Refresh**: Ohne Hash-Routing kann ein direkter Deep-Link auf statischen Hosts 404 geben. Dieser Prototyp nutzt `#id`-Links fuer Details.
 
-2. **404 bei Browser-Refresh auf Unterpfaden**
-   - Da der Prototyp Hash-Links (`#id`) nutzt, entstehen keine echten Client-Routen.
-   - Direkte Aufrufe mit `#id` funktionieren auf GitHub Pages ohne extra Router-Fallback.
+## Kurze Ausbauschritte
 
-3. **Ungueltige Daten**
-   - zod-Validierung stoppt das Laden bei Schemafehlern.
-
-## Ausbauideen
-
-- API-Anbindung statt statischer JSON-Datei
-- Admin-UI oder CMS fuer Datenpflege
-- Authentifizierung und Rollen (Redaktion, Review, Public)
-- Import-Pipeline aus Google Sheets/CSV
-- Volltextsuche (z. B. Meilisearch, OpenSearch)
+- API statt JSON (Backend + Persistenz)
+- Admin-UI/CMS fuer Pflege
+- Auth/Rollen fuer Redaktion
+- Import aus Google Sheets
+- Volltextsuche (z. B. MiniSearch/Meilisearch)
