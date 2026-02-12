@@ -11,8 +11,6 @@ export type Filters = {
   bis: string
 }
 
-const ALL_CH = 'CH (ganze Schweiz)'
-
 const normalizeUmlauts = (value: string) =>
   value
     .toLowerCase()
@@ -44,12 +42,7 @@ export function applyFilters(data: Vorstoss[], f: Filters): Vorstoss[] {
     if (!matchesGlobal(v, f.globalQuery)) return false
     if (f.ebenen.length && !f.ebenen.includes(v.ebene)) return false
     if (f.status.length && !f.status.includes(v.status)) return false
-    if (f.kantone.length) {
-      const wantsNational = f.kantone.includes(ALL_CH)
-      const matchesNational = wantsNational && !v.kanton
-      const matchesKanton = !!v.kanton && f.kantone.includes(v.kanton)
-      if (!matchesNational && !matchesKanton) return false
-    }
+    if (f.kantone.length && (!v.kanton || !f.kantone.includes(v.kanton))) return false
     if (f.themen.length && !f.themen.some((t) => v.themen.includes(t))) return false
     if (f.schlagwoerter.length && !f.schlagwoerter.some((t) => v.schlagwoerter.includes(t))) return false
     if (f.von && v.datumEingereicht < f.von) return false
