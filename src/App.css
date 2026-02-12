@@ -300,6 +300,7 @@ button:hover { background: #eaf2ff; }
 
 .filter-actions {
   margin-top: 0.35rem;
+  padding-left: 0.35rem;
 }
 
 .advanced-search {
