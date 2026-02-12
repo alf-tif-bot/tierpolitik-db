@@ -78,9 +78,10 @@ export default function App() {
 
       <FiltersPanel data={data} filters={filters} onChange={setFilters} lang={lang} t={t} />
 
-      <div className="row wrap">
-        <strong>{t.results}: {filtered.length}</strong>
-      </div>
+      <section className="db-intro">
+        <h2>{t.dbIntroTitle}</h2>
+        <p>{t.dbIntroSubtitle}</p>
+      </section>
 
       <TableView data={filtered} onOpenDetail={openDetail} onVisibleColumnsChange={onVisibleColumnsChange} lang={lang} t={t} />
 

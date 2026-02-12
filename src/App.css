@@ -196,6 +196,8 @@ button:hover { background: #eaf2ff; }
   color: #446b9e;
   text-decoration: underline;
   text-underline-offset: 3px;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .text-link-btn:hover {
@@ -254,6 +256,24 @@ button:hover { background: #eaf2ff; }
 
 .advanced-hint {
   color: #5f7088;
+}
+
+.db-intro {
+  margin: 0.95rem 0 0.55rem;
+  padding: 0.75rem 0.05rem 0.55rem;
+  border-bottom: 1px solid #d8e2ef;
+}
+
+.db-intro h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #1f3f66;
+}
+
+.db-intro p {
+  margin: 0.32rem 0 0;
+  color: #5f7088;
+  font-size: 0.94rem;
 }
 
 .filter-grid label { display: grid; gap: 0.3rem; }
@@ -663,6 +683,18 @@ a { color: #0a4fa8; }
   .advanced-hint,
   .drawer-summary {
     color: #c7d0dc;
+  }
+
+  .db-intro {
+    border-bottom-color: #3a4552;
+  }
+
+  .db-intro h2 {
+    color: #deebfb;
+  }
+
+  .db-intro p {
+    color: #aebed1;
   }
 
   .detail-card {

@@ -22,6 +22,8 @@ export type I18nText = {
   subtitle: string
   language: string
   results: string
+  dbIntroTitle: string
+  dbIntroSubtitle: string
   projectBy: string
   search: string
   searchPlaceholder: string
@@ -72,6 +74,8 @@ export const i18n: Record<Language, I18nText> = {
     subtitle: 'Die wichtigsten parlamentarischen Vorstösse rund um Tierschutz und Tierrechte.',
     language: 'Sprache',
     results: 'Fälle',
+    dbIntroTitle: 'Politische Vorstösse im Überblick',
+    dbIntroSubtitle: 'Hier siehst du die wichtigsten Geschäfte auf einen Blick und kannst direkt in die Details eintauchen.',
     projectBy: 'Ein Projekt von',
     search: 'Suche',
     searchPlaceholder: 'Titel, Kurzbeschreibung, Geschäftsnummer ...',
@@ -116,6 +120,8 @@ export const i18n: Record<Language, I18nText> = {
     subtitle: 'Les principales interventions parlementaires sur la protection et les droits des animaux.',
     language: 'Langue',
     results: 'Résultats',
+    dbIntroTitle: 'Vue d’ensemble des interventions politiques',
+    dbIntroSubtitle: 'Retrouvez ici les objets principaux et accédez directement aux détails.',
     projectBy: 'Un projet de',
     search: 'Recherche',
     searchPlaceholder: 'Titre, description, numéro d’objet ...',
@@ -160,6 +166,8 @@ export const i18n: Record<Language, I18nText> = {
     subtitle: 'Le principali iniziative parlamentari su protezione e diritti degli animali.',
     language: 'Lingua',
     results: 'Risultati',
+    dbIntroTitle: 'Panoramica delle iniziative politiche',
+    dbIntroSubtitle: 'Qui trovi gli atti principali e puoi aprire subito i dettagli.',
     projectBy: 'Un progetto di',
     search: 'Ricerca',
     searchPlaceholder: 'Titolo, descrizione, numero dell’atto ...',
@@ -204,6 +212,8 @@ export const i18n: Record<Language, I18nText> = {
     subtitle: 'Key parliamentary initiatives on animal protection and animal rights.',
     language: 'Language',
     results: 'Results',
+    dbIntroTitle: 'Political initiatives at a glance',
+    dbIntroSubtitle: 'See the key motions here and jump directly into the details.',
     projectBy: 'A project by',
     search: 'Search',
     searchPlaceholder: 'Title, summary, reference number ...',
