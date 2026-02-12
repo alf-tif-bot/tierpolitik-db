@@ -125,14 +125,13 @@ h1 {
   flex-wrap: wrap;
 }
 
-.support-logo {
+.support-logo-img {
+  height: 40px;
+  width: auto;
   border: 1px solid #cfdae7;
   background: #f5f9ff;
-  color: #354a66;
-  border-radius: 999px;
-  padding: 0.2rem 0.6rem;
-  font-size: 0.82rem;
-  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.2rem;
 }
 
 .row { display: flex; gap: 0.6rem; align-items: center; }
@@ -442,10 +441,9 @@ a { color: #0a4fa8; }
     color: #b9c7d6;
   }
 
-  .support-logo {
+  .support-logo-img {
     border-color: #55667a;
     background: #2a3441;
-    color: #dbe6f4;
   }
 
   .brand-sub,
