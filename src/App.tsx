@@ -181,7 +181,7 @@ export default function App() {
         t={t}
       />
 
-      <ExportButtons filtered={filtered} visibleColumns={visibleColumns} allColumns={allColumnsMeta} t={t} />
+      <ExportButtons filtered={filtered} visibleColumns={visibleColumns} t={t} />
 
       <DetailDrawer
         item={selected}

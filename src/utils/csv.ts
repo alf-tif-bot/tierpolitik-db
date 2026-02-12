@@ -9,6 +9,7 @@ export function buildCsv(rows: Vorstoss[], columns: { key: string; label: string
       id: r.id,
       titel: r.titel,
       ebene: r.ebene,
+      typ: r.typ,
       kanton: r.kanton ?? '',
       regionGemeinde: r.regionGemeinde ?? '',
       status: r.status,

@@ -5,15 +5,13 @@ import { buildCsv, downloadText } from '../utils/csv'
 type Props = {
   filtered: Vorstoss[]
   visibleColumns: { key: string; label: string }[]
-  allColumns: { key: string; label: string }[]
   t: I18nText
 }
 
-export function ExportButtons({ filtered, visibleColumns, allColumns, t }: Props) {
-  const exportCsv = (mode: 'visible' | 'all') => {
-    const columns = mode === 'visible' ? visibleColumns : allColumns
-    const csv = buildCsv(filtered, columns)
-    downloadText(`vorstoesse-${mode}.csv`, csv, 'text/csv;charset=utf-8')
+export function ExportButtons({ filtered, visibleColumns, t }: Props) {
+  const exportCsv = () => {
+    const csv = buildCsv(filtered, visibleColumns)
+    downloadText('vorstoesse-tabellenansicht.csv', csv, 'text/csv;charset=utf-8')
   }
 
   const exportJson = () => {
@@ -28,21 +26,10 @@ export function ExportButtons({ filtered, visibleColumns, allColumns, t }: Props
         className="export-link"
         onClick={(e) => {
           e.preventDefault()
-          exportCsv('visible')
+          exportCsv()
         }}
       >
-        {t.csvVisible}
-      </a>
-      <span className="export-sep">·</span>
-      <a
-        href="#"
-        className="export-link"
-        onClick={(e) => {
-          e.preventDefault()
-          exportCsv('all')
-        }}
-      >
-        {t.csvAll}
+        CSV (Tabellenansicht)
       </a>
       <span className="export-sep">·</span>
       <a
