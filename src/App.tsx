@@ -20,6 +20,10 @@ type ProfileState =
 
 export default function App() {
   const [lang, setLang] = useState<Language>('de')
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    if (typeof window === 'undefined') return 'light'
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  })
   const [filters, setFilters] = useState<Filters>(defaultFilters)
   const [selected, setSelected] = useState<Vorstoss | null>(null)
   const [profile, setProfile] = useState<ProfileState>(null)
@@ -35,6 +39,18 @@ export default function App() {
     const hit = data.find((v) => v.id === id)
     if (hit) setSelected(hit)
   }, [])
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('tierpolitik.theme')
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      setTheme(savedTheme)
+    }
+  }, [])
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('tierpolitik.theme', theme)
+  }, [theme])
 
   useEffect(() => {
     setVisibleColumns(allColumnsMeta.slice(0, 8))
@@ -71,6 +87,9 @@ export default function App() {
                   {languageNames[code]}
                 </button>
               ))}
+              <span className="switch-sep">|</span>
+              <button className={theme === 'light' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('light')}>WHITE</button>
+              <button className={theme === 'dark' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('dark')}>DARK</button>
             </div>
           </div>
         </div>
