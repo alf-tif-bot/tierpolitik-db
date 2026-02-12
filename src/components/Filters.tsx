@@ -16,7 +16,10 @@ function toggleValue<T extends string>(arr: T[], value: T): T[] {
 export function FiltersPanel({ data, filters, onChange, onReset, activeCount }: Props) {
   const ebenen = ['Bund', 'Kanton', 'Gemeinde'] as Ebene[]
   const statuses = ['Eingereicht', 'In Beratung', 'Angenommen', 'Abgelehnt', 'Abgeschrieben'] as Status[]
-  const kantone = [...new Set(data.map((d) => d.kanton).filter(Boolean) as string[])].sort()
+  const kantone = [
+    'AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU', 'NE',
+    'NW', 'OW', 'SG', 'SH', 'SO', 'SZ', 'TG', 'TI', 'UR', 'VD', 'VS', 'ZG', 'ZH',
+  ]
   const themen = [...new Set(data.flatMap((d) => d.themen))].sort()
   const schlagwoerter = [...new Set(data.flatMap((d) => d.schlagwoerter))].sort()
 
