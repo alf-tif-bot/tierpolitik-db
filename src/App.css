@@ -271,9 +271,13 @@ legend {
 }
 
 .table-wrap {
-  overflow-x: auto;
+  overflow: visible;
   border: 1px solid #e0e8f3;
   border-radius: 12px;
+}
+
+.table-scroll {
+  overflow-x: auto;
 }
 
 table {

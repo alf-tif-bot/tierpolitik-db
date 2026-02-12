@@ -151,35 +151,37 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, lang, t 
       </div>
 
       <div className="table-wrap">
-        <table>
-          <thead>
-            {table.getHeaderGroups().map((hg) => (
-              <tr key={hg.id}>
-                {hg.headers.map((h, idx) => {
-                  const sorted = h.column.getIsSorted()
-                  const isSticky = idx === 0
-                  return (
-                    <th key={h.id} className={`${isSticky ? 'sticky-col' : ''} ${sorted ? 'is-sorted' : ''}`}>
-                      <button className="sort-btn" type="button" onClick={h.column.getToggleSortingHandler()}>
-                        <span>{flexRender(h.column.columnDef.header, h.getContext())}</span>
-                        <span className="sort-indicator" aria-hidden>
-                          {sorted === 'asc' ? '▲' : sorted === 'desc' ? '▼' : '↕'}
-                        </span>
-                      </button>
-                    </th>
-                  )
-                })}
-              </tr>
-            ))}
-          </thead>
-          <tbody>
-            {table.getRowModel().rows.map((r) => (
-              <tr key={r.id} onClick={() => onOpenDetail(r.original)} tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && onOpenDetail(r.original)}>
-                {r.getVisibleCells().map((c, idx) => <td key={c.id} className={idx === 0 ? 'sticky-col cell-title' : ''}>{flexRender(c.column.columnDef.cell, c.getContext())}</td>)}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="table-scroll">
+          <table>
+            <thead>
+              {table.getHeaderGroups().map((hg) => (
+                <tr key={hg.id}>
+                  {hg.headers.map((h, idx) => {
+                    const sorted = h.column.getIsSorted()
+                    const isSticky = idx === 0
+                    return (
+                      <th key={h.id} className={`${isSticky ? 'sticky-col' : ''} ${sorted ? 'is-sorted' : ''}`}>
+                        <button className="sort-btn" type="button" onClick={h.column.getToggleSortingHandler()}>
+                          <span>{flexRender(h.column.columnDef.header, h.getContext())}</span>
+                          <span className="sort-indicator" aria-hidden>
+                            {sorted === 'asc' ? '▲' : sorted === 'desc' ? '▼' : '↕'}
+                          </span>
+                        </button>
+                      </th>
+                    )
+                  })}
+                </tr>
+              ))}
+            </thead>
+            <tbody>
+              {table.getRowModel().rows.map((r) => (
+                <tr key={r.id} onClick={() => onOpenDetail(r.original)} tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && onOpenDetail(r.original)}>
+                  {r.getVisibleCells().map((c, idx) => <td key={c.id} className={idx === 0 ? 'sticky-col cell-title' : ''}>{flexRender(c.column.columnDef.cell, c.getContext())}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div className="row pagination-row">
