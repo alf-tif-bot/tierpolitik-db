@@ -88,6 +88,28 @@ button:hover { background: #eaf2ff; }
   margin-bottom: 0.8rem;
 }
 
+.compact-search-grid {
+  grid-template-columns: minmax(260px, 1fr);
+}
+
+.compact-search-row {
+  margin-bottom: 0.15rem;
+}
+
+.filter-actions {
+  margin-top: 0.35rem;
+}
+
+.advanced-search {
+  margin-top: 0.75rem;
+  border-top: 1px dashed #d6e0ee;
+  padding-top: 0.75rem;
+}
+
+.advanced-hint {
+  color: #5f7088;
+}
+
 .filter-grid label, fieldset { display: grid; gap: 0.3rem; }
 .multi-row { display: grid; gap: 0.8rem; }
 
@@ -218,8 +240,13 @@ a { color: #0a4fa8; }
   .brand-sub,
   .project-footer,
   .export-label,
-  .export-sep {
+  .export-sep,
+  .advanced-hint {
     color: #c7d0dc;
+  }
+
+  .advanced-search {
+    border-top-color: #455261;
   }
 
   .export-link {
