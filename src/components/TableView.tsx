@@ -6,7 +6,6 @@ import {
   useReactTable,
   type ColumnDef,
   type SortingState,
-  type VisibilityState,
 } from '@tanstack/react-table'
 import { useEffect, useMemo, useState } from 'react'
 import type { I18nText, Language } from '../i18n'
@@ -16,15 +15,10 @@ import { formatDateCH } from '../utils/date'
 
 export const getAllColumnsMeta = (t: I18nText) => [
   { key: 'titel', label: t.titleCol },
-  { key: 'ebene', label: t.level },
-  { key: 'kanton', label: t.canton },
-  { key: 'regionGemeinde', label: t.region },
   { key: 'status', label: t.status },
   { key: 'datumEingereicht', label: t.dateSubmitted },
-  { key: 'linkGeschaeft', label: 'Link' },
-  { key: 'geschaeftsnummer', label: t.businessNo },
-  { key: 'themen', label: t.themes },
-  { key: 'kurzbeschreibung', label: t.shortDescription },
+  { key: 'ebene', label: t.level },
+  { key: 'kanton', label: t.canton },
 ]
 
 type Props = {
@@ -37,17 +31,10 @@ type Props = {
 }
 
 const TABLE_PREFS_KEY = 'tierpolitik.table.prefs.v1'
-
 const normalizeTitle = (value: string) => value.replace(/^Vorstoss\s+\d+\s*:\s*/i, '')
 
 export function TableView({ data, onOpenDetail, onVisibleColumnsChange, highlightedId, lang, t }: Props) {
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
-    geschaeftsnummer: false,
-    themen: false,
-    kurzbeschreibung: false,
-  })
   const [sorting, setSorting] = useState<SortingState>([])
-  const [pagination, setPagination] = useState({ pageIndex: 0, pageSize: 10 })
 
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
 
@@ -55,28 +42,30 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, highligh
     try {
       const raw = localStorage.getItem(TABLE_PREFS_KEY)
       if (!raw) return
-      const parsed = JSON.parse(raw) as {
-        columnVisibility?: VisibilityState
-        sorting?: SortingState
-        pageSize?: number
-      }
-      if (parsed.columnVisibility) setColumnVisibility(parsed.columnVisibility)
+      const parsed = JSON.parse(raw) as { sorting?: SortingState }
       if (parsed.sorting) setSorting(parsed.sorting)
-      if (parsed.pageSize && [10, 25, 50].includes(parsed.pageSize)) {
-        setPagination((prev) => ({ ...prev, pageSize: parsed.pageSize as 10 | 25 | 50 }))
-      }
     } catch {
       // ignore broken prefs
     }
   }, [])
 
   useEffect(() => {
-    const payload = JSON.stringify({ columnVisibility, sorting, pageSize: pagination.pageSize })
+    const payload = JSON.stringify({ sorting })
     localStorage.setItem(TABLE_PREFS_KEY, payload)
-  }, [columnVisibility, sorting, pagination.pageSize])
+  }, [sorting])
 
   const columns = useMemo<ColumnDef<Vorstoss>[]>(() => [
     { accessorKey: 'titel', header: t.titleCol, cell: (i) => normalizeTitle(translateContent(i.getValue<string>(), lang)) },
+    {
+      accessorKey: 'status',
+      header: t.status,
+      cell: (i) => {
+        const value = i.getValue<string>()
+        const slug = value.toLowerCase().replace(/\s+/g, '-')
+        return <span className={`status-badge status-${slug}`}>{translateStatus(value, lang)}</span>
+      },
+    },
+    { accessorKey: 'datumEingereicht', header: t.dateSubmitted, cell: (i) => formatDateCH(i.getValue<string>()) },
     {
       accessorKey: 'ebene',
       header: t.level,
@@ -89,21 +78,6 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, highligh
       },
     },
     { accessorKey: 'kanton', header: t.canton, cell: (i) => i.getValue<string | null>() ?? '-' },
-    { accessorKey: 'regionGemeinde', header: t.region, cell: (i) => i.getValue<string | null>() ?? '-' },
-    {
-      accessorKey: 'status',
-      header: t.status,
-      cell: (i) => {
-        const value = i.getValue<string>()
-        const slug = value.toLowerCase().replace(/\s+/g, '-')
-        return <span className={`status-badge status-${slug}`}>{translateStatus(value, lang)}</span>
-      },
-    },
-    { accessorKey: 'datumEingereicht', header: t.dateSubmitted, cell: (i) => formatDateCH(i.getValue<string>()) },
-    { accessorKey: 'linkGeschaeft', header: 'Link', cell: (i) => <a href={i.getValue<string>()} target="_blank" rel="noopener">{t.open}</a> },
-    { accessorKey: 'geschaeftsnummer', header: t.businessNo },
-    { accessorKey: 'themen', header: t.themes, cell: (i) => i.getValue<string[]>().map((v) => translateContent(v, lang)).join(', ') },
-    { accessorKey: 'kurzbeschreibung', header: t.shortDescription, cell: (i) => translateContent(i.getValue<string>(), lang) },
   ], [lang, t])
 
   const table = useReactTable({
@@ -112,47 +86,17 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, highligh
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    onColumnVisibilityChange: setColumnVisibility,
     onSortingChange: setSorting,
-    state: {
-      columnVisibility,
-      sorting,
-      pagination,
-    },
-    onPaginationChange: setPagination,
-    initialState: { pagination },
+    state: { sorting },
+    initialState: { pagination: { pageSize: 10 } },
   })
 
   useEffect(() => {
-    const visibleCols = table
-      .getVisibleLeafColumns()
-      .map((c) => allColumnsMeta.find((m) => m.key === c.id))
-      .filter(Boolean) as { key: string; label: string }[]
-    onVisibleColumnsChange(visibleCols)
-  }, [allColumnsMeta, columnVisibility, onVisibleColumnsChange, table])
+    onVisibleColumnsChange(allColumnsMeta)
+  }, [allColumnsMeta, onVisibleColumnsChange])
 
   return (
     <section className="panel">
-      <div className="row wrap table-controls">
-        <details>
-          <summary>{t.columnsToggle}</summary>
-          <div className="chips">
-            {table.getAllLeafColumns().map((c) => (
-              <label key={c.id}><input type="checkbox" checked={c.getIsVisible()} onChange={c.getToggleVisibilityHandler()} /> {allColumnsMeta.find((m) => m.key === c.id)?.label ?? c.id}</label>
-            ))}
-          </div>
-        </details>
-
-        <label>
-          {t.pageSize}
-          <select value={table.getState().pagination.pageSize} onChange={(e) => table.setPageSize(Number(e.target.value))}>
-            <option value={10}>10</option>
-            <option value={25}>25</option>
-            <option value={50}>50</option>
-          </select>
-        </label>
-      </div>
-
       <div className="table-wrap">
         <div className="table-scroll">
           <table>
