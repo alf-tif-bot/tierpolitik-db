@@ -11,7 +11,6 @@ export const allColumnsMeta = [
   { key: 'status', label: 'Status' },
   { key: 'datumEingereicht', label: 'Datum eingereicht' },
   { key: 'schlagwoerter', label: 'Schlagwörter' },
-  { key: 'einreichende', label: 'Einreichende' },
   { key: 'linkGeschaeft', label: 'Link' },
   { key: 'geschaeftsnummer', label: 'Geschäftsnummer' },
   { key: 'themen', label: 'Themen' },
@@ -47,7 +46,6 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange }: Props)
     },
     { accessorKey: 'datumEingereicht', header: 'Datum eingereicht', cell: (i) => formatDateCH(i.getValue<string>()) },
     { accessorKey: 'schlagwoerter', header: 'Schlagwörter', cell: (i) => i.getValue<string[]>().join(', ') },
-    { accessorKey: 'einreichende', header: 'Einreichende', cell: (i) => i.getValue<Vorstoss['einreichende']>().map((p) => p.name).join(', ') },
     { accessorKey: 'linkGeschaeft', header: 'Link', cell: (i) => <a href={i.getValue<string>()} target="_blank" rel="noopener">Öffnen</a> },
     { accessorKey: 'geschaeftsnummer', header: 'Geschäftsnummer' },
     { accessorKey: 'themen', header: 'Themen', cell: (i) => i.getValue<string[]>().join(', ') },
@@ -120,7 +118,7 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange }: Props)
       </div>
 
       <div className="row">
-        <button onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>Zurueck</button>
+        <button onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>Zurück</button>
         <span>Seite {table.getState().pagination.pageIndex + 1} / {table.getPageCount()}</span>
         <button onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>Weiter</button>
       </div>

@@ -62,7 +62,7 @@ export function FiltersPanel({ data, filters, onChange, onReset, activeCount }: 
         {!showAdvanced && advancedActiveCount > 0 && <span className="advanced-hint">Detailsuche aktiv: {advancedActiveCount}</span>}
 
         <span>Aktive Filter: {activeCount}</span>
-        <button onClick={onReset}>Filter zuruecksetzen</button>
+        <button onClick={onReset}>Filter zurücksetzen</button>
       </div>
 
       {showAdvanced && (

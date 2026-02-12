@@ -116,12 +116,21 @@ button:hover { background: #eaf2ff; }
 fieldset {
   border: 1px solid #e2e9f3;
   border-radius: 12px;
-  padding: 0.6rem;
+  padding: 0.75rem 0.65rem 0.6rem;
 }
 
-legend { padding: 0 0.25rem; color: #3d5574; font-size: 0.9rem; }
+legend {
+  padding: 0 0.25rem;
+  color: #3d5574;
+  font-size: 0.9rem;
+}
 
-.chips { display: flex; gap: 0.45rem; flex-wrap: wrap; }
+.chips {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  padding-top: 0.2rem;
+}
 
 .table-wrap {
   overflow-x: auto;
