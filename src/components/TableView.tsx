@@ -1,4 +1,13 @@
-import { flexRender, getCoreRowModel, getPaginationRowModel, getSortedRowModel, useReactTable, type ColumnDef, type VisibilityState } from '@tanstack/react-table'
+import {
+  flexRender,
+  getCoreRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useReactTable,
+  type ColumnDef,
+  type SortingState,
+  type VisibilityState,
+} from '@tanstack/react-table'
 import { useEffect, useMemo, useState } from 'react'
 import type { I18nText, Language } from '../i18n'
 import { translateContent, translateStatus } from '../i18n'
@@ -6,7 +15,7 @@ import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
 
 export const getAllColumnsMeta = (t: I18nText) => [
-  { key: 'titel', label: 'Titel' },
+  { key: 'titel', label: t.titleCol },
   { key: 'ebene', label: t.level },
   { key: 'kanton', label: t.canton },
   { key: 'regionGemeinde', label: t.region },
@@ -16,7 +25,7 @@ export const getAllColumnsMeta = (t: I18nText) => [
   { key: 'linkGeschaeft', label: 'Link' },
   { key: 'geschaeftsnummer', label: t.businessNo },
   { key: 'themen', label: t.themes },
-  { key: 'kurzbeschreibung', label: 'Kurzbeschreibung' },
+  { key: 'kurzbeschreibung', label: t.shortDescription },
 ]
 
 type Props = {
@@ -27,14 +36,42 @@ type Props = {
   t: I18nText
 }
 
+const TABLE_PREFS_KEY = 'tierpolitik.table.prefs.v1'
+
 export function TableView({ data, onOpenDetail, onVisibleColumnsChange, lang, t }: Props) {
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
     geschaeftsnummer: false,
     themen: false,
     kurzbeschreibung: false,
   })
+  const [sorting, setSorting] = useState<SortingState>([])
+  const [pagination, setPagination] = useState({ pageIndex: 0, pageSize: 10 })
 
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(TABLE_PREFS_KEY)
+      if (!raw) return
+      const parsed = JSON.parse(raw) as {
+        columnVisibility?: VisibilityState
+        sorting?: SortingState
+        pageSize?: number
+      }
+      if (parsed.columnVisibility) setColumnVisibility(parsed.columnVisibility)
+      if (parsed.sorting) setSorting(parsed.sorting)
+      if (parsed.pageSize && [10, 25, 50].includes(parsed.pageSize)) {
+        setPagination((prev) => ({ ...prev, pageSize: parsed.pageSize as 10 | 25 | 50 }))
+      }
+    } catch {
+      // ignore broken prefs
+    }
+  }, [])
+
+  useEffect(() => {
+    const payload = JSON.stringify({ columnVisibility, sorting, pageSize: pagination.pageSize })
+    localStorage.setItem(TABLE_PREFS_KEY, payload)
+  }, [columnVisibility, sorting, pagination.pageSize])
 
   const columns = useMemo<ColumnDef<Vorstoss>[]>(() => [
     { accessorKey: 'titel', header: t.titleCol, cell: (i) => translateContent(i.getValue<string>(), lang) },
@@ -75,8 +112,14 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, lang, t 
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
-    state: { columnVisibility },
-    initialState: { pagination: { pageSize: 10 } },
+    onSortingChange: setSorting,
+    state: {
+      columnVisibility,
+      sorting,
+      pagination,
+    },
+    onPaginationChange: setPagination,
+    initialState: { pagination },
   })
 
   useEffect(() => {
@@ -114,19 +157,27 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, lang, t 
           <thead>
             {table.getHeaderGroups().map((hg) => (
               <tr key={hg.id}>
-                {hg.headers.map((h) => (
-                  <th key={h.id} onClick={h.column.getToggleSortingHandler()}>
-                    {flexRender(h.column.columnDef.header, h.getContext())}
-                    {h.column.getIsSorted() === 'asc' ? ' ▲' : h.column.getIsSorted() === 'desc' ? ' ▼' : ''}
-                  </th>
-                ))}
+                {hg.headers.map((h, idx) => {
+                  const sorted = h.column.getIsSorted()
+                  const isSticky = idx === 0
+                  return (
+                    <th key={h.id} className={`${isSticky ? 'sticky-col' : ''} ${sorted ? 'is-sorted' : ''}`}>
+                      <button className="sort-btn" type="button" onClick={h.column.getToggleSortingHandler()}>
+                        <span>{flexRender(h.column.columnDef.header, h.getContext())}</span>
+                        <span className="sort-indicator" aria-hidden>
+                          {sorted === 'asc' ? '▲' : sorted === 'desc' ? '▼' : '↕'}
+                        </span>
+                      </button>
+                    </th>
+                  )
+                })}
               </tr>
             ))}
           </thead>
           <tbody>
             {table.getRowModel().rows.map((r) => (
-              <tr key={r.id} onClick={() => onOpenDetail(r.original)}>
-                {r.getVisibleCells().map((c) => <td key={c.id}>{flexRender(c.column.columnDef.cell, c.getContext())}</td>)}
+              <tr key={r.id} onClick={() => onOpenDetail(r.original)} tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && onOpenDetail(r.original)}>
+                {r.getVisibleCells().map((c, idx) => <td key={c.id} className={idx === 0 ? 'sticky-col cell-title' : ''}>{flexRender(c.column.columnDef.cell, c.getContext())}</td>)}
               </tr>
             ))}
           </tbody>

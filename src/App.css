@@ -184,10 +184,73 @@ th, td {
   vertical-align: top;
 }
 
-th { position: static; background: #f7faff; }
+th {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background: #f7faff;
+}
 
-tbody tr { cursor: pointer; }
-tbody tr:hover { background: #f8fbff; }
+.sort-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.45rem;
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sort-indicator {
+  opacity: 0.7;
+  font-size: 0.76rem;
+}
+
+th.is-sorted .sort-indicator {
+  opacity: 1;
+}
+
+.sticky-col {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  background: #fff;
+}
+
+th.sticky-col {
+  z-index: 6;
+  background: #f2f7ff;
+}
+
+tbody tr {
+  cursor: pointer;
+}
+
+tbody tr:nth-child(even) td {
+  background: #fbfdff;
+}
+
+tbody tr:hover td {
+  background: #eef5ff;
+}
+
+tbody tr:focus-visible {
+  outline: 2px solid #7aa8e6;
+  outline-offset: -2px;
+}
+
+tbody tr:focus-visible td {
+  background: #e8f1ff;
+}
+
+.cell-title {
+  font-weight: 600;
+  min-width: 260px;
+}
 
 .drawer-backdrop {
   position: fixed;
@@ -310,8 +373,29 @@ a { color: #0a4fa8; }
     color: #f5f7fa;
   }
 
+  .sticky-col {
+    background: #1b2128;
+  }
+
+  th.sticky-col {
+    background: #2a333e;
+  }
+
   td { border-bottom-color: #35404d; }
-  tbody tr:hover { background: #27313c; }
+
+  tbody tr:nth-child(even) td {
+    background: #1f2730;
+  }
+
+  tbody tr:hover td { background: #2a3643; }
+
+  tbody tr:focus-visible td {
+    background: #304153;
+  }
+
+  tbody tr:focus-visible {
+    outline-color: #7ea6d8;
+  }
 
   input,
   select {
