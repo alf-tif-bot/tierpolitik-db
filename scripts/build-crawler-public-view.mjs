@@ -4,9 +4,11 @@ const dbPath = new URL('../data/crawler-db.json', import.meta.url)
 const outPath = new URL('../public/crawler.html', import.meta.url)
 const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
 const sourceMap = new Map((db.sources || []).map((source) => [source.id, source.label]))
+const activeSourceIds = new Set((db.sources || []).map((source) => source.id))
 
 const items = [...db.items]
-  .filter((item) => ['approved', 'published'].includes(item.status))
+  .filter((item) => activeSourceIds.has(item.sourceId))
+  .filter((item) => ['queued', 'approved', 'published'].includes(item.status))
   .sort((a, b) => new Date(b.publishedAt || 0).getTime() - new Date(a.publishedAt || 0).getTime())
 
 const esc = (v = '') => String(v)

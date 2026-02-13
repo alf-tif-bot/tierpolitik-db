@@ -76,7 +76,7 @@ export function createRssAdapter() {
 
         return {
           sourceId: source.id,
-          sourceUrl: selectedUrl || source.url,
+          sourceUrl: item.link || selectedUrl || source.url,
           externalId: slugify(item.guid || item.link),
           title: item.title,
           summary: item.summary,

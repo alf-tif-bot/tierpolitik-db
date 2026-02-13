@@ -2,7 +2,8 @@
 <style>body{font-family:Arial,sans-serif;padding:24px;max-width:1200px;margin:0 auto}table{width:100%;border-collapse:collapse;margin-top:16px}td,th{border:1px solid #ddd;padding:8px;vertical-align:top}button{margin-right:6px}code{background:#f3f3f3;padding:2px 4px}.links{display:flex;gap:8px;flex-wrap:wrap}.links a{display:inline-block;border:1px solid #ddd;padding:6px 10px;border-radius:999px;text-decoration:none;color:#222}</style></head>
 <body>
 <h1>Review-Ansicht</h1>
-<p>Queued/Rejected sind hier sichtbar. Entscheidungen als JSON exportieren und danach mit <code>npm run crawler:apply-review</code> in die DB übernehmen.</p>
+<p>Vollansicht aller Stati (new/queued/approved/rejected/published). Entscheidungen als JSON exportieren und danach mit <code>npm run crawler:apply-review</code> in die DB übernehmen.</p>
+<p>Status-Summen: new=0, queued=3, approved=0, rejected=241, published=0</p>
 <nav class="links"><a href="/crawler.html">Zur Crawler-Ansicht</a><a href="/">Zur App</a></nav>
 <p><button onclick="exportDecisions()">Entscheidungen exportieren</button></p>
 <table><thead><tr><th>Titel</th><th>Quelle</th><th>Score</th><th>Treffer</th><th>Status</th><th>Aktion</th></tr></thead><tbody>
@@ -11,7 +12,7 @@
 <td>ch-parlament-news</td>
 <td>0.50</td>
 <td>tier, tiertransport</td>
-<td>queued</td>
+<td>queued (<strong style="color:#b45309">offen</strong>)</td>
 <td>
 <button onclick="setDecision('ch-parlament-news:parl-1','approved')">Approve</button>
 <button onclick="setDecision('ch-parlament-news:parl-1','rejected')">Reject</button>
@@ -22,7 +23,7 @@
 <td>blv-news</td>
 <td>0.50</td>
 <td>tier, tierhaltung</td>
-<td>queued</td>
+<td>queued (<strong style="color:#b45309">offen</strong>)</td>
 <td>
 <button onclick="setDecision('blv-news:blv-1','approved')">Approve</button>
 <button onclick="setDecision('blv-news:blv-1','rejected')">Reject</button>
@@ -33,7 +34,7 @@
 <td>bundesrat-news</td>
 <td>0.50</td>
 <td>tier, tierschutz</td>
-<td>queued</td>
+<td>queued (<strong style="color:#b45309">offen</strong>)</td>
 <td>
 <button onclick="setDecision('bundesrat-news:br-1','approved')">Approve</button>
 <button onclick="setDecision('bundesrat-news:br-1','rejected')">Reject</button>
@@ -44,7 +45,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.25</td>
 <td>tier</td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20223091-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20223091-de','rejected')">Reject</button>
@@ -55,7 +56,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.25</td>
 <td>tier</td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254459-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254459-de','rejected')">Reject</button>
@@ -66,7 +67,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.25</td>
 <td>tier</td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254453-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254453-de','rejected')">Reject</button>
@@ -77,7 +78,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.25</td>
 <td>tier</td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254492-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254492-de','rejected')">Reject</button>
@@ -88,7 +89,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.25</td>
 <td>tier</td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254527-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254527-de','rejected')">Reject</button>
@@ -99,7 +100,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.25</td>
 <td>tier</td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254040-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254040-fr','rejected')">Reject</button>
@@ -110,7 +111,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.25</td>
 <td>tier</td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20170493-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20170493-de','rejected')">Reject</button>
@@ -121,7 +122,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.25</td>
 <td>tier</td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20170493-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20170493-fr','rejected')">Reject</button>
@@ -132,7 +133,7 @@
 <td>user-input</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('user-input:user-1770941941585','approved')">Approve</button>
 <button onclick="setDecision('user-input:user-1770941941585','rejected')">Reject</button>
@@ -143,7 +144,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254704-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254704-de','rejected')">Reject</button>
@@ -154,7 +155,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254505-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254505-de','rejected')">Reject</button>
@@ -165,7 +166,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20253943-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20253943-de','rejected')">Reject</button>
@@ -176,7 +177,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20223166-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20223166-de','rejected')">Reject</button>
@@ -187,7 +188,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20240090-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20240090-de','rejected')">Reject</button>
@@ -198,7 +199,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20240026-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20240026-de','rejected')">Reject</button>
@@ -209,7 +210,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20210055-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20210055-de','rejected')">Reject</button>
@@ -220,7 +221,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20240331-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20240331-de','rejected')">Reject</button>
@@ -231,7 +232,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250030-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250030-de','rejected')">Reject</button>
@@ -242,7 +243,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250095-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250095-de','rejected')">Reject</button>
@@ -253,7 +254,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250057-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250057-de','rejected')">Reject</button>
@@ -264,7 +265,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254040-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254040-de','rejected')">Reject</button>
@@ -275,7 +276,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254494-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254494-de','rejected')">Reject</button>
@@ -286,7 +287,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254489-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254489-de','rejected')">Reject</button>
@@ -297,7 +298,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20220415-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20220415-de','rejected')">Reject</button>
@@ -308,7 +309,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254549-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254549-de','rejected')">Reject</button>
@@ -319,7 +320,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250419-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250419-de','rejected')">Reject</button>
@@ -330,7 +331,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250420-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250420-de','rejected')">Reject</button>
@@ -341,7 +342,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250418-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250418-de','rejected')">Reject</button>
@@ -352,7 +353,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250417-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250417-de','rejected')">Reject</button>
@@ -363,7 +364,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250416-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250416-de','rejected')">Reject</button>
@@ -374,7 +375,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250415-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250415-de','rejected')">Reject</button>
@@ -385,7 +386,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250408-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250408-de','rejected')">Reject</button>
@@ -396,7 +397,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250406-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250406-de','rejected')">Reject</button>
@@ -407,7 +408,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254465-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254465-de','rejected')">Reject</button>
@@ -418,7 +419,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20260019-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20260019-de','rejected')">Reject</button>
@@ -429,7 +430,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20240092-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20240092-de','rejected')">Reject</button>
@@ -440,7 +441,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254426-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254426-de','rejected')">Reject</button>
@@ -451,7 +452,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254427-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254427-de','rejected')">Reject</button>
@@ -462,7 +463,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254613-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254613-de','rejected')">Reject</button>
@@ -473,7 +474,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254430-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254430-de','rejected')">Reject</button>
@@ -484,7 +485,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254447-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254447-de','rejected')">Reject</button>
@@ -495,7 +496,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254439-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254439-de','rejected')">Reject</button>
@@ -506,7 +507,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254419-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254419-de','rejected')">Reject</button>
@@ -517,7 +518,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254414-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254414-de','rejected')">Reject</button>
@@ -528,7 +529,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254450-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254450-de','rejected')">Reject</button>
@@ -539,7 +540,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20251060-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20251060-de','rejected')">Reject</button>
@@ -550,7 +551,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254478-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254478-de','rejected')">Reject</button>
@@ -561,7 +562,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20251052-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20251052-de','rejected')">Reject</button>
@@ -572,7 +573,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254456-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254456-de','rejected')">Reject</button>
@@ -583,7 +584,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254487-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254487-de','rejected')">Reject</button>
@@ -594,7 +595,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20251054-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20251054-de','rejected')">Reject</button>
@@ -605,7 +606,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254462-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254462-de','rejected')">Reject</button>
@@ -616,7 +617,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254463-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254463-de','rejected')">Reject</button>
@@ -627,7 +628,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254488-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254488-de','rejected')">Reject</button>
@@ -638,7 +639,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254466-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254466-de','rejected')">Reject</button>
@@ -649,7 +650,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254469-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254469-de','rejected')">Reject</button>
@@ -660,7 +661,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254475-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254475-de','rejected')">Reject</button>
@@ -671,7 +672,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254484-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254484-de','rejected')">Reject</button>
@@ -682,7 +683,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20251057-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20251057-de','rejected')">Reject</button>
@@ -693,7 +694,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254480-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254480-de','rejected')">Reject</button>
@@ -704,7 +705,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20251058-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20251058-de','rejected')">Reject</button>
@@ -715,7 +716,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254482-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254482-de','rejected')">Reject</button>
@@ -726,7 +727,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20251062-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20251062-de','rejected')">Reject</button>
@@ -737,7 +738,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254483-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254483-de','rejected')">Reject</button>
@@ -748,7 +749,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254486-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254486-de','rejected')">Reject</button>
@@ -759,7 +760,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254490-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254490-de','rejected')">Reject</button>
@@ -770,7 +771,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254491-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254491-de','rejected')">Reject</button>
@@ -781,7 +782,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254495-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254495-de','rejected')">Reject</button>
@@ -792,7 +793,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254496-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254496-de','rejected')">Reject</button>
@@ -803,7 +804,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254497-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254497-de','rejected')">Reject</button>
@@ -814,7 +815,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254499-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254499-de','rejected')">Reject</button>
@@ -825,7 +826,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254502-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254502-de','rejected')">Reject</button>
@@ -836,7 +837,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20184349-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20184349-de','rejected')">Reject</button>
@@ -847,7 +848,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254504-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254504-de','rejected')">Reject</button>
@@ -858,7 +859,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20223229-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20223229-de','rejected')">Reject</button>
@@ -869,7 +870,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254507-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254507-de','rejected')">Reject</button>
@@ -880,7 +881,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20140458-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20140458-de','rejected')">Reject</button>
@@ -891,7 +892,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254513-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254513-de','rejected')">Reject</button>
@@ -902,7 +903,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254515-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254515-de','rejected')">Reject</button>
@@ -913,7 +914,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20180403-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20180403-de','rejected')">Reject</button>
@@ -924,7 +925,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254518-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254518-de','rejected')">Reject</button>
@@ -935,7 +936,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250434-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250434-de','rejected')">Reject</button>
@@ -946,7 +947,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254519-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254519-de','rejected')">Reject</button>
@@ -957,7 +958,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254523-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254523-de','rejected')">Reject</button>
@@ -968,7 +969,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254528-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254528-de','rejected')">Reject</button>
@@ -979,7 +980,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254533-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254533-de','rejected')">Reject</button>
@@ -990,7 +991,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254535-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254535-de','rejected')">Reject</button>
@@ -1001,7 +1002,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254536-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254536-de','rejected')">Reject</button>
@@ -1012,7 +1013,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254537-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254537-de','rejected')">Reject</button>
@@ -1023,7 +1024,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254542-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254542-de','rejected')">Reject</button>
@@ -1034,7 +1035,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254543-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254543-de','rejected')">Reject</button>
@@ -1045,7 +1046,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254544-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254544-de','rejected')">Reject</button>
@@ -1056,7 +1057,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254721-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254721-de','rejected')">Reject</button>
@@ -1067,7 +1068,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254727-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254727-de','rejected')">Reject</button>
@@ -1078,7 +1079,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20203080-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20203080-de','rejected')">Reject</button>
@@ -1089,7 +1090,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20160306-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20160306-de','rejected')">Reject</button>
@@ -1100,7 +1101,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20240466-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20240466-de','rejected')">Reject</button>
@@ -1111,7 +1112,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20253949-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20253949-de','rejected')">Reject</button>
@@ -1122,7 +1123,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20244042-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20244042-de','rejected')">Reject</button>
@@ -1133,7 +1134,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20240472-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20240472-de','rejected')">Reject</button>
@@ -1144,7 +1145,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20223950-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20223950-de','rejected')">Reject</button>
@@ -1155,7 +1156,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20223226-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20223226-de','rejected')">Reject</button>
@@ -1166,7 +1167,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20170314-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20170314-de','rejected')">Reject</button>
@@ -1177,7 +1178,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250469-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250469-de','rejected')">Reject</button>
@@ -1188,7 +1189,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250447-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250447-de','rejected')">Reject</button>
@@ -1199,7 +1200,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250064-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250064-de','rejected')">Reject</button>
@@ -1210,7 +1211,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250058-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250058-de','rejected')">Reject</button>
@@ -1221,7 +1222,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250049-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250049-de','rejected')">Reject</button>
@@ -1232,7 +1233,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254696-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254696-de','rejected')">Reject</button>
@@ -1243,7 +1244,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254612-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254612-de','rejected')">Reject</button>
@@ -1254,7 +1255,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254672-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254672-de','rejected')">Reject</button>
@@ -1265,7 +1266,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254692-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254692-de','rejected')">Reject</button>
@@ -1276,7 +1277,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254733-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254733-de','rejected')">Reject</button>
@@ -1287,7 +1288,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254554-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254554-de','rejected')">Reject</button>
@@ -1298,7 +1299,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254587-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254587-de','rejected')">Reject</button>
@@ -1309,7 +1310,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254588-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254588-de','rejected')">Reject</button>
@@ -1320,7 +1321,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254556-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254556-de','rejected')">Reject</button>
@@ -1331,7 +1332,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254558-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254558-de','rejected')">Reject</button>
@@ -1342,7 +1343,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254567-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254567-de','rejected')">Reject</button>
@@ -1353,7 +1354,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254568-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254568-de','rejected')">Reject</button>
@@ -1364,7 +1365,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254570-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254570-de','rejected')">Reject</button>
@@ -1375,7 +1376,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254571-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254571-de','rejected')">Reject</button>
@@ -1386,7 +1387,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254574-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254574-de','rejected')">Reject</button>
@@ -1397,7 +1398,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254577-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254577-de','rejected')">Reject</button>
@@ -1408,7 +1409,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254704-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254704-fr','rejected')">Reject</button>
@@ -1419,7 +1420,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254505-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254505-fr','rejected')">Reject</button>
@@ -1430,7 +1431,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20253943-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20253943-fr','rejected')">Reject</button>
@@ -1441,7 +1442,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20223166-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20223166-fr','rejected')">Reject</button>
@@ -1452,7 +1453,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20223091-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20223091-fr','rejected')">Reject</button>
@@ -1463,7 +1464,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20240090-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20240090-fr','rejected')">Reject</button>
@@ -1474,7 +1475,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20240026-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20240026-fr','rejected')">Reject</button>
@@ -1485,7 +1486,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20210055-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20210055-fr','rejected')">Reject</button>
@@ -1496,7 +1497,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20240331-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20240331-fr','rejected')">Reject</button>
@@ -1507,7 +1508,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250030-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250030-fr','rejected')">Reject</button>
@@ -1518,7 +1519,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250095-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250095-fr','rejected')">Reject</button>
@@ -1529,7 +1530,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250057-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250057-fr','rejected')">Reject</button>
@@ -1540,7 +1541,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254494-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254494-fr','rejected')">Reject</button>
@@ -1551,7 +1552,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254489-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254489-fr','rejected')">Reject</button>
@@ -1562,7 +1563,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20220415-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20220415-fr','rejected')">Reject</button>
@@ -1573,7 +1574,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254549-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254549-fr','rejected')">Reject</button>
@@ -1584,7 +1585,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250419-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250419-fr','rejected')">Reject</button>
@@ -1595,7 +1596,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250420-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250420-fr','rejected')">Reject</button>
@@ -1606,7 +1607,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250418-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250418-fr','rejected')">Reject</button>
@@ -1617,7 +1618,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250417-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250417-fr','rejected')">Reject</button>
@@ -1628,7 +1629,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250416-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250416-fr','rejected')">Reject</button>
@@ -1639,7 +1640,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250415-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250415-fr','rejected')">Reject</button>
@@ -1650,7 +1651,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250408-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250408-fr','rejected')">Reject</button>
@@ -1661,7 +1662,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250406-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250406-fr','rejected')">Reject</button>
@@ -1672,7 +1673,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254465-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254465-fr','rejected')">Reject</button>
@@ -1683,7 +1684,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20260019-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20260019-fr','rejected')">Reject</button>
@@ -1694,7 +1695,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20240092-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20240092-fr','rejected')">Reject</button>
@@ -1705,7 +1706,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254426-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254426-fr','rejected')">Reject</button>
@@ -1716,7 +1717,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254427-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254427-fr','rejected')">Reject</button>
@@ -1727,7 +1728,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254613-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254613-fr','rejected')">Reject</button>
@@ -1738,7 +1739,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254459-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254459-fr','rejected')">Reject</button>
@@ -1749,7 +1750,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254430-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254430-fr','rejected')">Reject</button>
@@ -1760,7 +1761,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254447-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254447-fr','rejected')">Reject</button>
@@ -1771,7 +1772,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254439-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254439-fr','rejected')">Reject</button>
@@ -1782,7 +1783,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254419-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254419-fr','rejected')">Reject</button>
@@ -1793,7 +1794,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254414-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254414-fr','rejected')">Reject</button>
@@ -1804,7 +1805,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254450-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254450-fr','rejected')">Reject</button>
@@ -1815,7 +1816,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20251060-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20251060-fr','rejected')">Reject</button>
@@ -1826,7 +1827,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254478-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254478-fr','rejected')">Reject</button>
@@ -1837,7 +1838,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20251052-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20251052-fr','rejected')">Reject</button>
@@ -1848,7 +1849,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254453-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254453-fr','rejected')">Reject</button>
@@ -1859,7 +1860,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254456-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254456-fr','rejected')">Reject</button>
@@ -1870,7 +1871,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254487-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254487-fr','rejected')">Reject</button>
@@ -1881,7 +1882,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20251054-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20251054-fr','rejected')">Reject</button>
@@ -1892,7 +1893,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254462-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254462-fr','rejected')">Reject</button>
@@ -1903,7 +1904,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254463-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254463-fr','rejected')">Reject</button>
@@ -1914,7 +1915,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254488-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254488-fr','rejected')">Reject</button>
@@ -1925,7 +1926,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254466-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254466-fr','rejected')">Reject</button>
@@ -1936,7 +1937,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254469-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254469-fr','rejected')">Reject</button>
@@ -1947,7 +1948,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254475-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254475-fr','rejected')">Reject</button>
@@ -1958,7 +1959,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254484-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254484-fr','rejected')">Reject</button>
@@ -1969,7 +1970,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20251057-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20251057-fr','rejected')">Reject</button>
@@ -1980,7 +1981,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254480-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254480-fr','rejected')">Reject</button>
@@ -1991,7 +1992,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20251058-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20251058-fr','rejected')">Reject</button>
@@ -2002,7 +2003,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254482-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254482-fr','rejected')">Reject</button>
@@ -2013,7 +2014,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20251062-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20251062-fr','rejected')">Reject</button>
@@ -2024,7 +2025,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254483-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254483-fr','rejected')">Reject</button>
@@ -2035,7 +2036,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254486-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254486-fr','rejected')">Reject</button>
@@ -2046,7 +2047,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254490-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254490-fr','rejected')">Reject</button>
@@ -2057,7 +2058,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254491-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254491-fr','rejected')">Reject</button>
@@ -2068,7 +2069,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254492-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254492-fr','rejected')">Reject</button>
@@ -2079,7 +2080,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254495-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254495-fr','rejected')">Reject</button>
@@ -2090,7 +2091,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254496-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254496-fr','rejected')">Reject</button>
@@ -2101,7 +2102,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254497-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254497-fr','rejected')">Reject</button>
@@ -2112,7 +2113,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254499-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254499-fr','rejected')">Reject</button>
@@ -2123,7 +2124,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254502-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254502-fr','rejected')">Reject</button>
@@ -2134,7 +2135,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20184349-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20184349-fr','rejected')">Reject</button>
@@ -2145,7 +2146,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254504-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254504-fr','rejected')">Reject</button>
@@ -2156,7 +2157,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20223229-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20223229-fr','rejected')">Reject</button>
@@ -2167,7 +2168,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254507-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254507-fr','rejected')">Reject</button>
@@ -2178,7 +2179,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20140458-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20140458-fr','rejected')">Reject</button>
@@ -2189,7 +2190,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254513-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254513-fr','rejected')">Reject</button>
@@ -2200,7 +2201,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254515-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254515-fr','rejected')">Reject</button>
@@ -2211,7 +2212,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20180403-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20180403-fr','rejected')">Reject</button>
@@ -2222,7 +2223,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254518-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254518-fr','rejected')">Reject</button>
@@ -2233,7 +2234,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250434-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250434-fr','rejected')">Reject</button>
@@ -2244,7 +2245,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254519-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254519-fr','rejected')">Reject</button>
@@ -2255,7 +2256,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254523-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254523-fr','rejected')">Reject</button>
@@ -2266,7 +2267,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254527-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254527-fr','rejected')">Reject</button>
@@ -2277,7 +2278,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250460-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250460-de','rejected')">Reject</button>
@@ -2288,7 +2289,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20190300-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20190300-de','rejected')">Reject</button>
@@ -2299,7 +2300,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20253739-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20253739-de','rejected')">Reject</button>
@@ -2310,7 +2311,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250460-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250460-fr','rejected')">Reject</button>
@@ -2321,7 +2322,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20190300-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20190300-fr','rejected')">Reject</button>
@@ -2332,7 +2333,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20253739-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20253739-fr','rejected')">Reject</button>
@@ -2343,7 +2344,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250402-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250402-de','rejected')">Reject</button>
@@ -2354,7 +2355,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20260404-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20260404-de','rejected')">Reject</button>
@@ -2365,7 +2366,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20243209-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20243209-de','rejected')">Reject</button>
@@ -2376,7 +2377,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20253817-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20253817-de','rejected')">Reject</button>
@@ -2387,7 +2388,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250402-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250402-fr','rejected')">Reject</button>
@@ -2398,7 +2399,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20260404-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20260404-fr','rejected')">Reject</button>
@@ -2409,7 +2410,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20243209-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20243209-fr','rejected')">Reject</button>
@@ -2420,7 +2421,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20253817-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20253817-fr','rejected')">Reject</button>
@@ -2431,7 +2432,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20260002-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20260002-de','rejected')">Reject</button>
@@ -2442,7 +2443,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250041-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250041-de','rejected')">Reject</button>
@@ -2453,7 +2454,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20260001-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20260001-de','rejected')">Reject</button>
@@ -2464,7 +2465,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20240078-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20240078-de','rejected')">Reject</button>
@@ -2475,7 +2476,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20260003-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20260003-de','rejected')">Reject</button>
@@ -2486,7 +2487,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250073-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250073-de','rejected')">Reject</button>
@@ -2497,7 +2498,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20260024-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20260024-de','rejected')">Reject</button>
@@ -2508,7 +2509,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20250483-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20250483-de','rejected')">Reject</button>
@@ -2519,7 +2520,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20200406-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20200406-de','rejected')">Reject</button>
@@ -2530,7 +2531,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20260002-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20260002-fr','rejected')">Reject</button>
@@ -2541,7 +2542,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250041-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250041-fr','rejected')">Reject</button>
@@ -2552,7 +2553,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20260001-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20260001-fr','rejected')">Reject</button>
@@ -2563,7 +2564,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20240078-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20240078-fr','rejected')">Reject</button>
@@ -2574,7 +2575,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20260003-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20260003-fr','rejected')">Reject</button>
@@ -2585,7 +2586,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250073-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250073-fr','rejected')">Reject</button>
@@ -2596,7 +2597,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20260024-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20260024-fr','rejected')">Reject</button>
@@ -2607,7 +2608,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250483-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250483-fr','rejected')">Reject</button>
@@ -2618,10 +2619,76 @@
 <td>ch-parliament-business-fr</td>
 <td>0.00</td>
 <td></td>
-<td>rejected</td>
+<td>rejected (historisch)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20200406-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20200406-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.098 · Stromversorgungsgesetz (Anforderungen an systemkritische Unternehmen). Änderung</strong><br><small>Botschaft vom 12. Dezember 2025 zur Änderung des Stromversorgungsgesetzes (Anforderungen an systemkritische Unternehmen)</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected (historisch)</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250098-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250098-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.097 · Freizügigkeitsgesetz. Änderung</strong><br><small>Botschaft vom 5. Dezember 2025 zur Änderung des Freizügigkeitsgesetzes</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected (historisch)</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250097-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250097-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.096 · Schweizerische Zivilgesetzbuch (Erwachsenenschutz). Änderung</strong><br><small>Botschaft vom 5. Dezember 2025 zur Änderung des Schweizerischen Zivilgesetzbuchs (Erwachsenenschutz)</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected (historisch)</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250096-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250096-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.098 · Loi sur l’approvisionnement en électricité (exigences im-posées aux entreprises d’importance systémique). Révision</strong><br><small>Message du 12 décembre 2025 concernant la modification de la loi sur l’approvisionnement en électricité (Exigences envers les entreprises d’importance critique)</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected (historisch)</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20250098-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20250098-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.097 · Loi sur le libre passage. Modification</strong><br><small>Message du 5 décembre 2025 concernant la modification de la loi sur le libre passage</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected (historisch)</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20250097-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20250097-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.096 · Code civil suisse (Protection de l’adulte). Modification</strong><br><small>Message du 5 décembre 2025 relatif à la modification du code civil suisse (Protection de l’adulte)</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected (historisch)</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20250096-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20250096-fr','rejected')">Reject</button>
 </td>
 </tr></tbody></table>
 <script>
