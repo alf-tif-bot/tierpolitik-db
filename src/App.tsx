@@ -31,6 +31,7 @@ export default function App() {
   const searchInputRef = useRef<HTMLInputElement>(null)
   const comboBufferRef = useRef('')
   const comboTimerRef = useRef<number | null>(null)
+  const darkModeTimerRef = useRef<number | null>(null)
 
   const t = i18n[lang]
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
@@ -92,12 +93,6 @@ export default function App() {
         return
       }
 
-      if (key === 'd') {
-        setTheme('dark')
-        event.preventDefault()
-        return
-      }
-
       if (key.length === 1 && ['d', 'e', 'f', 'r', 'i', 't', 'n'].includes(key)) {
         comboBufferRef.current = (comboBufferRef.current + key).slice(-2)
 
@@ -107,6 +102,7 @@ export default function App() {
         }, 550)
 
         if (comboBufferRef.current === 'de') {
+          if (darkModeTimerRef.current) window.clearTimeout(darkModeTimerRef.current)
           setLang('de')
           comboBufferRef.current = ''
           event.preventDefault()
@@ -130,6 +126,16 @@ export default function App() {
           event.preventDefault()
           return
         }
+
+        if (key === 'd') {
+          if (darkModeTimerRef.current) window.clearTimeout(darkModeTimerRef.current)
+          darkModeTimerRef.current = window.setTimeout(() => {
+            setTheme('dark')
+            comboBufferRef.current = ''
+          }, 320)
+          event.preventDefault()
+          return
+        }
       }
 
       if (event.key === '/') {
@@ -146,6 +152,7 @@ export default function App() {
     return () => {
       window.removeEventListener('keydown', onKeyDown)
       if (comboTimerRef.current) window.clearTimeout(comboTimerRef.current)
+      if (darkModeTimerRef.current) window.clearTimeout(darkModeTimerRef.current)
     }
   }, [selected, profile])
 
