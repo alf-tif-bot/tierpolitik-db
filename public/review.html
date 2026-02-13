@@ -3,7 +3,7 @@
 <body>
 <h1>Review-Ansicht</h1>
 <p>Vollansicht aller Stati (new/queued/approved/rejected/published). Entscheidungen als JSON exportieren und danach mit <code>npm run crawler:apply-review</code> in die DB übernehmen.</p>
-<p>Status-Summen: new=0, queued=3, approved=0, rejected=241, published=0</p>
+<p>Status-Summen: new=0, queued=12, approved=0, rejected=234, published=0</p>
 <nav class="links"><a href="/crawler.html">Zur Crawler-Ansicht</a><a href="/">Zur App</a></nav>
 <p><button onclick="exportDecisions()">Entscheidungen exportieren</button></p>
 <table><thead><tr><th>Titel</th><th>Quelle</th><th>Score</th><th>Treffer</th><th>Status</th><th>Aktion</th></tr></thead><tbody>
@@ -43,12 +43,23 @@
 <tr>
 <td><strong>22.3091 · Bessere Rahmenbedingungen für Schweizer Elektrizitätsunternehmen, damit sie in erneuerbare Energien im Inland und nicht im Ausland investieren</strong><br><small>Beratung in Kommission des Ständerates abgeschlossen</small></td>
 <td>ch-parliament-business-de</td>
-<td>0.25</td>
-<td>tier</td>
-<td>rejected (historisch)</td>
+<td>0.50</td>
+<td>tier, tiere</td>
+<td>queued (<strong style="color:#b45309">offen</strong>)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20223091-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20223091-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4492 · Ausbildungsperspektiven garantieren für Menschen mit Behinderungen, die in unbezahlten Langzeitpraktika angestellt sind</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.50</td>
+<td>tier, tiere</td>
+<td>queued (<strong style="color:#b45309">offen</strong>)</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254492-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254492-de','rejected')">Reject</button>
 </td>
 </tr>
 <tr>
@@ -56,7 +67,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.25</td>
 <td>tier</td>
-<td>rejected (historisch)</td>
+<td>queued (<strong style="color:#b45309">offen</strong>)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254459-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254459-de','rejected')">Reject</button>
@@ -67,21 +78,10 @@
 <td>ch-parliament-business-de</td>
 <td>0.25</td>
 <td>tier</td>
-<td>rejected (historisch)</td>
+<td>queued (<strong style="color:#b45309">offen</strong>)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254453-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254453-de','rejected')">Reject</button>
-</td>
-</tr>
-<tr>
-<td><strong>25.4492 · Ausbildungsperspektiven garantieren für Menschen mit Behinderungen, die in unbezahlten Langzeitpraktika angestellt sind</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
-<td>ch-parliament-business-de</td>
-<td>0.25</td>
-<td>tier</td>
-<td>rejected (historisch)</td>
-<td>
-<button onclick="setDecision('ch-parliament-business-de:20254492-de','approved')">Approve</button>
-<button onclick="setDecision('ch-parliament-business-de:20254492-de','rejected')">Reject</button>
 </td>
 </tr>
 <tr>
@@ -89,7 +89,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.25</td>
 <td>tier</td>
-<td>rejected (historisch)</td>
+<td>queued (<strong style="color:#b45309">offen</strong>)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20254527-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20254527-de','rejected')">Reject</button>
@@ -100,7 +100,7 @@
 <td>ch-parliament-business-fr</td>
 <td>0.25</td>
 <td>tier</td>
-<td>rejected (historisch)</td>
+<td>queued (<strong style="color:#b45309">offen</strong>)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20254040-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20254040-fr','rejected')">Reject</button>
@@ -111,7 +111,7 @@
 <td>ch-parliament-business-de</td>
 <td>0.25</td>
 <td>tier</td>
-<td>rejected (historisch)</td>
+<td>queued (<strong style="color:#b45309">offen</strong>)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-de:20170493-de','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-de:20170493-de','rejected')">Reject</button>
@@ -122,10 +122,21 @@
 <td>ch-parliament-business-fr</td>
 <td>0.25</td>
 <td>tier</td>
-<td>rejected (historisch)</td>
+<td>queued (<strong style="color:#b45309">offen</strong>)</td>
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20170493-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20170493-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.099 · Bundesgesetz über die Krankenversicherung (Versicherung von inhaftierten Personen). Änderung</strong><br><small>Botschaft vom 12. Dezember 2025 zur Änderung des Bundesgesetzes über die Krankenversicherung (Versicherung von inhaftierten Personen)</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.25</td>
+<td>tier</td>
+<td>queued (<strong style="color:#b45309">offen</strong>)</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250099-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250099-de','rejected')">Reject</button>
 </td>
 </tr>
 <tr>
@@ -2689,6 +2700,17 @@
 <td>
 <button onclick="setDecision('ch-parliament-business-fr:20250096-fr','approved')">Approve</button>
 <button onclick="setDecision('ch-parliament-business-fr:20250096-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.099 · Loi fédérale sur l'assurance-maladie (assurance-maladie des détenues). Modification</strong><br><small>Message du 12 décembre 2025 concernant la modification de la loi fédérale sur l’assurance-maladie (Assurance des personnes détenues)</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected (historisch)</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20250099-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20250099-fr','rejected')">Reject</button>
 </td>
 </tr></tbody></table>
 <script>

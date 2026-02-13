@@ -10,10 +10,14 @@ export const DEFAULT_KEYWORDS = [
   'jagd',
   'fischerei',
   'versuchstiere',
+  'tiere',
+  'animal',
+  'animaux',
+  'protection animale',
+  'wohl der tiere',
   'hund',
   'katze',
 ]
-
 export function scoreText(text, keywords = DEFAULT_KEYWORDS) {
   const lower = text.toLowerCase()
   const matched = keywords.filter((kw) => lower.includes(kw))

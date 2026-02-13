@@ -66,7 +66,7 @@ const html = `<!doctype html>
 <body>
   <main class="wrap">
     <h1>Crawler Resultate</h1>
-    <p class="sub">Neueste Fundstellen aus der Crawler-Datenbank.</p>
+    <p class="sub">Neueste relevante Fundstellen aus der Crawler-Datenbank (Tierschutz-Filter aktiv).</p>
     <nav class="links">
       <a href="/review.html">Zur Review-Ansicht</a>
       <a href="/">Zur App</a>
