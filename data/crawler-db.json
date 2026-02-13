@@ -34,7 +34,7 @@
       "summary": "Neue parlamentarische Initiative fuer Transportdauer-Limiten.",
       "body": "Neue parlamentarische Initiative fuer Transportdauer-Limiten.",
       "publishedAt": "2026-02-12T10:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:18:29.252Z",
+      "fetchedAt": "2026-02-13T00:23:52.085Z",
       "language": "de",
       "score": 0.5,
       "matchedKeywords": [
@@ -52,7 +52,7 @@
       "summary": "Schweizweite Mindeststandards sollen vereinheitlicht werden.",
       "body": "Schweizweite Mindeststandards sollen vereinheitlicht werden.",
       "publishedAt": "2026-02-11T08:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:18:29.391Z",
+      "fetchedAt": "2026-02-13T00:23:52.279Z",
       "language": "de",
       "score": 0.5,
       "matchedKeywords": [
@@ -70,7 +70,7 @@
       "summary": "Anpassung bei Kontrollen und Sanktionspraxis.",
       "body": "Anpassung bei Kontrollen und Sanktionspraxis.",
       "publishedAt": "2026-02-10T07:30:00.000Z",
-      "fetchedAt": "2026-02-13T00:18:29.518Z",
+      "fetchedAt": "2026-02-13T00:23:52.392Z",
       "language": "de",
       "score": 0.5,
       "matchedKeywords": [
@@ -90,14 +90,12 @@
       "publishedAt": "2026-02-13T00:19:01.585Z",
       "fetchedAt": "2026-02-13T00:19:02.105Z",
       "language": "de",
-      "score": 0.5,
-      "matchedKeywords": [
-        "user-input"
-      ],
-      "status": "queued",
-      "reviewReason": "Direkt aus User-Input importiert"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
     }
   ],
   "publications": [],
-  "updatedAt": "2026-02-13T00:19:02.106Z"
+  "updatedAt": "2026-02-13T00:23:54.104Z"
 }
