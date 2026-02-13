@@ -174,6 +174,7 @@ const rows = reviewItems.map((item) => {
   const isPending = item.status === 'queued' || item.status === 'new'
   const pendingBadge = isPending ? '<strong class="pending">offen</strong>' : '<span class="historic">historisch</span>'
   const sourceLabel = esc(sourceMap.get(item.sourceId) || item.sourceId)
+  const entryType = item.sourceId === 'user-input' || item.sourceId === 'user-feedback' ? 'User-Feedback' : 'Crawler'
   const scoreValue = Number(item.score || 0)
   const priorityLabel = scoreValue >= 0.8 ? 'hoch' : scoreValue >= 0.55 ? 'mittel' : 'niedriger'
   const sourceUrl = resolveOriginalUrl(item)
@@ -188,6 +189,7 @@ const rows = reviewItems.map((item) => {
   <small>${esc(summarizeForReview(item))}</small><br>
   ${originalLink}
 </td>
+<td>${entryType}</td>
 <td>
   <div>${sourceLabel}</div>
   <small class="muted">${esc(item.sourceId)}</small>
@@ -243,6 +245,7 @@ const html = `<!doctype html>
       <thead>
         <tr>
           <th>Titel</th>
+          <th>Typ</th>
           <th>Quelle</th>
           <th>Score</th>
           <th>Treffer</th>
@@ -251,7 +254,7 @@ const html = `<!doctype html>
           <th>Aktion</th>
         </tr>
       </thead>
-      <tbody>${rows || '<tr><td colspan="7">Keine Einträge.</td></tr>'}</tbody>
+      <tbody>${rows || '<tr><td colspan="8">Keine Einträge.</td></tr>'}</tbody>
     </table>
   </main>
 <script>

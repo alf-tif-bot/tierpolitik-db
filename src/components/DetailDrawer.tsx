@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { I18nText, Language } from '../i18n'
 import { translateContent, translateStatus } from '../i18n'
 import type { Vorstoss } from '../types'
@@ -38,6 +39,11 @@ type TimelineItem = {
 }
 
 export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyProfile, onSubscribe, onQuickFilter, lang, t }: Props) {
+  const [feedbackOpen, setFeedbackOpen] = useState(false)
+  const [feedbackType, setFeedbackType] = useState('Fehler gefunden')
+  const [feedbackText, setFeedbackText] = useState('')
+  const [feedbackState, setFeedbackState] = useState<'idle' | 'saving' | 'done' | 'error'>('idle')
+
   if (!item) return null
 
   const timeline: TimelineItem[] = [
@@ -65,6 +71,30 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
     { label: t.region, value: item.regionGemeinde ?? '-', filterField: 'region' as const },
     { label: t.dateSubmitted, value: formatDateCH(item.datumEingereicht) },
   ]
+
+  const submitFeedback = async () => {
+    try {
+      setFeedbackState('saving')
+      const payload = {
+        id: item.id,
+        geschaeftsnummer: item.geschaeftsnummer,
+        title: item.titel,
+        link: item.linkGeschaeft,
+        category: feedbackType,
+        message: feedbackText,
+      }
+      const res = await fetch('/.netlify/functions/feedback-submit', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      if (!res.ok) throw new Error(await res.text())
+      setFeedbackState('done')
+      setFeedbackText('')
+    } catch {
+      setFeedbackState('error')
+    }
+  }
 
   return (
     <div className="drawer-backdrop" onClick={onClose}>
@@ -155,7 +185,38 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
             </li>
           ))}
         </ul>
-        <button className="bug-report-fab" type="button">Fehler gefunden?</button>
+        <button className="bug-report-fab" type="button" onClick={() => setFeedbackOpen(true)}>Feedback</button>
+
+        {feedbackOpen && (
+          <div className="feedback-modal" role="dialog" aria-modal="true">
+            <h3>Feedback</h3>
+            <label>
+              Kategorie
+              <select value={feedbackType} onChange={(e) => setFeedbackType(e.target.value)}>
+                <option>Fehler gefunden</option>
+                <option>Vorstoss irrelevant</option>
+                <option>Beschreibung verbessern</option>
+                <option>Einreichende falsch</option>
+                <option>Tierbezug unklar</option>
+              </select>
+            </label>
+            <label>
+              Notiz
+              <textarea
+                rows={4}
+                placeholder="Kurz beschreiben, was angepasst werden soll"
+                value={feedbackText}
+                onChange={(e) => setFeedbackText(e.target.value)}
+              />
+            </label>
+            <div className="row">
+              <button className="btn-secondary" onClick={() => setFeedbackOpen(false)}>Abbrechen</button>
+              <button className="btn-primary" onClick={submitFeedback} disabled={feedbackState === 'saving'}>Senden</button>
+            </div>
+            {feedbackState === 'done' && <p className="muted">Danke, Feedback erfasst. Wird in Review als User-Feedback sichtbar.</p>}
+            {feedbackState === 'error' && <p className="muted">Feedback konnte nicht gesendet werden.</p>}
+          </div>
+        )}
       </aside>
     </div>
   )
