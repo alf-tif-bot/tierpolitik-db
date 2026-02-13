@@ -111,6 +111,17 @@ npm run db:sync-json
 
 Erzeugt/aktualisiert `data/crawler-db.json` aus PostgreSQL, damit bestehende Build-/Export-Skripte weiterlaufen.
 
+### DB -> Website Artefakte (jetzt direkt nutzbar)
+
+```bash
+npm run db:refresh-site
+```
+
+Lädt die Daten aus PostgreSQL nach JSON und baut danach sofort:
+- `public/review.html`
+- `data/crawler-published.json`
+- `public/crawler.html` (Redirect auf Review)
+
 ### Phasenplan (pragmatisch)
 
 **Phase A: JSON primär + DB Mirror (jetzt)**

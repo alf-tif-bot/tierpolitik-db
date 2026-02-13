@@ -19,7 +19,8 @@
     "crawler:pipeline:db": "npm run crawler:pipeline && npm run db:migrate-json && npm run db:sync-json",
     "db:init-schema": "node scripts/init-db-schema.mjs",
     "db:migrate-json": "node scripts/migrate-json-to-db.mjs",
-    "db:sync-json": "node scripts/sync-db-to-json.mjs"
+    "db:sync-json": "node scripts/sync-db-to-json.mjs",
+    "db:refresh-site": "node scripts/db-refresh-site.mjs"
   },
   "dependencies": {
     "@tanstack/react-table": "^8.21.3",
