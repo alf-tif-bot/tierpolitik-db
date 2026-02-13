@@ -188,7 +188,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
               <div className="timeline-content">
                 <div className="timeline-meta">
                   <strong>{formatDateCH(entry.datum)}</strong>
-                  <span>{entry.kind === 'media' ? t.media : t.result}</span>
+                  <span>{entry.kind === 'media' ? t.media : 'Status'}</span>
                 </div>
                 {entry.url ? <a href={entry.url} target="_blank" rel="noopener">{entry.label}</a> : <span>{entry.label}</span>}
               </div>

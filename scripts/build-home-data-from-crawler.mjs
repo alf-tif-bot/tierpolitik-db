@@ -201,7 +201,7 @@ const vorstoesse = items.map((item, index) => {
       {
         datum: eingereicht,
         status,
-        bemerkung: `Status aus Crawler: ${item.status}`,
+        bemerkung: 'Stand gemäss Parlamentsdaten',
       },
     ],
     medien: [],

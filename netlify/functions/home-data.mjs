@@ -211,7 +211,7 @@ export const handler = async () => {
         schlagwoerter: (Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierpolitik']).slice(0, 8),
         einreichende: [inferSubmitter(sprache, r.title, r.summary, r.body)],
         linkGeschaeft: link,
-        resultate: [{ datum: eingereicht, status: statusLabel, bemerkung: `Status aus DB: ${r.status}` }],
+        resultate: [{ datum: eingereicht, status: statusLabel, bemerkung: 'Stand gemäss Parlamentsdaten' }],
         medien: [],
         metadaten: { sprache, haltung: stance, initiativeLinks, zuletztGeprueftVon: 'DB Live API' },
       }
