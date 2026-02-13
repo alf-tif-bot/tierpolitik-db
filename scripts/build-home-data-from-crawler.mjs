@@ -151,7 +151,6 @@ const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '' })
 
 const baseItems = (db.items || [])
   .filter((item) => String(item.sourceId || '').startsWith('ch-parliament-'))
-  .filter((item) => String(item.sourceId || '').endsWith('-de'))
   .filter((item) => ['approved', 'published'].includes(item.status))
 
 const groupedByAffair = new Map()
