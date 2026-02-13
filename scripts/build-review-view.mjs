@@ -237,7 +237,7 @@ async function setDecision(btn,id,status){
   } catch(err) {
     const msg = String(err?.message || err || 'unbekannter Fehler').slice(0, 220)
     if (statusEl) statusEl.textContent = 'Fehler beim Speichern: ' + msg;
-    alert('Konnte Entscheidung nicht serverseitig speichern.\n' + msg);
+    alert('Konnte Entscheidung nicht serverseitig speichern.\\n' + msg);
     console.error(err);
     if (btn) btn.disabled = false;
     return;
