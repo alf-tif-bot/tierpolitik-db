@@ -258,6 +258,8 @@ button:hover { background: #2b4565; }
   text-underline-offset: 3px;
   font-size: 0.9rem;
   font-weight: 500;
+  text-align: left;
+  justify-self: start;
 }
 
 .text-link-btn:hover {
@@ -963,8 +965,8 @@ a { color: #0a4fa8; }
 :root[data-theme='dark'] select { background: #242c35; color: #f5f7fa; border-color: #4a596a; }
 :root[data-theme='dark'] button { background: #2b3642; border-color: #5f7387; color: #f8fbff; }
 :root[data-theme='dark'] button:hover { background: #3a4756; }
-:root[data-theme='dark'] .text-link-btn { background: transparent; border: none; color: #9fcbff; }
-:root[data-theme='dark'] .text-link-btn:hover { background: transparent; color: #c2deff; }
+:root[data-theme='dark'] .text-link-btn { background: transparent; border: none; color: #eef5ff; }
+:root[data-theme='dark'] .text-link-btn:hover { background: transparent; color: #ffffff; }
 :root[data-theme='dark'] .chip { color: #e8edf4; border-color: #5e6f84; background: #2a3441; }
 :root[data-theme='dark'] .chip.active { color: #0b1f3b; background: #cfe2ff; border-color: #9fc0f0; box-shadow: inset 0 0 0 1px rgb(255 255 255 / 35%); }
 :root[data-theme='dark'] .language-switch .chip,
