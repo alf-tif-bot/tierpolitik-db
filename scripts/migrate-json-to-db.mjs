@@ -23,6 +23,21 @@ await withPgClient(async (client) => {
       await ensureSource(client, source)
     }
 
+    const knownSourceIds = new Set((jsonDb.sources || []).map((s) => s.id))
+    const itemSourceIds = new Set((jsonDb.items || []).map((i) => i.sourceId).filter(Boolean))
+    for (const sourceId of itemSourceIds) {
+      if (knownSourceIds.has(sourceId)) continue
+      await ensureSource(client, {
+        id: sourceId,
+        label: sourceId,
+        type: 'api',
+        adapter: null,
+        url: 'https://placeholder.local/imported-source',
+        enabled: true,
+        options: { importedBy: 'migrate-json-to-db' },
+      })
+    }
+
     let motionsUpserted = 0
     let reviewsCreated = 0
 

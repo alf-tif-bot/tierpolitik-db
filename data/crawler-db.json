@@ -1,6 +1,35 @@
 {
   "sources": [
     {
+      "id": "blv-news",
+      "label": "BLV News",
+      "type": "rss",
+      "url": "https://www.blv.admin.ch/blv/de/home/das-blv/aktuell/medienmitteilungen.feed.xml",
+      "enabled": true,
+      "fallbackPath": "data/fixtures/blv-news.xml",
+      "options": {}
+    },
+    {
+      "id": "bundesrat-news",
+      "label": "bundesrat-news",
+      "type": "api",
+      "url": "https://placeholder.local/imported-source",
+      "enabled": true,
+      "options": {
+        "importedBy": "migrate-json-to-db"
+      }
+    },
+    {
+      "id": "ch-parlament-news",
+      "label": "ch-parlament-news",
+      "type": "api",
+      "url": "https://placeholder.local/imported-source",
+      "enabled": true,
+      "options": {
+        "importedBy": "migrate-json-to-db"
+      }
+    },
+    {
       "id": "ch-parliament-business-de",
       "label": "Parlament.ch Curia Vista (DE)",
       "type": "api",
@@ -8,11 +37,11 @@
       "url": "https://ws.parlament.ch/odata.svc/Business",
       "enabled": true,
       "options": {
-        "lang": "DE",
         "top": 320,
+        "lang": "DE",
+        "daysBack": 3650,
         "sampleLimit": 140,
-        "thematicMinQuota": 95,
-        "daysBack": 3650
+        "thematicMinQuota": 95
       }
     },
     {
@@ -23,11 +52,11 @@
       "url": "https://ws.parlament.ch/odata.svc/Business",
       "enabled": true,
       "options": {
-        "lang": "FR",
         "top": 260,
+        "lang": "FR",
+        "daysBack": 3650,
         "sampleLimit": 110,
-        "thematicMinQuota": 75,
-        "daysBack": 3650
+        "thematicMinQuota": 75
       }
     },
     {
@@ -38,11 +67,11 @@
       "url": "https://ws.parlament.ch/odata.svc/Business",
       "enabled": true,
       "options": {
-        "lang": "IT",
         "top": 180,
+        "lang": "IT",
+        "daysBack": 3650,
         "sampleLimit": 70,
-        "thematicMinQuota": 45,
-        "daysBack": 3650
+        "thematicMinQuota": 45
       }
     },
     {
@@ -53,11 +82,11 @@
       "url": "https://ws.parlament.ch/odata.svc/Business",
       "enabled": true,
       "options": {
-        "lang": "DE",
         "top": 240,
+        "lang": "DE",
+        "daysBack": 3650,
         "sampleLimit": 90,
         "thematicMinQuota": 65,
-        "daysBack": 3650,
         "businessTypeIncludes": "Motion"
       }
     },
@@ -69,25 +98,23 @@
       "url": "https://ws.parlament.ch/odata.svc/Business",
       "enabled": true,
       "options": {
-        "lang": "DE",
         "top": 200,
+        "lang": "DE",
+        "daysBack": 3650,
         "sampleLimit": 70,
         "thematicMinQuota": 50,
-        "daysBack": 3650,
         "businessTypeIncludes": "Postulat"
       }
     },
     {
-      "id": "blv-news",
-      "label": "BLV News",
-      "type": "rss",
-      "url": "https://www.blv.admin.ch/blv/de/home/das-blv/aktuell/medienmitteilungen.feed.xml",
+      "id": "user-input",
+      "label": "user-input",
+      "type": "api",
+      "url": "https://placeholder.local/imported-source",
       "enabled": true,
-      "fallbackPath": "data/fixtures/blv-news.xml",
-      "fallbackMode": "alwaysOnFailure",
-      "alternateUrls": [
-        "https://www.blv.admin.ch/blv/fr/home/das-blv/aktuell/medienmitteilungen.feed.xml"
-      ]
+      "options": {
+        "importedBy": "migrate-json-to-db"
+      }
     }
   ],
   "items": [
@@ -101,7 +128,7 @@
       "publishedAt": "2026-02-12T10:00:00.000Z",
       "fetchedAt": "2026-02-13T00:23:52.085Z",
       "language": "de",
-      "score": 0.9800000000000001,
+      "score": 0.98,
       "matchedKeywords": [
         "tier",
         "tiertransport",
@@ -137,7 +164,7 @@
       "publishedAt": "2026-02-10T07:30:00.000Z",
       "fetchedAt": "2026-02-13T09:35:31.430Z",
       "language": "de",
-      "score": 0.9800000000000001,
+      "score": 0.98,
       "matchedKeywords": [
         "tier",
         "tierschutz",
@@ -248,7 +275,7 @@
       "publishedAt": "2024-11-27T00:00:00.000Z",
       "fetchedAt": "2026-02-13T10:31:41.703Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -283,7 +310,7 @@
       "publishedAt": "2021-08-11T00:00:00.000Z",
       "fetchedAt": "2026-02-13T10:31:41.703Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "initiative"
       ],
@@ -332,7 +359,7 @@
       "publishedAt": "2026-01-28T00:00:00.000Z",
       "fetchedAt": "2026-02-13T10:31:41.703Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -1912,7 +1939,7 @@
       "publishedAt": "2025-12-17T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "sanktion"
       ],
@@ -2191,7 +2218,7 @@
       "publishedAt": "2025-09-18T00:00:00.000Z",
       "fetchedAt": "2026-02-13T19:24:39.603Z",
       "language": "fr",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "transport"
       ],
@@ -3490,7 +3517,7 @@
       "publishedAt": "2025-08-20T00:00:00.000Z",
       "fetchedAt": "2026-02-13T10:31:41.703Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -3753,7 +3780,7 @@
       "publishedAt": "2025-12-12T00:00:00.000Z",
       "fetchedAt": "2026-02-13T10:31:41.703Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -5243,7 +5270,7 @@
       "publishedAt": "2025-02-21T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.42000000000000004,
+      "score": 0.42,
       "matchedKeywords": [
         "stopfleber",
         "initiative"
@@ -5261,7 +5288,7 @@
       "publishedAt": "2025-12-05T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -5308,7 +5335,7 @@
       "publishedAt": "2025-09-26T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -5419,7 +5446,7 @@
       "publishedAt": "2025-09-12T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -5436,7 +5463,7 @@
       "publishedAt": "2025-09-19T00:00:00.000Z",
       "fetchedAt": "2026-02-13T10:31:41.703Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -6008,7 +6035,7 @@
       "publishedAt": "2012-07-04T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -6215,7 +6242,7 @@
       "publishedAt": "2000-03-29T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -6232,7 +6259,7 @@
       "publishedAt": "2000-10-18T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -6267,7 +6294,7 @@
       "publishedAt": "2010-06-23T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -6299,7 +6326,7 @@
       "publishedAt": "2010-02-17T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -6333,7 +6360,7 @@
       "publishedAt": "2005-06-22T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -6350,7 +6377,7 @@
       "publishedAt": "2003-02-19T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -6367,7 +6394,7 @@
       "publishedAt": "1995-09-13T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -6418,7 +6445,7 @@
       "publishedAt": "2018-09-28T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -6452,7 +6479,7 @@
       "publishedAt": "2015-11-18T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -6531,7 +6558,7 @@
       "publishedAt": "2018-09-21T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -6712,7 +6739,7 @@
       "publishedAt": "1996-06-26T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -6798,7 +6825,7 @@
       "publishedAt": "2007-09-12T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -6830,7 +6857,7 @@
       "publishedAt": "2008-10-29T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -6864,7 +6891,7 @@
       "publishedAt": "2006-08-23T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -6932,7 +6959,7 @@
       "publishedAt": "2007-09-21T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -7147,7 +7174,7 @@
       "publishedAt": "1998-05-27T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -7198,7 +7225,7 @@
       "publishedAt": "2002-09-11T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -7215,7 +7242,7 @@
       "publishedAt": "1994-01-26T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -7366,7 +7393,7 @@
       "publishedAt": "1993-09-08T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -7415,7 +7442,7 @@
       "publishedAt": "2013-05-29T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -7464,7 +7491,7 @@
       "publishedAt": "2009-02-25T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -7696,7 +7723,7 @@
       "publishedAt": "2000-10-18T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -7745,7 +7772,7 @@
       "publishedAt": "2016-02-17T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -7762,7 +7789,7 @@
       "publishedAt": "2002-09-11T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -7828,7 +7855,7 @@
       "publishedAt": "2009-03-17T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:22.913Z",
       "language": "de",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "botschaft"
       ],
@@ -9843,7 +9870,7 @@
       "publishedAt": "2025-12-19T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:33.132Z",
       "language": "fr",
-      "score": 0.04000000000000001,
+      "score": 0.04,
       "matchedKeywords": [
         "transport"
       ],
@@ -9986,7 +10013,7 @@
       "publishedAt": "2025-02-21T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:33.132Z",
       "language": "fr",
-      "score": 0.42000000000000004,
+      "score": 0.42,
       "matchedKeywords": [
         "foie gras",
         "initiative"
@@ -10199,7 +10226,7 @@
       "publishedAt": "2024-11-14T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:46:33.132Z",
       "language": "fr",
-      "score": 0.42000000000000004,
+      "score": 0.42,
       "matchedKeywords": [
         "foie gras",
         "initiative"
@@ -10339,7 +10366,7 @@
       "publishedAt": "2021-03-18T00:00:00.000Z",
       "fetchedAt": "2026-02-13T19:24:34.652Z",
       "language": "de",
-      "score": 0.4600000000000001,
+      "score": 0.46,
       "matchedKeywords": [
         "tier",
         "3r"
@@ -10375,7 +10402,7 @@
       "publishedAt": "2021-03-18T00:00:00.000Z",
       "fetchedAt": "2026-02-13T19:24:44.395Z",
       "language": "it",
-      "score": 0.4600000000000001,
+      "score": 0.46,
       "matchedKeywords": [
         "animal",
         "3r"
@@ -10505,5 +10532,5 @@
     }
   ],
   "publications": [],
-  "updatedAt": "2026-02-13T19:24:56.124Z"
+  "updatedAt": "2026-02-13T19:57:44.338Z"
 }
