@@ -210,6 +210,14 @@ h1 {
   border-radius: 12px;
   padding: 0.35rem;
   opacity: 0.6;
+  filter: brightness(0.88);
+  transition: opacity 180ms ease, filter 180ms ease, transform 180ms ease;
+}
+
+.support-logo-img:hover {
+  opacity: 1;
+  filter: brightness(1.05);
+  transform: translateY(-1px);
 }
 
 .row { display: flex; gap: 0.6rem; align-items: center; }
