@@ -79,7 +79,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
               <div className="detail-card" key={row.label}>
                 <span className="detail-label">{row.label}</span>
                 {clickable ? (
-                  <button className="detail-chip-btn" onClick={() => onQuickFilter(row.filterField!, String(filterValue))}>
+                  <button className="text-link-btn" onClick={() => onQuickFilter(row.filterField!, String(filterValue))}>
                     {row.value}
                   </button>
                 ) : (
@@ -90,9 +90,9 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
           })}
           <div className="detail-card">
             <span className="detail-label">{t.themes}</span>
-            <div className="detail-links">
+            <div className="detail-link-row">
               {item.themen.map((theme) => (
-                <button key={theme} className="detail-chip-btn" onClick={() => onQuickFilter('thema', theme)}>
+                <button key={theme} className="text-link-btn" onClick={() => onQuickFilter('thema', theme)}>
                   {translateContent(theme, lang)}
                 </button>
               ))}
