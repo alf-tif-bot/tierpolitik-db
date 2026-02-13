@@ -5,7 +5,9 @@ const outPath = new URL('../public/crawler.html', import.meta.url)
 const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
 const sourceMap = new Map((db.sources || []).map((source) => [source.id, source.label]))
 
-const items = [...db.items].sort((a, b) => new Date(b.publishedAt || 0).getTime() - new Date(a.publishedAt || 0).getTime())
+const items = [...db.items]
+  .filter((item) => ['queued', 'approved', 'published'].includes(item.status))
+  .sort((a, b) => new Date(b.publishedAt || 0).getTime() - new Date(a.publishedAt || 0).getTime())
 
 const esc = (v = '') => String(v)
   .replaceAll('&', '&amp;')

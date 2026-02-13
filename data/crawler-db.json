@@ -60,7 +60,7 @@
         "tiertransport"
       ],
       "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "reviewReason": "Automatisch relevant (>= 0.5)"
     },
     {
       "sourceId": "blv-news",
@@ -78,7 +78,7 @@
         "tierhaltung"
       ],
       "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "reviewReason": "Automatisch relevant (>= 0.5)"
     },
     {
       "sourceId": "bundesrat-news",
@@ -96,7 +96,7 @@
         "tierschutz"
       ],
       "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "reviewReason": "Automatisch relevant (>= 0.5)"
     },
     {
       "sourceId": "user-input",
@@ -111,7 +111,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -121,12 +121,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Soziale Fragen|Gesundheit",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -136,12 +136,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Finanzwesen|Umwelt",
       "publishedAt": "2025-12-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -151,12 +151,12 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Energie",
       "publishedAt": "2025-06-24T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -166,12 +166,12 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Energie",
       "publishedAt": "2022-03-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -181,14 +181,14 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Wirtschaft|Energie",
       "publishedAt": "2022-03-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0.25,
       "matchedKeywords": [
         "tier"
       ],
-      "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -198,12 +198,12 @@
       "summary": "Botschaft vom 27. November 2024 zur Änderung des Strahlenschutzgesetzes (StSG)",
       "body": "Botschaft vom 27. November 2024 zur Änderung des Strahlenschutzgesetzes (StSG) Umwelt|Energie|Gesundheit",
       "publishedAt": "2024-11-27T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -213,12 +213,12 @@
       "summary": "Botschaft vom 21. Februar 2024 zur Volksinitiative «Für eine zivilstandsunabhängige Individualbesteuerung (Steuergerechtigkeits-Initiative)» und zum indirekten Gegenvorschlag (Bundesgesetz über die Individualbesteuerung)",
       "body": "Botschaft vom 21. Februar 2024 zur Volksinitiative «Für eine zivilstandsunabhängige Individualbesteuerung (Steuergerechtigkeits-Initiative)» und zum indirekten Gegenvorschlag (Bundesgesetz über die Individualbesteuerung) Soziale Fragen|Zivilrecht|Steuer",
       "publishedAt": "2024-02-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -228,12 +228,12 @@
       "summary": "Eintritt der Bedingung für den Rückzug",
       "body": "Eintritt der Bedingung für den Rückzug Sicherheitspolitik|Wirtschaft|Verkehr|Umwelt|Energie",
       "publishedAt": "2021-08-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -243,12 +243,12 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "",
       "publishedAt": "2024-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -258,12 +258,12 @@
       "summary": "Botschaft vom 26. Februar 2025 zur Genehmigung des Abkommens über Klimawandel, Handel und Nachhaltigkeit",
       "body": "Botschaft vom 26. Februar 2025 zur Genehmigung des Abkommens über Klimawandel, Handel und Nachhaltigkeit Internationale Politik|Wirtschaft|Umwelt",
       "publishedAt": "2025-02-26T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -273,12 +273,12 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Internationale Politik|Sicherheitspolitik|Wirtschaft",
       "publishedAt": "2026-01-28T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -288,12 +288,12 @@
       "summary": "Botschaft vom 21. Mai 2025 zur Änderung des Elektrizitätsgesetzes (Beschleunigung beim Aus- und Umbau der Stromnetze)",
       "body": "Botschaft vom 21. Mai 2025 zur Änderung des Elektrizitätsgesetzes (Beschleunigung beim Aus- und Umbau der Stromnetze) Recht Allgemein|Verkehr|Energie|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-05-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -303,12 +303,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Finanzwesen|Verkehr|Umwelt",
       "publishedAt": "2025-09-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -318,12 +318,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Bildung",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -333,12 +333,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Zivilrecht|Strafrecht",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -348,12 +348,12 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Wirtschaft|Medien und Kommunikation|Steuer|Kultur",
       "publishedAt": "2022-03-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -363,12 +363,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Soziale Fragen",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -378,12 +378,12 @@
       "summary": "Vorprüfung - in Kommission des Nationalrates",
       "body": "Soziale Fragen|Gesundheit",
       "publishedAt": "2025-03-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -393,12 +393,12 @@
       "summary": "Vorprüfung - in Kommission des Nationalrates",
       "body": "Soziale Fragen|Gesundheit",
       "publishedAt": "2025-03-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -408,12 +408,12 @@
       "summary": "Vorprüfung - in Kommission des Nationalrates",
       "body": "Soziale Fragen|Gesundheit",
       "publishedAt": "2025-03-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -423,12 +423,12 @@
       "summary": "Vorprüfung - in Kommission des Nationalrates",
       "body": "Soziale Fragen|Gesundheit",
       "publishedAt": "2025-03-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -438,12 +438,12 @@
       "summary": "Vorprüfung - in Kommission des Nationalrates",
       "body": "Soziale Fragen|Gesundheit",
       "publishedAt": "2025-03-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -453,12 +453,12 @@
       "summary": "Vorprüfung - in Kommission des Nationalrates",
       "body": "Soziale Fragen|Gesundheit",
       "publishedAt": "2025-03-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -468,12 +468,12 @@
       "summary": "Vorprüfung - in Kommission des Nationalrates",
       "body": "Recht Allgemein|Medien und Kommunikation|Steuer",
       "publishedAt": "2025-03-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -483,12 +483,12 @@
       "summary": "Vorprüfung - in Kommission des Ständerates",
       "body": "Wirtschaft|Soziale Fragen|Beschäftigung und Arbeit",
       "publishedAt": "2025-03-06T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -498,12 +498,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Gesundheit",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -513,12 +513,12 @@
       "summary": "Eingereicht",
       "body": "",
       "publishedAt": "2026-01-20T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -528,12 +528,12 @@
       "summary": "Botschaft vom 27. November 2024 zur Volksinitiative «Wahrung der schweizerischen Neutralität (Neutralitätsinitiative)»",
       "body": "Botschaft vom 27. November 2024 zur Volksinitiative «Wahrung der schweizerischen Neutralität (Neutralitätsinitiative)» Staatspolitik|Internationale Politik|Sicherheitspolitik",
       "publishedAt": "2024-11-27T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -543,12 +543,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Gesundheit",
       "publishedAt": "2025-12-02T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -558,12 +558,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Beschäftigung und Arbeit",
       "publishedAt": "2025-12-02T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -573,12 +573,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Medien und Kommunikation|Gerichtswesen",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -588,14 +588,14 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Wirtschaft|Sozialer Schutz",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0.25,
       "matchedKeywords": [
         "tier"
       ],
-      "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -605,12 +605,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Medien und Kommunikation|Verkehr|Menschenrechte",
       "publishedAt": "2025-12-02T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -620,12 +620,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Soziale Fragen|Verkehr",
       "publishedAt": "2025-12-03T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -635,12 +635,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Recht Allgemein|Medien und Kommunikation",
       "publishedAt": "2025-12-03T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -650,12 +650,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Wirtschaft",
       "publishedAt": "2025-12-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -665,12 +665,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Bildung|Medien und Kommunikation|Beschäftigung und Arbeit",
       "publishedAt": "2025-11-13T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -680,12 +680,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Beschäftigung und Arbeit|Umwelt",
       "publishedAt": "2025-12-03T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -695,12 +695,12 @@
       "summary": "Erledigt",
       "body": "Medien und Kommunikation",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -710,12 +710,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Strafrecht|Gesundheit",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -725,12 +725,12 @@
       "summary": "Erledigt",
       "body": "Staatspolitik|Soziale Fragen|Strafrecht",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -740,14 +740,14 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Recht Allgemein|Wirtschaft|Gesundheit",
       "publishedAt": "2025-12-03T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0.25,
       "matchedKeywords": [
         "tier"
       ],
-      "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -757,12 +757,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Recht Allgemein|Soziale Fragen|Migration|Kultur",
       "publishedAt": "2025-12-03T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -772,12 +772,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Umwelt|Landwirtschaft|Gesundheit",
       "publishedAt": "2025-12-09T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -787,12 +787,12 @@
       "summary": "Erledigt",
       "body": "Soziale Fragen|Medien und Kommunikation|Strafrecht",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -802,12 +802,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Energie",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -817,12 +817,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Finanzwesen",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -832,12 +832,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Finanzwesen|Medien und Kommunikation|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-09T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -847,12 +847,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Internationale Politik|Sicherheitspolitik|Beschäftigung und Arbeit",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -862,12 +862,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Medien und Kommunikation|Kultur",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -877,12 +877,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Internationale Politik|Gesundheit",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -892,12 +892,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Sicherheitspolitik|Soziale Fragen",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -907,12 +907,12 @@
       "summary": "Erledigt",
       "body": "Verkehr|Umwelt",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -922,12 +922,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Strafrecht|Migration",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -937,12 +937,12 @@
       "summary": "Erledigt",
       "body": "Wirtschaft|Finanzwesen|Medien und Kommunikation",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -952,12 +952,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Finanzwesen|Umwelt|Steuer",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -967,12 +967,12 @@
       "summary": "Erledigt",
       "body": "Medien und Kommunikation|Umwelt|Gesundheit",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -982,12 +982,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Bildung|Beschäftigung und Arbeit",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -997,12 +997,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wissenschaft und Forschung|Umwelt",
       "publishedAt": "2025-12-09T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1012,12 +1012,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Sicherheitspolitik",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1027,12 +1027,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Medien und Kommunikation|Beschäftigung und Arbeit|Verkehr",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1042,14 +1042,14 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen|Bildung|Beschäftigung und Arbeit",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0.25,
       "matchedKeywords": [
         "tier"
       ],
-      "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1059,12 +1059,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Umwelt",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1074,12 +1074,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Beschäftigung und Arbeit|Verkehr",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1089,12 +1089,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen|Medien und Kommunikation|Gesundheit",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1104,12 +1104,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Umwelt|Energie",
       "publishedAt": "2025-12-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1119,12 +1119,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik",
       "publishedAt": "2025-12-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1134,12 +1134,12 @@
       "summary": "Erledigt",
       "body": "Internationale Politik|Wirtschaft|Parlament",
       "publishedAt": "2018-12-14T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1149,12 +1149,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Finanzwesen|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1164,12 +1164,12 @@
       "summary": "Überwiesen an den Bundesrat",
       "body": "Wirtschaft|Verkehr",
       "publishedAt": "2022-03-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1179,12 +1179,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Strafrecht|Migration",
       "publishedAt": "2025-12-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1194,12 +1194,12 @@
       "summary": "Erledigt",
       "body": "Parlament",
       "publishedAt": "2014-11-07T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1209,12 +1209,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen|Zivilrecht|Migration",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1224,12 +1224,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Finanzwesen",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1239,12 +1239,12 @@
       "summary": "Erledigt",
       "body": "Finanzwesen|Parlament",
       "publishedAt": "2018-02-26T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1254,12 +1254,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen|Strafrecht|Migration",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1269,12 +1269,12 @@
       "summary": "In Kommission des Ständerats",
       "body": "",
       "publishedAt": "2025-04-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1284,12 +1284,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Sicherheitspolitik|Medien und Kommunikation|Kultur",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1299,12 +1299,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Wirtschaft",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1314,14 +1314,14 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Soziale Fragen|Strafrecht",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0.25,
       "matchedKeywords": [
         "tier"
       ],
-      "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1331,12 +1331,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Internationale Politik|Finanzwesen|Umwelt",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1346,12 +1346,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Gesundheit",
       "publishedAt": "2025-12-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1361,12 +1361,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Finanzwesen|Verkehr",
       "publishedAt": "2025-12-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1376,12 +1376,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Bildung|Beschäftigung und Arbeit|Energie",
       "publishedAt": "2025-12-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1391,12 +1391,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen|Beschäftigung und Arbeit|Steuer|Sozialer Schutz",
       "publishedAt": "2025-12-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1406,12 +1406,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Wirtschaft|Migration",
       "publishedAt": "2025-12-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1421,12 +1421,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Umwelt",
       "publishedAt": "2025-12-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1436,12 +1436,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Finanzwesen|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1451,12 +1451,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1466,12 +1466,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Verkehr|Umwelt|Gesundheit",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1481,12 +1481,12 @@
       "summary": "In Kommission des Nationalrats",
       "body": "Wirtschaft|Soziale Fragen|Verkehr",
       "publishedAt": "2020-03-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1496,12 +1496,12 @@
       "summary": "In Kommission des Nationalrats",
       "body": "Staatspolitik|Finanzwesen|Medien und Kommunikation",
       "publishedAt": "2016-04-06T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1511,12 +1511,12 @@
       "summary": "Vorprüfung - in Kommission des Nationalrates",
       "body": "Staatspolitik|Wirtschaft|Medien und Kommunikation",
       "publishedAt": "2024-12-02T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1526,12 +1526,12 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Finanzwesen|Verkehr",
       "publishedAt": "2025-07-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1541,12 +1541,12 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Finanzwesen|Verkehr",
       "publishedAt": "2024-09-26T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1556,12 +1556,12 @@
       "summary": "Vorprüfung - in Kommission des Nationalrates",
       "body": "Finanzwesen|Verkehr|Raumplanung und Wohnungswesen",
       "publishedAt": "2024-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1571,12 +1571,12 @@
       "summary": "In Kommission des Ständerats",
       "body": "Staatspolitik|Recht Allgemein|Wirtschaft|Medien und Kommunikation",
       "publishedAt": "2022-09-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1586,12 +1586,12 @@
       "summary": "In Kommission des Ständerats",
       "body": "Staatspolitik|Wirtschaft|Medien und Kommunikation",
       "publishedAt": "2022-03-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1601,12 +1601,12 @@
       "summary": "In Kommission des Ständerats",
       "body": "Staatspolitik|Wirtschaft|Medien und Kommunikation",
       "publishedAt": "2017-07-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1616,12 +1616,12 @@
       "summary": "Beratung in Kommission des Nationalrates abgeschlossen",
       "body": "Finanzwesen|Verkehr|Sozialer Schutz",
       "publishedAt": "2025-09-22T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1631,12 +1631,12 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Wirtschaft|Verkehr",
       "publishedAt": "2025-06-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1646,12 +1646,12 @@
       "summary": "Botschaft vom 20. Juni 2025 zur Änderung des Urheberrechtsgesetzes (Leistungsschutzrecht für Medienunternehmen)",
       "body": "Botschaft vom 20. Juni 2025 zur Änderung des Urheberrechtsgesetzes (Leistungsschutzrecht für Medienunternehmen) Recht Allgemein|Medien und Kommunikation",
       "publishedAt": "2025-06-20T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1661,12 +1661,12 @@
       "summary": "Botschaft vom 28. Mai 2025 zur Änderung des Schwerverkehrsabgabegesetzes (Weiterentwicklung der leistungsabhängigen Schwerverkehrsabgabe)",
       "body": "Botschaft vom 28. Mai 2025 zur Änderung des Schwerverkehrsabgabegesetzes (Weiterentwicklung der leistungsabhängigen Schwerverkehrsabgabe) Verkehr|Steuer",
       "publishedAt": "2025-05-28T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1676,12 +1676,12 @@
       "summary": "Botschaft vom 14. Mai 2025 zum Bundesgesetz über die Mobilitätsdateninfrastruktur (MODIG)",
       "body": "Botschaft vom 14. Mai 2025 zum Bundesgesetz über die Mobilitätsdateninfrastruktur (MODIG) Staatspolitik|Verkehr|Menschenrechte",
       "publishedAt": "2025-05-14T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1691,12 +1691,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Finanzwesen|Energie",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1706,12 +1706,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Recht Allgemein|Energie",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1721,12 +1721,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Strafrecht",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1736,12 +1736,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Soziale Fragen|Medien und Kommunikation",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1751,12 +1751,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Umwelt|Energie",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1766,12 +1766,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen|Medien und Kommunikation|Gesundheit",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1781,12 +1781,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Recht Allgemein|Migration|Sozialer Schutz",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1796,12 +1796,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Strafrecht|Migration",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1811,12 +1811,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen|Strafrecht",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1826,12 +1826,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1841,12 +1841,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Finanzwesen|Strafrecht|Migration",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1856,12 +1856,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Medien und Kommunikation",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1871,12 +1871,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Internationale Politik|Sicherheitspolitik|Wirtschaft|Medien und Kommunikation",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1886,12 +1886,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Strafrecht|Migration",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1901,12 +1901,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Verkehr",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1916,12 +1916,12 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Strafrecht|Migration",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:50.776Z",
+      "fetchedAt": "2026-02-13T01:01:09.204Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -1931,12 +1931,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Économie|Questions sociales|Santé",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -1946,12 +1946,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique d'Etat|Finances|Environnement",
       "publishedAt": "2025-12-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -1961,12 +1961,12 @@
       "summary": "Fin des discussions en commission du Conseil des Etats",
       "body": "Énergie",
       "publishedAt": "2025-06-24T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -1976,12 +1976,12 @@
       "summary": "Fin des discussions en commission du Conseil des Etats",
       "body": "Énergie",
       "publishedAt": "2022-03-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -1991,12 +1991,12 @@
       "summary": "Fin des discussions en commission du Conseil des Etats",
       "body": "Économie|Énergie",
       "publishedAt": "2022-03-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2006,12 +2006,12 @@
       "summary": "Message du 27 novembre 2024 concernant la modification de la loi sur la radioprotection (LRaP)",
       "body": "Message du 27 novembre 2024 concernant la modification de la loi sur la radioprotection (LRaP) Environnement|Énergie|Santé",
       "publishedAt": "2024-11-27T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2021,12 +2021,12 @@
       "summary": "Message du 21 février 2024 relatif à l'initiative populaire «pour une imposition individuelle indépendante de l'état civil (initiative pour des impôts équitables)» et au contre-projet indirect (loi fédérale sur l’imposition individuelle)",
       "body": "Message du 21 février 2024 relatif à l'initiative populaire «pour une imposition individuelle indépendante de l'état civil (initiative pour des impôts équitables)» et au contre-projet indirect (loi fédérale sur l’imposition individuelle) Questions sociales|Droit civil|Fiscalité",
       "publishedAt": "2024-02-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2036,12 +2036,12 @@
       "summary": "Réalisation du retrait conditionnel",
       "body": "Réalisation du retrait conditionnel Politique de sécurité|Économie|Transports|Environnement|Énergie",
       "publishedAt": "2021-08-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2051,12 +2051,12 @@
       "summary": "Fin des discussions en commission du Conseil des Etats",
       "body": "",
       "publishedAt": "2024-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2066,12 +2066,12 @@
       "summary": "Message du 26 février 2025 concernant l’approbation de l’accord sur le changement climatique, le commerce et la durabilité",
       "body": "Message du 26 février 2025 concernant l’approbation de l’accord sur le changement climatique, le commerce et la durabilité Politique internationale|Économie|Environnement",
       "publishedAt": "2025-02-26T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2081,12 +2081,12 @@
       "summary": "Fin des discussions en commission du Conseil des Etats",
       "body": "Politique internationale|Politique de sécurité|Économie",
       "publishedAt": "2026-01-28T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2096,12 +2096,12 @@
       "summary": "Message du 21 mai 2025 relatif à la modification de la loi sur les installations électriques (Accélération de l’extension et de la transformation des réseaux électriques)",
       "body": "Message du 21 mai 2025 relatif à la modification de la loi sur les installations électriques (Accélération de l’extension et de la transformation des réseaux électriques) Droit|Transports|Énergie|Aménagement du territoire et logement",
       "publishedAt": "2025-05-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2111,14 +2111,14 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Finances|Transports|Environnement",
       "publishedAt": "2025-09-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0.25,
       "matchedKeywords": [
         "tier"
       ],
-      "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2128,12 +2128,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique de sécurité|Éducation",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2143,12 +2143,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Économie|Droit civil|Droit pénal",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2158,12 +2158,12 @@
       "summary": "Fin des discussions en commission du Conseil des Etats",
       "body": "Économie|Médias et communication|Fiscalité|Culture",
       "publishedAt": "2022-03-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2173,12 +2173,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique de sécurité|Questions sociales",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2188,12 +2188,12 @@
       "summary": "Examen préalable - en commission du Conseil national",
       "body": "Questions sociales|Santé",
       "publishedAt": "2025-03-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2203,12 +2203,12 @@
       "summary": "Examen préalable - en commission du Conseil national",
       "body": "Questions sociales|Santé",
       "publishedAt": "2025-03-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2218,12 +2218,12 @@
       "summary": "Examen préalable - en commission du Conseil national",
       "body": "Questions sociales|Santé",
       "publishedAt": "2025-03-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2233,12 +2233,12 @@
       "summary": "Examen préalable - en commission du Conseil national",
       "body": "Questions sociales|Santé",
       "publishedAt": "2025-03-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2248,12 +2248,12 @@
       "summary": "Examen préalable - en commission du Conseil national",
       "body": "Questions sociales|Santé",
       "publishedAt": "2025-03-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2263,12 +2263,12 @@
       "summary": "Examen préalable - en commission du Conseil national",
       "body": "Questions sociales|Santé",
       "publishedAt": "2025-03-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2278,12 +2278,12 @@
       "summary": "Examen préalable - en commission du Conseil national",
       "body": "Droit|Médias et communication|Fiscalité",
       "publishedAt": "2025-03-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2293,12 +2293,12 @@
       "summary": "Examen préalable - en commission du Conseil des Etats",
       "body": "Économie|Questions sociales|Emploi et travail",
       "publishedAt": "2025-03-06T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2308,12 +2308,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Économie|Santé",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2323,12 +2323,12 @@
       "summary": "Déposé",
       "body": "",
       "publishedAt": "2026-01-20T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2338,12 +2338,12 @@
       "summary": "Message du 27 novembre 2024 concernant l’initiative populaire fédérale «Sauvegarder la neutralité suisse (initiative sur la neutralité)»",
       "body": "Message du 27 novembre 2024 concernant l’initiative populaire fédérale «Sauvegarder la neutralité suisse (initiative sur la neutralité)» Politique d'Etat|Politique internationale|Politique de sécurité",
       "publishedAt": "2024-11-27T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2353,12 +2353,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Santé",
       "publishedAt": "2025-12-02T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2368,12 +2368,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Économie|Emploi et travail",
       "publishedAt": "2025-12-02T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2383,12 +2383,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique d'Etat|Médias et communication|Justice",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2398,12 +2398,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique d'Etat|Économie|Protection sociale",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2413,12 +2413,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Médias et communication|Transports|Droits de l'homme",
       "publishedAt": "2025-12-02T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2428,12 +2428,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique de sécurité|Questions sociales|Transports",
       "publishedAt": "2025-12-03T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2443,12 +2443,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique d'Etat|Droit|Médias et communication",
       "publishedAt": "2025-12-03T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2458,12 +2458,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique de sécurité|Économie",
       "publishedAt": "2025-12-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2473,12 +2473,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Éducation|Médias et communication|Emploi et travail",
       "publishedAt": "2025-11-13T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2488,12 +2488,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Économie|Emploi et travail|Environnement",
       "publishedAt": "2025-12-03T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2503,12 +2503,12 @@
       "summary": "Liquidé",
       "body": "Médias et communication",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2518,12 +2518,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique de sécurité|Droit pénal|Santé",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2533,12 +2533,12 @@
       "summary": "Liquidé",
       "body": "Politique d'Etat|Questions sociales|Droit pénal",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2548,12 +2548,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Droit|Économie|Santé",
       "publishedAt": "2025-12-03T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2563,12 +2563,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Droit|Questions sociales|Politique migratoire|Culture",
       "publishedAt": "2025-12-03T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2578,12 +2578,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Environnement|Agriculture|Santé",
       "publishedAt": "2025-12-09T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2593,12 +2593,12 @@
       "summary": "Liquidé",
       "body": "Questions sociales|Médias et communication|Droit pénal",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2608,12 +2608,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Économie|Énergie",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2623,12 +2623,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique d'Etat|Finances",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2638,12 +2638,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Finances|Médias et communication|Aménagement du territoire et logement",
       "publishedAt": "2025-12-09T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2653,12 +2653,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique d'Etat|Politique internationale|Politique de sécurité|Emploi et travail",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2668,12 +2668,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique d'Etat|Médias et communication|Culture",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2683,12 +2683,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique internationale|Santé",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2698,12 +2698,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique d'Etat|Politique de sécurité|Questions sociales",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2713,12 +2713,12 @@
       "summary": "Liquidé",
       "body": "Transports|Environnement",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2728,12 +2728,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Droit pénal|Politique migratoire",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2743,12 +2743,12 @@
       "summary": "Liquidé",
       "body": "Économie|Finances|Médias et communication",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2758,12 +2758,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Finances|Environnement|Fiscalité",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2773,12 +2773,12 @@
       "summary": "Liquidé",
       "body": "Médias et communication|Environnement|Santé",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2788,12 +2788,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Éducation|Emploi et travail",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2803,12 +2803,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Science et recherche|Environnement",
       "publishedAt": "2025-12-09T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2818,12 +2818,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique d'Etat|Politique de sécurité",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2833,12 +2833,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Médias et communication|Emploi et travail|Transports",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2848,12 +2848,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Questions sociales|Éducation|Emploi et travail",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2863,12 +2863,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Environnement",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2878,12 +2878,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Économie|Emploi et travail|Transports",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2893,12 +2893,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Questions sociales|Médias et communication|Santé",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2908,12 +2908,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Environnement|Énergie",
       "publishedAt": "2025-12-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2923,12 +2923,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique d'Etat",
       "publishedAt": "2025-12-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2938,12 +2938,12 @@
       "summary": "Liquidé",
       "body": "Politique internationale|Économie|Parlement",
       "publishedAt": "2018-12-14T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2953,12 +2953,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Économie|Finances|Aménagement du territoire et logement",
       "publishedAt": "2025-12-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2968,12 +2968,12 @@
       "summary": "Transmis au Conseil fédéral",
       "body": "Économie|Transports",
       "publishedAt": "2022-03-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2983,12 +2983,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Droit pénal|Politique migratoire",
       "publishedAt": "2025-12-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2998,12 +2998,12 @@
       "summary": "Liquidé",
       "body": "Parlement",
       "publishedAt": "2014-11-07T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3013,12 +3013,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Questions sociales|Droit civil|Politique migratoire",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3028,12 +3028,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Finances",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3043,12 +3043,12 @@
       "summary": "Liquidé",
       "body": "Finances|Parlement",
       "publishedAt": "2018-02-26T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3058,12 +3058,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Questions sociales|Droit pénal|Politique migratoire",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3073,12 +3073,12 @@
       "summary": "En commission du Conseil des Etats",
       "body": "",
       "publishedAt": "2025-04-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3088,12 +3088,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique d'Etat|Politique de sécurité|Médias et communication|Culture",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3103,12 +3103,12 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique d'Etat|Économie",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3118,14 +3118,14 @@
       "summary": "L’avis relatif à l’intervention est disponible",
       "body": "Politique de sécurité|Questions sociales|Droit pénal",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:39:53.702Z",
+      "fetchedAt": "2026-02-13T01:01:12.726Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (< 0.5)"
     }
   ],
   "publications": [],
-  "updatedAt": "2026-02-13T00:39:59.514Z"
+  "updatedAt": "2026-02-13T01:01:17.919Z"
 }
