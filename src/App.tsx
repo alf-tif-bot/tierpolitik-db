@@ -248,8 +248,6 @@ export default function App() {
         <p>{t.dbIntroSubtitle}</p>
       </section>
 
-      <ExportButtons filtered={filtered} visibleColumns={visibleColumns} t={t} showExports showShortcutsLink={false} />
-
       <TableView
         data={filtered}
         onOpenDetail={openDetail}
@@ -259,6 +257,8 @@ export default function App() {
         lang={lang}
         t={t}
       />
+
+      <ExportButtons filtered={filtered} visibleColumns={visibleColumns} t={t} showExports showShortcutsLink={false} />
 
       <DetailDrawer
         item={selected}
