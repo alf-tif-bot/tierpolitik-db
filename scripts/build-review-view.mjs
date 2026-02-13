@@ -165,9 +165,28 @@ function hideDecidedRows(){
   });
 }
 
-function setDecision(btn,id,status){
+async function setDecision(btn,id,status){
+  const decidedAt = new Date().toISOString();
+
+  try {
+    const res = await fetch('/.netlify/functions/review-decision', {
+      method:'POST',
+      headers:{'content-type':'application/json'},
+      body: JSON.stringify({ id, status, decidedAt })
+    });
+
+    if(!res.ok){
+      const txt = await res.text();
+      throw new Error(txt || 'Decision API failed');
+    }
+  } catch(err) {
+    alert('Konnte Entscheidung nicht serverseitig speichern. Bitte später erneut versuchen.');
+    console.error(err);
+    return;
+  }
+
   const s=read();
-  s[id]={status,decidedAt:new Date().toISOString()};
+  s[id]={status,decidedAt};
   write(s);
 
   const row = btn?.closest('tr[data-id]');

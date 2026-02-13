@@ -1,0 +1,18 @@
+{
+  "ch-parlament-news:parl-1": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T00:35:16.057Z"
+  },
+  "ch-parliament-business-de:20240089-de": {
+    "status": "approved",
+    "decidedAt": "2026-02-13T10:49:55.327Z"
+  },
+  "ch-parliament-business-fr:20210426-fr": {
+    "status": "approved",
+    "decidedAt": "2026-02-13T20:05:08.185Z"
+  },
+  "ch-parliament-business-de:20250404-de": {
+    "status": "approved",
+    "decidedAt": "2026-02-13T20:05:39.742Z"
+  }
+}

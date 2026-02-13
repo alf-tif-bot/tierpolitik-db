@@ -11,7 +11,7 @@ import { validateVorstoesse, type Vorstoss } from './types'
 import { applyFilters, defaultFilters, type Filters } from './utils/filtering'
 import { clearHashId, getHashId, setHashId } from './utils/urlHash'
 
-const data = validateVorstoesse(rawData)
+const fallbackData = validateVorstoesse(rawData)
 
 type ProfileState =
   | { kind: 'person'; value: string }
@@ -25,6 +25,7 @@ export default function App() {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   })
   const [filters, setFilters] = useState<Filters>(defaultFilters)
+  const [data, setData] = useState<Vorstoss[]>(fallbackData)
   const [selected, setSelected] = useState<Vorstoss | null>(null)
   const [profile, setProfile] = useState<ProfileState>(null)
   const [visibleColumns, setVisibleColumns] = useState<{ key: string; label: string }[]>([])
@@ -35,14 +36,30 @@ export default function App() {
 
   const t = i18n[lang]
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
-  const filtered = useMemo(() => applyFilters(data, filters), [filters])
+  const filtered = useMemo(() => applyFilters(data, filters), [data, filters])
+
+  useEffect(() => {
+    const loadLive = async () => {
+      try {
+        const res = await fetch('/.netlify/functions/home-data', { cache: 'no-store' })
+        if (!res.ok) return
+        const payload = await res.json()
+        const parsed = validateVorstoesse(payload)
+        if (parsed.length) setData(parsed)
+      } catch {
+        // keep fallback data
+      }
+    }
+
+    loadLive()
+  }, [])
 
   useEffect(() => {
     const id = getHashId()
     if (!id) return
     const hit = data.find((v) => v.id === id)
     if (hit) setSelected(hit)
-  }, [])
+  }, [data])
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('tierpolitik.theme')

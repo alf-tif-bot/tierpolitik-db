@@ -1,99 +1,5 @@
 [
   {
-    "id": "vp-parl-1",
-    "titel": "Vorstoss fuer strengere Tiertransport-Kontrollen",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Neue parlamentarische Initiative fuer Transportdauer-Limiten.",
-    "geschaeftsnummer": "parl-1",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Eingereicht",
-    "datumEingereicht": "2026-02-12",
-    "datumAktualisiert": "2026-02-13",
-    "themen": [
-      "tier",
-      "tiertransport",
-      "transport",
-      "kontrolle",
-      "initiative"
-    ],
-    "schlagwoerter": [
-      "tier",
-      "tiertransport",
-      "transport",
-      "kontrolle",
-      "initiative"
-    ],
-    "einreichende": [
-      {
-        "name": "Parlamentsdienst",
-        "rolle": "Nationalrat",
-        "partei": "Überparteilich"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/rss/mitteilungen-de.xml",
-    "resultate": [
-      {
-        "datum": "2026-02-12",
-        "status": "Eingereicht",
-        "bemerkung": "Status aus Crawler: queued"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-br-1",
-    "titel": "Bundesrat eroertert Verordnung gegen tierschutzwidrige Praktiken",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Anpassung bei Kontrollen und Sanktionspraxis.",
-    "geschaeftsnummer": "br-1",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Eingereicht",
-    "datumEingereicht": "2026-02-10",
-    "datumAktualisiert": "2026-02-13",
-    "themen": [
-      "tier",
-      "tierschutz",
-      "kontrolle",
-      "verordnung",
-      "sanktion"
-    ],
-    "schlagwoerter": [
-      "tier",
-      "tierschutz",
-      "kontrolle",
-      "verordnung",
-      "sanktion"
-    ],
-    "einreichende": [
-      {
-        "name": "Parlamentsdienst",
-        "rolle": "Nationalrat",
-        "partei": "Überparteilich"
-      }
-    ],
-    "linkGeschaeft": "https://example.org/bundesrat/1",
-    "resultate": [
-      {
-        "datum": "2026-02-10",
-        "status": "Eingereicht",
-        "bemerkung": "Status aus Crawler: queued"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
     "id": "vp-20250404-de",
     "titel": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative",
     "typ": "Volksinitiative",
@@ -102,7 +8,7 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "Eingereicht",
+    "status": "In Beratung",
     "datumEingereicht": "2025-02-21",
     "datumAktualisiert": "2026-02-13",
     "themen": [
@@ -124,8 +30,8 @@
     "resultate": [
       {
         "datum": "2025-02-21",
-        "status": "Eingereicht",
-        "bemerkung": "Status aus Crawler: queued"
+        "status": "In Beratung",
+        "bemerkung": "Status aus Crawler: approved"
       }
     ],
     "medien": [],
@@ -143,7 +49,7 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "Eingereicht",
+    "status": "In Beratung",
     "datumEingereicht": "2024-11-14",
     "datumAktualisiert": "2026-02-13",
     "themen": [
@@ -167,8 +73,8 @@
     "resultate": [
       {
         "datum": "2024-11-14",
-        "status": "Eingereicht",
-        "bemerkung": "Status aus Crawler: queued"
+        "status": "In Beratung",
+        "bemerkung": "Status aus Crawler: approved"
       }
     ],
     "medien": [],
@@ -309,7 +215,7 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": "Romandie",
-    "status": "Eingereicht",
+    "status": "In Beratung",
     "datumEingereicht": "2021-03-18",
     "datumAktualisiert": "2026-02-13",
     "themen": [
@@ -331,8 +237,8 @@
     "resultate": [
       {
         "datum": "2021-03-18",
-        "status": "Eingereicht",
-        "bemerkung": "Status aus Crawler: queued"
+        "status": "In Beratung",
+        "bemerkung": "Status aus Crawler: approved"
       }
     ],
     "medien": [],
@@ -379,6 +285,53 @@
     "medien": [],
     "metadaten": {
       "sprache": "it",
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-br-1",
+    "titel": "Bundesrat eroertert Verordnung gegen tierschutzwidrige Praktiken",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Anpassung bei Kontrollen und Sanktionspraxis.",
+    "geschaeftsnummer": "br-1",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Eingereicht",
+    "datumEingereicht": "2026-02-10",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "tier",
+      "tierschutz",
+      "kontrolle",
+      "verordnung",
+      "sanktion"
+    ],
+    "schlagwoerter": [
+      "tier",
+      "tierschutz",
+      "kontrolle",
+      "verordnung",
+      "sanktion"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsdienst",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://example.org/bundesrat/1",
+    "resultate": [
+      {
+        "datum": "2026-02-10",
+        "status": "Eingereicht",
+        "bemerkung": "Status aus Crawler: queued"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
       "zuletztGeprueftVon": "Crawler/DB Sync"
     }
   }

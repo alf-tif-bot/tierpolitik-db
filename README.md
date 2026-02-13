@@ -123,6 +123,11 @@ Lädt die Daten aus PostgreSQL nach JSON und baut danach sofort:
 - `data/crawler-published.json`
 - `public/crawler.html` (Redirect auf Review)
 
+### Automatische Review->DB Anbindung
+
+- `review.html` sendet Approve/Reject jetzt serverseitig an `/.netlify/functions/review-decision`
+- Home lädt Live-Daten aus DB via `/.netlify/functions/home-data` (mit lokalem JSON-Fallback)
+
 ### Phasenplan (pragmatisch)
 
 **Phase A: JSON primär + DB Mirror (jetzt)**
