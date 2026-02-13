@@ -50,7 +50,18 @@ for (const item of baseReviewItems) {
 }
 
 const reviewItems = [...grouped.values()]
-  .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
+  .sort((a, b) => {
+    const aPending = (a.status === 'queued' || a.status === 'new') ? 1 : 0
+    const bPending = (b.status === 'queued' || b.status === 'new') ? 1 : 0
+    if (bPending !== aPending) return bPending - aPending
+
+    const scoreDelta = Number(b.score || 0) - Number(a.score || 0)
+    if (Math.abs(scoreDelta) > 0.0001) return scoreDelta
+
+    const aTs = Date.parse(String(a.publishedAt || a.fetchedAt || '')) || 0
+    const bTs = Date.parse(String(b.publishedAt || b.fetchedAt || '')) || 0
+    return bTs - aTs
+  })
 
 const sourceMap = new Map((db.sources || []).map((s) => [s.id, s.label]))
 
@@ -130,6 +141,8 @@ const rows = reviewItems.map((item) => {
   const isPending = item.status === 'queued' || item.status === 'new'
   const pendingBadge = isPending ? '<strong class="pending">offen</strong>' : '<span class="historic">historisch</span>'
   const sourceLabel = esc(sourceMap.get(item.sourceId) || item.sourceId)
+  const scoreValue = Number(item.score || 0)
+  const priorityLabel = scoreValue >= 0.8 ? 'hoch' : scoreValue >= 0.55 ? 'mittel' : 'niedriger'
   const sourceUrl = resolveOriginalUrl(item)
   const originalLink = sourceUrl
     ? `<a class="orig-link" href="${esc(sourceUrl)}" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>`
@@ -146,7 +159,7 @@ const rows = reviewItems.map((item) => {
   <div>${sourceLabel}</div>
   <small class="muted">${esc(item.sourceId)}</small>
 </td>
-<td>${(item.score ?? 0).toFixed(2)}</td>
+<td>${scoreValue.toFixed(2)}<br><small class="muted">Priorität: ${priorityLabel}</small></td>
 <td>${esc((item.matchedKeywords || []).join(', '))}</td>
 <td>${esc(item.status)} (${pendingBadge})</td>
 <td><small>${humanizeReason(item.reviewReason || '-')}</small></td>
