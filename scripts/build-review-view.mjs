@@ -54,7 +54,7 @@ const rows = reviewItems.map((item) => {
     : '<span class="muted">kein gültiger Link</span>'
 
   return `
-<tr>
+<tr data-id="${esc(id)}">
 <td>
   <strong>${esc(item.title)}</strong><br>
   <small>${esc(item.summary || '')}</small><br>
@@ -69,8 +69,8 @@ const rows = reviewItems.map((item) => {
 <td>${esc(item.status)} (${pendingBadge})</td>
 <td><small>${esc(item.reviewReason || '-')}</small></td>
 <td>
-<button onclick="setDecision('${esc(id)}','approved')">Approve</button>
-<button onclick="setDecision('${esc(id)}','rejected')">Reject</button>
+<button onclick="setDecision(this,'${esc(id)}','approved')">Approve</button>
+<button onclick="setDecision(this,'${esc(id)}','rejected')">Reject</button>
 </td>
 </tr>`
 }).join('')
@@ -106,7 +106,7 @@ const html = `<!doctype html>
 <body>
   <main class="wrap">
     <h1>Review-Ansicht</h1>
-    <p>Es werden nur relevante Einträge gezeigt (queued/approved/published). Entscheidungen als JSON exportieren und danach mit <code>npm run crawler:apply-review</code> in die DB übernehmen.</p>
+    <p>Es werden nur relevante Einträge gezeigt (queued/approved/published). Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB übernommen.</p>
     <p class="status">Status-Summen (sichtbar): queued=${counts.queued || 0}, approved=${counts.approved || 0}, published=${counts.published || 0}</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
     <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button></p>
@@ -129,8 +129,34 @@ const html = `<!doctype html>
 const key='tierpolitik.review';
 const read=()=>JSON.parse(localStorage.getItem(key)||'{}');
 const write=(v)=>localStorage.setItem(key,JSON.stringify(v,null,2));
-function setDecision(id,status){const s=read();s[id]={status,decidedAt:new Date().toISOString()};write(s);alert('Gespeichert: '+id+' -> '+status)}
-function exportDecisions(){const blob=new Blob([JSON.stringify(read(),null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='review-decisions.json';a.click();URL.revokeObjectURL(a.href)}
+
+function hideDecidedRows(){
+  const decisions = read();
+  document.querySelectorAll('tr[data-id]').forEach((row)=>{
+    const id = row.getAttribute('data-id');
+    if (id && decisions[id]) row.style.display = 'none';
+  });
+}
+
+function setDecision(btn,id,status){
+  const s=read();
+  s[id]={status,decidedAt:new Date().toISOString()};
+  write(s);
+
+  const row = btn?.closest('tr[data-id]');
+  if (row) row.style.display='none';
+}
+
+function exportDecisions(){
+  const blob=new Blob([JSON.stringify(read(),null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='review-decisions.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+hideDecidedRows();
 </script>
 </body>
 </html>`
