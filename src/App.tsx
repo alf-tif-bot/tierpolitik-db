@@ -29,6 +29,8 @@ export default function App() {
   const [profile, setProfile] = useState<ProfileState>(null)
   const [visibleColumns, setVisibleColumns] = useState<{ key: string; label: string }[]>([])
   const searchInputRef = useRef<HTMLInputElement>(null)
+  const comboBufferRef = useRef('')
+  const comboTimerRef = useRef<number | null>(null)
 
   const t = i18n[lang]
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
@@ -82,7 +84,55 @@ export default function App() {
 
       if (isTypingTarget(event.target)) return
 
-      if (event.key === '/' || event.key.toLowerCase() === 'f') {
+      const key = event.key.toLowerCase()
+
+      if (key === 'w') {
+        setTheme('light')
+        event.preventDefault()
+        return
+      }
+
+      if (key === 'd') {
+        setTheme('dark')
+        event.preventDefault()
+        return
+      }
+
+      if (key.length === 1 && ['d', 'e', 'f', 'r', 'i', 't', 'n'].includes(key)) {
+        comboBufferRef.current = (comboBufferRef.current + key).slice(-2)
+
+        if (comboTimerRef.current) window.clearTimeout(comboTimerRef.current)
+        comboTimerRef.current = window.setTimeout(() => {
+          comboBufferRef.current = ''
+        }, 550)
+
+        if (comboBufferRef.current === 'de') {
+          setLang('de')
+          comboBufferRef.current = ''
+          event.preventDefault()
+          return
+        }
+        if (comboBufferRef.current === 'fr') {
+          setLang('fr')
+          comboBufferRef.current = ''
+          event.preventDefault()
+          return
+        }
+        if (comboBufferRef.current === 'it') {
+          setLang('it')
+          comboBufferRef.current = ''
+          event.preventDefault()
+          return
+        }
+        if (comboBufferRef.current === 'en') {
+          setLang('en')
+          comboBufferRef.current = ''
+          event.preventDefault()
+          return
+        }
+      }
+
+      if (event.key === '/') {
         event.preventDefault()
         searchInputRef.current?.focus()
         searchInputRef.current?.select()
@@ -93,7 +143,10 @@ export default function App() {
     }
 
     window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
+    return () => {
+      window.removeEventListener('keydown', onKeyDown)
+      if (comboTimerRef.current) window.clearTimeout(comboTimerRef.current)
+    }
   }, [selected, profile])
 
   const openDetail = (item: Vorstoss) => {
