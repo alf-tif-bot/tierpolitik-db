@@ -177,7 +177,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
               <button className="btn-secondary">Behörden-Resultate</button>
             </a>
           )}
-          <button className="btn-secondary" onClick={() => onSubscribe(`Vorstoss ${item.geschaeftsnummer}`)}>E-Mail abonnieren</button>
+          <button className="btn-secondary" onClick={() => onSubscribe(`Vorstoss ${item.geschaeftsnummer}`)}>Geschäft abonnieren</button>
         </div>
 
         <h3>{t.timeline}</h3>
