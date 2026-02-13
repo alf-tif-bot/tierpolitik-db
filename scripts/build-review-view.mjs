@@ -2,6 +2,7 @@ import fs from 'node:fs'
 
 const dbPath = new URL('../data/crawler-db.json', import.meta.url)
 const outPath = new URL('../public/review.html', import.meta.url)
+const reviewDataPath = new URL('../data/review-items.json', import.meta.url)
 const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
 
 const enabledSourceIds = new Set((db.sources || [])
@@ -358,4 +359,9 @@ hideDecidedRows();
 </html>`
 
 fs.writeFileSync(outPath, html)
+fs.writeFileSync(reviewDataPath, JSON.stringify({
+  generatedAt: new Date().toISOString(),
+  total: reviewItems.length,
+  ids: reviewItems.map((item) => `${item.sourceId}:${item.externalId}`),
+}, null, 2))
 console.log(`Review-Ansicht gebaut: ${outPath.pathname} (${reviewItems.length} Eintraege)`)
