@@ -9,6 +9,7 @@ export const sourceSchema = z.object({
   type: sourceTypeSchema,
   url: z.url(),
   enabled: z.boolean().default(true),
+  fallbackPath: z.string().optional(),
 })
 
 export const rawItemSchema = z.object({

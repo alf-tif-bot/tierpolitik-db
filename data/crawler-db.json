@@ -1,6 +1,77 @@
 {
-  "sources": [],
-  "items": [],
+  "sources": [
+    {
+      "id": "ch-parlament-news",
+      "label": "Parlament.ch Medienmitteilungen",
+      "type": "rss",
+      "url": "https://www.parlament.ch/rss/mitteilungen-de.xml",
+      "enabled": true,
+      "fallbackPath": "data/fixtures/ch-parlament-news.xml"
+    },
+    {
+      "id": "blv-news",
+      "label": "BLV News",
+      "type": "rss",
+      "url": "https://www.blv.admin.ch/blv/de/home/das-blv/aktuell/medienmitteilungen.feed.xml",
+      "enabled": true,
+      "fallbackPath": "data/fixtures/blv-news.xml"
+    },
+    {
+      "id": "bundesrat-news",
+      "label": "Bundesrat Medien",
+      "type": "rss",
+      "url": "https://www.admin.ch/gov/de/start/dokumentation/medienmitteilungen/rss-not-found.xml",
+      "enabled": true,
+      "fallbackPath": "data/fixtures/bundesrat-news.xml"
+    }
+  ],
+  "items": [
+    {
+      "sourceId": "ch-parlament-news",
+      "sourceUrl": "https://www.parlament.ch/rss/mitteilungen-de.xml",
+      "externalId": "parl-1",
+      "title": "Vorstoss fuer strengere Tiertransport-Kontrollen",
+      "summary": "Neue parlamentarische Initiative fuer Transportdauer-Limiten.",
+      "body": "Neue parlamentarische Initiative fuer Transportdauer-Limiten.",
+      "publishedAt": "2026-02-12T10:00:00.000Z",
+      "fetchedAt": "2026-02-13T00:17:14.533Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "new",
+      "reviewReason": ""
+    },
+    {
+      "sourceId": "blv-news",
+      "sourceUrl": "https://www.blv.admin.ch/blv/de/home/das-blv/aktuell/medienmitteilungen.feed.xml",
+      "externalId": "blv-1",
+      "title": "BLV publiziert Leitfaden zur Nutztierhaltung",
+      "summary": "Schweizweite Mindeststandards sollen vereinheitlicht werden.",
+      "body": "Schweizweite Mindeststandards sollen vereinheitlicht werden.",
+      "publishedAt": "2026-02-11T08:00:00.000Z",
+      "fetchedAt": "2026-02-13T00:17:15.013Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "new",
+      "reviewReason": ""
+    },
+    {
+      "sourceId": "bundesrat-news",
+      "sourceUrl": "https://www.admin.ch/gov/de/start/dokumentation/medienmitteilungen/rss-not-found.xml",
+      "externalId": "br-1",
+      "title": "Bundesrat eroertert Verordnung gegen tierschutzwidrige Praktiken",
+      "summary": "Anpassung bei Kontrollen und Sanktionspraxis.",
+      "body": "Anpassung bei Kontrollen und Sanktionspraxis.",
+      "publishedAt": "2026-02-10T07:30:00.000Z",
+      "fetchedAt": "2026-02-13T00:17:15.169Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "new",
+      "reviewReason": ""
+    }
+  ],
   "publications": [],
-  "updatedAt": "2026-02-13T00:15:33.663Z"
+  "updatedAt": "2026-02-13T00:17:15.169Z"
 }

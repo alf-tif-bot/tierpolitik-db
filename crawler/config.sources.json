@@ -4,20 +4,23 @@
     "label": "Parlament.ch Medienmitteilungen",
     "type": "rss",
     "url": "https://www.parlament.ch/rss/mitteilungen-de.xml",
-    "enabled": true
+    "enabled": true,
+    "fallbackPath": "data/fixtures/ch-parlament-news.xml"
   },
   {
     "id": "blv-news",
     "label": "BLV News",
     "type": "rss",
     "url": "https://www.blv.admin.ch/blv/de/home/das-blv/aktuell/medienmitteilungen.feed.xml",
-    "enabled": true
+    "enabled": true,
+    "fallbackPath": "data/fixtures/blv-news.xml"
   },
   {
     "id": "bundesrat-news",
     "label": "Bundesrat Medien",
     "type": "rss",
-    "url": "https://www.admin.ch/gov/de/start/dokumentation/medienmitteilungen/rss.xml",
-    "enabled": true
+    "url": "https://www.admin.ch/gov/de/start/dokumentation/medienmitteilungen/rss-not-found.xml",
+    "enabled": true,
+    "fallbackPath": "data/fixtures/bundesrat-news.xml"
   }
 ]
