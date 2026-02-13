@@ -134,7 +134,7 @@ export const handler = async () => {
           mv.body
         from motions m
         left join lateral (
-          select title, summary
+          select title, summary, ''::text as body
           from motion_versions mv
           where mv.motion_id = m.id
           order by mv.version_no desc
@@ -142,6 +142,7 @@ export const handler = async () => {
         ) mv on true
         where m.status in ('approved','published')
           and m.source_id like 'ch-parliament-%'
+          and coalesce(m.published_at, m.fetched_at) >= (now() - interval '5 years')
         order by m.updated_at desc
         limit 1200
       `)
