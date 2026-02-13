@@ -234,8 +234,6 @@ export default function App() {
         t={t}
       />
 
-      <ExportButtons filtered={filtered} visibleColumns={visibleColumns} t={t} />
-
       <DetailDrawer
         item={selected}
         onClose={closeDetail}
@@ -286,6 +284,8 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      <ExportButtons filtered={filtered} visibleColumns={visibleColumns} t={t} />
     </main>
   )
 }
