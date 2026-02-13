@@ -268,7 +268,7 @@ function updateStatusSummary(){
     if (status && status in stats) stats[status] += 1
   })
   const el = document.getElementById('status-summary')
-  if (el) el.textContent = `Status-Summen (sichtbar): queued=${stats.queued}, approved=${stats.approved}, published=${stats.published}`
+  if (el) el.textContent = 'Status-Summen (sichtbar): queued=' + stats.queued + ', approved=' + stats.approved + ', published=' + stats.published
 }
 
 function hideDecidedRows(){

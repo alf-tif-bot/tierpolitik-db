@@ -30,7 +30,7 @@
   <main class="wrap">
     <h1>Review-Ansicht</h1>
     <p>Es werden nur relevante Einträge gezeigt (queued/approved/published). Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB übernommen.</p>
-    <p class="status">Status-Summen (sichtbar): queued=10, approved=3, published=0</p>
+    <p class="status" id="status-summary">Status-Summen (sichtbar): queued=0, approved=0, published=0</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
     <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
@@ -48,7 +48,7 @@
         </tr>
       </thead>
       <tbody>
-<tr data-id="ch-parliament-business-de:20250079-de">
+<tr data-id="ch-parliament-business-de:20250079-de" data-status="queued">
 <td>
   <strong>25.079 · Bundesgesetz über das bäuerliche Bodenrecht. Änderung</strong><br>
   <small>Botschaft vom 8. Oktober 2025 zu Änderung des Bundesgesetzes über das bäuerliche Bodenrecht</small><br>
@@ -68,7 +68,7 @@
 <button onclick="setDecision(this,'ch-parliament-business-de:20250079-de','rejected')">Reject</button>
 </td>
 </tr>
-<tr data-id="ch-parliament-business-de:20254860-de">
+<tr data-id="ch-parliament-business-de:20254860-de" data-status="queued">
 <td>
   <strong>25.4860 · Wie steht es um die Umsetzung des Gewässerraums?</strong><br>
   <small>Kurzfassung: Das Geschäft behandelt landwirtschaft. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
@@ -88,7 +88,7 @@
 <button onclick="setDecision(this,'ch-parliament-business-de:20254860-de','rejected')">Reject</button>
 </td>
 </tr>
-<tr data-id="ch-parliament-business-de:20254609-de">
+<tr data-id="ch-parliament-business-de:20254609-de" data-status="queued">
 <td>
   <strong>25.4609 · Wie kann das Ziel einer Halbierung der Lebensmittelverschwendung bis 2030 trotz geringem Fortschritt noch erreicht werden?</strong><br>
   <small>Kurzfassung: Das Geschäft behandelt landwirtschaft. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
@@ -108,7 +108,7 @@
 <button onclick="setDecision(this,'ch-parliament-business-de:20254609-de','rejected')">Reject</button>
 </td>
 </tr>
-<tr data-id="ch-parliament-business-de:20254487-de">
+<tr data-id="ch-parliament-business-de:20254487-de" data-status="queued">
 <td>
   <strong>25.4487 · Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder</strong><br>
   <small>Kurzfassung: Das Geschäft behandelt landwirtschaft. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
@@ -128,7 +128,7 @@
 <button onclick="setDecision(this,'ch-parliament-business-de:20254487-de','rejected')">Reject</button>
 </td>
 </tr>
-<tr data-id="ch-parliament-business-de:20253733-de">
+<tr data-id="ch-parliament-business-de:20253733-de" data-status="queued">
 <td>
   <strong>25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren</strong><br>
   <small>Kurzfassung: Das Geschäft behandelt landwirtschaft. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
@@ -148,7 +148,7 @@
 <button onclick="setDecision(this,'ch-parliament-business-de:20253733-de','rejected')">Reject</button>
 </td>
 </tr>
-<tr data-id="ch-parliament-business-de:20220405-de">
+<tr data-id="ch-parliament-business-de:20220405-de" data-status="queued">
 <td>
   <strong>22.405 · Einführung einer Klimareserve für Schweizer Wein</strong><br>
   <small>Kurzfassung: Das Geschäft behandelt landwirtschaft. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
@@ -168,7 +168,7 @@
 <button onclick="setDecision(this,'ch-parliament-business-de:20220405-de','rejected')">Reject</button>
 </td>
 </tr>
-<tr data-id="ch-parliament-business-de:20254747-de">
+<tr data-id="ch-parliament-business-de:20254747-de" data-status="queued">
 <td>
   <strong>25.4747 · Berücksichtigung von Kosten aufgrund der zusätzlichen Schädigung von Biodiversität, Klima und Gesundheit bei Priorisierung Verkehrsprojekte</strong><br>
   <small>Kurzfassung: Das Geschäft behandelt biodiversität. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
@@ -188,7 +188,7 @@
 <button onclick="setDecision(this,'ch-parliament-business-de:20254747-de','rejected')">Reject</button>
 </td>
 </tr>
-<tr data-id="ch-parliament-business-de:20254697-de">
+<tr data-id="ch-parliament-business-de:20254697-de" data-status="queued">
 <td>
   <strong>25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung</strong><br>
   <small>Kurzfassung: Das Geschäft behandelt biodiversität. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
@@ -208,7 +208,7 @@
 <button onclick="setDecision(this,'ch-parliament-business-de:20254697-de','rejected')">Reject</button>
 </td>
 </tr>
-<tr data-id="ch-parliament-business-de:20254462-de">
+<tr data-id="ch-parliament-business-de:20254462-de" data-status="queued">
 <td>
   <strong>25.4462 · Nachhaltige Verwertung von biogenen Reststoffen aus der landwirtschaftlichen Wertschöpfungskette sicherstellen</strong><br>
   <small>Kurzfassung: Das Geschäft behandelt landwirtschaft. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
@@ -228,7 +228,7 @@
 <button onclick="setDecision(this,'ch-parliament-business-de:20254462-de','rejected')">Reject</button>
 </td>
 </tr>
-<tr data-id="ch-parliament-business-fr:20240331-fr">
+<tr data-id="ch-parliament-business-fr:20240331-fr" data-status="queued">
 <td>
   <strong>24.331 · Soutien financier direct aux apiculteurs et apicultrices lors de situations géoclimatiques exceptionnelles</strong><br>
   <small>Kurzfassung: Das Geschäft behandelt apiculteur. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
@@ -248,7 +248,7 @@
 <button onclick="setDecision(this,'ch-parliament-business-fr:20240331-fr','rejected')">Reject</button>
 </td>
 </tr>
-<tr data-id="ch-parliament-business-fr:20210426-fr">
+<tr data-id="ch-parliament-business-fr:20210426-fr" data-status="approved">
 <td>
   <strong>21.426 · Méthodes de substitution à l'expérimentation animale. Davantage de ressources et d'incitations pour la recherche 3R</strong><br>
   <small>En commission du Conseil national</small><br>
@@ -268,7 +268,7 @@
 <button onclick="setDecision(this,'ch-parliament-business-fr:20210426-fr','rejected')">Reject</button>
 </td>
 </tr>
-<tr data-id="ch-parliament-business-de:20240089-de">
+<tr data-id="ch-parliament-business-de:20240089-de" data-status="approved">
 <td>
   <strong>24.089 · «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)». Volksinitiative</strong><br>
   <small>Botschaft vom 20. November 2024 zur Volksinitiative «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)»</small><br>
@@ -288,7 +288,7 @@
 <button onclick="setDecision(this,'ch-parliament-business-de:20240089-de','rejected')">Reject</button>
 </td>
 </tr>
-<tr data-id="ch-parliament-business-de:20250404-de">
+<tr data-id="ch-parliament-business-de:20250404-de" data-status="approved">
 <td>
   <strong>25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative</strong><br>
   <small>Kurzfassung: Das Geschäft behandelt stopfleber. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
@@ -315,12 +315,25 @@ const key='tierpolitik.review';
 const read=()=>JSON.parse(localStorage.getItem(key)||'{}');
 const write=(v)=>localStorage.setItem(key,JSON.stringify(v,null,2));
 
+function updateStatusSummary(){
+  const stats = { queued: 0, approved: 0, published: 0 }
+  document.querySelectorAll('tr[data-id]').forEach((row)=>{
+    const hidden = row.style.display === 'none'
+    if (hidden) return
+    const status = row.getAttribute('data-status')
+    if (status && status in stats) stats[status] += 1
+  })
+  const el = document.getElementById('status-summary')
+  if (el) el.textContent = 'Status-Summen (sichtbar): queued=' + stats.queued + ', approved=' + stats.approved + ', published=' + stats.published
+}
+
 function hideDecidedRows(){
   const decisions = read();
   document.querySelectorAll('tr[data-id]').forEach((row)=>{
     const id = row.getAttribute('data-id');
     if (id && decisions[id]) row.style.display = 'none';
   });
+  updateStatusSummary();
 }
 
 async function setDecision(btn,id,status){
@@ -362,6 +375,7 @@ async function setDecision(btn,id,status){
 
   const row = btn?.closest('tr[data-id]');
   if (row) row.style.display='none';
+  updateStatusSummary();
   if (statusEl) statusEl.textContent = 'Entscheidung gespeichert.';
 }
 
