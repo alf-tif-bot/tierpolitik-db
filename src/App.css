@@ -468,7 +468,8 @@ tbody tr:hover td {
 }
 
 tbody tr.row-highlight td {
-  background: #e3eefc;
+  background: #d9e8fb;
+  color: #102033;
 }
 
 tbody tr:focus-visible {
@@ -993,6 +994,15 @@ a { color: #0a4fa8; }
 :root[data-theme='light'] .logo-dark { display: none; }
 :root[data-theme='light'] .text-link-btn { color: #446b9e; }
 :root[data-theme='light'] .text-link-btn:hover { color: #2d578f; }
+:root[data-theme='light'] tbody tr.row-highlight td {
+  background: #d4e4fb !important;
+  color: #0f2238;
+}
+
+:root[data-theme='dark'] tbody tr.row-highlight td {
+  background: #314052 !important;
+  color: #f5f7fa;
+}
 
 @media (max-width: 760px) {
   .container { padding: 0.7rem; }
