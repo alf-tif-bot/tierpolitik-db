@@ -26,7 +26,9 @@ const inferType = (title = '', sourceId = '') => {
   return 'Interpellation'
 }
 
-const extractStance = (reason = '') => {
+const extractStance = (reason = '', title = '', summary = '', body = '') => {
+  const text = `${title} ${summary} ${body}`.toLowerCase()
+  if (text.includes('stopfleber') || text.includes('foie gras')) return 'pro-tierschutz'
   const m = String(reason).match(/stance=([^·]+)/)
   return (m?.[1] || 'neutral/unklar').trim()
 }
@@ -162,7 +164,7 @@ const vorstoesse = items.map((item, index) => {
   const updated = toIsoDate(item.fetchedAt || item.publishedAt)
   const status = mapStatus(item.status)
   const typ = inferType(item.title, item.sourceId)
-  const stance = extractStance(item.reviewReason)
+  const stance = extractStance(item.reviewReason, item.title, item.summary, item.body)
   const initiativeLinks = buildInitiativeLinks({
     typ,
     title: item.title,
@@ -191,10 +193,7 @@ const vorstoesse = items.map((item, index) => {
     status,
     datumEingereicht: eingereicht,
     datumAktualisiert: updated,
-    themen: [
-      ...(item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz']),
-      stance === 'pro-tierschutz' ? 'Pro Tierschutz' : stance === 'tierschutzkritisch' ? 'Tierschutzkritisch' : 'Neutral/Unklar',
-    ].slice(0, 6),
+    themen: (item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz']).slice(0, 6),
     schlagwoerter: (item.matchedKeywords?.length ? item.matchedKeywords : ['Tierpolitik']).slice(0, 8),
     einreichende: [inferSubmitter(sprache, item.title, item.summary, item.body)],
     linkGeschaeft: link,

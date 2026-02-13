@@ -63,6 +63,12 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
   const level = item.ebene === 'Bund' ? t.section.federal : item.ebene === 'Kanton' ? t.section.cantonal : item.ebene === 'Gemeinde' ? t.section.municipal : item.ebene
   const statusSlug = item.status.toLowerCase().replace(/\s+/g, '-')
 
+  const stanceValue = item.metadaten?.haltung === 'pro-tierschutz'
+    ? 'Pro Tierschutz'
+    : item.metadaten?.haltung === 'tierschutzkritisch'
+      ? 'Tierschutzkritisch'
+      : 'Neutral / unklar'
+
   const metaRows = [
     { label: t.type, value: item.typ, filterField: 'typ' as const },
     { label: t.businessNo, value: item.geschaeftsnummer },
@@ -139,6 +145,10 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
                 </button>
               ))}
             </div>
+          </div>
+          <div className="detail-card">
+            <span className="detail-label">Tierbezug</span>
+            <span className="detail-value">{stanceValue}</span>
           </div>
           <div className="detail-card">
             <span className="detail-label">{t.submitters}</span>

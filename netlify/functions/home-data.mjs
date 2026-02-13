@@ -17,7 +17,9 @@ const inferType = (title = '', sourceId = '') => {
   return 'Interpellation'
 }
 
-const extractStance = (reason = '') => {
+const extractStance = (reason = '', title = '', summary = '', body = '') => {
+  const text = `${title} ${summary} ${body}`.toLowerCase()
+  if (text.includes('stopfleber') || text.includes('foie gras')) return 'pro-tierschutz'
   const m = String(reason).match(/stance=([^·]+)/)
   return (m?.[1] || 'neutral/unklar').trim()
 }
@@ -173,7 +175,7 @@ export const handler = async () => {
       const sprache = langFromSource(r.source_id)
       const eingereicht = toIsoDate(r.published_at || r.fetched_at)
       const updated = toIsoDate(r.fetched_at || r.published_at)
-      const stance = extractStance(r.review_reason)
+      const stance = extractStance(r.review_reason, r.title, r.summary, r.body)
       const idSafe = String(r.external_id || `${Date.now()}-${index}`).replace(/[^a-zA-Z0-9-]/g, '-')
       const affairId = String(r.external_id || '').split('-')[0]
       const link = String(r.source_url || '').startsWith('http')
@@ -205,10 +207,7 @@ export const handler = async () => {
         status: statusLabel,
         datumEingereicht: eingereicht,
         datumAktualisiert: updated,
-        themen: [
-          ...(Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierschutz']),
-          stance === 'pro-tierschutz' ? 'Pro Tierschutz' : stance === 'tierschutzkritisch' ? 'Tierschutzkritisch' : 'Neutral/Unklar',
-        ].slice(0, 6),
+        themen: (Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierschutz']).slice(0, 6),
         schlagwoerter: (Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierpolitik']).slice(0, 8),
         einreichende: [inferSubmitter(sprache, r.title, r.summary, r.body)],
         linkGeschaeft: link,
