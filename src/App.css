@@ -622,6 +622,31 @@ a { color: #0a4fa8; }
   background: #eef4ff;
 }
 
+.shortcuts-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.55rem;
+}
+
+.shortcuts-table td {
+  vertical-align: top;
+  padding: 0.1rem 0;
+  color: inherit;
+  font-size: 1.03rem;
+  line-height: 1.45;
+}
+
+.shortcuts-table td:first-child {
+  width: 180px;
+  color: #dbeafe;
+  padding-right: 0.9rem;
+  white-space: nowrap;
+}
+
+.shortcuts-table td:last-child {
+  color: #e6edf7;
+}
+
 .timeline-list {
   list-style: none;
   margin: 0;

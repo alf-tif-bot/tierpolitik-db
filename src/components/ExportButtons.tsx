@@ -81,15 +81,17 @@ export function ExportButtons({ filtered, visibleColumns, t, showExports = true,
               <h2>Tastaturbefehle</h2>
               <button onClick={() => setShowShortcuts(false)}>Schliessen</button>
             </div>
-            <ul>
-              <li><strong>ESC</strong> → Detailansicht schliessen</li>
-              <li><strong>/</strong> → ins Suchfeld springen</li>
-              <li><strong>j / k</strong> → in der aktuellen Tabellen-Seite runter/rauf</li>
-              <li><strong>Enter</strong> → markierten Vorstoss öffnen</li>
-              <li><strong>w</strong> → WHITE Mode</li>
-              <li><strong>d</strong> → DARK Mode</li>
-              <li><strong>de / fr / it / en</strong> → Sprache wechseln</li>
-            </ul>
+            <table className="shortcuts-table" aria-label="Tastaturbefehle">
+              <tbody>
+                <tr><td><strong>ESC</strong></td><td>Detailansicht schliessen</td></tr>
+                <tr><td><strong>/</strong></td><td>ins Suchfeld springen</td></tr>
+                <tr><td><strong>j / k</strong></td><td>in der aktuellen Tabellen-Seite runter/rauf</td></tr>
+                <tr><td><strong>Enter</strong></td><td>markierten Vorstoss öffnen</td></tr>
+                <tr><td><strong>w</strong></td><td>WHITE Mode</td></tr>
+                <tr><td><strong>d</strong></td><td>DARK Mode</td></tr>
+                <tr><td><strong>de / fr / it / en</strong></td><td>Sprache wechseln</td></tr>
+              </tbody>
+            </table>
           </aside>
         </div>
       )}
