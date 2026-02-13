@@ -100,11 +100,17 @@ const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '' })
   if (s) sentences.push(s)
   if (b && b !== s) sentences.push(b)
 
-  sentences.push(`Aktueller Stand: ${statusLabel}.`)
+  const unique = []
+  const seen = new Set()
+  for (const line of sentences) {
+    const key = clean(line).toLowerCase()
+    if (!key || seen.has(key)) continue
+    seen.add(key)
+    unique.push(line)
+  }
 
-  return sentences
-    .filter(Boolean)
-    .slice(0, 4)
+  return unique
+    .slice(0, 3)
     .join(' ')
 }
 
