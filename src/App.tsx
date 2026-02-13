@@ -7,7 +7,7 @@ import { FiltersPanel } from './components/Filters'
 import { ProfileDrawer } from './components/ProfileDrawer'
 import { getAllColumnsMeta, TableView } from './components/TableView'
 import { i18n, languageNames, type Language } from './i18n'
-import { validateVorstoesse, type Vorstoss } from './types'
+import { validateVorstoesse, vorstossSchema, type Vorstoss } from './types'
 import { applyFilters, defaultFilters, type Filters } from './utils/filtering'
 import { clearHashId, getHashId, setHashId } from './utils/urlHash'
 
@@ -44,7 +44,17 @@ export default function App() {
         const res = await fetch('/.netlify/functions/home-data', { cache: 'no-store' })
         if (!res.ok) return
         const payload = await res.json()
-        const parsed = validateVorstoesse(payload)
+        let parsed: Vorstoss[] = []
+        try {
+          parsed = validateVorstoesse(payload)
+        } catch {
+          if (Array.isArray(payload)) {
+            parsed = payload
+              .map((row) => vorstossSchema.safeParse(row))
+              .filter((r) => r.success)
+              .map((r) => r.data)
+          }
+        }
         if (parsed.length) setData(parsed)
       } catch {
         // keep fallback data
