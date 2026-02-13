@@ -19,7 +19,7 @@ type Props = {
 const normalizeTitle = (value: string, typ?: string) => {
   let out = value
     .replace(/^Vorstoss\s+\d+\s*:\s*/i, '')
-    .replace(/^\s*\d{2}\.\d{3}\s*[·\-–—:]\s*/u, '')
+    .replace(/^\s*\d{2}\.\d{3,4}\s*[·\-–—:]\s*/u, '')
     .trim()
 
   if (typ) {

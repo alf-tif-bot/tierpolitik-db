@@ -35,7 +35,7 @@ type Props = {
 const TABLE_PREFS_KEY = 'tierpolitik.table.prefs.v1'
 const normalizeTitle = (value: string) => value
   .replace(/^Vorstoss\s+\d+\s*:\s*/i, '')
-  .replace(/^\s*\d{2}\.\d{3}\s*[·\-–—:]\s*/u, '')
+  .replace(/^\s*\d{2}\.\d{3,4}\s*[·\-–—:]\s*/u, '')
 
 export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboardEnabled = true, sectionId, lang, t }: Props) {
   const [sorting, setSorting] = useState<SortingState>([])
