@@ -98,10 +98,7 @@ h1 {
 }
 
 .hero-head h1 {
-  background: linear-gradient(90deg, #173a64 0%, #27568f 55%, #3a78c2 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #1f4f8a;
 }
 
 .brand-sub {
@@ -832,10 +829,7 @@ a { color: #0a4fa8; }
   }
 
   .hero-head h1 {
-    background: linear-gradient(90deg, #f7fbff 0%, #d8e8ff 55%, #b8d2ff 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #f3f8ff;
   }
 
   .advanced-search {
@@ -988,10 +982,7 @@ a { color: #0a4fa8; }
 }
 
 :root[data-theme='light'] .hero-head h1 {
-  background: linear-gradient(90deg, #173a64 0%, #27568f 55%, #3a78c2 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #1f4f8a;
 }
 
 :root[data-theme='light'] .brand-sub,
