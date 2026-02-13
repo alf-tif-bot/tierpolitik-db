@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { I18nText } from '../i18n'
 import type { Vorstoss } from '../types'
 import { buildCsv, downloadText } from '../utils/csv'
@@ -13,6 +13,19 @@ type Props = {
 
 export function ExportButtons({ filtered, visibleColumns, t, showExports = true, showShortcutsLink = true }: Props) {
   const [showShortcuts, setShowShortcuts] = useState(false)
+
+  useEffect(() => {
+    if (!showShortcuts) return
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setShowShortcuts(false)
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [showShortcuts])
 
   const exportCsv = () => {
     const csv = buildCsv(filtered, visibleColumns)
