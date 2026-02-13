@@ -1,5 +1,6 @@
-import { runQueue, runPublish } from '../crawler/workflow.mjs'
+import { runPublish } from '../crawler/workflow.mjs'
+import { runRelevanceFilter } from '../crawler/relevance.mjs'
 
-const queueResult = runQueue({ minScore: 0.25 })
+const relevanceResult = runRelevanceFilter({ minScore: 0.25 })
 const publishResult = runPublish()
-console.log('Workflow OK', { queueResult, publishResult })
+console.log('Workflow OK', { relevanceResult, publishResult })
