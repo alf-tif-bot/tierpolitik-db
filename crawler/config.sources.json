@@ -11,7 +11,7 @@
       "top": 320,
       "sampleLimit": 140,
       "thematicMinQuota": 95,
-      "daysBack": 3650
+      "daysBack": 365
     }
   },
   {
@@ -26,7 +26,7 @@
       "top": 260,
       "sampleLimit": 110,
       "thematicMinQuota": 75,
-      "daysBack": 3650
+      "daysBack": 365
     }
   },
   {
@@ -41,7 +41,7 @@
       "top": 180,
       "sampleLimit": 70,
       "thematicMinQuota": 45,
-      "daysBack": 3650
+      "daysBack": 365
     }
   },
   {
@@ -56,7 +56,7 @@
       "top": 240,
       "sampleLimit": 90,
       "thematicMinQuota": 65,
-      "daysBack": 3650,
+      "daysBack": 365,
       "businessTypeIncludes": "Motion"
     }
   },
@@ -72,7 +72,7 @@
       "top": 200,
       "sampleLimit": 70,
       "thematicMinQuota": 50,
-      "daysBack": 3650,
+      "daysBack": 365,
       "businessTypeIncludes": "Postulat"
     }
   },
@@ -84,7 +84,7 @@
     "alternateUrls": [
       "https://www.blv.admin.ch/blv/fr/home/das-blv/aktuell/medienmitteilungen.feed.xml"
     ],
-    "enabled": true,
+    "enabled": false,
     "fallbackMode": "alwaysOnFailure",
     "fallbackPath": "data/fixtures/blv-news.xml"
   },
