@@ -70,6 +70,33 @@ const resolveOriginalUrl = (item) => {
   return ''
 }
 
+const humanizeReason = (reason = '') => {
+  if (!reason) return '-'
+  const text = String(reason)
+
+  const rule = (text.match(/\[(.*?)\]/)?.[1] || '').trim()
+  const score = (text.match(/score=([0-9.]+)/)?.[1] || '').trim()
+  const anchor = (text.match(/anchor=([^·]+)/)?.[1] || '').trim()
+  const support = (text.match(/support=([^·]+)/)?.[1] || '').trim()
+  const noise = (text.match(/noise=([^·]+)/)?.[1] || '').trim()
+
+  const ruleMap = {
+    'anchor+score': 'Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)',
+    'anchor2+support': 'Mehrere starke Tier-Begriffe mit zusätzlichem Kontext',
+    'missing-anchor': 'Keine klaren Tier-Schlüsselbegriffe gefunden',
+    'below-threshold': 'Tierbezug vorhanden, aber Relevanz aktuell zu schwach',
+  }
+
+  const parts = []
+  if (rule) parts.push(`<div><strong>Bewertung:</strong> ${esc(ruleMap[rule] || rule)}</div>`)
+  if (anchor && anchor !== '-') parts.push(`<div><strong>Tier-Begriffe:</strong> ${esc(anchor.replaceAll('|', ', '))}</div>`)
+  if (support && support !== '-') parts.push(`<div><strong>Kontext:</strong> ${esc(support.replaceAll('|', ', '))}</div>`)
+  if (noise && noise !== '-') parts.push(`<div><strong>Störsignale:</strong> ${esc(noise.replaceAll('|', ', '))}</div>`)
+  if (score) parts.push(`<div><strong>Score:</strong> ${esc(score)}</div>`)
+
+  return parts.length ? parts.join('') : esc(text)
+}
+
 const rows = reviewItems.map((item) => {
   const id = `${item.sourceId}:${item.externalId}`
   const isPending = item.status === 'queued' || item.status === 'new'
@@ -94,7 +121,7 @@ const rows = reviewItems.map((item) => {
 <td>${(item.score ?? 0).toFixed(2)}</td>
 <td>${esc((item.matchedKeywords || []).join(', '))}</td>
 <td>${esc(item.status)} (${pendingBadge})</td>
-<td><small>${esc(item.reviewReason || '-')}</small></td>
+<td><small>${humanizeReason(item.reviewReason || '-')}</small></td>
 <td>
 <button onclick="setDecision(this,'${esc(id)}','approved')">Approve</button>
 <button onclick="setDecision(this,'${esc(id)}','rejected')">Reject</button>

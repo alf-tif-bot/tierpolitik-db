@@ -8,9 +8,9 @@
     "enabled": true,
     "options": {
       "lang": "DE",
-      "top": 320,
-      "sampleLimit": 140,
-      "thematicMinQuota": 95,
+      "top": 900,
+      "sampleLimit": 360,
+      "thematicMinQuota": 260,
       "daysBack": 365
     }
   },
@@ -23,9 +23,9 @@
     "enabled": true,
     "options": {
       "lang": "FR",
-      "top": 260,
-      "sampleLimit": 110,
-      "thematicMinQuota": 75,
+      "top": 700,
+      "sampleLimit": 260,
+      "thematicMinQuota": 170,
       "daysBack": 365
     }
   },
@@ -38,9 +38,9 @@
     "enabled": true,
     "options": {
       "lang": "IT",
-      "top": 180,
-      "sampleLimit": 70,
-      "thematicMinQuota": 45,
+      "top": 500,
+      "sampleLimit": 160,
+      "thematicMinQuota": 90,
       "daysBack": 365
     }
   },
@@ -53,9 +53,9 @@
     "enabled": true,
     "options": {
       "lang": "DE",
-      "top": 240,
-      "sampleLimit": 90,
-      "thematicMinQuota": 65,
+      "top": 600,
+      "sampleLimit": 220,
+      "thematicMinQuota": 140,
       "daysBack": 365,
       "businessTypeIncludes": "Motion"
     }
@@ -69,9 +69,9 @@
     "enabled": true,
     "options": {
       "lang": "DE",
-      "top": 200,
-      "sampleLimit": 70,
-      "thematicMinQuota": 50,
+      "top": 500,
+      "sampleLimit": 180,
+      "thematicMinQuota": 110,
       "daysBack": 365,
       "businessTypeIncludes": "Postulat"
     }
