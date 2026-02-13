@@ -4,7 +4,13 @@ const dbPath = new URL('../data/crawler-db.json', import.meta.url)
 const outPath = new URL('../public/review.html', import.meta.url)
 const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
 
+const enabledSourceIds = new Set((db.sources || [])
+  .filter((s) => s.enabled !== false)
+  .map((s) => s.id))
+
 const reviewItems = [...db.items]
+  .filter((item) => enabledSourceIds.has(item.sourceId))
+  .filter((item) => ['queued', 'approved', 'published'].includes(item.status))
   .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
 
 const sourceMap = new Map((db.sources || []).map((s) => [s.id, s.label]))
@@ -24,12 +30,25 @@ const isValidHttpUrl = (value = '') => {
   }
 }
 
+const resolveOriginalUrl = (item) => {
+  if (isValidHttpUrl(item.sourceUrl)) return item.sourceUrl
+
+  if (item.sourceId?.startsWith('ch-parliament-business-')) {
+    const affairId = String(item.externalId || '').split('-')[0]
+    if (/^\d+$/.test(affairId)) {
+      return `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${affairId}`
+    }
+  }
+
+  return ''
+}
+
 const rows = reviewItems.map((item) => {
   const id = `${item.sourceId}:${item.externalId}`
   const isPending = item.status === 'queued' || item.status === 'new'
   const pendingBadge = isPending ? '<strong class="pending">offen</strong>' : '<span class="historic">historisch</span>'
   const sourceLabel = esc(sourceMap.get(item.sourceId) || item.sourceId)
-  const sourceUrl = isValidHttpUrl(item.sourceUrl) ? item.sourceUrl : ''
+  const sourceUrl = resolveOriginalUrl(item)
   const originalLink = sourceUrl
     ? `<a class="orig-link" href="${esc(sourceUrl)}" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>`
     : '<span class="muted">kein gültiger Link</span>'
@@ -87,8 +106,8 @@ const html = `<!doctype html>
 <body>
   <main class="wrap">
     <h1>Review-Ansicht</h1>
-    <p>Vollansicht aller Stati (new/queued/approved/rejected/published). Entscheidungen als JSON exportieren und danach mit <code>npm run crawler:apply-review</code> in die DB übernehmen.</p>
-    <p class="status">Status-Summen: new=${counts.new || 0}, queued=${counts.queued || 0}, approved=${counts.approved || 0}, rejected=${counts.rejected || 0}, published=${counts.published || 0}</p>
+    <p>Es werden nur relevante Einträge gezeigt (queued/approved/published). Entscheidungen als JSON exportieren und danach mit <code>npm run crawler:apply-review</code> in die DB übernehmen.</p>
+    <p class="status">Status-Summen (sichtbar): queued=${counts.queued || 0}, approved=${counts.approved || 0}, published=${counts.published || 0}</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
     <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button></p>
     <table>
