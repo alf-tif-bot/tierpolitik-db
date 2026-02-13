@@ -23,6 +23,7 @@ export const handler = async (event) => {
     const [sourceId, externalIdRaw] = decisionId.split(':')
     const externalId = String(externalIdRaw || '')
     const externalIdFallback = externalId.replace(/-[a-z]{2}$/i, '')
+    const affairId = externalIdFallback.split('-')[0]
 
     const result = await withPgClient(async (client) => {
       await client.query('begin')
@@ -30,10 +31,16 @@ export const handler = async (event) => {
         const m = await client.query(
           `select id
            from motions
-           where source_id = $1
-             and (external_id = $2 or external_id = $3)
+           where
+             (source_id = $1 and (external_id = $2 or external_id = $3))
+             or external_id = $2
+             or external_id = $3
+             or split_part(external_id, '-', 1) = $4
+           order by
+             case when source_id = $1 then 0 else 1 end,
+             updated_at desc
            limit 1`,
-          [sourceId, externalId, externalIdFallback],
+          [sourceId, externalId, externalIdFallback, affairId],
         )
         if (!m.rows.length) throw new Error(`motion not found (${sourceId}:${externalId})`)
 
