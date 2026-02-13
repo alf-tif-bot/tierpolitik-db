@@ -39,7 +39,8 @@ export function FiltersPanel({ data, filters, onChange, lang, t, searchInputRef 
   const typenItems: FilterItem[] = [...new Set(data.map((d) => d.typ))]
     .sort((a, b) => a.localeCompare(b, 'de-CH'))
     .map((v) => ({ value: v, label: v }))
-  const themen = [...new Set(data.flatMap((d) => d.themen))].sort()
+  const defaultThemes = [...new Set(data.flatMap((d) => d.themen))]
+  const themen = [...new Set([...defaultThemes, 'Unsichtbare Tiere'])].sort((a, b) => a.localeCompare(b, 'de-CH'))
   const themenItems: FilterItem[] = themen.map((v) => ({ value: v, label: translateContent(v, lang) }))
 
   const advancedActiveCount = useMemo(() => {
