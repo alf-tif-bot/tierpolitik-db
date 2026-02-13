@@ -81,22 +81,31 @@ const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '' })
   const t = clean(title)
   const s = firstSentence(summary)
   const b = firstSentence(body)
-  const src = s || b
   const low = `${t} ${summary} ${body}`.toLowerCase()
+  const statusLabel = status === 'approved' ? 'in Beratung' : status === 'published' ? 'abgeschlossen' : 'eingereicht'
+
+  const sentences = []
 
   if (low.includes('stopfleber') || low.includes('foie gras')) {
-    return 'Der Vorstoss betrifft Import/Regulierung von Stopfleber (Foie gras) und konkretisiert die politische Umsetzung im Parlament.'
+    sentences.push('Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs.')
+    sentences.push('Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll.')
+  } else if (low.includes('tierversuch') || low.includes('3r') || low.includes('expérimentation animale')) {
+    sentences.push('Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann.')
+    sentences.push('Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich.')
+  } else if (low.includes('wolf') || low.includes('wildtier') || low.includes('jagd') || low.includes('chasse')) {
+    sentences.push('Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd.')
+    sentences.push('Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.')
   }
-  if (low.includes('tierversuch') || low.includes('3r') || low.includes('expérimentation animale')) {
-    return 'Der Vorstoss behandelt Alternativen zu Tierversuchen (3R) und den Ausbau von Forschung, Ressourcen oder Anreizen.'
-  }
-  if (low.includes('wolf') || low.includes('wildtier') || low.includes('jagd') || low.includes('chasse')) {
-    return 'Der Vorstoss betrifft Wildtierpolitik (z. B. Regulierung, Schutz oder Jagd) und hat direkte Relevanz für den Tierschutzkontext.'
-  }
-  if (src) return src
 
-  const statusLabel = status === 'approved' ? 'in Beratung' : status === 'published' ? 'abgeschlossen' : 'eingereicht'
-  return `Parlamentarischer Vorstoss im Bereich Tierpolitik (${statusLabel}); Detailtext wird aus dem Originalgeschäft ergänzt.`
+  if (s) sentences.push(s)
+  if (b && b !== s) sentences.push(b)
+
+  sentences.push(`Aktueller Stand: ${statusLabel}.`)
+
+  return sentences
+    .filter(Boolean)
+    .slice(0, 4)
+    .join(' ')
 }
 
 const items = (db.items || [])
