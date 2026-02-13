@@ -287,52 +287,5 @@
       "sprache": "it",
       "zuletztGeprueftVon": "Crawler/DB Sync"
     }
-  },
-  {
-    "id": "vp-br-1",
-    "titel": "Bundesrat eroertert Verordnung gegen tierschutzwidrige Praktiken",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Anpassung bei Kontrollen und Sanktionspraxis.",
-    "geschaeftsnummer": "br-1",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Eingereicht",
-    "datumEingereicht": "2026-02-10",
-    "datumAktualisiert": "2026-02-13",
-    "themen": [
-      "tier",
-      "tierschutz",
-      "kontrolle",
-      "verordnung",
-      "sanktion"
-    ],
-    "schlagwoerter": [
-      "tier",
-      "tierschutz",
-      "kontrolle",
-      "verordnung",
-      "sanktion"
-    ],
-    "einreichende": [
-      {
-        "name": "Parlamentsdienst",
-        "rolle": "Nationalrat",
-        "partei": "Überparteilich"
-      }
-    ],
-    "linkGeschaeft": "https://example.org/bundesrat/1",
-    "resultate": [
-      {
-        "datum": "2026-02-10",
-        "status": "Eingereicht",
-        "bemerkung": "Status aus Crawler: queued"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
   }
 ]

@@ -10,6 +10,7 @@ const enabledSourceIds = new Set((db.sources || [])
 
 const baseReviewItems = [...db.items]
   .filter((item) => enabledSourceIds.has(item.sourceId))
+  .filter((item) => String(item.sourceId || '').startsWith('ch-parliament-'))
   .filter((item) => ['queued', 'approved', 'published'].includes(item.status))
 
 const affairKey = (item) => String(item.externalId || '').split('-')[0] || `${item.sourceId}:${item.externalId}`
@@ -87,10 +88,14 @@ const humanizeReason = (reason = '') => {
     'below-threshold': 'Tierbezug vorhanden, aber Relevanz aktuell zu schwach',
   }
 
+  const toList = (v) => v && v !== '-' ? v.split('|').map((x) => x.trim()).filter(Boolean) : []
+  const anchorList = toList(anchor)
+  const supportList = toList(support).filter((x) => !anchorList.includes(x))
+
   const parts = []
   if (rule) parts.push(`<div><strong>Bewertung:</strong> ${esc(ruleMap[rule] || rule)}</div>`)
-  if (anchor && anchor !== '-') parts.push(`<div><strong>Tier-Begriffe:</strong> ${esc(anchor.replaceAll('|', ', '))}</div>`)
-  if (support && support !== '-') parts.push(`<div><strong>Kontext:</strong> ${esc(support.replaceAll('|', ', '))}</div>`)
+  if (anchorList.length) parts.push(`<div><strong>Tier-Begriffe:</strong> ${esc(anchorList.join(', '))}</div>`)
+  if (supportList.length) parts.push(`<div><strong>Kontext:</strong> ${esc(supportList.join(', '))}</div>`)
   if (noise && noise !== '-') parts.push(`<div><strong>Störsignale:</strong> ${esc(noise.replaceAll('|', ', '))}</div>`)
   if (score) parts.push(`<div><strong>Score:</strong> ${esc(score)}</div>`)
 

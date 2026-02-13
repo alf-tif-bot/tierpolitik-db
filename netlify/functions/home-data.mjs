@@ -62,6 +62,7 @@ export default async () => {
           limit 1
         ) mv on true
         where m.status in ('queued','approved','published')
+          and m.source_id like 'ch-parliament-%'
         order by m.updated_at desc
         limit 1200
       `)

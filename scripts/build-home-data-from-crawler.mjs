@@ -57,6 +57,7 @@ const peopleByLang = {
 }
 
 const items = (db.items || [])
+  .filter((item) => String(item.sourceId || '').startsWith('ch-parliament-'))
   .filter((item) => ['queued', 'approved', 'published'].includes(item.status))
   .slice(0, 1200)
 
