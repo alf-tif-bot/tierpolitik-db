@@ -17,8 +17,12 @@ export async function runCollect({ adapters }) {
   for (const source of sources) {
     const adapter = adapters[source.id]
     if (!adapter) continue
-    const rows = await adapter.fetch(source)
-    rawItems.push(...rows)
+    try {
+      const rows = await adapter.fetch(source)
+      rawItems.push(...rows)
+    } catch (error) {
+      console.warn(`[collect] Quelle uebersprungen (${source.id}):`, error.message)
+    }
   }
 
   const { inserted } = upsertItems(db, rawItems)
