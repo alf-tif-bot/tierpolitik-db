@@ -61,6 +61,40 @@ const peopleByLang = {
   it: { name: 'Servizio parlamentare', rolle: 'Nationalrat', partei: 'Überparteilich' },
 }
 
+const clean = (text = '') => String(text)
+  .replace(/\s+/g, ' ')
+  .replace(/^\s+|\s+$/g, '')
+
+const firstSentence = (text = '') => {
+  const c = clean(text)
+  if (!c) return ''
+  const m = c.match(/(.{40,220}?[.!?])\s/)
+  if (m) return m[1]
+  return c.slice(0, 220)
+}
+
+const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '' }) => {
+  const t = clean(title)
+  const s = firstSentence(summary)
+  const b = firstSentence(body)
+  const src = s || b
+  const low = `${t} ${summary} ${body}`.toLowerCase()
+
+  if (low.includes('stopfleber') || low.includes('foie gras')) {
+    return 'Der Vorstoss betrifft Import/Regulierung von Stopfleber (Foie gras) und konkretisiert die politische Umsetzung im Parlament.'
+  }
+  if (low.includes('tierversuch') || low.includes('3r') || low.includes('expérimentation animale')) {
+    return 'Der Vorstoss behandelt Alternativen zu Tierversuchen (3R) und den Ausbau von Forschung, Ressourcen oder Anreizen.'
+  }
+  if (low.includes('wolf') || low.includes('wildtier') || low.includes('jagd') || low.includes('chasse')) {
+    return 'Der Vorstoss betrifft Wildtierpolitik (z. B. Regulierung, Schutz oder Jagd) und hat direkte Relevanz für den Tierschutzkontext.'
+  }
+  if (src) return src
+
+  const statusLabel = status === 'approved' ? 'in Beratung' : status === 'published' ? 'abgeschlossen' : 'eingereicht'
+  return `Parlamentarischer Vorstoss im Bereich Tierpolitik (${statusLabel}); Detailtext wird aus dem Originalgeschäft ergänzt.`
+}
+
 const items = (db.items || [])
   .filter((item) => String(item.sourceId || '').startsWith('ch-parliament-'))
   .filter((item) => ['approved', 'published'].includes(item.status))
@@ -82,7 +116,12 @@ const vorstoesse = items.map((item, index) => {
     id: `vp-${idSafe.toLowerCase()}`,
     titel: item.title || `Vorstoss ${index + 1}`,
     typ,
-    kurzbeschreibung: item.summary || item.reviewReason || 'Automatisch aus Crawler/DB übernommen.',
+    kurzbeschreibung: summarizeVorstoss({
+      title: item.title,
+      summary: item.summary,
+      body: item.body,
+      status: item.status,
+    }),
     geschaeftsnummer: String(item.externalId || `AUTO-${index + 1}`),
     ebene: levelFromSource(item.sourceId),
     kanton: null,

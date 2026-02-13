@@ -43,6 +43,40 @@ const personByLang = {
   it: { name: 'Servizio parlamentare', rolle: 'Nationalrat', partei: 'Überparteilich' },
 }
 
+const clean = (text = '') => String(text)
+  .replace(/\s+/g, ' ')
+  .replace(/^\s+|\s+$/g, '')
+
+const firstSentence = (text = '') => {
+  const c = clean(text)
+  if (!c) return ''
+  const m = c.match(/(.{40,220}?[.!?])\s/)
+  if (m) return m[1]
+  return c.slice(0, 220)
+}
+
+const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '' }) => {
+  const t = clean(title)
+  const s = firstSentence(summary)
+  const b = firstSentence(body)
+  const src = s || b
+  const low = `${t} ${summary} ${body}`.toLowerCase()
+
+  if (low.includes('stopfleber') || low.includes('foie gras')) {
+    return 'Der Vorstoss betrifft Import/Regulierung von Stopfleber (Foie gras) und konkretisiert die politische Umsetzung im Parlament.'
+  }
+  if (low.includes('tierversuch') || low.includes('3r') || low.includes('expérimentation animale')) {
+    return 'Der Vorstoss behandelt Alternativen zu Tierversuchen (3R) und den Ausbau von Forschung, Ressourcen oder Anreizen.'
+  }
+  if (low.includes('wolf') || low.includes('wildtier') || low.includes('jagd') || low.includes('chasse')) {
+    return 'Der Vorstoss betrifft Wildtierpolitik (z. B. Regulierung, Schutz oder Jagd) und hat direkte Relevanz für den Tierschutzkontext.'
+  }
+  if (src) return src
+
+  const statusLabel = status === 'approved' ? 'in Beratung' : status === 'published' ? 'abgeschlossen' : 'eingereicht'
+  return `Parlamentarischer Vorstoss im Bereich Tierpolitik (${statusLabel}); Detailtext wird aus dem Originalgeschäft ergänzt.`
+}
+
 export const handler = async () => {
   try {
     const rows = await withPgClient(async (client) => {
@@ -57,7 +91,8 @@ export const handler = async () => {
           m.fetched_at,
           m.matched_keywords,
           mv.title,
-          mv.summary
+          mv.summary,
+          mv.body
         from motions m
         left join lateral (
           select title, summary
@@ -89,7 +124,12 @@ export const handler = async () => {
         id: `vp-${idSafe.toLowerCase()}`,
         titel: r.title || `Vorstoss ${index + 1}`,
         typ: inferType(r.title || '', r.source_id || ''),
-        kurzbeschreibung: r.summary || r.review_reason || 'Automatisch aus DB geladen.',
+        kurzbeschreibung: summarizeVorstoss({
+          title: r.title,
+          summary: r.summary,
+          body: r.body,
+          status: r.status,
+        }),
         geschaeftsnummer: String(r.external_id || `AUTO-${index + 1}`),
         ebene: 'Bund',
         kanton: null,
