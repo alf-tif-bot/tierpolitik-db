@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ch-parlament-news",
+    "label": "Parlament.ch Medienmitteilungen",
+    "type": "rss",
+    "url": "https://www.parlament.ch/rss/mitteilungen-de.xml",
+    "enabled": true
+  },
+  {
+    "id": "blv-news",
+    "label": "BLV News",
+    "type": "rss",
+    "url": "https://www.blv.admin.ch/blv/de/home/das-blv/aktuell/medienmitteilungen.feed.xml",
+    "enabled": true
+  },
+  {
+    "id": "bundesrat-news",
+    "label": "Bundesrat Medien",
+    "type": "rss",
+    "url": "https://www.admin.ch/gov/de/start/dokumentation/medienmitteilungen/rss.xml",
+    "enabled": true
+  }
+]
