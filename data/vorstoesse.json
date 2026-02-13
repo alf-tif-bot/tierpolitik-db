@@ -1,1302 +1,385 @@
 [
   {
-    "id": "vp-2026-01",
-    "titel": "Der Kreis schliesst sich im Westen: Die neue Personenunterführung Untermatt als legaler Graffiti-Ort",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von nutztierhaltung mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-100",
+    "id": "vp-parl-1",
+    "titel": "Vorstoss fuer strengere Tiertransport-Kontrollen",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Neue parlamentarische Initiative fuer Transportdauer-Limiten.",
+    "geschaeftsnummer": "parl-1",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
     "status": "Eingereicht",
-    "datumEingereicht": "2024-12-31",
-    "datumAktualisiert": "2025-01-10",
+    "datumEingereicht": "2026-02-12",
+    "datumAktualisiert": "2026-02-13",
     "themen": [
-      "Nutztierhaltung",
-      "Jagd"
+      "tier",
+      "tiertransport",
+      "transport",
+      "kontrolle",
+      "initiative"
     ],
     "schlagwoerter": [
-      "Tierwohl",
-      "Transparenz",
-      "tag-1"
+      "tier",
+      "tiertransport",
+      "transport",
+      "kontrolle",
+      "initiative"
     ],
     "einreichende": [
       {
-        "name": "Person 1A",
+        "name": "Parlamentsdienst",
         "rolle": "Nationalrat",
-        "partei": "SP"
-      },
-      {
-        "name": "Person 1B",
-        "rolle": "Kantonsrat",
-        "partei": "Mitte"
+        "partei": "Überparteilich"
       }
     ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-01",
+    "linkGeschaeft": "https://www.parlament.ch/rss/mitteilungen-de.xml",
     "resultate": [
       {
-        "datum": "2024-12-31",
+        "datum": "2026-02-12",
         "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-01-10",
-        "status": "Eingereicht",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
+        "bemerkung": "Status aus Crawler: queued"
       }
     ],
-    "medien": [
-      {
-        "datum": "2024-12-31",
-        "titel": "Mediennotiz 1",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-01"
-      },
-      {
-        "datum": "2025-01-10",
-        "titel": "Analyse 1",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-01"
-      }
-    ],
+    "medien": [],
     "metadaten": {
       "sprache": "de",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Interpellation"
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
   },
   {
-    "id": "vp-2026-02",
-    "titel": "Vorstoss 2: Versuche verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von versuche mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-101",
-    "ebene": "Kanton",
-    "kanton": "BE",
-    "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2025-03-03",
-    "datumAktualisiert": "2025-03-14",
-    "themen": [
-      "Versuche",
-      "Heimtiere"
-    ],
-    "schlagwoerter": [
-      "Kontrolle",
-      "Verbot",
-      "tag-2"
-    ],
-    "einreichende": [
-      {
-        "name": "Person 2A",
-        "rolle": "Staenderat",
-        "partei": "FDP"
-      },
-      {
-        "name": "Person 2B",
-        "rolle": "Gemeinderat",
-        "partei": "Gruene"
-      }
-    ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-02",
-    "resultate": [
-      {
-        "datum": "2025-03-03",
-        "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-03-14",
-        "status": "In Beratung",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
-      }
-    ],
-    "medien": [
-      {
-        "datum": "2025-03-03",
-        "titel": "Mediennotiz 2",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-02"
-      },
-      {
-        "datum": "2025-03-14",
-        "titel": "Analyse 2",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-02"
-      }
-    ],
-    "metadaten": {
-      "sprache": "fr",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Motion"
-  },
-  {
-    "id": "vp-2026-03",
-    "titel": "Vorstoss 3: Transport verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von transport mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-102",
-    "ebene": "Gemeinde",
-    "kanton": "LU",
-    "regionGemeinde": "Gemeinde Lugano",
-    "status": "Angenommen",
-    "datumEingereicht": "2025-05-06",
-    "datumAktualisiert": "2025-05-18",
-    "themen": [
-      "Transport",
-      "Kennzeichnung"
-    ],
-    "schlagwoerter": [
-      "Transparenz",
-      "Foerderung",
-      "tag-3"
-    ],
-    "einreichende": [
-      {
-        "name": "Person 3A",
-        "rolle": "Kantonsrat",
-        "partei": "Mitte"
-      },
-      {
-        "name": "Person 3B",
-        "rolle": "Regierung",
-        "partei": "SVP"
-      }
-    ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-03",
-    "resultate": [
-      {
-        "datum": "2025-05-06",
-        "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-05-18",
-        "status": "Angenommen",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
-      }
-    ],
-    "medien": [
-      {
-        "datum": "2025-05-06",
-        "titel": "Mediennotiz 3",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-03"
-      },
-      {
-        "datum": "2025-05-18",
-        "titel": "Analyse 3",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-03"
-      }
-    ],
-    "metadaten": {
-      "sprache": "it",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Postulat"
-  },
-  {
-    "id": "vp-2026-04",
-    "titel": "Vorstoss 4: Jagd verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von jagd mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-103",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Abgelehnt",
-    "datumEingereicht": "2025-07-09",
-    "datumAktualisiert": "2025-07-22",
-    "themen": [
-      "Jagd",
-      "Import"
-    ],
-    "schlagwoerter": [
-      "Verbot",
-      "Vollzug",
-      "tag-4"
-    ],
-    "einreichende": [
-      {
-        "name": "Person 4A",
-        "rolle": "Gemeinderat",
-        "partei": "Gruene"
-      },
-      {
-        "name": "Person 4B",
-        "rolle": "Partei",
-        "partei": "GLP"
-      }
-    ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-04",
-    "resultate": [
-      {
-        "datum": "2025-07-09",
-        "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-07-22",
-        "status": "Abgelehnt",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
-      }
-    ],
-    "medien": [
-      {
-        "datum": "2025-07-09",
-        "titel": "Mediennotiz 4",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-04"
-      },
-      {
-        "datum": "2025-07-22",
-        "titel": "Analyse 4",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-04"
-      }
-    ],
-    "metadaten": {
-      "sprache": "de",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Volksinitiative"
-  },
-  {
-    "id": "vp-2026-05",
-    "titel": "Vorstoss 5: Heimtiere verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von heimtiere mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-104",
-    "ebene": "Kanton",
-    "kanton": "VD",
-    "regionGemeinde": null,
-    "status": "Abgeschrieben",
-    "datumEingereicht": "2025-09-12",
-    "datumAktualisiert": "2025-09-26",
-    "themen": [
-      "Heimtiere",
-      "Subventionen"
-    ],
-    "schlagwoerter": [
-      "Foerderung",
-      "Label",
-      "tag-5"
-    ],
-    "einreichende": [
-      {
-        "name": "Person 5A",
-        "rolle": "Regierung",
-        "partei": "SVP"
-      },
-      {
-        "name": "Person 5B",
-        "rolle": "Nationalrat",
-        "partei": "SP"
-      }
-    ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-05",
-    "resultate": [
-      {
-        "datum": "2025-09-12",
-        "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-09-26",
-        "status": "Abgeschrieben",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
-      }
-    ],
-    "medien": [
-      {
-        "datum": "2025-09-12",
-        "titel": "Mediennotiz 5",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-05"
-      },
-      {
-        "datum": "2025-09-26",
-        "titel": "Analyse 5",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-05"
-      }
-    ],
-    "metadaten": {
-      "sprache": "fr",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Anfrage"
-  },
-  {
-    "id": "vp-2026-06",
-    "titel": "Vorstoss 6: Kennzeichnung verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von kennzeichnung mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-105",
-    "ebene": "Gemeinde",
-    "kanton": "TI",
-    "regionGemeinde": "Gemeinde Winterthur",
-    "status": "Eingereicht",
-    "datumEingereicht": "2025-11-15",
-    "datumAktualisiert": "2025-11-30",
-    "themen": [
-      "Kennzeichnung",
-      "Nutztierhaltung"
-    ],
-    "schlagwoerter": [
-      "Vollzug",
-      "Strafe",
-      "tag-6"
-    ],
-    "einreichende": [
-      {
-        "name": "Person 6A",
-        "rolle": "Partei",
-        "partei": "GLP"
-      },
-      {
-        "name": "Person 6B",
-        "rolle": "Staenderat",
-        "partei": "FDP"
-      }
-    ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-06",
-    "resultate": [
-      {
-        "datum": "2025-11-15",
-        "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-11-30",
-        "status": "Eingereicht",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
-      }
-    ],
-    "medien": [
-      {
-        "datum": "2025-11-15",
-        "titel": "Mediennotiz 6",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-06"
-      },
-      {
-        "datum": "2025-11-30",
-        "titel": "Analyse 6",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-06"
-      }
-    ],
-    "metadaten": {
-      "sprache": "it",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Interpellation"
-  },
-  {
-    "id": "vp-2026-07",
-    "titel": "Vorstoss 7: Import verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von import mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-106",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2025-01-18",
-    "datumAktualisiert": "2025-02-03",
-    "themen": [
-      "Import",
-      "Versuche"
-    ],
-    "schlagwoerter": [
-      "Label",
-      "Tierwohl",
-      "tag-7"
-    ],
-    "einreichende": [
-      {
-        "name": "Person 7A",
-        "rolle": "Nationalrat",
-        "partei": "SP"
-      },
-      {
-        "name": "Person 7B",
-        "rolle": "Kantonsrat",
-        "partei": "Mitte"
-      }
-    ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-07",
-    "resultate": [
-      {
-        "datum": "2025-01-18",
-        "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-02-03",
-        "status": "In Beratung",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
-      }
-    ],
-    "medien": [
-      {
-        "datum": "2025-01-18",
-        "titel": "Mediennotiz 7",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-07"
-      },
-      {
-        "datum": "2025-02-03",
-        "titel": "Analyse 7",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-07"
-      }
-    ],
-    "metadaten": {
-      "sprache": "de",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Motion"
-  },
-  {
-    "id": "vp-2026-08",
-    "titel": "Vorstoss 8: Subventionen verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von subventionen mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-107",
-    "ebene": "Kanton",
-    "kanton": "GE",
-    "regionGemeinde": null,
-    "status": "Angenommen",
-    "datumEingereicht": "2025-03-21",
-    "datumAktualisiert": "2025-04-07",
-    "themen": [
-      "Subventionen",
-      "Transport"
-    ],
-    "schlagwoerter": [
-      "Strafe",
-      "Kontrolle",
-      "tag-8"
-    ],
-    "einreichende": [
-      {
-        "name": "Person 8A",
-        "rolle": "Staenderat",
-        "partei": "FDP"
-      },
-      {
-        "name": "Person 8B",
-        "rolle": "Gemeinderat",
-        "partei": "Gruene"
-      }
-    ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-08",
-    "resultate": [
-      {
-        "datum": "2025-03-21",
-        "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-04-07",
-        "status": "Angenommen",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
-      }
-    ],
-    "medien": [
-      {
-        "datum": "2025-03-21",
-        "titel": "Mediennotiz 8",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-08"
-      },
-      {
-        "datum": "2025-04-07",
-        "titel": "Analyse 8",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-08"
-      }
-    ],
-    "metadaten": {
-      "sprache": "fr",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Postulat"
-  },
-  {
-    "id": "vp-2026-09",
-    "titel": "Vorstoss 9: Nutztierhaltung verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von nutztierhaltung mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-108",
-    "ebene": "Gemeinde",
-    "kanton": "BS",
-    "regionGemeinde": "Gemeinde Lausanne",
-    "status": "Abgelehnt",
-    "datumEingereicht": "2025-05-24",
-    "datumAktualisiert": "2025-06-11",
-    "themen": [
-      "Nutztierhaltung",
-      "Jagd"
-    ],
-    "schlagwoerter": [
-      "Tierwohl",
-      "Transparenz",
-      "tag-9"
-    ],
-    "einreichende": [
-      {
-        "name": "Person 9A",
-        "rolle": "Kantonsrat",
-        "partei": "Mitte"
-      },
-      {
-        "name": "Person 9B",
-        "rolle": "Regierung",
-        "partei": "SVP"
-      }
-    ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-09",
-    "resultate": [
-      {
-        "datum": "2025-05-24",
-        "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-06-11",
-        "status": "Abgelehnt",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
-      }
-    ],
-    "medien": [
-      {
-        "datum": "2025-05-24",
-        "titel": "Mediennotiz 9",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-09"
-      },
-      {
-        "datum": "2025-06-11",
-        "titel": "Analyse 9",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-09"
-      }
-    ],
-    "metadaten": {
-      "sprache": "it",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Volksinitiative"
-  },
-  {
-    "id": "vp-2026-10",
-    "titel": "Vorstoss 10: Versuche verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von versuche mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-109",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Abgeschrieben",
-    "datumEingereicht": "2025-07-01",
-    "datumAktualisiert": "2025-07-20",
-    "themen": [
-      "Versuche",
-      "Heimtiere"
-    ],
-    "schlagwoerter": [
-      "Kontrolle",
-      "Verbot",
-      "tag-10"
-    ],
-    "einreichende": [
-      {
-        "name": "Person 10A",
-        "rolle": "Gemeinderat",
-        "partei": "Gruene"
-      },
-      {
-        "name": "Person 10B",
-        "rolle": "Partei",
-        "partei": "GLP"
-      }
-    ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-10",
-    "resultate": [
-      {
-        "datum": "2025-07-01",
-        "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-07-20",
-        "status": "Abgeschrieben",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
-      }
-    ],
-    "medien": [
-      {
-        "datum": "2025-07-01",
-        "titel": "Mediennotiz 10",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-10"
-      },
-      {
-        "datum": "2025-07-20",
-        "titel": "Analyse 10",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-10"
-      }
-    ],
-    "metadaten": {
-      "sprache": "de",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Anfrage"
-  },
-  {
-    "id": "vp-2026-11",
-    "titel": "Vorstoss 11: Transport verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von transport mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-110",
-    "ebene": "Kanton",
-    "kanton": "ZH",
-    "regionGemeinde": null,
-    "status": "Eingereicht",
-    "datumEingereicht": "2025-09-04",
-    "datumAktualisiert": "2025-09-24",
-    "themen": [
-      "Transport",
-      "Kennzeichnung"
-    ],
-    "schlagwoerter": [
-      "Transparenz",
-      "Foerderung",
-      "tag-11"
-    ],
-    "einreichende": [
-      {
-        "name": "Person 11A",
-        "rolle": "Regierung",
-        "partei": "SVP"
-      },
-      {
-        "name": "Person 11B",
-        "rolle": "Nationalrat",
-        "partei": "SP"
-      }
-    ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-11",
-    "resultate": [
-      {
-        "datum": "2025-09-04",
-        "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-09-24",
-        "status": "Eingereicht",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
-      }
-    ],
-    "medien": [
-      {
-        "datum": "2025-09-04",
-        "titel": "Mediennotiz 11",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-11"
-      },
-      {
-        "datum": "2025-09-24",
-        "titel": "Analyse 11",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-11"
-      }
-    ],
-    "metadaten": {
-      "sprache": "fr",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Interpellation"
-  },
-  {
-    "id": "vp-2026-12",
-    "titel": "Vorstoss 12: Jagd verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von jagd mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-111",
-    "ebene": "Gemeinde",
-    "kanton": "BE",
-    "regionGemeinde": "Gemeinde Baden",
-    "status": "In Beratung",
-    "datumEingereicht": "2025-11-07",
-    "datumAktualisiert": "2025-11-28",
-    "themen": [
-      "Jagd",
-      "Import"
-    ],
-    "schlagwoerter": [
-      "Verbot",
-      "Vollzug",
-      "tag-12"
-    ],
-    "einreichende": [
-      {
-        "name": "Person 12A",
-        "rolle": "Partei",
-        "partei": "GLP"
-      },
-      {
-        "name": "Person 12B",
-        "rolle": "Staenderat",
-        "partei": "FDP"
-      }
-    ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-12",
-    "resultate": [
-      {
-        "datum": "2025-11-07",
-        "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-11-28",
-        "status": "In Beratung",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
-      }
-    ],
-    "medien": [
-      {
-        "datum": "2025-11-07",
-        "titel": "Mediennotiz 12",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-12"
-      },
-      {
-        "datum": "2025-11-28",
-        "titel": "Analyse 12",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-12"
-      }
-    ],
-    "metadaten": {
-      "sprache": "it",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Motion"
-  },
-  {
-    "id": "vp-2026-13",
-    "titel": "Vorstoss 13: Heimtiere verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von heimtiere mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-112",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Angenommen",
-    "datumEingereicht": "2025-01-10",
-    "datumAktualisiert": "2025-02-01",
-    "themen": [
-      "Heimtiere",
-      "Subventionen"
-    ],
-    "schlagwoerter": [
-      "Foerderung",
-      "Label",
-      "tag-13"
-    ],
-    "einreichende": [
-      {
-        "name": "Person 13A",
-        "rolle": "Nationalrat",
-        "partei": "SP"
-      },
-      {
-        "name": "Person 13B",
-        "rolle": "Kantonsrat",
-        "partei": "Mitte"
-      }
-    ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-13",
-    "resultate": [
-      {
-        "datum": "2025-01-10",
-        "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-02-01",
-        "status": "Angenommen",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
-      }
-    ],
-    "medien": [
-      {
-        "datum": "2025-01-10",
-        "titel": "Mediennotiz 13",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-13"
-      },
-      {
-        "datum": "2025-02-01",
-        "titel": "Analyse 13",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-13"
-      }
-    ],
-    "metadaten": {
-      "sprache": "de",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Postulat"
-  },
-  {
-    "id": "vp-2026-14",
-    "titel": "Vorstoss 14: Kennzeichnung verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von kennzeichnung mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-113",
-    "ebene": "Kanton",
-    "kanton": "SG",
-    "regionGemeinde": null,
-    "status": "Abgelehnt",
-    "datumEingereicht": "2025-03-13",
-    "datumAktualisiert": "2025-04-05",
-    "themen": [
-      "Kennzeichnung",
-      "Nutztierhaltung"
-    ],
-    "schlagwoerter": [
-      "Vollzug",
-      "Strafe",
-      "tag-14"
-    ],
-    "einreichende": [
-      {
-        "name": "Person 14A",
-        "rolle": "Staenderat",
-        "partei": "FDP"
-      },
-      {
-        "name": "Person 14B",
-        "rolle": "Gemeinderat",
-        "partei": "Gruene"
-      }
-    ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-14",
-    "resultate": [
-      {
-        "datum": "2025-03-13",
-        "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-04-05",
-        "status": "Abgelehnt",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
-      }
-    ],
-    "medien": [
-      {
-        "datum": "2025-03-13",
-        "titel": "Mediennotiz 14",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-14"
-      },
-      {
-        "datum": "2025-04-05",
-        "titel": "Analyse 14",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-14"
-      }
-    ],
-    "metadaten": {
-      "sprache": "fr",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Volksinitiative"
-  },
-  {
-    "id": "vp-2026-15",
-    "titel": "Vorstoss 15: Import verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von import mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-114",
-    "ebene": "Gemeinde",
-    "kanton": "VD",
-    "regionGemeinde": "Gemeinde Chur",
-    "status": "Abgeschrieben",
-    "datumEingereicht": "2025-05-16",
-    "datumAktualisiert": "2025-06-09",
-    "themen": [
-      "Import",
-      "Versuche"
-    ],
-    "schlagwoerter": [
-      "Label",
-      "Tierwohl",
-      "tag-15"
-    ],
-    "einreichende": [
-      {
-        "name": "Person 15A",
-        "rolle": "Kantonsrat",
-        "partei": "Mitte"
-      },
-      {
-        "name": "Person 15B",
-        "rolle": "Regierung",
-        "partei": "SVP"
-      }
-    ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-15",
-    "resultate": [
-      {
-        "datum": "2025-05-16",
-        "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-06-09",
-        "status": "Abgeschrieben",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
-      }
-    ],
-    "medien": [
-      {
-        "datum": "2025-05-16",
-        "titel": "Mediennotiz 15",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-15"
-      },
-      {
-        "datum": "2025-06-09",
-        "titel": "Analyse 15",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-15"
-      }
-    ],
-    "metadaten": {
-      "sprache": "it",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Anfrage"
-  },
-  {
-    "id": "vp-2026-16",
-    "titel": "Vorstoss 16: Subventionen verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von subventionen mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-115",
+    "id": "vp-br-1",
+    "titel": "Bundesrat eroertert Verordnung gegen tierschutzwidrige Praktiken",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Anpassung bei Kontrollen und Sanktionspraxis.",
+    "geschaeftsnummer": "br-1",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
     "status": "Eingereicht",
-    "datumEingereicht": "2025-07-19",
-    "datumAktualisiert": "2025-08-13",
+    "datumEingereicht": "2026-02-10",
+    "datumAktualisiert": "2026-02-13",
     "themen": [
-      "Subventionen",
-      "Transport"
+      "tier",
+      "tierschutz",
+      "kontrolle",
+      "verordnung",
+      "sanktion"
     ],
     "schlagwoerter": [
-      "Strafe",
-      "Kontrolle",
-      "tag-16"
+      "tier",
+      "tierschutz",
+      "kontrolle",
+      "verordnung",
+      "sanktion"
     ],
     "einreichende": [
       {
-        "name": "Person 16A",
-        "rolle": "Gemeinderat",
-        "partei": "Gruene"
-      },
-      {
-        "name": "Person 16B",
-        "rolle": "Partei",
-        "partei": "GLP"
+        "name": "Parlamentsdienst",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
       }
     ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-16",
+    "linkGeschaeft": "https://example.org/bundesrat/1",
     "resultate": [
       {
-        "datum": "2025-07-19",
+        "datum": "2026-02-10",
         "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-08-13",
-        "status": "Eingereicht",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
+        "bemerkung": "Status aus Crawler: queued"
       }
     ],
-    "medien": [
-      {
-        "datum": "2025-07-19",
-        "titel": "Mediennotiz 16",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-16"
-      },
-      {
-        "datum": "2025-08-13",
-        "titel": "Analyse 16",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-16"
-      }
-    ],
+    "medien": [],
     "metadaten": {
       "sprache": "de",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Interpellation"
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
   },
   {
-    "id": "vp-2026-17",
-    "titel": "Vorstoss 17: Nutztierhaltung verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von nutztierhaltung mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-116",
-    "ebene": "Kanton",
-    "kanton": "AG",
-    "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2025-09-22",
-    "datumAktualisiert": "2025-10-18",
-    "themen": [
-      "Nutztierhaltung",
-      "Jagd"
-    ],
-    "schlagwoerter": [
-      "Tierwohl",
-      "Transparenz",
-      "tag-17"
-    ],
-    "einreichende": [
-      {
-        "name": "Person 17A",
-        "rolle": "Regierung",
-        "partei": "SVP"
-      },
-      {
-        "name": "Person 17B",
-        "rolle": "Nationalrat",
-        "partei": "SP"
-      }
-    ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-17",
-    "resultate": [
-      {
-        "datum": "2025-09-22",
-        "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-10-18",
-        "status": "In Beratung",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
-      }
-    ],
-    "medien": [
-      {
-        "datum": "2025-09-22",
-        "titel": "Mediennotiz 17",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-17"
-      },
-      {
-        "datum": "2025-10-18",
-        "titel": "Analyse 17",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-17"
-      }
-    ],
-    "metadaten": {
-      "sprache": "fr",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Motion"
-  },
-  {
-    "id": "vp-2026-18",
-    "titel": "Vorstoss 18: Versuche verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von versuche mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-117",
-    "ebene": "Gemeinde",
-    "kanton": "GE",
-    "regionGemeinde": "Gemeinde Lugano",
-    "status": "Angenommen",
-    "datumEingereicht": "2025-11-25",
-    "datumAktualisiert": "2025-12-22",
-    "themen": [
-      "Versuche",
-      "Heimtiere"
-    ],
-    "schlagwoerter": [
-      "Kontrolle",
-      "Verbot",
-      "tag-18"
-    ],
-    "einreichende": [
-      {
-        "name": "Person 18A",
-        "rolle": "Partei",
-        "partei": "GLP"
-      },
-      {
-        "name": "Person 18B",
-        "rolle": "Staenderat",
-        "partei": "FDP"
-      }
-    ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-18",
-    "resultate": [
-      {
-        "datum": "2025-11-25",
-        "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-12-22",
-        "status": "Angenommen",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
-      }
-    ],
-    "medien": [
-      {
-        "datum": "2025-11-25",
-        "titel": "Mediennotiz 18",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-18"
-      },
-      {
-        "datum": "2025-12-22",
-        "titel": "Analyse 18",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-18"
-      }
-    ],
-    "metadaten": {
-      "sprache": "it",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Postulat"
-  },
-  {
-    "id": "vp-2026-19",
-    "titel": "Vorstoss 19: Transport verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von transport mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-118",
+    "id": "vp-20250404-de",
+    "titel": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative",
+    "typ": "Volksinitiative",
+    "kurzbeschreibung": "Beratung in Kommission des Nationalrates abgeschlossen",
+    "geschaeftsnummer": "20250404-de",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "Abgelehnt",
-    "datumEingereicht": "2025-01-02",
-    "datumAktualisiert": "2025-01-30",
+    "status": "Eingereicht",
+    "datumEingereicht": "2025-02-21",
+    "datumAktualisiert": "2026-02-13",
     "themen": [
-      "Transport",
-      "Kennzeichnung"
+      "stopfleber",
+      "initiative"
     ],
     "schlagwoerter": [
-      "Transparenz",
-      "Foerderung",
-      "tag-19"
+      "stopfleber",
+      "initiative"
     ],
     "einreichende": [
       {
-        "name": "Person 19A",
+        "name": "Parlamentsdienst",
         "rolle": "Nationalrat",
-        "partei": "SP"
-      },
-      {
-        "name": "Person 19B",
-        "rolle": "Kantonsrat",
-        "partei": "Mitte"
+        "partei": "Überparteilich"
       }
     ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-19",
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250404",
     "resultate": [
       {
-        "datum": "2025-01-02",
+        "datum": "2025-02-21",
         "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-01-30",
-        "status": "Abgelehnt",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
+        "bemerkung": "Status aus Crawler: queued"
       }
     ],
-    "medien": [
-      {
-        "datum": "2025-01-02",
-        "titel": "Mediennotiz 19",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-19"
-      },
-      {
-        "datum": "2025-01-30",
-        "titel": "Analyse 19",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-19"
-      }
-    ],
+    "medien": [],
     "metadaten": {
       "sprache": "de",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Volksinitiative"
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
   },
   {
-    "id": "vp-2026-20",
-    "titel": "Vorstoss 20: Jagd verbessern",
-    "kurzbeschreibung": "Frei erfundener Vorstoss zur Verbesserung von jagd mit messbaren Kriterien und staerkerem Vollzug.",
-    "geschaeftsnummer": "GS-2026-119",
-    "ebene": "Kanton",
-    "kanton": "GR",
+    "id": "vp-20240089-de",
+    "titel": "24.089 · «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)». Volksinitiative",
+    "typ": "Volksinitiative",
+    "kurzbeschreibung": "Botschaft vom 20. November 2024 zur Volksinitiative «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)»",
+    "geschaeftsnummer": "20240089-de",
+    "ebene": "Bund",
+    "kanton": null,
     "regionGemeinde": null,
-    "status": "Abgeschrieben",
-    "datumEingereicht": "2025-03-05",
-    "datumAktualisiert": "2025-04-03",
+    "status": "Eingereicht",
+    "datumEingereicht": "2024-11-14",
+    "datumAktualisiert": "2026-02-13",
     "themen": [
-      "Jagd",
-      "Import"
+      "stopfleber",
+      "initiative",
+      "botschaft"
     ],
     "schlagwoerter": [
-      "Verbot",
-      "Vollzug",
-      "tag-20"
+      "stopfleber",
+      "initiative",
+      "botschaft"
     ],
     "einreichende": [
       {
-        "name": "Person 20A",
-        "rolle": "Staenderat",
-        "partei": "FDP"
-      },
-      {
-        "name": "Person 20B",
-        "rolle": "Gemeinderat",
-        "partei": "Gruene"
+        "name": "Parlamentsdienst",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
       }
     ],
-    "linkGeschaeft": "https://example.ch/geschaeft/vp-2026-20",
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20240089",
     "resultate": [
       {
-        "datum": "2025-03-05",
+        "datum": "2024-11-14",
         "status": "Eingereicht",
-        "bemerkung": "Eingang bestaetigt"
-      },
-      {
-        "datum": "2025-04-03",
-        "status": "Abgeschrieben",
-        "bemerkung": "Stand gemaess Protokoll aktualisiert"
+        "bemerkung": "Status aus Crawler: queued"
       }
     ],
-    "medien": [
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20250404-fr",
+    "titel": "25.404 · Contre-projet indirect à l’initiative foie gras",
+    "typ": "Volksinitiative",
+    "kurzbeschreibung": "Fin des discussions en commission du Conseil national",
+    "geschaeftsnummer": "20250404-fr",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": "Romandie",
+    "status": "Eingereicht",
+    "datumEingereicht": "2025-02-21",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "foie gras",
+      "initiative"
+    ],
+    "schlagwoerter": [
+      "foie gras",
+      "initiative"
+    ],
+    "einreichende": [
       {
-        "datum": "2025-03-05",
-        "titel": "Mediennotiz 20",
-        "quelle": "Tierpolitik Journal",
-        "url": "https://example.ch/medien/vp-2026-20"
-      },
-      {
-        "datum": "2025-04-03",
-        "titel": "Analyse 20",
-        "quelle": "Politmonitor",
-        "url": "https://example.ch/analyse/vp-2026-20"
+        "name": "Service parlementaire",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
       }
     ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250404",
+    "resultate": [
+      {
+        "datum": "2025-02-21",
+        "status": "Eingereicht",
+        "bemerkung": "Status aus Crawler: queued"
+      }
+    ],
+    "medien": [],
     "metadaten": {
       "sprache": "fr",
-      "zuletztGeprueftVon": "Redaktion Prototyp"
-    },
-    "typ": "Anfrage"
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20240089-fr",
+    "titel": "24.089 · «Oui à l’interdiction d’importer du foie gras (initiative foie gras)». Initiative populaire",
+    "typ": "Volksinitiative",
+    "kurzbeschreibung": "Message du 20 novembre 2024 concernant l’initiative populaire « Oui à l’interdiction d’importer du foie gras (initiative foie gras) »",
+    "geschaeftsnummer": "20240089-fr",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": "Romandie",
+    "status": "Eingereicht",
+    "datumEingereicht": "2024-11-14",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "foie gras",
+      "initiative"
+    ],
+    "schlagwoerter": [
+      "foie gras",
+      "initiative"
+    ],
+    "einreichende": [
+      {
+        "name": "Service parlementaire",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20240089",
+    "resultate": [
+      {
+        "datum": "2024-11-14",
+        "status": "Eingereicht",
+        "bemerkung": "Status aus Crawler: queued"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "fr",
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20210426-de",
+    "titel": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "In Kommission des Nationalrats",
+    "geschaeftsnummer": "20210426-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Eingereicht",
+    "datumEingereicht": "2021-03-18",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "tier",
+      "3r"
+    ],
+    "schlagwoerter": [
+      "tier",
+      "3r"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsdienst",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20210426",
+    "resultate": [
+      {
+        "datum": "2021-03-18",
+        "status": "Eingereicht",
+        "bemerkung": "Status aus Crawler: queued"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20210426-fr",
+    "titel": "21.426 · Méthodes de substitution à l'expérimentation animale. Davantage de ressources et d'incitations pour la recherche 3R",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "En commission du Conseil national",
+    "geschaeftsnummer": "20210426-fr",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": "Romandie",
+    "status": "Eingereicht",
+    "datumEingereicht": "2021-03-18",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "animal",
+      "3r"
+    ],
+    "schlagwoerter": [
+      "animal",
+      "3r"
+    ],
+    "einreichende": [
+      {
+        "name": "Service parlementaire",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20210426",
+    "resultate": [
+      {
+        "datum": "2021-03-18",
+        "status": "Eingereicht",
+        "bemerkung": "Status aus Crawler: queued"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "fr",
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20210426-it",
+    "titel": "21.426 · Più risorse e incentivi a favore della ricerca 3R per accelerare lo sviluppo di metodi alternativi alla sperimentazione animale",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Nella Commissione del Consiglio nazionale",
+    "geschaeftsnummer": "20210426-it",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": "Südschweiz",
+    "status": "Eingereicht",
+    "datumEingereicht": "2021-03-18",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "animal",
+      "3r"
+    ],
+    "schlagwoerter": [
+      "animal",
+      "3r"
+    ],
+    "einreichende": [
+      {
+        "name": "Servizio parlamentare",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20210426",
+    "resultate": [
+      {
+        "datum": "2021-03-18",
+        "status": "Eingereicht",
+        "bemerkung": "Status aus Crawler: queued"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "it",
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
   }
 ]

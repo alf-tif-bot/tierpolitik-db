@@ -2,6 +2,7 @@ import { spawnSync } from 'node:child_process'
 
 const steps = [
   ['npm', ['run', 'db:sync-json']],
+  ['npm', ['run', 'home:build-data']],
   ['npm', ['run', 'crawler:build-review']],
   ['npm', ['run', 'crawler:export']],
   ['npm', ['run', 'crawler:build-public']],

@@ -118,6 +118,7 @@ npm run db:refresh-site
 ```
 
 Lädt die Daten aus PostgreSQL nach JSON und baut danach sofort:
+- `data/vorstoesse.json` (Home-Tabelle)
 - `public/review.html`
 - `data/crawler-published.json`
 - `public/crawler.html` (Redirect auf Review)
