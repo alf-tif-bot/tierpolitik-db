@@ -5,6 +5,11 @@ export const ANCHOR_KEYWORDS = [
   'tierversuch', 'tierversuche', 'versuchstiere', 'schlachthof',
   'haustier', 'hunde', 'hund', 'katze', 'katzen', 'geflügel', 'gefluegel', 'schwein', 'rind',
   'wildtier', 'wildtiere', 'wolf', 'biber', 'fuchs',
+  'biodiversität', 'biodiversitaet', 'biodiversite', 'biodiversita',
+  'zoo', 'zoos', 'zirkus', 'wildpark',
+  'landwirtschaft', 'agriculture', 'agricoltura',
+  'ernährung', 'ernaehrung', 'nutrition', 'alimentazione',
+  'veterinär', 'veterinaer', 'vétérinaire', 'veterinaire', 'veterinario',
   'animal', 'animaux', 'protection animale', 'bien-être animal', 'bien etre animal',
   'expérimentation animale', 'experiment animal', 'sperimentazione animale',
   'jagd', 'chasse', 'caccia', 'fischerei', 'pêche', 'peche', 'pesca',
@@ -16,11 +21,23 @@ const SUPPORT_KEYWORDS = [
   'gesetz', 'initiative', 'motion', 'postulat', 'botschaft', 'sanktion', 'zucht',
   'schlacht', 'mast', 'pelz', 'fisch', 'jagd', 'wildtier', 'bien-être', 'bien etre',
   'protection', 'animalier', 'animale', 'faune',
+  'biodiversität', 'biodiversitaet', 'biodiversite',
+  'landwirtschaft', 'agriculture', 'agricoltura',
+  'ernährung', 'ernaehrung', 'nutrition', 'alimentazione',
+  'zoo', 'zoos', 'veterinärmedizin', 'veterinaermedizin',
 ]
 
 const NOISE_KEYWORDS = [
   'energie', 'elektrizität', 'elektrizitaet', 'steuern', 'finanz', 'ahv', 'armee',
   'rhone', 'gotthard', 'tunnel', 'digitalisierung',
+]
+
+const PERSON_WHITELIST = [
+  'meret schneider',
+  'maya graf',
+  'anna giacometti',
+  'samira marti',
+  'jon pult',
 ]
 
 export const DEFAULT_KEYWORDS = [...new Set([...ANCHOR_KEYWORDS, ...SUPPORT_KEYWORDS])]
@@ -43,14 +60,16 @@ export function scoreText(text, keywords = DEFAULT_KEYWORDS) {
   const anchorMatches = ANCHOR_KEYWORDS.filter((kw) => hasKeyword(normalizedText, kw))
   const supportMatches = SUPPORT_KEYWORDS.filter((kw) => hasKeyword(normalizedText, kw))
   const noiseMatches = NOISE_KEYWORDS.filter((kw) => hasKeyword(normalizedText, kw))
+  const whitelistedPeople = PERSON_WHITELIST.filter((name) => normalizedText.includes(name))
   const matched = keywords.filter((kw) => hasKeyword(normalizedText, kw))
 
   const anchorScore = Math.min(0.7, anchorMatches.length * 0.28)
   const supportScore = Math.min(0.45, supportMatches.length * 0.14)
+  const whitelistBoost = whitelistedPeople.length > 0 ? 0.12 : 0
   const noisePenalty = Math.min(0.3, noiseMatches.length * 0.1)
-  const score = Math.max(0, Math.min(1, anchorScore + supportScore - noisePenalty))
+  const score = Math.max(0, Math.min(1, anchorScore + supportScore + whitelistBoost - noisePenalty))
 
-  return { score, matched, normalizedText, anchorMatches, supportMatches, noiseMatches }
+  return { score, matched, normalizedText, anchorMatches, supportMatches, noiseMatches, whitelistedPeople }
 }
 
 export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords = DEFAULT_KEYWORDS } = {}) {
@@ -62,21 +81,24 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
   for (const item of db.items) {
     if (!enabledSourceIds.has(item.sourceId)) continue
     const text = `${item.title}\n${item.summary}\n${item.body}`
-    const { score, matched, anchorMatches, supportMatches, noiseMatches } = scoreText(text, keywords)
+    const { score, matched, anchorMatches, supportMatches, noiseMatches, whitelistedPeople } = scoreText(text, keywords)
 
     const hasAnchor = anchorMatches.length > 0
     const hasSupport = supportMatches.length > 0
-    const isRelevant = hasAnchor && (score >= minScore || (anchorMatches.length >= 2 && hasSupport))
+    const hasWhitelistedPerson = whitelistedPeople.length > 0
+    const isRelevant =
+      (hasAnchor && (score >= minScore || (anchorMatches.length >= 2 && hasSupport)))
+      || (hasWhitelistedPerson && (hasAnchor || hasSupport) && score >= Math.max(0.14, minScore - 0.04))
 
     item.score = score
     item.matchedKeywords = matched
     item.status = isRelevant ? 'queued' : 'rejected'
 
     const rule = isRelevant
-      ? (score >= minScore ? 'anchor+score' : 'anchor2+support')
+      ? (hasWhitelistedPerson ? 'whitelist+theme' : (score >= minScore ? 'anchor+score' : 'anchor2+support'))
       : (!hasAnchor ? 'missing-anchor' : 'below-threshold')
 
-    item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · score=${score.toFixed(2)}`
+    item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · people=${whitelistedPeople.slice(0, 2).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · score=${score.toFixed(2)}`
 
     if (isRelevant) relevantCount += 1
     touched += 1

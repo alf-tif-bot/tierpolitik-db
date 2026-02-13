@@ -79,11 +79,13 @@ const humanizeReason = (reason = '') => {
   const score = (text.match(/score=([0-9.]+)/)?.[1] || '').trim()
   const anchor = (text.match(/anchor=([^·]+)/)?.[1] || '').trim()
   const support = (text.match(/support=([^·]+)/)?.[1] || '').trim()
+  const people = (text.match(/people=([^·]+)/)?.[1] || '').trim()
   const noise = (text.match(/noise=([^·]+)/)?.[1] || '').trim()
 
   const ruleMap = {
     'anchor+score': 'Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)',
     'anchor2+support': 'Mehrere starke Tier-Begriffe mit zusätzlichem Kontext',
+    'whitelist+theme': 'Thematisch relevant und von priorisiertem Parlamentsprofil',
     'missing-anchor': 'Keine klaren Tier-Schlüsselbegriffe gefunden',
     'below-threshold': 'Tierbezug vorhanden, aber Relevanz aktuell zu schwach',
   }
@@ -91,11 +93,13 @@ const humanizeReason = (reason = '') => {
   const toList = (v) => v && v !== '-' ? v.split('|').map((x) => x.trim()).filter(Boolean) : []
   const anchorList = toList(anchor)
   const supportList = toList(support).filter((x) => !anchorList.includes(x))
+  const peopleList = toList(people)
 
   const parts = []
   if (rule) parts.push(`<div><strong>Bewertung:</strong> ${esc(ruleMap[rule] || rule)}</div>`)
   if (anchorList.length) parts.push(`<div><strong>Tier-Begriffe:</strong> ${esc(anchorList.join(', '))}</div>`)
   if (supportList.length) parts.push(`<div><strong>Kontext:</strong> ${esc(supportList.join(', '))}</div>`)
+  if (peopleList.length) parts.push(`<div><strong>Priorisierte Profile:</strong> ${esc(peopleList.join(', '))}</div>`)
   if (noise && noise !== '-') parts.push(`<div><strong>Störsignale:</strong> ${esc(noise.replaceAll('|', ', '))}</div>`)
   if (score) parts.push(`<div><strong>Score:</strong> ${esc(score)}</div>`)
 
