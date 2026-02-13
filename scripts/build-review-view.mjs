@@ -224,7 +224,8 @@ async function setDecision(btn,id,status){
       throw new Error(txt || 'Decision API failed');
     }
   } catch(err) {
-    alert('Konnte Entscheidung nicht serverseitig speichern. Bitte später erneut versuchen.');
+    const msg = String(err?.message || err || 'unbekannter Fehler').slice(0, 220)
+    alert('Konnte Entscheidung nicht serverseitig speichern.\n' + msg);
     console.error(err);
     return;
   }

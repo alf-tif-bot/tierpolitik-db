@@ -43,7 +43,7 @@ const personByLang = {
   it: { name: 'Servizio parlamentare', rolle: 'Nationalrat', partei: 'Überparteilich' },
 }
 
-export default async () => {
+export const handler = async () => {
   try {
     const rows = await withPgClient(async (client) => {
       const res = await client.query(`
@@ -123,3 +123,5 @@ export default async () => {
     }
   }
 }
+
+export default handler

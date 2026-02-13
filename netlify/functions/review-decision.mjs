@@ -2,7 +2,7 @@ import { withPgClient } from '../../crawler/db-postgres.mjs'
 
 const ALLOWED = new Set(['approved', 'rejected', 'queued'])
 
-export default async (event) => {
+export const handler = async (event) => {
   try {
     if (event.httpMethod !== 'POST') {
       return { statusCode: 405, body: 'Method Not Allowed' }
@@ -70,3 +70,5 @@ export default async (event) => {
     }
   }
 }
+
+export default handler
