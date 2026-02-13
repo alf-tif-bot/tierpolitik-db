@@ -222,7 +222,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
             <div className="row">
               <button className="btn-primary" onClick={submitFeedback} disabled={feedbackState === 'saving'}>Senden</button>
             </div>
-            {feedbackState === 'done' && <p className="muted">Danke dir fürs Feedback 🙌 Ich prüfe das und nehme die Anpassung in die Review-Runde auf.</p>}
+            {feedbackState === 'done' && <p className="muted">Danke dir fürs Feedback 🙌</p>}
             {feedbackState === 'error' && <p className="muted">Feedback konnte nicht gesendet werden.</p>}
           </div>
         )}
