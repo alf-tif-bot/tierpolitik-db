@@ -260,6 +260,7 @@ const read=()=>JSON.parse(localStorage.getItem(key)||'{}');
 const write=(v)=>localStorage.setItem(key,JSON.stringify(v,null,2));
 
 let showDecided = false;
+let userToggledDecided = false;
 
 function updateStatusSummary(){
   const stats = { queued: 0, approved: 0, published: 0 }
@@ -289,7 +290,7 @@ function hideDecidedRows(){
   });
 
   const visible = rows.filter((row) => row.style.display !== 'none').length
-  if (visible === 0 && rows.length > 0 && !showDecided) {
+  if (visible === 0 && rows.length > 0 && !showDecided && !userToggledDecided) {
     showDecided = true
     rows.forEach((row)=>{ row.style.display = '' })
   }
@@ -300,6 +301,7 @@ function hideDecidedRows(){
 }
 
 function toggleDecided(){
+  userToggledDecided = true
   showDecided = !showDecided
   hideDecidedRows()
 }
