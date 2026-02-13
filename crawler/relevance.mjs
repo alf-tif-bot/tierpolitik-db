@@ -5,7 +5,7 @@ import { loadDb, saveDb } from './db.mjs'
 export const ANCHOR_KEYWORDS = [
   'tier', 'tiere', 'tierschutz', 'tierwohl', 'nutztiere', 'tierhaltung', 'massentierhaltung', 'massentier', 'tiertransport',
   'tierversuch', 'tierversuche', 'versuchstiere', 'schlachthof',
-  'haustier', 'hunde', 'hund', 'katze', 'katzen', 'geflügel', 'gefluegel', 'schwein', 'rind',
+  'haustier', 'hunde', 'hund', 'katze', 'katzen', 'hühner', 'huehner', 'geflügel', 'gefluegel', 'vogelgrippe', 'schwein', 'schweine', 'schweinemast', 'schweinezucht', 'rind',
   'wildtier', 'wildtiere', 'wolf', 'biber', 'fuchs',
   'biodiversität', 'biodiversitaet', 'biodiversite', 'biodiversita',
   'zoo', 'zoos', 'zirkus', 'wildpark',
@@ -20,7 +20,7 @@ export const ANCHOR_KEYWORDS = [
 
 const SUPPORT_KEYWORDS = [
   'stall', 'haltung', 'transport', 'kontrolle', 'veterinär', 'veterinaer', 'vétérinaire', 'veterinaire', 'verordnung',
-  'gesetz', 'initiative', 'motion', 'postulat', 'botschaft', 'sanktion', 'zucht',
+  'gesetz', 'initiative', 'motion', 'postulat', 'botschaft', 'sanktion', 'zucht', 'fleisch', 'proviande', 'suisseporcs', 'swissmilk', 'schweizer tierschutz', 'sts',
   'schlacht', 'mast', 'pelz', 'fisch', 'jagd', 'wildtier', 'bien-être', 'bien etre',
   'protection', 'animalier', 'animale', 'faune',
   'biodiversität', 'biodiversitaet', 'biodiversite',

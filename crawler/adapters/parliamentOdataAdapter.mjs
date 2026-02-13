@@ -26,6 +26,8 @@ const pickRows = (payload) => {
 
 const THEMATIC_HINTS = [
   'tier', 'tierschutz', 'tierwohl', 'nutztier', 'tierhalt', 'massentierhaltung', 'massentier', 'tiertransport', 'tierversuch', '3r', 'schlacht',
+  'schwein', 'schweine', 'schweinemast', 'schweinezucht', 'hühner', 'huehner', 'geflügel', 'gefluegel', 'vogelgrippe',
+  'fleisch', 'proviande', 'suisseporcs', 'swissmilk', 'schweizer tierschutz', 'sts', 'zucht',
   'jagd', 'chasse', 'caccia', 'fisch', 'pêche', 'peche', 'pesca', 'wildtier', 'wolf', 'biber',
   'veterin', 'animal', 'animaux', 'animale', 'protection animale', 'bien-être animal', 'foie gras', 'stopfleber',
 ]
@@ -96,7 +98,7 @@ export function createParliamentOdataAdapter() {
 
       const extraTerms = queryTerms.length > 0
         ? queryTerms
-        : ['Massentier', 'Stopfleber', 'Tierversuch', 'Nutztier', 'Tierschutz']
+        : ['Massentier', 'Stopfleber', 'Tierversuch', 'Nutztier', 'Tierschutz', 'Schweine', 'Schweinemast', 'Geflügel', 'Vogelgrippe', 'Fleisch', 'Proviande', 'Suisseporcs', 'Swissmilk', 'Schweizer Tierschutz']
 
       const extraRows = []
       for (const term of extraTerms.slice(0, 8)) {
