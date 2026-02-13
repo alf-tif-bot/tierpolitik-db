@@ -46,6 +46,19 @@ const rankRow = (row) => {
   return score
 }
 
+const mapLanguage = (lang) => {
+  const normalized = String(lang || '').toLowerCase()
+  if (normalized === 'fr') return 'fr'
+  if (normalized === 'it') return 'it'
+  if (normalized === 'en') return 'en'
+  return 'de'
+}
+
+const parseCsvOption = (value) => String(value || '')
+  .split(',')
+  .map((x) => x.trim())
+  .filter(Boolean)
+
 export function createParliamentOdataAdapter() {
   return {
     async fetch(source) {
@@ -54,6 +67,7 @@ export function createParliamentOdataAdapter() {
       const thematicMinQuota = source.options?.thematicMinQuota ?? 70
       const lang = source.options?.lang ?? 'DE'
       const daysBack = source.options?.daysBack ?? 3650
+      const businessTypeIncludes = parseCsvOption(source.options?.businessTypeIncludes)
       const since = new Date(Date.now() - daysBack * 86400000).toISOString().slice(0, 19)
       const select = [
         'ID', 'Language', 'BusinessShortNumber', 'BusinessTypeName', 'Title', 'Description', 'TagNames',
@@ -73,9 +87,12 @@ export function createParliamentOdataAdapter() {
       if (!response.ok) throw new Error(`OData fetch failed (${response.status})`)
       const payload = await response.json()
       const rows = pickRows(payload).filter((row) => row?.ID && row?.Title)
+      const filteredRows = businessTypeIncludes.length > 0
+        ? rows.filter((row) => businessTypeIncludes.some((type) => String(row.BusinessTypeName || '').toLowerCase().includes(type.toLowerCase())))
+        : rows
       const fetchedAt = new Date().toISOString()
 
-      const thematicRows = rows
+      const thematicRows = filteredRows
         .filter((row) => hasHint(`${row.Title || ''} ${row.Description || ''} ${row.TagNames || ''}`))
         .sort((a, b) => rankRow(b) - rankRow(a))
 
@@ -94,7 +111,7 @@ export function createParliamentOdataAdapter() {
           body: stripHtml(`${row.Description || ''}\n${row.TagNames || ''}`),
           publishedAt: toIso(row.SubmissionDate) || toIso(row.Modified),
           fetchedAt,
-          language: (row.Language || lang).toLowerCase() === 'fr' ? 'fr' : 'de',
+          language: mapLanguage(row.Language || lang),
           score: 0,
           matchedKeywords: [],
           status: 'new',

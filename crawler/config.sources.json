@@ -30,6 +30,53 @@
     }
   },
   {
+    "id": "ch-parliament-business-it",
+    "label": "Parlament.ch Curia Vista (IT)",
+    "type": "api",
+    "adapter": "parliamentOdata",
+    "url": "https://ws.parlament.ch/odata.svc/Business",
+    "enabled": true,
+    "options": {
+      "lang": "IT",
+      "top": 180,
+      "sampleLimit": 70,
+      "thematicMinQuota": 45,
+      "daysBack": 3650
+    }
+  },
+  {
+    "id": "ch-parliament-motions-de",
+    "label": "Parlament.ch Motionen (DE)",
+    "type": "api",
+    "adapter": "parliamentOdata",
+    "url": "https://ws.parlament.ch/odata.svc/Business",
+    "enabled": true,
+    "options": {
+      "lang": "DE",
+      "top": 240,
+      "sampleLimit": 90,
+      "thematicMinQuota": 65,
+      "daysBack": 3650,
+      "businessTypeIncludes": "Motion"
+    }
+  },
+  {
+    "id": "ch-parliament-postulates-de",
+    "label": "Parlament.ch Postulate (DE)",
+    "type": "api",
+    "adapter": "parliamentOdata",
+    "url": "https://ws.parlament.ch/odata.svc/Business",
+    "enabled": true,
+    "options": {
+      "lang": "DE",
+      "top": 200,
+      "sampleLimit": 70,
+      "thematicMinQuota": 50,
+      "daysBack": 3650,
+      "businessTypeIncludes": "Postulat"
+    }
+  },
+  {
     "id": "blv-news",
     "label": "BLV News",
     "type": "rss",
