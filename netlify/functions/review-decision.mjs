@@ -20,16 +20,22 @@ export const handler = async (event) => {
       return { statusCode: 400, body: JSON.stringify({ error: 'invalid status' }) }
     }
 
-    const [sourceId, externalId] = decisionId.split(':')
+    const [sourceId, externalIdRaw] = decisionId.split(':')
+    const externalId = String(externalIdRaw || '')
+    const externalIdFallback = externalId.replace(/-[a-z]{2}$/i, '')
 
     const result = await withPgClient(async (client) => {
       await client.query('begin')
       try {
         const m = await client.query(
-          `select id from motions where source_id = $1 and external_id = $2 limit 1`,
-          [sourceId, externalId],
+          `select id
+           from motions
+           where source_id = $1
+             and (external_id = $2 or external_id = $3)
+           limit 1`,
+          [sourceId, externalId, externalIdFallback],
         )
-        if (!m.rows.length) throw new Error('motion not found')
+        if (!m.rows.length) throw new Error(`motion not found (${sourceId}:${externalId})`)
 
         const motionId = m.rows[0].id
 
