@@ -181,6 +181,7 @@ const html = `<!doctype html>
     <p class="status">Status-Summen (sichtbar): queued=${counts.queued || 0}, approved=${counts.approved || 0}, published=${counts.published || 0}</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
     <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button></p>
+    <p id="decision-status" class="muted" aria-live="polite"></p>
     <table>
       <thead>
         <tr>
@@ -211,13 +212,23 @@ function hideDecidedRows(){
 
 async function setDecision(btn,id,status){
   const decidedAt = new Date().toISOString();
+  const statusEl = document.getElementById('decision-status');
+  if (statusEl) statusEl.textContent = 'Speichere Entscheidung…';
+
+  if (btn) btn.disabled = true;
 
   try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 10000);
+
     const res = await fetch('/.netlify/functions/review-decision', {
       method:'POST',
       headers:{'content-type':'application/json'},
-      body: JSON.stringify({ id, status, decidedAt })
+      body: JSON.stringify({ id, status, decidedAt }),
+      signal: controller.signal,
     });
+
+    clearTimeout(timer);
 
     if(!res.ok){
       const txt = await res.text();
@@ -225,8 +236,10 @@ async function setDecision(btn,id,status){
     }
   } catch(err) {
     const msg = String(err?.message || err || 'unbekannter Fehler').slice(0, 220)
+    if (statusEl) statusEl.textContent = 'Fehler beim Speichern: ' + msg;
     alert('Konnte Entscheidung nicht serverseitig speichern.\n' + msg);
     console.error(err);
+    if (btn) btn.disabled = false;
     return;
   }
 
@@ -236,6 +249,7 @@ async function setDecision(btn,id,status){
 
   const row = btn?.closest('tr[data-id]');
   if (row) row.style.display='none';
+  if (statusEl) statusEl.textContent = 'Entscheidung gespeichert.';
 }
 
 function exportDecisions(){
