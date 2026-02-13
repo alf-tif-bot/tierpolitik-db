@@ -15,10 +15,14 @@
     "crawler:apply-review": "node scripts/apply-review-decisions.mjs",
     "crawler:export": "node scripts/export-published-for-site.mjs",
     "crawler:build-public": "node scripts/build-crawler-public-view.mjs",
-    "crawler:pipeline": "npm run crawler:collect && npm run crawler:score && npm run crawler:build-review && npm run crawler:ingest-user-input && npm run crawler:apply-review && npm run crawler:build-review && npm run crawler:export && npm run crawler:build-public"
+    "crawler:pipeline": "npm run crawler:collect && npm run crawler:score && npm run crawler:build-review && npm run crawler:ingest-user-input && npm run crawler:apply-review && npm run crawler:build-review && npm run crawler:export && npm run crawler:build-public",
+    "db:init-schema": "node scripts/init-db-schema.mjs",
+    "db:migrate-json": "node scripts/migrate-json-to-db.mjs",
+    "db:sync-json": "node scripts/sync-db-to-json.mjs"
   },
   "dependencies": {
     "@tanstack/react-table": "^8.21.3",
+    "pg": "^8.16.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "zod": "^4.3.6"

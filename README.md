@@ -52,6 +52,53 @@ Wirkung:
 
 Beide werden immer aus derselben `data/crawler-db.json` erzeugt und sind gegenseitig verlinkt.
 
+## PostgreSQL (additiver Migrationspfad)
+
+Die bestehende JSON-Pipeline bleibt unverändert funktionsfähig. Die DB-Integration ist bewusst **additiv**:
+
+- JSON bleibt zunächst "Source of Truth".
+- DB wird parallel gespiegelt (Mirror), um risikoarm zu migrieren.
+- Netlify/Site-Flow bleibt auf `data/crawler-db.json` und `data/crawler-published.json`.
+
+### Setup
+
+```bash
+cp .env.db.example .env.db
+# DATABASE_URL in .env.db anpassen
+npm install
+npm run db:init-schema
+```
+
+### JSON -> DB Migration
+
+```bash
+npm run db:migrate-json
+```
+
+Importiert:
+- `data/crawler-db.json` -> `sources`, `motions`, `motion_versions`, `reviews`
+- `data/user-input.json` -> `submissions`
+
+### Optional: DB -> JSON Sync (Kompatibilität)
+
+```bash
+npm run db:sync-json
+```
+
+Erzeugt/aktualisiert `data/crawler-db.json` aus PostgreSQL, damit bestehende Build-/Export-Skripte weiterlaufen.
+
+### Phasenplan (pragmatisch)
+
+**Phase A: JSON primär + DB Mirror (jetzt)**
+1. Nightly weiter mit `npm run crawler:pipeline`
+2. Danach `npm run db:migrate-json` als Spiegel-Schritt
+3. Optional `npm run db:sync-json` für Konsistenzchecks
+
+**Phase B: DB primär + JSON Export für Site (später)**
+1. Crawler schreibt direkt in PostgreSQL
+2. `npm run db:sync-json` erzeugt JSON-Artefakte für bestehende Site/Netlify
+3. Schrittweise Umstellung der Read-Paths auf DB-Helper
+
 ## Cron / unattended run
 
 Linux crontab-Beispiel (täglich 02:30):
