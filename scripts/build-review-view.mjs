@@ -93,6 +93,39 @@ const resolveOriginalUrl = (item) => {
   return ''
 }
 
+const clean = (v = '') => String(v).replace(/\s+/g, ' ').trim()
+
+const isGenericStatusSummary = (text = '') => {
+  const low = clean(text).toLowerCase()
+  return (
+    low.includes('stellungnahme zum vorstoss liegt vor')
+    || low.includes('beratung in kommission')
+    || low.includes('erledigt')
+    || low.includes('fin des discussions en commission')
+  )
+}
+
+const summarizeForReview = (item) => {
+  const title = clean(item.title)
+  const summary = clean(item.summary)
+  const reason = String(item.reviewReason || '')
+
+  const stance = (reason.match(/stance=([^·]+)/)?.[1] || 'neutral/unklar').trim()
+  const anchor = (reason.match(/anchor=([^·]+)/)?.[1] || '').trim().replaceAll('|', ', ')
+  const support = (reason.match(/support=([^·]+)/)?.[1] || '').trim().replaceAll('|', ', ')
+
+  if (summary && !isGenericStatusSummary(summary)) return summary
+
+  const topicHint = anchor && anchor !== '-' ? anchor : support && support !== '-' ? support : 'allgemeine Tierpolitik'
+  const stanceLabel = stance === 'pro-tierschutz'
+    ? 'stellt eher einen positiven Bezug zum Tierschutz her'
+    : stance === 'tierschutzkritisch'
+      ? 'kann aus Tierschutzsicht kritisch sein'
+      : 'hat einen indirekten bzw. unklaren Tierbezug'
+
+  return `Kurzfassung: Das Geschäft behandelt ${topicHint}. Einordnung: Es ${stanceLabel}.`
+}
+
 const humanizeReason = (reason = '') => {
   if (!reason) return '-'
   const text = String(reason)
@@ -152,7 +185,7 @@ const rows = reviewItems.map((item) => {
 <tr data-id="${esc(id)}">
 <td>
   <strong>${esc(item.title)}</strong><br>
-  <small>${esc(item.summary || '')}</small><br>
+  <small>${esc(summarizeForReview(item))}</small><br>
   ${originalLink}
 </td>
 <td>
