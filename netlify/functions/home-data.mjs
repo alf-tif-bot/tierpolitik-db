@@ -183,6 +183,35 @@ export const handler = async () => {
       return res.rows
     })
 
+    const affairIds = [...new Set(rows.map((r) => String(r.external_id || '').split('-')[0]).filter(Boolean))]
+
+    const deRows = affairIds.length
+      ? await withPgClient(async (client) => {
+        const res = await client.query(
+          `select m.external_id, mv.title, mv.summary, mv.body
+           from motions m
+           left join lateral (
+             select title, summary, ''::text as body
+             from motion_versions mv
+             where mv.motion_id = m.id
+             order by mv.version_no desc
+             limit 1
+           ) mv on true
+           where m.source_id like 'ch-parliament-%-de'
+             and split_part(m.external_id, '-', 1) = any($1::text[])
+           order by m.updated_at desc`,
+          [affairIds],
+        )
+        return res.rows
+      })
+      : []
+
+    const deByAffair = new Map()
+    for (const row of deRows) {
+      const affairId = String(row.external_id || '').split('-')[0]
+      if (!deByAffair.has(affairId)) deByAffair.set(affairId, row)
+    }
+
     const grouped = new Map()
     for (const row of rows) {
       const affairId = String(row.external_id || '').split('-')[0]
@@ -202,31 +231,35 @@ export const handler = async () => {
 
     const mapped = dedupedRows.map((r, index) => {
       const sprache = langFromSource(r.source_id)
+      const affairId = String(r.external_id || '').split('-')[0]
+      const deVariant = deByAffair.get(affairId)
+      const displayTitle = deVariant?.title || r.title
+      const displaySummary = deVariant?.summary || r.summary
+      const displayBody = deVariant?.body || r.body
       const eingereicht = toIsoDate(r.published_at || r.fetched_at)
       const updated = toIsoDate(r.fetched_at || r.published_at)
-      const stance = extractStance(r.review_reason, r.title, r.summary, r.body)
+      const stance = extractStance(r.review_reason, displayTitle, displaySummary, displayBody)
       const idSafe = String(r.external_id || `${Date.now()}-${index}`).replace(/[^a-zA-Z0-9-]/g, '-')
-      const affairId = String(r.external_id || '').split('-')[0]
       const link = String(r.source_url || '').startsWith('http')
         ? r.source_url
         : `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${affairId}`
-      const typ = inferType(r.title || '', r.source_id || '')
+      const typ = inferType(displayTitle || '', r.source_id || '')
       const statusLabel = mapStatus(r.status)
       const initiativeLinks = buildInitiativeLinks({
         typ,
-        title: r.title,
+        title: displayTitle,
         externalId: r.external_id,
         status: statusLabel,
       })
 
       return {
         id: `vp-${idSafe.toLowerCase()}`,
-        titel: r.title || `Vorstoss ${index + 1}`,
+        titel: displayTitle || `Vorstoss ${index + 1}`,
         typ,
         kurzbeschreibung: summarizeVorstoss({
-          title: r.title,
-          summary: r.summary,
-          body: r.body,
+          title: displayTitle,
+          summary: displaySummary,
+          body: displayBody,
           status: r.status,
         }),
         geschaeftsnummer: String(r.external_id || `AUTO-${index + 1}`),
@@ -238,7 +271,7 @@ export const handler = async () => {
         datumAktualisiert: updated,
         themen: sanitizeThemes(Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierschutz']).slice(0, 6),
         schlagwoerter: (Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierpolitik']).slice(0, 8),
-        einreichende: [inferSubmitter(sprache, r.title, r.summary, r.body)],
+        einreichende: [inferSubmitter(sprache, displayTitle, displaySummary, displayBody)],
         linkGeschaeft: link,
         resultate: [{ datum: eingereicht, status: statusLabel, bemerkung: 'Stand gemäss Parlamentsdaten' }],
         medien: [],

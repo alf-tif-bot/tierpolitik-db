@@ -170,6 +170,12 @@ for (const item of baseItems) {
 
 const items = [...groupedByAffair.values()].slice(0, 1200)
 
+const deByAffair = new Map(
+  (db.items || [])
+    .filter((x) => String(x.sourceId || '').endsWith('-de'))
+    .map((x) => [String(x.externalId || '').split('-')[0], x]),
+)
+
 const buildInitiativeLinks = ({ typ, title, externalId, status }) => {
   if (typ !== 'Volksinitiative') return undefined
 
@@ -189,14 +195,19 @@ const buildInitiativeLinks = ({ typ, title, externalId, status }) => {
 
 const vorstoesse = items.map((item, index) => {
   const sprache = langFromSource(item.sourceId)
+  const affairId = String(item.externalId || '').split('-')[0]
+  const deVariant = deByAffair.get(affairId)
+  const displayTitle = deVariant?.title || item.title
+  const displaySummary = deVariant?.summary || item.summary
+  const displayBody = deVariant?.body || item.body
   const eingereicht = toIsoDate(item.publishedAt || item.fetchedAt)
   const updated = toIsoDate(item.fetchedAt || item.publishedAt)
   const status = mapStatus(item.status)
-  const typ = inferType(item.title, item.sourceId)
-  const stance = extractStance(item.reviewReason, item.title, item.summary, item.body)
+  const typ = inferType(displayTitle, item.sourceId)
+  const stance = extractStance(item.reviewReason, displayTitle, displaySummary, displayBody)
   const initiativeLinks = buildInitiativeLinks({
     typ,
-    title: item.title,
+    title: displayTitle,
     externalId: item.externalId,
     status,
   })
@@ -207,12 +218,12 @@ const vorstoesse = items.map((item, index) => {
 
   return {
     id: `vp-${idSafe.toLowerCase()}`,
-    titel: item.title || `Vorstoss ${index + 1}`,
+    titel: displayTitle || `Vorstoss ${index + 1}`,
     typ,
     kurzbeschreibung: summarizeVorstoss({
-      title: item.title,
-      summary: item.summary,
-      body: item.body,
+      title: displayTitle,
+      summary: displaySummary,
+      body: displayBody,
       status: item.status,
     }),
     geschaeftsnummer: String(item.externalId || `AUTO-${index + 1}`),
@@ -224,7 +235,7 @@ const vorstoesse = items.map((item, index) => {
     datumAktualisiert: updated,
     themen: sanitizeThemes(item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz']).slice(0, 6),
     schlagwoerter: (item.matchedKeywords?.length ? item.matchedKeywords : ['Tierpolitik']).slice(0, 8),
-    einreichende: [inferSubmitter(sprache, item.title, item.summary, item.body)],
+    einreichende: [inferSubmitter(sprache, displayTitle, displaySummary, displayBody)],
     linkGeschaeft: link,
     resultate: [
       {
