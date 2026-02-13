@@ -94,6 +94,11 @@ const clean = (text = '') => String(text)
   .replace(/\s+/g, ' ')
   .replace(/^\s+|\s+$/g, '')
 
+const THEME_EXCLUDE = new Set(['botschaft'])
+const sanitizeThemes = (arr = []) => arr
+  .map((x) => String(x || '').trim())
+  .filter((x) => x && !THEME_EXCLUDE.has(x.toLowerCase()))
+
 const firstSentence = (text = '') => {
   const c = clean(text)
   if (!c) return ''
@@ -231,7 +236,7 @@ export const handler = async () => {
         status: statusLabel,
         datumEingereicht: eingereicht,
         datumAktualisiert: updated,
-        themen: (Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierschutz']).slice(0, 6),
+        themen: sanitizeThemes(Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierschutz']).slice(0, 6),
         schlagwoerter: (Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierpolitik']).slice(0, 8),
         einreichende: [inferSubmitter(sprache, r.title, r.summary, r.body)],
         linkGeschaeft: link,

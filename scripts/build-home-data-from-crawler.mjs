@@ -106,6 +106,12 @@ const firstSentence = (text = '') => {
   return c.slice(0, 220)
 }
 
+const THEME_EXCLUDE = new Set(['botschaft'])
+
+const sanitizeThemes = (arr = []) => arr
+  .map((x) => String(x || '').trim())
+  .filter((x) => x && !THEME_EXCLUDE.has(x.toLowerCase()))
+
 const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '' }) => {
   const t = clean(title)
   const s = firstSentence(summary)
@@ -217,7 +223,7 @@ const vorstoesse = items.map((item, index) => {
     status,
     datumEingereicht: eingereicht,
     datumAktualisiert: updated,
-    themen: (item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz']).slice(0, 6),
+    themen: sanitizeThemes(item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz']).slice(0, 6),
     schlagwoerter: (item.matchedKeywords?.length ? item.matchedKeywords : ['Tierpolitik']).slice(0, 8),
     einreichende: [inferSubmitter(sprache, item.title, item.summary, item.body)],
     linkGeschaeft: link,
