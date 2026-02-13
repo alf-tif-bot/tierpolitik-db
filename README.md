@@ -1,103 +1,71 @@
-# Tierpolitik Vorstoesse DB (Vite + React + TypeScript)
+# Tierpolitik Vorstösse DB
 
-Statischer Prototyp einer Notion-artigen Datenbank fuer politische Tierpolitik-Vorstoesse.
+Vite/React-App plus Crawler-Workflow für eine nightly gepflegte Tierpolitik-Quellenliste.
 
-## Tech
+## Crawler-Workflow (nightly)
 
-- Vite + React + TypeScript
-- Einfache CSS
-- TanStack Table
-- zod (Schema + Startvalidierung)
-
-## Projektstruktur
-
-- `data/vorstoesse.json`
-- `src/types.ts`
-- `src/components` (Table, Filters, DetailDrawer, Export)
-- `src/utils` (filtering, csv, urlHash)
-- `src/main.tsx`, `src/App.tsx`
-- `.github/workflows/deploy.yml`
-
-## Lokal starten
+Die Pipeline arbeitet **real-source-first**:
+- Primär: Parlament OData API (`ws.parlament.ch`)
+- Zusätzlich: BLV/Bundesrat RSS (wenn erreichbar)
+- Fixtures werden **nicht** automatisch verwendet. Optional nur mit:
 
 ```bash
-npm ci
-npm run dev
+CRAWLER_ENABLE_FIXTURE_FALLBACK=1 npm run crawler:collect
 ```
 
-Build testen:
+## Ein-Kommando-Pipeline
 
 ```bash
-npm run build
+npm run crawler:pipeline
 ```
 
-## JSON erweitern (Pflicht)
+Reihenfolge:
+1. collect
+2. score
+3. review-page build
+4. user-input ingest
+5. review decisions ingest (`data/review-decisions.json`, optional)
+6. published export
+7. crawler page build
 
-Datei: `data/vorstoesse.json`
+## Review-Entscheidungen (actionable)
 
-### Pflichtfelder je Eintrag
+- `public/review.html` zeigt **queued + rejected** Items.
+- Dort Entscheidungen lokal treffen und als `review-decisions.json` exportieren.
+- Datei nach `data/review-decisions.json` legen.
+- Dann:
 
-- `id` (Format: `vp-...`, eindeutig)
-- `titel`
-- `kurzbeschreibung`
-- `geschaeftsnummer`
-- `ebene` (`Bund | Kanton | Gemeinde`)
-- `kanton` (`string | null`)
-- `regionGemeinde` (`string | null`)
-- `status` (`Eingereicht | In Beratung | Angenommen | Abgelehnt | Abgeschrieben`)
-- `datumEingereicht` (ISO `YYYY-MM-DD`)
-- `datumAktualisiert` (ISO `YYYY-MM-DD`)
-- `themen` (Array)
-- `schlagwoerter` (Array)
-- `einreichende` (Array von Objekten `{name, rolle, partei}`)
-- `linkGeschaeft` (URL)
-- `resultate` (Array von `{datum, status, bemerkung}`)
-- `medien` (Array von `{datum, titel, quelle, url}`)
-- `metadaten` (`{sprache: de|fr|it, zuletztGeprueftVon}`)
+```bash
+npm run crawler:apply-review
+npm run crawler:export
+```
 
-### ID-Vergabe
+Wirkung:
+- `approved` → in `data/crawler-published.json`
+- `rejected` → ausgeschlossen
+- `queued` → bleibt im Review sichtbar
 
-- Stabil und eindeutig, z. B. `vp-2026-21`
-- Keine Wiederverwendung bestehender IDs
+## Seiten
 
-### Schemafehler + Fix
+- `/crawler.html` (Quelle, Publikationsdatum, Titel, Kurzsummary, Originallink)
+- `/review.html`
 
-- Bei falschem Enum, Datum oder fehlendem Pflichtfeld bricht die Startvalidierung (zod) mit Fehler ab.
-- Fix: Feld korrigieren, App neu laden.
+Beide werden immer aus derselben `data/crawler-db.json` erzeugt und sind gegenseitig verlinkt.
 
-## Features
+## Cron / unattended run
 
-- Tabellenansicht mit Sortierung pro Spaltenklick
-- Globale Suche ueber Titel/Kurzbeschreibung/Geschaeftsnummer/Personen/Schlagwoerter/Themen
-- Multi-Filter (Ebene/Status/Kanton/Themen/Schlagwoerter + Zeitraum)
-- Quick-Filter Chips (Nur Kantonal, In Beratung, Letzte 90 Tage)
-- Spalten ein-/ausblenden
-- Pagination 10/25/50
-- Trefferanzahl + aktive Filter + Reset
-- Detail-Drawer (Zeilenklick) mit allen Feldern und Timeline (Resultate + Medien chronologisch)
-- Link kopieren (`#id` Permalink) + Geschaeft oeffnen
-- Hash-Routing: bei `#id` wird passender Eintrag direkt geoeffnet
-- Export: CSV (sichtbare Spalten oder alle), optional JSON (gefiltert)
-- Responsiv mit horizontalem Tabellen-Scroll
+Linux crontab-Beispiel (täglich 02:30):
 
-## GitHub Pages Setup (Variante 1, via Actions)
+```bash
+30 2 * * * cd /path/to/tierpolitik-vorstoesse-db && /usr/bin/npm run crawler:pipeline >> /var/log/tierpolitik-crawler.log 2>&1
+```
 
-1. Neues GitHub-Repo erstellen.
-2. Projekt auf Branch `main` pushen.
-3. In GitHub: **Settings -> Pages -> Build and deployment**.
-4. **Source = GitHub Actions** setzen.
-5. Workflow `Deploy to GitHub Pages` laeuft bei Push auf `main`.
-6. URL nach Deploy im Actions-Run (Job `deploy`) oder in Settings -> Pages.
+Windows Aufgabenplanung (Aktion):
 
-## Stolperfallen
+```powershell
+powershell -NoProfile -Command "cd C:\path\to\tierpolitik-vorstoesse-db; npm run crawler:pipeline *>> .\logs\crawler-nightly.log"
+```
 
-- **Base Path**: Fuer Pages muss Vite `base` korrekt setzen (hier via `GITHUB_REPOSITORY`, Fallback `'/tierpolitik-vorstoesse-db/'`).
-- **404 bei Refresh**: Ohne Hash-Routing kann ein direkter Deep-Link auf statischen Hosts 404 geben. Dieser Prototyp nutzt `#id`-Links fuer Details.
+## Source-Status-Hinweis
 
-## Kurze Ausbauschritte
-
-- API statt JSON (Backend + Persistenz)
-- Admin-UI/CMS fuer Pflege
-- Auth/Rollen fuer Redaktion
-- Import aus Google Sheets
-- Volltextsuche (z. B. MiniSearch/Meilisearch)
+Einzelne Regierungs-RSS-Feeds liefern zeitweise 404/leer (Upstream-Verhalten). Die Pipeline bleibt robust: Quelle wird übersprungen, Lauf läuft weiter, Status steht in der Collect-Ausgabe.

@@ -1,54 +1,2255 @@
 <!doctype html><html><head><meta charset="utf-8"><title>Crawler Review</title>
-<style>body{font-family:Arial,sans-serif;padding:24px}table{width:100%;border-collapse:collapse}td,th{border:1px solid #ddd;padding:8px}button{margin-right:6px}code{background:#f3f3f3;padding:2px 4px}</style></head>
+<style>body{font-family:Arial,sans-serif;padding:24px;max-width:1200px;margin:0 auto}table{width:100%;border-collapse:collapse;margin-top:16px}td,th{border:1px solid #ddd;padding:8px;vertical-align:top}button{margin-right:6px}code{background:#f3f3f3;padding:2px 4px}.links{display:flex;gap:8px;flex-wrap:wrap}.links a{display:inline-block;border:1px solid #ddd;padding:6px 10px;border-radius:999px;text-decoration:none;color:#222}</style></head>
 <body>
-<h1>Review-Ansicht (MVP)</h1>
-<p>Entscheidungen werden lokal im Browser gespeichert (<code>localStorage.tierpolitik.review</code>) und können exportiert werden.</p>
-<button onclick="exportDecisions()">Entscheidungen exportieren</button>
-<table><thead><tr><th>Titel</th><th>Quelle</th><th>Score</th><th>Treffer</th><th>Aktion</th></tr></thead><tbody>
+<h1>Review-Ansicht</h1>
+<p>Queued/Rejected sind hier sichtbar. Entscheidungen als JSON exportieren und danach mit <code>npm run crawler:apply-review</code> in die DB übernehmen.</p>
+<nav class="links"><a href="/crawler.html">Zur Crawler-Ansicht</a><a href="/">Zur App</a></nav>
+<p><button onclick="exportDecisions()">Entscheidungen exportieren</button></p>
+<table><thead><tr><th>Titel</th><th>Quelle</th><th>Score</th><th>Treffer</th><th>Status</th><th>Aktion</th></tr></thead><tbody>
 <tr>
-<td>Vorstoss fuer strengere Tiertransport-Kontrollen</td>
+<td><strong>Vorstoss fuer strengere Tiertransport-Kontrollen</strong><br><small>Neue parlamentarische Initiative fuer Transportdauer-Limiten.</small></td>
 <td>ch-parlament-news</td>
 <td>0.50</td>
 <td>tier, tiertransport</td>
+<td>queued</td>
 <td>
 <button onclick="setDecision('ch-parlament-news:parl-1','approved')">Approve</button>
 <button onclick="setDecision('ch-parlament-news:parl-1','rejected')">Reject</button>
 </td>
 </tr>
-
 <tr>
-<td>BLV publiziert Leitfaden zur Nutztierhaltung</td>
+<td><strong>BLV publiziert Leitfaden zur Nutztierhaltung</strong><br><small>Schweizweite Mindeststandards sollen vereinheitlicht werden.</small></td>
 <td>blv-news</td>
 <td>0.50</td>
 <td>tier, tierhaltung</td>
+<td>queued</td>
 <td>
 <button onclick="setDecision('blv-news:blv-1','approved')">Approve</button>
 <button onclick="setDecision('blv-news:blv-1','rejected')">Reject</button>
 </td>
 </tr>
-
 <tr>
-<td>Bundesrat eroertert Verordnung gegen tierschutzwidrige Praktiken</td>
+<td><strong>Bundesrat eroertert Verordnung gegen tierschutzwidrige Praktiken</strong><br><small>Anpassung bei Kontrollen und Sanktionspraxis.</small></td>
 <td>bundesrat-news</td>
 <td>0.50</td>
 <td>tier, tierschutz</td>
+<td>queued</td>
 <td>
 <button onclick="setDecision('bundesrat-news:br-1','approved')">Approve</button>
 <button onclick="setDecision('bundesrat-news:br-1','rejected')">Reject</button>
 </td>
 </tr>
-
 <tr>
-<td>Hinweis: Taubenschutz in Gemeinde X</td>
+<td><strong>22.3091 · Bessere Rahmenbedingungen für Schweizer Elektrizitätsunternehmen, damit sie in erneuerbare Energien im Inland und nicht im Ausland investieren</strong><br><small>Beratung in Kommission des Ständerates abgeschlossen</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.25</td>
+<td>tier</td>
+<td>queued</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20223091-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20223091-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4459 · Reduktion oder Limitierung der Staatsquote</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.25</td>
+<td>tier</td>
+<td>queued</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254459-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254459-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4453 · Strenge Reglementierung der Telefonwerbung von Krankenversicherern</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.25</td>
+<td>tier</td>
+<td>queued</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254453-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254453-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4492 · Ausbildungsperspektiven garantieren für Menschen mit Behinderungen, die in unbezahlten Langzeitpraktika angestellt sind</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.25</td>
+<td>tier</td>
+<td>queued</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254492-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254492-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4527 · Zunehmende Fahrzeugdiebstähle bei Autogaragen und mutmassliche Rekrutierung Minderjähriger über soziale Medien</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.25</td>
+<td>tier</td>
+<td>queued</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254527-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254527-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4040 · Difficultés initiales dans l'excavation du second tube du tunnel autoroutier du Gothard</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.25</td>
+<td>tier</td>
+<td>queued</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254040-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254040-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>Hinweis: Taubenschutz in Gemeinde X</strong><br><small>Eingereicht durch User-Input-Kanal</small></td>
 <td>user-input</td>
 <td>0.00</td>
 <td></td>
+<td>rejected</td>
 <td>
 <button onclick="setDecision('user-input:user-1770941941585','approved')">Approve</button>
 <button onclick="setDecision('user-input:user-1770941941585','rejected')">Reject</button>
 </td>
 </tr>
-</tbody></table>
+<tr>
+<td><strong>25.4704 · Konsum von Energydrinks. Gesundheit der Jugendlichen unter 16&amp;nbsp;Jahren schützen</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254704-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254704-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4505 · Dritte Rhonekorrektion. Wie weiter?</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254505-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254505-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.3943 · Umfassende Energiespeicherstrategie und Aktionsplan</strong><br><small>Beratung in Kommission des Ständerates abgeschlossen</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20253943-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20253943-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>22.3166 · Auf in die smarte Energie-Schweiz! Das Potenzial intelligenter Netze nutzen</strong><br><small>Beratung in Kommission des Ständerates abgeschlossen</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20223166-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20223166-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>24.090 · Strahlenschutzgesetz (StSG). Änderung</strong><br><small>Botschaft vom 27. November 2024 zur Änderung des Strahlenschutzgesetzes (StSG)</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20240090-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20240090-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>24.026 · «Für eine zivilstandsunabhängige Individualbesteuerung (Steuergerechtigkeits-Initiative)». Volksinitiative und indirekter Gegenvorschlag (Bundesgesetz über die Individualbesteuerung)</strong><br><small>Botschaft vom 21. Februar 2024 zur Volksinitiative «Für eine zivilstandsunabhängige Individualbesteuerung (Steuergerechtigkeits-Initiative)» und zum indirekten Gegenvorschlag (Bundesgesetz über die Individualbesteuerung)</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20240026-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20240026-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>21.055 · Für ein gesundes Klima (Gletscher-Initiative). Volksinitiative und direkten Gegenentwurf</strong><br><small>Eintritt der Bedingung für den Rückzug</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20210055-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20210055-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen</strong><br><small>Beratung in Kommission des Ständerates abgeschlossen</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20240331-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20240331-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.030 · Abkommen über Klimawandel, Handel und Nachhaltigkeit. Genehmigung</strong><br><small>Botschaft vom 26. Februar 2025 zur Genehmigung des Abkommens über Klimawandel, Handel und Nachhaltigkeit</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250030-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250030-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.095 · G7 Gipfel in Evian. Einsatz der Armee im Assistenzdienst</strong><br><small>Beratung in Kommission des Ständerates abgeschlossen</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250095-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250095-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.057 · Elektrizitätsgesetz (Beschleunigung beim Aus- und Umbau der Stromnetze). Änderung</strong><br><small>Botschaft vom 21. Mai 2025 zur Änderung des Elektrizitätsgesetzes (Beschleunigung beim Aus- und Umbau der Stromnetze)</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250057-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250057-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4040 · Startschwierigkeiten beim Ausbruch der zweiten Röhre des Gotthard-Strassentunnels</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254040-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254040-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4494 · Rekrutenschule und Studium</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254494-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254494-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4489 · Konkursketten und Konkursreiter. Funktioniert die neue Gesetzgebung?</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254489-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254489-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>22.415 · Faire Teilnahme der SRG am audiovisuellen Produktionsmarkt</strong><br><small>Beratung in Kommission des Ständerates abgeschlossen</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20220415-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20220415-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4549 · Vollständige und standardisierte Erfassung schusswaffenrelevanter Informationen bei häuslicher Gewalt und Tötungsdelikten im häuslichen Bereich</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254549-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254549-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.419 · Medizinisch unterstützte Fortpflanzung für alleinstehende Frauen</strong><br><small>Vorprüfung - in Kommission des Nationalrates</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250419-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250419-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.420 · Medizinisch unterstützte Fortpflanzung für alleinstehende Frauen</strong><br><small>Vorprüfung - in Kommission des Nationalrates</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250420-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250420-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.418 · Medizinisch unterstützte Fortpflanzung für alleinstehende Frauen</strong><br><small>Vorprüfung - in Kommission des Nationalrates</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250418-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250418-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.417 · Medizinisch unterstützte Fortpflanzung für alleinstehende Frauen</strong><br><small>Vorprüfung - in Kommission des Nationalrates</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250417-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250417-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.416 · Medizinisch unterstützte Fortpflanzung für alleinstehende Frauen</strong><br><small>Vorprüfung - in Kommission des Nationalrates</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250416-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250416-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.415 · Medizinisch unterstützte Fortpflanzung für alleinstehende Frauen</strong><br><small>Vorprüfung - in Kommission des Nationalrates</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250415-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250415-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.408 · Das ungerechte und verstaubte Modell der Kopiervergütung ist mit Blick auf die Digitalisierung nicht mehr zeitgemäss</strong><br><small>Vorprüfung - in Kommission des Nationalrates</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250408-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250408-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.406 · Abschaffung der Sunset-Klausel im Gesetz über die Gleichstellung von Frau und Mann</strong><br><small>Vorprüfung - in Kommission des Ständerates</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250406-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250406-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4465 · Für einen echten, gesunden Wettbewerb in der Krankenzusatzversicherung</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254465-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254465-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>26.019 · Verkehrsverlagerung Juli 2023 – Juni 2025</strong><br><small>Eingereicht</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20260019-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20260019-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>24.092 · «Wahrung der schweizerischen Neutralität (Neutralitätsinitiative)», Volksinitiative</strong><br><small>Botschaft vom 27. November 2024 zur Volksinitiative «Wahrung der schweizerischen Neutralität (Neutralitätsinitiative)»</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20240092-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20240092-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4426 · Ausgewogene Regulierung bei Nikotinbeuteln</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254426-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254426-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4427 · Industrie, Arbeitsplätze und Wertschöpfung im Fricktal und im Aargau sichern</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254427-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254427-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4613 · TV-Auftritte und Medienmitteilungen des früheren Bundesgerichtspräsidenten</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254613-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254613-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4430 · Automatische Durchfahrtskontrolle in Birsfelden</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254430-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254430-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4447 · Im Langsamverkehr Sicherheit gewährleisten</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254447-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254447-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4439 · Transparente Information und zeitgemässe Nutzung von digitalen Passfotos</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254439-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254439-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4419 · Stärkung der Versorgungssicherheit durch die Identifikation kritischer Rohstoffe und Halbfabrikate für die Schweiz</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254419-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254419-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4414 · Strategie für präventive Weiterbildung und Umschulung bei berufsrelevanten Struktur- und Technologieumbrüchen</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254414-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254414-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4450 · Export von bituminösen Abfällen nach Holland. Welche nachhaltigen und wirtschaftlich tragfähigen Alternativen gibt es?</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254450-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254450-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.1060 · Informieren oder überzeugen? Der Fall der Veranstaltung SSR.CORSI zur Radio- und Fernsehabgabe</strong><br><small>Erledigt</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20251060-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20251060-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4478 · Strassendeal ist nicht unvermeidbar!</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254478-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254478-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.1052 · Verhinderung Häuslicher Gewalt. Wie ist der Stand der Arbeiten zur Schaffung einer nationalen Abfrageplattform für Polizeidaten?</strong><br><small>Erledigt</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20251052-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20251052-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4456 · Sprachnachweis bei Verlängerung der Aufenthaltsbewilligung</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254456-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254456-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4487 · Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254487-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254487-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.1054 · Evaluation des Jugendschutzes im Fernmeldewesen</strong><br><small>Erledigt</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20251054-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20251054-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4462 · Nachhaltige Verwertung von biogenen Reststoffen aus der landwirtschaftlichen Wertschöpfungskette sicherstellen</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254462-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254462-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4463 · Drei weitere Aufgabenbereiche für das Projekt Entflechtung 27</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254463-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254463-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4488 · Potenzial digitaler Mietkautionslösungen</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254488-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254488-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4466 · Die Schweiz ist kein Selbstbedienungsladen für Banden aus Frankreich. Verstärken wir den Personalbestand des BAZG, um unsere Grenzen besser zu kontrollieren!</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254466-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254466-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4469 · Amtliche Ausweise müssen die Neutralität des Staats widerspiegeln</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254469-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254469-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4475 · WHO-Rahmenabkommen zur Tabakkontrolle (FCTC). Dialog, Aufklärung und Innovation – statt Verbote und Ideologien</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254475-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254475-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4484 · Massnahmen gegen gewalttätigen Extremismus und Ausweitung des Informationssystems Hoogan</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254484-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254484-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.1057 · Rangierbahnhof Muttenz: Lärmemissionen belasten Bevölkerung – wann kommen wirksame Schutzmassnahmen?</strong><br><small>Erledigt</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20251057-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20251057-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4480 · Vollzug von Landesverweisungen. Statistik zu den Entfernungs- und Fernhaltemassnahmen gegen kriminelle Ausländerinnen und Ausländer und zu deren Vollzug</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254480-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254480-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.1058 · Kleinsendungen, Kosten für die Zollabfertigung und Koordination auf internationaler Ebene</strong><br><small>Erledigt</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20251058-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20251058-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4482 · Pilotprojekte zur innovativen Bewältigung der klimabedingten Extremereignisse in der Siedlungsentwässerung</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254482-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254482-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.1062 · Projektergebnisse der Weiterentwicklung der Vorschriften für Mobilfunkstrahlung</strong><br><small>Erledigt</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20251062-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20251062-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4483 · Übersicht über gewährte Nachteilsausgleiche bei Bildungsabschlüssen</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254483-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254483-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4486 · Gibt es eine Nahrungskonkurrenz bei bestäubenden Insekten?</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254486-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254486-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4490 · General Guisans Plan gegen die Zivilbevölkerung. Aufarbeitung eines dunklen Kapitels der Schweizer Geschichte</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254490-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254490-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4491 · Sanktionen bei Missbrauch durch die Post-Gewerkschaft</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254491-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254491-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4495 · Programm zur Verbesserung der genetischen Vielfalt der Luchs-Population</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254495-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254495-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4496 · Öffentliche Aufträge in der Schweiz. Warum das Ausland zum Nachteil unserer Unternehmen bevorzugen?</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254496-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254496-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4497 · "Dein Chatbot ist nicht dein Freund". Entmenschlichung von Dialogsystemen</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254497-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254497-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4499 · Sachgerechte Entsorgung und Wiederverwertung von Solarschrott</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254499-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254499-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4502 · Massnahmen für eine höhere Stimm- und Wahlbeteiligung</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254502-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254502-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>18.4349 · Transparenz auch bei Lobby-Reisen</strong><br><small>Erledigt</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20184349-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20184349-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4504 · Wuchermieten stoppen!</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254504-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254504-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>22.3229 · Touristischer Verkehr. Ein vernachlässigter Bereich im öffentlichen Verkehr?</strong><br><small>Überwiesen an den Bundesrat</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20223229-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20223229-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4507 · Strafrechtliche Massnahmen gegen Intensivtäter aus dem Maghreb und anderen Ländern</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254507-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254507-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>14.458 · Teuerungsausgleich für die Einkommen und Entschädigungen der Ratsmitglieder</strong><br><small>Erledigt</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20140458-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20140458-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4513 · Ehe als Umgehung der Ausschaffung</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254513-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254513-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4515 · Schuldenbremse sanft renovieren. Begrenzte zusätzliche Kreditaufnahme für Investitionen</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254515-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254515-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>18.403 · Pauschalregelung für die Bezüge der Ratsmitglieder</strong><br><small>Erledigt</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20180403-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20180403-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4518 · Werden Täter häuslicher Gewalt automatisch ausgewiesen?</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254518-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254518-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.434 · Urheberrechte. Für eine klare Rechteverwertung bei Konzerten</strong><br><small>In Kommission des Ständerats</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250434-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250434-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4519 · Hamas-Propaganda via Swisscom. Wann setzt der Bundesrat seine strategischen Ziele durch?</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254519-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254519-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4523 · Bundesgesetz über das öffentliche Beschaffungswesen. Stärkere Berücksichtigung des überwiegenden öffentlichen Interesses</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254523-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254523-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4528 · Unterstützung des G-ZERO-Forums. Ein konkreter Schritt der Schweiz in die richtige Richtung?</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254528-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254528-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4533 · KVG. Psychotherapien wieder aus dem Leistungskatalog streichen, um die Prämien zu senken</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254533-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254533-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4535 · Geldverschwendung II</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254535-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254535-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4536 · Bedarf an Fachkräften mit eidgenössischem Diplom in der Elektrobranche. Einhaltung der Niederspannungs-Installationsverordnung gewährleisten</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254536-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254536-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4537 · Aktivrente zur Bekämpfung des Fachkräftemangels und der negativen Auswirkungen der demografischen Entwicklung</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254537-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254537-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4542 · Erleichterte Einbürgerung für ausländische Gesellschafter oder Inhaber von in der Schweiz steuerpflichtigen Unternehmen</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254542-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254542-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4543 · CO2-Kompensation nach 2030</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254543-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254543-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4544 · RPG 2. Umfang und Kosten der Abbruchprämien</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254544-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254544-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4721 · Wuchermieten stoppen!</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254721-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254721-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4727 · Wie werden PFAS aus Altfahrzeugen extrahiert oder entfernt?</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254727-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254727-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>20.3080 · Elektrofahrräder. Gesetzgebung an die Verwendung im Tourismus anpassen</strong><br><small>In Kommission des Nationalrats</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20203080-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20203080-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>16.306 · Gewährleistung eines landesweit dichten Hochbreitbandangebots</strong><br><small>In Kommission des Nationalrats</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20160306-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20160306-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>24.466 · Gleichbehandlung von privaten Rundfunkanbietern und privaten Online-Anbietern</strong><br><small>Vorprüfung - in Kommission des Nationalrates</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20240466-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20240466-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.3949 · Mittel für die Verlagerungspolitik sichern</strong><br><small>Beratung in Kommission des Ständerates abgeschlossen</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20253949-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20253949-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>24.4042 · Entwicklung eines Angebotskonzepts 2050 auf nationaler und internationaler Ebene</strong><br><small>Beratung in Kommission des Ständerates abgeschlossen</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20244042-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20244042-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>24.472 · Stärkung der Agglomerationsprogramme</strong><br><small>Vorprüfung - in Kommission des Nationalrates</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20240472-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20240472-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>22.3950 · Stärkung der Postaufsicht statt Zuständigkeitschaos</strong><br><small>In Kommission des Ständerats</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20223950-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20223950-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>22.3226 · Die Post für den Leistungsauftrag trimmen</strong><br><small>In Kommission des Ständerats</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20223226-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20223226-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>17.314 · Verbesserung des Poststellennetzes und Stärkung der Rolle der Gemeindebehörden bei der geografischen Verteilung der Postämter</strong><br><small>In Kommission des Ständerats</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20170314-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20170314-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.469 · Ordnungsbussen in die AHV!</strong><br><small>Beratung in Kommission des Nationalrates abgeschlossen</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250469-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250469-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.447 · Effiziente Anbindungen sicherstellen. Anpassung des Luftfahrtgesetzes</strong><br><small>Zugewiesen an die behandelnde Kommission</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250447-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250447-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.064 · Bundesgesetz über das Urheberrecht und verwandte Schutzrechte (URG). Änderung (Leistungsschutzrecht für Medienunternehmen)</strong><br><small>Botschaft vom 20. Juni 2025 zur Änderung des Urheberrechtsgesetzes (Leistungsschutzrecht für Medienunternehmen)</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250064-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250064-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.058 · Leistungsabhängige Schwerverkehrsabgabe LSVA. Weiterentwicklung. Teilrevision SVAG</strong><br><small>Botschaft vom 28. Mai 2025 zur Änderung des Schwerverkehrsabgabegesetzes (Weiterentwicklung der leistungsabhängigen Schwerverkehrsabgabe)</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250058-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250058-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.049 · Mobilitätsdateninfrastruktur (MODIG). Bundesgesetz</strong><br><small>Botschaft vom 14. Mai 2025 zum Bundesgesetz über die Mobilitätsdateninfrastruktur (MODIG)</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20250049-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20250049-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4696 · Transparenz bei der Fördereffizienz aller erneuerbaren Technologien herstellen</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254696-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254696-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4612 · Stärkung der nationalen Versorgungssicherheit durch Multifunktionsanlagen</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254612-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254612-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4672 · Stimmrechtsbescheinigung. Umfang und Auswirkungen der Praxis "von gleicher Hand"</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254672-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254672-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4692 · Besserer Schutz für junge Menschen vor einer Radikalisierung</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254692-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254692-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4733 · Zu viele Falschinformationen über die Windenergie. Wird der Bundesrat handeln?</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254733-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254733-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4554 · Der Gebrauch von Lachgas als Partydroge ist schädlich</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254554-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254554-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4587 · Von Schweden lernen. Keine öffentlichen Gelder mehr für Illegale</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254587-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254587-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4588 · Mehr Schutz für die Bevölkerung. Wirksame Massnahmen gegen gewalttätige und kriminelle Asylsuchende</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254588-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254588-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4556 · Rahmengesetz für den Schutz vor häuslicher Gewalt. Schutz, Prävention und Ahndung verbindlich regeln</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254556-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254556-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4558 · Häusliche Gewalt. Täterprävention und -monitoring verbessern</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254558-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254558-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4567 · Mangelnde Ausschaffungen. Sanktionen für säumige Kantone</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254567-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254567-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4568 · Freie Meinungsbildung schützen. Verbot von Abstimmungsumfragen in den letzten dreissig Tagen vor einem Abstimmungstermin</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254568-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254568-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4570 · Zollkontrollen, Kleinunternehmerinnen und -unternehmer und neue Technologien. Welche Instrumente für das Tessin?</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254570-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254570-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4571 · Das Übel der gewalttätigen Asylsuchenden an der Wurzel bekämpfen. Ausweisung statt Sonderstrukturen</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254571-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254571-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4574 · A1-Verkehrschaos. Der Autobahnanschluss Wil-Toggenburg muss verbessert werden</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254574-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254574-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4577 · Mehr Schutz für die Bevölkerung. Wirksame Massnahmen gegen gewalttätige und kriminelle Asylsuchende</strong><br><small>Stellungnahme zum Vorstoss liegt vor</small></td>
+<td>ch-parliament-business-de</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-de:20254577-de','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-de:20254577-de','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4704 · Consommation de boissons énergisantes. Pour une protection de la santé des jeunes de moins de 16 ans</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254704-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254704-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4505 · Troisième correction du Rhône. Quel avenir ?</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254505-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254505-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.3943 · Stratégie globale de stockage de l’énergie et plan d’action</strong><br><small>Fin des discussions en commission du Conseil des Etats</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20253943-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20253943-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>22.3166 · En route pour la Suisse de l'énergie intelligente. Exploiter le potentiel des réseaux intelligents</strong><br><small>Fin des discussions en commission du Conseil des Etats</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20223166-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20223166-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>22.3091 · Améliorer les conditions-cadres afin que les entreprises électriques suisses investissent dans les énergies renouvelables en Suisse</strong><br><small>Fin des discussions en commission du Conseil des Etats</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20223091-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20223091-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>24.090 · Loi sur la radioprotection (LRaP). Modification</strong><br><small>Message du 27 novembre 2024 concernant la modification de la loi sur la radioprotection (LRaP)</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20240090-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20240090-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>24.026 · «Pour une imposition individuelle indépendante de l'état civil (initiative pour des impôts équitables)». Initiative populaire et contre-projet indirect (loi fédérale sur l’imposition individuelle)</strong><br><small>Message du 21 février 2024 relatif à l'initiative populaire «pour une imposition individuelle indépendante de l'état civil (initiative pour des impôts équitables)» et au contre-projet indirect (loi fédérale sur l’imposition individuelle)</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20240026-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20240026-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>21.055 · Pour un climat sain (Initiative pour les glaciers). Initiative populaire et contre-projet direct</strong><br><small>Réalisation du retrait conditionnel</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20210055-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20210055-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>24.331 · Soutien financier direct aux apiculteurs et apicultrices lors de situations géoclimatiques exceptionnelles</strong><br><small>Fin des discussions en commission du Conseil des Etats</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20240331-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20240331-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.030 · Accord sur le changement climatique, le commerce et le développement durable. Approbation</strong><br><small>Message du 26 février 2025 concernant l’approbation de l’accord sur le changement climatique, le commerce et la durabilité</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20250030-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20250030-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.095 · Sommet du G7 à Evian. Engagement de l'armée en service d'appui</strong><br><small>Fin des discussions en commission du Conseil des Etats</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20250095-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20250095-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.057 · Loi sur les installations électriques (Accélération de l’extension et de la transformation des réseaux électriques). Modification</strong><br><small>Message du 21 mai 2025 relatif à la modification de la loi sur les installations électriques (Accélération de l’extension et de la transformation des réseaux électriques)</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20250057-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20250057-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4494 · École de recrues et études universitaires</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254494-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254494-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4489 · Faillites en chaîne ou en série. La nouvelle loi est-elle efficace ?</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254489-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254489-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>22.415 · Participation équitable de la SSR au marché de la production audiovisuelle</strong><br><small>Fin des discussions en commission du Conseil des Etats</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20220415-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20220415-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4549 · Pour une saisie exhaustive et standardisée des informations relatives aux armes à feu impliquées dans les violences et les homicides domestiques</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254549-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254549-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.419 · Procréation médicalement assistée pour les femmes célibataires</strong><br><small>Examen préalable - en commission du Conseil national</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20250419-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20250419-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.420 · Procréation médicalement assistée pour les femmes célibataires</strong><br><small>Examen préalable - en commission du Conseil national</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20250420-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20250420-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.418 · Procréation médicalement assistée pour les femmes célibataires</strong><br><small>Examen préalable - en commission du Conseil national</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20250418-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20250418-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.417 · Procréation médicalement assistée pour les femmes célibataires</strong><br><small>Examen préalable - en commission du Conseil national</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20250417-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20250417-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.416 · Procréation médicalement assistée pour les femmes célibataires</strong><br><small>Examen préalable - en commission du Conseil national</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20250416-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20250416-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.415 · Procréation médicalement assistée pour les femmes célibataires</strong><br><small>Examen préalable - en commission du Conseil national</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20250415-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20250415-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.408 · Le modèle injuste et poussiéreux des rémunérations pour les copies n'est pas adapté à l'ère du numérique</strong><br><small>Examen préalable - en commission du Conseil national</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20250408-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20250408-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.406 · Suppression de la clause d'extinction dans la loi sur l'égalité entre femmes et hommes</strong><br><small>Examen préalable - en commission du Conseil des Etats</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20250406-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20250406-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4465 · Pour une vraie et saine concurrence dans le domaine de l'assurance-maladie complémentaire</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254465-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254465-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>26.019 · Transfert du trafic juillet 2023 à juin 2025</strong><br><small>Déposé</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20260019-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20260019-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>24.092 · «Sauvegarder la neutralité suisse (initiative sur la neutralité)». Initiative populaire</strong><br><small>Message du 27 novembre 2024 concernant l’initiative populaire fédérale «Sauvegarder la neutralité suisse (initiative sur la neutralité)»</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20240092-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20240092-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4426 · Réglementation équilibrée relative aux sachets de nicotine</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254426-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254426-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4427 · Préserver le tissu industriel, les emplois et la valeur ajoutée dans le Fricktal et le canton d’Argovie</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254427-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254427-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4613 · Apparitions télévisées et communiqués de presse de l'ancien président du Tribunal fédéral</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254613-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254613-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4459 · Réduction ou limitation de la quote-part de l'État</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254459-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254459-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4430 · Contrôle automatique du trafic de transit à Birsfelden</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254430-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254430-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4447 · Mobilité douce. Garantir la sécurité</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254447-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254447-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4439 · Photo d’identité numérique. Moderniser son usage et améliorer l’information des citoyens</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254439-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254439-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4419 · Renforcer la sécurité de l’approvisionnement grâce à l’identification des matières premières et des produits semi-finis essentiels pour la Suisse</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254419-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254419-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4414 · Stratégie pour une formation continue et une reconversion professionnelle préventives en cas de mutations structurelles et technologiques ayant une incidence sur l'emploi</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254414-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254414-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4450 · Exportation de déchets bitumineux en Hollande. Quelles alternatives durables et économiquement viables ?</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254450-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254450-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.1060 · Informer ou convaincre ? Le cas de l’événement de la SSR.CORSI sur la redevance</strong><br><small>Liquidé</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20251060-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20251060-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4478 · Le deal de rue n'est pas une fatalité !</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254478-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254478-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.1052 · Prévention de la violence domestique. Où en sont les travaux visant à créer une plateforme nationale de données de police ?</strong><br><small>Liquidé</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20251052-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20251052-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4453 · Encadrement strict des démarchages téléphoniques des assureurs-maladie</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254453-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254453-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4456 · Attestation des compétences linguistiques pour la prolongation des autorisations de séjour</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254456-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254456-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4487 · Recommandations nutritionnelles végétariennes pour les enfants. Parti pris de l'OSAV</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254487-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254487-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.1054 · Évaluation de la protection de la jeunesse dans le domaine des télécommunications</strong><br><small>Liquidé</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20251054-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20251054-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4462 · Assurer une valorisation durable des résidus biogènes issus de la chaîne de valeur agricole</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254462-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254462-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4463 · Trois nouveaux groupes de tâches pour le projet "Désenchevêtrement 27"</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254463-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254463-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4488 · Potentiel des solutions numériques pour les cautions de loyer</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254488-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254488-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4466 · La Suisse n'est pas un libre-service pour les bandes venues de France. Renforçons les effectifs de l'OFDF pour mieux contrôler nos frontières !</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254466-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254466-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4469 · Les documents officiels doivent refléter la neutralité de l’État</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254469-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254469-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4475 · Lutte antitabac. Miser sur le dialogue, la sensibilisation et l'innovation plutôt que sur les interdictions et les idéologies</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254475-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254475-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4484 · Mesures contre l'extrémisme violent et extension du système d'information Hoogan</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254484-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254484-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.1057 · Les émissions sonores provoquées par la gare de triage de Muttenz sont une nuisance pour la population. Quand des mesures de protection efficaces seront-elles prises ?</strong><br><small>Liquidé</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20251057-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20251057-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4480 · Exécutions des expulsions. Statistiques des mesures d'éloignement des criminels étrangers et de leur exécution</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254480-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254480-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.1058 · Micro-colis, coûts de mise en oeuvre et coordination internationale</strong><br><small>Liquidé</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20251058-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20251058-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4482 · Des projets pilotes innovants pour relever le défi de l'évacuation des eaux en provenance des zones habitées en cas d'évènement climatique extrême</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254482-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254482-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.1062 · Rayonnement de téléphonie mobile. Résultat du projet visant développer les prescriptions</strong><br><small>Liquidé</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20251062-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20251062-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4483 · Vue d’ensemble des mesures de compensation des désavantages octroyées pour l’obtention de diplômes</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254483-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254483-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4486 · La concurrence alimentaire existe-t-elle chez les insectes pollinisateurs ?</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254486-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254486-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4490 · Le plan du général Guisan contre la population. Réexaminer un chapitre sombre de l'histoire suisse</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254490-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254490-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4491 · Sanctionner les abus commis par le syndicat de la Poste</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254491-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254491-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4492 · Pour garantir une perspective de formation aux personnes en situation de handicap employées via des stages non rémunérés de longues durés</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254492-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254492-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4495 · Programme visant à améliorer la diversité génétique de la population de lynx</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254495-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254495-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4496 · Marchés publics. Pourquoi privilégier les entreprises étrangères au détriment des suisses ?</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254496-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254496-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4497 · "Ton chatbot n'est pas ton ami". Désanthropomorphisation des agents conversationnels</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254497-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254497-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4499 · Déchets du photovoltaïque. Élimination et recyclage</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254499-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254499-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4502 · Comment améliorer la participation électorale ?</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254502-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254502-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>18.4349 · Voyages organisés par des lobbies. Pour plus de transparence</strong><br><small>Liquidé</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20184349-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20184349-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4504 · Mettre fin aux loyers abusifs&amp;nbsp;!</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254504-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254504-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>22.3229 · Le transport des touristes. Parent pauvre des transports publics?</strong><br><small>Transmis au Conseil fédéral</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20223229-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20223229-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4507 · Mesures pénales contre les multirécidivistes originaires du Maghreb et d'autres pays</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254507-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254507-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>14.458 · Compensation du renchérissement pour les indemnités et les défraiements alloués aux parlementaires</strong><br><small>Liquidé</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20140458-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20140458-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4513 · Du mariage comme moyen de contourner l’expulsion</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254513-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254513-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4515 · Réformer en douceur le frein à l'endettement. Autoriser le recours à des emprunts supplémentaires restreints à des fins d'investissement</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254515-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254515-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>18.403 · Système forfaitaire pour les indemnités et défraiements parlementaires</strong><br><small>Liquidé</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20180403-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20180403-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4518 · Les auteurs d’actes de violence domestique sont-ils automatiquement expulsés ?</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254518-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254518-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.434 · Droits d'auteur. Pour une gestion claire des droits lors de concerts</strong><br><small>En commission du Conseil des Etats</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20250434-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20250434-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4519 · Propagande du Hamas relayée par Swisscom. Quand le Conseil fédéral imposera-t-il ses objectifs stratégiques ?</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254519-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254519-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4523 · Loi sur les marchés publics. Pour une meilleure prise en considération des intérêts publics prépondérants</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254523-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254523-fr','rejected')">Reject</button>
+</td>
+</tr>
+<tr>
+<td><strong>25.4527 · Augmentation des vols de véhicules dans les garages et recrutement présumé de mineurs sur les réseaux sociaux</strong><br><small>L’avis relatif à l’intervention est disponible</small></td>
+<td>ch-parliament-business-fr</td>
+<td>0.00</td>
+<td></td>
+<td>rejected</td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20254527-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20254527-fr','rejected')">Reject</button>
+</td>
+</tr></tbody></table>
 <script>
 const key='tierpolitik.review';
 const read=()=>JSON.parse(localStorage.getItem(key)||'{}');

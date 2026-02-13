@@ -7,7 +7,15 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "crawler:collect": "node scripts/crawler-collect.mjs",
+    "crawler:score": "node scripts/crawler-score.mjs",
+    "crawler:build-review": "node scripts/build-review-view.mjs",
+    "crawler:ingest-user-input": "node scripts/user-input-ingest.mjs",
+    "crawler:apply-review": "node scripts/apply-review-decisions.mjs",
+    "crawler:export": "node scripts/export-published-for-site.mjs",
+    "crawler:build-public": "node scripts/build-crawler-public-view.mjs",
+    "crawler:pipeline": "npm run crawler:collect && npm run crawler:score && npm run crawler:build-review && npm run crawler:ingest-user-input && npm run crawler:apply-review && npm run crawler:build-review && npm run crawler:export && npm run crawler:build-public"
   },
   "dependencies": {
     "@tanstack/react-table": "^8.21.3",

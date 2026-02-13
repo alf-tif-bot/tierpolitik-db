@@ -29,12 +29,13 @@ export function createRssAdapter() {
         if (!response.ok) throw new Error(`RSS fetch failed (${response.status}) for ${source.id}`)
         xml = await response.text()
       } catch (error) {
-        if (!source.fallbackPath) throw error
+        const allowFallback = process.env.CRAWLER_ENABLE_FIXTURE_FALLBACK === '1'
+        if (!source.fallbackPath || !allowFallback) throw error
         const fallback = new URL(`../../${source.fallbackPath}`, import.meta.url)
         xml = fs.readFileSync(fallback, 'utf8')
       }
       let parsed = parseItems(xml)
-      if (parsed.length === 0 && source.fallbackPath) {
+      if (parsed.length === 0 && source.fallbackPath && process.env.CRAWLER_ENABLE_FIXTURE_FALLBACK === '1') {
         const fallback = new URL(`../../${source.fallbackPath}`, import.meta.url)
         parsed = parseItems(fs.readFileSync(fallback, 'utf8'))
       }

@@ -1,11 +1,29 @@
 [
   {
-    "id": "ch-parlament-news",
-    "label": "Parlament.ch Medienmitteilungen",
-    "type": "rss",
-    "url": "https://www.parlament.ch/rss/mitteilungen-de.xml",
+    "id": "ch-parliament-business-de",
+    "label": "Parlament.ch Curia Vista (DE)",
+    "type": "api",
+    "adapter": "parliamentOdata",
+    "url": "https://ws.parlament.ch/odata.svc/Business",
     "enabled": true,
-    "fallbackPath": "data/fixtures/ch-parlament-news.xml"
+    "options": {
+      "lang": "DE",
+      "top": 120,
+      "daysBack": 60
+    }
+  },
+  {
+    "id": "ch-parliament-business-fr",
+    "label": "Parlament.ch Curia Vista (FR)",
+    "type": "api",
+    "adapter": "parliamentOdata",
+    "url": "https://ws.parlament.ch/odata.svc/Business",
+    "enabled": true,
+    "options": {
+      "lang": "FR",
+      "top": 80,
+      "daysBack": 60
+    }
   },
   {
     "id": "blv-news",
@@ -19,7 +37,7 @@
     "id": "bundesrat-news",
     "label": "Bundesrat Medien",
     "type": "rss",
-    "url": "https://www.admin.ch/gov/de/start/dokumentation/medienmitteilungen/rss-not-found.xml",
+    "url": "https://www.admin.ch/gov/de/start/dokumentation/medienmitteilungen.rss.xml",
     "enabled": true,
     "fallbackPath": "data/fixtures/bundesrat-news.xml"
   }

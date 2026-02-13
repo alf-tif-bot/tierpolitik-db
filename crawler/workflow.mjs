@@ -14,13 +14,21 @@ export async function runCollect({ adapters }) {
   const sources = loadSources().filter((source) => source.enabled)
   const rawItems = []
 
+  const sourceStats = []
+
   for (const source of sources) {
-    const adapter = adapters[source.id]
-    if (!adapter) continue
+    const adapterKey = source.adapter || source.type
+    const adapter = adapters[adapterKey]
+    if (!adapter) {
+      sourceStats.push({ sourceId: source.id, ok: false, reason: `Kein Adapter: ${adapterKey}` })
+      continue
+    }
     try {
       const rows = await adapter.fetch(source)
       rawItems.push(...rows)
+      sourceStats.push({ sourceId: source.id, ok: true, fetched: rows.length })
     } catch (error) {
+      sourceStats.push({ sourceId: source.id, ok: false, reason: error.message })
       console.warn(`[collect] Quelle uebersprungen (${source.id}):`, error.message)
     }
   }
@@ -28,7 +36,7 @@ export async function runCollect({ adapters }) {
   const { inserted } = upsertItems(db, rawItems)
   db.sources = sources
   saveDb(db)
-  return { inserted, fetched: rawItems.length }
+  return { inserted, fetched: rawItems.length, sourceStats }
 }
 
 export function runQueue({ minScore = 0.35 } = {}) {

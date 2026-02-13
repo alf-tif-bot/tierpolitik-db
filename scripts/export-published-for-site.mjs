@@ -5,8 +5,8 @@ const outPath = new URL('../data/crawler-published.json', import.meta.url)
 const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
 
 const published = db.items
-  .filter((item) => item.status === 'approved' || item.status === 'published' || item.score >= 0.25)
-  .slice(0, 30)
+  .filter((item) => item.status === 'approved' || item.status === 'published')
+  .slice(0, 100)
   .map((item) => ({
     id: `${item.sourceId}:${item.externalId}`,
     title: item.title,

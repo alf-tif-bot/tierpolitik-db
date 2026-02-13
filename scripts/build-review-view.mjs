@@ -3,19 +3,36 @@ import fs from 'node:fs'
 const dbPath = new URL('../data/crawler-db.json', import.meta.url)
 const outPath = new URL('../public/review.html', import.meta.url)
 const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
-const reviewItems = db.items.filter((item) => item.status === 'queued' || item.status === 'rejected')
 
-const rows = reviewItems
-  .map((item) => `\n<tr>\n<td>${item.title}</td>\n<td>${item.sourceId}</td>\n<td>${item.score.toFixed(2)}</td>\n<td>${item.matchedKeywords.join(', ')}</td>\n<td>\n<button onclick="setDecision('${item.sourceId}:${item.externalId}','approved')">Approve</button>\n<button onclick="setDecision('${item.sourceId}:${item.externalId}','rejected')">Reject</button>\n</td>\n</tr>\n`)
-  .join('')
+const reviewItems = [...db.items]
+  .filter((item) => item.status === 'queued' || item.status === 'rejected')
+  .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
+
+const esc = (v = '') => String(v).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+const rows = reviewItems.map((item) => {
+  const id = `${item.sourceId}:${item.externalId}`
+  return `
+<tr>
+<td><strong>${esc(item.title)}</strong><br><small>${esc(item.summary || '')}</small></td>
+<td>${esc(item.sourceId)}</td>
+<td>${(item.score ?? 0).toFixed(2)}</td>
+<td>${esc((item.matchedKeywords || []).join(', '))}</td>
+<td>${esc(item.status)}</td>
+<td>
+<button onclick="setDecision('${esc(id)}','approved')">Approve</button>
+<button onclick="setDecision('${esc(id)}','rejected')">Reject</button>
+</td>
+</tr>`
+}).join('')
 
 const html = `<!doctype html><html><head><meta charset="utf-8"><title>Crawler Review</title>
-<style>body{font-family:Arial,sans-serif;padding:24px}table{width:100%;border-collapse:collapse}td,th{border:1px solid #ddd;padding:8px}button{margin-right:6px}code{background:#f3f3f3;padding:2px 4px}</style></head>
+<style>body{font-family:Arial,sans-serif;padding:24px;max-width:1200px;margin:0 auto}table{width:100%;border-collapse:collapse;margin-top:16px}td,th{border:1px solid #ddd;padding:8px;vertical-align:top}button{margin-right:6px}code{background:#f3f3f3;padding:2px 4px}.links{display:flex;gap:8px;flex-wrap:wrap}.links a{display:inline-block;border:1px solid #ddd;padding:6px 10px;border-radius:999px;text-decoration:none;color:#222}</style></head>
 <body>
-<h1>Review-Ansicht (MVP)</h1>
-<p>Entscheidungen werden lokal im Browser gespeichert (<code>localStorage.tierpolitik.review</code>) und können exportiert werden.</p>
-<button onclick="exportDecisions()">Entscheidungen exportieren</button>
-<table><thead><tr><th>Titel</th><th>Quelle</th><th>Score</th><th>Treffer</th><th>Aktion</th></tr></thead><tbody>${rows}</tbody></table>
+<h1>Review-Ansicht</h1>
+<p>Queued/Rejected sind hier sichtbar. Entscheidungen als JSON exportieren und danach mit <code>npm run crawler:apply-review</code> in die DB übernehmen.</p>
+<nav class="links"><a href="/crawler.html">Zur Crawler-Ansicht</a><a href="/">Zur App</a></nav>
+<p><button onclick="exportDecisions()">Entscheidungen exportieren</button></p>
+<table><thead><tr><th>Titel</th><th>Quelle</th><th>Score</th><th>Treffer</th><th>Status</th><th>Aktion</th></tr></thead><tbody>${rows || '<tr><td colspan="6">Keine offenen Review-Einträge.</td></tr>'}</tbody></table>
 <script>
 const key='tierpolitik.review';
 const read=()=>JSON.parse(localStorage.getItem(key)||'{}');
@@ -26,4 +43,4 @@ function exportDecisions(){const blob=new Blob([JSON.stringify(read(),null,2)],{
 </body></html>`
 
 fs.writeFileSync(outPath, html)
-console.log(`Review-Ansicht gebaut: ${outPath.pathname}`)
+console.log(`Review-Ansicht gebaut: ${outPath.pathname} (${reviewItems.length} Eintraege)`)
