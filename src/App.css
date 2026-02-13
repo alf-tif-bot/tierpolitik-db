@@ -634,22 +634,28 @@ a { color: #0a4fa8; }
   bottom: 0.8rem;
   margin-top: 1rem;
   margin-left: auto;
-  max-width: 360px;
-  padding: 0.8rem;
-  border: 1px solid #425264;
-  border-radius: 12px;
-  background: #1f2730;
+  max-width: 380px;
+  padding: 0.9rem;
+  border: 1px solid #4a5d73;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #1f2730 0%, #1a222c 100%);
+  box-shadow: 0 10px 28px rgb(0 0 0 / 24%);
 }
 
-.feedback-modal label { display: grid; gap: 0.35rem; margin-bottom: 0.5rem; }
+.feedback-modal h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1.35rem;
+}
+
+.feedback-modal label { display: grid; gap: 0.35rem; margin-bottom: 0.6rem; }
 .feedback-modal select,
 .feedback-modal textarea {
   width: 100%;
   background: #242c35;
   color: #f5f7fa;
-  border: 1px solid #4a596a;
-  border-radius: 8px;
-  padding: 0.45rem 0.55rem;
+  border: 1px solid #5d738b;
+  border-radius: 10px;
+  padding: 0.55rem 0.62rem;
 }
 
 :root[data-theme='dark'] .bug-report-fab {

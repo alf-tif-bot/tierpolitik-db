@@ -214,16 +214,15 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
               Notiz
               <textarea
                 rows={4}
-                placeholder="Kurz beschreiben, was angepasst werden soll"
+                placeholder="Beschreibe kurz, was angepasst werden soll."
                 value={feedbackText}
                 onChange={(e) => setFeedbackText(e.target.value)}
               />
             </label>
             <div className="row">
-              <button className="btn-secondary" onClick={() => setFeedbackOpen(false)}>Abbrechen</button>
               <button className="btn-primary" onClick={submitFeedback} disabled={feedbackState === 'saving'}>Senden</button>
             </div>
-            {feedbackState === 'done' && <p className="muted">Danke, Feedback erfasst. Wird in Review als User-Feedback sichtbar.</p>}
+            {feedbackState === 'done' && <p className="muted">Danke dir fürs Feedback 🙌 Ich prüfe das und nehme die Anpassung in die Review-Runde auf.</p>}
             {feedbackState === 'error' && <p className="muted">Feedback konnte nicht gesendet werden.</p>}
           </div>
         )}
