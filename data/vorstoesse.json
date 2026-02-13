@@ -13,7 +13,8 @@
     "datumAktualisiert": "2026-02-13",
     "themen": [
       "stopfleber",
-      "initiative"
+      "initiative",
+      "Neutral/Unklar"
     ],
     "schlagwoerter": [
       "stopfleber",
@@ -37,6 +38,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
+      "haltung": "neutral/unklar",
       "zuletztGeprueftVon": "Crawler/DB Sync"
     }
   },
@@ -55,7 +57,8 @@
     "themen": [
       "stopfleber",
       "initiative",
-      "botschaft"
+      "botschaft",
+      "Neutral/Unklar"
     ],
     "schlagwoerter": [
       "stopfleber",
@@ -80,6 +83,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
+      "haltung": "neutral/unklar",
       "zuletztGeprueftVon": "Crawler/DB Sync"
     }
   },
@@ -99,7 +103,8 @@
       "animal",
       "expérimentation animale",
       "3r",
-      "animale"
+      "animale",
+      "Pro Tierschutz"
     ],
     "schlagwoerter": [
       "animal",
@@ -125,6 +130,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "fr",
+      "haltung": "pro-tierschutz",
       "zuletztGeprueftVon": "Crawler/DB Sync"
     }
   }

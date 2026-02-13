@@ -50,6 +50,7 @@ export const vorstossSchema = z.object({
   medien: z.array(mediaSchema),
   metadaten: z.object({
     sprache: z.enum(['de', 'fr', 'it']),
+    haltung: z.enum(['pro-tierschutz', 'tierschutzkritisch', 'neutral/unklar']).optional(),
     zuletztGeprueftVon: z.string().min(1),
   }),
 })

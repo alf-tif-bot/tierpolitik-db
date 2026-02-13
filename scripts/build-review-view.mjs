@@ -77,6 +77,7 @@ const humanizeReason = (reason = '') => {
 
   const rule = (text.match(/\[(.*?)\]/)?.[1] || '').trim()
   const score = (text.match(/score=([0-9.]+)/)?.[1] || '').trim()
+  const stance = (text.match(/stance=([^·]+)/)?.[1] || '').trim()
   const anchor = (text.match(/anchor=([^·]+)/)?.[1] || '').trim()
   const support = (text.match(/support=([^·]+)/)?.[1] || '').trim()
   const people = (text.match(/people=([^·]+)/)?.[1] || '').trim()
@@ -95,7 +96,14 @@ const humanizeReason = (reason = '') => {
   const supportList = toList(support).filter((x) => !anchorList.includes(x))
   const peopleList = toList(people)
 
+  const stanceMap = {
+    'pro-tierschutz': 'pro Tierschutz',
+    'tierschutzkritisch': 'tierschutzkritisch',
+    'neutral/unklar': 'neutral / unklar',
+  }
+
   const parts = []
+  if (stance) parts.push(`<div><strong>Einordnung:</strong> ${esc(stanceMap[stance] || stance)}</div>`)
   if (rule) parts.push(`<div><strong>Bewertung:</strong> ${esc(ruleMap[rule] || rule)}</div>`)
   if (anchorList.length) parts.push(`<div><strong>Tier-Begriffe:</strong> ${esc(anchorList.join(', '))}</div>`)
   if (supportList.length) parts.push(`<div><strong>Kontext:</strong> ${esc(supportList.join(', '))}</div>`)

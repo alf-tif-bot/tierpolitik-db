@@ -32,6 +32,17 @@ const NOISE_KEYWORDS = [
   'rhone', 'gotthard', 'tunnel', 'digitalisierung',
 ]
 
+const PRO_STANCE_KEYWORDS = [
+  'tierschutz', 'tierwohl', 'schutz', 'verbot', 'alternativen zu tierversuchen', '3r',
+  'protection animale', 'bien-être animal', 'sperimentazione animale',
+]
+
+const CRITICAL_STANCE_KEYWORDS = [
+  'abschuss', 'regulierung', 'bestandskontrolle', 'jagd erleichtern', 'lockerung',
+  'abschussbewilligung', 'dezimierung', 'bejagung', 'entnahme', 'schädlingsbekämpfung',
+  'abattage', 'tir', 'abbattimento',
+]
+
 const PERSON_WHITELIST = [
   'meret schneider',
   'tobias sennhauser',
@@ -60,6 +71,14 @@ const hasKeyword = (normalizedText, keyword) => {
   return tokens.some((token) => token === kw || token.startsWith(kw))
 }
 
+const classifyStance = (normalizedText) => {
+  const proHits = PRO_STANCE_KEYWORDS.filter((kw) => hasKeyword(normalizedText, kw)).length
+  const criticalHits = CRITICAL_STANCE_KEYWORDS.filter((kw) => hasKeyword(normalizedText, kw)).length
+  if (criticalHits > proHits && criticalHits > 0) return 'tierschutzkritisch'
+  if (proHits > 0) return 'pro-tierschutz'
+  return 'neutral/unklar'
+}
+
 export function scoreText(text, keywords = DEFAULT_KEYWORDS) {
   const normalizedText = normalize(text)
   const anchorMatches = ANCHOR_KEYWORDS.filter((kw) => hasKeyword(normalizedText, kw))
@@ -86,7 +105,7 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
   for (const item of db.items) {
     if (!enabledSourceIds.has(item.sourceId)) continue
     const text = `${item.title}\n${item.summary}\n${item.body}`
-    const { score, matched, anchorMatches, supportMatches, noiseMatches, whitelistedPeople } = scoreText(text, keywords)
+    const { score, matched, anchorMatches, supportMatches, noiseMatches, whitelistedPeople, normalizedText } = scoreText(text, keywords)
 
     const hasAnchor = anchorMatches.length > 0
     const hasSupport = supportMatches.length > 0
@@ -107,8 +126,9 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     const rule = isRelevant
       ? (hasWhitelistedPerson ? 'whitelist+theme' : (score >= minScore ? 'anchor+score' : 'anchor2+support'))
       : (!hasAnchor ? 'missing-anchor' : 'below-threshold')
+    const stance = classifyStance(normalizedText)
 
-    item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · people=${whitelistedPeople.slice(0, 2).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · score=${score.toFixed(2)}`
+    item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · stance=${stance} · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · people=${whitelistedPeople.slice(0, 2).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · score=${score.toFixed(2)}`
 
     if (isRelevant) relevantCount += 1
     touched += 1

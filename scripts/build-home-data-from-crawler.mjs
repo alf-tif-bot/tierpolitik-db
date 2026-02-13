@@ -22,6 +22,11 @@ const inferType = (title = '', sourceId = '') => {
   return 'Interpellation'
 }
 
+const extractStance = (reason = '') => {
+  const m = String(reason).match(/stance=([^·]+)/)
+  return (m?.[1] || 'neutral/unklar').trim()
+}
+
 const mapStatus = (status = '') => {
   const s = String(status).toLowerCase()
   if (s === 'published') return 'Angenommen'
@@ -67,6 +72,7 @@ const vorstoesse = items.map((item, index) => {
   const updated = toIsoDate(item.fetchedAt || item.publishedAt)
   const status = mapStatus(item.status)
   const typ = inferType(item.title, item.sourceId)
+  const stance = extractStance(item.reviewReason)
   const idSafe = String(item.externalId || `${Date.now()}-${index}`).replace(/[^a-zA-Z0-9-]/g, '-')
   const link = item.sourceUrl && item.sourceUrl.startsWith('http')
     ? item.sourceUrl
@@ -84,7 +90,10 @@ const vorstoesse = items.map((item, index) => {
     status,
     datumEingereicht: eingereicht,
     datumAktualisiert: updated,
-    themen: (item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz']).slice(0, 5),
+    themen: [
+      ...(item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz']),
+      stance === 'pro-tierschutz' ? 'Pro Tierschutz' : stance === 'tierschutzkritisch' ? 'Tierschutzkritisch' : 'Neutral/Unklar',
+    ].slice(0, 6),
     schlagwoerter: (item.matchedKeywords?.length ? item.matchedKeywords : ['Tierpolitik']).slice(0, 8),
     einreichende: [peopleByLang[sprache]],
     linkGeschaeft: link,
@@ -98,6 +107,7 @@ const vorstoesse = items.map((item, index) => {
     medien: [],
     metadaten: {
       sprache,
+      haltung: stance,
       zuletztGeprueftVon: 'Crawler/DB Sync',
     },
   }
