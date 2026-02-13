@@ -25,3 +25,4 @@ dist-ssr
 secrets/
 secrets/*
 *.token
+.env.db
