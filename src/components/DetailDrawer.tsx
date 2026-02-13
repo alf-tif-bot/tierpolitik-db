@@ -16,7 +16,19 @@ type Props = {
   t: I18nText
 }
 
-const normalizeTitle = (value: string) => value.replace(/^Vorstoss\s+\d+\s*:\s*/i, '')
+const normalizeTitle = (value: string, typ?: string) => {
+  let out = value
+    .replace(/^Vorstoss\s+\d+\s*:\s*/i, '')
+    .replace(/^\s*\d{2}\.\d{3}\s*[·\-–—:]\s*/u, '')
+    .trim()
+
+  if (typ) {
+    const escaped = typ.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    out = out.replace(new RegExp(`(?:\\.|,)?\\s*${escaped}\\s*$`, 'i'), '').trim()
+  }
+
+  return out
+}
 
 type TimelineItem = {
   datum: string
@@ -59,7 +71,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
       <aside className="drawer" onClick={(e) => e.stopPropagation()}>
         <div className="row drawer-head">
           <div>
-            <h2>{normalizeTitle(translateContent(item.titel, lang))}</h2>
+            <h2>{normalizeTitle(translateContent(item.titel, lang), item.typ)}</h2>
             <div className="drawer-status-row">
               <span className={`status-badge status-${statusSlug}`}>{translateStatus(item.status, lang)}</span>
             </div>
