@@ -188,7 +188,15 @@ export default function App() {
     setFilters(base)
     setProfile(null)
     closeDetail()
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+
+    window.requestAnimationFrame(() => {
+      const overview = document.getElementById('vorstoesse-ueberblick')
+      if (overview) {
+        overview.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
+    })
   }
 
   return (
@@ -230,6 +238,7 @@ export default function App() {
         onOpenDetail={openDetail}
         onVisibleColumnsChange={onVisibleColumnsChange}
         keyboardEnabled={!selected && !profile}
+        sectionId="vorstoesse-ueberblick"
         lang={lang}
         t={t}
       />

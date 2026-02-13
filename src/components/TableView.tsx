@@ -27,6 +27,7 @@ type Props = {
   onOpenDetail: (v: Vorstoss) => void
   onVisibleColumnsChange: (cols: { key: string; label: string }[]) => void
   keyboardEnabled?: boolean
+  sectionId?: string
   lang: Language
   t: I18nText
 }
@@ -34,7 +35,7 @@ type Props = {
 const TABLE_PREFS_KEY = 'tierpolitik.table.prefs.v1'
 const normalizeTitle = (value: string) => value.replace(/^Vorstoss\s+\d+\s*:\s*/i, '')
 
-export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboardEnabled = true, lang, t }: Props) {
+export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboardEnabled = true, sectionId, lang, t }: Props) {
   const [sorting, setSorting] = useState<SortingState>([])
   const [highlightedRow, setHighlightedRow] = useState(0)
 
@@ -145,7 +146,7 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboard
   }, [keyboardEnabled, highlightedRow, onOpenDetail, table, data.length])
 
   return (
-    <section className="panel">
+    <section id={sectionId} className="panel">
       <div className="table-wrap">
         <div className="table-scroll">
           <table>
