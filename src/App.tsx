@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import rawData from '../data/vorstoesse.json'
+import crawlerPublished from '../data/crawler-published.json'
 import './App.css'
 import { DetailDrawer } from './components/DetailDrawer'
 import { ExportButtons } from './components/ExportButtons'
@@ -36,6 +37,7 @@ export default function App() {
   const t = i18n[lang]
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
   const filtered = useMemo(() => applyFilters(data, filters), [filters])
+  const crawlerFeed = useMemo(() => (crawlerPublished as Array<{id:string;title:string;summary:string;sourceId:string;score:number;matchedKeywords:string[]}>).slice(0, 6), [])
 
   useEffect(() => {
     const id = getHashId()
@@ -206,6 +208,23 @@ export default function App() {
       <section className="db-intro">
         <h2>{t.dbIntroTitle}</h2>
         <p>{t.dbIntroSubtitle}</p>
+      </section>
+
+      <section className="panel" style={{ marginBottom: 16 }}>
+        <h2>Neue Signale aus dem Crawler (MVP)</h2>
+        {crawlerFeed.length === 0 ? (
+          <p>Noch keine Crawler-Einträge veröffentlicht.</p>
+        ) : (
+          <ul>
+            {crawlerFeed.map((item) => (
+              <li key={item.id} style={{ marginBottom: 10 }}>
+                <strong>{item.title}</strong> <small>({item.sourceId}, Score {item.score.toFixed(2)})</small>
+                <div>{item.summary}</div>
+              </li>
+            ))}
+          </ul>
+        )}
+        <a href="/review.html" target="_blank" rel="noopener noreferrer">Review-Ansicht öffnen</a>
       </section>
 
       <TableView
