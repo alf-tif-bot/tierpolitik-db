@@ -8,7 +8,7 @@
     "enabled": true,
     "options": {
       "lang": "DE",
-      "top": 120,
+      "top": 25,
       "daysBack": 60
     }
   },
@@ -21,7 +21,7 @@
     "enabled": true,
     "options": {
       "lang": "FR",
-      "top": 80,
+      "top": 15,
       "daysBack": 60
     }
   },
@@ -33,7 +33,7 @@
     "alternateUrls": [
       "https://www.blv.admin.ch/blv/fr/home/das-blv/aktuell/medienmitteilungen.feed.xml"
     ],
-    "enabled": true,
+    "enabled": false,
     "fallbackMode": "alwaysOnFailure",
     "fallbackPath": "data/fixtures/blv-news.xml"
   },
@@ -45,7 +45,7 @@
     "alternateUrls": [
       "https://www.admin.ch/gov/de/start/dokumentation/medienmitteilungen.rss"
     ],
-    "enabled": true,
+    "enabled": false,
     "fallbackMode": "alwaysOnFailure",
     "fallbackPath": "data/fixtures/bundesrat-news.xml"
   }
