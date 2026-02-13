@@ -7,9 +7,11 @@ type Props = {
   filtered: Vorstoss[]
   visibleColumns: { key: string; label: string }[]
   t: I18nText
+  showExports?: boolean
+  showShortcutsLink?: boolean
 }
 
-export function ExportButtons({ filtered, visibleColumns, t }: Props) {
+export function ExportButtons({ filtered, visibleColumns, t, showExports = true, showShortcutsLink = true }: Props) {
   const [showShortcuts, setShowShortcuts] = useState(false)
 
   const exportCsv = () => {
@@ -21,43 +23,56 @@ export function ExportButtons({ filtered, visibleColumns, t }: Props) {
     downloadText('vorstoesse-gefiltert.json', JSON.stringify(filtered, null, 2), 'application/json;charset=utf-8')
   }
 
+  const hasAnyLink = showExports || showShortcutsLink
+
   return (
     <>
-      <div className="export-links" aria-label={t.export}>
-        <span className="export-label">{t.export}:</span>
-        <a
-          href="#"
-          className="export-link"
-          onClick={(e) => {
-            e.preventDefault()
-            exportCsv()
-          }}
-        >
-          CSV (Tabellenansicht)
-        </a>
-        <span className="export-sep">·</span>
-        <a
-          href="#"
-          className="export-link"
-          onClick={(e) => {
-            e.preventDefault()
-            exportJson()
-          }}
-        >
-          {t.jsonFiltered}
-        </a>
-        <span className="export-sep">·</span>
-        <a
-          href="#"
-          className="export-link"
-          onClick={(e) => {
-            e.preventDefault()
-            setShowShortcuts(true)
-          }}
-        >
-          Tastaturbefehle
-        </a>
-      </div>
+      {hasAnyLink && (
+        <div className="export-links" aria-label={t.export}>
+          {showExports && <span className="export-label">{t.export}:</span>}
+          {showExports && (
+            <>
+              <a
+                href="#"
+                className="export-link"
+                onClick={(e) => {
+                  e.preventDefault()
+                  exportCsv()
+                }}
+              >
+                CSV (Tabellenansicht)
+              </a>
+              <span className="export-sep">·</span>
+              <a
+                href="#"
+                className="export-link"
+                onClick={(e) => {
+                  e.preventDefault()
+                  exportJson()
+                }}
+              >
+                {t.jsonFiltered}
+              </a>
+            </>
+          )}
+
+          {showShortcutsLink && (
+            <>
+              {showExports && <span className="export-sep">·</span>}
+              <a
+                href="#"
+                className="export-link"
+                onClick={(e) => {
+                  e.preventDefault()
+                  setShowShortcuts(true)
+                }}
+              >
+                Tastaturbefehle
+              </a>
+            </>
+          )}
+        </div>
+      )}
 
       {showShortcuts && (
         <div className="drawer-backdrop" onClick={() => setShowShortcuts(false)}>

@@ -231,7 +231,7 @@ export default function App() {
         <p>{t.dbIntroSubtitle}</p>
       </section>
 
-      
+      <ExportButtons filtered={filtered} visibleColumns={visibleColumns} t={t} showExports showShortcutsLink={false} />
 
       <TableView
         data={filtered}
@@ -294,7 +294,7 @@ export default function App() {
         </div>
       </footer>
 
-      <ExportButtons filtered={filtered} visibleColumns={visibleColumns} t={t} />
+      <ExportButtons filtered={filtered} visibleColumns={visibleColumns} t={t} showExports={false} showShortcutsLink />
     </main>
   )
 }
