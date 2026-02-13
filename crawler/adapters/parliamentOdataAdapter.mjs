@@ -127,7 +127,23 @@ export function createParliamentOdataAdapter() {
         .sort((a, b) => rankRow(b) - rankRow(a))
 
       const thematicTarget = Math.min(sampleLimit, Math.max(thematicMinQuota, Math.floor(sampleLimit * 0.7)))
-      const picked = thematicRows.slice(0, thematicTarget)
+      const pickedKeys = new Set()
+      const picked = []
+
+      for (const row of thematicRows.slice(0, thematicTarget)) {
+        const key = `${row.ID}-${row.Language || lang}`
+        if (pickedKeys.has(key)) continue
+        pickedKeys.add(key)
+        picked.push(row)
+      }
+
+      for (const row of filteredRows) {
+        if (picked.length >= sampleLimit) break
+        const key = `${row.ID}-${row.Language || lang}`
+        if (pickedKeys.has(key)) continue
+        pickedKeys.add(key)
+        picked.push(row)
+      }
 
       return picked.map((row) => {
         const summary = stripHtml(row.Description || row.BusinessStatusText || row.TagNames || '')
