@@ -8,9 +8,36 @@ const enabledSourceIds = new Set((db.sources || [])
   .filter((s) => s.enabled !== false)
   .map((s) => s.id))
 
-const reviewItems = [...db.items]
+const baseReviewItems = [...db.items]
   .filter((item) => enabledSourceIds.has(item.sourceId))
   .filter((item) => ['queued', 'approved', 'published'].includes(item.status))
+
+const affairKey = (item) => String(item.externalId || '').split('-')[0] || `${item.sourceId}:${item.externalId}`
+const langRank = (item) => {
+  const src = String(item.sourceId || '').toLowerCase()
+  if (src.endsWith('-de')) return 0
+  if (src.endsWith('-fr')) return 1
+  if (src.endsWith('-it')) return 2
+  return 3
+}
+
+const grouped = new Map()
+for (const item of baseReviewItems) {
+  const key = affairKey(item)
+  const prev = grouped.get(key)
+  if (!prev) {
+    grouped.set(key, item)
+    continue
+  }
+
+  const betterLang = langRank(item) < langRank(prev)
+  const betterScore = (item.score ?? 0) > (prev.score ?? 0)
+  if (betterLang || (!betterLang && betterScore)) {
+    grouped.set(key, item)
+  }
+}
+
+const reviewItems = [...grouped.values()]
   .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
 
 const sourceMap = new Map((db.sources || []).map((s) => [s.id, s.label]))
@@ -106,7 +133,7 @@ const html = `<!doctype html>
 <body>
   <main class="wrap">
     <h1>Review-Ansicht</h1>
-    <p>Es werden nur relevante Einträge gezeigt (queued/approved/published). Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB übernommen.</p>
+    <p>Es werden nur relevante Einträge gezeigt (queued/approved/published). Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB übernommen.</p>
     <p class="status">Status-Summen (sichtbar): queued=${counts.queued || 0}, approved=${counts.approved || 0}, published=${counts.published || 0}</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
     <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button></p>
