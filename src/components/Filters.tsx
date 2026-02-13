@@ -36,6 +36,9 @@ export function FiltersPanel({ data, filters, onChange, lang, t, searchInputRef 
     'AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU', 'NE',
     'NW', 'OW', 'SG', 'SH', 'SO', 'SZ', 'TG', 'TI', 'UR', 'VD', 'VS', 'ZG', 'ZH',
   ]
+  const typenItems: FilterItem[] = [...new Set(data.map((d) => d.typ))]
+    .sort((a, b) => a.localeCompare(b, 'de-CH'))
+    .map((v) => ({ value: v, label: v }))
   const themen = [...new Set(data.flatMap((d) => d.themen))].sort()
   const themenItems: FilterItem[] = themen.map((v) => ({ value: v, label: translateContent(v, lang) }))
 
@@ -63,6 +66,7 @@ export function FiltersPanel({ data, filters, onChange, lang, t, searchInputRef 
       </div>
 
       <div className="multi-row compact-search-row">
+        <MultiItems title={t.type} values={typenItems} selected={filters.typen} onToggle={(v) => onChange({ ...filters, typen: toggleValue(filters.typen, v) })} />
         <MultiItems title={t.level} values={ebenen} selected={filters.ebenen} onToggle={(v) => onChange({ ...filters, ebenen: toggleValue(filters.ebenen, v as Ebene) })} />
         <MultiItems title={t.status} values={statuses} selected={filters.status} onToggle={(v) => onChange({ ...filters, status: toggleValue(filters.status, v as Status) })} />
       </div>

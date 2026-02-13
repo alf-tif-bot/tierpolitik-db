@@ -4,6 +4,7 @@ export type Filters = {
   globalQuery: string
   ebenen: Ebene[]
   status: Status[]
+  typen: string[]
   kantone: string[]
   themen: string[]
   schlagwoerter: string[]
@@ -41,6 +42,7 @@ export function applyFilters(data: Vorstoss[], f: Filters): Vorstoss[] {
     if (!matchesGlobal(v, f.globalQuery)) return false
     if (f.ebenen.length && !f.ebenen.includes(v.ebene)) return false
     if (f.status.length && !f.status.includes(v.status)) return false
+    if (f.typen.length && !f.typen.includes(v.typ)) return false
     if (f.kantone.length && (!v.kanton || !f.kantone.includes(v.kanton))) return false
     if (f.themen.length && !f.themen.some((t) => v.themen.includes(t))) return false
     if (f.von && v.datumEingereicht < f.von) return false
@@ -54,6 +56,7 @@ export function defaultFilters(): Filters {
     globalQuery: '',
     ebenen: [],
     status: [],
+    typen: [],
     kantone: [],
     themen: [],
     schlagwoerter: [],
