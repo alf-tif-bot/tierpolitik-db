@@ -34,7 +34,7 @@
       "summary": "Neue parlamentarische Initiative fuer Transportdauer-Limiten.",
       "body": "Neue parlamentarische Initiative fuer Transportdauer-Limiten.",
       "publishedAt": "2026-02-12T10:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:17:36.004Z",
+      "fetchedAt": "2026-02-13T00:18:29.252Z",
       "language": "de",
       "score": 0.5,
       "matchedKeywords": [
@@ -52,7 +52,7 @@
       "summary": "Schweizweite Mindeststandards sollen vereinheitlicht werden.",
       "body": "Schweizweite Mindeststandards sollen vereinheitlicht werden.",
       "publishedAt": "2026-02-11T08:00:00.000Z",
-      "fetchedAt": "2026-02-13T00:17:36.120Z",
+      "fetchedAt": "2026-02-13T00:18:29.391Z",
       "language": "de",
       "score": 0.5,
       "matchedKeywords": [
@@ -70,7 +70,7 @@
       "summary": "Anpassung bei Kontrollen und Sanktionspraxis.",
       "body": "Anpassung bei Kontrollen und Sanktionspraxis.",
       "publishedAt": "2026-02-10T07:30:00.000Z",
-      "fetchedAt": "2026-02-13T00:17:36.187Z",
+      "fetchedAt": "2026-02-13T00:18:29.518Z",
       "language": "de",
       "score": 0.5,
       "matchedKeywords": [
@@ -79,8 +79,25 @@
       ],
       "status": "queued",
       "reviewReason": "Automatisch relevant (>= 0.25)"
+    },
+    {
+      "sourceId": "user-input",
+      "sourceUrl": "https://example.org/hinweis",
+      "externalId": "user-1770941941585",
+      "title": "Hinweis: Taubenschutz in Gemeinde X",
+      "summary": "Eingereicht durch User-Input-Kanal",
+      "body": "",
+      "publishedAt": "2026-02-13T00:19:01.585Z",
+      "fetchedAt": "2026-02-13T00:19:02.105Z",
+      "language": "de",
+      "score": 0.5,
+      "matchedKeywords": [
+        "user-input"
+      ],
+      "status": "queued",
+      "reviewReason": "Direkt aus User-Input importiert"
     }
   ],
   "publications": [],
-  "updatedAt": "2026-02-13T00:17:37.272Z"
+  "updatedAt": "2026-02-13T00:19:02.106Z"
 }

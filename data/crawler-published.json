@@ -34,5 +34,16 @@
       "tier",
       "tierschutz"
     ]
+  },
+  {
+    "id": "user-input:user-1770941941585",
+    "title": "Hinweis: Taubenschutz in Gemeinde X",
+    "summary": "Eingereicht durch User-Input-Kanal",
+    "sourceId": "user-input",
+    "publishedAt": "2026-02-13T00:19:01.585Z",
+    "score": 0.5,
+    "matchedKeywords": [
+      "user-input"
+    ]
   }
 ]

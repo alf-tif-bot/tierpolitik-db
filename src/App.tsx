@@ -225,6 +225,8 @@ export default function App() {
           </ul>
         )}
         <a href="/review.html" target="_blank" rel="noopener noreferrer">Review-Ansicht öffnen</a>
+        <span> · </span>
+        <a href="/user-input.html" target="_blank" rel="noopener noreferrer">User-Input-Kanal öffnen</a>
       </section>
 
       <TableView
