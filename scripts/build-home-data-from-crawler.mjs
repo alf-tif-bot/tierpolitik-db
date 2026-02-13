@@ -61,6 +61,13 @@ const langFromSource = (sourceId = '') => {
   return 'de'
 }
 
+const langRank = (lang = 'de') => {
+  if (lang === 'de') return 0
+  if (lang === 'fr') return 1
+  if (lang === 'it') return 2
+  return 3
+}
+
 const fallbackPeopleByLang = {
   de: { name: 'Parlamentsgeschäft (Bund)', rolle: 'Nationalrat', partei: 'Überparteilich' },
   fr: { name: 'Objet parlementaire (Confédération)', rolle: 'Nationalrat', partei: 'Überparteilich' },
@@ -136,10 +143,27 @@ const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '' })
     .join(' ')
 }
 
-const items = (db.items || [])
+const baseItems = (db.items || [])
   .filter((item) => String(item.sourceId || '').startsWith('ch-parliament-'))
+  .filter((item) => String(item.sourceId || '').endsWith('-de'))
   .filter((item) => ['approved', 'published'].includes(item.status))
-  .slice(0, 1200)
+
+const groupedByAffair = new Map()
+for (const item of baseItems) {
+  const affairId = String(item.externalId || '').split('-')[0]
+  const lang = langFromSource(item.sourceId)
+  const prev = groupedByAffair.get(affairId)
+  if (!prev) {
+    groupedByAffair.set(affairId, item)
+    continue
+  }
+  const prevLang = langFromSource(prev.sourceId)
+  const betterLang = langRank(lang) < langRank(prevLang)
+  const newer = new Date(item.fetchedAt || item.publishedAt || 0).getTime() > new Date(prev.fetchedAt || prev.publishedAt || 0).getTime()
+  if (betterLang || (!betterLang && newer)) groupedByAffair.set(affairId, item)
+}
+
+const items = [...groupedByAffair.values()].slice(0, 1200)
 
 const buildInitiativeLinks = ({ typ, title, externalId, status }) => {
   if (typ !== 'Volksinitiative') return undefined

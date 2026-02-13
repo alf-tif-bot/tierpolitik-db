@@ -90,51 +90,5 @@
       },
       "zuletztGeprueftVon": "Crawler/DB Sync"
     }
-  },
-  {
-    "id": "vp-20210426-fr",
-    "titel": "21.426 · Méthodes de substitution à l'expérimentation animale. Davantage de ressources et d'incitations pour la recherche 3R",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. En commission du Conseil national",
-    "geschaeftsnummer": "20210426-fr",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": "Romandie",
-    "status": "In Beratung",
-    "datumEingereicht": "2021-03-18",
-    "datumAktualisiert": "2026-02-13",
-    "themen": [
-      "animal",
-      "expérimentation animale",
-      "3r",
-      "animale"
-    ],
-    "schlagwoerter": [
-      "animal",
-      "expérimentation animale",
-      "3r",
-      "animale"
-    ],
-    "einreichende": [
-      {
-        "name": "Objet parlementaire (Confédération)",
-        "rolle": "Nationalrat",
-        "partei": "Überparteilich"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20210426",
-    "resultate": [
-      {
-        "datum": "2021-03-18",
-        "status": "In Beratung",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "fr",
-      "haltung": "pro-tierschutz",
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
   }
 ]

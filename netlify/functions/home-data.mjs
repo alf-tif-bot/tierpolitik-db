@@ -46,6 +46,13 @@ const langFromSource = (sourceId = '') => {
   return 'de'
 }
 
+const langRank = (lang = 'de') => {
+  if (lang === 'de') return 0
+  if (lang === 'fr') return 1
+  if (lang === 'it') return 2
+  return 3
+}
+
 const fallbackPersonByLang = {
   de: { name: 'Parlamentsgeschäft (Bund)', rolle: 'Nationalrat', partei: 'Überparteilich' },
   fr: { name: 'Objet parlementaire (Confédération)', rolle: 'Nationalrat', partei: 'Überparteilich' },
@@ -163,7 +170,7 @@ export const handler = async () => {
           limit 1
         ) mv on true
         where m.status in ('approved','published')
-          and m.source_id like 'ch-parliament-%'
+          and m.source_id like 'ch-parliament-%-de'
           and coalesce(m.published_at, m.fetched_at) >= (now() - interval '5 years')
         order by m.updated_at desc
         limit 1200
@@ -171,7 +178,24 @@ export const handler = async () => {
       return res.rows
     })
 
-    const mapped = rows.map((r, index) => {
+    const grouped = new Map()
+    for (const row of rows) {
+      const affairId = String(row.external_id || '').split('-')[0]
+      const lang = langFromSource(row.source_id)
+      const prev = grouped.get(affairId)
+      if (!prev) {
+        grouped.set(affairId, row)
+        continue
+      }
+      const prevLang = langFromSource(prev.source_id)
+      const betterLang = langRank(lang) < langRank(prevLang)
+      const newer = new Date(row.fetched_at || row.published_at || 0).getTime() > new Date(prev.fetched_at || prev.published_at || 0).getTime()
+      if (betterLang || (!betterLang && newer)) grouped.set(affairId, row)
+    }
+
+    const dedupedRows = [...grouped.values()]
+
+    const mapped = dedupedRows.map((r, index) => {
       const sprache = langFromSource(r.source_id)
       const eingereicht = toIsoDate(r.published_at || r.fetched_at)
       const updated = toIsoDate(r.fetched_at || r.published_at)
