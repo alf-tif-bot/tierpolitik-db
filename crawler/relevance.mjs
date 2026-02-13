@@ -1,3 +1,5 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import { loadDb, saveDb } from './db.mjs'
 
 export const ANCHOR_KEYWORDS = [
@@ -63,6 +65,62 @@ const normalize = (value = '') => String(value)
   .replace(/[^\p{L}\p{N}]+/gu, ' ')
   .trim()
 
+const reviewDecisionsPath = path.resolve(process.cwd(), 'data/review-decisions.json')
+const feedbackOutPath = path.resolve(process.cwd(), 'data/relevance-feedback.json')
+
+const loadReviewDecisions = () => {
+  try {
+    if (!fs.existsSync(reviewDecisionsPath)) return {}
+    return JSON.parse(fs.readFileSync(reviewDecisionsPath, 'utf8'))
+  } catch {
+    return {}
+  }
+}
+
+const buildFeedbackModel = (db, decisions) => {
+  const stats = new Map()
+
+  for (const item of db.items || []) {
+    const id = `${item.sourceId}:${item.externalId}`
+    const decision = decisions[id]?.status
+    if (!decision || !['approved', 'rejected'].includes(decision)) continue
+
+    const text = `${item.title}\n${item.summary}\n${item.body}`
+    const normalizedText = normalize(text)
+    const kws = [...new Set([
+      ...ANCHOR_KEYWORDS.filter((kw) => hasKeyword(normalizedText, kw)),
+      ...SUPPORT_KEYWORDS.filter((kw) => hasKeyword(normalizedText, kw)),
+    ])]
+
+    for (const kw of kws) {
+      const s = stats.get(kw) || { approved: 0, rejected: 0 }
+      if (decision === 'approved') s.approved += 1
+      if (decision === 'rejected') s.rejected += 1
+      stats.set(kw, s)
+    }
+  }
+
+  const weights = new Map()
+  for (const [kw, s] of stats.entries()) {
+    const total = s.approved + s.rejected
+    if (total < 2) continue
+    const weight = (s.approved - s.rejected) / total
+    weights.set(kw, weight)
+  }
+
+  try {
+    const sorted = [...weights.entries()]
+      .map(([keyword, weight]) => ({ keyword, weight: Number(weight.toFixed(3)) }))
+      .sort((a, b) => Math.abs(b.weight) - Math.abs(a.weight))
+      .slice(0, 120)
+    fs.writeFileSync(feedbackOutPath, JSON.stringify({ updatedAt: new Date().toISOString(), learned: sorted }, null, 2))
+  } catch {
+    // non-fatal
+  }
+
+  return weights
+}
+
 const hasKeyword = (normalizedText, keyword) => {
   const kw = normalize(keyword)
   if (!kw) return false
@@ -98,6 +156,8 @@ export function scoreText(text, keywords = DEFAULT_KEYWORDS) {
 
 export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords = DEFAULT_KEYWORDS } = {}) {
   const db = loadDb()
+  const decisions = loadReviewDecisions()
+  const feedbackWeights = buildFeedbackModel(db, decisions)
   const enabledSourceIds = new Set((db.sources || []).filter((s) => s.enabled !== false).map((s) => s.id))
   let touched = 0
   let relevantCount = 0
@@ -107,14 +167,21 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     const text = `${item.title}\n${item.summary}\n${item.body}`
     const { score, matched, anchorMatches, supportMatches, noiseMatches, whitelistedPeople, normalizedText } = scoreText(text, keywords)
 
+    const feedbackSignal = [...new Set([...anchorMatches, ...supportMatches])]
+      .map((kw) => feedbackWeights.get(kw) || 0)
+      .sort((a, b) => Math.abs(b) - Math.abs(a))
+      .slice(0, 4)
+    const feedbackBoost = Math.max(-0.18, Math.min(0.18, feedbackSignal.reduce((a, b) => a + b, 0) * 0.12))
+    const adjustedScore = Math.max(0, Math.min(1, score + feedbackBoost))
+
     const hasAnchor = anchorMatches.length > 0
     const hasSupport = supportMatches.length > 0
     const hasWhitelistedPerson = whitelistedPeople.length > 0
     const isRelevant =
-      (hasAnchor && (score >= minScore || (anchorMatches.length >= 2 && hasSupport)))
-      || (hasWhitelistedPerson && (hasAnchor || hasSupport) && score >= Math.max(0.14, minScore - 0.04))
+      (hasAnchor && (adjustedScore >= minScore || (anchorMatches.length >= 2 && hasSupport)))
+      || (hasWhitelistedPerson && (hasAnchor || hasSupport) && adjustedScore >= Math.max(0.14, minScore - 0.04))
 
-    item.score = score
+    item.score = adjustedScore
     item.matchedKeywords = matched
 
     const prevStatus = item.status
@@ -124,11 +191,11 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     }
 
     const rule = isRelevant
-      ? (hasWhitelistedPerson ? 'whitelist+theme' : (score >= minScore ? 'anchor+score' : 'anchor2+support'))
+      ? (hasWhitelistedPerson ? 'whitelist+theme' : (adjustedScore >= minScore ? 'anchor+score' : 'anchor2+support'))
       : (!hasAnchor ? 'missing-anchor' : 'below-threshold')
     const stance = classifyStance(normalizedText)
 
-    item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · stance=${stance} · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · people=${whitelistedPeople.slice(0, 2).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · score=${score.toFixed(2)}`
+    item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · stance=${stance} · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · people=${whitelistedPeople.slice(0, 2).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · feedback=${feedbackBoost.toFixed(2)} · score=${adjustedScore.toFixed(2)}`
 
     if (isRelevant) relevantCount += 1
     touched += 1

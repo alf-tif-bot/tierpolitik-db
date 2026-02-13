@@ -1,0 +1,53 @@
+{
+  "updatedAt": "2026-02-13T22:31:50.274Z",
+  "learned": [
+    {
+      "keyword": "transport",
+      "weight": -1
+    },
+    {
+      "keyword": "kontrolle",
+      "weight": -1
+    },
+    {
+      "keyword": "protection",
+      "weight": -1
+    },
+    {
+      "keyword": "agriculture",
+      "weight": -1
+    },
+    {
+      "keyword": "motion",
+      "weight": -1
+    },
+    {
+      "keyword": "stopfleber",
+      "weight": 1
+    },
+    {
+      "keyword": "gesetz",
+      "weight": -1
+    },
+    {
+      "keyword": "sanktion",
+      "weight": -1
+    },
+    {
+      "keyword": "botschaft",
+      "weight": -0.985
+    },
+    {
+      "keyword": "landwirtschaft",
+      "weight": -0.867
+    },
+    {
+      "keyword": "initiative",
+      "weight": -0.733
+    },
+    {
+      "keyword": "biodiversität",
+      "weight": 0
+    }
+  ]
+}

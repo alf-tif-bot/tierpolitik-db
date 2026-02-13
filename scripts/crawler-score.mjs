@@ -1,4 +1,45 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import { runRelevanceFilter } from '../crawler/relevance.mjs'
+import { withPgClient } from '../crawler/db-postgres.mjs'
 
+const decisionsPath = path.resolve(process.cwd(), 'data/review-decisions.json')
+
+async function syncReviewDecisionsFromDb() {
+  try {
+    const rows = await withPgClient(async (client) => {
+      const res = await client.query(`
+        select m.source_id, m.external_id, r.status, r.decided_at
+        from reviews r
+        join motions m on m.id = r.motion_id
+        join (
+          select motion_id, max(decided_at) as decided_at
+          from reviews
+          group by motion_id
+        ) latest on latest.motion_id = r.motion_id and latest.decided_at = r.decided_at
+      `)
+      return res.rows
+    })
+
+    const current = fs.existsSync(decisionsPath)
+      ? JSON.parse(fs.readFileSync(decisionsPath, 'utf8'))
+      : {}
+
+    for (const row of rows) {
+      const key = `${row.source_id}:${row.external_id}`
+      current[key] = {
+        status: String(row.status || 'queued'),
+        decidedAt: new Date(row.decided_at || Date.now()).toISOString(),
+      }
+    }
+
+    fs.writeFileSync(decisionsPath, JSON.stringify(current, null, 2))
+    return rows.length
+  } catch {
+    return 0
+  }
+}
+
+const synced = await syncReviewDecisionsFromDb()
 const result = runRelevanceFilter({ minScore: 0.18, fallbackMin: 0 })
-console.log('Relevanz-Filter OK', result)
+console.log('Relevanz-Filter OK', { ...result, syncedReviewDecisions: synced })
