@@ -24,6 +24,7 @@ const rows = reviewItems.map((item) => {
 <td>${(item.score ?? 0).toFixed(2)}</td>
 <td>${esc((item.matchedKeywords || []).join(', '))}</td>
 <td>${esc(item.status)} (${pendingBadge})</td>
+<td><small>${esc(item.reviewReason || '-')}</small></td>
 <td>
 <button onclick="setDecision('${esc(id)}','approved')">Approve</button>
 <button onclick="setDecision('${esc(id)}','rejected')">Reject</button>
@@ -39,7 +40,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><title>Crawler Re
 <p>Status-Summen: new=${counts.new || 0}, queued=${counts.queued || 0}, approved=${counts.approved || 0}, rejected=${counts.rejected || 0}, published=${counts.published || 0}</p>
 <nav class="links"><a href="/crawler.html">Zur Crawler-Ansicht</a><a href="/">Zur App</a></nav>
 <p><button onclick="exportDecisions()">Entscheidungen exportieren</button></p>
-<table><thead><tr><th>Titel</th><th>Quelle</th><th>Score</th><th>Treffer</th><th>Status</th><th>Aktion</th></tr></thead><tbody>${rows || '<tr><td colspan="6">Keine Einträge.</td></tr>'}</tbody></table>
+<table><thead><tr><th>Titel</th><th>Quelle</th><th>Score</th><th>Treffer</th><th>Status</th><th>Warum relevant / nicht</th><th>Aktion</th></tr></thead><tbody>${rows || '<tr><td colspan="7">Keine Einträge.</td></tr>'}</tbody></table>
 <script>
 const key='tierpolitik.review';
 const read=()=>JSON.parse(localStorage.getItem(key)||'{}');

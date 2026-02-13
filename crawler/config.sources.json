@@ -8,8 +8,10 @@
     "enabled": true,
     "options": {
       "lang": "DE",
-      "top": 25,
-      "daysBack": 60
+      "top": 320,
+      "sampleLimit": 140,
+      "thematicMinQuota": 95,
+      "daysBack": 3650
     }
   },
   {
@@ -21,8 +23,10 @@
     "enabled": true,
     "options": {
       "lang": "FR",
-      "top": 15,
-      "daysBack": 60
+      "top": 260,
+      "sampleLimit": 110,
+      "thematicMinQuota": 75,
+      "daysBack": 3650
     }
   },
   {
@@ -33,7 +37,7 @@
     "alternateUrls": [
       "https://www.blv.admin.ch/blv/fr/home/das-blv/aktuell/medienmitteilungen.feed.xml"
     ],
-    "enabled": false,
+    "enabled": true,
     "fallbackMode": "alwaysOnFailure",
     "fallbackPath": "data/fixtures/blv-news.xml"
   },

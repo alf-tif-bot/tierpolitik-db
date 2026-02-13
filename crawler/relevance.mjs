@@ -1,29 +1,24 @@
 import { loadDb, saveDb } from './db.mjs'
 
 export const ANCHOR_KEYWORDS = [
-  'tier',
-  'tiere',
-  'tierschutz',
-  'nutztiere',
-  'tierhaltung',
-  'tiertransport',
-  'schlachthof',
-  'versuchstiere',
-  'animal',
-  'animaux',
-  'protection animale',
-  'jagd',
-  'fischerei',
+  'tier', 'tiere', 'tierschutz', 'tierwohl', 'nutztiere', 'tierhaltung', 'tiertransport',
+  'schlachthof', 'versuchstiere', 'haustier', 'hunde', 'katze', 'katzen',
+  'animal', 'animaux', 'protection animale', 'bien-être animal',
+  'jagd', 'fischerei', 'wildtiere',
 ]
 
-export const DEFAULT_KEYWORDS = [
-  ...ANCHOR_KEYWORDS,
-  'wohl der tiere',
-  'haustier',
-  'hunde',
-  'katze',
-  'katzen',
+const SUPPORT_KEYWORDS = [
+  'stall', 'haltung', 'transport', 'kontrolle', 'veterinär', 'veterinaer', 'verordnung',
+  'gesetz', 'initiative', 'motion', 'postulat', 'botschaft', 'sanktion', 'zucht',
+  'schlacht', 'mast', 'pelz', 'fisch', 'jagd', 'wildtier',
 ]
+
+const NOISE_KEYWORDS = [
+  'energie', 'elektrizität', 'elektrizitaet', 'steuern', 'finanz', 'ahv', 'armee',
+  'rhone', 'gotthard', 'tunnel', 'digitalisierung',
+]
+
+export const DEFAULT_KEYWORDS = [...new Set([...ANCHOR_KEYWORDS, ...SUPPORT_KEYWORDS])]
 
 const normalize = (value = '') => String(value)
   .toLowerCase()
@@ -34,35 +29,64 @@ const hasKeyword = (normalizedText, keyword) => {
   const kw = normalize(keyword)
   if (!kw) return false
   if (kw.includes(' ')) return normalizedText.includes(kw)
-  return normalizedText.split(' ').includes(kw)
+  const tokens = normalizedText.split(' ')
+  return tokens.some((token) => token === kw || token.startsWith(kw))
 }
 
 export function scoreText(text, keywords = DEFAULT_KEYWORDS) {
   const normalizedText = normalize(text)
+  const anchorMatches = ANCHOR_KEYWORDS.filter((kw) => hasKeyword(normalizedText, kw))
+  const supportMatches = SUPPORT_KEYWORDS.filter((kw) => hasKeyword(normalizedText, kw))
+  const noiseMatches = NOISE_KEYWORDS.filter((kw) => hasKeyword(normalizedText, kw))
   const matched = keywords.filter((kw) => hasKeyword(normalizedText, kw))
-  const score = Math.min(1, matched.length / 4)
-  return { score, matched, normalizedText }
+
+  const anchorScore = Math.min(0.7, anchorMatches.length * 0.28)
+  const supportScore = Math.min(0.45, supportMatches.length * 0.14)
+  const noisePenalty = Math.min(0.3, noiseMatches.length * 0.1)
+  const score = Math.max(0, Math.min(1, anchorScore + supportScore - noisePenalty))
+
+  return { score, matched, normalizedText, anchorMatches, supportMatches, noiseMatches }
 }
 
-export function runRelevanceFilter({ minScore = 0.25, keywords = DEFAULT_KEYWORDS } = {}) {
+export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords = DEFAULT_KEYWORDS } = {}) {
   const db = loadDb()
   let touched = 0
+  let relevantCount = 0
 
   for (const item of db.items) {
     const text = `${item.title}\n${item.summary}\n${item.body}`
-    const { score, matched, normalizedText } = scoreText(text, keywords)
-    const hasAnchor = ANCHOR_KEYWORDS.some((kw) => hasKeyword(normalizedText, kw))
-    const isRelevant = hasAnchor && score >= minScore
+    const { score, matched, anchorMatches, supportMatches, noiseMatches } = scoreText(text, keywords)
+
+    const hasAnchor = anchorMatches.length > 0
+    const hasSupport = supportMatches.length > 0
+    const isRelevant = hasAnchor && (score >= minScore || (anchorMatches.length >= 2 && hasSupport))
 
     item.score = score
     item.matchedKeywords = matched
     item.status = isRelevant ? 'queued' : 'rejected'
-    item.reviewReason = isRelevant
-      ? `Automatisch relevant (>= ${minScore}, mit Tierschutz-Anker)`
-      : `Automatisch ausgeschlossen (kein Tierschutz-Anker oder < ${minScore})`
+
+    const rule = isRelevant
+      ? (score >= minScore ? 'anchor+score' : 'anchor2+support')
+      : (!hasAnchor ? 'missing-anchor' : 'below-threshold')
+
+    item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · score=${score.toFixed(2)}`
+
+    if (isRelevant) relevantCount += 1
     touched += 1
   }
 
+  if (relevantCount === 0 && db.items.length > 0) {
+    const fallback = [...db.items]
+      .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
+      .slice(0, fallbackMin)
+
+    for (const item of fallback) {
+      item.status = 'queued'
+      item.reviewReason = `${item.reviewReason} · fallback=on`
+    }
+    relevantCount = fallback.length
+  }
+
   saveDb(db)
-  return { touched, minScore }
+  return { touched, minScore, relevantCount }
 }
