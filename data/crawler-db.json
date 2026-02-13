@@ -38,13 +38,12 @@
       "publishedAt": "2026-02-12T10:00:00.000Z",
       "fetchedAt": "2026-02-13T00:23:52.085Z",
       "language": "de",
-      "score": 0.5,
+      "score": 0.25,
       "matchedKeywords": [
-        "tier",
         "tiertransport"
       ],
       "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "reviewReason": "Automatisch relevant (>= 0.25, mit Tierschutz-Anker)"
     },
     {
       "sourceId": "blv-news",
@@ -56,13 +55,10 @@
       "publishedAt": "2026-02-11T08:00:00.000Z",
       "fetchedAt": "2026-02-13T09:35:31.287Z",
       "language": "de",
-      "score": 0.5,
-      "matchedKeywords": [
-        "tier",
-        "tierhaltung"
-      ],
-      "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "bundesrat-news",
@@ -74,13 +70,10 @@
       "publishedAt": "2026-02-10T07:30:00.000Z",
       "fetchedAt": "2026-02-13T09:35:31.430Z",
       "language": "de",
-      "score": 0.5,
-      "matchedKeywords": [
-        "tier",
-        "tierschutz"
-      ],
-      "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "user-input",
@@ -95,7 +88,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -110,7 +103,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -125,7 +118,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -140,7 +133,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -155,7 +148,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -167,13 +160,10 @@
       "publishedAt": "2022-03-08T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:35:27.625Z",
       "language": "de",
-      "score": 0.5,
-      "matchedKeywords": [
-        "tier",
-        "tiere"
-      ],
-      "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -188,7 +178,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -203,7 +193,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -218,7 +208,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -233,7 +223,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -248,7 +238,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -258,12 +248,12 @@
       "summary": "Botschaft vom 28. Januar 2026 zum Bundesbeschluss über den Einsatz der Armee im Assistenzdienst anlässlich des G7-Gipfels in Évian",
       "body": "Botschaft vom 28. Januar 2026 zum Bundesbeschluss über den Einsatz der Armee im Assistenzdienst anlässlich des G7-Gipfels in Évian Internationale Politik|Sicherheitspolitik|Wirtschaft",
       "publishedAt": "2026-01-28T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -278,7 +268,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -293,7 +283,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -308,7 +298,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -323,7 +313,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -338,7 +328,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -353,7 +343,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -368,7 +358,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -383,7 +373,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -398,7 +388,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -413,7 +403,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -428,7 +418,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -443,7 +433,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -458,7 +448,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -473,7 +463,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -488,7 +478,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -503,7 +493,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -518,7 +508,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -533,7 +523,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -548,7 +538,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -563,7 +553,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -575,12 +565,10 @@
       "publishedAt": "2025-12-04T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:35:27.625Z",
       "language": "de",
-      "score": 0.25,
-      "matchedKeywords": [
-        "tier"
-      ],
-      "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -595,7 +583,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -610,7 +598,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -625,7 +613,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -640,7 +628,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -655,7 +643,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -670,7 +658,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -685,7 +673,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -700,7 +688,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -715,7 +703,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -727,12 +715,10 @@
       "publishedAt": "2025-12-03T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:35:27.625Z",
       "language": "de",
-      "score": 0.25,
-      "matchedKeywords": [
-        "tier"
-      ],
-      "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -747,7 +733,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -762,7 +748,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -777,7 +763,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -792,7 +778,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -807,7 +793,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -822,7 +808,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -837,7 +823,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -852,7 +838,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -867,7 +853,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -882,7 +868,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -897,7 +883,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -912,7 +898,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -927,7 +913,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -942,7 +928,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -957,7 +943,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -972,7 +958,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -987,7 +973,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1002,7 +988,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1017,7 +1003,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1029,13 +1015,10 @@
       "publishedAt": "2025-12-10T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:35:27.625Z",
       "language": "de",
-      "score": 0.5,
-      "matchedKeywords": [
-        "tier",
-        "tiere"
-      ],
-      "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1050,7 +1033,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1065,7 +1048,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1080,7 +1063,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1095,7 +1078,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1110,7 +1093,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1125,7 +1108,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1140,7 +1123,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1155,7 +1138,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1170,7 +1153,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1185,7 +1168,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1200,7 +1183,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1215,7 +1198,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1230,7 +1213,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1245,7 +1228,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1260,7 +1243,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1275,7 +1258,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1290,7 +1273,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1302,12 +1285,10 @@
       "publishedAt": "2025-12-15T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:35:27.625Z",
       "language": "de",
-      "score": 0.25,
-      "matchedKeywords": [
-        "tier"
-      ],
-      "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1322,7 +1303,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1337,7 +1318,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1352,7 +1333,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1367,7 +1348,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1382,7 +1363,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1397,7 +1378,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1412,7 +1393,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1427,7 +1408,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1442,7 +1423,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1457,7 +1438,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1472,7 +1453,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1487,7 +1468,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1502,7 +1483,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1517,7 +1498,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1532,7 +1513,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1547,7 +1528,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1562,7 +1543,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1577,7 +1558,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1592,7 +1573,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1607,7 +1588,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1622,7 +1603,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1637,7 +1618,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1652,7 +1633,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1667,7 +1648,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1682,7 +1663,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1697,7 +1678,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1712,7 +1693,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1727,7 +1708,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1742,7 +1723,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1757,7 +1738,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1772,7 +1753,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1787,7 +1768,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1802,7 +1783,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1817,7 +1798,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1832,7 +1813,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1847,7 +1828,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1862,7 +1843,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1877,7 +1858,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1892,7 +1873,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -1907,7 +1888,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -1922,7 +1903,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -1937,7 +1918,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -1952,7 +1933,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -1967,7 +1948,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -1982,7 +1963,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -1997,7 +1978,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2012,7 +1993,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2027,7 +2008,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2042,7 +2023,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2057,7 +2038,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2072,7 +2053,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2087,7 +2068,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2099,12 +2080,10 @@
       "publishedAt": "2025-09-18T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:35:31.016Z",
       "language": "fr",
-      "score": 0.25,
-      "matchedKeywords": [
-        "tier"
-      ],
-      "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2119,7 +2098,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2134,7 +2113,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2149,7 +2128,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2164,7 +2143,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2179,7 +2158,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2194,7 +2173,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2209,7 +2188,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2224,7 +2203,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2239,7 +2218,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2254,7 +2233,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2269,7 +2248,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2284,7 +2263,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2299,7 +2278,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2314,7 +2293,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2329,7 +2308,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2344,7 +2323,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2359,7 +2338,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2374,7 +2353,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2389,7 +2368,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2404,7 +2383,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2419,7 +2398,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2434,7 +2413,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2449,7 +2428,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2464,7 +2443,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2479,7 +2458,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2494,7 +2473,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2509,7 +2488,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2524,7 +2503,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2539,7 +2518,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2554,7 +2533,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2569,7 +2548,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2584,7 +2563,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2599,7 +2578,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2614,7 +2593,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2629,7 +2608,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2644,7 +2623,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2659,7 +2638,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2674,7 +2653,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2689,7 +2668,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2704,7 +2683,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2719,7 +2698,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2734,7 +2713,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2749,7 +2728,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2764,7 +2743,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2779,7 +2758,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2794,7 +2773,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2809,7 +2788,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2824,7 +2803,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2839,7 +2818,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2854,7 +2833,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2869,7 +2848,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2884,7 +2863,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2899,7 +2878,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2914,7 +2893,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2929,7 +2908,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2944,7 +2923,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2959,7 +2938,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2974,7 +2953,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -2989,7 +2968,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3004,7 +2983,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3019,7 +2998,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3034,7 +3013,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3049,7 +3028,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3064,7 +3043,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3079,7 +3058,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3094,7 +3073,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3109,7 +3088,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3119,14 +3098,12 @@
       "summary": "In Nationalrat geplant",
       "body": "Zivilrecht|Raumplanung und Wohnungswesen",
       "publishedAt": "2017-09-29T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
-      "score": 0.25,
-      "matchedKeywords": [
-        "tier"
-      ],
-      "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3136,12 +3113,12 @@
       "summary": "Vorprüfung - in Kommission des Nationalrates",
       "body": "Staatspolitik|Soziale Fragen",
       "publishedAt": "2025-06-20T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3151,12 +3128,12 @@
       "summary": "In Kommission des Nationalrats",
       "body": "Strafrecht",
       "publishedAt": "2019-01-07T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3166,12 +3143,12 @@
       "summary": "In Kommission des Nationalrats",
       "body": "Europapolitik|Internationales Recht",
       "publishedAt": "2025-06-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3183,12 +3160,10 @@
       "publishedAt": "2017-09-29T00:00:00.000Z",
       "fetchedAt": "2026-02-13T09:35:31.016Z",
       "language": "fr",
-      "score": 0.25,
-      "matchedKeywords": [
-        "tier"
-      ],
-      "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3203,7 +3178,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3218,7 +3193,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3233,7 +3208,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3243,12 +3218,12 @@
       "summary": "In Kommission des Ständerats",
       "body": "Soziale Fragen|Umwelt",
       "publishedAt": "2025-01-31T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3258,12 +3233,12 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Soziale Fragen|Kultur",
       "publishedAt": "2026-01-23T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3273,12 +3248,12 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Staatspolitik|Sicherheitspolitik|Medien und Kommunikation",
       "publishedAt": "2024-03-14T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3288,12 +3263,12 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Sicherheitspolitik|Soziale Fragen|Beschäftigung und Arbeit",
       "publishedAt": "2025-06-20T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3308,7 +3283,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3323,7 +3298,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3338,7 +3313,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3353,7 +3328,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3363,12 +3338,12 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Gerichtswesen",
       "publishedAt": "2025-09-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3378,12 +3353,12 @@
       "summary": "Botschaft vom 20. August 2025 zum Voranschlag 2026 mit integriertem Aufgaben- und Finanzplan 2027-2029",
       "body": "Botschaft vom 20. August 2025 zum Voranschlag 2026 mit integriertem Aufgaben- und Finanzplan 2027-2029 Finanzwesen",
       "publishedAt": "2025-08-20T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3393,12 +3368,12 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Staatspolitik",
       "publishedAt": "2025-09-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3408,12 +3383,12 @@
       "summary": "Botschaft vom 23. Oktober 2024 zur Änderung des Bundesgesetzes über die Alters- und Hinterlassenenversicherung (Anpassung der Hinterlassenenrenten)",
       "body": "Botschaft vom 23. Oktober 2024 zur Änderung des Bundesgesetzes über die Alters- und Hinterlassenenversicherung (Anpassung der Hinterlassenenrenten) Soziale Fragen|Beschäftigung und Arbeit|Sozialer Schutz",
       "publishedAt": "2024-10-23T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3423,12 +3398,12 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Finanzwesen",
       "publishedAt": "2025-09-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3438,12 +3413,12 @@
       "summary": "Botschaft vom 12. September 2025 zu einer Änderung des Zivilgesetzbuches (Erleichterte Stiefkindadoption)",
       "body": "Botschaft vom 12. September 2025 zu einer Änderung des Zivilgesetzbuches (Erleichterte Stiefkindadoption) Soziale Fragen|Zivilrecht|Gesundheit",
       "publishedAt": "2025-09-12T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3453,12 +3428,12 @@
       "summary": "Eingereicht",
       "body": "",
       "publishedAt": "2026-02-13T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3468,12 +3443,12 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Verkehr|Umwelt",
       "publishedAt": "2025-12-09T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3483,12 +3458,12 @@
       "summary": "In Kommission des Ständerats",
       "body": "Wirtschaft|Beschäftigung und Arbeit|Sozialer Schutz",
       "publishedAt": "2020-03-12T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3498,12 +3473,12 @@
       "summary": "Attribué à la commission compétente",
       "body": "Justice",
       "publishedAt": "2025-09-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:03.291Z",
+      "fetchedAt": "2026-02-13T09:44:49.885Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3513,12 +3488,12 @@
       "summary": "Message du 20 août 2025 sur le Budget 2026 assorti d’un plan intégré des tâches et des finances 2027-2029",
       "body": "Message du 20 août 2025 sur le Budget 2026 assorti d’un plan intégré des tâches et des finances 2027-2029 Finances",
       "publishedAt": "2025-08-20T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:03.291Z",
+      "fetchedAt": "2026-02-13T09:44:49.885Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3528,12 +3503,12 @@
       "summary": "Attribué à la commission compétente",
       "body": "Politique d'Etat",
       "publishedAt": "2025-09-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:03.291Z",
+      "fetchedAt": "2026-02-13T09:44:49.885Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3543,12 +3518,12 @@
       "summary": "Message du 23 octobre 2024 relatif à la modification de la loi fédérale sur l’assurance-vieillesse et survivants (Adaptation des rentes de survivants)",
       "body": "Message du 23 octobre 2024 relatif à la modification de la loi fédérale sur l’assurance-vieillesse et survivants (Adaptation des rentes de survivants) Questions sociales|Emploi et travail|Protection sociale",
       "publishedAt": "2024-10-23T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:03.291Z",
+      "fetchedAt": "2026-02-13T09:44:49.885Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3558,12 +3533,12 @@
       "summary": "Attribué à la commission compétente",
       "body": "Finances",
       "publishedAt": "2025-09-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:03.291Z",
+      "fetchedAt": "2026-02-13T09:44:49.885Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3573,12 +3548,12 @@
       "summary": "Message du 12 septembre 2025 concernant une modification du code civil suisse (Adoption facilitée de l’enfant du conjoint ou du partenaire)",
       "body": "Message du 12 septembre 2025 concernant une modification du code civil suisse (Adoption facilitée de l’enfant du conjoint ou du partenaire) Questions sociales|Droit civil|Santé",
       "publishedAt": "2025-09-12T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:03.291Z",
+      "fetchedAt": "2026-02-13T09:44:49.885Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3588,12 +3563,12 @@
       "summary": "Déposé",
       "body": "",
       "publishedAt": "2026-02-13T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:03.291Z",
+      "fetchedAt": "2026-02-13T09:44:49.885Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3603,12 +3578,12 @@
       "summary": "Attribué à la commission compétente",
       "body": "Transports|Environnement",
       "publishedAt": "2025-12-09T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:03.291Z",
+      "fetchedAt": "2026-02-13T09:44:49.885Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3623,7 +3598,7 @@
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3633,12 +3608,12 @@
       "summary": "Botschaft vom 12. Dezember 2025 zur Änderung des Stromversorgungsgesetzes (Anforderungen an systemkritische Unternehmen)",
       "body": "Botschaft vom 12. Dezember 2025 zur Änderung des Stromversorgungsgesetzes (Anforderungen an systemkritische Unternehmen) Sicherheitspolitik|Wirtschaft|Energie",
       "publishedAt": "2025-12-12T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3648,12 +3623,12 @@
       "summary": "Botschaft vom 5. Dezember 2025 zur Änderung des Freizügigkeitsgesetzes",
       "body": "Botschaft vom 5. Dezember 2025 zur Änderung des Freizügigkeitsgesetzes Beschäftigung und Arbeit|Sozialer Schutz",
       "publishedAt": "2025-12-05T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3663,12 +3638,12 @@
       "summary": "Botschaft vom 5. Dezember 2025 zur Änderung des Schweizerischen Zivilgesetzbuchs (Erwachsenenschutz)",
       "body": "Botschaft vom 5. Dezember 2025 zur Änderung des Schweizerischen Zivilgesetzbuchs (Erwachsenenschutz) Zivilrecht",
       "publishedAt": "2025-12-05T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3678,12 +3653,12 @@
       "summary": "Message du 12 décembre 2025 concernant la modification de la loi sur l’approvisionnement en électricité (Exigences envers les entreprises d’importance critique)",
       "body": "Message du 12 décembre 2025 concernant la modification de la loi sur l’approvisionnement en électricité (Exigences envers les entreprises d’importance critique) Politique de sécurité|Économie|Énergie",
       "publishedAt": "2025-12-12T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:03.291Z",
+      "fetchedAt": "2026-02-13T09:44:49.885Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3693,12 +3668,12 @@
       "summary": "Message du 5 décembre 2025 concernant la modification de la loi sur le libre passage",
       "body": "Message du 5 décembre 2025 concernant la modification de la loi sur le libre passage Emploi et travail|Protection sociale",
       "publishedAt": "2025-12-05T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:03.291Z",
+      "fetchedAt": "2026-02-13T09:44:49.885Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3708,12 +3683,12 @@
       "summary": "Message du 5 décembre 2025 relatif à la modification du code civil suisse (Protection de l’adulte)",
       "body": "Message du 5 décembre 2025 relatif à la modification du code civil suisse (Protection de l’adulte) Droit civil",
       "publishedAt": "2025-12-05T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:03.291Z",
+      "fetchedAt": "2026-02-13T09:44:49.885Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -3723,14 +3698,12 @@
       "summary": "Botschaft vom 12. Dezember 2025 zur Änderung des Bundesgesetzes über die Krankenversicherung (Versicherung von inhaftierten Personen)",
       "body": "Botschaft vom 12. Dezember 2025 zur Änderung des Bundesgesetzes über die Krankenversicherung (Versicherung von inhaftierten Personen) Strafrecht|Gesundheit",
       "publishedAt": "2025-12-12T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:00.567Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
       "language": "de",
-      "score": 0.25,
-      "matchedKeywords": [
-        "tier"
-      ],
-      "status": "queued",
-      "reviewReason": "Automatisch relevant (>= 0.25)"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -3740,14 +3713,104 @@
       "summary": "Message du 12 décembre 2025 concernant la modification de la loi fédérale sur l’assurance-maladie (Assurance des personnes détenues)",
       "body": "Message du 12 décembre 2025 concernant la modification de la loi fédérale sur l’assurance-maladie (Assurance des personnes détenues) Droit pénal|Santé",
       "publishedAt": "2025-12-12T00:00:00.000Z",
-      "fetchedAt": "2026-02-13T09:37:03.291Z",
+      "fetchedAt": "2026-02-13T09:44:49.885Z",
       "language": "fr",
       "score": 0,
       "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Automatisch ausgeschlossen (< 0.25)"
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
+    },
+    {
+      "sourceId": "ch-parliament-business-de",
+      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254735",
+      "externalId": "20254735-de",
+      "title": "25.4735 · Erneute Angebotsverschlechterung auf der Zugstrecke Schaffhausen-Zürich",
+      "summary": "Stellungnahme zum Vorstoss liegt vor",
+      "body": "Verkehr",
+      "publishedAt": "2025-12-19T00:00:00.000Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
+    },
+    {
+      "sourceId": "ch-parliament-business-de",
+      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20260021",
+      "externalId": "20260021-de",
+      "title": "26.021 · Bundesgesetz über den Nachrichtendienst (Nachrichtendienstgesetz, NDG). Änderung",
+      "summary": "Zugewiesen an die behandelnde Kommission",
+      "body": "Staatspolitik|Sicherheitspolitik",
+      "publishedAt": "2026-01-28T00:00:00.000Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
+    },
+    {
+      "sourceId": "ch-parliament-business-de",
+      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250100",
+      "externalId": "20250100-de",
+      "title": "25.100 · Änderung des Niederlassungsabkommens zwischen der Schweiz und Iran. Genehmigung",
+      "summary": "Botschaft vom 19. Dezember 2025 zur Genehmigung der Änderung des Niederlassungsabkommens zwischen der Schweiz und Iran",
+      "body": "Botschaft vom 19. Dezember 2025 zur Genehmigung der Änderung des Niederlassungsabkommens zwischen der Schweiz und Iran Internationale Politik|Zivilrecht|Migration",
+      "publishedAt": "2025-12-19T00:00:00.000Z",
+      "fetchedAt": "2026-02-13T09:44:47.233Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
+    },
+    {
+      "sourceId": "ch-parliament-business-fr",
+      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254735",
+      "externalId": "20254735-fr",
+      "title": "25.4735 · Nouvelle détérioration de l’offre sur la ligne de train Schaffhouse-Zurich",
+      "summary": "L’avis relatif à l’intervention est disponible",
+      "body": "Transports",
+      "publishedAt": "2025-12-19T00:00:00.000Z",
+      "fetchedAt": "2026-02-13T09:44:49.885Z",
+      "language": "fr",
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
+    },
+    {
+      "sourceId": "ch-parliament-business-fr",
+      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20260021",
+      "externalId": "20260021-fr",
+      "title": "26.021 · Loi sur le renseignement (LRens). Modification",
+      "summary": "Attribué à la commission compétente",
+      "body": "Politique d'Etat|Politique de sécurité",
+      "publishedAt": "2026-01-28T00:00:00.000Z",
+      "fetchedAt": "2026-02-13T09:44:49.885Z",
+      "language": "fr",
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
+    },
+    {
+      "sourceId": "ch-parliament-business-fr",
+      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250100",
+      "externalId": "20250100-fr",
+      "title": "25.100 · Protocole d'amendement à la Convention d'établissement conclue entre la Suisse et l'Iran. Approbation",
+      "summary": "Message du 19 décembre 2025 concernant l’approbation du protocole d’amendement à la Convention d’établissement conclue entre la Suisse et l’Iran",
+      "body": "Message du 19 décembre 2025 concernant l’approbation du protocole d’amendement à la Convention d’établissement conclue entre la Suisse et l’Iran Politique internationale|Droit civil|Politique migratoire",
+      "publishedAt": "2025-12-19T00:00:00.000Z",
+      "fetchedAt": "2026-02-13T09:44:49.885Z",
+      "language": "fr",
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Automatisch ausgeschlossen (kein Tierschutz-Anker oder < 0.25)"
     }
   ],
   "publications": [],
-  "updatedAt": "2026-02-13T09:37:08.324Z"
+  "updatedAt": "2026-02-13T09:44:54.820Z"
 }

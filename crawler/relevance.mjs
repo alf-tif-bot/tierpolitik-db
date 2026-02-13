@@ -1,28 +1,47 @@
 import { loadDb, saveDb } from './db.mjs'
 
-export const DEFAULT_KEYWORDS = [
+export const ANCHOR_KEYWORDS = [
   'tier',
+  'tiere',
   'tierschutz',
   'nutztiere',
   'tierhaltung',
-  'schlachthof',
   'tiertransport',
-  'jagd',
-  'fischerei',
+  'schlachthof',
   'versuchstiere',
-  'tiere',
   'animal',
   'animaux',
   'protection animale',
-  'wohl der tiere',
-  'hund',
-  'katze',
+  'jagd',
+  'fischerei',
 ]
+
+export const DEFAULT_KEYWORDS = [
+  ...ANCHOR_KEYWORDS,
+  'wohl der tiere',
+  'haustier',
+  'hunde',
+  'katze',
+  'katzen',
+]
+
+const normalize = (value = '') => String(value)
+  .toLowerCase()
+  .replace(/[^\p{L}\p{N}]+/gu, ' ')
+  .trim()
+
+const hasKeyword = (normalizedText, keyword) => {
+  const kw = normalize(keyword)
+  if (!kw) return false
+  if (kw.includes(' ')) return normalizedText.includes(kw)
+  return normalizedText.split(' ').includes(kw)
+}
+
 export function scoreText(text, keywords = DEFAULT_KEYWORDS) {
-  const lower = text.toLowerCase()
-  const matched = keywords.filter((kw) => lower.includes(kw))
+  const normalizedText = normalize(text)
+  const matched = keywords.filter((kw) => hasKeyword(normalizedText, kw))
   const score = Math.min(1, matched.length / 4)
-  return { score, matched }
+  return { score, matched, normalizedText }
 }
 
 export function runRelevanceFilter({ minScore = 0.25, keywords = DEFAULT_KEYWORDS } = {}) {
@@ -31,11 +50,16 @@ export function runRelevanceFilter({ minScore = 0.25, keywords = DEFAULT_KEYWORD
 
   for (const item of db.items) {
     const text = `${item.title}\n${item.summary}\n${item.body}`
-    const { score, matched } = scoreText(text, keywords)
+    const { score, matched, normalizedText } = scoreText(text, keywords)
+    const hasAnchor = ANCHOR_KEYWORDS.some((kw) => hasKeyword(normalizedText, kw))
+    const isRelevant = hasAnchor && score >= minScore
+
     item.score = score
     item.matchedKeywords = matched
-    item.status = score >= minScore ? 'queued' : 'rejected'
-    item.reviewReason = score >= minScore ? `Automatisch relevant (>= ${minScore})` : `Automatisch ausgeschlossen (< ${minScore})`
+    item.status = isRelevant ? 'queued' : 'rejected'
+    item.reviewReason = isRelevant
+      ? `Automatisch relevant (>= ${minScore}, mit Tierschutz-Anker)`
+      : `Automatisch ausgeschlossen (kein Tierschutz-Anker oder < ${minScore})`
     touched += 1
   }
 
