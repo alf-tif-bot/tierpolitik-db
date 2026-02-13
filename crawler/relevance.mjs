@@ -2,16 +2,20 @@ import { loadDb, saveDb } from './db.mjs'
 
 export const ANCHOR_KEYWORDS = [
   'tier', 'tiere', 'tierschutz', 'tierwohl', 'nutztiere', 'tierhaltung', 'tiertransport',
-  'schlachthof', 'versuchstiere', 'haustier', 'hunde', 'katze', 'katzen',
-  'animal', 'animaux', 'protection animale', 'bien-être animal',
-  'jagd', 'fischerei', 'wildtiere',
-  'stopfleber', 'foie gras', 'pelz', '3r', 'experiment',
+  'tierversuch', 'tierversuche', 'versuchstiere', 'schlachthof',
+  'haustier', 'hunde', 'hund', 'katze', 'katzen', 'geflügel', 'gefluegel', 'schwein', 'rind',
+  'wildtier', 'wildtiere', 'wolf', 'biber', 'fuchs',
+  'animal', 'animaux', 'protection animale', 'bien-être animal', 'bien etre animal',
+  'expérimentation animale', 'experiment animal', 'sperimentazione animale',
+  'jagd', 'chasse', 'caccia', 'fischerei', 'pêche', 'peche', 'pesca',
+  'stopfleber', 'foie gras', 'pelz', 'fourrure', '3r', 'apiculture', 'apiculteur',
 ]
 
 const SUPPORT_KEYWORDS = [
-  'stall', 'haltung', 'transport', 'kontrolle', 'veterinär', 'veterinaer', 'verordnung',
+  'stall', 'haltung', 'transport', 'kontrolle', 'veterinär', 'veterinaer', 'vétérinaire', 'veterinaire', 'verordnung',
   'gesetz', 'initiative', 'motion', 'postulat', 'botschaft', 'sanktion', 'zucht',
-  'schlacht', 'mast', 'pelz', 'fisch', 'jagd', 'wildtier',
+  'schlacht', 'mast', 'pelz', 'fisch', 'jagd', 'wildtier', 'bien-être', 'bien etre',
+  'protection', 'animalier', 'animale', 'faune',
 ]
 
 const NOISE_KEYWORDS = [

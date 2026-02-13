@@ -25,8 +25,9 @@ const pickRows = (payload) => {
 }
 
 const THEMATIC_HINTS = [
-  'tier', 'tierschutz', 'tierwohl', 'nutztier', 'tierhalt', 'tiertransport', 'schlacht',
-  'jagd', 'fisch', 'wildtier', 'veterin', 'animal', 'animaux', 'protection animale',
+  'tier', 'tierschutz', 'tierwohl', 'nutztier', 'tierhalt', 'tiertransport', 'tierversuch', '3r', 'schlacht',
+  'jagd', 'chasse', 'caccia', 'fisch', 'pêche', 'peche', 'pesca', 'wildtier', 'wolf', 'biber',
+  'veterin', 'animal', 'animaux', 'animale', 'protection animale', 'bien-être animal', 'foie gras', 'stopfleber',
 ]
 
 const normalize = (value = '') => String(value).toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim()
