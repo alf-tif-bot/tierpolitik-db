@@ -1,0 +1,244 @@
+{
+  "generatedAt": "2026-02-13T23:17:43.825Z",
+  "coverage": {
+    "target": "all-cantons",
+    "sinceYearMin": 2020,
+    "totalCantons": 26
+  },
+  "sources": [
+    {
+      "id": "ch-canton-ag",
+      "canton": "AG",
+      "parliament": "Grosser Rat Aargau",
+      "adapter": "cantonRegistry",
+      "url": "https://www.ag.ch/grosser-rat",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-ai",
+      "canton": "AI",
+      "parliament": "Grosser Rat Appenzell Innerrhoden",
+      "adapter": "cantonRegistry",
+      "url": "https://www.ai.ch/politik/grosser-rat",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-ar",
+      "canton": "AR",
+      "parliament": "Kantonsrat Appenzell Ausserrhoden",
+      "adapter": "cantonRegistry",
+      "url": "https://www.ar.ch/parlament/",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-be",
+      "canton": "BE",
+      "parliament": "Grosser Rat Bern",
+      "adapter": "cantonRegistry",
+      "url": "https://www.parlament.be.ch",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-bl",
+      "canton": "BL",
+      "parliament": "Landrat Basel-Landschaft",
+      "adapter": "cantonRegistry",
+      "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-bs",
+      "canton": "BS",
+      "parliament": "Grosser Rat Basel-Stadt",
+      "adapter": "cantonRegistry",
+      "url": "https://www.grosserrat.bs.ch",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-fr",
+      "canton": "FR",
+      "parliament": "Grand Conseil Fribourg",
+      "adapter": "cantonRegistry",
+      "url": "https://www.fr.ch/grand-conseil",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-ge",
+      "canton": "GE",
+      "parliament": "Grand Conseil Genève",
+      "adapter": "cantonRegistry",
+      "url": "https://ge.ch/grandconseil",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-gl",
+      "canton": "GL",
+      "parliament": "Landrat Glarus",
+      "adapter": "cantonRegistry",
+      "url": "https://www.gl.ch/parlament",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-gr",
+      "canton": "GR",
+      "parliament": "Grosser Rat Graubünden",
+      "adapter": "cantonRegistry",
+      "url": "https://www.gr.ch/DE/institutionen/parlament",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-ju",
+      "canton": "JU",
+      "parliament": "Parlement jurassien",
+      "adapter": "cantonRegistry",
+      "url": "https://www.jura.ch/Autorites/Parlement.html",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-lu",
+      "canton": "LU",
+      "parliament": "Kantonsrat Luzern",
+      "adapter": "cantonRegistry",
+      "url": "https://www.lu.ch/kr",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-ne",
+      "canton": "NE",
+      "parliament": "Grand Conseil Neuchâtel",
+      "adapter": "cantonRegistry",
+      "url": "https://www.ne.ch/autorites/GC",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-nw",
+      "canton": "NW",
+      "parliament": "Landrat Nidwalden",
+      "adapter": "cantonRegistry",
+      "url": "https://www.nw.ch/landrat",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-ow",
+      "canton": "OW",
+      "parliament": "Kantonsrat Obwalden",
+      "adapter": "cantonRegistry",
+      "url": "https://www.ow.ch/kantonsrat",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-sg",
+      "canton": "SG",
+      "parliament": "Kantonsrat St. Gallen",
+      "adapter": "cantonRegistry",
+      "url": "https://www.ratsinfo.sg.ch",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-sh",
+      "canton": "SH",
+      "parliament": "Kantonsrat Schaffhausen",
+      "adapter": "cantonRegistry",
+      "url": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-so",
+      "canton": "SO",
+      "parliament": "Kantonsrat Solothurn",
+      "adapter": "cantonRegistry",
+      "url": "https://so.ch/parlament",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-sz",
+      "canton": "SZ",
+      "parliament": "Kantonsrat Schwyz",
+      "adapter": "cantonRegistry",
+      "url": "https://www.sz.ch/parlament",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-tg",
+      "canton": "TG",
+      "parliament": "Grosser Rat Thurgau",
+      "adapter": "cantonRegistry",
+      "url": "https://grosserrat.tg.ch",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-ti",
+      "canton": "TI",
+      "parliament": "Gran Consiglio Ticino",
+      "adapter": "cantonRegistry",
+      "url": "https://www4.ti.ch/poteri/granconsiglio",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-ur",
+      "canton": "UR",
+      "parliament": "Landrat Uri",
+      "adapter": "cantonRegistry",
+      "url": "https://www.ur.ch/landrat",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-vd",
+      "canton": "VD",
+      "parliament": "Grand Conseil Vaud",
+      "adapter": "cantonRegistry",
+      "url": "https://www.vd.ch/autorites/grand-conseil",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-vs",
+      "canton": "VS",
+      "parliament": "Grand Conseil Valais",
+      "adapter": "cantonRegistry",
+      "url": "https://www.vs.ch/fr/web/gc",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-zg",
+      "canton": "ZG",
+      "parliament": "Kantonsrat Zug",
+      "adapter": "cantonRegistry",
+      "url": "https://www.zg.ch/behoerden/kantonsrat",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    },
+    {
+      "id": "ch-canton-zh",
+      "canton": "ZH",
+      "parliament": "Kantonsrat Zürich",
+      "adapter": "cantonRegistry",
+      "url": "https://www.kantonsrat.zh.ch",
+      "sinceYear": 2020,
+      "status": "scaffolded"
+    }
+  ]
+}
