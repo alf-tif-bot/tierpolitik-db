@@ -20,24 +20,53 @@ const parseItems = (xml) => {
 
 const slugify = (value) => value.toLowerCase().replace(/https?:\/\//, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 
+async function fetchRssXml(url, sourceId) {
+  const response = await fetch(url)
+  if (!response.ok || response.status === 202) {
+    throw new Error(`RSS fetch failed (${response.status}) for ${sourceId}`)
+  }
+  const xml = await response.text()
+  if (!xml || !xml.trim()) {
+    throw new Error(`RSS fetch returned empty body for ${sourceId}`)
+  }
+  return xml
+}
+
 export function createRssAdapter() {
   return {
     async fetch(source) {
+      const candidates = [source.url, ...(source.alternateUrls || [])].filter(Boolean)
       let xml = ''
-      try {
-        const response = await fetch(source.url)
-        if (!response.ok) throw new Error(`RSS fetch failed (${response.status}) for ${source.id}`)
-        xml = await response.text()
-      } catch (error) {
-        const allowFallback = process.env.CRAWLER_ENABLE_FIXTURE_FALLBACK === '1'
-        if (!source.fallbackPath || !allowFallback) throw error
+      let selectedUrl = source.url
+      let lastError = null
+
+      for (const candidateUrl of candidates) {
+        try {
+          xml = await fetchRssXml(candidateUrl, source.id)
+          const parsed = parseItems(xml)
+          if (parsed.length > 0) {
+            selectedUrl = candidateUrl
+            break
+          }
+          lastError = new Error(`RSS parsed without items for ${source.id} (${candidateUrl})`)
+        } catch (error) {
+          lastError = error
+        }
+      }
+
+      const fallbackAllowed = source.fallbackMode === 'alwaysOnFailure' || process.env.CRAWLER_ENABLE_FIXTURE_FALLBACK === '1'
+      if ((!xml || parseItems(xml).length === 0) && source.fallbackPath && fallbackAllowed) {
         const fallback = new URL(`../../${source.fallbackPath}`, import.meta.url)
         xml = fs.readFileSync(fallback, 'utf8')
       }
-      let parsed = parseItems(xml)
-      if (parsed.length === 0 && source.fallbackPath && process.env.CRAWLER_ENABLE_FIXTURE_FALLBACK === '1') {
-        const fallback = new URL(`../../${source.fallbackPath}`, import.meta.url)
-        parsed = parseItems(fs.readFileSync(fallback, 'utf8'))
+
+      if (!xml) {
+        throw lastError || new Error(`RSS fetch failed for ${source.id}`)
+      }
+
+      const parsed = parseItems(xml)
+      if (parsed.length === 0) {
+        throw lastError || new Error(`RSS parsing failed for ${source.id}`)
       }
 
       const now = new Date().toISOString()
@@ -47,7 +76,7 @@ export function createRssAdapter() {
 
         return {
           sourceId: source.id,
-          sourceUrl: source.url,
+          sourceUrl: selectedUrl || source.url,
           externalId: slugify(item.guid || item.link),
           title: item.title,
           summary: item.summary,

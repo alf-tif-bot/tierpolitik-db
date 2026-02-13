@@ -60,14 +60,30 @@ Die bestehende JSON-Pipeline bleibt unverändert funktionsfähig. Die DB-Integra
 - DB wird parallel gespiegelt (Mirror), um risikoarm zu migrieren.
 - Netlify/Site-Flow bleibt auf `data/crawler-db.json` und `data/crawler-published.json`.
 
-### Setup
+### Setup (1st time, minimal)
 
 ```bash
 cp .env.db.example .env.db
-# DATABASE_URL in .env.db anpassen
+# .env.db: DATABASE_URL setzen (Supabase/Neon, siehe unten)
 npm install
 npm run db:init-schema
+npm run db:migrate-json
+npm run db:sync-json
 ```
+
+**Supabase (ohne App-Login):**
+1. Neues Project erstellen
+2. In Project Settings → Database die `Connection string (URI)` kopieren
+3. SSL aktiv lassen (typisch `sslmode=require`)
+4. In `.env.db` als `DATABASE_URL=...` eintragen
+
+**Neon (ohne App-Login):**
+1. Neues Project/Branch erstellen
+2. Connection string kopieren
+3. In `.env.db` als `DATABASE_URL=...` eintragen
+4. Falls nötig zusätzlich: `PGSSLMODE=require`
+
+Wenn `npm run db:init-schema` und `npm run db:migrate-json` ohne Fehler laufen, ist die Live-DB-Verbindung bereit.
 
 ### JSON -> DB Migration
 
@@ -115,4 +131,7 @@ powershell -NoProfile -Command "cd C:\path\to\tierpolitik-vorstoesse-db; npm run
 
 ## Source-Status-Hinweis
 
-Einzelne Regierungs-RSS-Feeds liefern zeitweise 404/leer (Upstream-Verhalten). Die Pipeline bleibt robust: Quelle wird übersprungen, Lauf läuft weiter, Status steht in der Collect-Ausgabe.
+Einzelne Regierungs-RSS-Feeds liefern zeitweise 404/leer/WAF-Challenge (Upstream-Verhalten). Die Pipeline bleibt robust:
+- mehrere URL-Kandidaten pro Feed werden nacheinander probiert
+- bei BLV/Bundesrat wird bei Fehler/leer automatisch auf lokale Fixture als Ersatzquelle gewechselt
+- Lauf bricht nicht ab; Status steht in der Collect-Ausgabe.

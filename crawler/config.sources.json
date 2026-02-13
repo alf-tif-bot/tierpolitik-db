@@ -30,7 +30,11 @@
     "label": "BLV News",
     "type": "rss",
     "url": "https://www.blv.admin.ch/blv/de/home/das-blv/aktuell/medienmitteilungen.feed.xml",
+    "alternateUrls": [
+      "https://www.blv.admin.ch/blv/fr/home/das-blv/aktuell/medienmitteilungen.feed.xml"
+    ],
     "enabled": true,
+    "fallbackMode": "alwaysOnFailure",
     "fallbackPath": "data/fixtures/blv-news.xml"
   },
   {
@@ -38,7 +42,11 @@
     "label": "Bundesrat Medien",
     "type": "rss",
     "url": "https://www.admin.ch/gov/de/start/dokumentation/medienmitteilungen.rss.xml",
+    "alternateUrls": [
+      "https://www.admin.ch/gov/de/start/dokumentation/medienmitteilungen.rss"
+    ],
     "enabled": true,
+    "fallbackMode": "alwaysOnFailure",
     "fallbackPath": "data/fixtures/bundesrat-news.xml"
   }
 ]

@@ -11,6 +11,8 @@ export const sourceSchema = z.object({
   url: z.url(),
   enabled: z.boolean().default(true),
   fallbackPath: z.string().optional(),
+  fallbackMode: z.enum(['envGuarded', 'alwaysOnFailure']).optional(),
+  alternateUrls: z.array(z.url()).optional(),
   options: z.record(z.string(), z.union([z.string(), z.number(), z.boolean()])).optional(),
 })
 
