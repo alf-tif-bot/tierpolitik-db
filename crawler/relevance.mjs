@@ -5,6 +5,7 @@ export const ANCHOR_KEYWORDS = [
   'schlachthof', 'versuchstiere', 'haustier', 'hunde', 'katze', 'katzen',
   'animal', 'animaux', 'protection animale', 'bien-être animal',
   'jagd', 'fischerei', 'wildtiere',
+  'stopfleber', 'foie gras', 'pelz', '3r', 'experiment',
 ]
 
 const SUPPORT_KEYWORDS = [
@@ -50,10 +51,12 @@ export function scoreText(text, keywords = DEFAULT_KEYWORDS) {
 
 export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords = DEFAULT_KEYWORDS } = {}) {
   const db = loadDb()
+  const enabledSourceIds = new Set((db.sources || []).filter((s) => s.enabled !== false).map((s) => s.id))
   let touched = 0
   let relevantCount = 0
 
   for (const item of db.items) {
+    if (!enabledSourceIds.has(item.sourceId)) continue
     const text = `${item.title}\n${item.summary}\n${item.body}`
     const { score, matched, anchorMatches, supportMatches, noiseMatches } = scoreText(text, keywords)
 
@@ -75,8 +78,10 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     touched += 1
   }
 
-  if (relevantCount === 0 && db.items.length > 0) {
-    const fallback = [...db.items]
+  const enabledItems = db.items.filter((item) => enabledSourceIds.has(item.sourceId))
+
+  if (relevantCount === 0 && enabledItems.length > 0) {
+    const fallback = [...enabledItems]
       .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
       .slice(0, fallbackMin)
 
