@@ -86,6 +86,12 @@ const clean = (text = '') => String(text)
 const firstSentence = (text = '') => {
   const c = clean(text)
   if (!c) return ''
+  const low = c.toLowerCase()
+  if (
+    low.includes('stellungnahme zum vorstoss liegt vor')
+    || low.includes('beratung in kommission')
+    || low.includes('erledigt')
+  ) return ''
   const m = c.match(/(.{40,220}?[.!?])\s/)
   if (m) return m[1]
   return c.slice(0, 220)
