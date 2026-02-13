@@ -42,9 +42,32 @@ export const handler = async (event) => {
            limit 1`,
           [sourceId, externalId, externalIdFallback, affairId],
         )
-        if (!m.rows.length) throw new Error(`motion not found (${sourceId}:${externalId})`)
+        let motionId = m.rows[0]?.id
 
-        const motionId = m.rows[0].id
+        if (!motionId) {
+          await client.query(
+            `insert into sources (id, label, type, adapter, url, enabled, options, updated_at)
+             values ($1,$2,'api','review-fallback',$3,true,'{}'::jsonb, now())
+             on conflict (id) do nothing`,
+            [sourceId, sourceId, `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${affairId}`],
+          )
+
+          const inserted = await client.query(
+            `insert into motions (
+              source_id, external_id, source_url, language, published_at, fetched_at,
+              score, matched_keywords, status, review_reason, first_seen_at, last_seen_at, updated_at
+            ) values (
+              $1,$2,$3,'de',now(),now(),0,'[]'::jsonb,'queued','autocreated from review decision',now(),now(),now()
+            )
+            on conflict (source_id, external_id) do update
+            set updated_at = now()
+            returning id`,
+            [sourceId, externalIdFallback || externalId, `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${affairId}`],
+          )
+          motionId = inserted.rows[0]?.id
+        }
+
+        if (!motionId) throw new Error(`motion not found (${sourceId}:${externalId})`)
 
         await client.query(
           `update motions

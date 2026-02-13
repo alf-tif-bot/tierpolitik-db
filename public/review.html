@@ -30,7 +30,7 @@
   <main class="wrap">
     <h1>Review-Ansicht</h1>
     <p>Es werden nur relevante Einträge gezeigt (queued/approved/published). Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB übernommen.</p>
-    <p class="status">Status-Summen (sichtbar): queued=24, approved=3, published=0</p>
+    <p class="status">Status-Summen (sichtbar): queued=10, approved=3, published=0</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
     <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
@@ -47,44 +47,6 @@
         </tr>
       </thead>
       <tbody>
-<tr data-id="ch-parliament-business-de:19940011-de">
-<td>
-  <strong>94.011 · Tierschutz. Uebereinkommen</strong><br>
-  <small>Botschaft und Beschlussesentwurf vom 26. Januar 1994 zum Protokoll der Aenderung des Europäischen Uebereinkommens zum Schutz von Tieren in landwirtschaftlichen Tierhaltung und zur Aenderung des Uebereinkommens über den internationalen Handel mit gefährdeten Arten freilebender Tiere und Pflanzen</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=19940011" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
-</td>
-<td>
-  <div>Parlament.ch Curia Vista (DE)</div>
-  <small class="muted">ch-parliament-business-de</small>
-</td>
-<td>0.98</td>
-<td>tier, tiere, tierschutz, tierhaltung, landwirtschaft, botschaft</td>
-<td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> pro Tierschutz</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> tier, tiere, tierschutz</div><div><strong>Kontext:</strong> botschaft, landwirtschaft</div><div><strong>Score:</strong> 0.98</div></small></td>
-<td>
-<button onclick="setDecision(this,'ch-parliament-business-de:19940011-de','approved')">Approve</button>
-<button onclick="setDecision(this,'ch-parliament-business-de:19940011-de','rejected')">Reject</button>
-</td>
-</tr>
-<tr data-id="ch-parliament-business-de:20080036-de">
-<td>
-  <strong>08.036 · Gegen Tierquälerei und für einen besseren Rechtsschutz der Tiere (Tierschutzanwalt-Initiative). Volksinitiative</strong><br>
-  <small>Botschaft vom 14. Mai 2008 zur Volksinitiative "Gegen Tierquälerei und für einen besseren Rechtsschutz der Tiere (Tierschutzanwalt-Initiative)"</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20080036" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
-</td>
-<td>
-  <div>Parlament.ch Curia Vista (DE)</div>
-  <small class="muted">ch-parliament-business-de</small>
-</td>
-<td>0.98</td>
-<td>tier, tiere, tierschutz, initiative, botschaft</td>
-<td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> pro Tierschutz</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> tier, tiere, tierschutz</div><div><strong>Kontext:</strong> initiative, botschaft</div><div><strong>Score:</strong> 0.98</div></small></td>
-<td>
-<button onclick="setDecision(this,'ch-parliament-business-de:20080036-de','approved')">Approve</button>
-<button onclick="setDecision(this,'ch-parliament-business-de:20080036-de','rejected')">Reject</button>
-</td>
-</tr>
 <tr data-id="ch-parliament-business-fr:20210426-fr">
 <td>
   <strong>21.426 · Méthodes de substitution à l'expérimentation animale. Davantage de ressources et d'incitations pour la recherche 3R</strong><br>
@@ -102,25 +64,6 @@
 <td>
 <button onclick="setDecision(this,'ch-parliament-business-fr:20210426-fr','approved')">Approve</button>
 <button onclick="setDecision(this,'ch-parliament-business-fr:20210426-fr','rejected')">Reject</button>
-</td>
-</tr>
-<tr data-id="ch-parliament-business-de:20040039-de">
-<td>
-  <strong>04.039 · Für einen zeitgemässen Tierschutz (Tierschutz - Ja!). Volksinitiative</strong><br>
-  <small>Botschaft vom 7. Juni 2004 über die Volksinitiative "Für einen zeitgemässen Tierschutz (Tierschutz - Ja!)"</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20040039" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
-</td>
-<td>
-  <div>Parlament.ch Curia Vista (DE)</div>
-  <small class="muted">ch-parliament-business-de</small>
-</td>
-<td>0.70</td>
-<td>tier, tierschutz, botschaft</td>
-<td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> pro Tierschutz</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> tier, tierschutz</div><div><strong>Kontext:</strong> botschaft</div><div><strong>Score:</strong> 0.70</div></small></td>
-<td>
-<button onclick="setDecision(this,'ch-parliament-business-de:20040039-de','approved')">Approve</button>
-<button onclick="setDecision(this,'ch-parliament-business-de:20040039-de','rejected')">Reject</button>
 </td>
 </tr>
 <tr data-id="ch-parliament-business-de:20250079-de">
@@ -159,120 +102,6 @@
 <td>
 <button onclick="setDecision(this,'ch-parliament-business-de:20240089-de','approved')">Approve</button>
 <button onclick="setDecision(this,'ch-parliament-business-de:20240089-de','rejected')">Reject</button>
-</td>
-</tr>
-<tr data-id="ch-parliament-business-de:20120020-de">
-<td>
-  <strong>12.020 · Alkoholgesetz. Totalrevision</strong><br>
-  <small>Botschaft vom 25. Januar 2012 zur Totalrevision des Alkoholgesetzes (Spirituosensteuergesetz und Alkoholhandelsgesetz)</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20120020" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
-</td>
-<td>
-  <div>Parlament.ch Curia Vista (DE)</div>
-  <small class="muted">ch-parliament-business-de</small>
-</td>
-<td>0.56</td>
-<td>landwirtschaft, botschaft</td>
-<td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Kontext:</strong> botschaft</div><div><strong>Score:</strong> 0.56</div></small></td>
-<td>
-<button onclick="setDecision(this,'ch-parliament-business-de:20120020-de','approved')">Approve</button>
-<button onclick="setDecision(this,'ch-parliament-business-de:20120020-de','rejected')">Reject</button>
-</td>
-</tr>
-<tr data-id="ch-parliament-business-de:20050090-de">
-<td>
-  <strong>05.090 · Freihandelsabkommen zwischen den EFTA-Staaten und der Republik Korea. Genehmigung</strong><br>
-  <small>Botschaft vom 9. Dezember 2005 zum Freihandelsabkommen zwischen den EFTA-Staaten und der Republik Korea, zum Investitionsabkommen zwischen Island, Liechtenstein, der Schweiz und Korea sowie zum Landwirtschaftsabkommen zwischen der Schweiz und Korea</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20050090" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
-</td>
-<td>
-  <div>Parlament.ch Curia Vista (DE)</div>
-  <small class="muted">ch-parliament-business-de</small>
-</td>
-<td>0.56</td>
-<td>landwirtschaft, botschaft</td>
-<td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Kontext:</strong> botschaft</div><div><strong>Score:</strong> 0.56</div></small></td>
-<td>
-<button onclick="setDecision(this,'ch-parliament-business-de:20050090-de','approved')">Approve</button>
-<button onclick="setDecision(this,'ch-parliament-business-de:20050090-de','rejected')">Reject</button>
-</td>
-</tr>
-<tr data-id="ch-parliament-business-de:20030061-de">
-<td>
-  <strong>03.061 · Freihandelsabkommen zwischen den EFTA-Staaten und Chile. Genehmigung</strong><br>
-  <small>Botschaft vom 19. September 2003 zum Freihandelsabkommen zwischen den EFTA-Staaten und Chile sowie zum Landwirtschaftsabkommen zwischen der Schweiz und Chile</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20030061" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
-</td>
-<td>
-  <div>Parlament.ch Curia Vista (DE)</div>
-  <small class="muted">ch-parliament-business-de</small>
-</td>
-<td>0.56</td>
-<td>landwirtschaft, botschaft</td>
-<td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Kontext:</strong> botschaft</div><div><strong>Score:</strong> 0.56</div></small></td>
-<td>
-<button onclick="setDecision(this,'ch-parliament-business-de:20030061-de','approved')">Approve</button>
-<button onclick="setDecision(this,'ch-parliament-business-de:20030061-de','rejected')">Reject</button>
-</td>
-</tr>
-<tr data-id="ch-parliament-business-de:20090072-de">
-<td>
-  <strong>09.072 · Freihandelsabkommen zwischen den EFTA-Staaten und den Staaten des Golfkooperationsrats. Genehmigung</strong><br>
-  <small>Botschaft vom 11. September 2009 zur Genehmigung des Freihandelsabkommens zwischen den EFTA-Staaten und den Staaten des Kooperationsrates der arabischen Golfstaaten (GCC) sowie des Landwirtschaftsabkommens zwischen der Schweiz und den GCC-Staaten</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20090072" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
-</td>
-<td>
-  <div>Parlament.ch Curia Vista (DE)</div>
-  <small class="muted">ch-parliament-business-de</small>
-</td>
-<td>0.56</td>
-<td>landwirtschaft, botschaft</td>
-<td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Kontext:</strong> botschaft</div><div><strong>Score:</strong> 0.56</div></small></td>
-<td>
-<button onclick="setDecision(this,'ch-parliament-business-de:20090072-de','approved')">Approve</button>
-<button onclick="setDecision(this,'ch-parliament-business-de:20090072-de','rejected')">Reject</button>
-</td>
-</tr>
-<tr data-id="ch-parliament-business-de:20040054-de">
-<td>
-  <strong>04.054 · Für Lebensmittel aus gentechnikfreier Landwirtschaft. Volksinitiative</strong><br>
-  <small>Botschaft vom 18. August 2004 über die Volksinitiative "für Lebensmittel aus gentechnikfreier Landwirtschaft"</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20040054" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
-</td>
-<td>
-  <div>Parlament.ch Curia Vista (DE)</div>
-  <small class="muted">ch-parliament-business-de</small>
-</td>
-<td>0.56</td>
-<td>landwirtschaft, botschaft</td>
-<td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Kontext:</strong> botschaft</div><div><strong>Score:</strong> 0.56</div></small></td>
-<td>
-<button onclick="setDecision(this,'ch-parliament-business-de:20040054-de','approved')">Approve</button>
-<button onclick="setDecision(this,'ch-parliament-business-de:20040054-de','rejected')">Reject</button>
-</td>
-</tr>
-<tr data-id="ch-parliament-business-de:19940012-de">
-<td>
-  <strong>94.012 · Investitionskredite in der Landwirtschaft für 1995-1997</strong><br>
-  <small>Botschaft vom 26. Januar 1994 über die finanziellen Mittel für Kosten- und Bewirtschaftungsbeiträge sowie Investitionskredite in der Landwirtschaft für die Jahre 1995-1997</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=19940012" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
-</td>
-<td>
-  <div>Parlament.ch Curia Vista (DE)</div>
-  <small class="muted">ch-parliament-business-de</small>
-</td>
-<td>0.46</td>
-<td>landwirtschaft, botschaft</td>
-<td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Kontext:</strong> botschaft</div><div><strong>Störsignale:</strong> finanz</div><div><strong>Score:</strong> 0.46</div></small></td>
-<td>
-<button onclick="setDecision(this,'ch-parliament-business-de:19940012-de','approved')">Approve</button>
-<button onclick="setDecision(this,'ch-parliament-business-de:19940012-de','rejected')">Reject</button>
 </td>
 </tr>
 <tr data-id="ch-parliament-business-de:20254487-de">
@@ -387,101 +216,6 @@
 <td>
 <button onclick="setDecision(this,'ch-parliament-business-de:20220405-de','approved')">Approve</button>
 <button onclick="setDecision(this,'ch-parliament-business-de:20220405-de','rejected')">Reject</button>
-</td>
-</tr>
-<tr data-id="ch-parliament-business-de:20170526-de">
-<td>
-  <strong>17.526 · Verdichtung ermöglichen. Beim Isos Schwerpunkte setzen</strong><br>
-  <small>Erledigt</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20170526" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
-</td>
-<td>
-  <div>Parlament.ch Curia Vista (DE)</div>
-  <small class="muted">ch-parliament-business-de</small>
-</td>
-<td>0.42</td>
-<td>landwirtschaft</td>
-<td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Score:</strong> 0.42</div></small></td>
-<td>
-<button onclick="setDecision(this,'ch-parliament-business-de:20170526-de','approved')">Approve</button>
-<button onclick="setDecision(this,'ch-parliament-business-de:20170526-de','rejected')">Reject</button>
-</td>
-</tr>
-<tr data-id="ch-parliament-business-de:20193494-de">
-<td>
-  <strong>19.3494 · Mehr Forschung für eine moderne Alpwirtschaft</strong><br>
-  <small>Berichterstattung zum Umsetzungsstand des Vorstosses liegt vor</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20193494" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
-</td>
-<td>
-  <div>Parlament.ch Curia Vista (DE)</div>
-  <small class="muted">ch-parliament-business-de</small>
-</td>
-<td>0.42</td>
-<td>landwirtschaft</td>
-<td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Score:</strong> 0.42</div></small></td>
-<td>
-<button onclick="setDecision(this,'ch-parliament-business-de:20193494-de','approved')">Approve</button>
-<button onclick="setDecision(this,'ch-parliament-business-de:20193494-de','rejected')">Reject</button>
-</td>
-</tr>
-<tr data-id="ch-parliament-business-de:20194374-de">
-<td>
-  <strong>19.4374 · Gewässerräume. Geografische und topografische Verhältnisse besser berücksichtigen</strong><br>
-  <small>Erledigt</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20194374" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
-</td>
-<td>
-  <div>Parlament.ch Curia Vista (DE)</div>
-  <small class="muted">ch-parliament-business-de</small>
-</td>
-<td>0.42</td>
-<td>landwirtschaft</td>
-<td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Score:</strong> 0.42</div></small></td>
-<td>
-<button onclick="setDecision(this,'ch-parliament-business-de:20194374-de','approved')">Approve</button>
-<button onclick="setDecision(this,'ch-parliament-business-de:20194374-de','rejected')">Reject</button>
-</td>
-</tr>
-<tr data-id="ch-parliament-business-de:19940050-de">
-<td>
-  <strong>94.050 · Erhaltung der wandernden wildlebenden Tierarten. Uebereinkommen</strong><br>
-  <small>Botschaft vom 25. Mai 1994 über den Beitritt zum Uebereinkommen zur Erhaltung der wandernden wildlebenden Tierarten (Bonner Konvention)</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=19940050" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
-</td>
-<td>
-  <div>Parlament.ch Curia Vista (DE)</div>
-  <small class="muted">ch-parliament-business-de</small>
-</td>
-<td>0.42</td>
-<td>tier, botschaft</td>
-<td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> tier</div><div><strong>Kontext:</strong> botschaft</div><div><strong>Score:</strong> 0.42</div></small></td>
-<td>
-<button onclick="setDecision(this,'ch-parliament-business-de:19940050-de','approved')">Approve</button>
-<button onclick="setDecision(this,'ch-parliament-business-de:19940050-de','rejected')">Reject</button>
-</td>
-</tr>
-<tr data-id="ch-parliament-business-fr:19990019-fr">
-<td>
-  <strong>99.019 · Convention sur la protection des animaux vertébrés</strong><br>
-  <small>Message du 24 février 1999 concernant le protocole d'amendement à la Convention européenne sur la protection des animaux vertébrés utilisés à des fins expérimentales ou à d'autres fins scientifiques</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=19990019" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
-</td>
-<td>
-  <div>Parlament.ch Curia Vista (FR)</div>
-  <small class="muted">ch-parliament-business-fr</small>
-</td>
-<td>0.42</td>
-<td>animaux, protection</td>
-<td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> animaux</div><div><strong>Kontext:</strong> protection</div><div><strong>Score:</strong> 0.42</div></small></td>
-<td>
-<button onclick="setDecision(this,'ch-parliament-business-fr:19990019-fr','approved')">Approve</button>
-<button onclick="setDecision(this,'ch-parliament-business-fr:19990019-fr','rejected')">Reject</button>
 </td>
 </tr>
 <tr data-id="ch-parliament-business-de:20254697-de">

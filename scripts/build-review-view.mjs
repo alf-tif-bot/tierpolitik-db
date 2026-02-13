@@ -8,10 +8,21 @@ const enabledSourceIds = new Set((db.sources || [])
   .filter((s) => s.enabled !== false)
   .map((s) => s.id))
 
+const FIVE_YEARS_MS = 1000 * 60 * 60 * 24 * 365 * 5
+const cutoffTs = Date.now() - FIVE_YEARS_MS
+const isWithin5Years = (item) => {
+  const iso = item?.publishedAt || item?.fetchedAt
+  if (!iso) return false
+  const ts = Date.parse(String(iso))
+  if (Number.isNaN(ts)) return false
+  return ts >= cutoffTs
+}
+
 const baseReviewItems = [...db.items]
   .filter((item) => enabledSourceIds.has(item.sourceId))
   .filter((item) => String(item.sourceId || '').startsWith('ch-parliament-'))
   .filter((item) => ['queued', 'approved', 'published'].includes(item.status))
+  .filter((item) => isWithin5Years(item))
 
 const affairKey = (item) => String(item.externalId || '').split('-')[0] || `${item.sourceId}:${item.externalId}`
 const langRank = (item) => {
