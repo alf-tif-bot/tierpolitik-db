@@ -117,7 +117,7 @@ Erzeugt/aktualisiert `data/crawler-db.json` aus PostgreSQL, damit bestehende Bui
 npm run db:refresh-site
 ```
 
-Lädt die Daten aus PostgreSQL nach JSON und baut danach sofort:
+Synchronisiert zuerst die neuesten Review/Crawler-Entscheide in die DB und baut danach sofort:
 - `data/vorstoesse.json` (Home-Tabelle)
 - `public/review.html`
 - `data/crawler-published.json`
