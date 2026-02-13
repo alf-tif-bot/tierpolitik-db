@@ -32,7 +32,7 @@
     <p>Es werden nur relevante Einträge gezeigt (queued/approved/published). Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB übernommen.</p>
     <p class="status" id="status-summary">Status-Summen (sichtbar): queued=0, approved=0, published=0</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
-    <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button></p>
+    <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="toggleDecided()" id="toggle-decided">Bereits bearbeitete anzeigen</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
     <table>
       <thead>
@@ -48,26 +48,6 @@
         </tr>
       </thead>
       <tbody>
-<tr data-id="ch-parliament-business-fr:20210044-fr" data-status="queued">
-<td>
-  <strong>21.044 · Non à l’élevage intensif en Suisse (initiative sur l’élevage intensif). Initiative populaire et contre-projet direct</strong><br>
-  <small>Message du 19 mai 2021 relatif à l’initiative populaire « Non à l’élevage intensif en Suisse (initiative sur l’élevage intensif) » et au contre-projet direct (arrêté fédéral concernant la protection et le bien-être des animaux)</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20210044" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
-</td>
-<td>Crawler</td>
-<td>
-  <div>Parlament.ch Curia Vista (FR)</div>
-  <small class="muted">ch-parliament-business-fr</small>
-</td>
-<td>0.82<br><small class="muted">Priorität: hoch</small></td>
-<td>agriculture, animaux, initiative, bien-être, protection</td>
-<td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> agriculture, animaux</div><div><strong>Kontext:</strong> initiative, bien-être, protection</div><div><strong>Score:</strong> 0.82</div></small></td>
-<td>
-<button onclick="setDecision(this,'ch-parliament-business-fr:20210044-fr','approved')">Approve</button>
-<button onclick="setDecision(this,'ch-parliament-business-fr:20210044-fr','rejected')">Reject</button>
-</td>
-</tr>
 <tr data-id="ch-parliament-business-de:20250079-de" data-status="queued">
 <td>
   <strong>25.079 · Bundesgesetz über das bäuerliche Bodenrecht. Änderung</strong><br>
@@ -79,10 +59,10 @@
   <div>Parlament.ch Curia Vista (DE)</div>
   <small class="muted">ch-parliament-business-de</small>
 </td>
-<td>0.38<br><small class="muted">Priorität: niedriger</small></td>
+<td>0.56<br><small class="muted">Priorität: mittel</small></td>
 <td>landwirtschaft, botschaft</td>
 <td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Kontext:</strong> botschaft</div><div><strong>Score:</strong> 0.38</div></small></td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Kontext:</strong> botschaft</div><div><strong>Score:</strong> 0.56</div></small></td>
 <td>
 <button onclick="setDecision(this,'ch-parliament-business-de:20250079-de','approved')">Approve</button>
 <button onclick="setDecision(this,'ch-parliament-business-de:20250079-de','rejected')">Reject</button>
@@ -99,10 +79,10 @@
   <div>Parlament.ch Curia Vista (DE)</div>
   <small class="muted">ch-parliament-business-de</small>
 </td>
-<td>0.33<br><small class="muted">Priorität: niedriger</small></td>
+<td>0.42<br><small class="muted">Priorität: niedriger</small></td>
 <td>landwirtschaft</td>
 <td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Score:</strong> 0.33</div></small></td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Score:</strong> 0.42</div></small></td>
 <td>
 <button onclick="setDecision(this,'ch-parliament-business-de:20254860-de','approved')">Approve</button>
 <button onclick="setDecision(this,'ch-parliament-business-de:20254860-de','rejected')">Reject</button>
@@ -119,10 +99,10 @@
   <div>Parlament.ch Curia Vista (DE)</div>
   <small class="muted">ch-parliament-business-de</small>
 </td>
-<td>0.33<br><small class="muted">Priorität: niedriger</small></td>
+<td>0.42<br><small class="muted">Priorität: niedriger</small></td>
 <td>landwirtschaft</td>
 <td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Score:</strong> 0.33</div></small></td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Score:</strong> 0.42</div></small></td>
 <td>
 <button onclick="setDecision(this,'ch-parliament-business-de:20254609-de','approved')">Approve</button>
 <button onclick="setDecision(this,'ch-parliament-business-de:20254609-de','rejected')">Reject</button>
@@ -139,10 +119,10 @@
   <div>Parlament.ch Curia Vista (DE)</div>
   <small class="muted">ch-parliament-business-de</small>
 </td>
-<td>0.33<br><small class="muted">Priorität: niedriger</small></td>
+<td>0.42<br><small class="muted">Priorität: niedriger</small></td>
 <td>landwirtschaft</td>
 <td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Score:</strong> 0.33</div></small></td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Score:</strong> 0.42</div></small></td>
 <td>
 <button onclick="setDecision(this,'ch-parliament-business-de:20254487-de','approved')">Approve</button>
 <button onclick="setDecision(this,'ch-parliament-business-de:20254487-de','rejected')">Reject</button>
@@ -159,10 +139,10 @@
   <div>Parlament.ch Curia Vista (DE)</div>
   <small class="muted">ch-parliament-business-de</small>
 </td>
-<td>0.33<br><small class="muted">Priorität: niedriger</small></td>
+<td>0.42<br><small class="muted">Priorität: niedriger</small></td>
 <td>landwirtschaft</td>
 <td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Score:</strong> 0.33</div></small></td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Score:</strong> 0.42</div></small></td>
 <td>
 <button onclick="setDecision(this,'ch-parliament-business-de:20253733-de','approved')">Approve</button>
 <button onclick="setDecision(this,'ch-parliament-business-de:20253733-de','rejected')">Reject</button>
@@ -179,10 +159,10 @@
   <div>Parlament.ch Curia Vista (DE)</div>
   <small class="muted">ch-parliament-business-de</small>
 </td>
-<td>0.33<br><small class="muted">Priorität: niedriger</small></td>
+<td>0.42<br><small class="muted">Priorität: niedriger</small></td>
 <td>landwirtschaft</td>
 <td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Score:</strong> 0.33</div></small></td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Score:</strong> 0.42</div></small></td>
 <td>
 <button onclick="setDecision(this,'ch-parliament-business-de:20220405-de','approved')">Approve</button>
 <button onclick="setDecision(this,'ch-parliament-business-de:20220405-de','rejected')">Reject</button>
@@ -228,6 +208,26 @@
 <button onclick="setDecision(this,'ch-parliament-business-de:20254697-de','rejected')">Reject</button>
 </td>
 </tr>
+<tr data-id="ch-parliament-business-de:20254462-de" data-status="queued">
+<td>
+  <strong>25.4462 · Nachhaltige Verwertung von biogenen Reststoffen aus der landwirtschaftlichen Wertschöpfungskette sicherstellen</strong><br>
+  <small>Kurzfassung: Das Geschäft behandelt landwirtschaft. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
+  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254462" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
+</td>
+<td>Crawler</td>
+<td>
+  <div>Parlament.ch Curia Vista (DE)</div>
+  <small class="muted">ch-parliament-business-de</small>
+</td>
+<td>0.32<br><small class="muted">Priorität: niedriger</small></td>
+<td>landwirtschaft</td>
+<td>queued (<strong class="pending">offen</strong>)</td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Störsignale:</strong> energie</div><div><strong>Score:</strong> 0.32</div></small></td>
+<td>
+<button onclick="setDecision(this,'ch-parliament-business-de:20254462-de','approved')">Approve</button>
+<button onclick="setDecision(this,'ch-parliament-business-de:20254462-de','rejected')">Reject</button>
+</td>
+</tr>
 <tr data-id="ch-parliament-business-fr:20240331-fr" data-status="queued">
 <td>
   <strong>24.331 · Soutien financier direct aux apiculteurs et apicultrices lors de situations géoclimatiques exceptionnelles</strong><br>
@@ -246,26 +246,6 @@
 <td>
 <button onclick="setDecision(this,'ch-parliament-business-fr:20240331-fr','approved')">Approve</button>
 <button onclick="setDecision(this,'ch-parliament-business-fr:20240331-fr','rejected')">Reject</button>
-</td>
-</tr>
-<tr data-id="ch-parliament-business-de:20254462-de" data-status="queued">
-<td>
-  <strong>25.4462 · Nachhaltige Verwertung von biogenen Reststoffen aus der landwirtschaftlichen Wertschöpfungskette sicherstellen</strong><br>
-  <small>Kurzfassung: Das Geschäft behandelt landwirtschaft. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254462" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
-</td>
-<td>Crawler</td>
-<td>
-  <div>Parlament.ch Curia Vista (DE)</div>
-  <small class="muted">ch-parliament-business-de</small>
-</td>
-<td>0.23<br><small class="muted">Priorität: niedriger</small></td>
-<td>landwirtschaft</td>
-<td>queued (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> landwirtschaft</div><div><strong>Störsignale:</strong> energie</div><div><strong>Score:</strong> 0.23</div></small></td>
-<td>
-<button onclick="setDecision(this,'ch-parliament-business-de:20254462-de','approved')">Approve</button>
-<button onclick="setDecision(this,'ch-parliament-business-de:20254462-de','rejected')">Reject</button>
 </td>
 </tr>
 <tr data-id="ch-parliament-business-fr:20210426-fr" data-status="approved">
@@ -299,10 +279,10 @@
   <div>Parlament.ch Curia Vista (DE)</div>
   <small class="muted">ch-parliament-business-de</small>
 </td>
-<td>0.47<br><small class="muted">Priorität: niedriger</small></td>
+<td>0.56<br><small class="muted">Priorität: mittel</small></td>
 <td>stopfleber, initiative, botschaft</td>
 <td>approved (<span class="historic">historisch</span>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> stopfleber</div><div><strong>Kontext:</strong> initiative, botschaft</div><div><strong>Score:</strong> 0.47</div></small></td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> stopfleber</div><div><strong>Kontext:</strong> initiative, botschaft</div><div><strong>Score:</strong> 0.56</div></small></td>
 <td>
 <button onclick="setDecision(this,'ch-parliament-business-de:20240089-de','approved')">Approve</button>
 <button onclick="setDecision(this,'ch-parliament-business-de:20240089-de','rejected')">Reject</button>
@@ -319,10 +299,10 @@
   <div>Parlament.ch Curia Vista (DE)</div>
   <small class="muted">ch-parliament-business-de</small>
 </td>
-<td>0.45<br><small class="muted">Priorität: niedriger</small></td>
+<td>0.42<br><small class="muted">Priorität: niedriger</small></td>
 <td>stopfleber, initiative</td>
 <td>approved (<span class="historic">historisch</span>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> stopfleber</div><div><strong>Kontext:</strong> initiative</div><div><strong>Score:</strong> 0.45</div></small></td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> stopfleber</div><div><strong>Kontext:</strong> initiative</div><div><strong>Score:</strong> 0.42</div></small></td>
 <td>
 <button onclick="setDecision(this,'ch-parliament-business-de:20250404-de','approved')">Approve</button>
 <button onclick="setDecision(this,'ch-parliament-business-de:20250404-de','rejected')">Reject</button>
@@ -335,21 +315,41 @@ const key='tierpolitik.review';
 const read=()=>JSON.parse(localStorage.getItem(key)||'{}');
 const write=(v)=>localStorage.setItem(key,JSON.stringify(v,null,2));
 
+let showDecided = false;
+
 function updateStatusSummary(){
   const stats = { queued: 0, approved: 0, published: 0 }
+  let visibleRows = 0
   document.querySelectorAll('tr[data-id]').forEach((row)=>{
     const hidden = row.style.display === 'none'
     if (hidden) return
+    visibleRows += 1
     const status = row.getAttribute('data-status')
     if (status && status in stats) stats[status] += 1
   })
   const el = document.getElementById('status-summary')
-  if (el) el.textContent = 'Status-Summen (sichtbar): queued=' + stats.queued + ', approved=' + stats.approved + ', published=' + stats.published
+  if (el) {
+    el.textContent = 'Status-Summen (sichtbar): queued=' + stats.queued + ', approved=' + stats.approved + ', published=' + stats.published
+    if (visibleRows === 0) el.textContent += ' · keine offenen Einträge'
+  }
 }
 
 function hideDecidedRows(){
-  // bewusst deaktiviert: sonst wirkt /review schnell "leer", wenn lokal schon viel entschieden wurde
+  const decisions = read();
+  document.querySelectorAll('tr[data-id]').forEach((row)=>{
+    const id = row.getAttribute('data-id');
+    if (!id) return
+    const decided = Boolean(decisions[id])
+    row.style.display = (!showDecided && decided) ? 'none' : ''
+  });
+  const btn = document.getElementById('toggle-decided')
+  if (btn) btn.textContent = showDecided ? 'Bearbeitete ausblenden' : 'Bereits bearbeitete anzeigen'
   updateStatusSummary();
+}
+
+function toggleDecided(){
+  showDecided = !showDecided
+  hideDecidedRows()
 }
 
 async function setDecision(btn,id,status){

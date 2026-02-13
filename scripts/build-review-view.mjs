@@ -236,7 +236,7 @@ const html = `<!doctype html>
     <p>Es werden nur relevante Einträge gezeigt (queued/approved/published). Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB übernommen.</p>
     <p class="status" id="status-summary">Status-Summen (sichtbar): queued=0, approved=0, published=0</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
-    <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button></p>
+    <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="toggleDecided()" id="toggle-decided">Bereits bearbeitete anzeigen</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
     <table>
       <thead>
@@ -259,21 +259,41 @@ const key='tierpolitik.review';
 const read=()=>JSON.parse(localStorage.getItem(key)||'{}');
 const write=(v)=>localStorage.setItem(key,JSON.stringify(v,null,2));
 
+let showDecided = false;
+
 function updateStatusSummary(){
   const stats = { queued: 0, approved: 0, published: 0 }
+  let visibleRows = 0
   document.querySelectorAll('tr[data-id]').forEach((row)=>{
     const hidden = row.style.display === 'none'
     if (hidden) return
+    visibleRows += 1
     const status = row.getAttribute('data-status')
     if (status && status in stats) stats[status] += 1
   })
   const el = document.getElementById('status-summary')
-  if (el) el.textContent = 'Status-Summen (sichtbar): queued=' + stats.queued + ', approved=' + stats.approved + ', published=' + stats.published
+  if (el) {
+    el.textContent = 'Status-Summen (sichtbar): queued=' + stats.queued + ', approved=' + stats.approved + ', published=' + stats.published
+    if (visibleRows === 0) el.textContent += ' · keine offenen Einträge'
+  }
 }
 
 function hideDecidedRows(){
-  // bewusst deaktiviert: sonst wirkt /review schnell "leer", wenn lokal schon viel entschieden wurde
+  const decisions = read();
+  document.querySelectorAll('tr[data-id]').forEach((row)=>{
+    const id = row.getAttribute('data-id');
+    if (!id) return
+    const decided = Boolean(decisions[id])
+    row.style.display = (!showDecided && decided) ? 'none' : ''
+  });
+  const btn = document.getElementById('toggle-decided')
+  if (btn) btn.textContent = showDecided ? 'Bearbeitete ausblenden' : 'Bereits bearbeitete anzeigen'
   updateStatusSummary();
+}
+
+function toggleDecided(){
+  showDecided = !showDecided
+  hideDecidedRows()
 }
 
 async function setDecision(btn,id,status){
