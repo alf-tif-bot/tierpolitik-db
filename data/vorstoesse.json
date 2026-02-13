@@ -84,129 +84,6 @@
     }
   },
   {
-    "id": "vp-20250404-fr",
-    "titel": "25.404 · Contre-projet indirect à l’initiative foie gras",
-    "typ": "Volksinitiative",
-    "kurzbeschreibung": "Fin des discussions en commission du Conseil national",
-    "geschaeftsnummer": "20250404-fr",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": "Romandie",
-    "status": "Eingereicht",
-    "datumEingereicht": "2025-02-21",
-    "datumAktualisiert": "2026-02-13",
-    "themen": [
-      "foie gras",
-      "initiative"
-    ],
-    "schlagwoerter": [
-      "foie gras",
-      "initiative"
-    ],
-    "einreichende": [
-      {
-        "name": "Service parlementaire",
-        "rolle": "Nationalrat",
-        "partei": "Überparteilich"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250404",
-    "resultate": [
-      {
-        "datum": "2025-02-21",
-        "status": "Eingereicht",
-        "bemerkung": "Status aus Crawler: queued"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "fr",
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20240089-fr",
-    "titel": "24.089 · «Oui à l’interdiction d’importer du foie gras (initiative foie gras)». Initiative populaire",
-    "typ": "Volksinitiative",
-    "kurzbeschreibung": "Message du 20 novembre 2024 concernant l’initiative populaire « Oui à l’interdiction d’importer du foie gras (initiative foie gras) »",
-    "geschaeftsnummer": "20240089-fr",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": "Romandie",
-    "status": "Eingereicht",
-    "datumEingereicht": "2024-11-14",
-    "datumAktualisiert": "2026-02-13",
-    "themen": [
-      "foie gras",
-      "initiative"
-    ],
-    "schlagwoerter": [
-      "foie gras",
-      "initiative"
-    ],
-    "einreichende": [
-      {
-        "name": "Service parlementaire",
-        "rolle": "Nationalrat",
-        "partei": "Überparteilich"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20240089",
-    "resultate": [
-      {
-        "datum": "2024-11-14",
-        "status": "Eingereicht",
-        "bemerkung": "Status aus Crawler: queued"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "fr",
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20210426-de",
-    "titel": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "In Kommission des Nationalrats",
-    "geschaeftsnummer": "20210426-de",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Eingereicht",
-    "datumEingereicht": "2021-03-18",
-    "datumAktualisiert": "2026-02-13",
-    "themen": [
-      "tier",
-      "3r"
-    ],
-    "schlagwoerter": [
-      "tier",
-      "3r"
-    ],
-    "einreichende": [
-      {
-        "name": "Parlamentsdienst",
-        "rolle": "Nationalrat",
-        "partei": "Überparteilich"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20210426",
-    "resultate": [
-      {
-        "datum": "2021-03-18",
-        "status": "Eingereicht",
-        "bemerkung": "Status aus Crawler: queued"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
     "id": "vp-20210426-fr",
     "titel": "21.426 · Méthodes de substitution à l'expérimentation animale. Davantage de ressources et d'incitations pour la recherche 3R",
     "typ": "Interpellation",
@@ -220,11 +97,15 @@
     "datumAktualisiert": "2026-02-13",
     "themen": [
       "animal",
-      "3r"
+      "expérimentation animale",
+      "3r",
+      "animale"
     ],
     "schlagwoerter": [
       "animal",
-      "3r"
+      "expérimentation animale",
+      "3r",
+      "animale"
     ],
     "einreichende": [
       {
@@ -244,47 +125,6 @@
     "medien": [],
     "metadaten": {
       "sprache": "fr",
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20210426-it",
-    "titel": "21.426 · Più risorse e incentivi a favore della ricerca 3R per accelerare lo sviluppo di metodi alternativi alla sperimentazione animale",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Nella Commissione del Consiglio nazionale",
-    "geschaeftsnummer": "20210426-it",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": "Südschweiz",
-    "status": "Eingereicht",
-    "datumEingereicht": "2021-03-18",
-    "datumAktualisiert": "2026-02-13",
-    "themen": [
-      "animal",
-      "3r"
-    ],
-    "schlagwoerter": [
-      "animal",
-      "3r"
-    ],
-    "einreichende": [
-      {
-        "name": "Servizio parlamentare",
-        "rolle": "Nationalrat",
-        "partei": "Überparteilich"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20210426",
-    "resultate": [
-      {
-        "datum": "2021-03-18",
-        "status": "Eingereicht",
-        "bemerkung": "Status aus Crawler: queued"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "it",
       "zuletztGeprueftVon": "Crawler/DB Sync"
     }
   }

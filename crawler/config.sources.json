@@ -11,7 +11,7 @@
       "top": 900,
       "sampleLimit": 360,
       "thematicMinQuota": 260,
-      "daysBack": 365
+      "daysBack": 1825
     }
   },
   {
@@ -26,7 +26,7 @@
       "top": 700,
       "sampleLimit": 260,
       "thematicMinQuota": 170,
-      "daysBack": 365
+      "daysBack": 1825
     }
   },
   {
@@ -41,7 +41,7 @@
       "top": 500,
       "sampleLimit": 160,
       "thematicMinQuota": 90,
-      "daysBack": 365
+      "daysBack": 1825
     }
   },
   {
@@ -56,7 +56,7 @@
       "top": 600,
       "sampleLimit": 220,
       "thematicMinQuota": 140,
-      "daysBack": 365,
+      "daysBack": 1825,
       "businessTypeIncludes": "Motion"
     }
   },
@@ -72,7 +72,7 @@
       "top": 500,
       "sampleLimit": 180,
       "thematicMinQuota": 110,
-      "daysBack": 365,
+      "daysBack": 1825,
       "businessTypeIncludes": "Postulat"
     }
   },
@@ -101,3 +101,4 @@
     "fallbackPath": "data/fixtures/bundesrat-news.xml"
   }
 ]
+

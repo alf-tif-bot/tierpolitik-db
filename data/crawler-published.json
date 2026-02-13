@@ -5,7 +5,7 @@
     "summary": "Beratung in Kommission des Nationalrates abgeschlossen",
     "sourceId": "ch-parliament-business-de",
     "publishedAt": "2025-02-21T00:00:00.000Z",
-    "score": 0.42,
+    "score": 0.42000000000000004,
     "matchedKeywords": [
       "stopfleber",
       "initiative"
@@ -30,10 +30,12 @@
     "summary": "En commission du Conseil national",
     "sourceId": "ch-parliament-business-fr",
     "publishedAt": "2021-03-18T00:00:00.000Z",
-    "score": 0.56,
+    "score": 0.84,
     "matchedKeywords": [
       "animal",
-      "3r"
+      "expérimentation animale",
+      "3r",
+      "animale"
     ]
   }
 ]

@@ -34,10 +34,15 @@ const NOISE_KEYWORDS = [
 
 const PERSON_WHITELIST = [
   'meret schneider',
+  'tobias sennhauser',
+  'casimir von arx',
+  'susanne clauss',
   'maya graf',
   'anna giacometti',
   'samira marti',
   'jon pult',
+  'adèle thorens',
+  'adele thorens',
 ]
 
 export const DEFAULT_KEYWORDS = [...new Set([...ANCHOR_KEYWORDS, ...SUPPORT_KEYWORDS])]
@@ -92,7 +97,12 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
 
     item.score = score
     item.matchedKeywords = matched
-    item.status = isRelevant ? 'queued' : 'rejected'
+
+    const prevStatus = item.status
+    const isManualLocked = ['approved', 'published', 'rejected'].includes(prevStatus)
+    if (!isManualLocked) {
+      item.status = isRelevant ? 'queued' : 'rejected'
+    }
 
     const rule = isRelevant
       ? (hasWhitelistedPerson ? 'whitelist+theme' : (score >= minScore ? 'anchor+score' : 'anchor2+support'))
