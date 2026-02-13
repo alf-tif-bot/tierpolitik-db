@@ -6,10 +6,25 @@ const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
 const sourceMap = new Map((db.sources || []).map((source) => [source.id, source.label]))
 const activeSourceIds = new Set((db.sources || []).map((source) => source.id))
 
-const items = [...db.items]
-  .filter((item) => activeSourceIds.has(item.sourceId))
+const activeItems = [...db.items].filter((item) => activeSourceIds.has(item.sourceId))
+
+const items = activeItems
   .filter((item) => ['queued', 'approved', 'published'].includes(item.status))
   .sort((a, b) => new Date(b.publishedAt || 0).getTime() - new Date(a.publishedAt || 0).getTime())
+
+const statusCounts = activeItems.reduce((acc, item) => {
+  acc[item.status] = (acc[item.status] || 0) + 1
+  return acc
+}, {})
+
+const brokenLinkCount = items.filter((item) => {
+  try {
+    const u = new URL(item.sourceUrl || '')
+    return !['http:', 'https:'].includes(u.protocol)
+  } catch {
+    return true
+  }
+}).length
 
 const esc = (v = '') => String(v)
   .replaceAll('&', '&amp;')
@@ -55,6 +70,8 @@ const html = `<!doctype html>
     .sub{color:#94a3b8;margin:0 0 16px}
     .links{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
     .links a{color:#cbd5f5;text-decoration:none;border:1px solid rgba(255,255,255,.15);padding:6px 10px;border-radius:999px}
+    .debug{background:#0b1220;border:1px solid rgba(147,197,253,.3);border-radius:12px;padding:10px 12px;margin:0 0 14px;color:#bfdbfe;font-size:.9rem}
+    .debug strong{color:#dbeafe}
     .item{background:#111827;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 14px 12px;margin-bottom:10px}
     .top{display:flex;justify-content:space-between;gap:10px;font-size:.85rem;color:#94a3b8}
     .source{color:#cbd5f5}
@@ -71,6 +88,16 @@ const html = `<!doctype html>
       <a href="/review.html">Zur Review-Ansicht</a>
       <a href="/">Zur App</a>
     </nav>
+    <section class="debug">
+      <strong>Debug:</strong>
+      Gescannt (aktive Quellen): ${activeItems.length} ·
+      Relevant angezeigt: ${items.length} ·
+      queued: ${statusCounts.queued || 0} ·
+      approved: ${statusCounts.approved || 0} ·
+      published: ${statusCounts.published || 0} ·
+      rejected: ${statusCounts.rejected || 0} ·
+      ungültige Links: ${brokenLinkCount}
+    </section>
     ${rows || '<p>Keine Resultate vorhanden.</p>'}
   </main>
 </body>
