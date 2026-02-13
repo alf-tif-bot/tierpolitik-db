@@ -1,0 +1,27 @@
+[
+  {
+    "id": "ch-parliament-affairs-v2",
+    "label": "Parlament.ch Curia Vista Affairs (DE/FR/IT merged)",
+    "type": "api",
+    "adapter": "parliamentOdataV2",
+    "url": "https://ws.parlament.ch/odata.svc/Business",
+    "enabled": true,
+    "options": {
+      "langs": "DE,FR,IT",
+      "top": 900,
+      "daysBack": 9500,
+      "businessTypeIncludes": "Motion,Postulat,Interpellation,Anfrage"
+    }
+  },
+  {
+    "id": "ch-cantons-registry-v2",
+    "label": "Cantonal parliaments source registry scaffold (all cantons)",
+    "type": "api",
+    "adapter": "cantonRegistry",
+    "url": "https://placeholder.invalid/cantons",
+    "enabled": true,
+    "options": {
+      "sinceYear": 2020
+    }
+  }
+]

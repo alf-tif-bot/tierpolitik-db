@@ -20,12 +20,23 @@ export const rawItemSchema = z.object({
   sourceId: z.string().min(2),
   sourceUrl: z.url(),
   externalId: z.string().min(2),
+  affairId: z.string().min(2).optional(),
   title: z.string().min(5),
   summary: z.string().default(''),
   body: z.string().default(''),
   publishedAt: z.string().datetime().nullable().default(null),
   fetchedAt: z.string().datetime(),
   language: z.enum(['de', 'fr', 'it', 'en']).default('de'),
+  languageVariants: z.record(z.string(), z.object({
+    title: z.string().default(''),
+    summary: z.string().default(''),
+    body: z.string().default(''),
+    sourceUrl: z.url(),
+    publishedAt: z.string().datetime().nullable().default(null),
+    language: z.enum(['de', 'fr', 'it', 'en']).default('de'),
+    businessTypeName: z.string().optional(),
+  })).optional(),
+  meta: z.record(z.string(), z.any()).optional(),
 })
 
 export const scoredItemSchema = rawItemSchema.extend({
