@@ -1,4 +1,11 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import { withPgClient } from '../../crawler/db-postgres.mjs'
+
+const initiativeLinksPath = path.resolve(process.cwd(), 'data/initiative-links.json')
+const initiativeLinkMap = fs.existsSync(initiativeLinksPath)
+  ? JSON.parse(fs.readFileSync(initiativeLinksPath, 'utf8'))
+  : {}
 
 const inferType = (title = '', sourceId = '') => {
   const text = `${title} ${sourceId}`.toLowerCase()
@@ -41,6 +48,23 @@ const personByLang = {
   de: { name: 'Parlamentsdienst', rolle: 'Nationalrat', partei: 'Überparteilich' },
   fr: { name: 'Service parlementaire', rolle: 'Nationalrat', partei: 'Überparteilich' },
   it: { name: 'Servizio parlamentare', rolle: 'Nationalrat', partei: 'Überparteilich' },
+}
+
+const buildInitiativeLinks = ({ typ, title, externalId, status }) => {
+  if (typ !== 'Volksinitiative') return undefined
+
+  const affairId = String(externalId || '').split('-')[0]
+  const mapped = initiativeLinkMap[affairId] || {}
+  const campaignUrl = mapped.campaignUrl
+    || `https://duckduckgo.com/?q=${encodeURIComponent(`${title} Volksinitiative Kampagne`)}`
+
+  const isPast = ['Angenommen', 'Abgelehnt', 'Abgeschrieben'].includes(status)
+  const resultUrl = mapped.resultUrl
+    || (isPast
+      ? `https://www.admin.ch/gov/de/start/suche.html?query=${encodeURIComponent(`${title} Volksinitiative Abstimmungsresultat`)}`
+      : undefined)
+
+  return { campaignUrl, resultUrl }
 }
 
 const clean = (text = '') => String(text)
@@ -119,11 +143,19 @@ export const handler = async () => {
       const link = String(r.source_url || '').startsWith('http')
         ? r.source_url
         : `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${affairId}`
+      const typ = inferType(r.title || '', r.source_id || '')
+      const statusLabel = mapStatus(r.status)
+      const initiativeLinks = buildInitiativeLinks({
+        typ,
+        title: r.title,
+        externalId: r.external_id,
+        status: statusLabel,
+      })
 
       return {
         id: `vp-${idSafe.toLowerCase()}`,
         titel: r.title || `Vorstoss ${index + 1}`,
-        typ: inferType(r.title || '', r.source_id || ''),
+        typ,
         kurzbeschreibung: summarizeVorstoss({
           title: r.title,
           summary: r.summary,
@@ -134,7 +166,7 @@ export const handler = async () => {
         ebene: 'Bund',
         kanton: null,
         regionGemeinde: null,
-        status: mapStatus(r.status),
+        status: statusLabel,
         datumEingereicht: eingereicht,
         datumAktualisiert: updated,
         themen: [
@@ -144,9 +176,9 @@ export const handler = async () => {
         schlagwoerter: (Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierpolitik']).slice(0, 8),
         einreichende: [personByLang[sprache]],
         linkGeschaeft: link,
-        resultate: [{ datum: eingereicht, status: mapStatus(r.status), bemerkung: `Status aus DB: ${r.status}` }],
+        resultate: [{ datum: eingereicht, status: statusLabel, bemerkung: `Status aus DB: ${r.status}` }],
         medien: [],
-        metadaten: { sprache, haltung: stance, zuletztGeprueftVon: 'DB Live API' },
+        metadaten: { sprache, haltung: stance, initiativeLinks, zuletztGeprueftVon: 'DB Live API' },
       }
     })
 

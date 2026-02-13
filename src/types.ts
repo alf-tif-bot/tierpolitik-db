@@ -51,6 +51,10 @@ export const vorstossSchema = z.object({
   metadaten: z.object({
     sprache: z.enum(['de', 'fr', 'it']),
     haltung: z.enum(['pro-tierschutz', 'tierschutzkritisch', 'neutral/unklar']).optional(),
+    initiativeLinks: z.object({
+      campaignUrl: z.string().url().optional(),
+      resultUrl: z.string().url().optional(),
+    }).optional(),
     zuletztGeprueftVon: z.string().min(1),
   }),
 })

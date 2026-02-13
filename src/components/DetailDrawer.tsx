@@ -115,6 +115,16 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
           <a href={item.linkGeschaeft} target="_blank" rel="noopener">
             <button className="btn-primary">{t.openBusiness}</button>
           </a>
+          {item.typ === 'Volksinitiative' && item.metadaten?.initiativeLinks?.campaignUrl && (
+            <a href={item.metadaten.initiativeLinks.campaignUrl} target="_blank" rel="noopener noreferrer">
+              <button className="btn-secondary">Kampagnen-Website</button>
+            </a>
+          )}
+          {item.typ === 'Volksinitiative' && item.metadaten?.initiativeLinks?.resultUrl && (
+            <a href={item.metadaten.initiativeLinks.resultUrl} target="_blank" rel="noopener noreferrer">
+              <button className="btn-secondary">Behörden-Resultate</button>
+            </a>
+          )}
           <button className="btn-secondary" onClick={() => onSubscribe(`Vorstoss ${item.geschaeftsnummer}`)}>E-Mail abonnieren</button>
         </div>
 

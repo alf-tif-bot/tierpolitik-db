@@ -39,6 +39,9 @@
     "metadaten": {
       "sprache": "de",
       "haltung": "neutral/unklar",
+      "initiativeLinks": {
+        "campaignUrl": "https://www.stopfleber-initiative.ch"
+      },
       "zuletztGeprueftVon": "Crawler/DB Sync"
     }
   },
@@ -84,6 +87,9 @@
     "metadaten": {
       "sprache": "de",
       "haltung": "neutral/unklar",
+      "initiativeLinks": {
+        "campaignUrl": "https://www.stopfleber-initiative.ch"
+      },
       "zuletztGeprueftVon": "Crawler/DB Sync"
     }
   },

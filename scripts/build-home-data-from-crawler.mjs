@@ -1,9 +1,13 @@
 import fs from 'node:fs'
 
 const crawlerDbPath = new URL('../data/crawler-db.json', import.meta.url)
+const initiativeLinksPath = new URL('../data/initiative-links.json', import.meta.url)
 const outPath = new URL('../data/vorstoesse.json', import.meta.url)
 
 const db = JSON.parse(fs.readFileSync(crawlerDbPath, 'utf8'))
+const initiativeLinkMap = fs.existsSync(initiativeLinksPath)
+  ? JSON.parse(fs.readFileSync(initiativeLinksPath, 'utf8'))
+  : {}
 
 const toIsoDate = (v) => {
   if (!v) return new Date().toISOString().slice(0, 10)
@@ -100,6 +104,23 @@ const items = (db.items || [])
   .filter((item) => ['approved', 'published'].includes(item.status))
   .slice(0, 1200)
 
+const buildInitiativeLinks = ({ typ, title, externalId, status }) => {
+  if (typ !== 'Volksinitiative') return undefined
+
+  const affairId = String(externalId || '').split('-')[0]
+  const mapped = initiativeLinkMap[affairId] || {}
+  const campaignUrl = mapped.campaignUrl
+    || `https://duckduckgo.com/?q=${encodeURIComponent(`${title} Volksinitiative Kampagne`)}`
+
+  const isPast = ['Angenommen', 'Abgelehnt', 'Abgeschrieben'].includes(status)
+  const resultUrl = mapped.resultUrl
+    || (isPast
+      ? `https://www.admin.ch/gov/de/start/suche.html?query=${encodeURIComponent(`${title} Volksinitiative Abstimmungsresultat`)}`
+      : undefined)
+
+  return { campaignUrl, resultUrl }
+}
+
 const vorstoesse = items.map((item, index) => {
   const sprache = langFromSource(item.sourceId)
   const eingereicht = toIsoDate(item.publishedAt || item.fetchedAt)
@@ -107,6 +128,12 @@ const vorstoesse = items.map((item, index) => {
   const status = mapStatus(item.status)
   const typ = inferType(item.title, item.sourceId)
   const stance = extractStance(item.reviewReason)
+  const initiativeLinks = buildInitiativeLinks({
+    typ,
+    title: item.title,
+    externalId: item.externalId,
+    status,
+  })
   const idSafe = String(item.externalId || `${Date.now()}-${index}`).replace(/[^a-zA-Z0-9-]/g, '-')
   const link = item.sourceUrl && item.sourceUrl.startsWith('http')
     ? item.sourceUrl
@@ -147,6 +174,7 @@ const vorstoesse = items.map((item, index) => {
     metadaten: {
       sprache,
       haltung: stance,
+      initiativeLinks,
       zuletztGeprueftVon: 'Crawler/DB Sync',
     },
   }
