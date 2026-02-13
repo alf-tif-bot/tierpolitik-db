@@ -66,10 +66,7 @@ const reviewItems = [...grouped.values()]
 const sourceMap = new Map((db.sources || []).map((s) => [s.id, s.label]))
 
 const esc = (v = '') => String(v).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
-const counts = reviewItems.reduce((acc, item) => {
-  acc[item.status] = (acc[item.status] || 0) + 1
-  return acc
-}, {})
+// Status-Summen werden clientseitig aus den aktuell sichtbaren Zeilen berechnet.
 
 const isValidHttpUrl = (value = '') => {
   try {
@@ -183,7 +180,7 @@ const rows = reviewItems.map((item) => {
     : '<span class="muted">kein gültiger Link</span>'
 
   return `
-<tr data-id="${esc(id)}">
+<tr data-id="${esc(id)}" data-status="${esc(item.status)}">
 <td>
   <strong>${esc(item.title)}</strong><br>
   <small>${esc(summarizeForReview(item))}</small><br>
@@ -237,7 +234,7 @@ const html = `<!doctype html>
   <main class="wrap">
     <h1>Review-Ansicht</h1>
     <p>Es werden nur relevante Einträge gezeigt (queued/approved/published). Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB übernommen.</p>
-    <p class="status">Status-Summen (sichtbar): queued=${counts.queued || 0}, approved=${counts.approved || 0}, published=${counts.published || 0}</p>
+    <p class="status" id="status-summary">Status-Summen (sichtbar): queued=0, approved=0, published=0</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
     <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
@@ -262,12 +259,25 @@ const key='tierpolitik.review';
 const read=()=>JSON.parse(localStorage.getItem(key)||'{}');
 const write=(v)=>localStorage.setItem(key,JSON.stringify(v,null,2));
 
+function updateStatusSummary(){
+  const stats = { queued: 0, approved: 0, published: 0 }
+  document.querySelectorAll('tr[data-id]').forEach((row)=>{
+    const hidden = row.style.display === 'none'
+    if (hidden) return
+    const status = row.getAttribute('data-status')
+    if (status && status in stats) stats[status] += 1
+  })
+  const el = document.getElementById('status-summary')
+  if (el) el.textContent = `Status-Summen (sichtbar): queued=${stats.queued}, approved=${stats.approved}, published=${stats.published}`
+}
+
 function hideDecidedRows(){
   const decisions = read();
   document.querySelectorAll('tr[data-id]').forEach((row)=>{
     const id = row.getAttribute('data-id');
     if (id && decisions[id]) row.style.display = 'none';
   });
+  updateStatusSummary();
 }
 
 async function setDecision(btn,id,status){
@@ -309,6 +319,7 @@ async function setDecision(btn,id,status){
 
   const row = btn?.closest('tr[data-id]');
   if (row) row.style.display='none';
+  updateStatusSummary();
   if (statusEl) statusEl.textContent = 'Entscheidung gespeichert.';
 }
 
