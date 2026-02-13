@@ -272,11 +272,7 @@ function updateStatusSummary(){
 }
 
 function hideDecidedRows(){
-  const decisions = read();
-  document.querySelectorAll('tr[data-id]').forEach((row)=>{
-    const id = row.getAttribute('data-id');
-    if (id && decisions[id]) row.style.display = 'none';
-  });
+  // bewusst deaktiviert: sonst wirkt /review schnell "leer", wenn lokal schon viel entschieden wurde
   updateStatusSummary();
 }
 
