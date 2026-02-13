@@ -80,17 +80,7 @@ export function createParliamentOdataAdapter() {
         .sort((a, b) => rankRow(b) - rankRow(a))
 
       const thematicTarget = Math.min(sampleLimit, Math.max(thematicMinQuota, Math.floor(sampleLimit * 0.7)))
-      const picked = [...thematicRows.slice(0, thematicTarget)]
-      const usedIds = new Set(picked.map((row) => row.ID))
-
-      if (picked.length < sampleLimit) {
-        for (const row of rows) {
-          if (usedIds.has(row.ID)) continue
-          picked.push(row)
-          usedIds.add(row.ID)
-          if (picked.length >= sampleLimit) break
-        }
-      }
+      const picked = thematicRows.slice(0, thematicTarget)
 
       return picked.map((row) => {
         const summary = stripHtml(row.Description || row.BusinessStatusText || row.TagNames || '')

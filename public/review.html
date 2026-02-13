@@ -30,7 +30,7 @@
   <main class="wrap">
     <h1>Review-Ansicht</h1>
     <p>Es werden nur relevante Einträge gezeigt (queued/approved/published). Entscheidungen als JSON exportieren und danach mit <code>npm run crawler:apply-review</code> in die DB übernehmen.</p>
-    <p class="status">Status-Summen (sichtbar): queued=0, approved=0, published=0</p>
+    <p class="status">Status-Summen (sichtbar): queued=1, approved=0, published=0</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
     <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button></p>
     <table>
@@ -45,7 +45,26 @@
           <th>Aktion</th>
         </tr>
       </thead>
-      <tbody><tr><td colspan="7">Keine Einträge.</td></tr></tbody>
+      <tbody>
+<tr>
+<td>
+  <strong>21.426 · Méthodes de substitution à l'expérimentation animale. Davantage de ressources et d'incitations pour la recherche 3R</strong><br>
+  <small>En commission du Conseil national</small><br>
+  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20210426" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
+</td>
+<td>
+  <div>Parlament.ch Curia Vista (FR)</div>
+  <small class="muted">ch-parliament-business-fr</small>
+</td>
+<td>0.28</td>
+<td>animal</td>
+<td>queued (<strong class="pending">offen</strong>)</td>
+<td><small>Relevant [anchor+score] · anchor=animal · support=- · noise=- · score=0.28</small></td>
+<td>
+<button onclick="setDecision('ch-parliament-business-fr:20210426-fr','approved')">Approve</button>
+<button onclick="setDecision('ch-parliament-business-fr:20210426-fr','rejected')">Reject</button>
+</td>
+</tr></tbody>
     </table>
   </main>
 <script>
