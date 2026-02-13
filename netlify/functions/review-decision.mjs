@@ -1,4 +1,22 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import { withPgClient } from '../../crawler/db-postgres.mjs'
+
+const crawlerDbPath = path.resolve(process.cwd(), 'data/crawler-db.json')
+const crawlerDb = fs.existsSync(crawlerDbPath)
+  ? JSON.parse(fs.readFileSync(crawlerDbPath, 'utf8'))
+  : { items: [] }
+
+const findCrawlerItem = (sourceId, externalId) => {
+  const externalIdFallback = String(externalId || '').replace(/-[a-z]{2}$/i, '')
+  const affairId = externalIdFallback.split('-')[0]
+
+  return (crawlerDb.items || []).find((item) => {
+    if (item.sourceId !== sourceId) return false
+    const ex = String(item.externalId || '')
+    return ex === externalId || ex === externalIdFallback || ex.split('-')[0] === affairId
+  })
+}
 
 const ALLOWED = new Set(['approved', 'rejected', 'queued'])
 
@@ -45,11 +63,20 @@ export const handler = async (event) => {
         let motionId = m.rows[0]?.id
 
         if (!motionId) {
+          const crawlerItem = findCrawlerItem(sourceId, externalId)
+          const sourceUrl = crawlerItem?.sourceUrl || `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${affairId}`
+          const language = crawlerItem?.language || 'de'
+          const publishedAt = crawlerItem?.publishedAt || new Date().toISOString()
+          const fetchedAt = crawlerItem?.fetchedAt || new Date().toISOString()
+          const score = Number(crawlerItem?.score || 0)
+          const matchedKeywords = JSON.stringify(crawlerItem?.matchedKeywords || [])
+          const reviewReason = crawlerItem?.reviewReason || 'autocreated from review decision'
+
           await client.query(
             `insert into sources (id, label, type, adapter, url, enabled, options, updated_at)
              values ($1,$2,'api','review-fallback',$3,true,'{}'::jsonb, now())
              on conflict (id) do nothing`,
-            [sourceId, sourceId, `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${affairId}`],
+            [sourceId, sourceId, sourceUrl],
           )
 
           const inserted = await client.query(
@@ -57,14 +84,36 @@ export const handler = async (event) => {
               source_id, external_id, source_url, language, published_at, fetched_at,
               score, matched_keywords, status, review_reason, first_seen_at, last_seen_at, updated_at
             ) values (
-              $1,$2,$3,'de',now(),now(),0,'[]'::jsonb,'queued','autocreated from review decision',now(),now(),now()
+              $1,$2,$3,$4,$5,$6,$7,$8::jsonb,'queued',$9,now(),now(),now()
             )
             on conflict (source_id, external_id) do update
-            set updated_at = now()
+            set source_url = excluded.source_url,
+                language = excluded.language,
+                published_at = excluded.published_at,
+                fetched_at = excluded.fetched_at,
+                score = excluded.score,
+                matched_keywords = excluded.matched_keywords,
+                review_reason = excluded.review_reason,
+                updated_at = now()
             returning id`,
-            [sourceId, externalIdFallback || externalId, `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${affairId}`],
+            [sourceId, externalIdFallback || externalId, sourceUrl, language, publishedAt, fetchedAt, score, matchedKeywords, reviewReason],
           )
           motionId = inserted.rows[0]?.id
+
+          if (motionId && crawlerItem) {
+            await client.query(
+              `insert into motion_versions (motion_id, title, summary, body, content_hash, version_no)
+               values ($1,$2,$3,$4,$5,1)
+               on conflict (motion_id, content_hash) do nothing`,
+              [
+                motionId,
+                crawlerItem.title || `Vorstoss ${externalIdFallback || externalId}`,
+                crawlerItem.summary || '',
+                crawlerItem.body || crawlerItem.summary || '',
+                `review-fallback:${sourceId}:${externalIdFallback || externalId}`,
+              ],
+            )
+          }
         }
 
         if (!motionId) throw new Error(`motion not found (${sourceId}:${externalId})`)

@@ -59,10 +59,24 @@ const langFromSource = (sourceId = '') => {
   return 'de'
 }
 
-const peopleByLang = {
-  de: { name: 'Parlamentsdienst', rolle: 'Nationalrat', partei: 'Überparteilich' },
-  fr: { name: 'Service parlementaire', rolle: 'Nationalrat', partei: 'Überparteilich' },
-  it: { name: 'Servizio parlamentare', rolle: 'Nationalrat', partei: 'Überparteilich' },
+const fallbackPeopleByLang = {
+  de: { name: 'Parlamentsgeschäft (Bund)', rolle: 'Nationalrat', partei: 'Überparteilich' },
+  fr: { name: 'Objet parlementaire (Confédération)', rolle: 'Nationalrat', partei: 'Überparteilich' },
+  it: { name: 'Atto parlamentare (Confederazione)', rolle: 'Nationalrat', partei: 'Überparteilich' },
+}
+
+const inferSubmitter = (lang, title = '', summary = '', body = '') => {
+  const text = `${title} ${summary} ${body}`.toLowerCase()
+  if (text.includes('blv') || text.includes('lebensmittelsicherheit') || text.includes('veterinärwesen')) {
+    return { name: 'BLV', rolle: 'Regierung', partei: 'Bundesverwaltung' }
+  }
+  if (text.includes('bundesrat') || text.includes('message du conseil fédéral') || text.includes('messaggio del consiglio federale')) {
+    return { name: 'Bundesrat', rolle: 'Regierung', partei: 'Bundesrat' }
+  }
+  if (text.includes('kommission')) {
+    return { name: 'Parlamentarische Kommission', rolle: 'Nationalrat', partei: 'Überparteilich' }
+  }
+  return fallbackPeopleByLang[lang] || fallbackPeopleByLang.de
 }
 
 const clean = (text = '') => String(text)
@@ -176,7 +190,7 @@ const vorstoesse = items.map((item, index) => {
       stance === 'pro-tierschutz' ? 'Pro Tierschutz' : stance === 'tierschutzkritisch' ? 'Tierschutzkritisch' : 'Neutral/Unklar',
     ].slice(0, 6),
     schlagwoerter: (item.matchedKeywords?.length ? item.matchedKeywords : ['Tierpolitik']).slice(0, 8),
-    einreichende: [peopleByLang[sprache]],
+    einreichende: [inferSubmitter(sprache, item.title, item.summary, item.body)],
     linkGeschaeft: link,
     resultate: [
       {

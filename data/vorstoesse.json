@@ -22,7 +22,7 @@
     ],
     "einreichende": [
       {
-        "name": "Parlamentsdienst",
+        "name": "Parlamentarische Kommission",
         "rolle": "Nationalrat",
         "partei": "Überparteilich"
       }
@@ -70,7 +70,7 @@
     ],
     "einreichende": [
       {
-        "name": "Parlamentsdienst",
+        "name": "Parlamentsgeschäft (Bund)",
         "rolle": "Nationalrat",
         "partei": "Überparteilich"
       }
@@ -120,7 +120,7 @@
     ],
     "einreichende": [
       {
-        "name": "Service parlementaire",
+        "name": "Objet parlementaire (Confédération)",
         "rolle": "Nationalrat",
         "partei": "Überparteilich"
       }

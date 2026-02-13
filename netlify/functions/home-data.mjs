@@ -44,10 +44,24 @@ const langFromSource = (sourceId = '') => {
   return 'de'
 }
 
-const personByLang = {
-  de: { name: 'Parlamentsdienst', rolle: 'Nationalrat', partei: 'Überparteilich' },
-  fr: { name: 'Service parlementaire', rolle: 'Nationalrat', partei: 'Überparteilich' },
-  it: { name: 'Servizio parlamentare', rolle: 'Nationalrat', partei: 'Überparteilich' },
+const fallbackPersonByLang = {
+  de: { name: 'Parlamentsgeschäft (Bund)', rolle: 'Nationalrat', partei: 'Überparteilich' },
+  fr: { name: 'Objet parlementaire (Confédération)', rolle: 'Nationalrat', partei: 'Überparteilich' },
+  it: { name: 'Atto parlamentare (Confederazione)', rolle: 'Nationalrat', partei: 'Überparteilich' },
+}
+
+const inferSubmitter = (lang, title = '', summary = '', body = '') => {
+  const text = `${title} ${summary} ${body}`.toLowerCase()
+  if (text.includes('blv') || text.includes('lebensmittelsicherheit') || text.includes('veterinärwesen')) {
+    return { name: 'BLV', rolle: 'Regierung', partei: 'Bundesverwaltung' }
+  }
+  if (text.includes('bundesrat') || text.includes('message du conseil fédéral') || text.includes('messaggio del consiglio federale')) {
+    return { name: 'Bundesrat', rolle: 'Regierung', partei: 'Bundesrat' }
+  }
+  if (text.includes('kommission')) {
+    return { name: 'Parlamentarische Kommission', rolle: 'Nationalrat', partei: 'Überparteilich' }
+  }
+  return fallbackPersonByLang[lang] || fallbackPersonByLang.de
 }
 
 const buildInitiativeLinks = ({ typ, title, externalId, status }) => {
@@ -190,7 +204,7 @@ export const handler = async () => {
           stance === 'pro-tierschutz' ? 'Pro Tierschutz' : stance === 'tierschutzkritisch' ? 'Tierschutzkritisch' : 'Neutral/Unklar',
         ].slice(0, 6),
         schlagwoerter: (Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierpolitik']).slice(0, 8),
-        einreichende: [personByLang[sprache]],
+        einreichende: [inferSubmitter(sprache, r.title, r.summary, r.body)],
         linkGeschaeft: link,
         resultate: [{ datum: eingereicht, status: statusLabel, bemerkung: `Status aus DB: ${r.status}` }],
         medien: [],
