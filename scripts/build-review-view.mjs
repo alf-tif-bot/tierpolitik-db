@@ -280,12 +280,20 @@ function updateStatusSummary(){
 
 function hideDecidedRows(){
   const decisions = read();
-  document.querySelectorAll('tr[data-id]').forEach((row)=>{
+  const rows = [...document.querySelectorAll('tr[data-id]')]
+  rows.forEach((row)=>{
     const id = row.getAttribute('data-id');
     if (!id) return
     const decided = Boolean(decisions[id])
     row.style.display = (!showDecided && decided) ? 'none' : ''
   });
+
+  const visible = rows.filter((row) => row.style.display !== 'none').length
+  if (visible === 0 && rows.length > 0 && !showDecided) {
+    showDecided = true
+    rows.forEach((row)=>{ row.style.display = '' })
+  }
+
   const btn = document.getElementById('toggle-decided')
   if (btn) btn.textContent = showDecided ? 'Bearbeitete ausblenden' : 'Bereits bearbeitete anzeigen'
   updateStatusSummary();
