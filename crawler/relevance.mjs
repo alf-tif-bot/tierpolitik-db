@@ -3,7 +3,7 @@ import path from 'node:path'
 import { loadDb, saveDb } from './db.mjs'
 
 export const ANCHOR_KEYWORDS = [
-  'tier', 'tiere', 'tierschutz', 'tierwohl', 'nutztiere', 'tierhaltung', 'tiertransport',
+  'tier', 'tiere', 'tierschutz', 'tierwohl', 'nutztiere', 'tierhaltung', 'massentierhaltung', 'massentier', 'tiertransport',
   'tierversuch', 'tierversuche', 'versuchstiere', 'schlachthof',
   'haustier', 'hunde', 'hund', 'katze', 'katzen', 'geflügel', 'gefluegel', 'schwein', 'rind',
   'wildtier', 'wildtiere', 'wolf', 'biber', 'fuchs',

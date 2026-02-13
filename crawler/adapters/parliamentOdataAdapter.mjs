@@ -25,7 +25,7 @@ const pickRows = (payload) => {
 }
 
 const THEMATIC_HINTS = [
-  'tier', 'tierschutz', 'tierwohl', 'nutztier', 'tierhalt', 'tiertransport', 'tierversuch', '3r', 'schlacht',
+  'tier', 'tierschutz', 'tierwohl', 'nutztier', 'tierhalt', 'massentierhaltung', 'massentier', 'tiertransport', 'tierversuch', '3r', 'schlacht',
   'jagd', 'chasse', 'caccia', 'fisch', 'pêche', 'peche', 'pesca', 'wildtier', 'wolf', 'biber',
   'veterin', 'animal', 'animaux', 'animale', 'protection animale', 'bien-être animal', 'foie gras', 'stopfleber',
 ]
@@ -69,28 +69,57 @@ export function createParliamentOdataAdapter() {
       const lang = source.options?.lang ?? 'DE'
       const daysBack = source.options?.daysBack ?? 3650
       const businessTypeIncludes = parseCsvOption(source.options?.businessTypeIncludes)
+      const queryTerms = parseCsvOption(source.options?.queryTerms)
       const since = new Date(Date.now() - daysBack * 86400000).toISOString().slice(0, 19)
       const select = [
         'ID', 'Language', 'BusinessShortNumber', 'BusinessTypeName', 'Title', 'Description', 'TagNames',
         'SubmissionDate', 'Modified', 'BusinessStatusText',
       ].join(',')
 
-      const params = new URLSearchParams({
-        '$top': String(top),
-        '$orderby': 'Modified desc',
-        '$filter': `Language eq '${lang}' and Modified ge datetime'${since}'`,
-        '$select': select,
-        '$format': 'json',
-      })
+      const fetchRows = async (filter, topN = top) => {
+        const params = new URLSearchParams({
+          '$top': String(topN),
+          '$orderby': 'Modified desc',
+          '$filter': filter,
+          '$select': select,
+          '$format': 'json',
+        })
+        const url = `${source.url}?${params.toString()}`
+        const response = await fetch(url, { headers: { accept: 'application/json' } })
+        if (!response.ok) throw new Error(`OData fetch failed (${response.status})`)
+        const payload = await response.json()
+        return pickRows(payload).filter((row) => row?.ID && row?.Title)
+      }
 
-      const url = `${source.url}?${params.toString()}`
-      const response = await fetch(url, { headers: { accept: 'application/json' } })
-      if (!response.ok) throw new Error(`OData fetch failed (${response.status})`)
-      const payload = await response.json()
-      const rows = pickRows(payload).filter((row) => row?.ID && row?.Title)
+      const baseFilter = `Language eq '${lang}' and Modified ge datetime'${since}'`
+      const rows = await fetchRows(baseFilter)
+
+      const extraTerms = queryTerms.length > 0
+        ? queryTerms
+        : ['Massentier', 'Stopfleber', 'Tierversuch', 'Nutztier', 'Tierschutz']
+
+      const extraRows = []
+      for (const term of extraTerms.slice(0, 8)) {
+        const safeTerm = String(term).replace(/'/g, "''")
+        const termFilter = `Language eq '${lang}' and Modified ge datetime'${since}' and substringof('${safeTerm}',Title)`
+        try {
+          const termRows = await fetchRows(termFilter, Math.min(220, top))
+          extraRows.push(...termRows)
+        } catch {
+          // continue with base set if term query fails
+        }
+      }
+
+      const merged = [...rows, ...extraRows]
+      const uniq = new Map()
+      for (const row of merged) {
+        const key = `${row.ID}-${row.Language || lang}`
+        if (!uniq.has(key)) uniq.set(key, row)
+      }
+      const dedupedRows = [...uniq.values()]
       const filteredRows = businessTypeIncludes.length > 0
-        ? rows.filter((row) => businessTypeIncludes.some((type) => String(row.BusinessTypeName || '').toLowerCase().includes(type.toLowerCase())))
-        : rows
+        ? dedupedRows.filter((row) => businessTypeIncludes.some((type) => String(row.BusinessTypeName || '').toLowerCase().includes(type.toLowerCase())))
+        : dedupedRows
       const fetchedAt = new Date().toISOString()
 
       const thematicRows = filteredRows
