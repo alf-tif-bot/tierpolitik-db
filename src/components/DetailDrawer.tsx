@@ -3,12 +3,15 @@ import { translateContent, translateStatus } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
 
+type QuickFilterField = 'thema' | 'typ' | 'ebene' | 'kanton' | 'region'
+
 type Props = {
   item: Vorstoss | null
   onClose: () => void
   onOpenPersonProfile: (name: string) => void
   onOpenPartyProfile: (party: string) => void
   onSubscribe: (context: string) => void
+  onQuickFilter: (field: QuickFilterField, value: string) => void
   lang: Language
   t: I18nText
 }
@@ -22,7 +25,7 @@ type TimelineItem = {
   url?: string
 }
 
-export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyProfile, onSubscribe, lang, t }: Props) {
+export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyProfile, onSubscribe, onQuickFilter, lang, t }: Props) {
   if (!item) return null
 
   const timeline: TimelineItem[] = [
@@ -43,13 +46,12 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
   const statusSlug = item.status.toLowerCase().replace(/\s+/g, '-')
 
   const metaRows = [
-    { label: t.type, value: item.typ },
+    { label: t.type, value: item.typ, filterField: 'typ' as const },
     { label: t.businessNo, value: item.geschaeftsnummer },
-    { label: t.level, value: level },
-    { label: t.canton, value: item.kanton ?? '-' },
-    { label: t.region, value: item.regionGemeinde ?? '-' },
+    { label: t.level, value: level, filterField: 'ebene' as const, rawValue: item.ebene },
+    { label: t.canton, value: item.kanton ?? '-', filterField: 'kanton' as const },
+    { label: t.region, value: item.regionGemeinde ?? '-', filterField: 'region' as const },
     { label: t.dateSubmitted, value: formatDateCH(item.datumEingereicht) },
-    { label: t.themes, value: item.themen.map((v) => translateContent(v, lang)).join(', ') },
   ]
 
   return (
@@ -69,12 +71,33 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
 
         <h3>Falldaten</h3>
         <div className="detail-grid">
-          {metaRows.map((row) => (
-            <div className="detail-card" key={row.label}>
-              <span className="detail-label">{row.label}</span>
-              <span className="detail-value">{row.value}</span>
+          {metaRows.map((row) => {
+            const clickable = Boolean(row.filterField && row.value && row.value !== '-')
+            const filterValue = row.rawValue ?? row.value
+
+            return (
+              <div className="detail-card" key={row.label}>
+                <span className="detail-label">{row.label}</span>
+                {clickable ? (
+                  <button className="detail-chip-btn" onClick={() => onQuickFilter(row.filterField!, String(filterValue))}>
+                    {row.value}
+                  </button>
+                ) : (
+                  <span className="detail-value">{row.value}</span>
+                )}
+              </div>
+            )
+          })}
+          <div className="detail-card">
+            <span className="detail-label">{t.themes}</span>
+            <div className="detail-links">
+              {item.themen.map((theme) => (
+                <button key={theme} className="detail-chip-btn" onClick={() => onQuickFilter('thema', theme)}>
+                  {translateContent(theme, lang)}
+                </button>
+              ))}
             </div>
-          ))}
+          </div>
           <div className="detail-card">
             <span className="detail-label">{t.submitters}</span>
             <div className="detail-links">

@@ -176,6 +176,21 @@ export default function App() {
     window.open(`mailto:kulturfenster@gmail.com?subject=${subject}&body=${body}`, '_blank', 'noopener,noreferrer')
   }
 
+  const applyQuickFilter = (field: 'thema' | 'typ' | 'ebene' | 'kanton' | 'region', value: string) => {
+    const base = defaultFilters()
+
+    if (field === 'thema') base.themen = [value]
+    if (field === 'ebene') base.ebenen = [value as Filters['ebenen'][number]]
+    if (field === 'kanton') base.kantone = [value]
+    if (field === 'typ') base.globalQuery = value
+    if (field === 'region') base.globalQuery = value
+
+    setFilters(base)
+    setProfile(null)
+    closeDetail()
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <main className="container">
       <header className="hero-head">
@@ -227,6 +242,7 @@ export default function App() {
         onOpenPersonProfile={(name) => setProfile({ kind: 'person', value: name })}
         onOpenPartyProfile={(party) => setProfile({ kind: 'party', value: party })}
         onSubscribe={openSubscribe}
+        onQuickFilter={applyQuickFilter}
         lang={lang}
         t={t}
       />

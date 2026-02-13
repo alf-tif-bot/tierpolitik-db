@@ -569,6 +569,22 @@ a { color: #0a4fa8; }
   color: #1a2d44;
 }
 
+.detail-chip-btn {
+  justify-self: start;
+  background: #e7f0fb;
+  border: 1px solid #bfd3ea;
+  color: #1f4f8a;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+  line-height: 1.2;
+}
+
+.detail-chip-btn:hover {
+  background: #d9e9fb;
+  border-color: #a7c5e7;
+}
+
 .detail-links {
   display: grid;
   gap: 0.2rem;
@@ -802,6 +818,17 @@ a { color: #0a4fa8; }
 
   .text-link-btn:hover {
     color: #c2deff;
+  }
+
+  .detail-chip-btn {
+    background: #2b3f52;
+    border-color: #55708a;
+    color: #d9ecff;
+  }
+
+  .detail-chip-btn:hover {
+    background: #355069;
+    border-color: #6a86a2;
   }
 
   .hero-head h1 {
