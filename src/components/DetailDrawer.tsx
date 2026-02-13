@@ -143,6 +143,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
             </li>
           ))}
         </ul>
+        <button className="bug-report-fab" type="button">Fehler gefunden?</button>
       </aside>
     </div>
   )

@@ -614,6 +614,27 @@ a { color: #0a4fa8; }
   gap: 0.7rem;
 }
 
+.bug-report-fab {
+  position: sticky;
+  margin-left: auto;
+  bottom: 0.75rem;
+  float: right;
+  z-index: 5;
+  background: #ffffff;
+  color: #0f2740;
+  border: 1px solid #cfd9e6;
+  border-radius: 999px;
+  padding: 0.55rem 0.95rem;
+  font-weight: 800;
+  box-shadow: 0 6px 16px rgb(0 0 0 / 18%);
+}
+
+:root[data-theme='dark'] .bug-report-fab {
+  background: #fff;
+  color: #102033;
+  border-color: #d9e3f0;
+}
+
 .btn-primary {
   background: #1f4f8a;
   color: #fff;
