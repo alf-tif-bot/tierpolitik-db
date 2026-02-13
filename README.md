@@ -19,6 +19,14 @@ CRAWLER_ENABLE_FIXTURE_FALLBACK=1 npm run crawler:collect
 npm run crawler:pipeline
 ```
 
+## Ein-Kommando-Pipeline inkl. DB-Mirror
+
+```bash
+npm run crawler:pipeline:db
+```
+
+Diese Variante läuft vollständig durch und spiegelt danach automatisch in PostgreSQL (`db:migrate-json`) und zurück nach JSON (`db:sync-json`).
+
 Reihenfolge:
 1. collect
 2. score

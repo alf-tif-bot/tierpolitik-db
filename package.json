@@ -16,6 +16,7 @@
     "crawler:export": "node scripts/export-published-for-site.mjs",
     "crawler:build-public": "node scripts/build-crawler-public-view.mjs",
     "crawler:pipeline": "npm run crawler:collect && npm run crawler:score && npm run crawler:build-review && npm run crawler:ingest-user-input && npm run crawler:apply-review && npm run crawler:build-review && npm run crawler:export",
+    "crawler:pipeline:db": "npm run crawler:pipeline && npm run db:migrate-json && npm run db:sync-json",
     "db:init-schema": "node scripts/init-db-schema.mjs",
     "db:migrate-json": "node scripts/migrate-json-to-db.mjs",
     "db:sync-json": "node scripts/sync-db-to-json.mjs"
