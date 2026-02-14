@@ -28,7 +28,7 @@ export const canonicalTheme = (value: string): string => {
   if (!raw) return ''
   const n = norm(raw)
 
-  if (n === 'unsichtbare tiere' || n === 'tiere' || n === 'tier' || n === 'massentier' || n === 'tierversuchsfreie' || n === 'tierversuchsfrei' || n === 'initiative' || n === 'initiativ') return ''
+  if (n === 'unsichtbare tiere' || n === 'tiere' || n === 'tier' || n === 'massentier' || n === 'tierversuchsfreie' || n === 'tierversuchsfrei' || n === 'initiative' || n === 'initiativ' || n === 'schweinezucht') return ''
   if (n === 'nutrition') return 'Ernährung'
   if (n === 'biodiversita' || n === 'biodiversite' || n === 'biodiversitat' || n === 'biodiversitaet') return 'Biodiversität'
   if (n === '3r') return '3R'
