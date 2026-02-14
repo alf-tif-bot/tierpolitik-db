@@ -304,12 +304,13 @@ const vorstoesse = items.map((item, index) => {
     ? item.sourceUrl
     : `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${String(item.externalId || '').split('-')[0]}`
 
-  const summaryText = summarizeVorstoss({
+  const rawSummaryText = summarizeVorstoss({
     title: displayTitle,
     summary: displaySummary,
     body: displayBody,
     status: item.status,
   })
+  const summaryText = clean(rawSummaryText) || `Kurzüberblick: ${displayTitle || `Vorstoss ${index + 1}`} (${status}).`
   const baseThemes = sanitizeThemes(mapThemesFromKeywords(item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz'])).slice(0, 6)
   const i18nMeta = buildI18nFromItem(item, displayTitle || `Vorstoss ${index + 1}`, summaryText, typ, baseThemes)
 
