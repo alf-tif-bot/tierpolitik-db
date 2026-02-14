@@ -28,12 +28,30 @@ const classifyReadiness = ({ url = '', platform = 'generic-site', ok = false, ht
   return 'manual-discovery-needed'
 }
 
+const normalizeBase = (value) => String(value || '').replace(/\/+$/, '')
+
+const buildCandidates = (entry) => {
+  const configured = Array.isArray(entry.urlCandidates)
+    ? entry.urlCandidates.map((u) => String(u || '').trim()).filter(Boolean)
+    : []
+
+  const base = normalizeBase(entry.url)
+  const heuristics = [
+    base,
+    `${base}/parlament`,
+    `${base}/kantonsrat`,
+    `${base}/grand-conseil`,
+  ]
+
+  return [...new Set([...configured, ...heuristics].filter(Boolean))]
+}
+
 const probeSource = async (url) => {
   try {
     const response = await fetch(url, {
       redirect: 'follow',
-      headers: { 'user-agent': 'tierpolitik-crawler-registry/1.0 (+night-shift)' },
-      signal: AbortSignal.timeout(18000),
+      headers: { 'user-agent': 'tierpolitik-crawler-registry/1.1 (+night-shift)' },
+      signal: AbortSignal.timeout(7000),
     })
     const text = await response.text()
     const platform = detectPlatform(url, text)
@@ -54,13 +72,46 @@ const probeSource = async (url) => {
   }
 }
 
+const probeQuality = (probe) => {
+  if (!probe.ok) {
+    if (probe.httpStatus === 403 || probe.httpStatus === 429) return 1
+    return 0
+  }
+  let score = 5
+  if (probe.platform === 'ratsinfo' || probe.platform === 'allris/sessionnet') score += 4
+  if (probe.platform === 'parliament-portal') score += 2
+  if (probe.finalUrl && probe.finalUrl !== probe.url) score += 1
+  return score
+}
+
+const selectBestProbe = (probes) => {
+  if (!probes.length) return null
+  return [...probes].sort((a, b) => probeQuality(b) - probeQuality(a))[0]
+}
+
 const sourceRows = await Promise.all(cantons.map(async (entry) => {
-  const probe = await probeSource(entry.url)
+  const candidates = buildCandidates(entry)
+  const probes = []
+  for (const candidateUrl of candidates.slice(0, 3)) {
+    const probe = await probeSource(candidateUrl)
+    probes.push({ ...probe, url: candidateUrl })
+    if (probe.ok && ['ratsinfo', 'allris/sessionnet', 'parliament-portal'].includes(probe.platform)) break
+  }
+
+  const bestProbe = selectBestProbe(probes) || {
+    ok: false,
+    httpStatus: null,
+    finalUrl: entry.url,
+    platform: 'unreachable',
+    error: 'no-probe',
+    url: entry.url,
+  }
+
   const readiness = classifyReadiness({
-    url: probe.finalUrl || entry.url,
-    platform: probe.platform,
-    ok: probe.ok,
-    httpStatus: probe.httpStatus,
+    url: bestProbe.finalUrl || entry.url,
+    platform: bestProbe.platform,
+    ok: bestProbe.ok,
+    httpStatus: bestProbe.httpStatus,
   })
 
   return {
@@ -70,15 +121,23 @@ const sourceRows = await Promise.all(cantons.map(async (entry) => {
     adapter: entry.adapter,
     url: entry.url,
     sinceYear: entry.sinceYear,
-    status: probe.ok ? 'scaffolded' : 'probe-failed',
+    status: bestProbe.ok ? 'scaffolded' : 'probe-failed',
     readiness,
     probe: {
       checkedAt: new Date().toISOString(),
-      ok: probe.ok,
-      httpStatus: probe.httpStatus,
-      finalUrl: probe.finalUrl,
-      platform: probe.platform,
-      error: probe.error || null,
+      ok: bestProbe.ok,
+      httpStatus: bestProbe.httpStatus,
+      finalUrl: bestProbe.finalUrl,
+      platform: bestProbe.platform,
+      error: bestProbe.error || null,
+      candidateCount: candidates.length,
+      candidatesTried: probes.map((p) => ({
+        url: p.url,
+        ok: p.ok,
+        httpStatus: p.httpStatus,
+        finalUrl: p.finalUrl,
+        platform: p.platform,
+      })),
     },
   }
 }))

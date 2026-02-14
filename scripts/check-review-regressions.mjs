@@ -49,8 +49,13 @@ for (const item of reviewCandidates) {
 
 const expectedReviewIds = new Set([...expectedGrouped.values()].map((item) => itemId(item)))
 
-const actualReviewIds = new Set(review.ids || [])
+const reviewIdsList = Array.isArray(review.ids) ? review.ids : []
+const actualReviewIds = new Set(reviewIdsList)
 const missingInReview = [...expectedReviewIds].filter((id) => !actualReviewIds.has(id))
+const extraInReview = [...actualReviewIds].filter((id) => !expectedReviewIds.has(id))
+const duplicateReviewIds = reviewIdsList
+  .filter((id, idx) => reviewIdsList.indexOf(id) !== idx)
+  .filter((id, idx, arr) => arr.indexOf(id) === idx)
 
 const expectedPublishedAffairs = new Set(
   (db.items || [])
@@ -72,11 +77,10 @@ const decisionsStatusMismatch = Object.entries(reviewDecisions)
   .filter(([id, decision]) => {
     if (!dbItemsById.has(id)) return false
     const dbStatus = dbItemsById.get(id)?.status
-    return decision?.status === 'approved'
-      ? !['approved', 'published'].includes(dbStatus)
-      : decision?.status === 'rejected'
-        ? dbStatus !== 'rejected'
-        : false
+    if (decision?.status === 'approved') return !['approved', 'published'].includes(dbStatus)
+    if (decision?.status === 'rejected') return dbStatus !== 'rejected'
+    if (decision?.status === 'queued') return dbStatus !== 'queued'
+    return false
   })
   .map(([id, decision]) => ({
     id,
@@ -90,6 +94,10 @@ const report = {
   actualReview: actualReviewIds.size,
   missingInReviewCount: missingInReview.length,
   missingInReview: missingInReview.slice(0, 120),
+  extraInReviewCount: extraInReview.length,
+  extraInReview: extraInReview.slice(0, 120),
+  duplicateReviewIdsCount: duplicateReviewIds.length,
+  duplicateReviewIds: duplicateReviewIds.slice(0, 120),
   expectedPublishedAffairs: expectedPublishedAffairs.size,
   actualMotions: actualMotionAffairs.size,
   missingInMotionsCount: missingInMotions.length,
@@ -103,9 +111,16 @@ const report = {
 
 fs.writeFileSync(new URL('../data/regression-report.json', import.meta.url), JSON.stringify(report, null, 2))
 
-if (missingInReview.length || missingInMotions.length || decisionsStatusMismatch.length || decisionsUnknownInDb.length) {
+if (missingInReview.length || missingInMotions.length || decisionsStatusMismatch.length || decisionsUnknownInDb.length || duplicateReviewIds.length) {
   console.error('Regression check FAILED', report)
   process.exit(1)
+}
+
+if (extraInReview.length) {
+  console.warn('Regression check WARN: stale review IDs present', {
+    extraInReviewCount: extraInReview.length,
+    sample: extraInReview.slice(0, 12),
+  })
 }
 
 console.log('Regression check OK', report)

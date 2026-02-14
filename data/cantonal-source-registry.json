@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-14T02:16:22.646Z",
+  "generatedAt": "2026-02-14T03:47:45.602Z",
   "coverage": {
     "target": "all-cantons",
     "sinceYearMin": 2020,
@@ -23,12 +23,36 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:12.762Z",
+        "checkedAt": "2026-02-14T03:47:28.911Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://www.ag.ch/grosser-rat",
         "platform": "generic-site",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.ag.ch/grosser-rat",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.ag.ch/grosser-rat",
+            "platform": "generic-site"
+          },
+          {
+            "url": "https://www.ag.ch/grosser-rat/parlament",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.ag.ch/grosser-rat/parlament",
+            "platform": "generic-site"
+          },
+          {
+            "url": "https://www.ag.ch/grosser-rat/kantonsrat",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.ag.ch/grosser-rat/kantonsrat",
+            "platform": "generic-site"
+          }
+        ]
       }
     },
     {
@@ -41,12 +65,22 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:12.663Z",
+        "checkedAt": "2026-02-14T03:47:28.668Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ai.ch/politik/grosser-rat",
         "platform": "parliament-portal",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.ai.ch/politik/grosser-rat",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.ai.ch/politik/grosser-rat",
+            "platform": "parliament-portal"
+          }
+        ]
       }
     },
     {
@@ -59,12 +93,36 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:13.743Z",
+        "checkedAt": "2026-02-14T03:47:28.950Z",
         "ok": false,
         "httpStatus": 404,
-        "finalUrl": "https://ar.ch/parlament/",
+        "finalUrl": "https://ar.ch/parlament",
         "platform": "parliament-portal",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.ar.ch/parlament",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://ar.ch/parlament",
+            "platform": "parliament-portal"
+          },
+          {
+            "url": "https://www.ar.ch/parlament/parlament",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://ar.ch/parlament/parlament",
+            "platform": "parliament-portal"
+          },
+          {
+            "url": "https://www.ar.ch/parlament/kantonsrat",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://ar.ch/parlament/kantonsrat",
+            "platform": "parliament-portal"
+          }
+        ]
       }
     },
     {
@@ -77,12 +135,36 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:12.638Z",
+        "checkedAt": "2026-02-14T03:47:28.631Z",
         "ok": false,
         "httpStatus": null,
         "finalUrl": "https://www.parlament.be.ch",
         "platform": "unreachable",
-        "error": "fetch failed"
+        "error": "fetch failed",
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.parlament.be.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.parlament.be.ch",
+            "platform": "unreachable"
+          },
+          {
+            "url": "https://www.parlament.be.ch/parlament",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.parlament.be.ch/parlament",
+            "platform": "unreachable"
+          },
+          {
+            "url": "https://www.parlament.be.ch/kantonsrat",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.parlament.be.ch/kantonsrat",
+            "platform": "unreachable"
+          }
+        ]
       }
     },
     {
@@ -95,12 +177,36 @@
       "status": "probe-failed",
       "readiness": "blocked-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:12.685Z",
+        "checkedAt": "2026-02-14T03:47:28.888Z",
         "ok": false,
         "httpStatus": 403,
         "finalUrl": "https://www.baselland.ch/politik-und-behorden/landrat-parlament",
         "platform": "generic-site",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament",
+            "ok": false,
+            "httpStatus": 403,
+            "finalUrl": "https://www.baselland.ch/politik-und-behorden/landrat-parlament",
+            "platform": "generic-site"
+          },
+          {
+            "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/parlament",
+            "ok": false,
+            "httpStatus": 403,
+            "finalUrl": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/parlament",
+            "platform": "generic-site"
+          },
+          {
+            "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/kantonsrat",
+            "ok": false,
+            "httpStatus": 403,
+            "finalUrl": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/kantonsrat",
+            "platform": "generic-site"
+          }
+        ]
       }
     },
     {
@@ -113,12 +219,22 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:14.495Z",
+        "checkedAt": "2026-02-14T03:47:29.450Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://grosserrat.bs.ch/",
         "platform": "parliament-portal",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.grosserrat.bs.ch",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://grosserrat.bs.ch/",
+            "platform": "parliament-portal"
+          }
+        ]
       }
     },
     {
@@ -131,12 +247,36 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:22.646Z",
+        "checkedAt": "2026-02-14T03:47:30.164Z",
         "ok": false,
-        "httpStatus": null,
+        "httpStatus": 404,
         "finalUrl": "https://www.fr.ch/grand-conseil",
-        "platform": "unreachable",
-        "error": "fetch failed"
+        "platform": "drupal-site",
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.fr.ch/grand-conseil",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.fr.ch/grand-conseil",
+            "platform": "drupal-site"
+          },
+          {
+            "url": "https://www.fr.ch/grand-conseil/parlament",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.fr.ch/grand-conseil/parlament",
+            "platform": "drupal-site"
+          },
+          {
+            "url": "https://www.fr.ch/grand-conseil/kantonsrat",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.fr.ch/grand-conseil/kantonsrat",
+            "platform": "drupal-site"
+          }
+        ]
       }
     },
     {
@@ -149,12 +289,36 @@
       "status": "scaffolded",
       "readiness": "manual-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:13.992Z",
+        "checkedAt": "2026-02-14T03:47:29.380Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://ge.ch/grandconseil/",
         "platform": "generic-site",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://ge.ch/grandconseil",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://ge.ch/grandconseil/",
+            "platform": "generic-site"
+          },
+          {
+            "url": "https://ge.ch/grandconseil/parlament",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://ge.ch/grandconseil/parlament",
+            "platform": "generic-site"
+          },
+          {
+            "url": "https://ge.ch/grandconseil/kantonsrat",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://ge.ch/grandconseil/kantonsrat",
+            "platform": "generic-site"
+          }
+        ]
       }
     },
     {
@@ -167,12 +331,36 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:15.346Z",
+        "checkedAt": "2026-02-14T03:47:28.768Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://www.gl.ch/parlament",
         "platform": "generic-site",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.gl.ch/parlament",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.gl.ch/parlament",
+            "platform": "generic-site"
+          },
+          {
+            "url": "https://www.gl.ch/parlament/parlament",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.gl.ch/parlament/parlament",
+            "platform": "generic-site"
+          },
+          {
+            "url": "https://www.gl.ch/parlament/kantonsrat",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.gl.ch/parlament/kantonsrat",
+            "platform": "generic-site"
+          }
+        ]
       }
     },
     {
@@ -185,12 +373,22 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:16.088Z",
+        "checkedAt": "2026-02-14T03:47:29.517Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.gr.ch/DE/institutionen/parlament/Seiten/start.aspx",
         "platform": "ratsinfo",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.gr.ch/DE/institutionen/parlament",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.gr.ch/DE/institutionen/parlament/Seiten/start.aspx",
+            "platform": "ratsinfo"
+          }
+        ]
       }
     },
     {
@@ -203,12 +401,36 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:13.076Z",
+        "checkedAt": "2026-02-14T03:47:28.969Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://www.jura.ch/Autorites/Parlement.html",
         "platform": "generic-site",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.jura.ch/Autorites/Parlement.html",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.jura.ch/Autorites/Parlement.html",
+            "platform": "generic-site"
+          },
+          {
+            "url": "https://www.jura.ch/Autorites/Parlement.html/parlament",
+            "ok": false,
+            "httpStatus": 500,
+            "finalUrl": "https://www.jura.ch/Autorites/Parlement.html/parlament",
+            "platform": "generic-site"
+          },
+          {
+            "url": "https://www.jura.ch/Autorites/Parlement.html/kantonsrat",
+            "ok": false,
+            "httpStatus": 500,
+            "finalUrl": "https://www.jura.ch/Autorites/Parlement.html/kantonsrat",
+            "platform": "generic-site"
+          }
+        ]
       }
     },
     {
@@ -221,12 +443,22 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:15.351Z",
+        "checkedAt": "2026-02-14T03:47:28.771Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.lu.ch/kr",
         "platform": "parliament-portal",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.lu.ch/kr",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.lu.ch/kr",
+            "platform": "parliament-portal"
+          }
+        ]
       }
     },
     {
@@ -239,12 +471,36 @@
       "status": "scaffolded",
       "readiness": "manual-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:15.133Z",
+        "checkedAt": "2026-02-14T03:47:29.530Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ne.ch/autorites/GC/Pages/accueil.aspx",
         "platform": "generic-site",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.ne.ch/autorites/GC",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.ne.ch/autorites/GC/Pages/accueil.aspx",
+            "platform": "generic-site"
+          },
+          {
+            "url": "https://www.ne.ch/autorites/GC/parlament",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.ne.ch/autorites/GC/parlament",
+            "platform": "generic-site"
+          },
+          {
+            "url": "https://www.ne.ch/autorites/GC/kantonsrat",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.ne.ch/autorites/GC/kantonsrat",
+            "platform": "generic-site"
+          }
+        ]
       }
     },
     {
@@ -257,12 +513,36 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:14.884Z",
+        "checkedAt": "2026-02-14T03:47:32.216Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://www.nw.ch/landratmain/2114",
         "platform": "parliament-portal",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.nw.ch/landrat",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.nw.ch/landratmain/2114",
+            "platform": "parliament-portal"
+          },
+          {
+            "url": "https://www.nw.ch/landrat/parlament",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.nw.ch/landrat/parlament",
+            "platform": "parliament-portal"
+          },
+          {
+            "url": "https://www.nw.ch/landrat/kantonsrat",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.nw.ch/landrat/kantonsrat",
+            "platform": "parliament-portal"
+          }
+        ]
       }
     },
     {
@@ -275,12 +555,36 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:13.683Z",
+        "checkedAt": "2026-02-14T03:47:29.668Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://www.ow.ch/kantonsrat",
         "platform": "parliament-portal",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.ow.ch/kantonsrat",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.ow.ch/kantonsrat",
+            "platform": "parliament-portal"
+          },
+          {
+            "url": "https://www.ow.ch/kantonsrat/parlament",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.ow.ch/kantonsrat/parlament",
+            "platform": "parliament-portal"
+          },
+          {
+            "url": "https://www.ow.ch/kantonsrat/kantonsrat",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.ow.ch/kantonsrat/kantonsrat",
+            "platform": "parliament-portal"
+          }
+        ]
       }
     },
     {
@@ -293,12 +597,22 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:13.299Z",
+        "checkedAt": "2026-02-14T03:47:28.675Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ratsinfo.sg.ch/",
         "platform": "ratsinfo",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.ratsinfo.sg.ch",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.ratsinfo.sg.ch/",
+            "platform": "ratsinfo"
+          }
+        ]
       }
     },
     {
@@ -311,12 +625,36 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:13.937Z",
+        "checkedAt": "2026-02-14T03:47:29.595Z",
         "ok": false,
         "httpStatus": 500,
         "finalUrl": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html",
         "platform": "generic-site",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html",
+            "ok": false,
+            "httpStatus": 500,
+            "finalUrl": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html",
+            "platform": "generic-site"
+          },
+          {
+            "url": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html/parlament",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html/parlament",
+            "platform": "generic-site"
+          },
+          {
+            "url": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html/kantonsrat",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html/kantonsrat",
+            "platform": "generic-site"
+          }
+        ]
       }
     },
     {
@@ -329,12 +667,22 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:13.338Z",
+        "checkedAt": "2026-02-14T03:47:28.702Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://so.ch/parlament",
         "platform": "ratsinfo",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://so.ch/parlament",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://so.ch/parlament",
+            "platform": "ratsinfo"
+          }
+        ]
       }
     },
     {
@@ -347,12 +695,22 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:15.946Z",
+        "checkedAt": "2026-02-14T03:47:29.021Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799",
         "platform": "parliament-portal",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.sz.ch/parlament",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799",
+            "platform": "parliament-portal"
+          }
+        ]
       }
     },
     {
@@ -365,12 +723,36 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:13.327Z",
+        "checkedAt": "2026-02-14T03:47:28.630Z",
         "ok": false,
         "httpStatus": null,
         "finalUrl": "https://grosserrat.tg.ch",
         "platform": "unreachable",
-        "error": "fetch failed"
+        "error": "fetch failed",
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://grosserrat.tg.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://grosserrat.tg.ch",
+            "platform": "unreachable"
+          },
+          {
+            "url": "https://grosserrat.tg.ch/parlament",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://grosserrat.tg.ch/parlament",
+            "platform": "unreachable"
+          },
+          {
+            "url": "https://grosserrat.tg.ch/kantonsrat",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://grosserrat.tg.ch/kantonsrat",
+            "platform": "unreachable"
+          }
+        ]
       }
     },
     {
@@ -383,12 +765,36 @@
       "status": "scaffolded",
       "readiness": "manual-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:14.701Z",
+        "checkedAt": "2026-02-14T03:47:31.597Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www4.ti.ch/tich/stato-e-organizzazione",
         "platform": "typo3-site",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www4.ti.ch/poteri/granconsiglio",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www4.ti.ch/tich/stato-e-organizzazione",
+            "platform": "typo3-site"
+          },
+          {
+            "url": "https://www4.ti.ch/poteri/granconsiglio/parlament",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www4.ti.ch/poteri/cds/home",
+            "platform": "typo3-site"
+          },
+          {
+            "url": "https://www4.ti.ch/poteri/granconsiglio/kantonsrat",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www4.ti.ch/poteri/cds/home",
+            "platform": "typo3-site"
+          }
+        ]
       }
     },
     {
@@ -401,12 +807,22 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:14.335Z",
+        "checkedAt": "2026-02-14T03:47:29.559Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ur.ch/sitzung",
         "platform": "parliament-portal",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.ur.ch/landrat",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.ur.ch/sitzung",
+            "platform": "parliament-portal"
+          }
+        ]
       }
     },
     {
@@ -419,12 +835,36 @@
       "status": "scaffolded",
       "readiness": "manual-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:13.856Z",
+        "checkedAt": "2026-02-14T03:47:29.361Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.vd.ch/gc/",
         "platform": "typo3-site",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.vd.ch/autorites/grand-conseil",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.vd.ch/gc/",
+            "platform": "typo3-site"
+          },
+          {
+            "url": "https://www.vd.ch/autorites/grand-conseil/parlament",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.vd.ch/autorites/grand-conseil/parlament",
+            "platform": "typo3-site"
+          },
+          {
+            "url": "https://www.vd.ch/autorites/grand-conseil/kantonsrat",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://www.vd.ch/autorites/grand-conseil/kantonsrat",
+            "platform": "typo3-site"
+          }
+        ]
       }
     },
     {
@@ -437,12 +877,36 @@
       "status": "scaffolded",
       "readiness": "manual-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:13.736Z",
+        "checkedAt": "2026-02-14T03:47:28.795Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.vs.ch/fr/web/gc",
         "platform": "generic-site",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.vs.ch/fr/web/gc",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.vs.ch/fr/web/gc",
+            "platform": "generic-site"
+          },
+          {
+            "url": "https://www.vs.ch/fr/web/gc/parlament",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.vs.ch/fr/web/gc/parlament",
+            "platform": "generic-site"
+          },
+          {
+            "url": "https://www.vs.ch/fr/web/gc/kantonsrat",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.vs.ch/fr/web/gc/kantonsrat",
+            "platform": "generic-site"
+          }
+        ]
       }
     },
     {
@@ -455,12 +919,36 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:18.602Z",
+        "checkedAt": "2026-02-14T03:47:45.602Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://zg.ch/de/behoerden/kantonsrat",
         "platform": "parliament-portal",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.zg.ch/behoerden/kantonsrat",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://zg.ch/de/behoerden/kantonsrat",
+            "platform": "parliament-portal"
+          },
+          {
+            "url": "https://www.zg.ch/behoerden/kantonsrat/parlament",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://zg.ch/de/behoerden/kantonsrat/parlament",
+            "platform": "parliament-portal"
+          },
+          {
+            "url": "https://www.zg.ch/behoerden/kantonsrat/kantonsrat",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://zg.ch/de/behoerden/kantonsrat/kantonsrat",
+            "platform": "parliament-portal"
+          }
+        ]
       }
     },
     {
@@ -473,12 +961,22 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T02:16:13.873Z",
+        "checkedAt": "2026-02-14T03:47:28.792Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.kantonsrat.zh.ch/",
         "platform": "parliament-portal",
-        "error": null
+        "error": null,
+        "candidateCount": 4,
+        "candidatesTried": [
+          {
+            "url": "https://www.kantonsrat.zh.ch",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.kantonsrat.zh.ch/",
+            "platform": "parliament-portal"
+          }
+        ]
       }
     }
   ]

@@ -17,6 +17,7 @@ export const ANCHOR_KEYWORDS = [
   'jagd', 'chasse', 'caccia', 'fischerei', 'pêche', 'peche', 'pesca',
   'stopfleber', 'foie gras', 'pelz', 'fourrure', '3r', 'apiculture', 'apiculteur',
   'sentience', 'empfindungsfähig', 'empfindungsfaehig', 'specisme', 'especismo',
+  'élevage', 'elevage', 'allevamento', 'bestiame', 'viehhaltung', 'weidetier',
 ]
 
 const SUPPORT_KEYWORDS = [
@@ -33,6 +34,7 @@ const SUPPORT_KEYWORDS = [
 const NOISE_KEYWORDS = [
   'energie', 'elektrizität', 'elektrizitaet', 'steuern', 'finanz', 'ahv', 'armee',
   'rhone', 'gotthard', 'tunnel', 'digitalisierung', 'strassenverkehr', 'parkplatz', 'tourismus',
+  'wohnung', 'wohnungsbau', 'mietrecht', 'cyber', 'datenschutz',
 ]
 
 const PRO_STANCE_KEYWORDS = [
@@ -200,10 +202,14 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
 
     const hasAnchor = anchorMatches.length > 0
     const hasSupport = supportMatches.length > 0
+    const supportStrong = supportMatches.length >= 3
     const hasWhitelistedPerson = whitelistedPeople.length > 0
-    const isRelevant =
+    const noisyWithoutAnchor = !hasAnchor && noiseMatches.length >= 2
+    const isRelevant = !noisyWithoutAnchor && (
       (hasAnchor && (adjustedScore >= minScore || (anchorMatches.length >= 2 && hasSupport)))
+      || (supportStrong && adjustedScore >= Math.max(0.5, minScore + 0.08))
       || (hasWhitelistedPerson && (hasAnchor || hasSupport) && adjustedScore >= Math.max(0.14, minScore - 0.04))
+    )
 
     item.score = adjustedScore
     item.matchedKeywords = matched
@@ -215,8 +221,10 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     }
 
     const rule = isRelevant
-      ? (hasWhitelistedPerson ? 'whitelist+theme' : (adjustedScore >= minScore ? 'anchor+score' : 'anchor2+support'))
-      : (!hasAnchor ? 'missing-anchor' : 'below-threshold')
+      ? (hasWhitelistedPerson
+        ? 'whitelist+theme'
+        : (supportStrong && !hasAnchor ? 'support-strong+score' : (adjustedScore >= minScore ? 'anchor+score' : 'anchor2+support')))
+      : (noisyWithoutAnchor ? 'noise-without-anchor' : (!hasAnchor ? 'missing-anchor' : 'below-threshold'))
     const stance = classifyStance(normalizedText)
 
     item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · stance=${stance} · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · people=${whitelistedPeople.slice(0, 2).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · feedback=${feedbackBoost.toFixed(2)} · score=${adjustedScore.toFixed(2)}`
