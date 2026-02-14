@@ -10,7 +10,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2024-11-14",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2026-02-14",
     "themen": [
       "stopfleber",
       "foie gras",
@@ -66,17 +66,17 @@
     }
   },
   {
-    "id": "vp-20210426-fr",
+    "id": "vp-20210426-de",
     "titel": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
     "typ": "Interpellation",
     "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. In Kommission des Nationalrats",
-    "geschaeftsnummer": "20210426-fr",
+    "geschaeftsnummer": "20210426-de",
     "ebene": "Bund",
     "kanton": null,
-    "regionGemeinde": "Romandie",
+    "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2021-03-18",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2026-02-14",
     "themen": [
       "tierversuch",
       "tierversuche",
@@ -111,7 +111,7 @@
     ],
     "medien": [],
     "metadaten": {
-      "sprache": "fr",
+      "sprache": "de",
       "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
@@ -139,9 +139,9 @@
   },
   {
     "id": "vp-20210044",
-    "titel": "Parlamentsgeschäft 20210044",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 20210044",
+    "titel": "21.044 · Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative). Volksinitiative und direkter Gegenentwurf",
+    "typ": "Volksinitiative",
+    "kurzbeschreibung": "Botschaft vom 19. Mai 2021 zur Volksinitiative «Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative)» und zum direkten Gegenentwurf (Bundesbeschluss über den Schutz und das Wohlergehen der Tiere) Botschaft vom 19. Mai 2021 zur Volksinitiative «Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative)» und zum direkten Gegenentwurf (Bundesbeschluss über den Schutz und das Wohlergehen der Tiere) Umwelt|",
     "geschaeftsnummer": "20210044",
     "ebene": "Bund",
     "kanton": null,
@@ -150,10 +150,17 @@
     "datumEingereicht": "2026-02-13",
     "datumAktualisiert": "2026-02-13",
     "themen": [
-      "Tierschutz"
+      "tiere",
+      "massentierhaltung",
+      "massentier",
+      "landwirtschaft"
     ],
     "schlagwoerter": [
-      "Tierpolitik"
+      "tiere",
+      "massentierhaltung",
+      "massentier",
+      "landwirtschaft",
+      "botschaft"
     ],
     "einreichende": [
       {
@@ -173,20 +180,26 @@
     "medien": [],
     "metadaten": {
       "sprache": "fr",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
+      "initiativeLinks": {
+        "campaignUrl": "https://duckduckgo.com/?q=21.044%20%C2%B7%20Keine%20Massentierhaltung%20in%20der%20Schweiz%20(Massentierhaltungsinitiative).%20Volksinitiative%20und%20direkter%20Gegenentwurf%20Volksinitiative%20Kampagne"
+      },
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 20210044"
+          "de": "21.044 · Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative). Volksinitiative und direkter Gegenentwurf"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 20210044"
+          "de": "Botschaft vom 19. Mai 2021 zur Volksinitiative «Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative)» und zum direkten Gegenentwurf (Bundesbeschluss über den Schutz und das Wohlergehen der Tiere) Botschaft vom 19. Mai 2021 zur Volksinitiative «Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative)» und zum direkten Gegenentwurf (Bundesbeschluss über den Schutz und das Wohlergehen der Tiere) Umwelt|"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Volksinitiative"
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "tiere",
+            "massentierhaltung",
+            "massentier",
+            "landwirtschaft"
           ]
         }
       },
@@ -204,7 +217,7 @@
     "regionGemeinde": "Romandie",
     "status": "In Beratung",
     "datumEingereicht": "2024-12-19",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2026-02-14",
     "themen": [
       "apiculteur"
     ],
@@ -321,10 +334,14 @@
     "datumEingereicht": "2025-12-18",
     "datumAktualisiert": "2026-02-13",
     "themen": [
-      "biodiversität"
+      "biodiversität",
+      "biodiversite",
+      "biodiversita"
     ],
     "schlagwoerter": [
-      "biodiversität"
+      "biodiversität",
+      "biodiversite",
+      "biodiversita"
     ],
     "einreichende": [
       {
@@ -357,7 +374,9 @@
         },
         "themes": {
           "de": [
-            "biodiversität"
+            "biodiversität",
+            "biodiversite",
+            "biodiversita"
           ]
         }
       },
@@ -379,11 +398,13 @@
     "themen": [
       "landwirtschaft",
       "agriculture",
+      "agricoltura",
       "nutrition"
     ],
     "schlagwoerter": [
       "landwirtschaft",
       "agriculture",
+      "agricoltura",
       "nutrition"
     ],
     "einreichende": [
@@ -419,6 +440,7 @@
           "de": [
             "landwirtschaft",
             "agriculture",
+            "agricoltura",
             "nutrition"
           ]
         }
@@ -437,7 +459,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2025-02-21",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2026-02-14",
     "themen": [
       "stopfleber",
       "foie gras",

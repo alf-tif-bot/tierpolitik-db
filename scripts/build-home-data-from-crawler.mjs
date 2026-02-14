@@ -46,6 +46,34 @@ const themeLabels = {
   wolf: { de: 'Wolf', fr: 'Loup', it: 'Lupo', en: 'Wolf' },
   pelz: { de: 'Pelz', fr: 'Fourrure', it: 'Pelliccia', en: 'Fur' },
   stopfleber: { de: 'Stopfleber', fr: 'Foie gras', it: 'Foie gras', en: 'Foie gras' },
+  kontrollwesen: { de: 'Kontrollwesen', fr: 'Contrôles et application', it: 'Controlli e applicazione', en: 'Controls & enforcement' },
+}
+
+const CONTROL_KEYWORDS = new Set([
+  'kontrolle', 'kontrollen', 'vollzug', 'aufsicht', 'monitoring', 'sanktion', 'sanktionen',
+  'durchsetzung', 'inspektion', 'inspektionen', 'audit', 'audits',
+])
+
+const mapThemesFromKeywords = (keywords = []) => {
+  const raw = (keywords || []).map((x) => String(x || '').trim()).filter(Boolean)
+  const out = []
+  const seen = new Set()
+
+  const push = (theme) => {
+    const t = String(theme || '').trim()
+    if (!t) return
+    const key = t.toLowerCase()
+    if (seen.has(key)) return
+    seen.add(key)
+    out.push(t)
+  }
+
+  for (const kw of raw) push(kw)
+
+  const hasControl = raw.some((kw) => CONTROL_KEYWORDS.has(kw.toLowerCase()))
+  if (hasControl) push('Kontrollwesen')
+
+  return out
 }
 
 const localizeTheme = (keyword = '', lang = 'de') => {
@@ -234,7 +262,7 @@ const buildI18nFromItem = (item, fallbackTitle, fallbackSummary, fallbackType, f
     const title = clean(variant?.title || fallbackTitle)
     const summary = clean(variant?.summary || variant?.body || fallbackSummary)
     const typeDe = inferType(title, item.sourceId, variant?.businessTypeName || '')
-    const matched = (item.matchedKeywords || fallbackThemes || []).slice(0, 6)
+    const matched = mapThemesFromKeywords(item.matchedKeywords || fallbackThemes || []).slice(0, 6)
     out.title[l] = title || fallbackTitle
     out.summary[l] = summary || fallbackSummary
     out.type[l] = typeLabels[typeDe]?.[l] || typeLabels[fallbackType]?.[l] || fallbackType
@@ -273,7 +301,7 @@ const vorstoesse = items.map((item, index) => {
     body: displayBody,
     status: item.status,
   })
-  const baseThemes = sanitizeThemes(item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz']).slice(0, 6)
+  const baseThemes = sanitizeThemes(mapThemesFromKeywords(item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz'])).slice(0, 6)
   const i18nMeta = buildI18nFromItem(item, displayTitle || `Vorstoss ${index + 1}`, summaryText, typ, baseThemes)
 
   return {
