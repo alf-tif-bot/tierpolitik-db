@@ -1,21 +1,17 @@
 {
-  "generatedAt": "2026-02-14T14:16:51.670Z",
+  "generatedAt": "2026-02-14T15:46:10.501Z",
   "coverage": {
     "target": "all-cantons",
     "sinceYearMin": 2020,
     "totalCantons": 26,
     "byReadiness": {
-      "adapter-ready-likely": 11,
-      "site-discovery-needed": 13,
-      "blocked-needs-manual": 2
+      "adapter-ready-likely": 13,
+      "site-discovery-needed": 13
     },
     "byAdapter": {
       "cantonRegistry": 26
     },
-    "unresolvedCantons": [
-      "BL",
-      "VS"
-    ],
+    "unresolvedCantons": [],
     "sinceYearViolations": []
   },
   "sources": [
@@ -29,7 +25,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:46.290Z",
+        "checkedAt": "2026-02-14T15:46:04.606Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte",
@@ -57,7 +53,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:50.043Z",
+        "checkedAt": "2026-02-14T15:46:05.079Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ai.ch/politik/grosser-rat",
@@ -85,7 +81,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:46.254Z",
+        "checkedAt": "2026-02-14T15:46:04.553Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://ar.ch/kantonsrat",
@@ -113,7 +109,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:46.710Z",
+        "checkedAt": "2026-02-14T15:46:04.935Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.gr.be.ch/de/start.html",
@@ -138,16 +134,16 @@
       "adapter": "cantonRegistry",
       "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament",
       "sinceYear": 2020,
-      "status": "probe-failed",
-      "readiness": "blocked-needs-manual",
+      "status": "scaffolded",
+      "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:47.351Z",
-        "ok": false,
-        "httpStatus": 403,
-        "finalUrl": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/geschaefte-des-landrats",
-        "platform": "parliament-portal",
+        "checkedAt": "2026-02-14T15:46:05.201Z",
+        "ok": true,
+        "httpStatus": 200,
+        "finalUrl": "https://www.sitzungsdienst.net/",
+        "platform": "ratsinfo",
         "error": null,
-        "candidateCount": 21,
+        "candidateCount": 23,
         "candidatesTried": [
           {
             "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/geschaefte-des-landrats",
@@ -157,53 +153,11 @@
             "platform": "parliament-portal"
           },
           {
-            "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament",
-            "ok": false,
-            "httpStatus": 403,
-            "finalUrl": "https://www.baselland.ch/politik-und-behorden/landrat-parlament",
-            "platform": "parliament-portal"
-          },
-          {
-            "url": "https://baselland.ch/politik-und-behorden/landrat-parlament",
-            "ok": false,
-            "httpStatus": 403,
-            "finalUrl": "https://www.baselland.ch/politik-und-behorden/landrat-parlament",
-            "platform": "parliament-portal"
-          },
-          {
-            "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/parlament",
-            "ok": false,
-            "httpStatus": 403,
-            "finalUrl": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/parlament",
-            "platform": "parliament-portal"
-          },
-          {
-            "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/kantonsrat",
-            "ok": false,
-            "httpStatus": 403,
-            "finalUrl": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/kantonsrat",
-            "platform": "parliament-portal"
-          },
-          {
-            "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/landrat",
-            "ok": false,
-            "httpStatus": 403,
-            "finalUrl": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/landrat",
-            "platform": "parliament-portal"
-          },
-          {
-            "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/grosser-rat",
-            "ok": false,
-            "httpStatus": 403,
-            "finalUrl": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/grosser-rat",
-            "platform": "parliament-portal"
-          },
-          {
-            "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/grand-conseil",
-            "ok": false,
-            "httpStatus": 403,
-            "finalUrl": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/grand-conseil",
-            "platform": "parliament-portal"
+            "url": "https://bl.ratsinfomanagement.net",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.sitzungsdienst.net/",
+            "platform": "ratsinfo"
           }
         ]
       }
@@ -218,7 +172,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:47.303Z",
+        "checkedAt": "2026-02-14T15:46:05.544Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://grosserrat.bs.ch/",
@@ -246,7 +200,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:47.065Z",
+        "checkedAt": "2026-02-14T15:46:05.255Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.fr.ch/parlinfo",
@@ -274,7 +228,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:46.464Z",
+        "checkedAt": "2026-02-14T15:46:04.766Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://ge.ch/grandconseil/recherche-objets",
@@ -302,7 +256,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:46.484Z",
+        "checkedAt": "2026-02-14T15:46:04.730Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.gl.ch/parlament/landrat/geschaefte/aktuelle-geschaefte.html/241",
@@ -330,7 +284,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:47.589Z",
+        "checkedAt": "2026-02-14T15:46:05.933Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.gr.ch/DE/institutionen/parlament/Seiten/start.aspx",
@@ -358,7 +312,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:50.412Z",
+        "checkedAt": "2026-02-14T15:46:08.994Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions/Motions.html",
@@ -393,7 +347,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:46.571Z",
+        "checkedAt": "2026-02-14T15:46:04.848Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.lu.ch/kr",
@@ -421,7 +375,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:47.584Z",
+        "checkedAt": "2026-02-14T15:46:05.808Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx",
@@ -449,7 +403,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:46.766Z",
+        "checkedAt": "2026-02-14T15:46:05.150Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.nw.ch/landratmain",
@@ -477,7 +431,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:47.025Z",
+        "checkedAt": "2026-02-14T15:46:05.188Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ow.ch/kantonsratview",
@@ -505,7 +459,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:46.492Z",
+        "checkedAt": "2026-02-14T15:46:04.771Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ratsinfo.sg.ch/",
@@ -533,7 +487,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:49.725Z",
+        "checkedAt": "2026-02-14T15:46:08.810Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -561,7 +515,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:46.529Z",
+        "checkedAt": "2026-02-14T15:46:04.899Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://so.ch/parlament",
@@ -589,7 +543,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:47.862Z",
+        "checkedAt": "2026-02-14T15:46:05.249Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799",
@@ -617,7 +571,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:46.631Z",
+        "checkedAt": "2026-02-14T15:46:04.885Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://parlament.tg.ch/",
@@ -645,7 +599,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:47.075Z",
+        "checkedAt": "2026-02-14T15:46:05.443Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati",
@@ -673,7 +627,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:50.284Z",
+        "checkedAt": "2026-02-14T15:46:05.512Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ur.ch/sitzung",
@@ -701,7 +655,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:46.627Z",
+        "checkedAt": "2026-02-14T15:46:04.887Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.vd.ch/gc/objets-et-rapports-de-commissions",
@@ -727,15 +681,15 @@
       "url": "https://www.vs.ch/fr/web/gc/objets-parlementaires",
       "sinceYear": 2020,
       "status": "scaffolded",
-      "readiness": "blocked-needs-manual",
+      "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:47.016Z",
+        "checkedAt": "2026-02-14T15:46:05.318Z",
         "ok": true,
         "httpStatus": 200,
-        "finalUrl": "https://www.vs.ch/fr/web/gc/objets-parlementaires",
-        "platform": "waf-challenge",
+        "finalUrl": "https://www.sitzungsdienst.net/",
+        "platform": "ratsinfo",
         "error": null,
-        "candidateCount": 22,
+        "candidateCount": 24,
         "candidatesTried": [
           {
             "url": "https://www.vs.ch/fr/web/gc/interventions-parlementaires",
@@ -752,46 +706,11 @@
             "platform": "waf-challenge"
           },
           {
-            "url": "https://www.vs.ch/fr/web/gc/objets-parlementaires",
+            "url": "https://vs.ratsinfomanagement.net",
             "ok": true,
             "httpStatus": 200,
-            "finalUrl": "https://www.vs.ch/fr/web/gc/objets-parlementaires",
-            "platform": "waf-challenge"
-          },
-          {
-            "url": "https://vs.ch/fr/web/gc/objets-parlementaires",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://www.vs.ch/fr/web/gc/objets-parlementaires",
-            "platform": "waf-challenge"
-          },
-          {
-            "url": "https://www.vs.ch/fr/web/gc/objets-parlementaires/parlament",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://www.vs.ch/fr/web/gc/objets-parlementaires/parlament",
-            "platform": "waf-challenge"
-          },
-          {
-            "url": "https://www.vs.ch/fr/web/gc/objets-parlementaires/kantonsrat",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://www.vs.ch/fr/web/gc/objets-parlementaires/kantonsrat",
-            "platform": "waf-challenge"
-          },
-          {
-            "url": "https://www.vs.ch/fr/web/gc/objets-parlementaires/landrat",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://www.vs.ch/fr/web/gc/objets-parlementaires/landrat",
-            "platform": "waf-challenge"
-          },
-          {
-            "url": "https://www.vs.ch/fr/web/gc/objets-parlementaires/grosser-rat",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://www.vs.ch/fr/web/gc/objets-parlementaires/grosser-rat",
-            "platform": "waf-challenge"
+            "finalUrl": "https://www.sitzungsdienst.net/",
+            "platform": "ratsinfo"
           }
         ]
       }
@@ -806,7 +725,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:51.670Z",
+        "checkedAt": "2026-02-14T15:46:10.501Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats",
@@ -841,7 +760,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T14:16:46.734Z",
+        "checkedAt": "2026-02-14T15:46:04.950Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.kantonsrat.zh.ch/",

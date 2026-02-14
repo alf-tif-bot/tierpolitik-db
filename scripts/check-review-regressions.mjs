@@ -29,14 +29,22 @@ const langRank = (sourceId = '') => {
 const itemId = (item) => `${item.sourceId}:${item.externalId}`
 const dbItemsById = new Map((db.items || []).map((item) => [itemId(item), item]))
 
+const isReviewSource = (sourceId = '') => {
+  const sid = String(sourceId || '')
+  return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-')
+}
+
 const reviewCandidates = (db.items || [])
-  .filter((item) => String(item.sourceId || '').startsWith('ch-parliament-'))
+  .filter((item) => isReviewSource(item.sourceId))
   .filter((item) => ['queued', 'approved', 'published'].includes(item.status))
   .filter((item) => isWithin5Years(item))
 
 const expectedGrouped = new Map()
 for (const item of reviewCandidates) {
-  const affair = String(item.affairId || item.externalId || '').split('-')[0]
+  const sid = String(item.sourceId || '')
+  const affair = sid.startsWith('ch-parliament-')
+    ? String(item.affairId || item.externalId || '').split('-')[0]
+    : `${sid}:${item.externalId}`
   const prev = expectedGrouped.get(affair)
   if (!prev) {
     expectedGrouped.set(affair, item)

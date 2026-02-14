@@ -1,18 +1,12 @@
 {
-  "generatedAt": "2026-02-14T14:18:06.745Z",
-  "expectedReview": 66,
+  "generatedAt": "2026-02-14T15:46:39.532Z",
+  "expectedReview": 71,
   "actualReview": 71,
   "missingInReviewCount": 0,
   "missingInReview": [],
-  "extraInReviewCount": 5,
+  "extraInReviewCount": 0,
   "extraInReviewParliamentCount": 0,
-  "extraInReview": [
-    "ch-municipal-parliament-bern-zurich:municipal-bern-26abc7626ef7",
-    "ch-municipal-parliament-bern-zurich:municipal-bern-277af652fe1f",
-    "ch-municipal-parliament-bern-zurich:municipal-bern-5e104086d5d2",
-    "ch-municipal-parliament-bern-zurich:municipal-bern-75aad09450f5",
-    "ch-municipal-parliament-bern-zurich:municipal-zuerich-0a92bddadf36"
-  ],
+  "extraInReview": [],
   "extraInReviewParliament": [],
   "duplicateReviewIdsCount": 0,
   "duplicateReviewIds": [],

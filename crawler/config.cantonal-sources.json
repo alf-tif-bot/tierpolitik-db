@@ -45,7 +45,9 @@
     "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament",
     "sinceYear": 2020,
     "urlCandidates": [
-      "https://www.baselland.ch/politik-und-behorden/landrat-parlament/geschaefte-des-landrats"
+      "https://www.baselland.ch/politik-und-behorden/landrat-parlament/geschaefte-des-landrats",
+      "https://bl.ratsinfomanagement.net",
+      "https://www.sitzungsdienst.net"
     ]
   },
   {
@@ -225,7 +227,9 @@
     "sinceYear": 2020,
     "urlCandidates": [
       "https://www.vs.ch/fr/web/gc/interventions-parlementaires",
-      "https://www.vs.ch/de/web/gc/parlamentarische-vorstoesse"
+      "https://www.vs.ch/de/web/gc/parlamentarische-vorstoesse",
+      "https://vs.ratsinfomanagement.net",
+      "https://www.sitzungsdienst.net"
     ]
   },
   {
