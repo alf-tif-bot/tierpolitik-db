@@ -2204,13 +2204,24 @@ function hideDecidedRows(){
   const rows = [...document.querySelectorAll('tr[data-id]')]
   const decidedById = {}
 
+  const localAffairDecided = new Set(Object.keys(decisions)
+    .filter((id) => String(id).startsWith('ch-parliament-business-'))
+    .map((id) => {
+      const external = String(id).split(':')[1] || ''
+      return String(external).split('-')[0]
+    })
+    .filter(Boolean))
+
   rows.forEach((row)=>{
     const id = row.getAttribute('data-id');
     if (!id) return
     const status = row.getAttribute('data-status') || ''
     const serverDecided = status !== 'queued' && status !== 'new'
     const localDecided = Boolean(decisions[id])
-    const decided = serverDecided || localDecided
+    const isParliamentBusiness = String(id).startsWith('ch-parliament-business-')
+    const affairId = isParliamentBusiness ? (String(id).split(':')[1] || '').split('-')[0] : ''
+    const localAffairHit = Boolean(affairId) && localAffairDecided.has(affairId)
+    const decided = serverDecided || localDecided || localAffairHit
     decidedById[id] = decided
     row.style.display = (!showDecided && decided) ? 'none' : ''
   });
