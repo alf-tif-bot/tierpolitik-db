@@ -2,7 +2,7 @@ import { useMemo, useState, type RefObject } from 'react'
 import type { I18nText, Language } from '../i18n'
 import { translateContent, translateStatus, translateType } from '../i18n'
 import type { Ebene, Status, Vorstoss } from '../types'
-import type { Filters } from '../utils/filtering'
+import { defaultFilters, type Filters } from '../utils/filtering'
 
 type Props = {
   data: Vorstoss[]
@@ -98,6 +98,9 @@ export function FiltersPanel({ data, filters, onChange, lang, t, searchInputRef 
       <div className="row wrap filter-actions">
         <button type="button" className="text-link-btn" onClick={() => setShowAdvanced((s) => !s)}>
           {showAdvanced ? t.detailsSearchHide : t.detailsSearchShow}
+        </button>
+        <button type="button" className="text-link-btn" onClick={() => onChange(defaultFilters())}>
+          {t.resetFilters}
         </button>
 
         {!showAdvanced && advancedActiveCount > 0 && <span className="advanced-hint">{t.detailsActive}: {advancedActiveCount}</span>}
