@@ -22,14 +22,14 @@ const enabledSourceIds = new Set(((configuredSources.length ? configuredSources 
   .filter((s) => s.enabled !== false)
   .map((s) => s.id))
 
-const FIVE_YEARS_MS = 1000 * 60 * 60 * 24 * 365 * 5
-const cutoffTs = Date.now() - FIVE_YEARS_MS
-const isWithin5Years = (item) => {
+const TARGET_SINCE_YEAR = Math.max(2020, Number(process.env.REVIEW_TARGET_SINCE_YEAR || 2020))
+const targetSinceTs = Date.UTC(TARGET_SINCE_YEAR, 0, 1, 0, 0, 0)
+const isInTargetHorizon = (item) => {
   const iso = item?.publishedAt || item?.fetchedAt
   if (!iso) return false
   const ts = Date.parse(String(iso))
   if (Number.isNaN(ts)) return false
-  return ts >= cutoffTs
+  return ts >= targetSinceTs
 }
 
 const isMunicipalOverviewNoise = (item) => {
@@ -71,7 +71,7 @@ const baseReviewItems = [...db.items]
   .filter((item) => ['new', 'queued', 'approved', 'published'].includes(item.status))
   .filter((item) => !isMunicipalOverviewNoise(item))
   .filter((item) => isMunicipalTopicRelevant(item))
-  .filter((item) => isWithin5Years(item))
+  .filter((item) => isInTargetHorizon(item))
 
 const affairKey = (item) => {
   const sid = String(item.sourceId || '')

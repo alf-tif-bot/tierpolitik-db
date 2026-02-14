@@ -12,12 +12,13 @@ const motions = fs.existsSync(motionsPath) ? JSON.parse(fs.readFileSync(motionsP
 const reviewDecisions = fs.existsSync(reviewDecisionsPath) ? JSON.parse(fs.readFileSync(reviewDecisionsPath, 'utf8')) : {}
 const published = fs.existsSync(publishedPath) ? JSON.parse(fs.readFileSync(publishedPath, 'utf8')) : []
 
-const FIVE_YEARS_MS = 1000 * 60 * 60 * 24 * 365 * 5
-const cutoffTs = Date.now() - FIVE_YEARS_MS
-const isWithin5Years = (item) => {
+const TARGET_SINCE_YEAR = Math.max(2020, Number(process.env.REVIEW_TARGET_SINCE_YEAR || 2020))
+const targetSinceTs = Date.UTC(TARGET_SINCE_YEAR, 0, 1, 0, 0, 0)
+const fixDecisionMismatches = process.argv.includes('--fix-decisions')
+const isInTargetHorizon = (item) => {
   const iso = item?.publishedAt || item?.fetchedAt
   const ts = Date.parse(String(iso || ''))
-  return !Number.isNaN(ts) && ts >= cutoffTs
+  return !Number.isNaN(ts) && ts >= targetSinceTs
 }
 
 const langRank = (sourceId = '') => {
@@ -71,7 +72,7 @@ const reviewCandidates = (db.items || [])
   .filter((item) => ['new', 'queued', 'approved', 'published'].includes(item.status))
   .filter((item) => !isMunicipalOverviewNoise(item))
   .filter((item) => isMunicipalTopicRelevant(item))
-  .filter((item) => isWithin5Years(item))
+  .filter((item) => isInTargetHorizon(item))
 
 const expectedGrouped = new Map()
 for (const item of reviewCandidates) {
@@ -128,7 +129,7 @@ for (const item of (db.items || []).filter((entry) => String(entry.sourceId || '
   affairStatusMap.set(affair, statuses)
 }
 
-const decisionsStatusMismatch = Object.entries(reviewDecisions)
+const computeDecisionMismatches = () => Object.entries(reviewDecisions)
   .filter(([id, decision]) => {
     if (!dbItemsById.has(id)) return false
     const dbItem = dbItemsById.get(id)
@@ -154,8 +155,27 @@ const decisionsStatusMismatch = Object.entries(reviewDecisions)
     }
   })
 
+let decisionsStatusMismatch = computeDecisionMismatches()
+
+if (fixDecisionMismatches && decisionsStatusMismatch.length) {
+  for (const mismatch of decisionsStatusMismatch) {
+    const prev = reviewDecisions[mismatch.id] || {}
+    reviewDecisions[mismatch.id] = {
+      ...prev,
+      status: mismatch.dbStatus,
+      decidedAt: prev.decidedAt || new Date().toISOString(),
+      syncedAt: new Date().toISOString(),
+      syncReason: 'regression-check-db-status',
+    }
+  }
+  fs.writeFileSync(reviewDecisionsPath, JSON.stringify(reviewDecisions, null, 2))
+  decisionsStatusMismatch = computeDecisionMismatches()
+}
+
 const report = {
   generatedAt: new Date().toISOString(),
+  targetSinceYear: TARGET_SINCE_YEAR,
+  fixDecisionMismatches,
   expectedReview: expectedReviewIds.size,
   actualReview: actualReviewIds.size,
   missingInReviewCount: missingInReview.length,
