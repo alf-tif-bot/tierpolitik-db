@@ -29,7 +29,10 @@ const isWithin5Years = (item) => {
 
 const baseReviewItems = [...db.items]
   .filter((item) => enabledSourceIds.has(item.sourceId))
-  .filter((item) => String(item.sourceId || '').startsWith('ch-parliament-'))
+  .filter((item) => {
+    const sid = String(item.sourceId || '')
+    return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-')
+  })
   .filter((item) => ['queued', 'approved', 'published'].includes(item.status))
   .filter((item) => isWithin5Years(item))
 
