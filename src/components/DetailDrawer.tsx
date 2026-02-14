@@ -13,6 +13,7 @@ type Props = {
   onOpenPartyProfile: (party: string) => void
   onSubscribe: (context: string) => void
   onQuickFilter: (field: QuickFilterField, value: string) => void
+  onFeedbackSubmitted: (payload: { id: string; irrelevant: boolean }) => void
   lang: Language
   t: I18nText
 }
@@ -38,7 +39,7 @@ type TimelineItem = {
   url?: string
 }
 
-export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyProfile, onSubscribe, onQuickFilter, lang, t }: Props) {
+export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyProfile, onSubscribe, onQuickFilter, onFeedbackSubmitted, lang, t }: Props) {
   const [feedbackOpen, setFeedbackOpen] = useState(false)
   const [feedbackType, setFeedbackType] = useState('Fehler gefunden')
   const [feedbackText, setFeedbackText] = useState('')
@@ -121,7 +122,19 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
       if (!res.ok) throw new Error(await res.text())
       setFeedbackState('done')
       setFeedbackText('')
-      setTimeout(() => setFeedbackOpen(false), 900)
+
+      const isIrrelevant = feedbackType === 'Vorstoss irrelevant'
+      setTimeout(() => {
+        setFeedbackOpen(false)
+        if (isIrrelevant) {
+          onFeedbackSubmitted({ id: item.id, irrelevant: true })
+          onClose()
+          window.requestAnimationFrame(() => {
+            const overview = document.getElementById('vorstoesse-ueberblick')
+            if (overview) overview.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          })
+        }
+      }, 700)
     } catch {
       setFeedbackState('error')
     }

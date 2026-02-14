@@ -38,6 +38,7 @@ export default function App() {
   })
   const [filters, setFilters] = useState<Filters>(defaultFilters)
   const [data, setData] = useState<Vorstoss[]>(fallbackData)
+  const [hiddenIds, setHiddenIds] = useState<Set<string>>(new Set())
   const [selected, setSelected] = useState<Vorstoss | null>(null)
   const [profile, setProfile] = useState<ProfileState>(null)
   const [visibleColumns, setVisibleColumns] = useState<{ key: string; label: string }[]>([])
@@ -48,7 +49,8 @@ export default function App() {
 
   const t = i18n[lang]
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
-  const filtered = useMemo(() => applyFilters(data, filters), [data, filters])
+  const visibleData = useMemo(() => data.filter((v) => !hiddenIds.has(v.id)), [data, hiddenIds])
+  const filtered = useMemo(() => applyFilters(visibleData, filters), [visibleData, filters])
 
   useEffect(() => {
     const loadLive = async () => {
@@ -211,6 +213,15 @@ export default function App() {
     setVisibleColumns(cols)
   }, [])
 
+  const onFeedbackSubmitted = useCallback((payload: { id: string; irrelevant: boolean }) => {
+    if (!payload.irrelevant) return
+    setHiddenIds((prev) => {
+      const next = new Set(prev)
+      next.add(payload.id)
+      return next
+    })
+  }, [])
+
   const openSubscribe = (context: string) => {
     const subject = encodeURIComponent(`Abo Anfrage: ${context}`)
     const body = encodeURIComponent(`Bitte informiert mich per E-Mail über Updates zu: ${context}`)
@@ -291,6 +302,7 @@ export default function App() {
         onOpenPartyProfile={(party) => setProfile({ kind: 'party', value: party })}
         onSubscribe={openSubscribe}
         onQuickFilter={applyQuickFilter}
+        onFeedbackSubmitted={onFeedbackSubmitted}
         lang={lang}
         t={t}
       />
