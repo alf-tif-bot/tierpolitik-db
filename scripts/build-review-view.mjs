@@ -42,6 +42,17 @@ const statusRank = (item) => {
   return 0
 }
 
+const pickPreferredItem = (next, current) => {
+  const betterStatus = statusRank(next) > statusRank(current)
+  const betterLang = langRank(next) < langRank(current)
+  const betterScore = (next.score ?? 0) > (current.score ?? 0)
+
+  if (betterStatus || (!betterStatus && (betterLang || (!betterLang && betterScore)))) {
+    return next
+  }
+  return current
+}
+
 const grouped = new Map()
 for (const item of baseReviewItems) {
   const key = affairKey(item)
@@ -50,14 +61,50 @@ for (const item of baseReviewItems) {
     grouped.set(key, item)
     continue
   }
+  grouped.set(key, pickPreferredItem(item, prev))
+}
 
-  const betterStatus = statusRank(item) > statusRank(prev)
-  const betterLang = langRank(item) < langRank(prev)
-  const betterScore = (item.score ?? 0) > (prev.score ?? 0)
+const normalizeForKey = (value = '') => String(value)
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .toLowerCase()
+  .replace(/[^a-z0-9]+/g, ' ')
+  .trim()
 
-  if (betterStatus || (!betterStatus && (betterLang || (!betterLang && betterScore)))) {
-    grouped.set(key, item)
+const extractBusinessNo = (item) => {
+  const title = String(item?.title || '').replace(/\s+/g, ' ').trim()
+  const fromTitle = title.match(/\b(\d{2}\.\d{2,4})\b/)
+  if (fromTitle?.[1]) return fromTitle[1]
+
+  const rawExternal = String(item?.externalId || '').split('-')[0]
+  const numericExternal = rawExternal.match(/^(\d{4})(\d{2,4})$/)
+  if (numericExternal) {
+    const yy = numericExternal[1].slice(2)
+    const suffix = String(Number(numericExternal[2]))
+    if (suffix && suffix !== 'NaN') return `${yy}.${suffix}`
   }
+
+  return ''
+}
+
+const hardDuplicateKey = (item) => {
+  const businessNo = extractBusinessNo(item)
+  const normalizedTitle = normalizeForKey(String(item?.title || '').replace(/\b\d{2}\.\d{2,4}\b/g, ''))
+
+  if (businessNo && normalizedTitle) return `hard:${businessNo}|${normalizedTitle}`
+  if (businessNo) return `hard:${businessNo}`
+  return `id:${item.sourceId}:${item.externalId}`
+}
+
+const hardGrouped = new Map()
+for (const item of grouped.values()) {
+  const key = hardDuplicateKey(item)
+  const prev = hardGrouped.get(key)
+  if (!prev) {
+    hardGrouped.set(key, item)
+    continue
+  }
+  hardGrouped.set(key, pickPreferredItem(item, prev))
 }
 
 const isHighConfidenceReview = (item) => {
@@ -72,7 +119,7 @@ const isHighConfidenceReview = (item) => {
   return hasStrongRule && hasAnchorSignal && score >= 0.78
 }
 
-const reviewItems = [...grouped.values()]
+const reviewItems = [...hardGrouped.values()]
   .sort((a, b) => {
     const aPending = (a.status === 'queued' || a.status === 'new') ? 1 : 0
     const bPending = (b.status === 'queued' || b.status === 'new') ? 1 : 0
