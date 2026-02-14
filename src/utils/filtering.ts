@@ -38,24 +38,31 @@ export function matchesGlobal(v: Vorstoss, query: string): boolean {
 }
 
 export function applyFilters(data: Vorstoss[], f: Filters): Vorstoss[] {
-  return data.filter((v) => {
-    if (!matchesGlobal(v, f.globalQuery)) return false
-    if (f.ebenen.length && !f.ebenen.includes(v.ebene)) return false
-    if (f.status.length && !f.status.includes(v.status)) return false
-    if (f.typen.length && !f.typen.includes(v.typ)) return false
-    if (f.kantone.length && (!v.kanton || !f.kantone.includes(v.kanton))) return false
-    if (f.themen.length && !f.themen.some((t) => v.themen.includes(t))) return false
-    if (f.von && v.datumEingereicht < f.von) return false
-    if (f.bis && v.datumEingereicht > f.bis) return false
-    return true
-  })
+  return data
+    .filter((v) => {
+      if (!matchesGlobal(v, f.globalQuery)) return false
+      if (f.ebenen.length && !f.ebenen.includes(v.ebene)) return false
+      if (f.status.length && !f.status.includes(v.status)) return false
+      if (f.typen.length && !f.typen.includes(v.typ)) return false
+      if (f.kantone.length && (!v.kanton || !f.kantone.includes(v.kanton))) return false
+      if (f.themen.length && !f.themen.some((t) => v.themen.includes(t))) return false
+      if (f.von && v.datumEingereicht < f.von) return false
+      if (f.bis && v.datumEingereicht > f.bis) return false
+      return true
+    })
+    .sort((a, b) => {
+      const aDate = a.datumEingereicht || a.datumAktualisiert || ''
+      const bDate = b.datumEingereicht || b.datumAktualisiert || ''
+      if (aDate !== bDate) return bDate.localeCompare(aDate)
+      return String(b.geschaeftsnummer || '').localeCompare(String(a.geschaeftsnummer || ''), 'de-CH')
+    })
 }
 
 export function defaultFilters(): Filters {
   return {
     globalQuery: '',
     ebenen: [],
-    status: ['Angenommen'],
+    status: [],
     typen: [],
     kantone: [],
     themen: [],

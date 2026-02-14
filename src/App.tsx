@@ -7,7 +7,7 @@ import { FiltersPanel } from './components/Filters'
 import { ProfileDrawer } from './components/ProfileDrawer'
 import { getAllColumnsMeta, TableView } from './components/TableView'
 import { i18n, languageNames, type Language } from './i18n'
-import { validateVorstoesse, vorstossSchema, type Status, type Vorstoss } from './types'
+import { validateVorstoesse, vorstossSchema, type Vorstoss } from './types'
 import { applyFilters, defaultFilters, type Filters } from './utils/filtering'
 import { clearHashId, getHashId, setHashId } from './utils/urlHash'
 
@@ -25,14 +25,6 @@ const fallbackData = (() => {
   }
 })()
 
-const pickDefaultStatus = (rows: Vorstoss[]): Status[] => {
-  const hasAccepted = rows.some((v) => v.status === 'Angenommen')
-  if (hasAccepted) return ['Angenommen']
-  const hasInReview = rows.some((v) => v.status === 'In Beratung')
-  if (hasInReview) return ['In Beratung']
-  return []
-}
-
 type ProfileState =
   | { kind: 'person'; value: string }
   | { kind: 'party'; value: string }
@@ -44,10 +36,7 @@ export default function App() {
     if (typeof window === 'undefined') return 'light'
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   })
-  const [filters, setFilters] = useState<Filters>(() => ({
-    ...defaultFilters(),
-    status: pickDefaultStatus(fallbackData),
-  }))
+  const [filters, setFilters] = useState<Filters>(defaultFilters)
   const [data, setData] = useState<Vorstoss[]>(fallbackData)
   const [selected, setSelected] = useState<Vorstoss | null>(null)
   const [profile, setProfile] = useState<ProfileState>(null)
@@ -80,20 +69,6 @@ export default function App() {
         }
         if (parsed.length >= 20 && Math.abs(parsed.length - fallbackData.length) <= 10) {
           setData(parsed)
-          setFilters((prev) => {
-            const shouldAutoAdjust = prev.globalQuery === ''
-              && prev.ebenen.length === 0
-              && prev.typen.length === 0
-              && prev.kantone.length === 0
-              && prev.themen.length === 0
-              && prev.von === ''
-              && prev.bis === ''
-              && prev.status.length <= 1
-            if (!shouldAutoAdjust) return prev
-
-            const nextDefault = pickDefaultStatus(parsed)
-            return { ...prev, status: nextDefault }
-          })
         }
       } catch {
         // keep fallback data
