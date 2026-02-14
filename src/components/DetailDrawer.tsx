@@ -51,6 +51,21 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
     setFeedbackType('Fehler gefunden')
   }, [item?.id])
 
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.metaKey || event.ctrlKey || event.altKey) return
+      const target = event.target as HTMLElement | null
+      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT' || target.isContentEditable)) return
+      if (event.key.toLowerCase() !== 'f') return
+      event.preventDefault()
+      setFeedbackOpen((open) => !open)
+      setFeedbackState('idle')
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
+
   if (!item) return null
 
   const timeline: TimelineItem[] = [
@@ -205,13 +220,21 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
             </li>
           ))}
         </ul>
-        <button className="bug-report-fab" type="button" onClick={() => { setFeedbackOpen(true); setFeedbackState('idle') }}>Feedback</button>
+        <button
+          className="bug-report-fab"
+          type="button"
+          onClick={() => {
+            setFeedbackOpen((open) => !open)
+            setFeedbackState('idle')
+          }}
+        >
+          Feedback
+        </button>
 
         {feedbackOpen && (
           <div className="feedback-modal" role="dialog" aria-modal="true">
             <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
               <h3>Feedback</h3>
-              <button type="button" onClick={() => setFeedbackOpen(false)}>{t.close}</button>
             </div>
             <label>
               Kategorie
@@ -241,7 +264,6 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
               >
                 {feedbackState === 'saving' ? 'Sende…' : 'Senden'}
               </button>
-              <button type="button" onClick={() => setFeedbackOpen(false)}>Abbrechen</button>
             </div>
             {feedbackState === 'done' && <p className="muted">Danke dir fürs Feedback 🙌</p>}
             {feedbackState === 'error' && <p className="muted">Feedback konnte nicht gesendet werden.</p>}
