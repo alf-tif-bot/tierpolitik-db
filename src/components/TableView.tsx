@@ -5,6 +5,7 @@ import {
   getSortedRowModel,
   useReactTable,
   type ColumnDef,
+  type PaginationState,
   type SortingState,
 } from '@tanstack/react-table'
 import { useEffect, useMemo, useState } from 'react'
@@ -40,7 +41,7 @@ const normalizeTitle = (value: string) => value
 
 export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboardEnabled = true, sectionId, lang, t }: Props) {
   const [sorting, setSorting] = useState<SortingState>([])
-  const [pageSize, setPageSize] = useState(25)
+  const [pagination, setPagination] = useState<PaginationState>({ pageIndex: 0, pageSize: 25 })
   const [highlightedRow, setHighlightedRow] = useState(0)
 
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
@@ -49,18 +50,17 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboard
     try {
       const raw = localStorage.getItem(TABLE_PREFS_KEY)
       if (!raw) return
-      const parsed = JSON.parse(raw) as { sorting?: SortingState; pageSize?: number }
+      const parsed = JSON.parse(raw) as { sorting?: SortingState }
       if (parsed.sorting) setSorting(parsed.sorting)
-      if (parsed.pageSize && PAGE_SIZE_OPTIONS.includes(parsed.pageSize)) setPageSize(parsed.pageSize)
     } catch {
       // ignore broken prefs
     }
   }, [])
 
   useEffect(() => {
-    const payload = JSON.stringify({ sorting, pageSize })
+    const payload = JSON.stringify({ sorting })
     localStorage.setItem(TABLE_PREFS_KEY, payload)
-  }, [sorting, pageSize])
+  }, [sorting])
 
   const columns = useMemo<ColumnDef<Vorstoss>[]>(() => [
     { accessorKey: 'titel', header: t.titleCol, cell: (i) => normalizeTitle(localizedMetaText(i.row.original, 'title', lang, i.getValue<string>())) },
@@ -96,17 +96,13 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboard
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     onSortingChange: setSorting,
-    state: { sorting },
-    initialState: { pagination: { pageSize: 25 } },
+    onPaginationChange: setPagination,
+    state: { sorting, pagination },
   })
 
   useEffect(() => {
     onVisibleColumnsChange(allColumnsMeta)
   }, [allColumnsMeta, onVisibleColumnsChange])
-
-  useEffect(() => {
-    table.setPageSize(pageSize)
-  }, [pageSize, table])
 
   useEffect(() => {
     const pageRows = table.getRowModel().rows
@@ -208,10 +204,9 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboard
             <span key={size}>
               <button
                 type="button"
-                className={pageSize === size ? 'text-link-btn active' : 'text-link-btn'}
+                className={pagination.pageSize === size ? 'text-link-btn active' : 'text-link-btn'}
                 onClick={() => {
-                  setPageSize(size)
-                  table.setPageIndex(0)
+                  setPagination({ pageIndex: 0, pageSize: size })
                 }}
               >
                 {size}

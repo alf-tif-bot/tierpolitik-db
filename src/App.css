@@ -516,11 +516,14 @@ tbody tr:focus-visible td {
   padding: 0;
   margin: 0;
   min-width: 0;
+  text-decoration: none;
+  opacity: 0.9;
 }
 
 .pagination-row .page-size-links .text-link-btn.active {
   font-weight: 700;
   text-decoration: underline;
+  opacity: 1;
 }
 
 .drawer-backdrop {
