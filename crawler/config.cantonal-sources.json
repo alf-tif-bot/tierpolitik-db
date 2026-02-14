@@ -34,7 +34,9 @@
     "url": "https://www.parlament.be.ch",
     "urlCandidates": [
       "https://www.gr.be.ch",
-      "https://gr.be.ch"
+      "https://gr.be.ch",
+      "https://www.gr.be.ch/de/start/geschaefte.html",
+      "https://www.parlament.be.ch/de/start/geschaefte.html"
     ],
     "sinceYear": 2020
   },
@@ -177,7 +179,10 @@
     "parliament": "Kantonsrat Schwyz",
     "adapter": "cantonRegistry",
     "url": "https://www.sz.ch/parlament",
-    "sinceYear": 2020
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://www.sz.ch/verwaltung/staatskanzlei/kantonsrat/geschaefte-des-kantonsrats"
+    ]
   },
   {
     "canton": "TG",
@@ -216,7 +221,8 @@
     "sinceYear": 2020,
     "urlCandidates": [
       "https://www.vd.ch/gc/objets-et-rapports-de-commissions",
-      "https://www.vd.ch/gc/objets-du-conseil"
+      "https://www.vd.ch/gc/objets-du-conseil",
+      "https://www.vd.ch/gc/interventions-parlementaires"
     ]
   },
   {
@@ -247,6 +253,10 @@
     "parliament": "Kantonsrat Zürich",
     "adapter": "cantonRegistry",
     "url": "https://www.kantonsrat.zh.ch",
-    "sinceYear": 2020
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://www.kantonsrat.zh.ch/geschaefte/",
+      "https://www.kantonsrat.zh.ch/geschaefte/geschaeft/?id="
+    ]
   }
 ]

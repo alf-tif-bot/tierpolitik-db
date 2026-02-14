@@ -11,10 +11,14 @@ const PARLIAMENT_URL_HINTS = [
   '/interventions-parlementaires',
   '/objets-et-rapports-de-commissions',
   '/objets-du-conseil',
+  '/objets/pages/accueil.aspx',
   '/recherche-objets',
   '/ricerca-messaggi-e-atti',
   '/geschaefte',
+  '/geschaefte-des-kantonsrats',
+  '/geschaefte-suche',
   '/vorstoesse',
+  '/vorstosse',
   '/kantonsrat',
   '/landrat',
   '/grand-conseil',
@@ -51,7 +55,10 @@ const detectPlatform = ({ requestUrl = '', finalUrl = '', html = '' } = {}) => {
 
 const hasSearchOrAffairPath = (url = '') => [
   'geschaefte',
+  'geschaefte-des-kantonsrats',
+  'geschaefte-suche',
   'vorstoesse',
+  'vorstosse',
   'objets-parlementaires',
   'interventions-parlementaires',
   'recherche-objets',
@@ -105,8 +112,12 @@ const buildCandidates = (entry) => {
     'grand-conseil',
     'objets-parlementaires',
     'interventions-parlementaires',
+    'objets/pages/accueil.aspx',
     'geschaefte',
+    'geschaefte-des-kantonsrats',
+    'geschaefte-suche',
     'vorstoesse',
+    'vorstosse',
   ]
 
   const heuristics = [
