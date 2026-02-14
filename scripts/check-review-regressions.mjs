@@ -85,20 +85,40 @@ const missingInMotions = [...expectedPublishedAffairs].filter((affairId) => !act
 const decisionsUnknownInDb = Object.keys(reviewDecisions).filter((id) => !dbItemsById.has(id))
 const decisionsUnknownLegacy = decisionsUnknownInDb.filter((id) => /^ch-parliament-business-(de|fr|it):\d+$/.test(id))
 const decisionsUnknownCritical = decisionsUnknownInDb.filter((id) => !decisionsUnknownLegacy.includes(id))
+const affairStatusMap = new Map()
+for (const item of (db.items || []).filter((entry) => String(entry.sourceId || '').startsWith('ch-parliament-'))) {
+  const affair = String(item.affairId || item.externalId || '').split('-')[0]
+  if (!affair) continue
+  const statuses = affairStatusMap.get(affair) || new Set()
+  statuses.add(String(item.status || ''))
+  affairStatusMap.set(affair, statuses)
+}
+
 const decisionsStatusMismatch = Object.entries(reviewDecisions)
   .filter(([id, decision]) => {
     if (!dbItemsById.has(id)) return false
-    const dbStatus = dbItemsById.get(id)?.status
-    if (decision?.status === 'approved') return !['approved', 'published'].includes(dbStatus)
-    if (decision?.status === 'rejected') return dbStatus !== 'rejected'
-    if (decision?.status === 'queued') return dbStatus !== 'queued'
+    const dbItem = dbItemsById.get(id)
+    const dbStatus = String(dbItem?.status || '')
+    const isParliament = String(dbItem?.sourceId || '').startsWith('ch-parliament-')
+    const affair = String(dbItem?.affairId || dbItem?.externalId || '').split('-')[0]
+    const affairStatuses = isParliament ? affairStatusMap.get(affair) || new Set([dbStatus]) : new Set([dbStatus])
+
+    if (decision?.status === 'approved') return ![...affairStatuses].some((s) => ['approved', 'published'].includes(s))
+    if (decision?.status === 'rejected') return ![...affairStatuses].every((s) => s === 'rejected')
+    if (decision?.status === 'queued') return ![...affairStatuses].some((s) => ['queued', 'approved', 'published'].includes(s))
     return false
   })
-  .map(([id, decision]) => ({
-    id,
-    decision: decision?.status,
-    dbStatus: dbItemsById.get(id)?.status,
-  }))
+  .map(([id, decision]) => {
+    const dbItem = dbItemsById.get(id)
+    const affair = String(dbItem?.affairId || dbItem?.externalId || '').split('-')[0]
+    return {
+      id,
+      decision: decision?.status,
+      dbStatus: dbItem?.status,
+      affair,
+      affairStatuses: [...(affairStatusMap.get(affair) || new Set([dbItem?.status]))],
+    }
+  })
 
 const report = {
   generatedAt: new Date().toISOString(),

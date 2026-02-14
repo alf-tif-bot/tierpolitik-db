@@ -74,6 +74,7 @@ export function createParliamentOdataV2Adapter() {
       const languages = parseCsvOption(source.options?.langs || 'DE,FR,IT')
       const top = Number(source.options?.top ?? 900)
       const daysBack = Number(source.options?.daysBack ?? 3650)
+      const requestTimeoutMs = Math.max(8000, Number(source.options?.requestTimeoutMs ?? 30000))
       const businessTypeIncludes = parseCsvOption(source.options?.businessTypeIncludes)
       const businessTypeMatchers = buildBusinessTypeMatchers(businessTypeIncludes)
       const since = new Date(Date.now() - daysBack * 86400000).toISOString().slice(0, 19)
@@ -95,7 +96,7 @@ export function createParliamentOdataV2Adapter() {
         const url = `${source.url}?${params.toString()}`
         const response = await fetch(url, {
           headers: { accept: 'application/json' },
-          signal: AbortSignal.timeout(30000),
+          signal: AbortSignal.timeout(requestTimeoutMs),
         })
         if (!response.ok) throw new Error(`OData fetch failed (${response.status})`)
         const payload = await response.json()
@@ -105,8 +106,23 @@ export function createParliamentOdataV2Adapter() {
       const byAffair = new Map()
       const fetchedAt = new Date().toISOString()
 
-      for (const rawLang of languages) {
-        const rows = await fetchRows(rawLang)
+      const languageRuns = await Promise.allSettled(languages.map(async (rawLang) => ({
+        rawLang,
+        rows: await fetchRows(rawLang),
+      })))
+
+      const successfulRuns = languageRuns
+        .filter((run) => run.status === 'fulfilled')
+        .map((run) => run.value)
+
+      if (!successfulRuns.length) {
+        const reasons = languageRuns
+          .map((run) => (run.status === 'rejected' ? String(run.reason?.message || run.reason) : null))
+          .filter(Boolean)
+        throw new Error(`OData fetch failed for all languages${reasons.length ? `: ${reasons.join(' | ')}` : ''}`)
+      }
+
+      for (const { rawLang, rows } of successfulRuns) {
         for (const row of rows) {
           if (!row?.ID || !row?.Title) continue
           if (businessTypeMatchers.length > 0) {

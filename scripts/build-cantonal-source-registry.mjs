@@ -49,6 +49,17 @@ const detectPlatform = ({ requestUrl = '', finalUrl = '', html = '' } = {}) => {
   return 'generic-site'
 }
 
+const hasSearchOrAffairPath = (url = '') => [
+  'geschaefte',
+  'vorstoesse',
+  'objets-parlementaires',
+  'interventions-parlementaires',
+  'recherche-objets',
+  'ricerca-messaggi-e-atti',
+  'objets-du-conseil',
+  'objets/pages/accueil.aspx',
+].some((hint) => String(url).toLowerCase().includes(String(hint).toLowerCase()))
+
 const classifyReadiness = ({ url = '', platform = 'generic-site', ok = false, httpStatus = null }) => {
   const u = String(url).toLowerCase()
   const hasParliamentHint = [
@@ -60,23 +71,14 @@ const classifyReadiness = ({ url = '', platform = 'generic-site', ok = false, ht
     'objets-et-rapports-de-commissions',
     'ricerca-messaggi-e-atti',
   ].some((hint) => u.includes(hint))
-  const hasSearchOrAffairPath = [
-    'geschaefte',
-    'vorstoesse',
-    'objets-parlementaires',
-    'interventions-parlementaires',
-    'recherche-objets',
-    'ricerca-messaggi-e-atti',
-    'objets-du-conseil',
-    'objets/Pages/accueil.aspx',
-  ].some((hint) => u.includes(String(hint).toLowerCase()))
+  const hasSearchOrAffairPathForUrl = hasSearchOrAffairPath(u)
 
   if (!ok || platform === 'waf-challenge') {
     if (httpStatus === 403 || httpStatus === 429 || platform === 'waf-challenge') return 'blocked-needs-manual'
     return 'unreachable-needs-manual'
   }
   if (platform === 'ratsinfo' || platform === 'allris/sessionnet') return 'adapter-ready-likely'
-  if (platform === 'parliament-portal' && hasSearchOrAffairPath) return 'adapter-ready-likely'
+  if (platform === 'parliament-portal' && hasSearchOrAffairPathForUrl) return 'adapter-ready-likely'
   if (platform === 'parliament-portal' || (['typo3-site', 'drupal-site'].includes(platform) && hasParliamentHint) || hasParliamentHint) {
     return 'site-discovery-needed'
   }
@@ -167,7 +169,11 @@ const sourceRows = await Promise.all(cantons.map(async (entry) => {
   for (const candidateUrl of candidates.slice(0, PROBE_CANDIDATE_LIMIT)) {
     const probe = await probeSource(candidateUrl)
     probes.push({ ...probe, url: candidateUrl })
-    if (probe.ok && ['ratsinfo', 'allris/sessionnet', 'parliament-portal'].includes(probe.platform)) break
+    const isStrongReadyProbe = probe.ok && (
+      ['ratsinfo', 'allris/sessionnet'].includes(probe.platform)
+      || (probe.platform === 'parliament-portal' && hasSearchOrAffairPath(probe.finalUrl || candidateUrl))
+    )
+    if (isStrongReadyProbe) break
   }
 
   const bestProbe = selectBestProbe(probes) || {

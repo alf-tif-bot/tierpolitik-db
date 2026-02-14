@@ -85,14 +85,14 @@
     }
   },
   {
-    "id": "vp-20210426-de",
+    "id": "vp-20210426-it",
     "titel": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
     "typ": "Interpellation",
     "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. In Kommission des Nationalrats",
-    "geschaeftsnummer": "20210426-de",
+    "geschaeftsnummer": "20210426-it",
     "ebene": "Bund",
     "kanton": null,
-    "regionGemeinde": null,
+    "regionGemeinde": "Südschweiz",
     "status": "In Beratung",
     "datumEingereicht": "2021-03-18",
     "datumAktualisiert": "2021-02-14",
@@ -130,8 +130,8 @@
     ],
     "medien": [],
     "metadaten": {
-      "sprache": "de",
-      "haltung": "pro-tierschutz",
+      "sprache": "it",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
@@ -259,14 +259,14 @@
     }
   },
   {
-    "id": "vp-20240331-de",
+    "id": "vp-20240331-it",
     "titel": "24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen",
     "typ": "Interpellation",
     "kurzbeschreibung": "Kurzüberblick: 24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen (In Beratung).",
-    "geschaeftsnummer": "20240331-de",
+    "geschaeftsnummer": "20240331-it",
     "ebene": "Bund",
     "kanton": null,
-    "regionGemeinde": null,
+    "regionGemeinde": "Südschweiz",
     "status": "In Beratung",
     "datumEingereicht": "2024-12-19",
     "datumAktualisiert": "2024-02-14",
@@ -293,7 +293,7 @@
     ],
     "medien": [],
     "metadaten": {
-      "sprache": "de",
+      "sprache": "it",
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
@@ -320,225 +320,6 @@
           ],
           "it": [
             "apiculteur"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20253733-de",
-    "titel": "25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Umwelt|Landwirtschaft",
-    "geschaeftsnummer": "20253733-de",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2025-06-19",
-    "datumAktualisiert": "2026-02-13",
-    "themen": [
-      "landwirtschaft",
-      "agriculture"
-    ],
-    "schlagwoerter": [
-      "landwirtschaft",
-      "agriculture"
-    ],
-    "einreichende": [
-      {
-        "name": "Parlamentarische Kommission",
-        "rolle": "Nationalrat",
-        "partei": "Überparteilich"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253733",
-    "resultate": [
-      {
-        "datum": "2025-06-19",
-        "status": "In Beratung",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren",
-          "fr": "25.3733 · Respecter la proportionnalité dans l’ordonnance sur les paiements directs"
-        },
-        "summary": {
-          "de": "Beratung in Kommission des Ständerates abgeschlossen",
-          "fr": "Fin des discussions en commission du Conseil des Etats"
-        },
-        "type": {
-          "de": "Interpellation",
-          "fr": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "Landwirtschaft",
-            "agriculture"
-          ],
-          "fr": [
-            "Agriculture",
-            "agriculture"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20254697-de",
-    "titel": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Staatspolitik|Finanzwesen|Umwelt",
-    "geschaeftsnummer": "20254697-de",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2025-12-18",
-    "datumAktualisiert": "2026-02-13",
-    "themen": [
-      "biodiversität",
-      "biodiversite",
-      "biodiversita"
-    ],
-    "schlagwoerter": [
-      "biodiversität",
-      "biodiversite",
-      "biodiversita"
-    ],
-    "einreichende": [
-      {
-        "name": "Parlamentsgeschäft (Bund)",
-        "rolle": "Nationalrat",
-        "partei": "Überparteilich"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254697",
-    "resultate": [
-      {
-        "datum": "2025-12-18",
-        "status": "In Beratung",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
-          "fr": "25.4697 · Subventions dommageables à la biodiversité. Collaboration entre la Confédération et les cantons"
-        },
-        "summary": {
-          "de": "Stellungnahme zum Vorstoss liegt vor",
-          "fr": "L’avis relatif à l’intervention est disponible"
-        },
-        "type": {
-          "de": "Interpellation",
-          "fr": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "biodiversität",
-            "biodiversite",
-            "biodiversita"
-          ],
-          "fr": [
-            "biodiversität",
-            "biodiversite",
-            "biodiversita"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20254487-de",
-    "titel": "25.4487 · Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Umwelt|Landwirtschaft|Gesundheit",
-    "geschaeftsnummer": "20254487-de",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2025-12-09",
-    "datumAktualisiert": "2026-02-13",
-    "themen": [
-      "landwirtschaft",
-      "agriculture",
-      "agricoltura",
-      "nutrition"
-    ],
-    "schlagwoerter": [
-      "landwirtschaft",
-      "agriculture",
-      "agricoltura",
-      "nutrition"
-    ],
-    "einreichende": [
-      {
-        "name": "BLV",
-        "rolle": "Regierung",
-        "partei": "Bundesverwaltung"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254487",
-    "resultate": [
-      {
-        "datum": "2025-12-09",
-        "status": "In Beratung",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "25.4487 · Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder",
-          "fr": "25.4487 · Recommandations nutritionnelles végétariennes pour les enfants. Parti pris de l'OSAV",
-          "it": "25.4487 · Ricette vegetariane per bambini. Raccomandazioni unilaterali dell’USAV"
-        },
-        "summary": {
-          "de": "Stellungnahme zum Vorstoss liegt vor",
-          "fr": "L’avis relatif à l’intervention est disponible",
-          "it": "La dichiarazione sull’intervento è disponibile"
-        },
-        "type": {
-          "de": "Interpellation",
-          "fr": "Interpellation",
-          "it": "Interpellanza"
-        },
-        "themes": {
-          "de": [
-            "Landwirtschaft",
-            "agriculture",
-            "agricoltura",
-            "nutrition"
-          ],
-          "fr": [
-            "Agriculture",
-            "agriculture",
-            "agricoltura",
-            "nutrition"
-          ],
-          "it": [
-            "Agricoltura",
-            "agriculture",
-            "agricoltura",
-            "nutrition"
           ]
         }
       },
@@ -666,7 +447,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "pro-tierschutz",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "22.3187 · Hochgezüchtete Eier- und Geflügelfleischproduktion in Richtung Tierwohl weiterentwickeln"
@@ -956,7 +737,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "pro-tierschutz",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "25.3976 · Tierschutz und neue Schweiz-EU-Abkommen. Steht das Verbot ritueller Schlachtungen in der Schweiz vor dem Aus?"
@@ -1015,7 +796,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "pro-tierschutz",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "23.2009 · Für eine Änderung des Schweizer Tierschutzgesetzes (TSCHG) und für das Verbot der Euthanasie ohne triftigen Grund!"
@@ -1377,7 +1158,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "pro-tierschutz",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "23.7580 · Der Schutz des Menschen und der Nutztiere ist höher zu gewichten als der Wolf"
@@ -1496,7 +1277,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "tierschutzkritisch",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "23.7858 · Abschuss von Wolfsrudeln trotz immer weniger Schäden an Nutztieren?"
@@ -2671,7 +2452,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "pro-tierschutz",
+      "haltung": "neutral/unklar",
       "initiativeLinks": {
         "campaignUrl": "https://duckduckgo.com/?q=25.059%20%C2%B7%20%C2%ABJa%20zum%20Importverbot%20f%C3%BCr%20tierqu%C3%A4lerisch%20erzeugte%20Pelzprodukte%20(Pelzinitiative)%C2%BB.%20Volksinitiative%20und%20indirekter%20Gegenvorschlag%20(%C3%84nderung%20des%20Tierschutzgesetzes)%20Volksinitiative%20Kampagne"
       },
@@ -2733,7 +2514,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "pro-tierschutz",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "25.8205 · Reduktion der Tierschutzkontrollen: Ressourcen sparen auf Kosten der Tiere?"
@@ -2848,7 +2629,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "pro-tierschutz",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "23.7131 · Ziegen 1200 Tage pausenlos melken - vereinbar mit Tierschutzbestimmungen?"
@@ -3020,7 +2801,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "pro-tierschutz",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "25.2027 · Für ein Beschwerderecht von Tierschutzverbänden bei Misshandlung"
@@ -3080,7 +2861,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "pro-tierschutz",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "22.7004 · Absurde Auslegung der Tierschutzverordnung - täglicher Auslauf für Bauernhof Hunde?"
@@ -3138,7 +2919,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "pro-tierschutz",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "21.2027 · Echter Tierschutz jetzt!"
@@ -3371,7 +3152,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "pro-tierschutz",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "21.3703 · Tierschutz im Indonesien-Abkommen"

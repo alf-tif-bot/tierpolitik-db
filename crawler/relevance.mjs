@@ -62,6 +62,11 @@ const WEAK_ANCHOR_KEYWORDS = new Set([
   'animaux',
   'animale',
   'faune',
+  'landwirtschaft',
+  'agriculture',
+  'agricoltura',
+  'apiculture',
+  'apiculteur',
 ])
 
 const PARLIAMENT_PROCESS_KEYWORDS = [
