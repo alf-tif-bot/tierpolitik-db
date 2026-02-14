@@ -55,7 +55,7 @@ export default function App() {
               .map((r) => r.data)
           }
         }
-        if (parsed.length) setData(parsed)
+        if (parsed.length >= 20) setData(parsed)
       } catch {
         // keep fallback data
       }

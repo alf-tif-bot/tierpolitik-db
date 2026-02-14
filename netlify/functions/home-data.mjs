@@ -178,7 +178,7 @@ export const handler = async () => {
           order by mv.version_no desc
           limit 1
         ) mv on true
-        where m.status in ('approved','published')
+        where m.status in ('queued','approved','published')
           and m.source_id like 'ch-parliament-%'
           and coalesce(m.published_at, m.fetched_at) >= (now() - interval '5 years')
         order by m.updated_at desc
@@ -285,7 +285,7 @@ export const handler = async () => {
       }
     })
 
-    const minimumRows = Math.max(8, Math.min(40, fallbackVorstoesse.length || 8))
+    const minimumRows = Math.max(20, Math.min(60, fallbackVorstoesse.length || 20))
     const payload = mapped.length >= minimumRows ? mapped : fallbackVorstoesse
 
     return {
