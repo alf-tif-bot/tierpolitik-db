@@ -10,7 +10,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2024-11-14",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "stopfleber",
       "foie gras",
@@ -76,7 +76,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2021-03-18",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2021-02-14",
     "themen": [
       "tierversuch",
       "tierversuche",
@@ -147,8 +147,8 @@
     "kanton": null,
     "regionGemeinde": "Romandie",
     "status": "In Beratung",
-    "datumEingereicht": "2026-02-13",
-    "datumAktualisiert": "2026-02-13",
+    "datumEingereicht": "2021-02-13",
+    "datumAktualisiert": "2021-02-13",
     "themen": [
       "tiere",
       "massentierhaltung",
@@ -172,7 +172,7 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20210044",
     "resultate": [
       {
-        "datum": "2026-02-13",
+        "datum": "2021-02-13",
         "status": "In Beratung",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
@@ -217,7 +217,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-12-19",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "apiculteur"
     ],
@@ -512,7 +512,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2022-02-22",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2022-02-13",
     "themen": [
       "landwirtschaft"
     ],
@@ -935,7 +935,7 @@
     "regionGemeinde": "Südschweiz",
     "status": "Abgelehnt",
     "datumEingereicht": "2024-11-27",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "initiative"
     ],
@@ -3076,7 +3076,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2018-12-14",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2018-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -3188,7 +3188,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2022-03-17",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2022-02-14",
     "themen": [
       "transport"
     ],
@@ -3300,7 +3300,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2014-11-07",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2014-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -3468,7 +3468,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2018-02-26",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2018-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -3804,7 +3804,7 @@
     "regionGemeinde": "Südschweiz",
     "status": "Abgelehnt",
     "datumEingereicht": "2017-09-29",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2017-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -3916,7 +3916,7 @@
     "regionGemeinde": "Südschweiz",
     "status": "Abgelehnt",
     "datumEingereicht": "2019-01-07",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2019-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -4144,7 +4144,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-03-14",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -4424,7 +4424,7 @@
     "regionGemeinde": "Südschweiz",
     "status": "Abgelehnt",
     "datumEingereicht": "2024-10-23",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "protection"
     ],
@@ -4705,7 +4705,7 @@
     "regionGemeinde": "Südschweiz",
     "status": "Abgelehnt",
     "datumEingereicht": "2020-03-12",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2020-02-14",
     "themen": [
       "protection"
     ],
@@ -9861,7 +9861,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2021-06-18",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2021-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -9917,7 +9917,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2021-06-18",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2021-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -10309,7 +10309,7 @@
     "regionGemeinde": "Romandie",
     "status": "Abgelehnt",
     "datumEingereicht": "2021-02-18",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2021-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -10365,7 +10365,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-10-11",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -10701,7 +10701,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-12-20",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2024-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -10757,7 +10757,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2017-12-15",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2017-02-13",
     "themen": [
       "landwirtschaft"
     ],
@@ -10813,7 +10813,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2018-12-12",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2018-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -10869,7 +10869,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2013-04-17",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2013-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -10925,7 +10925,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2016-06-17",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2016-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -10981,7 +10981,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2019-09-24",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2019-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -11037,7 +11037,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2015-06-19",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2015-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -11093,7 +11093,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2023-05-30",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2023-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -11149,7 +11149,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1995-12-21",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "1995-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -11205,7 +11205,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1997-04-30",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "1997-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -11261,7 +11261,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1994-02-23",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1994-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -11317,7 +11317,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1994-06-22",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1994-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -11373,7 +11373,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1998-09-09",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1998-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -11429,7 +11429,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1999-08-18",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1999-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -11485,7 +11485,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2016-02-22",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2016-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -11541,7 +11541,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2011-10-25",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2011-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -11597,7 +11597,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1993-11-24",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1993-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -11653,7 +11653,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1993-10-04",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1993-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -11709,7 +11709,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1999-05-31",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1999-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -11765,7 +11765,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2018-08-15",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2018-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -11821,7 +11821,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2012-01-25",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2012-02-13",
     "themen": [
       "landwirtschaft"
     ],
@@ -11878,7 +11878,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1994-11-23",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1994-02-13",
     "themen": [
       "gesetz"
     ],
@@ -11935,7 +11935,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1998-12-14",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1998-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -11991,7 +11991,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1993-06-30",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1993-02-13",
     "themen": [
       "gesetz"
     ],
@@ -12048,7 +12048,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2012-07-04",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2012-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -12104,7 +12104,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1995-11-18",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1995-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -12160,7 +12160,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2003-03-07",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2003-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -12216,7 +12216,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-10-01",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2024-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -12272,7 +12272,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2023-03-08",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2023-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -12328,7 +12328,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2007-11-16",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2007-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -12384,7 +12384,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2017-11-09",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2017-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -12440,7 +12440,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2012-02-15",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2012-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -12496,7 +12496,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2012-01-25",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2012-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -12552,7 +12552,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2019-09-25",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2019-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -12608,7 +12608,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1995-09-27",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1995-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -12664,7 +12664,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1994-08-17",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1994-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -12720,7 +12720,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2013-03-08",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2013-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -12776,7 +12776,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2000-03-29",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2000-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -12832,7 +12832,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2000-10-18",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2000-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -12888,7 +12888,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1995-05-03",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1995-02-13",
     "themen": [
       "gesetz"
     ],
@@ -12945,7 +12945,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2010-06-23",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2010-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -13001,7 +13001,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1999-02-10",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1999-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -13057,7 +13057,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2010-02-17",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2010-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -13113,7 +13113,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2000-02-16",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2000-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -13169,7 +13169,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2005-06-22",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2005-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -13225,7 +13225,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2003-02-19",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2003-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -13281,7 +13281,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1995-09-13",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1995-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -13337,7 +13337,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2013-03-08",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2013-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -13393,7 +13393,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2001-01-10",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2001-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -13449,7 +13449,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2018-09-28",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2018-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -13505,7 +13505,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1994-02-23",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1994-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -13561,7 +13561,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2015-11-18",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2015-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -13617,7 +13617,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2007-02-28",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2007-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -13673,7 +13673,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2019-05-09",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2019-02-13",
     "themen": [
       "landwirtschaft"
     ],
@@ -13729,7 +13729,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2010-04-14",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2010-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -13785,7 +13785,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2018-09-14",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2018-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -13841,7 +13841,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2018-09-21",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2018-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -13897,7 +13897,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2012-11-30",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2012-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -13953,7 +13953,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2001-09-05",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2001-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -14009,7 +14009,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1997-05-28",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1997-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -14065,7 +14065,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2010-10-14",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2010-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -14121,7 +14121,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1999-03-31",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1999-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -14177,7 +14177,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2013-05-29",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2013-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -14233,7 +14233,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2007-12-21",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2007-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -14289,7 +14289,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2016-08-25",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2016-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -14345,7 +14345,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1997-11-19",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1997-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -14401,7 +14401,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1993-09-08",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1993-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -14457,7 +14457,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1996-06-26",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1996-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -14513,7 +14513,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2005-12-09",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2005-02-13",
     "themen": [
       "landwirtschaft"
     ],
@@ -14570,7 +14570,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1996-03-27",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1996-02-13",
     "themen": [
       "gesetz"
     ],
@@ -14627,7 +14627,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1997-09-10",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1997-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -14683,7 +14683,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1996-01-17",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1996-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -14739,7 +14739,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2007-09-12",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2007-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -14795,7 +14795,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2018-02-14",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2018-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -14851,7 +14851,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2008-10-29",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2008-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -14907,7 +14907,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2007-09-21",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2007-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -14963,7 +14963,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2006-08-23",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2006-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15019,7 +15019,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2006-06-28",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2006-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15075,7 +15075,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1996-10-30",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1996-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15131,7 +15131,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2005-12-02",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2005-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15187,7 +15187,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2007-09-21",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2007-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15243,7 +15243,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1993-09-01",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1993-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15299,7 +15299,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2018-06-01",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2018-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15355,7 +15355,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1995-12-04",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1995-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15411,7 +15411,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2002-11-15",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2002-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15467,7 +15467,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1999-11-17",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1999-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15523,7 +15523,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2014-09-19",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2014-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15579,7 +15579,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2011-08-26",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2011-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15635,7 +15635,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2018-01-12",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2018-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15691,7 +15691,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2001-11-22",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2001-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15747,7 +15747,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2003-01-15",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2003-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15803,7 +15803,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1996-05-01",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1996-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15859,7 +15859,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1995-04-12",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1995-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15915,7 +15915,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1998-05-27",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1998-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -15971,7 +15971,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2002-02-27",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2002-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -16027,7 +16027,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2000-03-06",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2000-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -16083,7 +16083,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2002-09-11",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2002-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -16139,7 +16139,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1994-01-26",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1994-02-13",
     "themen": [
       "landwirtschaft"
     ],
@@ -16196,7 +16196,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2014-06-16",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2014-02-13",
     "themen": [
       "verordnung"
     ],
@@ -16252,7 +16252,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2003-09-19",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2003-02-13",
     "themen": [
       "landwirtschaft"
     ],
@@ -16309,7 +16309,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2009-09-11",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2009-02-13",
     "themen": [
       "landwirtschaft"
     ],
@@ -16366,7 +16366,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2005-08-17",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2005-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -16422,7 +16422,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2002-01-09",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2002-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -16478,7 +16478,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2005-10-24",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2005-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -16534,7 +16534,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1996-08-14",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1996-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -16590,7 +16590,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2002-03-08",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2002-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -16646,7 +16646,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1993-09-08",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1993-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -16702,7 +16702,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2018-06-20",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2018-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -16758,7 +16758,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1996-11-06",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1996-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -16814,7 +16814,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2013-05-29",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2013-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -16870,7 +16870,7 @@
     "regionGemeinde": "Südschweiz",
     "status": "Abgelehnt",
     "datumEingereicht": "2017-12-15",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2017-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -16926,7 +16926,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2006-03-17",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2006-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -16982,7 +16982,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2009-02-25",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2009-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -17038,7 +17038,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1993-12-13",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1993-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -17094,7 +17094,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2019-09-25",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2019-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -17150,7 +17150,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1997-01-15",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1997-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -17206,7 +17206,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2011-11-16",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2011-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -17262,7 +17262,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1999-09-20",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1999-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -17318,7 +17318,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2004-08-18",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2004-02-13",
     "themen": [
       "landwirtschaft"
     ],
@@ -17379,7 +17379,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1997-09-29",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1997-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -17435,7 +17435,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2016-01-13",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2016-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -17491,7 +17491,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2005-11-16",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2005-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -17547,7 +17547,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2010-05-26",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2010-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -17603,7 +17603,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2001-08-22",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2001-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -17659,7 +17659,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2013-05-29",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2013-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -17715,7 +17715,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1996-11-06",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1996-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -17771,7 +17771,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2000-10-18",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2000-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -17827,7 +17827,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2016-12-16",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2016-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -17883,7 +17883,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2011-11-23",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2011-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -17939,7 +17939,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2016-02-17",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2016-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -17995,7 +17995,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2002-09-11",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2002-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -18051,7 +18051,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2004-01-14",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2004-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -18107,7 +18107,7 @@
     "regionGemeinde": "Romandie",
     "status": "Abgelehnt",
     "datumEingereicht": "2014-05-16",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2014-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -18163,7 +18163,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2003-09-10",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2003-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -18219,7 +18219,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2009-03-17",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2009-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -18275,7 +18275,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2000-01-12",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2000-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -18331,7 +18331,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2000-09-13",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2000-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -18387,7 +18387,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2000-08-23",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2000-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -18443,7 +18443,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2019-03-18",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2019-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -18499,7 +18499,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2009-01-14",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2009-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -18555,7 +18555,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2003-10-29",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2003-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -18611,7 +18611,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2015-09-11",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2015-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -18667,7 +18667,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2000-02-16",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2000-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -18723,7 +18723,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1997-05-14",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1997-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -18779,7 +18779,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2018-12-03",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2018-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -18835,7 +18835,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1996-11-25",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1996-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -18891,7 +18891,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1997-03-10",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1997-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -18947,7 +18947,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1997-05-20",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "1997-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -19563,7 +19563,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2020-03-10",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2020-02-14",
     "themen": [
       "transport",
       "gesetz"
@@ -19622,7 +19622,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2016-04-06",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2016-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -19678,7 +19678,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-12-02",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2024-02-13",
     "themen": [
       "Tierschutz"
     ],
@@ -19790,7 +19790,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-09-26",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "transport"
     ],
@@ -19846,7 +19846,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-12-18",
-    "datumAktualisiert": "2026-02-13",
+    "datumAktualisiert": "2024-02-13",
     "themen": [
       "transport"
     ],
@@ -19902,7 +19902,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2022-09-21",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2022-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -19958,7 +19958,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2022-03-17",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2022-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -20014,7 +20014,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2017-07-04",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2017-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -21253,7 +21253,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2022-03-08",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2022-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -21309,7 +21309,7 @@
     "regionGemeinde": "Südschweiz",
     "status": "Abgelehnt",
     "datumEingereicht": "2021-08-11",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2021-02-14",
     "themen": [
       "transport",
       "initiative"
@@ -21709,7 +21709,7 @@
     "regionGemeinde": "Südschweiz",
     "status": "Abgelehnt",
     "datumEingereicht": "2022-03-17",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2022-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -22493,7 +22493,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2022-03-16",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2022-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -22549,7 +22549,7 @@
     "regionGemeinde": "Südschweiz",
     "status": "Abgelehnt",
     "datumEingereicht": "2024-11-27",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -22605,7 +22605,7 @@
     "regionGemeinde": "Südschweiz",
     "status": "Abgelehnt",
     "datumEingereicht": "2024-02-21",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "initiative"
     ],
@@ -22666,7 +22666,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2012-02-29",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2012-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -22722,7 +22722,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1999-10-05",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "1999-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -22778,7 +22778,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2000-03-24",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2000-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -22834,7 +22834,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2013-03-06",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2013-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -22890,7 +22890,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2023-09-29",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2023-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -22946,7 +22946,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2004-05-26",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2004-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -23002,7 +23002,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2022-09-22",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2022-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -23058,7 +23058,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "1994-05-25",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "1994-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -23114,7 +23114,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2019-09-26",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2019-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -23282,7 +23282,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-02-26",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -23338,7 +23338,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2019-05-03",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2019-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -23394,7 +23394,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2017-12-14",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2017-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -23450,7 +23450,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2015-05-06",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2015-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -23506,7 +23506,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2020-06-19",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2020-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -23562,7 +23562,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2023-06-15",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2023-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -23674,7 +23674,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2023-03-16",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2023-02-14",
     "themen": [
       "protection"
     ],
@@ -23730,7 +23730,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-02-23",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -23786,7 +23786,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2023-11-14",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2023-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -23842,7 +23842,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2022-12-14",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2022-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -23898,7 +23898,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2022-12-16",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2022-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -23954,7 +23954,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2021-09-30",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2021-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -24010,7 +24010,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2021-06-18",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2021-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -24066,7 +24066,7 @@
     "regionGemeinde": "Südschweiz",
     "status": "Abgelehnt",
     "datumEingereicht": "2021-06-17",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2021-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -24122,7 +24122,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-09-27",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "protection"
     ],
@@ -24234,7 +24234,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2023-05-23",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2023-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -24290,7 +24290,7 @@
     "regionGemeinde": "Südschweiz",
     "status": "Abgelehnt",
     "datumEingereicht": "2021-05-05",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2021-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -24346,7 +24346,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2022-05-09",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2022-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -24402,7 +24402,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-12-20",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -24458,7 +24458,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2019-03-12",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2019-02-14",
     "themen": [
       "protection"
     ],
@@ -24514,7 +24514,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-12-20",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -24626,7 +24626,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-12-20",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -24682,7 +24682,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-12-20",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -24794,7 +24794,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-12-20",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -24850,7 +24850,7 @@
     "regionGemeinde": "Südschweiz",
     "status": "Abgelehnt",
     "datumEingereicht": "2024-05-27",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -24962,7 +24962,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-12-20",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -25522,7 +25522,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2024-10-21",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -26866,7 +26866,7 @@
     "regionGemeinde": "Südschweiz",
     "status": "Abgelehnt",
     "datumEingereicht": "2024-03-01",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2024-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -26922,7 +26922,7 @@
     "regionGemeinde": "Südschweiz",
     "status": "Abgelehnt",
     "datumEingereicht": "2022-05-18",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2022-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -27037,7 +27037,7 @@
     "regionGemeinde": "Romandie",
     "status": "Abgelehnt",
     "datumEingereicht": "2011-11-23",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2011-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -27093,7 +27093,7 @@
     "regionGemeinde": "Romandie",
     "status": "Abgelehnt",
     "datumEingereicht": "2013-09-19",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2013-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -27149,7 +27149,7 @@
     "regionGemeinde": "Romandie",
     "status": "Abgelehnt",
     "datumEingereicht": "2015-06-18",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2015-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -27205,7 +27205,7 @@
     "regionGemeinde": "Romandie",
     "status": "Abgelehnt",
     "datumEingereicht": "2000-02-16",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2000-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -27261,7 +27261,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2018-09-27",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2018-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -27317,7 +27317,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2019-03-20",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2019-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -27373,7 +27373,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2022-09-30",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2022-02-14",
     "themen": [
       "Tierschutz"
     ],
@@ -27429,7 +27429,7 @@
     "regionGemeinde": null,
     "status": "Abgelehnt",
     "datumEingereicht": "2019-09-26",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2019-02-14",
     "themen": [
       "Tierschutz"
     ],

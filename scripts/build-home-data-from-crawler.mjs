@@ -9,11 +9,22 @@ const initiativeLinkMap = fs.existsSync(initiativeLinksPath)
   ? JSON.parse(fs.readFileSync(initiativeLinksPath, 'utf8'))
   : {}
 
-const toIsoDate = (v) => {
-  if (!v) return new Date().toISOString().slice(0, 10)
-  const d = new Date(v)
-  if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10)
-  return d.toISOString().slice(0, 10)
+const toIsoDate = (v, fallbackYear) => {
+  const d = v ? new Date(v) : null
+  const base = d && !Number.isNaN(d.getTime()) ? d : null
+
+  if (base) {
+    let year = base.getUTCFullYear()
+    if (fallbackYear && Number.isFinite(fallbackYear) && Math.abs(year - fallbackYear) >= 2) {
+      year = fallbackYear
+    }
+    const month = String(base.getUTCMonth() + 1).padStart(2, '0')
+    const day = String(base.getUTCDate()).padStart(2, '0')
+    return `${year}-${month}-${day}`
+  }
+
+  if (fallbackYear && Number.isFinite(fallbackYear)) return `${fallbackYear}-01-01`
+  return new Date().toISOString().slice(0, 10)
 }
 
 const inferType = (title = '', sourceId = '', businessTypeName = '') => {
@@ -130,6 +141,19 @@ const langRank = (lang = 'de') => {
   if (lang === 'fr') return 1
   if (lang === 'it') return 2
   return 3
+}
+
+const inferYearFromBusiness = (title = '', externalId = '') => {
+  const titleMatch = String(title || '').match(/^\s*(\d{2})\.(\d{2,4})\b/)
+  if (titleMatch?.[1]) {
+    const yy = Number(titleMatch[1])
+    return yy >= 70 ? 1900 + yy : 2000 + yy
+  }
+
+  const num = String(externalId || '').split('-')[0]
+  const exMatch = num.match(/^(\d{4})\d{2,4}$/)
+  if (exMatch?.[1]) return Number(exMatch[1])
+  return undefined
 }
 
 const fallbackPeopleByLang = {
@@ -288,8 +312,9 @@ const vorstoesse = items.map((item, index) => {
   const displayTitle = deVariant?.title || item.title
   const displaySummary = deVariant?.summary || item.summary
   const displayBody = deVariant?.body || item.body
-  const eingereicht = toIsoDate(item.publishedAt || item.fetchedAt)
-  const updated = toIsoDate(item.fetchedAt || item.publishedAt)
+  const inferredYear = inferYearFromBusiness(displayTitle, item.externalId)
+  const eingereicht = toIsoDate(item.publishedAt || item.fetchedAt, inferredYear)
+  const updated = toIsoDate(item.fetchedAt || item.publishedAt, inferredYear)
   const status = mapStatus(item.status)
   const typ = inferType(displayTitle, item.sourceId, item?.languageVariants?.de?.businessTypeName || '')
   const stance = extractStance(item.reviewReason, displayTitle, displaySummary, displayBody)

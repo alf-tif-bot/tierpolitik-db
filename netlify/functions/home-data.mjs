@@ -36,11 +36,22 @@ const mapStatus = (status = '') => {
   return 'Eingereicht'
 }
 
-const toIsoDate = (value) => {
-  if (!value) return new Date().toISOString().slice(0, 10)
-  const d = new Date(value)
-  if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10)
-  return d.toISOString().slice(0, 10)
+const toIsoDate = (value, fallbackYear) => {
+  const d = value ? new Date(value) : null
+  const base = d && !Number.isNaN(d.getTime()) ? d : null
+
+  if (base) {
+    let year = base.getUTCFullYear()
+    if (fallbackYear && Number.isFinite(fallbackYear) && Math.abs(year - fallbackYear) >= 2) {
+      year = fallbackYear
+    }
+    const month = String(base.getUTCMonth() + 1).padStart(2, '0')
+    const day = String(base.getUTCDate()).padStart(2, '0')
+    return `${year}-${month}-${day}`
+  }
+
+  if (fallbackYear && Number.isFinite(fallbackYear)) return `${fallbackYear}-01-01`
+  return new Date().toISOString().slice(0, 10)
 }
 
 const langFromSource = (sourceId = '') => {
@@ -55,6 +66,19 @@ const langRank = (lang = 'de') => {
   if (lang === 'fr') return 1
   if (lang === 'it') return 2
   return 3
+}
+
+const inferYearFromBusiness = (title = '', externalId = '') => {
+  const titleMatch = String(title || '').match(/^\s*(\d{2})\.(\d{2,4})\b/)
+  if (titleMatch?.[1]) {
+    const yy = Number(titleMatch[1])
+    return yy >= 70 ? 1900 + yy : 2000 + yy
+  }
+
+  const num = String(externalId || '').split('-')[0]
+  const exMatch = num.match(/^(\d{4})\d{2,4}$/)
+  if (exMatch?.[1]) return Number(exMatch[1])
+  return undefined
 }
 
 const fallbackPersonByLang = {
@@ -240,8 +264,9 @@ export const handler = async () => {
       const displayTitle = deVariant?.title || r.title
       const displaySummary = deVariant?.summary || r.summary
       const displayBody = deVariant?.body || r.body
-      const eingereicht = toIsoDate(r.published_at || r.fetched_at)
-      const updated = toIsoDate(r.fetched_at || r.published_at)
+      const inferredYear = inferYearFromBusiness(displayTitle, r.external_id)
+      const eingereicht = toIsoDate(r.published_at || r.fetched_at, inferredYear)
+      const updated = toIsoDate(r.fetched_at || r.published_at, inferredYear)
       const stance = extractStance(r.review_reason, displayTitle, displaySummary, displayBody)
       const idSafe = String(r.external_id || `${Date.now()}-${index}`).replace(/[^a-zA-Z0-9-]/g, '-')
       const link = String(r.source_url || '').startsWith('http')
