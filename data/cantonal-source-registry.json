@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-14T05:16:42.920Z",
+  "generatedAt": "2026-02-14T06:46:40.530Z",
   "coverage": {
     "target": "all-cantons",
     "sinceYearMin": 2020,
@@ -10,7 +10,28 @@
       "blocked-needs-manual": 1,
       "manual-discovery-needed": 5,
       "adapter-ready-likely": 3
-    }
+    },
+    "byAdapter": {
+      "cantonRegistry": 26
+    },
+    "unresolvedCantons": [
+      "AG",
+      "AR",
+      "BL",
+      "FR",
+      "GE",
+      "GL",
+      "JU",
+      "NE",
+      "NW",
+      "OW",
+      "SH",
+      "TI",
+      "VD",
+      "VS",
+      "ZG"
+    ],
+    "sinceYearViolations": []
   },
   "sources": [
     {
@@ -23,7 +44,7 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:27.732Z",
+        "checkedAt": "2026-02-14T06:46:25.778Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://www.ag.ch/grosser-rat",
@@ -65,7 +86,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:27.113Z",
+        "checkedAt": "2026-02-14T06:46:24.323Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ai.ch/politik/grosser-rat",
@@ -93,7 +114,7 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:27.590Z",
+        "checkedAt": "2026-02-14T06:46:25.429Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://ar.ch/parlament",
@@ -135,7 +156,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:27.494Z",
+        "checkedAt": "2026-02-14T06:46:25.290Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.gr.be.ch/de/start.html",
@@ -163,7 +184,7 @@
       "status": "probe-failed",
       "readiness": "blocked-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:27.889Z",
+        "checkedAt": "2026-02-14T06:46:26.061Z",
         "ok": false,
         "httpStatus": 403,
         "finalUrl": "https://www.baselland.ch/politik-und-behorden/landrat-parlament",
@@ -188,9 +209,9 @@
           {
             "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/parlament",
             "ok": false,
-            "httpStatus": 403,
+            "httpStatus": 404,
             "finalUrl": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/parlament",
-            "platform": "generic-site"
+            "platform": "parliament-portal"
           }
         ]
       }
@@ -205,7 +226,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:28.080Z",
+        "checkedAt": "2026-02-14T06:46:26.231Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://grosserrat.bs.ch/",
@@ -233,7 +254,7 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:37.104Z",
+        "checkedAt": "2026-02-14T06:46:38.094Z",
         "ok": false,
         "httpStatus": null,
         "finalUrl": "https://www.fr.ch/grand-conseil",
@@ -275,7 +296,7 @@
       "status": "scaffolded",
       "readiness": "manual-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:29.285Z",
+        "checkedAt": "2026-02-14T06:46:26.457Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://ge.ch/grandconseil/",
@@ -317,7 +338,7 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:27.770Z",
+        "checkedAt": "2026-02-14T06:46:25.637Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://www.gl.ch/parlament",
@@ -359,7 +380,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:28.271Z",
+        "checkedAt": "2026-02-14T06:46:26.255Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.gr.ch/DE/institutionen/parlament/Seiten/start.aspx",
@@ -387,7 +408,7 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:28.026Z",
+        "checkedAt": "2026-02-14T06:46:34.480Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://www.jura.ch/Autorites/Parlement.html",
@@ -429,7 +450,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:27.335Z",
+        "checkedAt": "2026-02-14T06:46:24.683Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.lu.ch/kr",
@@ -457,7 +478,7 @@
       "status": "scaffolded",
       "readiness": "manual-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:31.559Z",
+        "checkedAt": "2026-02-14T06:46:26.660Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ne.ch/autorites/GC/Pages/accueil.aspx",
@@ -499,7 +520,7 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:30.986Z",
+        "checkedAt": "2026-02-14T06:46:29.084Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://www.nw.ch/landratmain/2114",
@@ -541,7 +562,7 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:28.606Z",
+        "checkedAt": "2026-02-14T06:46:29.229Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://www.ow.ch/kantonsrat",
@@ -583,7 +604,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:27.371Z",
+        "checkedAt": "2026-02-14T06:46:24.737Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ratsinfo.sg.ch/",
@@ -611,7 +632,7 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:28.687Z",
+        "checkedAt": "2026-02-14T06:46:26.413Z",
         "ok": false,
         "httpStatus": 500,
         "finalUrl": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html",
@@ -653,7 +674,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:27.412Z",
+        "checkedAt": "2026-02-14T06:46:24.823Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://so.ch/parlament",
@@ -681,7 +702,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:27.815Z",
+        "checkedAt": "2026-02-14T06:46:25.750Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799",
@@ -709,7 +730,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:27.471Z",
+        "checkedAt": "2026-02-14T06:46:25.929Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://parlament.tg.ch/",
@@ -737,7 +758,7 @@
       "status": "scaffolded",
       "readiness": "manual-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:29.554Z",
+        "checkedAt": "2026-02-14T06:46:27.305Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www4.ti.ch/tich/stato-e-organizzazione",
@@ -779,7 +800,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:28.320Z",
+        "checkedAt": "2026-02-14T06:46:28.584Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ur.ch/sitzung",
@@ -807,7 +828,7 @@
       "status": "scaffolded",
       "readiness": "manual-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:28.272Z",
+        "checkedAt": "2026-02-14T06:46:26.226Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.vd.ch/gc/",
@@ -849,7 +870,7 @@
       "status": "scaffolded",
       "readiness": "manual-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:27.911Z",
+        "checkedAt": "2026-02-14T06:46:25.730Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.vs.ch/fr/web/gc",
@@ -891,7 +912,7 @@
       "status": "probe-failed",
       "readiness": "unreachable-needs-manual",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:42.920Z",
+        "checkedAt": "2026-02-14T06:46:40.530Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://zg.ch/de/behoerden/kantonsrat",
@@ -933,7 +954,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-14T05:16:27.488Z",
+        "checkedAt": "2026-02-14T06:46:25.272Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.kantonsrat.zh.ch/",

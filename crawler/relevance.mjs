@@ -187,6 +187,17 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     affairTextMap.set(affairId, prev ? `${prev}\n${fullText}` : fullText)
   }
 
+  const strongPositiveKeywords = new Set(
+    [...feedbackWeights.entries()]
+      .filter(([, weight]) => weight >= 0.55)
+      .map(([kw]) => kw),
+  )
+  const strongNegativeKeywords = new Set(
+    [...feedbackWeights.entries()]
+      .filter(([, weight]) => weight <= -0.55)
+      .map(([kw]) => kw),
+  )
+
   let touched = 0
   let relevantCount = 0
 
@@ -215,11 +226,17 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     const hasSupport = supportMatches.length > 0
     const supportStrong = supportMatches.length >= 3
     const hasWhitelistedPerson = whitelistedPeople.length > 0
+    const strongPositiveHits = [...new Set([...anchorMatches, ...supportMatches])].filter((kw) => strongPositiveKeywords.has(kw))
+    const strongNegativeHits = [...new Set([...anchorMatches, ...supportMatches])].filter((kw) => strongNegativeKeywords.has(kw))
     const noisyWithoutAnchor = !hasAnchor && noiseMatches.length >= 2
-    const isRelevant = !noisyWithoutAnchor && (
+    const negativeFeedbackOnly = strongNegativeHits.length > 0 && !hasAnchor && adjustedScore < Math.max(0.42, minScore + 0.06)
+    const recallByFeedback = strongPositiveHits.length >= 2 && adjustedScore >= Math.max(0.22, minScore - 0.08)
+
+    const isRelevant = !noisyWithoutAnchor && !negativeFeedbackOnly && (
       (hasAnchor && (adjustedScore >= minScore || (anchorMatches.length >= 2 && hasSupport)))
       || (supportStrong && adjustedScore >= Math.max(0.5, minScore + 0.08))
       || (hasWhitelistedPerson && (hasAnchor || hasSupport) && adjustedScore >= Math.max(0.14, minScore - 0.04))
+      || recallByFeedback
     )
 
     item.score = adjustedScore
@@ -234,11 +251,15 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     const rule = isRelevant
       ? (hasWhitelistedPerson
         ? 'whitelist+theme'
-        : (supportStrong && !hasAnchor ? 'support-strong+score' : (adjustedScore >= minScore ? 'anchor+score' : 'anchor2+support')))
-      : (noisyWithoutAnchor ? 'noise-without-anchor' : (!hasAnchor ? 'missing-anchor' : 'below-threshold'))
+        : (supportStrong && !hasAnchor
+          ? 'support-strong+score'
+          : (recallByFeedback ? 'feedback-recall' : (adjustedScore >= minScore ? 'anchor+score' : 'anchor2+support'))))
+      : (noisyWithoutAnchor
+        ? 'noise-without-anchor'
+        : (negativeFeedbackOnly ? 'feedback-negative-only' : (!hasAnchor ? 'missing-anchor' : 'below-threshold')))
     const stance = classifyStance(normalizedText)
 
-    item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · stance=${stance} · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · people=${whitelistedPeople.slice(0, 2).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · feedback=${feedbackBoost.toFixed(2)} · score=${adjustedScore.toFixed(2)}`
+    item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · stance=${stance} · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · fb+=${strongPositiveHits.slice(0, 2).join('|') || '-'} · fb-=${strongNegativeHits.slice(0, 2).join('|') || '-'} · people=${whitelistedPeople.slice(0, 2).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · feedback=${feedbackBoost.toFixed(2)} · score=${adjustedScore.toFixed(2)}`
 
     if (isRelevant) relevantCount += 1
     touched += 1

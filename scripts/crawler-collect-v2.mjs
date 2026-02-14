@@ -5,29 +5,65 @@ import { loadSourceRegistry, summarizeRegistry } from '../crawler/source-registr
 
 const outPath = path.resolve(process.cwd(), 'data/crawler-v2-collect.json')
 
-const collectFromSources = async (sources) => {
-  const sourceStats = []
-  const items = []
+const parseIntSafe = (value, fallback) => {
+  const n = Number.parseInt(String(value ?? ''), 10)
+  return Number.isFinite(n) && n > 0 ? n : fallback
+}
 
-  for (const source of sources.filter((s) => s.enabled !== false)) {
-    const adapterKey = source.adapter || source.type
-    const adapter = adapters[adapterKey]
-    if (!adapter) {
-      sourceStats.push({ sourceId: source.id, ok: false, reason: `Kein Adapter: ${adapterKey}` })
-      continue
+const COLLECT_TIMEOUT_MS = parseIntSafe(process.env.CRAWLER_COLLECT_TIMEOUT_MS, 45000)
+const COLLECT_CONCURRENCY = parseIntSafe(process.env.CRAWLER_COLLECT_CONCURRENCY, 4)
+
+const collectOneSource = async (source) => {
+  const adapterKey = source.adapter || source.type
+  const adapter = adapters[adapterKey]
+  if (!adapter) {
+    return { sourceId: source.id, ok: false, reason: `Kein Adapter: ${adapterKey}`, fetched: 0, items: [] }
+  }
+
+  const startedAt = Date.now()
+  try {
+    const rows = await Promise.race([
+      adapter.fetch(source),
+      new Promise((_, reject) => setTimeout(() => reject(new Error(`Adapter timeout after ${COLLECT_TIMEOUT_MS}ms`)), COLLECT_TIMEOUT_MS)),
+    ])
+    return {
+      sourceId: source.id,
+      ok: true,
+      fetched: rows.length,
+      durationMs: Date.now() - startedAt,
+      items: rows,
     }
-
-    try {
-      const rows = await Promise.race([
-        adapter.fetch(source),
-        new Promise((_, reject) => setTimeout(() => reject(new Error('Adapter timeout after 45s')), 45000)),
-      ])
-      items.push(...rows)
-      sourceStats.push({ sourceId: source.id, ok: true, fetched: rows.length })
-    } catch (error) {
-      sourceStats.push({ sourceId: source.id, ok: false, reason: error.message })
+  } catch (error) {
+    return {
+      sourceId: source.id,
+      ok: false,
+      reason: error.message,
+      durationMs: Date.now() - startedAt,
+      fetched: 0,
+      items: [],
     }
   }
+}
+
+const collectFromSources = async (sources) => {
+  const enabledSources = sources.filter((s) => s.enabled !== false)
+  const tasks = [...enabledSources]
+  const runs = []
+
+  const worker = async () => {
+    while (tasks.length) {
+      const source = tasks.shift()
+      if (!source) break
+      runs.push(await collectOneSource(source))
+    }
+  }
+
+  await Promise.all(Array.from({ length: Math.min(COLLECT_CONCURRENCY, enabledSources.length || 1) }, () => worker()))
+
+  const sourceStats = runs
+    .map(({ items: _items, ...stat }) => stat)
+    .sort((a, b) => String(a.sourceId).localeCompare(String(b.sourceId)))
+  const items = runs.flatMap((run) => run.items)
 
   return { items, sourceStats }
 }
@@ -39,6 +75,10 @@ const { items, sourceStats } = await collectFromSources(sources)
 const payload = {
   generatedAt: new Date().toISOString(),
   registry,
+  runtime: {
+    collectConcurrency: COLLECT_CONCURRENCY,
+    collectTimeoutMs: COLLECT_TIMEOUT_MS,
+  },
   sourceStats,
   totalItems: items.length,
   items,

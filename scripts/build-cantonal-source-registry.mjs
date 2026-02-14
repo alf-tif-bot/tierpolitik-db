@@ -153,6 +153,20 @@ const byReadiness = sourceRows.reduce((acc, row) => {
   return acc
 }, {})
 
+const byAdapter = sourceRows.reduce((acc, row) => {
+  const key = row.adapter || 'unknown'
+  acc[key] = (acc[key] || 0) + 1
+  return acc
+}, {})
+
+const sinceYearViolations = sourceRows
+  .filter((row) => Number(row.sinceYear) > 2020)
+  .map((row) => ({ canton: row.canton, sinceYear: row.sinceYear }))
+
+const unresolvedCantons = sourceRows
+  .filter((row) => !['adapter-ready-likely', 'site-discovery-needed'].includes(row.readiness))
+  .map((row) => row.canton)
+
 const registry = {
   generatedAt: new Date().toISOString(),
   coverage: {
@@ -160,6 +174,9 @@ const registry = {
     sinceYearMin: 2020,
     totalCantons: cantons.length,
     byReadiness,
+    byAdapter,
+    unresolvedCantons,
+    sinceYearViolations,
   },
   sources: sourceRows,
 }
