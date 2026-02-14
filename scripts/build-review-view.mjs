@@ -4,9 +4,13 @@ const dbPath = new URL('../data/crawler-db.json', import.meta.url)
 const outPath = new URL('../public/review.html', import.meta.url)
 const reviewDataPath = new URL('../data/review-items.json', import.meta.url)
 const decisionsPath = new URL('../data/review-decisions.json', import.meta.url)
+const fastlaneTagsPath = new URL('../data/review-fastlane-tags.json', import.meta.url)
 const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
 const localDecisions = fs.existsSync(decisionsPath)
   ? JSON.parse(fs.readFileSync(decisionsPath, 'utf8'))
+  : {}
+const fastlaneTags = fs.existsSync(fastlaneTagsPath)
+  ? JSON.parse(fs.readFileSync(fastlaneTagsPath, 'utf8'))
   : {}
 
 const enabledSourceIds = new Set((db.sources || [])
@@ -263,7 +267,8 @@ const fastLaneItems = reviewItems.filter((item) => {
 const fastLaneRows = fastLaneItems.map((item) => {
   const id = `${item.sourceId}:${item.externalId}`
   const scoreValue = Number(item.score || 0)
-  return `<div class="fastlane-card" data-id="${esc(id)}">
+  const isTaggedFastlane = Boolean(fastlaneTags[id]?.fastlane)
+  return `<div class="fastlane-card" data-id="${esc(id)}" data-fastlane-tagged="${isTaggedFastlane ? '1' : '0'}">
     <div class="fastlane-head">
       <strong>${esc(item.title)}</strong>
       <span class="fastlane-score">${scoreValue.toFixed(2)}</span>
@@ -271,6 +276,7 @@ const fastLaneRows = fastLaneItems.map((item) => {
     <div class="fastlane-actions">
       <button onclick="setDecision(this,'${esc(id)}','approved')">Approve</button>
       <button onclick="setDecision(this,'${esc(id)}','rejected')">Reject</button>
+      <button class="tag-btn" data-tag-btn="${esc(id)}" onclick="toggleFastlaneTag(this,'${esc(id)}')">${isTaggedFastlane ? '⭐ Fastlane' : '☆ Fastlane'}</button>
       <a class="orig-link" href="${esc(resolveOriginalUrl(item) || '#')}" target="_blank" rel="noopener noreferrer">Original</a>
     </div>
   </div>`
@@ -286,12 +292,13 @@ const rows = reviewItems.map((item) => {
   const scoreValue = Number(item.score || 0)
   const priorityLabel = fastLane ? 'fast-lane' : (scoreValue >= 0.8 ? 'hoch' : scoreValue >= 0.55 ? 'mittel' : 'niedriger')
   const sourceUrl = resolveOriginalUrl(item)
+  const isTaggedFastlane = Boolean(fastlaneTags[id]?.fastlane)
   const originalLink = sourceUrl
     ? `<a class="orig-link" href="${esc(sourceUrl)}" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>`
     : '<span class="muted">kein gültiger Link</span>'
 
   return `
-<tr data-id="${esc(id)}" data-status="${esc(item.status)}" class="${fastLane ? 'row-fastlane' : ''}">
+<tr data-id="${esc(id)}" data-status="${esc(item.status)}" data-fastlane-tagged="${isTaggedFastlane ? '1' : '0'}" class="${fastLane ? 'row-fastlane' : ''}">
 <td>
   <strong>${esc(item.title)}</strong><br>
   <small>${esc(summarizeForReview(item))}</small><br>
@@ -302,13 +309,14 @@ const rows = reviewItems.map((item) => {
   <div>${sourceLabel}</div>
   <small class="muted">${esc(item.sourceId)}</small>
 </td>
-<td>${scoreValue.toFixed(2)}<br><small class="muted">Priorität: ${priorityLabel}</small>${fastLane ? '<br><small class="fast-lane">⚡ Sehr wahrscheinlich relevant</small>' : ''}</td>
+<td>${scoreValue.toFixed(2)}<br><small class="muted">Priorität: ${priorityLabel}</small>${fastLane ? '<br><small class="fast-lane">⚡ Sehr wahrscheinlich relevant</small>' : ''}${isTaggedFastlane ? '<br><small class="fast-lane">⭐ von dir als Fastlane markiert</small>' : ''}</td>
 <td>${esc((item.matchedKeywords || []).join(', '))}</td>
 <td>${esc(item.status)} (${pendingBadge})</td>
 <td><small>${humanizeReason(item.reviewReason || '-')}</small></td>
 <td>
 <button onclick="setDecision(this,'${esc(id)}','approved')">Approve</button>
 <button onclick="setDecision(this,'${esc(id)}','rejected')">Reject</button>
+<button class="tag-btn" data-tag-btn="${esc(id)}" onclick="toggleFastlaneTag(this,'${esc(id)}')">${isTaggedFastlane ? '⭐ Fastlane' : '☆ Fastlane'}</button>
 </td>
 </tr>`
 }).join('')
@@ -386,8 +394,15 @@ const html = `<!doctype html>
 <script>
 const key='tierpolitik.review';
 const uiKey='tierpolitik.review.ui';
+const fastlaneTagKey='tierpolitik.review.fastlaneTags';
+const initialFastlaneTags=${JSON.stringify(fastlaneTags)};
 const read=()=>JSON.parse(localStorage.getItem(key)||'{}');
 const write=(v)=>localStorage.setItem(key,JSON.stringify(v,null,2));
+const readFastlaneTags=()=>{
+  const local = JSON.parse(localStorage.getItem(fastlaneTagKey)||'{}');
+  return { ...initialFastlaneTags, ...local };
+};
+const writeFastlaneTags=(v)=>localStorage.setItem(fastlaneTagKey,JSON.stringify(v));
 const readUi=()=>JSON.parse(localStorage.getItem(uiKey)||'{}');
 const writeUi=(v)=>localStorage.setItem(uiKey,JSON.stringify(v));
 
@@ -442,6 +457,49 @@ function toggleDecided(){
   showDecided = !showDecided
   writeUi({ showDecided })
   hideDecidedRows()
+}
+
+function renderFastlaneTagButton(id){
+  const tags = readFastlaneTags();
+  const isTagged = Boolean(tags[id]?.fastlane);
+  document.querySelectorAll('[data-tag-btn="' + id + '"]').forEach((btn)=>{
+    btn.textContent = isTagged ? '⭐ Fastlane' : '☆ Fastlane';
+  });
+}
+
+async function toggleFastlaneTag(btn,id){
+  const tags = readFastlaneTags();
+  const next = !Boolean(tags[id]?.fastlane);
+  const taggedAt = new Date().toISOString();
+  if (btn) btn.disabled = true;
+
+  try {
+    const res = await fetch('/.netlify/functions/review-fastlane-tag', {
+      method:'POST',
+      headers:{'content-type':'application/json'},
+      body: JSON.stringify({ id, fastlane: next, taggedAt }),
+    });
+    if(!res.ok){
+      const txt = await res.text();
+      throw new Error(txt || 'Fastlane tag API failed');
+    }
+  } catch(err) {
+    alert('Konnte Fastlane-Tag nicht speichern.');
+    console.error(err);
+    if (btn) btn.disabled = false;
+    return;
+  }
+
+  tags[id] = { fastlane: next, taggedAt };
+  writeFastlaneTags(tags);
+  renderFastlaneTagButton(id);
+
+  const row = document.querySelector('tr[data-id="' + id + '"]');
+  if (row) row.setAttribute('data-fastlane-tagged', next ? '1' : '0');
+  const card = document.querySelector('.fastlane-card[data-id="' + id + '"]');
+  if (card) card.setAttribute('data-fastlane-tagged', next ? '1' : '0');
+
+  if (btn) btn.disabled = false;
 }
 
 async function setDecision(btn,id,status){
@@ -503,6 +561,7 @@ function exportDecisions(){
   URL.revokeObjectURL(a.href);
 }
 
+for (const id of Object.keys(readFastlaneTags())) renderFastlaneTagButton(id)
 hideDecidedRows();
 </script>
 </body>

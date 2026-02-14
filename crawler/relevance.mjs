@@ -4,8 +4,8 @@ import { loadDb, saveDb } from './db.mjs'
 
 export const ANCHOR_KEYWORDS = [
   'tier', 'tiere', 'tierschutz', 'tierwohl', 'nutztiere', 'tierhaltung', 'massentierhaltung', 'massentier', 'tiertransport',
-  'tierversuch', 'tierversuche', 'versuchstiere', 'schlachthof',
-  'haustier', 'hunde', 'hund', 'katze', 'katzen', 'hühner', 'huehner', 'geflügel', 'gefluegel', 'vogelgrippe', 'schwein', 'schweine', 'schweinemast', 'schweinezucht', 'rind',
+  'tierversuch', 'tierversuche', 'versuchstiere', 'tierversuchsfreie', 'schlachthof',
+  'haustier', 'haustiere', 'heimtier', 'heimtiere', 'hunde', 'hund', 'katze', 'katzen', 'hühner', 'huehner', 'geflügel', 'gefluegel', 'vogelgrippe', 'schwein', 'schweine', 'schweinemast', 'schweinezucht', 'rind',
   'wildtier', 'wildtiere', 'wolf', 'biber', 'fuchs',
   'biodiversität', 'biodiversitaet', 'biodiversite', 'biodiversita',
   'zoo', 'zoos', 'zirkus', 'wildpark',
@@ -23,6 +23,7 @@ export const ANCHOR_KEYWORDS = [
 const SUPPORT_KEYWORDS = [
   'stall', 'haltung', 'transport', 'kontrolle', 'veterinär', 'veterinaer', 'vétérinaire', 'veterinaire', 'verordnung',
   'gesetz', 'initiative', 'motion', 'postulat', 'botschaft', 'sanktion', 'zucht', 'fleisch', 'proviande', 'suisseporcs', 'swissmilk', 'schweizer tierschutz', 'sts',
+  'tierseuche', 'tierseuchen', 'zoonose', 'zoonosen', 'haustierhaltung',
   'schlacht', 'mast', 'pelz', 'fisch', 'jagd', 'wildtier', 'bien-être', 'bien etre',
   'protection', 'animalier', 'animale', 'faune',
   'biodiversität', 'biodiversitaet', 'biodiversite',
@@ -65,10 +66,13 @@ export const DEFAULT_KEYWORDS = [...new Set([...ANCHOR_KEYWORDS, ...SUPPORT_KEYW
 
 const normalize = (value = '') => String(value)
   .toLowerCase()
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
   .replace(/[^\p{L}\p{N}]+/gu, ' ')
   .trim()
 
 const reviewDecisionsPath = path.resolve(process.cwd(), 'data/review-decisions.json')
+const fastlaneTagsPath = path.resolve(process.cwd(), 'data/review-fastlane-tags.json')
 const feedbackOutPath = path.resolve(process.cwd(), 'data/relevance-feedback.json')
 
 const FEEDBACK_IGNORE_KEYWORDS = new Set([
@@ -80,6 +84,15 @@ const loadReviewDecisions = () => {
   try {
     if (!fs.existsSync(reviewDecisionsPath)) return {}
     return JSON.parse(fs.readFileSync(reviewDecisionsPath, 'utf8'))
+  } catch {
+    return {}
+  }
+}
+
+const loadFastlaneTags = () => {
+  try {
+    if (!fs.existsSync(fastlaneTagsPath)) return {}
+    return JSON.parse(fs.readFileSync(fastlaneTagsPath, 'utf8'))
   } catch {
     return {}
   }
@@ -131,6 +144,35 @@ const buildFeedbackModel = (db, decisions) => {
   return weights
 }
 
+const buildFastlaneKeywordModel = (db, tags) => {
+  const counts = new Map()
+
+  for (const item of db.items || []) {
+    const id = `${item.sourceId}:${item.externalId}`
+    const tagged = Boolean(tags[id]?.fastlane)
+    if (!tagged) continue
+
+    const text = `${item.title}\n${item.summary}\n${item.body}`
+    const normalizedText = normalize(text)
+    const kws = [...new Set([
+      ...ANCHOR_KEYWORDS.filter((kw) => hasKeyword(normalizedText, kw)),
+      ...SUPPORT_KEYWORDS.filter((kw) => hasKeyword(normalizedText, kw)),
+    ])]
+
+    for (const kw of kws) {
+      if (FEEDBACK_IGNORE_KEYWORDS.has(kw)) continue
+      counts.set(kw, (counts.get(kw) || 0) + 1)
+    }
+  }
+
+  const weights = new Map()
+  for (const [kw, count] of counts.entries()) {
+    if (count < 2) continue
+    weights.set(kw, Math.min(0.22, count * 0.06))
+  }
+  return weights
+}
+
 const hasKeyword = (normalizedText, keyword) => {
   const kw = normalize(keyword)
   if (!kw) return false
@@ -170,7 +212,9 @@ export function scoreText(text, keywords = DEFAULT_KEYWORDS) {
 export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords = DEFAULT_KEYWORDS } = {}) {
   const db = loadDb()
   const decisions = loadReviewDecisions()
+  const fastlaneTags = loadFastlaneTags()
   const feedbackWeights = buildFeedbackModel(db, decisions)
+  const fastlaneKeywordWeights = buildFastlaneKeywordModel(db, fastlaneTags)
   const enabledSourceIds = new Set((db.sources || []).filter((s) => s.enabled !== false).map((s) => s.id))
   const affairTextMap = new Map()
 
@@ -211,8 +255,10 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     const text = `${item.title}\n${item.summary}\n${item.body}\n${variantText}\n${affairTextMap.get(affairId) || ''}`
     const { score, matched, anchorMatches, supportMatches, noiseMatches, whitelistedPeople, normalizedText } = scoreText(text, keywords)
 
-    const feedbackSignal = [...new Set([...anchorMatches, ...supportMatches])]
+    const matchedSignals = [...new Set([...anchorMatches, ...supportMatches])]
       .filter((kw) => !FEEDBACK_IGNORE_KEYWORDS.has(kw))
+
+    const feedbackSignal = matchedSignals
       .map((kw) => feedbackWeights.get(kw) || 0)
       .sort((a, b) => Math.abs(b) - Math.abs(a))
       .slice(0, 4)
@@ -220,7 +266,14 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
       ? feedbackSignal.reduce((a, b) => a + b, 0) / feedbackSignal.length
       : 0
     const feedbackBoost = Math.max(-0.14, Math.min(0.14, feedbackMean * 0.2))
-    const adjustedScore = Math.max(0, Math.min(1, score + feedbackBoost))
+
+    const fastlaneSignal = matchedSignals
+      .map((kw) => fastlaneKeywordWeights.get(kw) || 0)
+      .sort((a, b) => b - a)
+      .slice(0, 3)
+    const fastlaneBoost = Math.min(0.16, fastlaneSignal.reduce((a, b) => a + b, 0))
+
+    const adjustedScore = Math.max(0, Math.min(1, score + feedbackBoost + fastlaneBoost))
 
     const hasAnchor = anchorMatches.length > 0
     const hasSupport = supportMatches.length > 0
@@ -259,7 +312,7 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
         : (negativeFeedbackOnly ? 'feedback-negative-only' : (!hasAnchor ? 'missing-anchor' : 'below-threshold')))
     const stance = classifyStance(normalizedText)
 
-    item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · stance=${stance} · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · fb+=${strongPositiveHits.slice(0, 2).join('|') || '-'} · fb-=${strongNegativeHits.slice(0, 2).join('|') || '-'} · people=${whitelistedPeople.slice(0, 2).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · feedback=${feedbackBoost.toFixed(2)} · score=${adjustedScore.toFixed(2)}`
+    item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · stance=${stance} · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · fb+=${strongPositiveHits.slice(0, 2).join('|') || '-'} · fb-=${strongNegativeHits.slice(0, 2).join('|') || '-'} · people=${whitelistedPeople.slice(0, 2).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · feedback=${feedbackBoost.toFixed(2)} · fastlane=${fastlaneBoost.toFixed(2)} · score=${adjustedScore.toFixed(2)}`
 
     if (isRelevant) relevantCount += 1
     touched += 1
