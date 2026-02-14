@@ -113,7 +113,7 @@
       "publishedAt": "2024-11-14T00:00:00.000Z",
       "fetchedAt": "2026-02-14T22:25:18.004Z",
       "language": "de",
-      "score": 0.8400000000000001,
+      "score": 0.9600000000000001,
       "matchedKeywords": [
         "stopfleber",
         "foie gras",
@@ -121,7 +121,7 @@
         "botschaft"
       ],
       "status": "approved",
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=stopfleber|foie gras · support=initiative|botschaft · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.84"
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=stopfleber|foie gras · support=initiative|botschaft · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.12 · score=0.96"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -360,14 +360,14 @@
       "publishedAt": "2025-02-21T00:00:00.000Z",
       "fetchedAt": "2026-02-14T22:25:18.004Z",
       "language": "de",
-      "score": 0.7000000000000001,
+      "score": 0.8200000000000001,
       "matchedKeywords": [
         "stopfleber",
         "foie gras",
         "initiative"
       ],
       "status": "approved",
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=stopfleber|foie gras · support=initiative · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.70"
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=stopfleber|foie gras · support=initiative · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.12 · score=0.82"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -7983,14 +7983,14 @@
       "publishedAt": "2025-02-21T00:00:00.000Z",
       "fetchedAt": "2026-02-14T22:25:35.836Z",
       "language": "fr",
-      "score": 0.7000000000000001,
+      "score": 0.8200000000000001,
       "matchedKeywords": [
         "stopfleber",
         "foie gras",
         "initiative"
       ],
       "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=stopfleber|foie gras · support=initiative · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.70"
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=stopfleber|foie gras · support=initiative · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.12 · score=0.82"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -8213,7 +8213,7 @@
       "publishedAt": "2024-11-14T00:00:00.000Z",
       "fetchedAt": "2026-02-14T22:25:35.836Z",
       "language": "fr",
-      "score": 0.8400000000000001,
+      "score": 0.9600000000000001,
       "matchedKeywords": [
         "stopfleber",
         "foie gras",
@@ -8221,7 +8221,7 @@
         "botschaft"
       ],
       "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=stopfleber|foie gras · support=initiative|botschaft · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.84"
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=stopfleber|foie gras · support=initiative|botschaft · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.12 · score=0.96"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -11915,13 +11915,13 @@
       "publishedAt": "2020-03-02T00:00:00.000Z",
       "fetchedAt": "2026-02-14T22:25:18.004Z",
       "language": "de",
-      "score": 0.7000000000000001,
+      "score": 0.8200000000000001,
       "matchedKeywords": [
         "landwirtschaft",
         "stopfleber"
       ],
       "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=landwirtschaft|stopfleber · support=landwirtschaft · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.70"
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=landwirtschaft|stopfleber · support=landwirtschaft · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.12 · score=0.82"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -14475,12 +14475,12 @@
       "publishedAt": "2025-12-03T00:00:00.000Z",
       "fetchedAt": "2026-02-14T22:25:18.004Z",
       "language": "de",
-      "score": 0.28,
+      "score": 0.4,
       "matchedKeywords": [
         "stopfleber"
       ],
       "status": "approved",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=stopfleber · support=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.28"
+      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=stopfleber · support=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.12 · score=0.40"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -14492,14 +14492,14 @@
       "publishedAt": "2018-09-12T00:00:00.000Z",
       "fetchedAt": "2026-02-14T22:25:18.004Z",
       "language": "de",
-      "score": 0.8400000000000001,
+      "score": 0.9600000000000001,
       "matchedKeywords": [
         "landwirtschaft",
         "stopfleber",
         "initiative"
       ],
       "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=landwirtschaft|stopfleber · support=initiative|landwirtschaft · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.84"
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=landwirtschaft|stopfleber · support=initiative|landwirtschaft · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.12 · score=0.96"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -16983,14 +16983,14 @@
       "publishedAt": "2025-02-21T00:00:00.000Z",
       "fetchedAt": "2026-02-14T22:25:51.785Z",
       "language": "it",
-      "score": 0.7000000000000001,
+      "score": 0.8200000000000001,
       "matchedKeywords": [
         "stopfleber",
         "foie gras",
         "initiative"
       ],
       "status": "approved",
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=stopfleber|foie gras · support=initiative · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.70"
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=stopfleber|foie gras · support=initiative · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.12 · score=0.82"
     },
     {
       "sourceId": "ch-parliament-business-it",
@@ -17002,7 +17002,7 @@
       "publishedAt": "2024-11-14T00:00:00.000Z",
       "fetchedAt": "2026-02-14T22:25:51.785Z",
       "language": "it",
-      "score": 0.8400000000000001,
+      "score": 0.9600000000000001,
       "matchedKeywords": [
         "stopfleber",
         "foie gras",
@@ -17010,7 +17010,7 @@
         "botschaft"
       ],
       "status": "approved",
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=stopfleber|foie gras · support=initiative|botschaft · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.84"
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=stopfleber|foie gras · support=initiative|botschaft · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.12 · score=0.96"
     },
     {
       "sourceId": "ch-parliament-business-it",
@@ -19739,13 +19739,13 @@
       "publishedAt": "2020-03-02T00:00:00.000Z",
       "fetchedAt": "2026-02-14T22:26:10.995Z",
       "language": "de",
-      "score": 0.7000000000000001,
+      "score": 0.8200000000000001,
       "matchedKeywords": [
         "landwirtschaft",
         "stopfleber"
       ],
       "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=landwirtschaft|stopfleber · support=landwirtschaft · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.70"
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=landwirtschaft|stopfleber · support=landwirtschaft · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.12 · score=0.82"
     },
     {
       "sourceId": "ch-parliament-motions-de",
@@ -22680,7 +22680,7 @@
         "postulat",
         "fleisch"
       ],
-      "status": "approved",
+      "status": "rejected",
       "reviewReason": "Relevant [whitelist+theme] · stance=pro-tierschutz · anchor=tiere|tierschutz|biodiversität · support=initiative|motion|postulat · context=- · process=interpellation|anfrage · fb+=biodiversität|biodiversita · fb-=- · people=tobias sennhauser · noise=energie|finanz · feedback=0.06 · fastlane=0.16 · score=1.00"
     },
     {
@@ -26017,5 +26017,5 @@
     }
   ],
   "publications": [],
-  "updatedAt": "2026-02-14T22:27:00.293Z"
+  "updatedAt": "2026-02-14T23:15:47.674Z"
 }

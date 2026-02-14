@@ -179,6 +179,7 @@ const probeQuality = (probe) => {
   if (probe.platform === 'ratsinfo' || probe.platform === 'allris/sessionnet') score += 4
   if (probe.platform === 'parliament-portal') score += 2
   if (probe.hasParliamentSignals) score += 1
+  if (hasSearchOrAffairPath(probe.finalUrl || probe.url)) score += 3
   if (probe.finalUrl && probe.finalUrl !== probe.url) score += 1
   return score
 }

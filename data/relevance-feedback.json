@@ -1,4 +1,13 @@
 {
-  "updatedAt": "2026-02-14T20:30:09.762Z",
-  "learned": []
+  "updatedAt": "2026-02-14T23:15:39.316Z",
+  "learned": [
+    {
+      "keyword": "biodiversität",
+      "weight": 0.6
+    },
+    {
+      "keyword": "biodiversita",
+      "weight": 0.6
+    }
+  ]
 }

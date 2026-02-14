@@ -41,11 +41,14 @@ const NOISE_KEYWORDS = [
   'rhone', 'gotthard', 'tunnel', 'digitalisierung', 'strassenverkehr', 'parkplatz', 'tourismus',
   'wohnung', 'wohnungsbau', 'mietrecht', 'cyber', 'datenschutz',
   'gesundheitskosten', 'krankenkasse', 'spital', 'bildungswesen', 'schule', 'hochschule',
+  'hundesteuer', 'tiergartenstrasse', 'zoozugang',
 ]
 
 const CONTEXTUAL_ANIMAL_PHRASES = [
   'nutztiere halten',
   'haltung von nutztieren',
+  'haltung von tieren',
+  'tierhaltung verbessern',
   'tierversuche ersetzen',
   'tierversuche reduzieren',
   'tiertransporte',
