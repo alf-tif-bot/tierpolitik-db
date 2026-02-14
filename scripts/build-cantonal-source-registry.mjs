@@ -5,6 +5,8 @@ const outPath = new URL('../data/cantonal-source-registry.json', import.meta.url
 
 const cantons = JSON.parse(fs.readFileSync(cantonsPath, 'utf8'))
 const PROBE_CANDIDATE_LIMIT = Math.max(3, Number(process.env.CANTON_PROBE_CANDIDATE_LIMIT || 8))
+const PROBE_CONCURRENCY = Math.max(1, Number(process.env.CANTON_PROBE_CONCURRENCY || 4))
+const PROBE_TIMEOUT_MS = Math.max(3000, Number(process.env.CANTON_PROBE_TIMEOUT_MS || 7000))
 
 const PARLIAMENT_URL_HINTS = [
   '/objets-parlementaires',
@@ -26,6 +28,21 @@ const PARLIAMENT_URL_HINTS = [
   '/parlinfo',
 ]
 
+const PARLIAMENT_TEXT_HINTS = [
+  'traktanden',
+  'geschaefte',
+  'geschäfte',
+  'vorstoesse',
+  'vorstösse',
+  'objets parlementaires',
+  'objets du conseil',
+  'grand conseil',
+  'kantonsrat',
+  'landrat',
+  'grosser rat',
+  'parlement',
+]
+
 const detectPlatform = ({ requestUrl = '', finalUrl = '', html = '' } = {}) => {
   const u = `${String(requestUrl)} ${String(finalUrl)}`.toLowerCase()
   const h = String(html).toLowerCase()
@@ -34,19 +51,7 @@ const detectPlatform = ({ requestUrl = '', finalUrl = '', html = '' } = {}) => {
   if (u.includes('parlinfo') || h.includes('parlinfo') || u.includes('/grweb/')) return 'parliament-portal'
   if (u.includes('aio') || h.includes('allris') || h.includes('sessionnet')) return 'allris/sessionnet'
   if (PARLIAMENT_URL_HINTS.some((hint) => u.includes(hint))) return 'parliament-portal'
-  if (
-    h.includes('traktanden')
-    || h.includes('geschaefte')
-    || h.includes('geschäfte')
-    || h.includes('vorstoesse')
-    || h.includes('vorstösse')
-    || h.includes('objets parlementaires')
-    || h.includes('objets du conseil')
-    || h.includes('grand conseil')
-    || h.includes('kantonsrat')
-    || h.includes('landrat')
-    || h.includes('grosser rat')
-  ) return 'parliament-portal'
+  if (PARLIAMENT_TEXT_HINTS.some((hint) => h.includes(hint))) return 'parliament-portal'
   if (h.includes('drupal')) return 'drupal-site'
   if (h.includes('typo3')) return 'typo3-site'
   if (h.includes('wordpress')) return 'wordpress-site'
@@ -67,7 +72,7 @@ const hasSearchOrAffairPath = (url = '') => [
   'objets/pages/accueil.aspx',
 ].some((hint) => String(url).toLowerCase().includes(String(hint).toLowerCase()))
 
-const classifyReadiness = ({ url = '', platform = 'generic-site', ok = false, httpStatus = null }) => {
+const classifyReadiness = ({ url = '', platform = 'generic-site', ok = false, httpStatus = null, hasParliamentSignals = false }) => {
   const u = String(url).toLowerCase()
   const hasParliamentHint = [
     'parlament',
@@ -86,7 +91,8 @@ const classifyReadiness = ({ url = '', platform = 'generic-site', ok = false, ht
   }
   if (platform === 'ratsinfo' || platform === 'allris/sessionnet') return 'adapter-ready-likely'
   if (platform === 'parliament-portal' && hasSearchOrAffairPathForUrl) return 'adapter-ready-likely'
-  if (platform === 'parliament-portal' || (['typo3-site', 'drupal-site'].includes(platform) && hasParliamentHint) || hasParliamentHint) {
+  if (platform === 'parliament-portal' && hasParliamentSignals) return 'site-discovery-needed'
+  if ((['typo3-site', 'drupal-site'].includes(platform) && hasParliamentHint) || hasParliamentHint || hasParliamentSignals) {
     return 'site-discovery-needed'
   }
   return 'manual-discovery-needed'
@@ -105,19 +111,15 @@ const buildCandidates = (entry) => {
     : (base.startsWith('https://') ? base.replace('https://', 'https://www.') : base)
 
   const pathHints = [
+    'geschaefte',
+    'vorstoesse',
+    'objets-parlementaires',
+    'interventions-parlementaires',
+    'recherche-objets',
+    'ricerca-messaggi-e-atti',
     'parlament',
     'kantonsrat',
     'landrat',
-    'grosser-rat',
-    'grand-conseil',
-    'objets-parlementaires',
-    'interventions-parlementaires',
-    'objets/pages/accueil.aspx',
-    'geschaefte',
-    'geschaefte-des-kantonsrats',
-    'geschaefte-suche',
-    'vorstoesse',
-    'vorstosse',
   ]
 
   const heuristics = [
@@ -130,21 +132,29 @@ const buildCandidates = (entry) => {
   return [...new Set([...configured, ...heuristics].filter(Boolean))]
 }
 
+const detectParliamentSignals = ({ requestUrl = '', finalUrl = '', html = '' } = {}) => {
+  const u = `${String(requestUrl)} ${String(finalUrl)}`.toLowerCase()
+  const h = String(html).toLowerCase()
+  return PARLIAMENT_URL_HINTS.some((hint) => u.includes(hint)) || PARLIAMENT_TEXT_HINTS.some((hint) => h.includes(hint))
+}
+
 const probeSource = async (url) => {
   try {
     const response = await fetch(url, {
       redirect: 'follow',
-      headers: { 'user-agent': 'tierpolitik-crawler-registry/1.1 (+night-shift)' },
-      signal: AbortSignal.timeout(7000),
+      headers: { 'user-agent': 'tierpolitik-crawler-registry/1.2 (+night-shift)' },
+      signal: AbortSignal.timeout(PROBE_TIMEOUT_MS),
     })
     const text = await response.text()
     const platform = detectPlatform({ requestUrl: url, finalUrl: response.url, html: text })
+    const hasParliamentSignals = detectParliamentSignals({ requestUrl: url, finalUrl: response.url, html: text })
     return {
       ok: response.ok,
       httpStatus: response.status,
       finalUrl: response.url,
       requestUrl: url,
       platform,
+      hasParliamentSignals,
     }
   } catch (error) {
     return {
@@ -152,6 +162,7 @@ const probeSource = async (url) => {
       httpStatus: null,
       finalUrl: url,
       platform: 'unreachable',
+      hasParliamentSignals: false,
       error: String(error?.message || error),
     }
   }
@@ -165,6 +176,7 @@ const probeQuality = (probe) => {
   let score = 5
   if (probe.platform === 'ratsinfo' || probe.platform === 'allris/sessionnet') score += 4
   if (probe.platform === 'parliament-portal') score += 2
+  if (probe.hasParliamentSignals) score += 1
   if (probe.finalUrl && probe.finalUrl !== probe.url) score += 1
   return score
 }
@@ -174,24 +186,45 @@ const selectBestProbe = (probes) => {
   return [...probes].sort((a, b) => probeQuality(b) - probeQuality(a))[0]
 }
 
+const isStrongReadyProbe = (probe, candidateUrl) => probe.ok && (
+  ['ratsinfo', 'allris/sessionnet'].includes(probe.platform)
+  || (probe.platform === 'parliament-portal' && (hasSearchOrAffairPath(probe.finalUrl || candidateUrl) || probe.hasParliamentSignals))
+)
+
+const probeCandidates = async (candidates) => {
+  const limited = candidates.slice(0, PROBE_CANDIDATE_LIMIT)
+  const probes = new Array(limited.length)
+  let nextIndex = 0
+  let stopAtFirstStrong = false
+
+  const worker = async () => {
+    while (true) {
+      const current = nextIndex
+      nextIndex += 1
+      if (current >= limited.length || stopAtFirstStrong) return
+      const candidateUrl = limited[current]
+      const probe = await probeSource(candidateUrl)
+      probes[current] = { ...probe, url: candidateUrl }
+      if (isStrongReadyProbe(probe, candidateUrl)) {
+        stopAtFirstStrong = true
+      }
+    }
+  }
+
+  await Promise.all(Array.from({ length: Math.min(PROBE_CONCURRENCY, limited.length) }, () => worker()))
+  return probes.filter(Boolean)
+}
+
 const sourceRows = await Promise.all(cantons.map(async (entry) => {
   const candidates = buildCandidates(entry)
-  const probes = []
-  for (const candidateUrl of candidates.slice(0, PROBE_CANDIDATE_LIMIT)) {
-    const probe = await probeSource(candidateUrl)
-    probes.push({ ...probe, url: candidateUrl })
-    const isStrongReadyProbe = probe.ok && (
-      ['ratsinfo', 'allris/sessionnet'].includes(probe.platform)
-      || (probe.platform === 'parliament-portal' && hasSearchOrAffairPath(probe.finalUrl || candidateUrl))
-    )
-    if (isStrongReadyProbe) break
-  }
+  const probes = await probeCandidates(candidates)
 
   const bestProbe = selectBestProbe(probes) || {
     ok: false,
     httpStatus: null,
     finalUrl: entry.url,
     platform: 'unreachable',
+    hasParliamentSignals: false,
     error: 'no-probe',
     url: entry.url,
   }
@@ -201,6 +234,7 @@ const sourceRows = await Promise.all(cantons.map(async (entry) => {
     platform: bestProbe.platform,
     ok: bestProbe.ok,
     httpStatus: bestProbe.httpStatus,
+    hasParliamentSignals: bestProbe.hasParliamentSignals,
   })
 
   return {
@@ -218,6 +252,7 @@ const sourceRows = await Promise.all(cantons.map(async (entry) => {
       httpStatus: bestProbe.httpStatus,
       finalUrl: bestProbe.finalUrl,
       platform: bestProbe.platform,
+      hasParliamentSignals: Boolean(bestProbe.hasParliamentSignals),
       error: bestProbe.error || null,
       candidateCount: candidates.length,
       candidatesTried: probes.map((p) => ({
@@ -226,6 +261,7 @@ const sourceRows = await Promise.all(cantons.map(async (entry) => {
         httpStatus: p.httpStatus,
         finalUrl: p.finalUrl,
         platform: p.platform,
+        hasParliamentSignals: Boolean(p.hasParliamentSignals),
       })),
     },
   }
@@ -270,4 +306,5 @@ console.log('Cantonal source registry built', {
   totalCantons: registry.coverage.totalCantons,
   byReadiness,
   probeCandidateLimit: PROBE_CANDIDATE_LIMIT,
+  probeConcurrency: PROBE_CONCURRENCY,
 })

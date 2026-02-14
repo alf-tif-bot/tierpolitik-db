@@ -18,6 +18,8 @@ export const ANCHOR_KEYWORDS = [
   'stopfleber', 'foie gras', 'pelz', 'fourrure', '3r', 'apiculture', 'apiculteur',
   'sentience', 'empfindungsfähig', 'empfindungsfaehig', 'specisme', 'especismo',
   'élevage', 'elevage', 'allevamento', 'bestiame', 'viehhaltung', 'weidetier',
+  'tierrechte', 'droits des animaux', 'diritti degli animali',
+  'maltraitance animale', 'detention des animaux', 'detenzione di animali',
 ]
 
 const SUPPORT_KEYWORDS = [
@@ -67,6 +69,14 @@ const WEAK_ANCHOR_KEYWORDS = new Set([
   'agricoltura',
   'apiculture',
   'apiculteur',
+  'biodiversität',
+  'biodiversitaet',
+  'biodiversite',
+  'biodiversita',
+  'ernährung',
+  'ernaehrung',
+  'nutrition',
+  'alimentazione',
 ])
 
 const PARLIAMENT_PROCESS_KEYWORDS = [
@@ -81,6 +91,17 @@ const PARLIAMENT_PROCESS_KEYWORDS = [
   'objet parlementaire',
   'atto parlamentare',
 ]
+
+const PROCESS_ONLY_SUPPORT_KEYWORDS = new Set([
+  'gesetz',
+  'initiative',
+  'motion',
+  'postulat',
+  'botschaft',
+  'verordnung',
+  'kontrolle',
+  'sanktion',
+])
 
 const PRO_STANCE_KEYWORDS = [
   'tierschutz', 'tierwohl', 'schutz', 'verbot', 'alternativen zu tierversuchen', '3r',
@@ -337,7 +358,11 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     const negativeFeedbackOnly = strongNegativeHits.length > 0 && !hasAnchor && adjustedScore < Math.max(0.42, minScore + 0.06)
     const recallByFeedback = strongPositiveHits.length >= 2 && adjustedScore >= Math.max(0.22, minScore - 0.08)
 
-    const weakAnchorBlocked = onlyWeakAnchors && !hasSupport && !hasContextual && adjustedScore < Math.max(minScore + 0.12, 0.48)
+    const supportIsProcessOnly = hasSupport && supportMatches.every((kw) => PROCESS_ONLY_SUPPORT_KEYWORDS.has(kw))
+    const weakAnchorBlocked = onlyWeakAnchors
+      && !hasContextual
+      && (!hasSupport || supportIsProcessOnly)
+      && adjustedScore < Math.max(minScore + 0.12, 0.48)
 
     const isRelevant = !noisyWithoutAnchor && !negativeFeedbackOnly && !weakAnchorBlocked && (
       (hasAnchor && (adjustedScore >= minScore || (anchorMatches.length >= 2 && hasSupport)))
