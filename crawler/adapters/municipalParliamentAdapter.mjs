@@ -121,6 +121,8 @@ const isOverviewTitle = (title = '') => {
   return low.includes('übersichtsseite') || low.includes('vorstösse und grsr-revisionen') || low.includes('antworten auf kleine anfragen')
 }
 
+const isBernDetailUrl = (href = '') => /(?:\/geschaefte\/)?detail\.php\?gid=[a-f0-9]+/i.test(String(href || ''))
+
 const parseLinks = (html = '', baseUrl = '') => {
   const links = []
   const re = /<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi
@@ -130,6 +132,7 @@ const parseLinks = (html = '', baseUrl = '') => {
     if (!href || !href.startsWith('http')) continue
     const text = normalizeText(m[2]).slice(0, 220)
     let score = scoreLink(href, text)
+    if (isBernDetailUrl(href)) score = Math.max(score, 3)
     if (isOverviewUrl(href)) score -= 2
     if (score <= 0) continue
     links.push({ href, text, score, typeHint: detectTypeHint(text), statusHint: detectStatusHint(text) })
@@ -183,6 +186,93 @@ const loadMunicipalSources = () => {
 
 const hashId = (input = '') => crypto.createHash('sha1').update(input).digest('hex').slice(0, 12)
 
+const fetchBernApiRows = async ({ municipalityName, canton, parliament, language, sourceId, apiEndpoint, maxItemsPerCity, fetchedAt }) => {
+  const body = new URLSearchParams({
+    'params[draw]': '1',
+    'params[start]': '0',
+    'params[length]': String(Math.max(30, maxItemsPerCity * 4)),
+    volltext: '',
+    title: '',
+    number: '',
+    commission: '',
+    typ: '',
+    submission: '',
+    partei: '',
+    direction: '',
+    referendum: '',
+    stand: '',
+    year: '',
+    date_start: '',
+    date_end: '',
+    due: '0',
+  })
+
+  const response = await fetch(apiEndpoint, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+      'x-requested-with': 'XMLHttpRequest',
+      'user-agent': 'tierpolitik-crawler/municipal-adapter',
+    },
+    body,
+    signal: AbortSignal.timeout(25000),
+  })
+
+  if (!response.ok) return []
+  const payload = await response.json().catch(() => null)
+  const data = Array.isArray(payload?.data) ? payload.data : []
+
+  return data
+    .slice(0, Math.max(20, maxItemsPerCity * 2))
+    .map((entry) => {
+      const guid = String(entry?.['@attributes']?.OBJ_GUID || '').trim()
+      if (!guid) return null
+      const titleRaw = String(entry?.Titel || '').trim()
+      if (!titleRaw) return null
+      const nummer = String(entry?.Geschaeftnummer || '').trim()
+      const typ = String(entry?.Geschaeftsart || classifyMunicipalEntry(titleRaw)).trim() || 'Parlamentsgeschäft'
+      const statusRaw = String(entry?.Status || '').trim()
+      const sourceLink = `https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=${guid}`
+      const start = String(entry?.Beginn?.Start || '').trim()
+      const parsedStart = start ? new Date(start) : null
+      const publishedAt = (parsedStart && !Number.isNaN(parsedStart.getTime())) ? parsedStart.toISOString() : fetchedAt
+      const rawSigners = entry?.Beteiligungen?.Beteiligung
+      const signerList = Array.isArray(rawSigners) ? rawSigners : (rawSigners ? [rawSigners] : [])
+      const signerNames = signerList
+        .map((s) => String(s?.VornameName || '').replace(/\s+/g, ' ').trim())
+        .filter(Boolean)
+      const signerPreview = signerNames.slice(0, 6).join(', ')
+
+      return {
+        sourceId,
+        sourceUrl: apiEndpoint,
+        externalId: `municipal-bern-api-${guid}`,
+        title: `${municipalityName} · ${typ}: ${titleRaw}`.slice(0, 260),
+        summary: `Gemeinde ${municipalityName} (${parliament}) · ${nummer || typ}${statusRaw ? ` · ${statusRaw}` : ''}`.slice(0, 300),
+        body: `Titel: ${titleRaw}\nGeschäftsnummer: ${nummer || 'n/a'}\nTyp: ${typ}\nStand: ${statusRaw || 'n/a'}\nEingereicht von: ${signerPreview || 'n/a'}\nQuelle: ${sourceLink}`,
+        publishedAt,
+        fetchedAt,
+        language,
+        score: 0.64,
+        matchedKeywords: ['gemeinde', municipalityName.toLowerCase(), String(typ || '').toLowerCase(), ...signerNames.map((n) => n.toLowerCase())].filter(Boolean),
+        status: 'new',
+        reviewReason: 'municipal-api-candidate',
+        meta: {
+          level: 'Gemeinde',
+          municipality: municipalityName,
+          canton,
+          parliament,
+          sourceLink,
+          rawType: typ,
+          rawStatus: statusRaw || null,
+          businessNumber: nummer || null,
+          adapterHint: 'municipalParliament',
+        },
+      }
+    })
+    .filter(Boolean)
+}
+
 export function createMunicipalParliamentAdapter() {
   return {
     async fetch(source) {
@@ -203,11 +293,38 @@ export function createMunicipalParliamentAdapter() {
           ? String(municipality.language || 'de').toLowerCase()
           : 'de'
 
-        const urls = [municipality.url, ...(Array.isArray(municipality.altUrls) ? municipality.altUrls : [])]
+        const urls = [
+          municipality.url,
+          ...(Array.isArray(municipality.altUrls) ? municipality.altUrls : []),
+          ...(Array.isArray(municipality.seedUrls) ? municipality.seedUrls : []),
+        ]
           .map((x) => String(x || '').trim())
           .filter(Boolean)
 
         let resolved = false
+
+        if (municipality.apiEndpoint) {
+          try {
+            const apiRows = await fetchBernApiRows({
+              municipalityName,
+              canton,
+              parliament,
+              language,
+              sourceId: source.id,
+              apiEndpoint: String(municipality.apiEndpoint),
+              maxItemsPerCity,
+              fetchedAt,
+            })
+            if (apiRows.length) {
+              rows.push(...apiRows)
+              resolved = true
+            }
+          } catch {
+            // fallback to HTML scraping URLs below
+          }
+        }
+
+        if (resolved) continue
 
         for (const baseUrl of urls) {
           try {

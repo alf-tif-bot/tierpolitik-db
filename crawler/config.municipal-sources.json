@@ -8,7 +8,11 @@
     "url": "https://www.bern.ch/politik-und-verwaltung/stadtrat/geschaefte-des-stadtrats",
     "altUrls": [
       "https://www.bern.ch/politik-und-verwaltung/stadtrat"
-    ]
+    ],
+    "seedUrls": [
+      "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=c6c65c8ce8a84435af97428996dadc64"
+    ],
+    "apiEndpoint": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php"
   },
   {
     "cityId": "zuerich",
