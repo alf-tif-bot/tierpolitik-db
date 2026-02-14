@@ -178,7 +178,7 @@ export const handler = async () => {
           order by mv.version_no desc
           limit 1
         ) mv on true
-        where m.status in ('queued','approved','published')
+        where m.status in ('approved','published','rejected')
           and m.source_id like 'ch-parliament-%'
           and coalesce(m.published_at, m.fetched_at) >= (now() - interval '5 years')
         order by m.updated_at desc
@@ -256,12 +256,15 @@ export const handler = async () => {
         status: statusLabel,
       })
 
-      const summaryText = clean(summarizeVorstoss({
+      const normalizedSummary = clean(summarizeVorstoss({
         title: displayTitle,
         summary: displaySummary,
         body: displayBody,
         status: r.status,
-      })) || `Kurzüberblick: ${displayTitle || `Vorstoss ${index + 1}`} (${statusLabel}).`
+      }))
+      const summaryText = normalizedSummary.length >= 10
+        ? normalizedSummary
+        : `Kurzüberblick: ${displayTitle || `Vorstoss ${index + 1}`} (${statusLabel}).`
 
       return {
         id: `vp-${idSafe.toLowerCase()}`,

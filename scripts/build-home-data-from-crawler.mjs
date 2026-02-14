@@ -215,7 +215,7 @@ const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '' })
 
 const baseItems = (db.items || [])
   .filter((item) => String(item.sourceId || '').startsWith('ch-parliament-'))
-  .filter((item) => ['queued', 'approved', 'published'].includes(item.status))
+  .filter((item) => ['approved', 'published', 'rejected'].includes(item.status))
 
 const groupedByAffair = new Map()
 for (const item of baseItems) {
@@ -310,7 +310,10 @@ const vorstoesse = items.map((item, index) => {
     body: displayBody,
     status: item.status,
   })
-  const summaryText = clean(rawSummaryText) || `Kurzüberblick: ${displayTitle || `Vorstoss ${index + 1}`} (${status}).`
+  const normalizedSummary = clean(rawSummaryText)
+  const summaryText = normalizedSummary.length >= 10
+    ? normalizedSummary
+    : `Kurzüberblick: ${displayTitle || `Vorstoss ${index + 1}`} (${status}).`
   const baseThemes = sanitizeThemes(mapThemesFromKeywords(item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz'])).slice(0, 6)
   const i18nMeta = buildI18nFromItem(item, displayTitle || `Vorstoss ${index + 1}`, summaryText, typ, baseThemes)
 
