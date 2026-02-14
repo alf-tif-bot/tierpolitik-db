@@ -195,9 +195,11 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
             <span className="detail-label">{t.submitters}</span>
             <div className="detail-links">
               {item.einreichende.map((p) => (
-                <div key={`${p.name}-${p.partei}`} className="detail-link-row">
+                <div key={`${p.name}-${p.partei || ''}`} className="detail-link-row">
                   <button className="text-link-btn" onClick={() => onOpenPersonProfile(p.name)}>{p.name}</button>
-                  <button className="text-link-btn" onClick={() => onOpenPartyProfile(p.partei)}>{p.partei}</button>
+                  {String(p.partei || '').trim() && !/^unbekannt$/i.test(String(p.partei || '').trim()) && (
+                    <button className="text-link-btn" onClick={() => onOpenPartyProfile(p.partei)}>{p.partei}</button>
+                  )}
                 </div>
               ))}
             </div>

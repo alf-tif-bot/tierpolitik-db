@@ -2694,9 +2694,9 @@
     "note": "Auto-approved Bern visibility pass"
   },
   "ch-municipal-parliament-bern-zurich:municipal-bern-api-35613219b77240ff9adf7978f17dd646": {
-    "status": "approved",
-    "decidedAt": "2026-02-14T21:31:52.733Z",
-    "note": "Auto-approved Bern visibility pass"
+    "status": "rejected",
+    "decidedAt": "2026-02-14T22:01:42.367Z",
+    "note": "Irrelevant per user request"
   },
   "ch-municipal-parliament-bern-zurich:municipal-bern-api-13284d70bb124c23a1bbba427e8a7c5c": {
     "status": "approved",

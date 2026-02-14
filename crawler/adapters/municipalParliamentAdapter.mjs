@@ -272,10 +272,18 @@ const fetchBernApiRows = async ({ municipalityName, canton, parliament, language
       const publishedAt = (parsedStart && !Number.isNaN(parsedStart.getTime())) ? parsedStart.toISOString() : fetchedAt
       const rawSigners = entry?.Beteiligungen?.Beteiligung
       const signerList = Array.isArray(rawSigners) ? rawSigners : (rawSigners ? [rawSigners] : [])
-      const signerNames = signerList
-        .map((s) => String(s?.VornameName || '').replace(/\s+/g, ' ').trim())
-        .filter(Boolean)
-      const signerPreview = signerNames.slice(0, 6).join(', ')
+      const signerEntries = signerList
+        .map((s) => {
+          const name = String(s?.VornameName || '').replace(/\s+/g, ' ').trim()
+          const party = String(s?.Partei || '').replace(/\s+/g, ' ').trim()
+          return { name, party }
+        })
+        .filter((s) => s.name)
+      const signerNames = signerEntries.map((s) => s.name)
+      const signerPreview = signerEntries
+        .slice(0, 6)
+        .map((s) => (s.party ? `${s.name} (${s.party})` : s.name))
+        .join(', ')
       const relevanceText = `${titleClean || titleRaw} ${typ} ${statusRaw} ${signerNames.join(' ')}`
       if (!isBernAnimalRelevant(relevanceText)) return null
 

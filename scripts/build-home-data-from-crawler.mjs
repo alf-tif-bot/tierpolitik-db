@@ -191,7 +191,13 @@ const parseMunicipalSubmitters = (body = '') => {
     .map((x) => String(x || '').replace(/\s+/g, ' ').trim())
     .filter((x) => x.length >= 3)
     .slice(0, 6)
-    .map((name) => ({ name, rolle: 'Gemeinderat', partei: 'Unbekannt' }))
+    .map((entry) => {
+      const withParty = entry.match(/^(.+?)\s*\(([^)]+)\)$/)
+      if (withParty) {
+        return { name: withParty[1].trim(), rolle: 'Gemeinderat', partei: withParty[2].trim() }
+      }
+      return { name: entry, rolle: 'Gemeinderat', partei: '' }
+    })
 }
 
 const inferSubmitter = (lang, title = '', summary = '', body = '', item = null) => {
@@ -424,9 +430,12 @@ const vorstoesse = items.map((item, index) => {
     status,
   })
   const idSafe = String(item.externalId || `${Date.now()}-${index}`).replace(/[^a-zA-Z0-9-]/g, '-')
-  const link = item.sourceUrl && item.sourceUrl.startsWith('http')
-    ? item.sourceUrl
-    : `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${String(item.externalId || '').split('-')[0]}`
+  const municipalSourceLink = String(item?.meta?.sourceLink || '').trim()
+  const link = municipalSourceLink.startsWith('http')
+    ? municipalSourceLink
+    : (item.sourceUrl && item.sourceUrl.startsWith('http')
+      ? item.sourceUrl
+      : `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${String(item.externalId || '').split('-')[0]}`)
 
   const rawSummaryText = summarizeVorstoss({
     title: displayTitle,

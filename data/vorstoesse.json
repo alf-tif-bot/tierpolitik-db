@@ -3811,35 +3811,35 @@
       {
         "name": "Nora Joos",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "JA"
       },
       {
         "name": "Mirjam Läderach",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "GB"
       },
       {
         "name": "Katharina Gallizzi",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "GB"
       },
       {
         "name": "Tobias Sennhauser",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "TIF"
       },
       {
         "name": "Anouk Ursin",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "AL"
       },
       {
         "name": "Matteo Micieli",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "PdA"
       }
     ],
-    "linkGeschaeft": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
+    "linkGeschaeft": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=c6c65c8ce8a84435af97428996dadc64",
     "resultate": [
       {
         "datum": "2026-02-11",
@@ -3901,35 +3901,35 @@
       {
         "name": "Anouk Ursin",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "AL"
       },
       {
         "name": "Matteo Micieli",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "PdA"
       },
       {
         "name": "Raffael Joggi",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "AL"
       },
       {
         "name": "Franziska Geiser",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "GB"
       },
       {
         "name": "Anna Leissing",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "GB"
       },
       {
         "name": "Esther Meier",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "GB"
       }
     ],
-    "linkGeschaeft": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
+    "linkGeschaeft": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=b7e265b3766d43119b5279f5ea795e91",
     "resultate": [
       {
         "datum": "2026-02-11",
@@ -3991,35 +3991,35 @@
       {
         "name": "Nora Joos",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "JA"
       },
       {
         "name": "Mirjam Läderach",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "GB"
       },
       {
         "name": "Katharina Gallizzi",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "GB"
       },
       {
         "name": "Tobias Sennhauser",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "TIF"
       },
       {
         "name": "Anouk Ursin",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "AL"
       },
       {
         "name": "Matteo Micieli",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "PdA"
       }
     ],
-    "linkGeschaeft": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
+    "linkGeschaeft": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=58a0ae87cf6f44e1a4030952a06a85bb",
     "resultate": [
       {
         "datum": "2026-02-11",
@@ -4045,94 +4045,6 @@
           "de": [
             "Biodiversität",
             "Landwirtschaft"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-municipal-bern-api-35613219b77240ff9adf7978f17dd646",
-    "titel": "Strafverfolgung bei Feuerwerkszündung in der Innenstadt",
-    "typ": "Anfrage",
-    "kurzbeschreibung": "Strafverfolgung bei Feuerwerkszündung in der Innenstadt (Gemeinde, in Beratung).",
-    "geschaeftsnummer": "municipal-bern-api-35613219b77240ff9adf7978f17dd646",
-    "ebene": "Gemeinde",
-    "kanton": "BE",
-    "regionGemeinde": "Bern",
-    "status": "Eingereicht",
-    "datumEingereicht": "2026-01-28",
-    "datumAktualisiert": "2026-02-14",
-    "themen": [
-      "Feuerwerk"
-    ],
-    "schlagwoerter": [
-      "tiere",
-      "tierschutz",
-      "biodiversität",
-      "biodiversita",
-      "landwirtschaft",
-      "ernährung",
-      "initiative",
-      "motion"
-    ],
-    "einreichende": [
-      {
-        "name": "Michelle Steinemann",
-        "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
-      },
-      {
-        "name": "Nicolas Lutz",
-        "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
-      },
-      {
-        "name": "Laura Curau",
-        "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
-      },
-      {
-        "name": "Andreas Egli",
-        "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
-      },
-      {
-        "name": "Oliver Berger",
-        "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
-      },
-      {
-        "name": "Nik Eugster",
-        "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
-      }
-    ],
-    "linkGeschaeft": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
-    "resultate": [
-      {
-        "datum": "2026-01-28",
-        "status": "Eingereicht",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "Strafverfolgung bei Feuerwerkszündung in der Innenstadt"
-        },
-        "summary": {
-          "de": "Strafverfolgung bei Feuerwerkszündung in der Innenstadt (Gemeinde, in Beratung)."
-        },
-        "type": {
-          "de": "Anfrage"
-        },
-        "themes": {
-          "de": [
-            "Feuerwerk"
           ]
         }
       },
@@ -4168,25 +4080,25 @@
       {
         "name": "Raffael Joggi",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "AL"
       },
       {
         "name": "Tobias Sennhauser",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "TIF"
       },
       {
         "name": "Matteo Micieli",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "PdA"
       },
       {
         "name": "Anouk Ursin",
         "rolle": "Gemeinderat",
-        "partei": "Unbekannt"
+        "partei": "AL"
       }
     ],
-    "linkGeschaeft": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
+    "linkGeschaeft": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=13284d70bb124c23a1bbba427e8a7c5c",
     "resultate": [
       {
         "datum": "2026-01-28",
