@@ -15,18 +15,72 @@ const records = Array.isArray(raw)
 
 const db = loadDb()
 const index = new Map(db.items.map((item) => [`${item.sourceId}:${item.externalId}`, item]))
+
+const langFromSourceId = (sourceId = '') => {
+  const m = String(sourceId).match(/-(de|fr|it)$/i)
+  return m?.[1]?.toLowerCase() || ''
+}
+
+const resolveDecisionId = (id) => {
+  if (index.has(id)) return id
+  const [sourceId, externalId = ''] = String(id).split(':')
+  if (!sourceId || !externalId) return null
+
+  const hasLangSuffix = /-[a-z]{2}$/i.test(externalId)
+  const lang = langFromSourceId(sourceId)
+
+  if (!hasLangSuffix && lang) {
+    const suffixed = `${sourceId}:${externalId}-${lang}`
+    if (index.has(suffixed)) return suffixed
+  }
+
+  const affairId = externalId.replace(/-[a-z]{2}$/i, '').split('-')[0]
+  if (affairId) {
+    const candidates = [...index.keys()].filter((k) => {
+      const [sid, eid = ''] = k.split(':')
+      return sid === sourceId && String(eid).split('-')[0] === affairId
+    })
+    if (candidates.length) return candidates[0]
+  }
+
+  return null
+}
+
 let applied = 0
+let remapped = 0
+let unresolved = 0
+
+const normalizedRaw = Array.isArray(raw) ? null : { ...raw }
 
 for (const decision of records) {
   if (!decision?.id || !decision?.status) continue
   if (decision.status !== 'approved' && decision.status !== 'rejected') continue
 
-  const item = index.get(decision.id)
-  if (!item) continue
+  const resolvedId = resolveDecisionId(decision.id)
+  if (!resolvedId) {
+    unresolved += 1
+    continue
+  }
+
+  if (resolvedId !== decision.id && normalizedRaw) {
+    normalizedRaw[resolvedId] = { status: decision.status, decidedAt: decision.decidedAt }
+    delete normalizedRaw[decision.id]
+    remapped += 1
+  }
+
+  const item = index.get(resolvedId)
+  if (!item) {
+    unresolved += 1
+    continue
+  }
   item.status = decision.status
   item.reviewReason = decision.note || `Review-Entscheid (${decision.status})`
   applied += 1
 }
 
+if (normalizedRaw) {
+  fs.writeFileSync(decisionsPath, JSON.stringify(normalizedRaw, null, 2))
+}
+
 saveDb(db)
-console.log('Review-Entscheidungen angewendet', { applied, totalDecisions: records.length })
+console.log('Review-Entscheidungen angewendet', { applied, totalDecisions: records.length, remapped, unresolved })
