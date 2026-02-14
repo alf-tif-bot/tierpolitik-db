@@ -2,7 +2,7 @@ import { useMemo, useState, type RefObject } from 'react'
 import type { I18nText, Language } from '../i18n'
 import { translateContent, translateStatus, translateType } from '../i18n'
 import type { Ebene, Status, Vorstoss } from '../types'
-import { defaultFilters, type Filters } from '../utils/filtering'
+import { canonicalTheme, defaultFilters, type Filters } from '../utils/filtering'
 
 type Props = {
   data: Vorstoss[]
@@ -62,8 +62,8 @@ export function FiltersPanel({ data, filters, onChange, lang, t, searchInputRef 
   const typenItems: FilterItem[] = [...new Set(data.map((d) => d.typ))]
     .sort((a, b) => a.localeCompare(b, 'de-CH'))
     .map((v) => ({ value: v, label: translateType(v, lang) }))
-  const defaultThemes = [...new Set(data.flatMap((d) => d.themen))]
-  const themen = [...new Set([...defaultThemes, 'Unsichtbare Tiere'])].sort((a, b) => a.localeCompare(b, 'de-CH'))
+  const defaultThemes = [...new Set(data.flatMap((d) => d.themen.map(canonicalTheme)).filter(Boolean))]
+  const themen = [...new Set(defaultThemes)].sort((a, b) => a.localeCompare(b, 'de-CH'))
   const themenItems: FilterItem[] = themen.map((v) => ({ value: v, label: translateContent(v, lang) }))
 
   const advancedActiveCount = useMemo(() => {
