@@ -34,14 +34,14 @@ type Props = {
 }
 
 const TABLE_PREFS_KEY = 'tierpolitik.table.prefs.v1'
-const PAGE_SIZE_OPTIONS = [25, 50, 100]
+const PAGE_SIZE_OPTIONS = [15, 35, 50]
 const normalizeTitle = (value: string) => value
   .replace(/^Vorstoss\s+\d+\s*:\s*/i, '')
   .replace(/^\s*\d{2}\.\d{3,4}\s*[·\-–—:]\s*/u, '')
 
 export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboardEnabled = true, sectionId, lang, t }: Props) {
   const [sorting, setSorting] = useState<SortingState>([])
-  const [pagination, setPagination] = useState<PaginationState>({ pageIndex: 0, pageSize: 25 })
+  const [pagination, setPagination] = useState<PaginationState>({ pageIndex: 0, pageSize: 15 })
   const [highlightedRow, setHighlightedRow] = useState(0)
 
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
