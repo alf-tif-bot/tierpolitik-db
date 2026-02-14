@@ -218,6 +218,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
               <select value={feedbackType} onChange={(e) => setFeedbackType(e.target.value)}>
                 <option>Fehler gefunden</option>
                 <option>Vorstoss irrelevant</option>
+                <option>Doppeleintrag</option>
                 <option>Beschreibung verbessern</option>
                 <option>Einreichende falsch</option>
                 <option>Tierbezug unklar</option>
