@@ -63,10 +63,37 @@ const normalizeMunicipalTitle = (raw = '') => {
   const low = text.toLowerCase()
 
   if (!text) return 'Unbenanntes Parlamentsgeschäft'
-  if (low.includes('vorstösse und grsr-revisionen')) return 'Übersichtsseite: Vorstösse und GRSR-Revisionen'
-  if (low.includes('antworten auf kleine anfragen')) return 'Übersichtsseite: Antworten auf kleine Anfragen'
+  if (low.includes('vorstösse und grsr-revisionen')) return ''
+  if (low.includes('antworten auf kleine anfragen')) return ''
 
   return text
+}
+
+const extractHtmlTitle = (html = '') => {
+  const h1 = normalizeText(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '')
+  if (h1) return h1
+  const og = normalizeText(html.match(/<meta\s+property=["']og:title["']\s+content=["']([^"']+)["']/i)?.[1] || '')
+  if (og) return og
+  const t = normalizeText(html.match(/<title>([\s\S]*?)<\/title>/i)?.[1] || '')
+  return t
+}
+
+const enrichMunicipalTitle = async (href, fallbackTitle) => {
+  const cleanedFallback = normalizeMunicipalTitle(fallbackTitle)
+  if (cleanedFallback) return cleanedFallback
+  try {
+    const res = await fetch(href, {
+      headers: { 'user-agent': 'tierpolitik-crawler/municipal-adapter' },
+      redirect: 'follow',
+      signal: AbortSignal.timeout(9000),
+    })
+    if (!res.ok) return cleanedFallback || 'Parlamentsgeschäft'
+    const html = await res.text()
+    const extracted = normalizeMunicipalTitle(extractHtmlTitle(html))
+    return extracted || cleanedFallback || 'Parlamentsgeschäft'
+  } catch {
+    return cleanedFallback || 'Parlamentsgeschäft'
+  }
 }
 
 const scoreLink = (href = '', text = '') => {
@@ -84,6 +111,11 @@ const normalizeUrl = (href, baseUrl) => {
   }
 }
 
+const isOverviewUrl = (href = '') => {
+  const low = String(href || '').toLowerCase()
+  return low.includes('vorstoesse-und-grsr-revisionen') || low.includes('antworten-auf-kleine-anfragen')
+}
+
 const parseLinks = (html = '', baseUrl = '') => {
   const links = []
   const re = /<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi
@@ -92,7 +124,8 @@ const parseLinks = (html = '', baseUrl = '') => {
     const href = normalizeUrl(m[1], baseUrl)
     if (!href || !href.startsWith('http')) continue
     const text = normalizeText(m[2]).slice(0, 220)
-    const score = scoreLink(href, text)
+    let score = scoreLink(href, text)
+    if (isOverviewUrl(href)) score -= 2
     if (score <= 0) continue
     links.push({ href, text, score, typeHint: detectTypeHint(text), statusHint: detectStatusHint(text) })
   }
@@ -156,7 +189,10 @@ export function createMunicipalParliamentAdapter() {
             if (!links.length) continue
 
             for (const [index, link] of links.entries()) {
-              const inferredTitle = normalizeMunicipalTitle(link.text || `${parliament} Geschäft ${index + 1}`)
+              const rawTitle = link.text || `${parliament} Geschäft ${index + 1}`
+              const inferredTitle = await enrichMunicipalTitle(link.href, rawTitle)
+              if (!inferredTitle || inferredTitle.toLowerCase() === 'parlamentsgeschäft') continue
+
               const externalId = `municipal-${cityId}-${hashId(link.href)}`
               const entryType = classifyMunicipalEntry(inferredTitle)
 
