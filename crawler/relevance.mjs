@@ -50,6 +50,31 @@ const CONTEXTUAL_ANIMAL_PHRASES = [
   'bien etre des animaux',
   'bien-être des animaux',
   'sperimentazione animale',
+  'wohl der tiere',
+  'protection de la faune',
+  'benessere animale',
+]
+
+const WEAK_ANCHOR_KEYWORDS = new Set([
+  'tier',
+  'tiere',
+  'animal',
+  'animaux',
+  'animale',
+  'faune',
+])
+
+const PARLIAMENT_PROCESS_KEYWORDS = [
+  'interpellation',
+  'anfrage',
+  'schriftliche anfrage',
+  'fragestunde',
+  'vorstoss',
+  'vorstosse',
+  'vorstösse',
+  'intervention parlementaire',
+  'objet parlementaire',
+  'atto parlamentare',
 ]
 
 const PRO_STANCE_KEYWORDS = [
@@ -213,17 +238,19 @@ export function scoreText(text, keywords = DEFAULT_KEYWORDS) {
   const noiseMatches = NOISE_KEYWORDS.filter((kw) => hasKeyword(normalizedText, kw))
   const whitelistedPeople = PERSON_WHITELIST.filter((name) => normalizedText.includes(name))
   const contextualHits = CONTEXTUAL_ANIMAL_PHRASES.filter((kw) => hasKeyword(normalizedText, kw))
+  const processHits = PARLIAMENT_PROCESS_KEYWORDS.filter((kw) => hasKeyword(normalizedText, kw))
   const matched = keywords.filter((kw) => hasKeyword(normalizedText, kw))
 
   const anchorScore = Math.min(0.7, anchorMatches.length * 0.28)
   const supportScore = Math.min(0.45, supportMatches.length * 0.14)
   const contextualBoost = Math.min(0.16, contextualHits.length * 0.08)
+  const processBoost = (anchorMatches.length > 0 && processHits.length > 0) ? Math.min(0.08, processHits.length * 0.03) : 0
   const whitelistBoost = whitelistedPeople.length > 0 ? 0.12 : 0
   const genericOnlyPenalty = anchorMatches.length === 0 && supportMatches.length <= 2 ? 0.08 : 0
   const noisePenalty = Math.min(0.3, noiseMatches.length * 0.1)
-  const score = Math.max(0, Math.min(1, anchorScore + supportScore + contextualBoost + whitelistBoost - noisePenalty - genericOnlyPenalty))
+  const score = Math.max(0, Math.min(1, anchorScore + supportScore + contextualBoost + processBoost + whitelistBoost - noisePenalty - genericOnlyPenalty))
 
-  return { score, matched, normalizedText, anchorMatches, supportMatches, contextualHits, noiseMatches, whitelistedPeople }
+  return { score, matched, normalizedText, anchorMatches, supportMatches, contextualHits, processHits, noiseMatches, whitelistedPeople }
 }
 
 export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords = DEFAULT_KEYWORDS } = {}) {
@@ -270,7 +297,7 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
       .map((v) => `${v?.title || ''}\n${v?.summary || ''}\n${v?.body || ''}`)
       .join('\n')
     const text = `${item.title}\n${item.summary}\n${item.body}\n${variantText}\n${affairTextMap.get(affairId) || ''}`
-    const { score, matched, anchorMatches, supportMatches, contextualHits, noiseMatches, whitelistedPeople, normalizedText } = scoreText(text, keywords)
+    const { score, matched, anchorMatches, supportMatches, contextualHits, processHits, noiseMatches, whitelistedPeople, normalizedText } = scoreText(text, keywords)
 
     const matchedSignals = [...new Set([...anchorMatches, ...supportMatches])]
       .filter((kw) => !FEEDBACK_IGNORE_KEYWORDS.has(kw))
@@ -296,6 +323,8 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     const hasSupport = supportMatches.length > 0
     const hasContextual = contextualHits.length > 0
     const supportStrong = supportMatches.length >= 3
+    const weakAnchorCount = anchorMatches.filter((kw) => WEAK_ANCHOR_KEYWORDS.has(kw)).length
+    const onlyWeakAnchors = hasAnchor && weakAnchorCount === anchorMatches.length
     const hasWhitelistedPerson = whitelistedPeople.length > 0
     const strongPositiveHits = [...new Set([...anchorMatches, ...supportMatches])].filter((kw) => strongPositiveKeywords.has(kw))
     const strongNegativeHits = [...new Set([...anchorMatches, ...supportMatches])].filter((kw) => strongNegativeKeywords.has(kw))
@@ -303,7 +332,9 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     const negativeFeedbackOnly = strongNegativeHits.length > 0 && !hasAnchor && adjustedScore < Math.max(0.42, minScore + 0.06)
     const recallByFeedback = strongPositiveHits.length >= 2 && adjustedScore >= Math.max(0.22, minScore - 0.08)
 
-    const isRelevant = !noisyWithoutAnchor && !negativeFeedbackOnly && (
+    const weakAnchorBlocked = onlyWeakAnchors && !hasSupport && !hasContextual && adjustedScore < Math.max(minScore + 0.12, 0.48)
+
+    const isRelevant = !noisyWithoutAnchor && !negativeFeedbackOnly && !weakAnchorBlocked && (
       (hasAnchor && (adjustedScore >= minScore || (anchorMatches.length >= 2 && hasSupport)))
       || (hasContextual && (hasAnchor || hasSupport) && adjustedScore >= Math.max(0.26, minScore - 0.06))
       || (supportStrong && adjustedScore >= Math.max(0.5, minScore + 0.08))
@@ -330,10 +361,12 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
             : (recallByFeedback ? 'feedback-recall' : (adjustedScore >= minScore ? 'anchor+score' : 'anchor2+support')))))
       : (noisyWithoutAnchor
         ? 'noise-without-anchor'
-        : (negativeFeedbackOnly ? 'feedback-negative-only' : (!hasAnchor ? 'missing-anchor' : 'below-threshold')))
+        : (negativeFeedbackOnly
+          ? 'feedback-negative-only'
+          : (weakAnchorBlocked ? 'weak-anchor-without-context' : (!hasAnchor ? 'missing-anchor' : 'below-threshold'))))
     const stance = classifyStance(normalizedText)
 
-    item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · stance=${stance} · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · context=${contextualHits.slice(0, 2).join('|') || '-'} · fb+=${strongPositiveHits.slice(0, 2).join('|') || '-'} · fb-=${strongNegativeHits.slice(0, 2).join('|') || '-'} · people=${whitelistedPeople.slice(0, 2).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · feedback=${feedbackBoost.toFixed(2)} · fastlane=${fastlaneBoost.toFixed(2)} · score=${adjustedScore.toFixed(2)}`
+    item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · stance=${stance} · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · context=${contextualHits.slice(0, 2).join('|') || '-'} · process=${processHits.slice(0, 2).join('|') || '-'} · fb+=${strongPositiveHits.slice(0, 2).join('|') || '-'} · fb-=${strongNegativeHits.slice(0, 2).join('|') || '-'} · people=${whitelistedPeople.slice(0, 2).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · feedback=${feedbackBoost.toFixed(2)} · fastlane=${fastlaneBoost.toFixed(2)} · score=${adjustedScore.toFixed(2)}`
 
     if (isRelevant) relevantCount += 1
     touched += 1

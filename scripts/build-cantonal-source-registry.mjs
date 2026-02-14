@@ -22,8 +22,8 @@ const PARLIAMENT_URL_HINTS = [
   '/parlinfo',
 ]
 
-const detectPlatform = (url = '', html = '') => {
-  const u = String(url).toLowerCase()
+const detectPlatform = ({ requestUrl = '', finalUrl = '', html = '' } = {}) => {
+  const u = `${String(requestUrl)} ${String(finalUrl)}`.toLowerCase()
   const h = String(html).toLowerCase()
   if (h.includes('verifying your browser') || h.includes('vérification de votre navigateur')) return 'waf-challenge'
   if (u.includes('ratsinfo') || h.includes('ratsinfo')) return 'ratsinfo'
@@ -60,12 +60,23 @@ const classifyReadiness = ({ url = '', platform = 'generic-site', ok = false, ht
     'objets-et-rapports-de-commissions',
     'ricerca-messaggi-e-atti',
   ].some((hint) => u.includes(hint))
+  const hasSearchOrAffairPath = [
+    'geschaefte',
+    'vorstoesse',
+    'objets-parlementaires',
+    'interventions-parlementaires',
+    'recherche-objets',
+    'ricerca-messaggi-e-atti',
+    'objets-du-conseil',
+    'objets/Pages/accueil.aspx',
+  ].some((hint) => u.includes(String(hint).toLowerCase()))
 
   if (!ok || platform === 'waf-challenge') {
     if (httpStatus === 403 || httpStatus === 429 || platform === 'waf-challenge') return 'blocked-needs-manual'
     return 'unreachable-needs-manual'
   }
   if (platform === 'ratsinfo' || platform === 'allris/sessionnet') return 'adapter-ready-likely'
+  if (platform === 'parliament-portal' && hasSearchOrAffairPath) return 'adapter-ready-likely'
   if (platform === 'parliament-portal' || (['typo3-site', 'drupal-site'].includes(platform) && hasParliamentHint) || hasParliamentHint) {
     return 'site-discovery-needed'
   }
@@ -114,11 +125,12 @@ const probeSource = async (url) => {
       signal: AbortSignal.timeout(7000),
     })
     const text = await response.text()
-    const platform = detectPlatform(url, text)
+    const platform = detectPlatform({ requestUrl: url, finalUrl: response.url, html: text })
     return {
       ok: response.ok,
       httpStatus: response.status,
       finalUrl: response.url,
+      requestUrl: url,
       platform,
     }
   } catch (error) {
