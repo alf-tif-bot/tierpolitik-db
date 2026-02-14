@@ -298,10 +298,10 @@ const html = `<!doctype html>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
     <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="toggleDecided()" id="toggle-decided">Bereits bearbeitete anzeigen</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
-    <section class="fastlane-wrap">
-      <h2>⚡ Fast-Lane (mobil zuerst sichtbar, 1-Klick-Freigabe)</h2>
-      <div class="fastlane-grid">${fastLaneRows || '<span class="muted">Aktuell keine Fast-Lane-Treffer.</span>'}</div>
-    </section>
+    ${fastLaneRows ? `<section class="fastlane-wrap">
+      <h2>⚡ Fast-Lane</h2>
+      <div class="fastlane-grid">${fastLaneRows}</div>
+    </section>` : ''}
     <table>
       <thead>
         <tr>
