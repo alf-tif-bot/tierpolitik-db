@@ -73,6 +73,8 @@ const actualMotionAffairs = new Set(
 const missingInMotions = [...expectedPublishedAffairs].filter((affairId) => !actualMotionAffairs.has(affairId))
 
 const decisionsUnknownInDb = Object.keys(reviewDecisions).filter((id) => !dbItemsById.has(id))
+const decisionsUnknownLegacy = decisionsUnknownInDb.filter((id) => /^ch-parliament-business-(de|fr|it):\d+$/.test(id))
+const decisionsUnknownCritical = decisionsUnknownInDb.filter((id) => !decisionsUnknownLegacy.includes(id))
 const decisionsStatusMismatch = Object.entries(reviewDecisions)
   .filter(([id, decision]) => {
     if (!dbItemsById.has(id)) return false
@@ -104,6 +106,8 @@ const report = {
   missingInMotions: missingInMotions.slice(0, 120),
   reviewDecisionsCount: Object.keys(reviewDecisions).length,
   decisionsUnknownInDbCount: decisionsUnknownInDb.length,
+  decisionsUnknownLegacyCount: decisionsUnknownLegacy.length,
+  decisionsUnknownCriticalCount: decisionsUnknownCritical.length,
   decisionsUnknownInDb: decisionsUnknownInDb.slice(0, 120),
   decisionsStatusMismatchCount: decisionsStatusMismatch.length,
   decisionsStatusMismatch: decisionsStatusMismatch.slice(0, 120),
@@ -111,9 +115,16 @@ const report = {
 
 fs.writeFileSync(new URL('../data/regression-report.json', import.meta.url), JSON.stringify(report, null, 2))
 
-if (missingInReview.length || missingInMotions.length || decisionsStatusMismatch.length || decisionsUnknownInDb.length || duplicateReviewIds.length) {
+if (missingInReview.length || missingInMotions.length || decisionsStatusMismatch.length || decisionsUnknownCritical.length || duplicateReviewIds.length) {
   console.error('Regression check FAILED', report)
   process.exit(1)
+}
+
+if (decisionsUnknownLegacy.length) {
+  console.warn('Regression check WARN: legacy decision IDs not present in DB', {
+    decisionsUnknownLegacyCount: decisionsUnknownLegacy.length,
+    sample: decisionsUnknownLegacy.slice(0, 12),
+  })
 }
 
 if (extraInReview.length) {

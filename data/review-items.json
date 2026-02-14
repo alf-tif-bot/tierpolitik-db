@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-14T08:07:34.616Z",
+  "generatedAt": "2026-02-14T08:16:16.419Z",
   "total": 66,
   "ids": [
     "ch-parliament-business-de:20223633-de",
@@ -7,6 +7,7 @@
     "ch-parliament-business-de:20254788-de",
     "ch-parliament-business-de:20254380-de",
     "ch-parliament-business-de:20254010-de",
+    "ch-parliament-business-de:20244465-de",
     "ch-parliament-business-de:20237580-de",
     "ch-parliament-business-de:20233411-de",
     "ch-parliament-business-de:20223299-de",
@@ -16,10 +17,9 @@
     "ch-parliament-business-de:20218161-de",
     "ch-parliament-business-de:20218163-de",
     "ch-parliament-business-de:20218162-de",
-    "ch-parliament-business-de:20210426-de",
     "ch-parliament-business-de:20254809-de",
     "ch-parliament-business-de:20254812-de",
-    "ch-parliament-business-de:20244465-de",
+    "ch-parliament-business-de:20250078-de",
     "ch-parliament-business-de:20237858-de",
     "ch-parliament-business-de:20237657-de",
     "ch-parliament-business-de:20237608-de",
@@ -42,7 +42,6 @@
     "ch-parliament-business-de:20213363-de",
     "ch-parliament-business-de:20213364-de",
     "ch-parliament-business-de:20212004-de",
-    "ch-parliament-business-de:20250078-de",
     "ch-parliament-business-de:20254144-de",
     "ch-parliament-business-de:20254071-de",
     "ch-parliament-business-de:20253976-de",
@@ -63,10 +62,11 @@
     "ch-parliament-business-de:20212027-de",
     "ch-parliament-business-de:20213703-de",
     "ch-parliament-business-de:20254487-de",
+    "ch-parliament-business-de:20254697-de",
     "ch-parliament-business-de:20253733-de",
     "ch-parliament-business-de:20240089-de",
+    "ch-parliament-business-de:20210426-de",
     "ch-parliament-business-de:20250404-de",
-    "ch-parliament-business-de:20254697-de",
     "ch-parliament-business-fr:20240331-fr"
   ]
 }
