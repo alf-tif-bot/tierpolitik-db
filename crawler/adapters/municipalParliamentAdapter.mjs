@@ -46,6 +46,18 @@ const detectStatusHint = (text = '') => {
   return null
 }
 
+const classifyMunicipalEntry = (text = '') => {
+  const low = String(text).toLowerCase()
+  if (low.includes('interpellation')) return 'Interpellation'
+  if (low.includes('postulat')) return 'Postulat'
+  if (low.includes('motion')) return 'Motion'
+  if (low.includes('anfrage')) return 'Anfrage'
+  if (low.includes('vorstoss') || low.includes('vorstösse')) return 'Vorstösse'
+  if (low.includes('antwort')) return 'Antworten auf Anfragen'
+  if (low.includes('kommission')) return 'Kommissionsgeschäft'
+  return 'Parlamentsgeschäft'
+}
+
 const scoreLink = (href = '', text = '') => {
   const low = `${href} ${text}`.toLowerCase()
   const motionHits = MOTION_KEYWORDS.reduce((acc, kw) => (low.includes(kw) ? acc + 1 : acc), 0)
@@ -135,14 +147,15 @@ export function createMunicipalParliamentAdapter() {
             for (const [index, link] of links.entries()) {
               const inferredTitle = link.text || `${parliament} Geschäft ${index + 1}`
               const externalId = `municipal-${cityId}-${hashId(link.href)}`
+              const entryType = classifyMunicipalEntry(inferredTitle)
 
               rows.push({
                 sourceId: source.id,
                 sourceUrl: response.url,
                 externalId,
-                title: `${parliament}: ${inferredTitle}`.slice(0, 260),
-                summary: `Kommunalparlament-Quelle ${municipalityName}: ${inferredTitle} · potenziell tierschutzrelevant`.slice(0, 300),
-                body: `${inferredTitle}\nQuelle: ${link.href}\nScreening-Hinweis: potenzieller Tierschutz-Vorstoss auf Gemeindeebene.`,
+                title: `${municipalityName} · ${entryType}: ${inferredTitle}`.slice(0, 260),
+                summary: `Gemeinde ${municipalityName} (${parliament}) · ${entryType} · potenziell tierschutzrelevant`.slice(0, 300),
+                body: `Titel: ${inferredTitle}\nTyp: ${entryType}\nQuelle: ${link.href}\nScreening-Hinweis: potenzieller Tierschutz-Vorstoss auf Gemeindeebene.`,
                 publishedAt: fetchedAt,
                 fetchedAt,
                 language,

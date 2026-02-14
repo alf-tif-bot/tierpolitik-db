@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-02-14T13:17:09.665Z",
-  "total": 100,
+  "generatedAt": "2026-02-14T13:27:34.539Z",
+  "total": 101,
   "ids": [
     "ch-parliament-business-de:20210044-de",
     "ch-parliament-business-de:20254747-de",
@@ -20,6 +20,7 @@
     "ch-cantonal-portal-core:cantonal-portal-zg",
     "ch-cantonal-portal-core:cantonal-portal-zh",
     "ch-parliament-business-de:20254860-de",
+    "ch-cantonal-portal-core:cantonal-portal-fr",
     "ch-parliament-business-de:20240436-de",
     "ch-parliament-business-de:20223300-de",
     "ch-parliament-business-de:20223210-de",

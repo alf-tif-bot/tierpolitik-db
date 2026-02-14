@@ -2894,5 +2894,9 @@
   "ch-parliament-business-de:20244465": {
     "status": "approved",
     "decidedAt": "2026-02-14T10:35:34.511Z"
+  },
+  "ch-municipal-parliament-bern-zurich:municipal-bern-1c6dc829b4ba": {
+    "status": "rejected",
+    "decidedAt": "2026-02-14T13:25:18.672Z"
   }
 }

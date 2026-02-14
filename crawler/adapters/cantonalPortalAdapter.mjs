@@ -161,12 +161,14 @@ export function createCantonalPortalAdapter() {
           const pageText = stripTags(html).slice(0, 5000)
           const language = pickLanguage(canton, pageText)
 
+          const topLink = links[0]?.text || 'Parlamentsgeschäfte'
+
           rows.push({
             sourceId: source.id,
             sourceUrl: response.url,
             externalId: `cantonal-portal-${canton.toLowerCase()}`,
-            title: `${entry.parliament}: Portal-Parsing`,
-            summary: `${title} – ${links.length} relevante Linkziele erkannt`,
+            title: `${canton} · ${entry.parliament}: ${topLink}`.slice(0, 260),
+            summary: `${title} – ${links.length} relevante Linkziele erkannt (Leitlink: ${topLink})`.slice(0, 300),
             body: links.length
               ? links.map((l, idx) => `${idx + 1}. ${l.text || 'Ohne Titel'} – ${l.href}`).join('\n')
               : `Portal erreichbar (${response.url}), aber noch ohne extrahierte Vorstoss-Links.`,
