@@ -36,8 +36,14 @@
     "summary": "Parlamentsgeschäft 20210044",
     "sourceId": "ch-parliament-business-fr",
     "publishedAt": "2026-02-13T23:06:02.214Z",
-    "score": 0,
-    "matchedKeywords": []
+    "score": 0.8,
+    "matchedKeywords": [
+      "tiere",
+      "massentierhaltung",
+      "massentier",
+      "landwirtschaft",
+      "botschaft"
+    ]
   },
   {
     "id": "ch-parliament-business-fr:20240331-fr",
@@ -83,6 +89,7 @@
     "matchedKeywords": [
       "landwirtschaft",
       "agriculture",
+      "agricoltura",
       "nutrition"
     ]
   },
