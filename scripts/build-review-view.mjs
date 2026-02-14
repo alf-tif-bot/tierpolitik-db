@@ -413,6 +413,8 @@ function updateStatusSummary(){
 function hideDecidedRows(){
   const decisions = read();
   const rows = [...document.querySelectorAll('tr[data-id]')]
+  const decidedById = {}
+
   rows.forEach((row)=>{
     const id = row.getAttribute('data-id');
     if (!id) return
@@ -420,8 +422,16 @@ function hideDecidedRows(){
     const serverDecided = status !== 'queued' && status !== 'new'
     const localDecided = Boolean(decisions[id])
     const decided = serverDecided || localDecided
+    decidedById[id] = decided
     row.style.display = (!showDecided && decided) ? 'none' : ''
   });
+
+  document.querySelectorAll('.fastlane-card[data-id]').forEach((card)=>{
+    const id = card.getAttribute('data-id')
+    if (!id) return
+    const decided = Boolean(decidedById[id]) || Boolean(decisions[id])
+    card.style.display = decided ? 'none' : ''
+  })
 
   const btn = document.getElementById('toggle-decided')
   if (btn) btn.textContent = showDecided ? 'Bearbeitete ausblenden' : 'Bereits bearbeitete anzeigen'
