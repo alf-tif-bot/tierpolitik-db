@@ -86,7 +86,8 @@ const classifyReadiness = ({ url = '', platform = 'generic-site', ok = false, ht
   const hasSearchOrAffairPathForUrl = hasSearchOrAffairPath(u)
 
   if (!ok || platform === 'waf-challenge') {
-    if (httpStatus === 403 || httpStatus === 429 || platform === 'waf-challenge') return 'blocked-needs-manual'
+    if (httpStatus === 429 && (hasParliamentSignals || hasParliamentHint || platform === 'parliament-portal')) return 'site-discovery-needed'
+    if (httpStatus === 403 || platform === 'waf-challenge') return 'blocked-needs-manual'
     return 'unreachable-needs-manual'
   }
   if (platform === 'ratsinfo' || platform === 'allris/sessionnet') return 'adapter-ready-likely'
@@ -120,6 +121,7 @@ const buildCandidates = (entry) => {
     'parlament',
     'kantonsrat',
     'landrat',
+    'behoerden/kantonsrat.html',
   ]
 
   const heuristics = [
@@ -170,8 +172,8 @@ const probeSource = async (url) => {
 
 const probeQuality = (probe) => {
   if (!probe.ok) {
-    if (probe.httpStatus === 403 || probe.httpStatus === 429) return 1
-    return 0
+    if (probe.httpStatus === 403 || probe.httpStatus === 429) return probe.hasParliamentSignals ? 2 : 1
+    return probe.hasParliamentSignals ? 1 : 0
   }
   let score = 5
   if (probe.platform === 'ratsinfo' || probe.platform === 'allris/sessionnet') score += 4
@@ -229,12 +231,13 @@ const sourceRows = await Promise.all(cantons.map(async (entry) => {
     url: entry.url,
   }
 
+  const hasAnyParliamentSignals = probes.some((p) => p.hasParliamentSignals)
   const readiness = classifyReadiness({
     url: bestProbe.finalUrl || entry.url,
     platform: bestProbe.platform,
     ok: bestProbe.ok,
     httpStatus: bestProbe.httpStatus,
-    hasParliamentSignals: bestProbe.hasParliamentSignals,
+    hasParliamentSignals: bestProbe.hasParliamentSignals || hasAnyParliamentSignals,
   })
 
   return {

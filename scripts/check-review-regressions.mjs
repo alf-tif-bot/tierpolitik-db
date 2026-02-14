@@ -4,11 +4,13 @@ const dbPath = new URL('../data/crawler-db.json', import.meta.url)
 const reviewItemsPath = new URL('../data/review-items.json', import.meta.url)
 const motionsPath = new URL('../data/vorstoesse.json', import.meta.url)
 const reviewDecisionsPath = new URL('../data/review-decisions.json', import.meta.url)
+const publishedPath = new URL('../data/crawler-published.json', import.meta.url)
 
 const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
 const review = fs.existsSync(reviewItemsPath) ? JSON.parse(fs.readFileSync(reviewItemsPath, 'utf8')) : { ids: [] }
 const motions = fs.existsSync(motionsPath) ? JSON.parse(fs.readFileSync(motionsPath, 'utf8')) : []
 const reviewDecisions = fs.existsSync(reviewDecisionsPath) ? JSON.parse(fs.readFileSync(reviewDecisionsPath, 'utf8')) : {}
+const published = fs.existsSync(publishedPath) ? JSON.parse(fs.readFileSync(publishedPath, 'utf8')) : []
 
 const FIVE_YEARS_MS = 1000 * 60 * 60 * 24 * 365 * 5
 const cutoffTs = Date.now() - FIVE_YEARS_MS
@@ -31,7 +33,7 @@ const dbItemsById = new Map((db.items || []).map((item) => [itemId(item), item])
 
 const isReviewSource = (sourceId = '') => {
   const sid = String(sourceId || '')
-  return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-')
+  return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-') || sid === 'user-input'
 }
 
 const isMunicipalOverviewNoise = (item) => {
@@ -100,10 +102,10 @@ const duplicateReviewIds = reviewIdsList
   .filter((id, idx, arr) => arr.indexOf(id) === idx)
 
 const expectedPublishedAffairs = new Set(
-  (db.items || [])
-    .filter((item) => String(item.sourceId || '').startsWith('ch-parliament-'))
-    .filter((item) => ['approved', 'published'].includes(item.status))
-    .map((item) => String(item.affairId || item.externalId || '').split('-')[0]),
+  (published || [])
+    .filter((item) => String(item?.sourceId || '').startsWith('ch-parliament-'))
+    .map((item) => String(item?.affairId || item?.externalId || '').split('-')[0])
+    .filter(Boolean),
 )
 
 const actualMotionAffairs = new Set(
@@ -136,7 +138,7 @@ const decisionsStatusMismatch = Object.entries(reviewDecisions)
     const affairStatuses = isParliament ? affairStatusMap.get(affair) || new Set([dbStatus]) : new Set([dbStatus])
 
     if (decision?.status === 'approved') return ![...affairStatuses].some((s) => ['approved', 'published'].includes(s))
-    if (decision?.status === 'rejected') return ![...affairStatuses].every((s) => s === 'rejected')
+    if (decision?.status === 'rejected') return dbStatus !== 'rejected'
     if (decision?.status === 'queued') return ![...affairStatuses].some((s) => ['queued', 'approved', 'published'].includes(s))
     return false
   })

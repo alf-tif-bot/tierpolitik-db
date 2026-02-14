@@ -20,6 +20,8 @@ export const ANCHOR_KEYWORDS = [
   'élevage', 'elevage', 'allevamento', 'bestiame', 'viehhaltung', 'weidetier',
   'tierrechte', 'droits des animaux', 'diritti degli animali',
   'maltraitance animale', 'detention des animaux', 'detenzione di animali',
+  'herdenschutz', 'wildtierkorridor', 'faune sauvage', 'fauna selvatica',
+  'jagdbann', 'wildruhezone', 'fischsterben', 'amphibien',
 ]
 
 const SUPPORT_KEYWORDS = [
@@ -367,7 +369,7 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     const isRelevant = !noisyWithoutAnchor && !negativeFeedbackOnly && !weakAnchorBlocked && (
       (hasAnchor && (adjustedScore >= minScore || (anchorMatches.length >= 2 && hasSupport)))
       || (hasContextual && (hasAnchor || hasSupport) && adjustedScore >= Math.max(0.26, minScore - 0.06))
-      || (supportStrong && adjustedScore >= Math.max(0.5, minScore + 0.08))
+      || (supportStrong && !supportIsProcessOnly && adjustedScore >= Math.max(0.5, minScore + 0.08))
       || (hasWhitelistedPerson && (hasAnchor || hasSupport || hasContextual) && adjustedScore >= Math.max(0.14, minScore - 0.04))
       || recallByFeedback
     )
