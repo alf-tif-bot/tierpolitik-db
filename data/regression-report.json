@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-14T08:38:36.828Z",
+  "generatedAt": "2026-02-14T09:47:25.614Z",
   "expectedReview": 66,
   "actualReview": 66,
   "missingInReviewCount": 0,
@@ -12,9 +12,9 @@
   "actualMotions": 8,
   "missingInMotionsCount": 0,
   "missingInMotions": [],
-  "reviewDecisionsCount": 691,
-  "decisionsUnknownInDbCount": 24,
-  "decisionsUnknownLegacyCount": 24,
+  "reviewDecisionsCount": 698,
+  "decisionsUnknownInDbCount": 31,
+  "decisionsUnknownLegacyCount": 31,
   "decisionsUnknownCriticalCount": 0,
   "decisionsUnknownInDb": [
     "ch-parliament-business-de:20213835",
@@ -40,7 +40,14 @@
     "ch-parliament-business-de:20218163",
     "ch-parliament-business-de:20218162",
     "ch-parliament-business-de:20223633",
-    "ch-parliament-business-de:20254788"
+    "ch-parliament-business-de:20254788",
+    "ch-parliament-business-de:20250078",
+    "ch-parliament-business-de:20233515",
+    "ch-parliament-business-de:20237115",
+    "ch-parliament-business-de:20227807",
+    "ch-parliament-business-de:20258205",
+    "ch-parliament-business-de:20244696",
+    "ch-parliament-business-de:20244695"
   ],
   "decisionsStatusMismatchCount": 0,
   "decisionsStatusMismatch": []

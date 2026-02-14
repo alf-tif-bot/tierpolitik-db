@@ -1,1 +1,38 @@
-{}
+{
+  "ch-parliament-business-de:20250078-de": {
+    "fastlane": true,
+    "taggedAt": "2026-02-14T08:25:12.936Z"
+  },
+  "ch-parliament-business-de:20213835-de": {
+    "fastlane": true,
+    "taggedAt": "2026-02-14T08:25:24.389Z"
+  },
+  "ch-parliament-business-de:20213405-de": {
+    "fastlane": true,
+    "taggedAt": "2026-02-14T08:25:32.546Z"
+  },
+  "ch-parliament-business-de:20233515-de": {
+    "fastlane": true,
+    "taggedAt": "2026-02-14T08:25:44.286Z"
+  },
+  "ch-parliament-business-de:20237115-de": {
+    "fastlane": true,
+    "taggedAt": "2026-02-14T08:25:54.185Z"
+  },
+  "ch-parliament-business-de:20227807-de": {
+    "fastlane": true,
+    "taggedAt": "2026-02-14T08:26:08.828Z"
+  },
+  "ch-parliament-business-de:20258205-de": {
+    "fastlane": true,
+    "taggedAt": "2026-02-14T08:26:27.637Z"
+  },
+  "ch-parliament-business-de:20244696-de": {
+    "fastlane": true,
+    "taggedAt": "2026-02-14T08:28:00.545Z"
+  },
+  "ch-parliament-business-de:20244695-de": {
+    "fastlane": true,
+    "taggedAt": "2026-02-14T08:28:13.450Z"
+  }
+}

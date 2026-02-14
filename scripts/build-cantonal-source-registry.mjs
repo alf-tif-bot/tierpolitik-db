@@ -4,14 +4,22 @@ const cantonsPath = new URL('../crawler/config.cantonal-sources.json', import.me
 const outPath = new URL('../data/cantonal-source-registry.json', import.meta.url)
 
 const cantons = JSON.parse(fs.readFileSync(cantonsPath, 'utf8'))
+const PROBE_CANDIDATE_LIMIT = Math.max(3, Number(process.env.CANTON_PROBE_CANDIDATE_LIMIT || 8))
 
 const PARLIAMENT_URL_HINTS = [
   '/objets-parlementaires',
   '/interventions-parlementaires',
   '/objets-et-rapports-de-commissions',
+  '/objets-du-conseil',
   '/recherche-objets',
   '/ricerca-messaggi-e-atti',
+  '/geschaefte',
+  '/vorstoesse',
+  '/kantonsrat',
+  '/landrat',
+  '/grand-conseil',
   '/grandconseil/',
+  '/parlinfo',
 ]
 
 const detectPlatform = (url = '', html = '') => {
@@ -22,7 +30,19 @@ const detectPlatform = (url = '', html = '') => {
   if (u.includes('parlinfo') || h.includes('parlinfo') || u.includes('/grweb/')) return 'parliament-portal'
   if (u.includes('aio') || h.includes('allris') || h.includes('sessionnet')) return 'allris/sessionnet'
   if (PARLIAMENT_URL_HINTS.some((hint) => u.includes(hint))) return 'parliament-portal'
-  if (h.includes('traktanden') || h.includes('geschaefte') || h.includes('vorstoesse') || h.includes('objets parlementaires')) return 'parliament-portal'
+  if (
+    h.includes('traktanden')
+    || h.includes('geschaefte')
+    || h.includes('geschäfte')
+    || h.includes('vorstoesse')
+    || h.includes('vorstösse')
+    || h.includes('objets parlementaires')
+    || h.includes('objets du conseil')
+    || h.includes('grand conseil')
+    || h.includes('kantonsrat')
+    || h.includes('landrat')
+    || h.includes('grosser rat')
+  ) return 'parliament-portal'
   if (h.includes('drupal')) return 'drupal-site'
   if (h.includes('typo3')) return 'typo3-site'
   if (h.includes('wordpress')) return 'wordpress-site'
@@ -64,13 +84,23 @@ const buildCandidates = (entry) => {
     ? base.replace('https://www.', 'https://')
     : (base.startsWith('https://') ? base.replace('https://', 'https://www.') : base)
 
+  const pathHints = [
+    'parlament',
+    'kantonsrat',
+    'landrat',
+    'grosser-rat',
+    'grand-conseil',
+    'objets-parlementaires',
+    'interventions-parlementaires',
+    'geschaefte',
+    'vorstoesse',
+  ]
+
   const heuristics = [
     base,
     alternateHost,
-    `${base}/parlament`,
-    `${base}/kantonsrat`,
-    `${base}/grand-conseil`,
-    `${alternateHost}/parlament`,
+    ...pathHints.map((hint) => `${base}/${hint}`),
+    ...pathHints.map((hint) => `${alternateHost}/${hint}`),
   ]
 
   return [...new Set([...configured, ...heuristics].filter(Boolean))]
@@ -122,7 +152,7 @@ const selectBestProbe = (probes) => {
 const sourceRows = await Promise.all(cantons.map(async (entry) => {
   const candidates = buildCandidates(entry)
   const probes = []
-  for (const candidateUrl of candidates.slice(0, 3)) {
+  for (const candidateUrl of candidates.slice(0, PROBE_CANDIDATE_LIMIT)) {
     const probe = await probeSource(candidateUrl)
     probes.push({ ...probe, url: candidateUrl })
     if (probe.ok && ['ratsinfo', 'allris/sessionnet', 'parliament-portal'].includes(probe.platform)) break
@@ -210,4 +240,5 @@ console.log('Cantonal source registry built', {
   outPath: outPath.pathname,
   totalCantons: registry.coverage.totalCantons,
   byReadiness,
+  probeCandidateLimit: PROBE_CANDIDATE_LIMIT,
 })

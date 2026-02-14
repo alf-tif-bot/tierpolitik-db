@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-14T08:38:22.183Z",
+  "generatedAt": "2026-02-14T09:47:08.218Z",
   "registry": {
     "total": 3,
     "enabled": 3,
@@ -10,15 +10,15 @@
     }
   },
   "runtime": {
-    "collectConcurrency": 3,
-    "collectTimeoutMs": 15000
+    "collectConcurrency": 8,
+    "collectTimeoutMs": 8000
   },
   "sourceStats": [
     {
       "sourceId": "ch-cantonal-portal-priority-v2",
       "ok": true,
       "fetched": 10,
-      "durationMs": 2371
+      "durationMs": 2390
     },
     {
       "sourceId": "ch-cantons-registry-v2",
@@ -29,8 +29,8 @@
     {
       "sourceId": "ch-parliament-affairs-v2",
       "ok": false,
-      "reason": "Adapter timeout after 15000ms",
-      "durationMs": 15038,
+      "reason": "Adapter timeout after 8000ms",
+      "durationMs": 8039,
       "fetched": 0
     }
   ],
@@ -44,7 +44,7 @@
       "summary": "Scaffold für AG. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Aargau (https://www.ag.ch/de/grosser-rat). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -72,7 +72,7 @@
       "summary": "Scaffold für AI. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Appenzell Innerrhoden (https://www.ai.ch/politik/grosser-rat). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -100,7 +100,7 @@
       "summary": "Scaffold für AR. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Appenzell Ausserrhoden (https://ar.ch/kantonsrat/parlamentsdienst/). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -128,7 +128,7 @@
       "summary": "Scaffold für BE. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Bern (https://www.parlament.be.ch). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -156,7 +156,7 @@
       "summary": "Scaffold für BL. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Landrat Basel-Landschaft (https://www.baselland.ch/politik-und-behorden/landrat-parlament). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -184,7 +184,7 @@
       "summary": "Scaffold für BS. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Basel-Stadt (https://www.grosserrat.bs.ch). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -212,7 +212,7 @@
       "summary": "Scaffold für FR. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grand Conseil Fribourg (https://www.fr.ch/parlinfo/membres-du-grand-conseil). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -240,7 +240,7 @@
       "summary": "Scaffold für GE. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grand Conseil Genève (https://ge.ch/grandconseil/objets-parlementaires). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -268,7 +268,7 @@
       "summary": "Scaffold für GL. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Landrat Glarus (https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -296,7 +296,7 @@
       "summary": "Scaffold für GR. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Graubünden (https://www.gr.ch/DE/institutionen/parlament). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -324,7 +324,7 @@
       "summary": "Scaffold für JU. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Parlement jurassien (https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -352,7 +352,7 @@
       "summary": "Scaffold für LU. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Luzern (https://www.lu.ch/kr). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -380,7 +380,7 @@
       "summary": "Scaffold für NE. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grand Conseil Neuchâtel (https://www.ne.ch/autorites/GC). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -408,7 +408,7 @@
       "summary": "Scaffold für NW. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Landrat Nidwalden (https://www.nw.ch/landrat). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -436,7 +436,7 @@
       "summary": "Scaffold für OW. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Obwalden (https://www.ow.ch/kantonsrat). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -464,7 +464,7 @@
       "summary": "Scaffold für SG. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat St. Gallen (https://www.ratsinfo.sg.ch). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -492,7 +492,7 @@
       "summary": "Scaffold für SH. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Schaffhausen (https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -520,7 +520,7 @@
       "summary": "Scaffold für SO. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Solothurn (https://so.ch/parlament). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -548,7 +548,7 @@
       "summary": "Scaffold für SZ. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Schwyz (https://www.sz.ch/parlament). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -576,7 +576,7 @@
       "summary": "Scaffold für TG. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Thurgau (https://grosserrat.tg.ch). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -604,7 +604,7 @@
       "summary": "Scaffold für TI. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Gran Consiglio Ticino (https://www4.ti.ch/poteri/gc/home). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -632,7 +632,7 @@
       "summary": "Scaffold für UR. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Landrat Uri (https://www.ur.ch/landrat). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -660,7 +660,7 @@
       "summary": "Scaffold für VD. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grand Conseil Vaud (https://www.vd.ch/gc/). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -688,7 +688,7 @@
       "summary": "Scaffold für VS. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grand Conseil Valais (https://www.vs.ch/fr/web/gc/objets-parlementaires). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -716,7 +716,7 @@
       "summary": "Scaffold für ZG. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Zug (https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -744,7 +744,7 @@
       "summary": "Scaffold für ZH. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Zürich (https://www.kantonsrat.zh.ch). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T08:38:07.155Z",
+      "fetchedAt": "2026-02-14T09:47:00.190Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -771,8 +771,8 @@
       "title": "Grosser Rat Aargau: Portal-Parsing",
       "summary": "Geschäfte - Kanton Aargau – 6 relevante Linkziele erkannt",
       "body": "1. Parlamentarischer Vorstoss – https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte#Njc2NTI1Mg\n2. Direkt zum Inhalt springen – https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte#main\n3. Sachvorlage – https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte#Njc2NTI1NA\n4. Kontakt – https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte#footer\n5. Karte – https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte#tabs__panel--124678--0\n6. Webseite – https://www.ag.ch/de/grosser-rat",
-      "publishedAt": "2026-02-14T08:38:07.156Z",
-      "fetchedAt": "2026-02-14T08:38:07.156Z",
+      "publishedAt": "2026-02-14T09:47:00.191Z",
+      "fetchedAt": "2026-02-14T09:47:00.191Z",
       "language": "de",
       "score": 0.7000000000000001,
       "matchedKeywords": [
@@ -831,8 +831,8 @@
       "title": "Kantonsrat Appenzell Ausserrhoden: Portal-Parsing",
       "summary": "Kantonsrat - Appenzell Ausserrhoden – 10 relevante Linkziele erkannt",
       "body": "1. Parlamentarische Vorstösse – https://ar.ch/kantonsrat/parlamentarische-vorstoesse/\n2. Hauptnavigation – https://ar.ch/kantonsrat#MainNavigation\n3. Inhalt – https://ar.ch/kantonsrat#Content\n4. Metanavigation – https://ar.ch/kantonsrat#MetaNavigation\n5. Drucken – https://ar.ch/kantonsrat#\n6. Kantonsrat – https://ar.ch/kantonsrat/\n7. Mitglieder des Kantonsrates – https://ar.ch/kantonsrat/mitglieder-des-kantonsrates/\n8. Kantonsratspräsidium – https://ar.ch/kantonsrat/kantonsratspraesidium/\n9. Büro des Kantonsrates – https://ar.ch/kantonsrat/buero-des-kantonsrates/\n10. Sitzungen – https://ar.ch/kantonsrat/buero-des-kantonsrates/sitzungen/",
-      "publishedAt": "2026-02-14T08:38:07.156Z",
-      "fetchedAt": "2026-02-14T08:38:07.156Z",
+      "publishedAt": "2026-02-14T09:47:00.191Z",
+      "fetchedAt": "2026-02-14T09:47:00.191Z",
       "language": "de",
       "score": 0.85,
       "matchedKeywords": [
@@ -910,8 +910,8 @@
       "title": "Grand Conseil Fribourg: Portal-Parsing",
       "summary": "Programmes et dates des sessions du Grand Conseil | Parlinfo – 7 relevante Linkziele erkannt",
       "body": "1. Navigation – https://www.fr.ch/parlinfo/programmes-et-dates-des-sessions-du-grand-conseil#nav\n2. Contenu – https://www.fr.ch/parlinfo/programmes-et-dates-des-sessions-du-grand-conseil#main\n3. Présidence – https://www.fr.ch/parlinfo/presidence-du-grand-conseil\n4. Membres du Grand Conseil – https://www.fr.ch/parlinfo/membres-du-grand-conseil\n5. Anciens membres – https://www.fr.ch/parlinfo/anciens-membres-du-grand-conseil\n6. Bureau du Grand Conseil – https://www.fr.ch/parlinfo/bureau-du-grand-conseil\n7. Français (Langue active) – https://www.fr.ch/parlinfo/programmes-et-dates-des-sessions-du-grand-conseil",
-      "publishedAt": "2026-02-14T08:38:07.156Z",
-      "fetchedAt": "2026-02-14T08:38:07.156Z",
+      "publishedAt": "2026-02-14T09:47:00.191Z",
+      "fetchedAt": "2026-02-14T09:47:00.191Z",
       "language": "fr",
       "score": 0.75,
       "matchedKeywords": [
@@ -973,8 +973,8 @@
       "title": "Grand Conseil Genève: Portal-Parsing",
       "summary": "Grand Conseil Genève – 10 relevante Linkziele erkannt",
       "body": "1. Recherche objets parlementaires – https://ge.ch/grandconseil/recherche-objets\n2. Recherche avancée – https://ge.ch/grandconseil/memorial/recherche/\n3. Dossiers thématiques – https://ge.ch/grandconseil/memorial/dossiers/\n4. Recherche Grand Conseil – https://ge.ch/grandconseil/search\n5. Accueil – https://ge.ch/grandconseil\n6. Membres – https://ge.ch/grandconseil/secretariat/collaborateurs/#direction\n7. Conditions d'utilisation – https://ge.ch/grandconseil/divers/conditions/\n8. Parlement cantonal – https://ge.ch/grandconseil/gc/parlement/\n9. Présidence et Bureau – https://ge.ch/grandconseil/gc/presidence/\n10. Membres – https://ge.ch/grandconseil/gc/deputes/partis/",
-      "publishedAt": "2026-02-14T08:38:07.156Z",
-      "fetchedAt": "2026-02-14T08:38:07.156Z",
+      "publishedAt": "2026-02-14T09:47:00.191Z",
+      "fetchedAt": "2026-02-14T09:47:00.191Z",
       "language": "fr",
       "score": 0.85,
       "matchedKeywords": [
@@ -1054,8 +1054,8 @@
       "title": "Landrat Glarus: Portal-Parsing",
       "summary": "Aktuelle Geschäfte – Kanton Glarus – 10 relevante Linkziele erkannt",
       "body": "1. Aktuelle Geschäfte – https://www.gl.ch/parlament/landrat/geschaefte/aktuelle-geschaefte.html/241\n2. Vorstösse – https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248\n3. Geschäfte – https://www.gl.ch/parlament/landrat/geschaefte.html/249\n4. Navigation – https://www.gl.ch/parlament/landrat/geschaefte/aktuelle-geschaefte.html/241#mainnav\n5. Inhalt – https://www.gl.ch/parlament/landrat/geschaefte/aktuelle-geschaefte.html/241#main\n6. Suche – https://www.gl.ch/parlament/landrat/geschaefte/aktuelle-geschaefte.html/241#search-input\n7. Landrat – https://www.gl.ch/parlament/landrat.html/250\n8. Archiv – https://www.gl.ch/parlament/landrat/geschaefte/archiv.html/242\n9. Link kopieren – https://www.gl.ch/parlament/landrat/geschaefte/aktuelle-geschaefte.html/govisShortLink_raw\n10. Facebook – https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.gl.ch%2Fparlament%2Flandrat%2Fgeschaefte%2Faktuelle-geschaefte.html%2F241&amp;t=Aktuelle+Gesch%C3%A4fte",
-      "publishedAt": "2026-02-14T08:38:07.156Z",
-      "fetchedAt": "2026-02-14T08:38:07.156Z",
+      "publishedAt": "2026-02-14T09:47:00.191Z",
+      "fetchedAt": "2026-02-14T09:47:00.191Z",
       "language": "de",
       "score": 0.85,
       "matchedKeywords": [
@@ -1135,8 +1135,8 @@
       "title": "Parlement jurassien: Portal-Parsing",
       "summary": "Motions - République et Canton du Jura – 10 relevante Linkziele erkannt",
       "body": "1. Sauter la navigation – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions/Motions.html#accesrapide\n2. Accepter – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions/Motions.html#\n3. Ohne Titel – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions/Motions.html#nav\n4. Motions – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions/Motions.html\n5. Postulats – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Postulats/Postulats.html\n6. Interpellations – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interpellations/Interpellations.html\n7. Questions écrites – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Questions-ecrites/Questions-ecrites.html\n8. Réponses aux questions écrites – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Reponses-aux-questions-ecrites.html\n9. Motions internes – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions-internes/Motions-internes.html\n10. Motions – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions.html",
-      "publishedAt": "2026-02-14T08:38:07.156Z",
-      "fetchedAt": "2026-02-14T08:38:07.156Z",
+      "publishedAt": "2026-02-14T09:47:00.191Z",
+      "fetchedAt": "2026-02-14T09:47:00.191Z",
       "language": "fr",
       "score": 0.85,
       "matchedKeywords": [
@@ -1218,8 +1218,8 @@
       "title": "Gran Consiglio Ticino: Portal-Parsing",
       "summary": "Risultati - GC (POTERI) - Repubblica e Cantone Ticino – 4 relevante Linkziele erkannt",
       "body": "1. Parlamento (Gran Consiglio) – https://www4.ti.ch/poteri/gc\n2. Ricerca messaggi e atti – https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati\n3. Definizioni atti parlamentari e Messaggio governativo – https://www4.ti.ch/fileadmin/POTERI/GC/definizioniGC.pdf\n4. Ricerca messaggi governativi e atti parlamentari – https://www4.ti.ch/index.php?id=83058",
-      "publishedAt": "2026-02-14T08:38:07.156Z",
-      "fetchedAt": "2026-02-14T08:38:07.156Z",
+      "publishedAt": "2026-02-14T09:47:00.191Z",
+      "fetchedAt": "2026-02-14T09:47:00.191Z",
       "language": "it",
       "score": 0.6000000000000001,
       "matchedKeywords": [
@@ -1268,8 +1268,8 @@
       "title": "Grand Conseil Vaud: Portal-Parsing",
       "summary": "Objets et rapports de commissions | État de Vaud – 9 relevante Linkziele erkannt",
       "body": "1. Liste des objets en attente de traitement par le Grand Conseil – https://www.vd.ch/gc/liste-des-objets-en-attente-de-traitement-par-le-grand-conseil\n2. Bulletin du Grand Conseil – https://www.vd.ch/toutes-les-autorites/grand-conseil/bulletin-du-grand-conseil\n3. Haut&nbsp; – https://www.vd.ch/gc/objets-et-rapports-de-commissions#main\n4. Accès au champ de recherche – https://www.vd.ch/gc/objets-et-rapports-de-commissions#search-form\n5. Liste des rapports de commissions – https://www.vd.ch/gc/objets-et-rapports-de-commissions/liste-des-rapports-de-commission\n6. Objets et rapports de commissions – https://www.vd.ch/gc/objets-et-rapports-de-commissions\n7. Grand Conseil – https://www.vd.ch/gc\n8. Listes des objets et commissions nommées – https://www.vd.ch/gc/liste-des-objets-et-commissions-nommees\n9. Linkedin – https://www.linkedin.com/company/grand-conseil-du-canton-de-vaud",
-      "publishedAt": "2026-02-14T08:38:07.156Z",
-      "fetchedAt": "2026-02-14T08:38:07.156Z",
+      "publishedAt": "2026-02-14T09:47:00.191Z",
+      "fetchedAt": "2026-02-14T09:47:00.191Z",
       "language": "fr",
       "score": 0.85,
       "matchedKeywords": [
@@ -1345,8 +1345,8 @@
       "title": "Grand Conseil Valais: Portal-Parsing",
       "summary": "Verifying your browser... – 2 relevante Linkziele erkannt",
       "body": "1. Objets parlementaires – https://www.vs.ch/fr/web/gc/objets-parlementaires\n2. Interventions parlementaires – https://www.vs.ch/fr/web/gc/interventions-parlementaires",
-      "publishedAt": "2026-02-14T08:38:07.156Z",
-      "fetchedAt": "2026-02-14T08:38:07.156Z",
+      "publishedAt": "2026-02-14T09:47:00.191Z",
+      "fetchedAt": "2026-02-14T09:47:00.191Z",
       "language": "fr",
       "score": 0.5,
       "matchedKeywords": [
@@ -1386,8 +1386,8 @@
       "title": "Kantonsrat Zug: Portal-Parsing",
       "summary": "Geschäfte des Kantonsrats – 10 relevante Linkziele erkannt",
       "body": "1. Deutsch – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats\n2. Kantonsratsgeschäfte – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats#Kantonsratsgeschaefte\n3. Übersicht über die Geschäfte des Kantonsrats – https://kr-geschaefte.zug.ch/gast/geschaefte\n4. Geschäfte des Regierungsrats Beschlüsse, Vernehmlassungen, Informationen, Strategie – https://zg.ch/de/staat-politik/geschaefte-des-regierungsrats\n5. Organisation – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats#\n6. Traktandenlisten – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats#Traktandenlisten\n7. Protokolle und Abstimmungsergebnisse – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats#ProtokolleundAbstimmungsergebnisse\n8. Sitzungen – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats#Sitzungen\n9. Sitzplan – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats#Sitzplan\n10. Parlament – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats#Parlament",
-      "publishedAt": "2026-02-14T08:38:07.156Z",
-      "fetchedAt": "2026-02-14T08:38:07.156Z",
+      "publishedAt": "2026-02-14T09:47:00.191Z",
+      "fetchedAt": "2026-02-14T09:47:00.191Z",
       "language": "de",
       "score": 0.85,
       "matchedKeywords": [

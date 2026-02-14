@@ -62,6 +62,7 @@
     "url": "https://www.fr.ch/parlinfo/membres-du-grand-conseil",
     "sinceYear": 2020,
     "urlCandidates": [
+      "https://www.fr.ch/parlinfo",
       "https://www.fr.ch/parlinfo/programmes-et-dates-des-sessions-du-grand-conseil"
     ]
   },
@@ -118,7 +119,10 @@
     "parliament": "Grand Conseil Neuchâtel",
     "adapter": "cantonRegistry",
     "url": "https://www.ne.ch/autorites/GC",
-    "sinceYear": 2020
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx"
+    ]
   },
   {
     "canton": "NW",
@@ -155,6 +159,7 @@
     "url": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html",
     "sinceYear": 2020,
     "urlCandidates": [
+      "https://sh.ratsinfomanagement.net",
       "https://www.sh.ch/parlament"
     ]
   },
