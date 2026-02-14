@@ -181,7 +181,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
                 const label = String(themesLocalized[index] || translateContent(theme, lang) || theme)
                 return (
                   <button key={theme} className="text-link-btn" onClick={() => onQuickFilter('thema', theme)}>
-                    {label.toUpperCase()}
+                    {label}
                   </button>
                 )
               })}
