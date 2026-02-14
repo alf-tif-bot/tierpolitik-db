@@ -11,7 +11,19 @@ import { validateVorstoesse, vorstossSchema, type Vorstoss } from './types'
 import { applyFilters, defaultFilters, type Filters } from './utils/filtering'
 import { clearHashId, getHashId, setHashId } from './utils/urlHash'
 
-const fallbackData = validateVorstoesse(rawData)
+const fallbackData = (() => {
+  try {
+    return validateVorstoesse(rawData)
+  } catch {
+    if (Array.isArray(rawData)) {
+      return rawData
+        .map((row) => vorstossSchema.safeParse(row))
+        .filter((r) => r.success)
+        .map((r) => r.data)
+    }
+    return []
+  }
+})()
 
 type ProfileState =
   | { kind: 'person'; value: string }

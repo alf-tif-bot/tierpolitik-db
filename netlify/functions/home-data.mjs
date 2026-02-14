@@ -266,6 +266,9 @@ export const handler = async () => {
         ? normalizedSummary
         : `Kurzüberblick: ${displayTitle || `Vorstoss ${index + 1}`} (${statusLabel}).`
 
+      const normalizedThemes = sanitizeThemes(Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierschutz'])
+      const baseThemes = (normalizedThemes.length ? normalizedThemes : ['Tierschutz']).slice(0, 6)
+
       return {
         id: `vp-${idSafe.toLowerCase()}`,
         titel: displayTitle || `Vorstoss ${index + 1}`,
@@ -278,7 +281,7 @@ export const handler = async () => {
         status: statusLabel,
         datumEingereicht: eingereicht,
         datumAktualisiert: updated,
-        themen: sanitizeThemes(Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierschutz']).slice(0, 6),
+        themen: baseThemes,
         schlagwoerter: (Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierpolitik']).slice(0, 8),
         einreichende: [inferSubmitter(sprache, displayTitle, displaySummary, displayBody)],
         linkGeschaeft: link,

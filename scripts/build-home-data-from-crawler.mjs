@@ -314,7 +314,8 @@ const vorstoesse = items.map((item, index) => {
   const summaryText = normalizedSummary.length >= 10
     ? normalizedSummary
     : `Kurzüberblick: ${displayTitle || `Vorstoss ${index + 1}`} (${status}).`
-  const baseThemes = sanitizeThemes(mapThemesFromKeywords(item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz'])).slice(0, 6)
+  const normalizedThemes = sanitizeThemes(mapThemesFromKeywords(item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz']))
+  const baseThemes = (normalizedThemes.length ? normalizedThemes : ['Tierschutz']).slice(0, 6)
   const i18nMeta = buildI18nFromItem(item, displayTitle || `Vorstoss ${index + 1}`, summaryText, typ, baseThemes)
 
   return {
