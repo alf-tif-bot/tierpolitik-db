@@ -183,6 +183,24 @@ const humanizeReason = (reason = '') => {
   return parts.length ? parts.join('') : esc(text)
 }
 
+const fastLaneItems = reviewItems.filter((item) => isHighConfidenceReview(item))
+
+const fastLaneRows = fastLaneItems.map((item) => {
+  const id = `${item.sourceId}:${item.externalId}`
+  const scoreValue = Number(item.score || 0)
+  return `<div class="fastlane-card" data-id="${esc(id)}">
+    <div class="fastlane-head">
+      <strong>${esc(item.title)}</strong>
+      <span class="fastlane-score">${scoreValue.toFixed(2)}</span>
+    </div>
+    <div class="fastlane-actions">
+      <button onclick="setDecision(this,'${esc(id)}','approved')">Approve</button>
+      <button onclick="setDecision(this,'${esc(id)}','rejected')">Reject</button>
+      <a class="orig-link" href="${esc(resolveOriginalUrl(item) || '#')}" target="_blank" rel="noopener noreferrer">Original</a>
+    </div>
+  </div>`
+}).join('')
+
 const rows = reviewItems.map((item) => {
   const fastLane = isHighConfidenceReview(item)
   const id = `${item.sourceId}:${item.externalId}`
@@ -198,7 +216,7 @@ const rows = reviewItems.map((item) => {
     : '<span class="muted">kein gültiger Link</span>'
 
   return `
-<tr data-id="${esc(id)}" data-status="${esc(item.status)}">
+<tr data-id="${esc(id)}" data-status="${esc(item.status)}" class="${fastLane ? 'row-fastlane' : ''}">
 <td>
   <strong>${esc(item.title)}</strong><br>
   <small>${esc(summarizeForReview(item))}</small><br>
@@ -247,6 +265,19 @@ const html = `<!doctype html>
   .pending{color:#f59e0b}
   .historic{color:#94a3b8}
   .fast-lane{color:#fbbf24;font-weight:700}
+  .row-fastlane td{background:rgba(251,191,36,.08)}
+  .fastlane-wrap{margin:12px 0 16px;padding:12px;border:1px solid #475569;border-radius:10px;background:#111827}
+  .fastlane-wrap h2{font-size:16px;margin:0 0 10px;color:#fde68a}
+  .fastlane-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}
+  .fastlane-card{border:1px solid #334155;border-radius:10px;padding:10px;background:#0b1220}
+  .fastlane-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+  .fastlane-score{font-weight:700;color:#fde68a}
+  .fastlane-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:8px}
+  @media (max-width: 760px){
+    body{padding:12px}
+    td,th{padding:8px;font-size:13px}
+    .fastlane-wrap{position:sticky;top:0;z-index:5}
+  }
 </style>
 </head>
 <body>
@@ -257,6 +288,10 @@ const html = `<!doctype html>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
     <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="toggleDecided()" id="toggle-decided">Bereits bearbeitete anzeigen</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
+    <section class="fastlane-wrap">
+      <h2>⚡ Fast-Lane (mobil zuerst sichtbar, 1-Klick-Freigabe)</h2>
+      <div class="fastlane-grid">${fastLaneRows || '<span class="muted">Aktuell keine Fast-Lane-Treffer.</span>'}</div>
+    </section>
     <table>
       <thead>
         <tr>
@@ -358,12 +393,15 @@ async function setDecision(btn,id,status){
   s[id]={status,decidedAt};
   write(s);
 
-  const row = btn?.closest('tr[data-id]');
+  const row = document.querySelector('tr[data-id="' + id + '"]');
   if (row) {
     row.setAttribute('data-status', status)
     row.style.opacity = '0.72'
     if (!showDecided) row.style.display='none'
   }
+
+  const card = document.querySelector('.fastlane-card[data-id="' + id + '"]');
+  if (card) card.style.display = 'none'
   updateStatusSummary();
   if (statusEl) statusEl.textContent = 'Entscheidung gespeichert.';
 }
