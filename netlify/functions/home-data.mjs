@@ -68,6 +68,14 @@ const langRank = (lang = 'de') => {
   return 3
 }
 
+const typeLabels = {
+  Volksinitiative: { de: 'Volksinitiative', fr: 'Initiative populaire', it: 'Iniziativa popolare', en: 'Popular initiative' },
+  Interpellation: { de: 'Interpellation', fr: 'Interpellation', it: 'Interpellanza', en: 'Interpellation' },
+  Motion: { de: 'Motion', fr: 'Motion', it: 'Mozione', en: 'Motion' },
+  Postulat: { de: 'Postulat', fr: 'Postulat', it: 'Postulato', en: 'Postulate' },
+  Anfrage: { de: 'Anfrage', fr: 'Question', it: 'Interrogazione', en: 'Question' },
+}
+
 const inferYearFromBusiness = (title = '', externalId = '') => {
   const titleMatch = String(title || '').match(/^\s*(\d{2})\.(\d{2,4})\b/)
   if (titleMatch?.[1]) {
@@ -241,6 +249,21 @@ export const handler = async () => {
       if (!deByAffair.has(affairId)) deByAffair.set(affairId, row)
     }
 
+    const variantsByAffair = new Map()
+    for (const row of rows) {
+      const affairId = String(row.external_id || '').split('-')[0]
+      if (!affairId) continue
+      const lang = langFromSource(row.source_id)
+      const prevAffair = variantsByAffair.get(affairId) || {}
+      const prev = prevAffair[lang]
+      const prevTs = new Date(prev?.fetched_at || prev?.published_at || 0).getTime()
+      const curTs = new Date(row.fetched_at || row.published_at || 0).getTime()
+      if (!prev || curTs >= prevTs) {
+        prevAffair[lang] = row
+        variantsByAffair.set(affairId, prevAffair)
+      }
+    }
+
     const grouped = new Map()
     for (const row of rows) {
       const affairId = String(row.external_id || '').split('-')[0]
@@ -297,6 +320,30 @@ export const handler = async () => {
 
       if (!clean(displayTitle)) return null
 
+      const i18nOut = {
+        title: { de: clean(displayTitle) },
+        summary: { de: summaryText },
+        type: { de: typeLabels[typ]?.de || typ },
+        themes: { de: baseThemes },
+      }
+      const affairVariants = variantsByAffair.get(affairId) || {}
+      for (const [lang, variant] of Object.entries(affairVariants)) {
+        const l = ['de', 'fr', 'it', 'en'].includes(lang) ? lang : 'de'
+        const vTitle = clean(variant?.title || '')
+        const vSummaryRaw = summarizeVorstoss({
+          title: variant?.title || displayTitle,
+          summary: variant?.summary || '',
+          body: variant?.body || '',
+          status: variant?.status || r.status,
+        })
+        const vSummary = clean(vSummaryRaw || summaryText)
+        const vType = inferType(vTitle || displayTitle, variant?.source_id || r.source_id || '')
+        if (vTitle) i18nOut.title[l] = vTitle
+        if (vSummary) i18nOut.summary[l] = vSummary
+        i18nOut.type[l] = typeLabels[vType]?.[l] || typeLabels[typ]?.[l] || vType
+        i18nOut.themes[l] = baseThemes
+      }
+
       return {
         id: `vp-${idSafe.toLowerCase()}`,
         titel: clean(displayTitle),
@@ -315,7 +362,7 @@ export const handler = async () => {
         linkGeschaeft: link,
         resultate: [{ datum: eingereicht, status: statusLabel, bemerkung: 'Stand gemäss Parlamentsdaten' }],
         medien: [],
-        metadaten: { sprache, haltung: stance, initiativeLinks, zuletztGeprueftVon: 'DB Live API' },
+        metadaten: { sprache, haltung: stance, initiativeLinks, i18n: i18nOut, zuletztGeprueftVon: 'DB Live API' },
       }
     })
 

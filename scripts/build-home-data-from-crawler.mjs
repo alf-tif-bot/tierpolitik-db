@@ -291,6 +291,23 @@ const deByAffair = new Map(
     .map((x) => [String(x.externalId || '').split('-')[0], x]),
 )
 
+const variantsByAffair = new Map()
+for (const row of (db.items || [])) {
+  const sid = String(row.sourceId || '')
+  if (!sid.startsWith('ch-parliament-')) continue
+  const affairId = String(row.externalId || '').split('-')[0]
+  if (!affairId) continue
+  const lang = langFromSource(sid)
+  const prevAffair = variantsByAffair.get(affairId) || {}
+  const prev = prevAffair[lang]
+  const prevTs = new Date(prev?.fetchedAt || prev?.publishedAt || 0).getTime()
+  const curTs = new Date(row.fetchedAt || row.publishedAt || 0).getTime()
+  if (!prev || curTs >= prevTs) {
+    prevAffair[lang] = row
+    variantsByAffair.set(affairId, prevAffair)
+  }
+}
+
 const buildInitiativeLinks = ({ typ, title, externalId, status }) => {
   if (typ !== 'Volksinitiative') return undefined
 
@@ -308,8 +325,7 @@ const buildInitiativeLinks = ({ typ, title, externalId, status }) => {
   return { campaignUrl, resultUrl }
 }
 
-const buildI18nFromItem = (item, fallbackTitle, fallbackSummary, fallbackType, fallbackThemes) => {
-  const variants = item?.languageVariants || {}
+const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallbackType, fallbackThemes) => {
   const out = {
     title: { de: fallbackTitle },
     summary: { de: fallbackSummary },
@@ -317,7 +333,7 @@ const buildI18nFromItem = (item, fallbackTitle, fallbackSummary, fallbackType, f
     themes: { de: fallbackThemes },
   }
 
-  for (const [lang, variant] of Object.entries(variants)) {
+  for (const [lang, variant] of Object.entries(variants || {})) {
     const l = ['de', 'fr', 'it', 'en'].includes(lang) ? lang : 'de'
     const title = clean(variant?.title || fallbackTitle)
     const summary = clean(variant?.summary || variant?.body || fallbackSummary)
@@ -369,7 +385,8 @@ const vorstoesse = items.map((item, index) => {
     : `Kurzüberblick: ${displayTitle || `Vorstoss ${index + 1}`} (${status}).`
   const normalizedThemes = sanitizeThemes(mapThemesFromKeywords(item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz']))
   const baseThemes = (normalizedThemes.length ? normalizedThemes : ['Tierschutz']).slice(0, 6)
-  const i18nMeta = buildI18nFromItem(item, displayTitle || `Vorstoss ${index + 1}`, summaryText, typ, baseThemes)
+  const i18nVariants = isParliament ? (variantsByAffair.get(affairId) || {}) : {}
+  const i18nMeta = buildI18nFromItem(i18nVariants, item, displayTitle || `Vorstoss ${index + 1}`, summaryText, typ, baseThemes)
 
   return {
     id: `vp-${idSafe.toLowerCase()}`,

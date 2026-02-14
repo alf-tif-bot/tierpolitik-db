@@ -46,19 +46,38 @@
       },
       "i18n": {
         "title": {
-          "de": "24.089 · «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)». Volksinitiative"
+          "de": "24.089 · «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)». Volksinitiative",
+          "fr": "24.089 · «Oui à l’interdiction d’importer du foie gras (initiative foie gras)». Initiative populaire",
+          "it": "24.089 · «Sì al divieto di importazione di foie gras (Iniziativa foie gras)». Iniziativa popolare federale"
         },
         "summary": {
-          "de": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll. Botschaft vom 20. November 2024 zur Volksinitiative «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)»"
+          "de": "Botschaft vom 20. November 2024 zur Volksinitiative «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)»",
+          "fr": "Message du 20 novembre 2024 concernant l’initiative populaire « Oui à l’interdiction d’importer du foie gras (initiative foie gras) »",
+          "it": "Messaggio del 20 novembre 2024 concernente l’iniziativa popolare federale «Sì al divieto di importazione di foie g"
         },
         "type": {
-          "de": "Volksinitiative"
+          "de": "Volksinitiative",
+          "fr": "Initiative populaire",
+          "it": "Iniziativa popolare"
         },
         "themes": {
           "de": [
-            "stopfleber",
+            "Stopfleber",
             "foie gras",
-            "initiative"
+            "initiative",
+            "botschaft"
+          ],
+          "fr": [
+            "Foie gras",
+            "foie gras",
+            "initiative",
+            "botschaft"
+          ],
+          "it": [
+            "Foie gras",
+            "foie gras",
+            "initiative",
+            "botschaft"
           ]
         }
       },
@@ -115,18 +134,40 @@
       "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
-          "de": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben"
+          "de": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
+          "fr": "21.426 · Méthodes de substitution à l'expérimentation animale. Davantage de ressources et d'incitations pour la recherche 3R",
+          "it": "21.426 · Più risorse e incentivi a favore della ricerca 3R per accelerare lo sviluppo di metodi alternativi alla sperimentazione animale"
         },
         "summary": {
-          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. In Kommission des Nationalrats"
+          "de": "In Kommission des Nationalrats",
+          "fr": "En commission du Conseil national",
+          "it": "Nella Commissione del Consiglio nazionale"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Interpellation",
+          "fr": "Interpellation",
+          "it": "Interpellanza"
         },
         "themes": {
           "de": [
-            "tierversuch",
-            "tierversuche",
+            "Tierversuche",
+            "Tierversuche",
+            "animal",
+            "expérimentation animale",
+            "sperimentazione animale",
+            "3r"
+          ],
+          "fr": [
+            "Expérimentation animale",
+            "Expérimentation animale",
+            "animal",
+            "expérimentation animale",
+            "sperimentazione animale",
+            "3r"
+          ],
+          "it": [
+            "Sperimentazione animale",
+            "Sperimentazione animale",
             "animal",
             "expérimentation animale",
             "sperimentazione animale",
@@ -186,20 +227,31 @@
       },
       "i18n": {
         "title": {
-          "de": "21.044 · Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative). Volksinitiative und direkter Gegenentwurf"
+          "de": "21.044 · Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative). Volksinitiative und direkter Gegenentwurf",
+          "fr": "Parlamentsgeschäft 20210044"
         },
         "summary": {
-          "de": "Botschaft vom 19. Mai 2021 zur Volksinitiative «Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative)» und zum direkten Gegenentwurf (Bundesbeschluss über den Schutz und das Wohlergehen der Tiere) Botschaft vom 19. Mai 2021 zur Volksinitiative «Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative)» und zum direkten Gegenentwurf (Bundesbeschluss über den Schutz und das Wohlergehen der Tiere) Umwelt|"
+          "de": "Botschaft vom 19. Mai 2021 zur Volksinitiative «Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative)» und zum direkten Gegenentwurf (Bundesbeschluss über den Schutz und das Wohlergehen der Tiere)",
+          "fr": "Parlamentsgeschäft 20210044"
         },
         "type": {
-          "de": "Volksinitiative"
+          "de": "Volksinitiative",
+          "fr": "Interpellation"
         },
         "themes": {
           "de": [
             "tiere",
             "massentierhaltung",
             "massentier",
-            "landwirtschaft"
+            "Landwirtschaft",
+            "botschaft"
+          ],
+          "fr": [
+            "tiere",
+            "massentierhaltung",
+            "massentier",
+            "Agriculture",
+            "botschaft"
           ]
         }
       },
@@ -245,16 +297,28 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen"
+          "de": "24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen",
+          "fr": "24.331 · Soutien financier direct aux apiculteurs et apicultrices lors de situations géoclimatiques exceptionnelles",
+          "it": "24.331 · Sostegno finanziario diretto agli apicoltori in situazioni geoclimatiche eccezionali"
         },
         "summary": {
-          "de": "Kurzüberblick: 24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen (In Beratung)."
+          "de": "Beratung in Kommission des Ständerates abgeschlossen",
+          "fr": "Fin des discussions en commission du Conseil des Etats",
+          "it": "Fine delle discussioni della Commissione del degli Stati"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Interpellation",
+          "fr": "Interpellation",
+          "it": "Interpellanza"
         },
         "themes": {
           "de": [
+            "apiculteur"
+          ],
+          "fr": [
+            "apiculteur"
+          ],
+          "it": [
             "apiculteur"
           ]
         }
@@ -303,17 +367,24 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren"
+          "de": "25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren",
+          "fr": "25.3733 · Respecter la proportionnalité dans l’ordonnance sur les paiements directs"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft"
+          "de": "Beratung in Kommission des Ständerates abgeschlossen",
+          "fr": "Fin des discussions en commission du Conseil des Etats"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Interpellation",
+          "fr": "Interpellation"
         },
         "themes": {
           "de": [
-            "landwirtschaft",
+            "Landwirtschaft",
+            "agriculture"
+          ],
+          "fr": [
+            "Agriculture",
             "agriculture"
           ]
         }
@@ -364,16 +435,24 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung"
+          "de": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
+          "fr": "25.4697 · Subventions dommageables à la biodiversité. Collaboration entre la Confédération et les cantons"
         },
         "summary": {
-          "de": "Staatspolitik|Finanzwesen|Umwelt"
+          "de": "Stellungnahme zum Vorstoss liegt vor",
+          "fr": "L’avis relatif à l’intervention est disponible"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Interpellation",
+          "fr": "Interpellation"
         },
         "themes": {
           "de": [
+            "biodiversität",
+            "biodiversite",
+            "biodiversita"
+          ],
+          "fr": [
             "biodiversität",
             "biodiversite",
             "biodiversita"
@@ -428,17 +507,35 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "25.4487 · Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder"
+          "de": "25.4487 · Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder",
+          "fr": "25.4487 · Recommandations nutritionnelles végétariennes pour les enfants. Parti pris de l'OSAV",
+          "it": "25.4487 · Ricette vegetariane per bambini. Raccomandazioni unilaterali dell’USAV"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft|Gesundheit"
+          "de": "Stellungnahme zum Vorstoss liegt vor",
+          "fr": "L’avis relatif à l’intervention est disponible",
+          "it": "La dichiarazione sull’intervento è disponibile"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Interpellation",
+          "fr": "Interpellation",
+          "it": "Interpellanza"
         },
         "themes": {
           "de": [
-            "landwirtschaft",
+            "Landwirtschaft",
+            "agriculture",
+            "agricoltura",
+            "nutrition"
+          ],
+          "fr": [
+            "Agriculture",
+            "agriculture",
+            "agricoltura",
+            "nutrition"
+          ],
+          "it": [
+            "Agricoltura",
             "agriculture",
             "agricoltura",
             "nutrition"
@@ -494,17 +591,33 @@
       },
       "i18n": {
         "title": {
-          "de": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative"
+          "de": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative",
+          "fr": "25.404 · Contre-projet indirect à l’initiative foie gras",
+          "it": "25.404 · Controprogetto indiretto all’iniziativa foie gras"
         },
         "summary": {
-          "de": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll. Wirtschaft|Umwelt"
+          "de": "Beratung in Kommission des Nationalrates abgeschlossen",
+          "fr": "Fin des discussions en commission du Conseil national",
+          "it": "Fine delle discussioni della Commissione del Consiglio nazionale"
         },
         "type": {
-          "de": "Volksinitiative"
+          "de": "Volksinitiative",
+          "fr": "Initiative populaire",
+          "it": "Iniziativa popolare"
         },
         "themes": {
           "de": [
-            "stopfleber",
+            "Stopfleber",
+            "foie gras",
+            "initiative"
+          ],
+          "fr": [
+            "Foie gras",
+            "foie gras",
+            "initiative"
+          ],
+          "it": [
+            "Foie gras",
             "foie gras",
             "initiative"
           ]
@@ -559,16 +672,16 @@
           "de": "22.3187 · Hochgezüchtete Eier- und Geflügelfleischproduktion in Richtung Tierwohl weiterentwickeln"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "tierwohl",
+            "Tierwohl",
             "geflügel",
-            "landwirtschaft"
+            "Landwirtschaft"
           ]
         }
       },
@@ -619,14 +732,14 @@
           "de": "25.4788 · Wiedereinführung zeitgemäss ausgestalteter Tierhalterbeiträge zur nachhaltigen Sicherung der Nutztierhaltung und Ernährung in der Schweiz"
         },
         "summary": {
-          "de": "Eingereicht Umwelt|Landwirtschaft|Gesundheit"
+          "de": "Eingereicht"
         },
         "type": {
           "de": "Motion"
         },
         "themes": {
           "de": [
-            "landwirtschaft",
+            "Landwirtschaft",
             "ernährung"
           ]
         }
@@ -676,14 +789,14 @@
           "de": "23.4379 · Anpassung des Gewässerschutzgesetzes an die praktizierte Nutztierhaltung"
         },
         "summary": {
-          "de": "Überwiesen an den Bundesrat Umwelt|Landwirtschaft"
+          "de": "Überwiesen an den Bundesrat"
         },
         "type": {
           "de": "Motion"
         },
         "themes": {
           "de": [
-            "landwirtschaft"
+            "Landwirtschaft"
           ]
         }
       },
@@ -732,14 +845,14 @@
           "de": "22.3302 · Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft|Gesundheit"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Motion"
         },
         "themes": {
           "de": [
-            "landwirtschaft"
+            "Landwirtschaft"
           ]
         }
       },
@@ -790,14 +903,14 @@
           "de": "21.8021 · Wann und wie gedenkt der Bundesrat die Motion 13.3324 \"Anpassung des Gewässerschutzgesetzes an die heutige Nutztierhaltung\", die von beiden Räten angenommen wurde, umzusetzen?"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Motion"
         },
         "themes": {
           "de": [
-            "landwirtschaft",
+            "Landwirtschaft",
             "motion"
           ]
         }
@@ -849,14 +962,14 @@
           "de": "25.3976 · Tierschutz und neue Schweiz-EU-Abkommen. Steht das Verbot ritueller Schlachtungen in der Schweiz vor dem Aus?"
         },
         "summary": {
-          "de": "Europapolitik|Wirtschaft|Umwelt|Kultur"
+          "de": "Stellungnahme zum Vorstoss liegt vor"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "tierschutz",
+            "Tierschutz",
             "schlacht"
           ]
         }
@@ -915,7 +1028,7 @@
         },
         "themes": {
           "de": [
-            "tierschutz",
+            "Tierschutz",
             "schweizer tierschutz"
           ]
         }
@@ -969,7 +1082,7 @@
           "de": "22.3728 · Afrikanische Schweinepest. Schlachtbetriebe und damit die Versorgungssicherheit gefährden?"
         },
         "summary": {
-          "de": "Wirtschaft|Umwelt|Gesundheit"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Motion"
@@ -1033,7 +1146,7 @@
           "de": "22.3633 · Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden?"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft|Gesundheit"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Motion"
@@ -1042,7 +1155,7 @@
           "de": [
             "schwein",
             "schweine",
-            "landwirtschaft",
+            "Landwirtschaft",
             "schlacht"
           ]
         }
@@ -1094,7 +1207,7 @@
           "de": "25.4809 · Keine Tierqual bei der Geflügelschlachtung"
         },
         "summary": {
-          "de": "Eingereicht Umwelt|Landwirtschaft"
+          "de": "Eingereicht"
         },
         "type": {
           "de": "Postulat"
@@ -1102,7 +1215,7 @@
         "themes": {
           "de": [
             "geflügel",
-            "landwirtschaft"
+            "Landwirtschaft"
           ]
         }
       },
@@ -1153,14 +1266,14 @@
           "de": "22.3300 · 3R-Kompetenz der kantonalen Tierversuchskommissionen stärken"
         },
         "summary": {
-          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Wissenschaft und Forschung|Umwelt"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Motion"
         },
         "themes": {
           "de": [
-            "tierversuch",
+            "Tierversuche",
             "3r"
           ]
         }
@@ -1210,14 +1323,14 @@
           "de": "25.4144 · Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet?"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "landwirtschaft"
+            "Landwirtschaft"
           ]
         }
       },
@@ -1270,16 +1383,16 @@
           "de": "23.7580 · Der Schutz des Menschen und der Nutztiere ist höher zu gewichten als der Wolf"
         },
         "summary": {
-          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten. Umwelt|Landwirtschaft"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "nutztiere",
-            "wolf",
-            "landwirtschaft"
+            "Nutztiere",
+            "Wolf",
+            "Landwirtschaft"
           ]
         }
       },
@@ -1330,15 +1443,15 @@
           "de": "23.7608 · Warum sollten Wolfsrudel unabhängig vom Risiko von Schäden an Nutztieren abgeschossen werden?"
         },
         "summary": {
-          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten. Umwelt|Landwirtschaft"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "nutztiere",
-            "landwirtschaft"
+            "Nutztiere",
+            "Landwirtschaft"
           ]
         }
       },
@@ -1389,15 +1502,15 @@
           "de": "23.7858 · Abschuss von Wolfsrudeln trotz immer weniger Schäden an Nutztieren?"
         },
         "summary": {
-          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten. Umwelt|Landwirtschaft"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "nutztiere",
-            "landwirtschaft"
+            "Nutztiere",
+            "Landwirtschaft"
           ]
         }
       },
@@ -1446,14 +1559,14 @@
           "de": "24.3277 · Luchsbestände in der Schweiz sind bezüglich Nutztier- und Jagdregalschäden zu untersuchen"
         },
         "summary": {
-          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten. Überwiesen an den Bundesrat"
+          "de": "Überwiesen an den Bundesrat"
         },
         "type": {
           "de": "Postulat"
         },
         "themes": {
           "de": [
-            "landwirtschaft"
+            "Landwirtschaft"
           ]
         }
       },
@@ -1506,7 +1619,7 @@
           "de": "25.4380 · Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhühner\") gesetzlich verankern"
         },
         "summary": {
-          "de": "Zugewiesen an die behandelnde Kommission Wirtschaft|Landwirtschaft|Gesundheit"
+          "de": "Zugewiesen an die behandelnde Kommission"
         },
         "type": {
           "de": "Motion"
@@ -1514,7 +1627,7 @@
         "themes": {
           "de": [
             "geflügel",
-            "landwirtschaft",
+            "Landwirtschaft",
             "gesetz"
           ]
         }
@@ -1570,15 +1683,16 @@
           "de": "25.078 · «Ja zur tierversuchsfreien Zukunft». Volksinitiative"
         },
         "summary": {
-          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Botschaft vom 8. Oktober 2025 zur Volksinitiative «Ja zur tierversuchsfreien Zukunft»"
+          "de": "Botschaft vom 8. Oktober 2025 zur Volksinitiative «Ja zur tierversuchsfreien Zukunft»"
         },
         "type": {
           "de": "Volksinitiative"
         },
         "themes": {
           "de": [
-            "tierversuch",
-            "tierversuchsfreie"
+            "Tierversuche",
+            "tierversuchsfreie",
+            "botschaft"
           ]
         }
       },
@@ -1629,15 +1743,15 @@
           "de": "24.436 · Zukunftsfähige Forschung mit einem Plan für den Ausstieg aus belastenden Tierversuchen fördern"
         },
         "summary": {
-          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Wissenschaft und Forschung|Umwelt"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "tierversuch",
-            "tierversuche"
+            "Tierversuche",
+            "Tierversuche"
           ]
         }
       },
@@ -1688,15 +1802,15 @@
           "de": "24.4696 · Sucht der Bund nach einer Strategie zur Einschränkung der Tierversuche?"
         },
         "summary": {
-          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Wissenschaft und Forschung|Umwelt"
+          "de": "Stellungnahme zum Vorstoss liegt vor"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "tierversuch",
-            "tierversuche"
+            "Tierversuche",
+            "Tierversuche"
           ]
         }
       },
@@ -1747,15 +1861,15 @@
           "de": "24.4695 · Alternativen zu Tierversuchen. Forschungsstandort Schweiz stärken!"
         },
         "summary": {
-          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Wissenschaft und Forschung|Umwelt"
+          "de": "Stellungnahme zum Vorstoss liegt vor"
         },
         "type": {
           "de": "Postulat"
         },
         "themes": {
           "de": [
-            "tierversuch",
-            "tierversuche"
+            "Tierversuche",
+            "Tierversuche"
           ]
         }
       },
@@ -1806,15 +1920,15 @@
           "de": "21.2004 · Jetzt umsteigen! Bessere Forschung ohne Tierversuche fördern"
         },
         "summary": {
-          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich."
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "tierversuch",
-            "tierversuche"
+            "Tierversuche",
+            "Tierversuche"
           ]
         }
       },
@@ -1865,15 +1979,15 @@
           "de": "21.3363 · Gemeinsame Bewilligungsbehörde für eine einheitliche Beurteilung von Tierversuchen mit Schweregrad 3"
         },
         "summary": {
-          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Wissenschaft und Forschung|Umwelt"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Motion"
         },
         "themes": {
           "de": [
-            "tierversuch",
-            "tierversuche"
+            "Tierversuche",
+            "Tierversuche"
           ]
         }
       },
@@ -1922,14 +2036,14 @@
           "de": "22.3808 · Aussagekräftige und transparente Tierversuchsstatistik"
         },
         "summary": {
-          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Staatspolitik|Medien und Kommunikation|Wissenschaft und Forschung|Umwelt"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "tierversuch"
+            "Tierversuche"
           ]
         }
       },
@@ -1980,15 +2094,15 @@
           "de": "21.3364 · Impfstoffentwicklung mit neuen Methoden ohne Tierversuche"
         },
         "summary": {
-          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Wissenschaft und Forschung|Umwelt|Gesundheit"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "tierversuch",
-            "tierversuche"
+            "Tierversuche",
+            "Tierversuche"
           ]
         }
       },
@@ -2037,14 +2151,14 @@
           "de": "25.4071 · Heim- versus Nutztier bei Equiden. Wieso diese Sonderregelung und wieso so viel Food Waste?"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "landwirtschaft"
+            "Landwirtschaft"
           ]
         }
       },
@@ -2095,15 +2209,15 @@
           "de": "23.3515 · Fotovoltaik- oder Windkraftanlagen. Gefahr für die landwirtschaftlichen Nutztiere"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft|Energie"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "nutztiere",
-            "landwirtschaft"
+            "Nutztiere",
+            "Landwirtschaft"
           ]
         }
       },
@@ -2154,15 +2268,15 @@
           "de": "23.7657 · Gerissene Nutztiere traumatisieren"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft|Gesundheit"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "nutztiere",
-            "landwirtschaft"
+            "Nutztiere",
+            "Landwirtschaft"
           ]
         }
       },
@@ -2215,16 +2329,16 @@
           "de": "24.4465 · Nutztiere, die von Tierheimen, Auffangstationen und Privatpersonen adoptiert werden. Status \"Heimtier\" zulassen, sofern sie nicht mehr der Lebensmittelproduktion dienen"
         },
         "summary": {
-          "de": "Zugewiesen an die behandelnde Kommission Umwelt|Landwirtschaft"
+          "de": "Zugewiesen an die behandelnde Kommission"
         },
         "type": {
           "de": "Motion"
         },
         "themes": {
           "de": [
-            "nutztiere",
+            "Nutztiere",
             "heimtier",
-            "landwirtschaft"
+            "Landwirtschaft"
           ]
         }
       },
@@ -2275,15 +2389,15 @@
           "de": "22.7807 · Wer bezahlt die Schäden von Nutztieren, wenn die Gänsegeier vor der Wildhut den Kadaver zerfressen?"
         },
         "summary": {
-          "de": "Finanzwesen|Umwelt|Landwirtschaft"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "nutztiere",
-            "landwirtschaft"
+            "Nutztiere",
+            "Landwirtschaft"
           ]
         }
       },
@@ -2332,14 +2446,14 @@
           "de": "21.3229 · Erhaltung einheimischer Nutztierrassen"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Motion"
         },
         "themes": {
           "de": [
-            "landwirtschaft"
+            "Landwirtschaft"
           ]
         }
       },
@@ -2390,15 +2504,15 @@
           "de": "23.7115 · Bedeutung von Netto-Null für schweizerische Nutztiere"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft|Energie"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "nutztiere",
-            "landwirtschaft"
+            "Nutztiere",
+            "Landwirtschaft"
           ]
         }
       },
@@ -2447,14 +2561,14 @@
           "de": "23.1034 · Nutztierrisse und Herdenschutz"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "landwirtschaft"
+            "Landwirtschaft"
           ]
         }
       },
@@ -2505,15 +2619,15 @@
           "de": "25.4812 · Konsequenzen aus dem Tierschutzfall Ramiswil"
         },
         "summary": {
-          "de": "Eingereicht Staatspolitik|Umwelt|Landwirtschaft"
+          "de": "Eingereicht"
         },
         "type": {
           "de": "Postulat"
         },
         "themes": {
           "de": [
-            "tierschutz",
-            "landwirtschaft"
+            "Tierschutz",
+            "Landwirtschaft"
           ]
         }
       },
@@ -2566,14 +2680,15 @@
           "de": "25.059 · «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelzinitiative)». Volksinitiative und indirekter Gegenvorschlag (Änderung des Tierschutzgesetzes)"
         },
         "summary": {
-          "de": "Botschaft vom 28. Mai 2025 zur Volksinitiative «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelzinitiative)» und zum indirekten Gegenvorschlag (Änderung des Tierschutzgesetzes) Botschaft vom 28. Mai 2025 zur Volksinitiative «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelzinitiative)» und zum indirekten Gegenvorschlag (Änderung des Tierschutzgesetzes) Wirtschaft|Umwelt"
+          "de": "Botschaft vom 28. Mai 2025 zur Volksinitiative «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelzinitiative)» und zum indirekten Gegenvorschlag (Änderung des Tierschutzgesetzes)"
         },
         "type": {
           "de": "Volksinitiative"
         },
         "themes": {
           "de": [
-            "tierschutz"
+            "Tierschutz",
+            "botschaft"
           ]
         }
       },
@@ -2624,7 +2739,7 @@
           "de": "25.8205 · Reduktion der Tierschutzkontrollen: Ressourcen sparen auf Kosten der Tiere?"
         },
         "summary": {
-          "de": "Kurzüberblick: 25.8205 · Reduktion der Tierschutzkontrollen: Ressourcen sparen auf Kosten der Tiere? (In Beratung)."
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
@@ -2632,7 +2747,7 @@
         "themes": {
           "de": [
             "tiere",
-            "tierschutz"
+            "Tierschutz"
           ]
         }
       },
@@ -2681,14 +2796,14 @@
           "de": "24.3296 · Effizienteren Tierschutz durch Interessenvertretung"
         },
         "summary": {
-          "de": "Staatspolitik|Umwelt"
+          "de": "Stellungnahme zum Vorstoss liegt vor"
         },
         "type": {
           "de": "Postulat"
         },
         "themes": {
           "de": [
-            "tierschutz"
+            "Tierschutz"
           ]
         }
       },
@@ -2739,15 +2854,15 @@
           "de": "23.7131 · Ziegen 1200 Tage pausenlos melken - vereinbar mit Tierschutzbestimmungen?"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "tierschutz",
-            "landwirtschaft"
+            "Tierschutz",
+            "Landwirtschaft"
           ]
         }
       },
@@ -2798,15 +2913,15 @@
           "de": "21.3829 · Regelungskompetenz im Tierschutz. Auch bei den Kantonen"
         },
         "summary": {
-          "de": "Staatspolitik|Wirtschaft|Umwelt|Landwirtschaft"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Motion"
         },
         "themes": {
           "de": [
-            "tierschutz",
-            "landwirtschaft"
+            "Tierschutz",
+            "Landwirtschaft"
           ]
         }
       },
@@ -2855,14 +2970,14 @@
           "de": "24.4344 · Tierschutzbeauftragte. Eine wirksame Unterstützung"
         },
         "summary": {
-          "de": "Staatspolitik|Umwelt"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Postulat"
         },
         "themes": {
           "de": [
-            "tierschutz"
+            "Tierschutz"
           ]
         }
       },
@@ -2918,7 +3033,7 @@
         },
         "themes": {
           "de": [
-            "tierschutz"
+            "Tierschutz"
           ]
         }
       },
@@ -2971,16 +3086,16 @@
           "de": "22.7004 · Absurde Auslegung der Tierschutzverordnung - täglicher Auslauf für Bauernhof Hunde?"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "tierschutz",
+            "Tierschutz",
             "hunde",
-            "landwirtschaft"
+            "Landwirtschaft"
           ]
         }
       },
@@ -3029,14 +3144,14 @@
           "de": "21.2027 · Echter Tierschutz jetzt!"
         },
         "summary": {
-          "de": "Kurzüberblick: 21.2027 · Echter Tierschutz jetzt! (In Beratung)."
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "tierschutz"
+            "Tierschutz"
           ]
         }
       },
@@ -3085,14 +3200,14 @@
           "de": "22.3952 · Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen"
         },
         "summary": {
-          "de": "Kurzüberblick: 22.3952 · Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen (In Beratung)."
+          "de": "Erledigt"
         },
         "type": {
           "de": "Motion"
         },
         "themes": {
           "de": [
-            "tierschutz"
+            "Tierschutz"
           ]
         }
       },
@@ -3145,14 +3260,14 @@
           "de": "21.3405 · Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere"
         },
         "summary": {
-          "de": "Wissenschaft und Forschung|Umwelt"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Motion"
         },
         "themes": {
           "de": [
-            "tierschutz",
+            "Tierschutz",
             "versuchstiere",
             "haltung"
           ]
@@ -3205,15 +3320,15 @@
           "de": "21.3835 · Tierschutzverstösse besser ahnden"
         },
         "summary": {
-          "de": "Wirtschaft|Umwelt|Landwirtschaft|Gesundheit"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Motion"
         },
         "themes": {
           "de": [
-            "tierschutz",
-            "landwirtschaft"
+            "Tierschutz",
+            "Landwirtschaft"
           ]
         }
       },
@@ -3262,14 +3377,14 @@
           "de": "21.3703 · Tierschutz im Indonesien-Abkommen"
         },
         "summary": {
-          "de": "Internationale Politik|Wirtschaft|Umwelt"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "tierschutz"
+            "Tierschutz"
           ]
         }
       },
@@ -3322,7 +3437,7 @@
           "de": "21.8161 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (1)"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
@@ -3331,7 +3446,7 @@
           "de": [
             "schwein",
             "schweine",
-            "landwirtschaft"
+            "Landwirtschaft"
           ]
         }
       },
@@ -3384,7 +3499,7 @@
           "de": "21.8163 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (3)"
         },
         "summary": {
-          "de": "Staatspolitik|Beschäftigung und Arbeit|Umwelt|Landwirtschaft"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
@@ -3393,7 +3508,7 @@
           "de": [
             "schwein",
             "schweine",
-            "landwirtschaft"
+            "Landwirtschaft"
           ]
         }
       },
@@ -3446,7 +3561,7 @@
           "de": "21.8162 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (2)"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
@@ -3455,7 +3570,7 @@
           "de": [
             "schwein",
             "schweine",
-            "landwirtschaft"
+            "Landwirtschaft"
           ]
         }
       },
@@ -3506,7 +3621,7 @@
           "de": "21.4167 · Afrikanische Schweinepest ernst nehmen"
         },
         "summary": {
-          "de": "Umwelt|Gesundheit"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
@@ -3567,7 +3682,7 @@
           "de": "23.3411 · Eine langfristige Lösung für den Schweinemarkt"
         },
         "summary": {
-          "de": "Wirtschaft|Umwelt|Landwirtschaft"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Postulat"
@@ -3576,7 +3691,7 @@
           "de": [
             "schwein",
             "schweine",
-            "landwirtschaft"
+            "Landwirtschaft"
           ]
         }
       },
@@ -3627,7 +3742,7 @@
           "de": "22.3210 · Afrikanische Schweinepest nach Deutschland nun auch in Italien"
         },
         "summary": {
-          "de": "Internationale Politik|Umwelt|Gesundheit"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
@@ -3690,7 +3805,7 @@
           "de": "22.3299 · Kein Einsatz von PMSG bei Schweinezüchtern"
         },
         "summary": {
-          "de": "Umwelt|Landwirtschaft|Gesundheit"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Motion"
@@ -3700,7 +3815,7 @@
             "schwein",
             "schweine",
             "schweinezucht",
-            "landwirtschaft"
+            "Landwirtschaft"
           ]
         }
       },
@@ -3753,7 +3868,7 @@
           "de": "21.4435 · Afrikanische Schweinepest. Wildschweine vorsorglich eindämmen"
         },
         "summary": {
-          "de": "Wirtschaft|Umwelt|Landwirtschaft|Gesundheit"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Motion"
@@ -3762,7 +3877,7 @@
           "de": [
             "schwein",
             "schweine",
-            "landwirtschaft"
+            "Landwirtschaft"
           ]
         }
       },
@@ -3815,7 +3930,7 @@
           "de": "25.4010 · Gesetzliches Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhuhn\")"
         },
         "summary": {
-          "de": "Wirtschaft|Landwirtschaft|Gesundheit"
+          "de": "Stellungnahme zum Vorstoss liegt vor"
         },
         "type": {
           "de": "Motion"
@@ -3823,7 +3938,7 @@
         "themes": {
           "de": [
             "geflügel",
-            "landwirtschaft",
+            "Landwirtschaft",
             "gesetz"
           ]
         }
@@ -3873,14 +3988,14 @@
           "de": "25.8063 · Wenn in der Schweiz der Verkauf von Stopfleber verboten ist, hat dann das Schweizer Recht oder das europäische Recht Vorrang?"
         },
         "summary": {
-          "de": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll. Europapolitik|Wirtschaft|Umwelt"
+          "de": "Erledigt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "stopfleber"
+            "Stopfleber"
           ]
         }
       },
