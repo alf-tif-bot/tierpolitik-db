@@ -237,9 +237,9 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
               <button
                 className="btn-primary"
                 onClick={submitFeedback}
-                disabled={feedbackState === 'saving' || feedbackText.trim().length < 6}
+                disabled={feedbackState === 'saving'}
               >
-                Senden
+                {feedbackState === 'saving' ? 'Sende…' : 'Senden'}
               </button>
               <button type="button" onClick={() => setFeedbackOpen(false)}>Abbrechen</button>
             </div>
