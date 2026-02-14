@@ -9,8 +9,9 @@ const detectPlatform = (url = '', html = '') => {
   const u = String(url).toLowerCase()
   const h = String(html).toLowerCase()
   if (u.includes('ratsinfo') || h.includes('ratsinfo')) return 'ratsinfo'
+  if (u.includes('parlinfo') || h.includes('parlinfo') || u.includes('/grweb/')) return 'parliament-portal'
   if (u.includes('aio') || h.includes('allris') || h.includes('sessionnet')) return 'allris/sessionnet'
-  if (h.includes('traktanden') || h.includes('geschaefte') || h.includes('vorstoesse')) return 'parliament-portal'
+  if (h.includes('traktanden') || h.includes('geschaefte') || h.includes('vorstoesse') || h.includes('objets parlementaires')) return 'parliament-portal'
   if (h.includes('drupal')) return 'drupal-site'
   if (h.includes('typo3')) return 'typo3-site'
   if (h.includes('wordpress')) return 'wordpress-site'

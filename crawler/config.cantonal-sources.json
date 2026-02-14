@@ -3,8 +3,12 @@
     "canton": "AG",
     "parliament": "Grosser Rat Aargau",
     "adapter": "cantonRegistry",
-    "url": "https://www.ag.ch/grosser-rat",
-    "sinceYear": 2020
+    "url": "https://www.ag.ch/de/grosser-rat",
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte",
+      "https://www.ag.ch/grossrat/grweb/"
+    ]
   },
   {
     "canton": "AI",
@@ -17,10 +21,10 @@
     "canton": "AR",
     "parliament": "Kantonsrat Appenzell Ausserrhoden",
     "adapter": "cantonRegistry",
-    "url": "https://www.ar.ch/parlament/",
+    "url": "https://ar.ch/kantonsrat/parlamentsdienst/",
     "sinceYear": 2020,
     "urlCandidates": [
-      "https://ar.ch/parlament"
+      "https://ar.ch/kantonsrat"
     ]
   },
   {
@@ -39,7 +43,10 @@
     "parliament": "Landrat Basel-Landschaft",
     "adapter": "cantonRegistry",
     "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament",
-    "sinceYear": 2020
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://www.baselland.ch/politik-und-behorden/landrat-parlament/geschaefte-des-landrats"
+    ]
   },
   {
     "canton": "BS",
@@ -52,22 +59,31 @@
     "canton": "FR",
     "parliament": "Grand Conseil Fribourg",
     "adapter": "cantonRegistry",
-    "url": "https://www.fr.ch/grand-conseil",
-    "sinceYear": 2020
+    "url": "https://www.fr.ch/parlinfo/membres-du-grand-conseil",
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://www.fr.ch/parlinfo/programmes-et-dates-des-sessions-du-grand-conseil"
+    ]
   },
   {
     "canton": "GE",
     "parliament": "Grand Conseil Genève",
     "adapter": "cantonRegistry",
-    "url": "https://ge.ch/grandconseil",
-    "sinceYear": 2020
+    "url": "https://ge.ch/grandconseil/objets-parlementaires",
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://ge.ch/grandconseil/recherche-objets"
+    ]
   },
   {
     "canton": "GL",
     "parliament": "Landrat Glarus",
     "adapter": "cantonRegistry",
-    "url": "https://www.gl.ch/parlament",
-    "sinceYear": 2020
+    "url": "https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248",
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://www.gl.ch/parlament/landrat/geschaefte/aktuelle-geschaefte.html/241"
+    ]
   },
   {
     "canton": "GR",
@@ -80,10 +96,10 @@
     "canton": "JU",
     "parliament": "Parlement jurassien",
     "adapter": "cantonRegistry",
-    "url": "https://www.jura.ch/Autorites/Parlement.html",
+    "url": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html",
     "sinceYear": 2020,
     "urlCandidates": [
-      "https://www.jura.ch/Autorites/Parlement/Pages/default.aspx"
+      "https://www.jura.ch/fr/Autorites/PLT/Documents-du-Parlement/Suivi-des-interventions/Suivi-des-interventions.html"
     ]
   },
   {
@@ -166,8 +182,11 @@
     "canton": "TI",
     "parliament": "Gran Consiglio Ticino",
     "adapter": "cantonRegistry",
-    "url": "https://www4.ti.ch/poteri/granconsiglio",
-    "sinceYear": 2020
+    "url": "https://www4.ti.ch/poteri/gc/home",
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://www4.ti.ch/poteri/gc/attivita-parlamentare"
+    ]
   },
   {
     "canton": "UR",
@@ -180,21 +199,27 @@
     "canton": "VD",
     "parliament": "Grand Conseil Vaud",
     "adapter": "cantonRegistry",
-    "url": "https://www.vd.ch/autorites/grand-conseil",
-    "sinceYear": 2020
+    "url": "https://www.vd.ch/gc/",
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://www.vd.ch/gc/objets-du-conseil"
+    ]
   },
   {
     "canton": "VS",
     "parliament": "Grand Conseil Valais",
     "adapter": "cantonRegistry",
-    "url": "https://www.vs.ch/fr/web/gc",
-    "sinceYear": 2020
+    "url": "https://www.vs.ch/fr/web/gc/objets-parlementaires",
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://www.vs.ch/fr/web/gc/interventions-parlementaires"
+    ]
   },
   {
     "canton": "ZG",
     "parliament": "Kantonsrat Zug",
     "adapter": "cantonRegistry",
-    "url": "https://www.zg.ch/behoerden/kantonsrat",
+    "url": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats",
     "sinceYear": 2020,
     "urlCandidates": [
       "https://zg.ch/de/behoerden/kantonsrat"
