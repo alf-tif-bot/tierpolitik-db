@@ -99,6 +99,18 @@
     "enabled": false,
     "fallbackMode": "alwaysOnFailure",
     "fallbackPath": "data/fixtures/bundesrat-news.xml"
+  },
+  {
+    "id": "ch-municipal-parliament-bern-zurich",
+    "label": "Municipal parliaments (Bern, Zürich)",
+    "type": "html",
+    "adapter": "municipalParliament",
+    "url": "https://www.bern.ch/politik-und-verwaltung/stadtrat/geschaefte-des-stadtrats",
+    "enabled": true,
+    "options": {
+      "cities": "bern,zuerich",
+      "maxItemsPerCity": 24
+    }
   }
 ]
 

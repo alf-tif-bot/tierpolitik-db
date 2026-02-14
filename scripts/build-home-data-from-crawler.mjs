@@ -27,13 +27,13 @@ const toIsoDate = (v, fallbackYear) => {
   return new Date().toISOString().slice(0, 10)
 }
 
-const inferType = (title = '', sourceId = '', businessTypeName = '') => {
-  const text = `${title} ${sourceId} ${businessTypeName}`.toLowerCase()
-  if (text.includes('postulat') || text.includes('postulato') || text.includes('postulat')) return 'Postulat'
-  if (text.includes('motion') || text.includes('mozione')) return 'Motion'
+const inferType = (title = '', sourceId = '', businessTypeName = '', rawType = '') => {
+  const text = `${title} ${sourceId} ${businessTypeName} ${rawType}`.toLowerCase()
+  if (text.includes('dringliche motion') || text.includes('motion') || text.includes('mozione')) return 'Motion'
+  if (text.includes('dringliches postulat') || text.includes('postulat') || text.includes('postulato')) return 'Postulat'
   if (text.includes('interpellation') || text.includes('interpellanza')) return 'Interpellation'
-  if (text.includes('anfrage') || text.includes('frage') || text.includes('question') || text.includes('interrogazione')) return 'Anfrage'
-  if (text.includes('initiative') || text.includes('iniziativa')) return 'Volksinitiative'
+  if (text.includes('schriftliche anfrage') || text.includes('kleine anfrage') || text.includes('anfrage') || text.includes('frage') || text.includes('question') || text.includes('interrogazione')) return 'Anfrage'
+  if (text.includes('parlamentarische initiative') || text.includes('initiative') || text.includes('iniziativa')) return 'Volksinitiative'
   return 'Interpellation'
 }
 
@@ -108,7 +108,15 @@ const extractStance = (reason = '', title = '', summary = '', body = '') => {
   return (m?.[1] || 'neutral/unklar').trim()
 }
 
-const mapStatus = (status = '') => {
+const mapStatus = (status = '', rawStatus = '') => {
+  const sourceStatus = String(rawStatus || '').toLowerCase()
+  if (sourceStatus.includes('hängig') || sourceStatus.includes('haengig') || sourceStatus.includes('in bearbeitung') || sourceStatus.includes('überwiesen') || sourceStatus.includes('ueberwiesen')) return 'In Beratung'
+  if (sourceStatus.includes('angenommen') || sourceStatus.includes('erheblich erklärt') || sourceStatus.includes('erheblich erklaert')) return 'Angenommen'
+  if (sourceStatus.includes('abgelehnt') || sourceStatus.includes('nicht überwiesen') || sourceStatus.includes('nicht ueberwiesen')) return 'Abgelehnt'
+  if (sourceStatus.includes('abgeschrieben')) return 'Abgeschrieben'
+  if (sourceStatus.includes('zurückgezogen') || sourceStatus.includes('zurueckgezogen')) return 'Zurückgezogen'
+  if (sourceStatus.includes('eingereicht')) return 'Eingereicht'
+
   const s = String(status).toLowerCase()
   if (s === 'published') return 'Angenommen'
   if (s === 'approved') return 'In Beratung'
@@ -117,15 +125,28 @@ const mapStatus = (status = '') => {
   return 'Eingereicht'
 }
 
-const levelFromSource = (sourceId = '') => {
-  if (sourceId.includes('parliament') || sourceId.includes('parlament')) return 'Bund'
+const levelFromItem = (item) => {
+  const sourceId = String(item?.sourceId || '').toLowerCase()
+  const metaLevel = String(item?.meta?.level || '').toLowerCase()
+  if (metaLevel === 'gemeinde' || sourceId.includes('municipal')) return 'Gemeinde'
+  if (sourceId.includes('cantonal') || sourceId.includes('kanton')) return 'Kanton'
   return 'Bund'
 }
 
-const regionFromSource = (sourceId = '') => {
-  const low = sourceId.toLowerCase()
-  if (low.endsWith('-fr')) return 'Romandie'
-  if (low.endsWith('-it')) return 'Südschweiz'
+const cantonFromItem = (item) => {
+  const sourceId = String(item?.sourceId || '').toLowerCase()
+  const metaCanton = String(item?.meta?.canton || '').toUpperCase()
+  if (/^[A-Z]{2}$/.test(metaCanton)) return metaCanton
+  if (sourceId.includes('bern')) return 'BE'
+  if (sourceId.includes('zuerich') || sourceId.includes('zurich')) return 'ZH'
+  return null
+}
+
+const regionFromItem = (item) => {
+  const sourceId = String(item?.sourceId || '').toLowerCase()
+  if (item?.meta?.municipality) return String(item.meta.municipality)
+  if (sourceId.endsWith('-fr')) return 'Romandie'
+  if (sourceId.endsWith('-it')) return 'Südschweiz'
   return null
 }
 
@@ -162,8 +183,11 @@ const fallbackPeopleByLang = {
   it: { name: 'Atto parlamentare (Confederazione)', rolle: 'Nationalrat', partei: 'Überparteilich' },
 }
 
-const inferSubmitter = (lang, title = '', summary = '', body = '') => {
+const inferSubmitter = (lang, title = '', summary = '', body = '', item = null) => {
   const text = `${title} ${summary} ${body}`.toLowerCase()
+  if (String(item?.sourceId || '').toLowerCase().includes('municipal')) {
+    return { name: String(item?.meta?.parliament || item?.meta?.municipality || 'Stadtparlament'), rolle: 'Gemeinderat', partei: 'Überparteilich' }
+  }
   if (text.includes('blv') || text.includes('lebensmittelsicherheit') || text.includes('veterinärwesen')) {
     return { name: 'BLV', rolle: 'Regierung', partei: 'Bundesverwaltung' }
   }
@@ -238,29 +262,32 @@ const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '' })
 }
 
 const baseItems = (db.items || [])
-  .filter((item) => String(item.sourceId || '').startsWith('ch-parliament-'))
+  .filter((item) => !item?.meta?.scaffold)
   .filter((item) => ['approved', 'published'].includes(item.status))
 
 const groupedByAffair = new Map()
 for (const item of baseItems) {
-  const affairId = String(item.externalId || '').split('-')[0]
+  const isParliament = String(item.sourceId || '').startsWith('ch-parliament-')
+  const affairKey = isParliament
+    ? String(item.externalId || '').split('-')[0]
+    : `${item.sourceId}:${item.externalId}`
   const lang = langFromSource(item.sourceId)
-  const prev = groupedByAffair.get(affairId)
+  const prev = groupedByAffair.get(affairKey)
   if (!prev) {
-    groupedByAffair.set(affairId, item)
+    groupedByAffair.set(affairKey, item)
     continue
   }
   const prevLang = langFromSource(prev.sourceId)
   const betterLang = langRank(lang) < langRank(prevLang)
   const newer = new Date(item.fetchedAt || item.publishedAt || 0).getTime() > new Date(prev.fetchedAt || prev.publishedAt || 0).getTime()
-  if (betterLang || (!betterLang && newer)) groupedByAffair.set(affairId, item)
+  if (betterLang || (!betterLang && newer)) groupedByAffair.set(affairKey, item)
 }
 
 const items = [...groupedByAffair.values()].slice(0, 1200)
 
 const deByAffair = new Map(
   (db.items || [])
-    .filter((x) => String(x.sourceId || '').endsWith('-de'))
+    .filter((x) => String(x.sourceId || '').startsWith('ch-parliament-') && String(x.sourceId || '').endsWith('-de'))
     .map((x) => [String(x.externalId || '').split('-')[0], x]),
 )
 
@@ -294,7 +321,7 @@ const buildI18nFromItem = (item, fallbackTitle, fallbackSummary, fallbackType, f
     const l = ['de', 'fr', 'it', 'en'].includes(lang) ? lang : 'de'
     const title = clean(variant?.title || fallbackTitle)
     const summary = clean(variant?.summary || variant?.body || fallbackSummary)
-    const typeDe = inferType(title, item.sourceId, variant?.businessTypeName || '')
+    const typeDe = inferType(title, item.sourceId, variant?.businessTypeName || '', item?.meta?.rawType || '')
     const matched = mapThemesFromKeywords(item.matchedKeywords || fallbackThemes || []).slice(0, 6)
     out.title[l] = title || fallbackTitle
     out.summary[l] = summary || fallbackSummary
@@ -307,16 +334,17 @@ const buildI18nFromItem = (item, fallbackTitle, fallbackSummary, fallbackType, f
 
 const vorstoesse = items.map((item, index) => {
   const sprache = langFromSource(item.sourceId)
+  const isParliament = String(item.sourceId || '').startsWith('ch-parliament-')
   const affairId = String(item.externalId || '').split('-')[0]
-  const deVariant = deByAffair.get(affairId)
+  const deVariant = isParliament ? deByAffair.get(affairId) : null
   const displayTitle = deVariant?.title || item.title
   const displaySummary = deVariant?.summary || item.summary
   const displayBody = deVariant?.body || item.body
   const inferredYear = inferYearFromBusiness(displayTitle, item.externalId)
   const eingereicht = toIsoDate(item.publishedAt || item.fetchedAt, inferredYear)
   const updated = toIsoDate(item.fetchedAt || item.publishedAt, inferredYear)
-  const status = mapStatus(item.status)
-  const typ = inferType(displayTitle, item.sourceId, item?.languageVariants?.de?.businessTypeName || '')
+  const status = mapStatus(item.status, item?.meta?.rawStatus || '')
+  const typ = inferType(displayTitle, item.sourceId, item?.languageVariants?.de?.businessTypeName || '', item?.meta?.rawType || '')
   const stance = extractStance(item.reviewReason, displayTitle, displaySummary, displayBody)
   const initiativeLinks = buildInitiativeLinks({
     typ,
@@ -349,15 +377,15 @@ const vorstoesse = items.map((item, index) => {
     typ,
     kurzbeschreibung: summaryText,
     geschaeftsnummer: String(item.externalId || `AUTO-${index + 1}`),
-    ebene: levelFromSource(item.sourceId),
-    kanton: null,
-    regionGemeinde: regionFromSource(item.sourceId),
+    ebene: levelFromItem(item),
+    kanton: cantonFromItem(item),
+    regionGemeinde: regionFromItem(item),
     status,
     datumEingereicht: eingereicht,
     datumAktualisiert: updated,
     themen: baseThemes,
     schlagwoerter: (item.matchedKeywords?.length ? item.matchedKeywords : ['Tierpolitik']).slice(0, 8),
-    einreichende: [inferSubmitter(sprache, displayTitle, displaySummary, displayBody)],
+    einreichende: [inferSubmitter(sprache, displayTitle, displaySummary, displayBody, item)],
     linkGeschaeft: link,
     resultate: [
       {

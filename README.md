@@ -160,6 +160,23 @@ Windows Aufgabenplanung (Aktion):
 powershell -NoProfile -Command "cd C:\path\to\tierpolitik-vorstoesse-db; npm run crawler:pipeline *>> .\logs\crawler-nightly.log"
 ```
 
+## Municipal Pilot (Bern + Zürich)
+
+- Neue kommunale Quelle im Collect-Flow: `ch-municipal-parliament-bern-zurich` (Adapter: `municipalParliament`)
+- Konfigurationsdatei: `crawler/config.municipal-sources.json`
+- Mapping für Home-Schema:
+  - `ebene = 'Gemeinde'`
+  - `kanton` aus Source-Meta (`BE`, `ZH`)
+  - `regionGemeinde` aus `municipality` (z.B. Bern, Zürich)
+- Review-first bleibt aktiv: Nur `approved/published` landen in `vorstoesse.json`.
+
+### Weitere Städte hinzufügen
+
+1. Neue Stadt in `crawler/config.municipal-sources.json` ergänzen (`cityId`, `municipality`, `canton`, `parliament`, `url`, optional `altUrls`).
+2. Falls nötig Keywords/Heuristiken in `crawler/adapters/municipalParliamentAdapter.mjs` erweitern (Link-Ranking + Type/Status-Hints).
+3. Pipeline laufen lassen (`npm run crawler:pipeline:db` oder mindestens `crawler:collect` -> `crawler:score` -> `home:build-data`).
+4. Kandidaten in `review.html` prüfen und freigeben.
+
 ## Source-Status-Hinweis
 
 Einzelne Regierungs-RSS-Feeds liefern zeitweise 404/leer/WAF-Challenge (Upstream-Verhalten). Die Pipeline bleibt robust:
