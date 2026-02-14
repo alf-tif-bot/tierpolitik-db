@@ -197,6 +197,28 @@ const isBernAnimalRelevant = (text = '') => {
   return BERN_ANIMAL_KEYWORDS.some((kw) => low.includes(kw))
 }
 
+const cleanBernDisplayTitle = (raw = '', typ = '') => {
+  let t = String(raw || '').replace(/\s+/g, ' ').trim()
+  if (!t) return t
+
+  // Remove duplicated formal prefixes like "Interpellation: Interpellation: ..."
+  t = t.replace(/^(Interpellation|Motion|Postulat|Kleine Anfrage|Anfrage)\s*:\s*(Interpellation|Motion|Postulat|Kleine Anfrage|Anfrage)\s*:\s*/i, '')
+
+  // Remove leading business-type decoration "Motion als Richtlinie: ..."
+  t = t.replace(/^Motion\s+als\s+Richtlinie\s*:\s*/i, '')
+
+  // Remove party/committee signature blocks in first parentheses
+  t = t.replace(/^\(([^)]*)\)\s*:?\s*/i, '')
+
+  // Remove remaining duplicated single prefix
+  t = t.replace(/^(Interpellation|Motion|Postulat|Kleine Anfrage|Anfrage)\s*:\s*/i, '')
+
+  // If party block appears after type removal, strip it as well
+  t = t.replace(/^\(([^)]*)\)\s*:?\s*/i, '')
+
+  return t.trim()
+}
+
 const fetchBernApiRows = async ({ municipalityName, canton, parliament, language, sourceId, apiEndpoint, maxItemsPerCity, fetchedAt }) => {
   const body = new URLSearchParams({
     'params[draw]': '1',
@@ -242,6 +264,7 @@ const fetchBernApiRows = async ({ municipalityName, canton, parliament, language
       if (!titleRaw) return null
       const nummer = String(entry?.Geschaeftnummer || '').trim()
       const typ = String(entry?.Geschaeftsart || classifyMunicipalEntry(titleRaw)).trim() || 'Parlamentsgeschäft'
+      const titleClean = cleanBernDisplayTitle(titleRaw, typ)
       const statusRaw = String(entry?.Status || '').trim()
       const sourceLink = `https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=${guid}`
       const start = String(entry?.Beginn?.Start || '').trim()
@@ -253,16 +276,16 @@ const fetchBernApiRows = async ({ municipalityName, canton, parliament, language
         .map((s) => String(s?.VornameName || '').replace(/\s+/g, ' ').trim())
         .filter(Boolean)
       const signerPreview = signerNames.slice(0, 6).join(', ')
-      const relevanceText = `${titleRaw} ${typ} ${statusRaw} ${signerNames.join(' ')}`
+      const relevanceText = `${titleClean || titleRaw} ${typ} ${statusRaw} ${signerNames.join(' ')}`
       if (!isBernAnimalRelevant(relevanceText)) return null
 
       return {
         sourceId,
         sourceUrl: apiEndpoint,
         externalId: `municipal-bern-api-${guid}`,
-        title: `${municipalityName} · ${typ}: ${titleRaw}`.slice(0, 260),
+        title: `${municipalityName} · ${titleClean || titleRaw}`.slice(0, 260),
         summary: `Gemeinde ${municipalityName} (${parliament}) · ${nummer || typ}${statusRaw ? ` · ${statusRaw}` : ''}`.slice(0, 300),
-        body: `Titel: ${titleRaw}\nGeschäftsnummer: ${nummer || 'n/a'}\nTyp: ${typ}\nStand: ${statusRaw || 'n/a'}\nEingereicht von: ${signerPreview || 'n/a'}\nQuelle: ${sourceLink}`,
+        body: `Titel: ${titleClean || titleRaw}\nGeschäftsnummer: ${nummer || 'n/a'}\nTyp: ${typ}\nStand: ${statusRaw || 'n/a'}\nEingereicht von: ${signerPreview || 'n/a'}\nQuelle: ${sourceLink}`,
         publishedAt,
         fetchedAt,
         language,
