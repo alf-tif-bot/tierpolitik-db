@@ -261,13 +261,20 @@ const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '' })
     .join(' ')
 }
 
+const isParliamentSourceId = (sourceId = '') => String(sourceId || '').startsWith('ch-parliament-')
+const isPublicSourceId = (sourceId = '') => {
+  const sid = String(sourceId || '')
+  return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-')
+}
+
 const baseItems = (db.items || [])
   .filter((item) => !item?.meta?.scaffold)
+  .filter((item) => isPublicSourceId(item?.sourceId))
   .filter((item) => ['approved', 'published'].includes(item.status))
 
 const groupedByAffair = new Map()
 for (const item of baseItems) {
-  const isParliament = String(item.sourceId || '').startsWith('ch-parliament-')
+  const isParliament = isParliamentSourceId(item.sourceId)
   const affairKey = isParliament
     ? String(item.externalId || '').split('-')[0]
     : `${item.sourceId}:${item.externalId}`
@@ -350,7 +357,7 @@ const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallb
 
 const vorstoesse = items.map((item, index) => {
   const sprache = langFromSource(item.sourceId)
-  const isParliament = String(item.sourceId || '').startsWith('ch-parliament-')
+  const isParliament = isParliamentSourceId(item.sourceId)
   const affairId = String(item.externalId || '').split('-')[0]
   const deVariant = isParliament ? deByAffair.get(affairId) : null
   const displayTitle = deVariant?.title || item.title

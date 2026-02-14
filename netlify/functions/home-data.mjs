@@ -186,6 +186,12 @@ const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '' })
     .join(' ')
 }
 
+const isParliamentSourceId = (sourceId = '') => String(sourceId || '').startsWith('ch-parliament-')
+const isPublicSourceId = (sourceId = '') => {
+  const sid = String(sourceId || '')
+  return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-')
+}
+
 export const handler = async () => {
   try {
     const rows = await withPgClient(async (client) => {
@@ -211,7 +217,11 @@ export const handler = async () => {
           limit 1
         ) mv on true
         where m.status in ('approved','published')
-          and m.source_id like 'ch-parliament-%'
+          and (
+            m.source_id like 'ch-parliament-%'
+            or m.source_id like 'ch-municipal-%'
+            or m.source_id like 'ch-cantonal-%'
+          )
           and coalesce(mv.title, '') <> ''
           and coalesce(m.published_at, m.fetched_at) >= (now() - interval '5 years')
         order by m.updated_at desc
@@ -220,7 +230,12 @@ export const handler = async () => {
       return res.rows
     })
 
-    const affairIds = [...new Set(rows.map((r) => String(r.external_id || '').split('-')[0]).filter(Boolean))]
+    const affairIds = [...new Set(
+      rows
+        .filter((r) => isParliamentSourceId(r.source_id))
+        .map((r) => String(r.external_id || '').split('-')[0])
+        .filter(Boolean),
+    )]
 
     const deRows = affairIds.length
       ? await withPgClient(async (client) => {
@@ -251,6 +266,7 @@ export const handler = async () => {
 
     const variantsByAffair = new Map()
     for (const row of rows) {
+      if (!isParliamentSourceId(row.source_id)) continue
       const affairId = String(row.external_id || '').split('-')[0]
       if (!affairId) continue
       const lang = langFromSource(row.source_id)
@@ -266,25 +282,30 @@ export const handler = async () => {
 
     const grouped = new Map()
     for (const row of rows) {
-      const affairId = String(row.external_id || '').split('-')[0]
+      const isParliament = isParliamentSourceId(row.source_id)
+      const key = isParliament
+        ? String(row.external_id || '').split('-')[0]
+        : `${row.source_id}:${row.external_id}`
+      if (!key) continue
       const lang = langFromSource(row.source_id)
-      const prev = grouped.get(affairId)
+      const prev = grouped.get(key)
       if (!prev) {
-        grouped.set(affairId, row)
+        grouped.set(key, row)
         continue
       }
       const prevLang = langFromSource(prev.source_id)
-      const betterLang = langRank(lang) < langRank(prevLang)
+      const betterLang = isParliament && (langRank(lang) < langRank(prevLang))
       const newer = new Date(row.fetched_at || row.published_at || 0).getTime() > new Date(prev.fetched_at || prev.published_at || 0).getTime()
-      if (betterLang || (!betterLang && newer)) grouped.set(affairId, row)
+      if (betterLang || (!betterLang && newer)) grouped.set(key, row)
     }
 
     const dedupedRows = [...grouped.values()]
 
     const mapped = dedupedRows.map((r, index) => {
       const sprache = langFromSource(r.source_id)
+      const isParliament = isParliamentSourceId(r.source_id)
       const affairId = String(r.external_id || '').split('-')[0]
-      const deVariant = deByAffair.get(affairId)
+      const deVariant = isParliament ? deByAffair.get(affairId) : null
       const displayTitle = deVariant?.title || r.title
       const displaySummary = deVariant?.summary || r.summary
       const displayBody = deVariant?.body || r.body
@@ -326,7 +347,7 @@ export const handler = async () => {
         type: { de: typeLabels[typ]?.de || typ },
         themes: { de: baseThemes },
       }
-      const affairVariants = variantsByAffair.get(affairId) || {}
+      const affairVariants = isParliament ? (variantsByAffair.get(affairId) || {}) : {}
       for (const [lang, variant] of Object.entries(affairVariants)) {
         const l = ['de', 'fr', 'it', 'en'].includes(lang) ? lang : 'de'
         const vTitle = clean(variant?.title || '')

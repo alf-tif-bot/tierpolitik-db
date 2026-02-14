@@ -2313,10 +2313,12 @@
     "datumEingereicht": "2023-06-15",
     "datumAktualisiert": "2023-02-14",
     "themen": [
-      "landwirtschaft"
+      "landwirtschaft",
+      "herdenschutz"
     ],
     "schlagwoerter": [
-      "landwirtschaft"
+      "landwirtschaft",
+      "herdenschutz"
     ],
     "einreichende": [
       {
@@ -2349,7 +2351,8 @@
         },
         "themes": {
           "de": [
-            "Landwirtschaft"
+            "Landwirtschaft",
+            "herdenschutz"
           ]
         }
       },
@@ -3777,6 +3780,444 @@
         "themes": {
           "de": [
             "Stopfleber"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-municipal-bern-1c6dc829b4ba",
+    "titel": "Bern · Interpellation: RWSU reicht Interpellation zur digitalen Souveränität der Stadt Bern ein",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Gemeinde Bern (Stadtrat Bern) · Interpellation · RWSU reicht Interpellation zur digitalen Souveränität der Stadt Bern ein Titel: RWSU reicht Interpellation zur digitalen Souveränität der Stadt Bern ein Typ: Interpellation Quelle: https://stadtrat.bern.ch/de/aktuelles/meldungen/2336227412.php Screening-Hinweis: potenzieller Tierschutz-Vorsto",
+    "geschaeftsnummer": "municipal-bern-1c6dc829b4ba",
+    "ebene": "Gemeinde",
+    "kanton": "BE",
+    "regionGemeinde": "Bern",
+    "status": "In Beratung",
+    "datumEingereicht": "2026-02-14",
+    "datumAktualisiert": "2026-02-14",
+    "themen": [
+      "tiere",
+      "tierschutz",
+      "biodiversität",
+      "biodiversita",
+      "landwirtschaft",
+      "ernährung"
+    ],
+    "schlagwoerter": [
+      "tiere",
+      "tierschutz",
+      "biodiversität",
+      "biodiversita",
+      "landwirtschaft",
+      "ernährung",
+      "initiative",
+      "motion"
+    ],
+    "einreichende": [
+      {
+        "name": "Stadtrat Bern",
+        "rolle": "Gemeinderat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://stadtrat.bern.ch/",
+    "resultate": [
+      {
+        "datum": "2026-02-14",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "Bern · Interpellation: RWSU reicht Interpellation zur digitalen Souveränität der Stadt Bern ein"
+        },
+        "summary": {
+          "de": "Gemeinde Bern (Stadtrat Bern) · Interpellation · RWSU reicht Interpellation zur digitalen Souveränität der Stadt Bern ein Titel: RWSU reicht Interpellation zur digitalen Souveränität der Stadt Bern ein Typ: Interpellation Quelle: https://stadtrat.bern.ch/de/aktuelles/meldungen/2336227412.php Screening-Hinweis: potenzieller Tierschutz-Vorsto"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "tiere",
+            "tierschutz",
+            "biodiversität",
+            "biodiversita",
+            "landwirtschaft",
+            "ernährung"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-municipal-bern-api-c6c65c8ce8a84435af97428996dadc64",
+    "titel": "Bern · Motion als Richtlinie: Motion: (GB/JA!, AL/PdA, TiF) Biodiversität im Wald fördern",
+    "typ": "Motion",
+    "kurzbeschreibung": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0056 · Eingereicht Titel: Motion: (GB/JA!, AL/PdA, TiF) Biodiversität im Wald fördern Geschäftsnummer: 2026.SR.0056 Typ: Motion als Richtlinie Stand: Eingereicht Eingereicht von: Nora Joos, Mirjam Läderach, Katharina Gallizzi, Tobias Sennh",
+    "geschaeftsnummer": "municipal-bern-api-c6c65c8ce8a84435af97428996dadc64",
+    "ebene": "Gemeinde",
+    "kanton": "BE",
+    "regionGemeinde": "Bern",
+    "status": "Eingereicht",
+    "datumEingereicht": "2026-02-11",
+    "datumAktualisiert": "2026-02-14",
+    "themen": [
+      "tiere",
+      "tierschutz",
+      "biodiversität",
+      "biodiversita",
+      "landwirtschaft",
+      "ernährung"
+    ],
+    "schlagwoerter": [
+      "tiere",
+      "tierschutz",
+      "biodiversität",
+      "biodiversita",
+      "landwirtschaft",
+      "ernährung",
+      "initiative",
+      "motion"
+    ],
+    "einreichende": [
+      {
+        "name": "Stadtrat Bern",
+        "rolle": "Gemeinderat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
+    "resultate": [
+      {
+        "datum": "2026-02-11",
+        "status": "Eingereicht",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "Bern · Motion als Richtlinie: Motion: (GB/JA!, AL/PdA, TiF) Biodiversität im Wald fördern"
+        },
+        "summary": {
+          "de": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0056 · Eingereicht Titel: Motion: (GB/JA!, AL/PdA, TiF) Biodiversität im Wald fördern Geschäftsnummer: 2026.SR.0056 Typ: Motion als Richtlinie Stand: Eingereicht Eingereicht von: Nora Joos, Mirjam Läderach, Katharina Gallizzi, Tobias Sennh"
+        },
+        "type": {
+          "de": "Motion"
+        },
+        "themes": {
+          "de": [
+            "tiere",
+            "tierschutz",
+            "biodiversität",
+            "biodiversita",
+            "landwirtschaft",
+            "ernährung"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-municipal-bern-api-b7e265b3766d43119b5279f5ea795e91",
+    "titel": "Bern · Motion als Richtlinie: Motion: (GB/JA!, AL/PdA/TiF): Biodiversität im Siedlungsgebiet fördern",
+    "typ": "Motion",
+    "kurzbeschreibung": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0055 · Eingereicht Titel: Motion: (GB/JA!, AL/PdA/TiF): Biodiversität im Siedlungsgebiet fördern Geschäftsnummer: 2026.SR.0055 Typ: Motion als Richtlinie Stand: Eingereicht Eingereicht von: Anouk Ursin, Matteo Micieli, Raffael Joggi, Franz",
+    "geschaeftsnummer": "municipal-bern-api-b7e265b3766d43119b5279f5ea795e91",
+    "ebene": "Gemeinde",
+    "kanton": "BE",
+    "regionGemeinde": "Bern",
+    "status": "Eingereicht",
+    "datumEingereicht": "2026-02-11",
+    "datumAktualisiert": "2026-02-14",
+    "themen": [
+      "tiere",
+      "tierschutz",
+      "biodiversität",
+      "biodiversita",
+      "landwirtschaft",
+      "ernährung"
+    ],
+    "schlagwoerter": [
+      "tiere",
+      "tierschutz",
+      "biodiversität",
+      "biodiversita",
+      "landwirtschaft",
+      "ernährung",
+      "initiative",
+      "motion"
+    ],
+    "einreichende": [
+      {
+        "name": "Stadtrat Bern",
+        "rolle": "Gemeinderat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
+    "resultate": [
+      {
+        "datum": "2026-02-11",
+        "status": "Eingereicht",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "Bern · Motion als Richtlinie: Motion: (GB/JA!, AL/PdA/TiF): Biodiversität im Siedlungsgebiet fördern"
+        },
+        "summary": {
+          "de": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0055 · Eingereicht Titel: Motion: (GB/JA!, AL/PdA/TiF): Biodiversität im Siedlungsgebiet fördern Geschäftsnummer: 2026.SR.0055 Typ: Motion als Richtlinie Stand: Eingereicht Eingereicht von: Anouk Ursin, Matteo Micieli, Raffael Joggi, Franz"
+        },
+        "type": {
+          "de": "Motion"
+        },
+        "themes": {
+          "de": [
+            "tiere",
+            "tierschutz",
+            "biodiversität",
+            "biodiversita",
+            "landwirtschaft",
+            "ernährung"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-municipal-bern-api-58a0ae87cf6f44e1a4030952a06a85bb",
+    "titel": "Bern · Motion als Richtlinie: Motion: (GB/JA!, AL/PdA/TiF): Biodiversität im Landwirtschaftsgebiet fördern",
+    "typ": "Motion",
+    "kurzbeschreibung": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0054 · Eingereicht Titel: Motion: (GB/JA!, AL/PdA/TiF): Biodiversität im Landwirtschaftsgebiet fördern Geschäftsnummer: 2026.SR.0054 Typ: Motion als Richtlinie Stand: Eingereicht Eingereicht von: Nora Joos, Mirjam Läderach, Katharina Galli",
+    "geschaeftsnummer": "municipal-bern-api-58a0ae87cf6f44e1a4030952a06a85bb",
+    "ebene": "Gemeinde",
+    "kanton": "BE",
+    "regionGemeinde": "Bern",
+    "status": "Eingereicht",
+    "datumEingereicht": "2026-02-11",
+    "datumAktualisiert": "2026-02-14",
+    "themen": [
+      "tiere",
+      "tierschutz",
+      "biodiversität",
+      "biodiversita",
+      "landwirtschaft",
+      "ernährung"
+    ],
+    "schlagwoerter": [
+      "tiere",
+      "tierschutz",
+      "biodiversität",
+      "biodiversita",
+      "landwirtschaft",
+      "ernährung",
+      "initiative",
+      "motion"
+    ],
+    "einreichende": [
+      {
+        "name": "Stadtrat Bern",
+        "rolle": "Gemeinderat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
+    "resultate": [
+      {
+        "datum": "2026-02-11",
+        "status": "Eingereicht",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "Bern · Motion als Richtlinie: Motion: (GB/JA!, AL/PdA/TiF): Biodiversität im Landwirtschaftsgebiet fördern"
+        },
+        "summary": {
+          "de": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0054 · Eingereicht Titel: Motion: (GB/JA!, AL/PdA/TiF): Biodiversität im Landwirtschaftsgebiet fördern Geschäftsnummer: 2026.SR.0054 Typ: Motion als Richtlinie Stand: Eingereicht Eingereicht von: Nora Joos, Mirjam Läderach, Katharina Galli"
+        },
+        "type": {
+          "de": "Motion"
+        },
+        "themes": {
+          "de": [
+            "tiere",
+            "tierschutz",
+            "biodiversität",
+            "biodiversita",
+            "landwirtschaft",
+            "ernährung"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-municipal-bern-api-35613219b77240ff9adf7978f17dd646",
+    "titel": "Bern · Kleine Anfrage: Kleine Anfrage: Strafverfolgung bei Feuerwerkszündung in der Innenstadt",
+    "typ": "Anfrage",
+    "kurzbeschreibung": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0031 · Eingereicht Titel: Kleine Anfrage: Strafverfolgung bei Feuerwerkszündung in der Innenstadt Geschäftsnummer: 2026.SR.0031 Typ: Kleine Anfrage Stand: Eingereicht Eingereicht von: Michelle Steinemann, Nicolas Lutz, Laura Curau, Andreas",
+    "geschaeftsnummer": "municipal-bern-api-35613219b77240ff9adf7978f17dd646",
+    "ebene": "Gemeinde",
+    "kanton": "BE",
+    "regionGemeinde": "Bern",
+    "status": "Eingereicht",
+    "datumEingereicht": "2026-01-28",
+    "datumAktualisiert": "2026-02-14",
+    "themen": [
+      "tiere",
+      "tierschutz",
+      "biodiversität",
+      "biodiversita",
+      "landwirtschaft",
+      "ernährung"
+    ],
+    "schlagwoerter": [
+      "tiere",
+      "tierschutz",
+      "biodiversität",
+      "biodiversita",
+      "landwirtschaft",
+      "ernährung",
+      "initiative",
+      "motion"
+    ],
+    "einreichende": [
+      {
+        "name": "Stadtrat Bern",
+        "rolle": "Gemeinderat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
+    "resultate": [
+      {
+        "datum": "2026-01-28",
+        "status": "Eingereicht",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "Bern · Kleine Anfrage: Kleine Anfrage: Strafverfolgung bei Feuerwerkszündung in der Innenstadt"
+        },
+        "summary": {
+          "de": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0031 · Eingereicht Titel: Kleine Anfrage: Strafverfolgung bei Feuerwerkszündung in der Innenstadt Geschäftsnummer: 2026.SR.0031 Typ: Kleine Anfrage Stand: Eingereicht Eingereicht von: Michelle Steinemann, Nicolas Lutz, Laura Curau, Andreas"
+        },
+        "type": {
+          "de": "Anfrage"
+        },
+        "themes": {
+          "de": [
+            "tiere",
+            "tierschutz",
+            "biodiversität",
+            "biodiversita",
+            "landwirtschaft",
+            "ernährung"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-municipal-bern-api-13284d70bb124c23a1bbba427e8a7c5c",
+    "titel": "Bern · Interpellation: Interpellation: Tierpark Bern: Welche Alternativen zur Tötung überzähliger Tiere gibt es?",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0019 · Eingereicht Titel: Interpellation: Tierpark Bern: Welche Alternativen zur Tötung überzähliger Tiere gibt es?",
+    "geschaeftsnummer": "municipal-bern-api-13284d70bb124c23a1bbba427e8a7c5c",
+    "ebene": "Gemeinde",
+    "kanton": "BE",
+    "regionGemeinde": "Bern",
+    "status": "Eingereicht",
+    "datumEingereicht": "2026-01-28",
+    "datumAktualisiert": "2026-02-14",
+    "themen": [
+      "tiere",
+      "tierschutz",
+      "biodiversität",
+      "biodiversita",
+      "landwirtschaft",
+      "ernährung"
+    ],
+    "schlagwoerter": [
+      "tiere",
+      "tierschutz",
+      "biodiversität",
+      "biodiversita",
+      "landwirtschaft",
+      "ernährung",
+      "initiative",
+      "motion"
+    ],
+    "einreichende": [
+      {
+        "name": "Stadtrat Bern",
+        "rolle": "Gemeinderat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
+    "resultate": [
+      {
+        "datum": "2026-01-28",
+        "status": "Eingereicht",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "Bern · Interpellation: Interpellation: Tierpark Bern: Welche Alternativen zur Tötung überzähliger Tiere gibt es?"
+        },
+        "summary": {
+          "de": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0019 · Eingereicht Titel: Interpellation: Tierpark Bern: Welche Alternativen zur Tötung überzähliger Tiere gibt es?"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "tiere",
+            "tierschutz",
+            "biodiversität",
+            "biodiversita",
+            "landwirtschaft",
+            "ernährung"
           ]
         }
       },
