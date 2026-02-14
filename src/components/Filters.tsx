@@ -19,6 +19,29 @@ function toggleValue<T extends string>(arr: T[], value: T): T[] {
 
 type FilterItem = { value: string; label: string }
 
+function normalizeDateInput(raw: string): string {
+  const value = String(raw || '').trim()
+  if (!value) return ''
+
+  const iso = value.match(/^(\d{4,})-(\d{1,2})-(\d{1,2})$/)
+  if (iso) {
+    const year = iso[1].slice(0, 4)
+    const month = iso[2].padStart(2, '0').slice(0, 2)
+    const day = iso[3].padStart(2, '0').slice(0, 2)
+    return `${year}-${month}-${day}`
+  }
+
+  const slash = value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4,})$/)
+  if (slash) {
+    const month = slash[1].padStart(2, '0').slice(0, 2)
+    const day = slash[2].padStart(2, '0').slice(0, 2)
+    const year = slash[3].slice(0, 4)
+    return `${year}-${month}-${day}`
+  }
+
+  return value
+}
+
 export function FiltersPanel({ data, filters, onChange, lang, t, searchInputRef }: Props) {
   const [showAdvanced, setShowAdvanced] = useState(false)
 
@@ -85,11 +108,25 @@ export function FiltersPanel({ data, filters, onChange, lang, t, searchInputRef 
           <div className="filter-grid">
             <label>
               {t.from}
-              <input type="date" value={filters.von} onChange={(e) => onChange({ ...filters, von: e.target.value })} />
+              <input
+                type="date"
+                min="1000-01-01"
+                max="9999-12-31"
+                value={filters.von}
+                onChange={(e) => onChange({ ...filters, von: normalizeDateInput(e.target.value) })}
+                onBlur={(e) => onChange({ ...filters, von: normalizeDateInput(e.target.value) })}
+              />
             </label>
             <label>
               {t.to}
-              <input type="date" value={filters.bis} onChange={(e) => onChange({ ...filters, bis: e.target.value })} />
+              <input
+                type="date"
+                min="1000-01-01"
+                max="9999-12-31"
+                value={filters.bis}
+                onChange={(e) => onChange({ ...filters, bis: normalizeDateInput(e.target.value) })}
+                onBlur={(e) => onChange({ ...filters, bis: normalizeDateInput(e.target.value) })}
+              />
             </label>
           </div>
 
