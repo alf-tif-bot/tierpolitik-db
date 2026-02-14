@@ -13,7 +13,12 @@ const fastlaneTags = fs.existsSync(fastlaneTagsPath)
   ? JSON.parse(fs.readFileSync(fastlaneTagsPath, 'utf8'))
   : {}
 
-const enabledSourceIds = new Set((db.sources || [])
+const sourcesConfigPath = new URL('../crawler/config.sources.json', import.meta.url)
+const configuredSources = fs.existsSync(sourcesConfigPath)
+  ? JSON.parse(fs.readFileSync(sourcesConfigPath, 'utf8'))
+  : []
+
+const enabledSourceIds = new Set(((configuredSources.length ? configuredSources : (db.sources || [])) || [])
   .filter((s) => s.enabled !== false)
   .map((s) => s.id))
 
@@ -33,7 +38,7 @@ const baseReviewItems = [...db.items]
     const sid = String(item.sourceId || '')
     return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-')
   })
-  .filter((item) => ['queued', 'approved', 'published'].includes(item.status))
+  .filter((item) => ['new', 'queued', 'approved', 'published'].includes(item.status))
   .filter((item) => isWithin5Years(item))
 
 const affairKey = (item) => String(item.externalId || '').split('-')[0] || `${item.sourceId}:${item.externalId}`
