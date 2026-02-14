@@ -113,6 +113,17 @@ const fallbackPersonByLang = {
   it: { name: 'Atto parlamentare (Confederazione)', rolle: 'Nationalrat', partei: 'Überparteilich' },
 }
 
+const parseMunicipalSubmitters = (body = '') => {
+  const m = String(body || '').match(/eingereicht von:\s*([^\n]+)/i)
+  if (!m?.[1]) return []
+  return m[1]
+    .split(',')
+    .map((x) => String(x || '').replace(/\s+/g, ' ').trim())
+    .filter((x) => x.length >= 3)
+    .slice(0, 6)
+    .map((name) => ({ name, rolle: 'Gemeinderat', partei: 'Unbekannt' }))
+}
+
 const inferSubmitter = (lang, title = '', summary = '', body = '') => {
   const text = `${title} ${summary} ${body}`.toLowerCase()
   if (text.includes('blv') || text.includes('lebensmittelsicherheit') || text.includes('veterinärwesen')) {
@@ -157,10 +168,31 @@ const normalizeDisplayTitle = (row, title = '') => {
   return t
 }
 
-const THEME_EXCLUDE = new Set(['botschaft'])
+const THEME_EXCLUDE = new Set(['botschaft', 'initiative', 'motion', 'postulat', 'interpellation', 'anfrage'])
 const sanitizeThemes = (arr = []) => arr
   .map((x) => String(x || '').trim())
   .filter((x) => x && !THEME_EXCLUDE.has(x.toLowerCase()))
+  .filter((x) => !['tiere', 'animals', 'animali'].includes(String(x || '').toLowerCase()))
+
+const formatThemeLabel = (value = '') => {
+  const s = String(value || '').trim()
+  if (!s) return s
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
+const municipalThemesFromTitle = (title = '') => {
+  const t = String(title || '').toLowerCase()
+  const out = []
+  if (t.includes('feuerwerk') || t.includes('lärm') || t.includes('laerm')) out.push('Feuerwerk')
+  if (t.includes('tierpark')) out.push('Tierpark')
+  if (t.includes('biodivers')) out.push('Biodiversität')
+  if (t.includes('wald')) out.push('Wald')
+  if (t.includes('siedlungsgebiet')) out.push('Siedlungsgebiet')
+  if (t.includes('landwirtschaftsgebiet')) out.push('Landwirtschaft')
+  if (!out.length && t.includes('tier')) out.push('Tierschutz')
+  if (!out.length) out.push('Tierschutz')
+  return [...new Set(out)].slice(0, 4)
+}
 
 const firstSentence = (text = '') => {
   const c = clean(text)
@@ -176,10 +208,16 @@ const firstSentence = (text = '') => {
   return c.slice(0, 220)
 }
 
-const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '' }) => {
+const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '', sourceId = '' }) => {
   const t = clean(title)
-  const s = firstSentence(summary)
-  const b = firstSentence(body)
+  if (String(sourceId || '').startsWith('ch-municipal-')) {
+    const state = status === 'published' ? 'abgeschlossen' : status === 'approved' ? 'in Beratung' : 'eingereicht'
+    return `${t} (Gemeinde, ${state}).`
+  }
+  const summaryClean = clean(summary).replace(/eingereicht von:[^\n]*/ig, '').trim()
+  const bodyClean = clean(body).replace(/eingereicht von:[^\n]*/ig, '').trim()
+  const s = firstSentence(summaryClean)
+  const b = firstSentence(bodyClean)
   const low = `${t} ${summary} ${body}`.toLowerCase()
   const statusLabel = status === 'approved' ? 'in Beratung' : status === 'published' ? 'abgeschlossen' : 'eingereicht'
 
@@ -359,13 +397,17 @@ export const handler = async () => {
         summary: displaySummary,
         body: displayBody,
         status: r.status,
+        sourceId: r.source_id,
       }))
       const summaryText = normalizedSummary.length >= 10
         ? normalizedSummary
         : `Kurzüberblick: ${displayTitle || `Vorstoss ${index + 1}`} (${statusLabel}).`
 
       const normalizedThemes = sanitizeThemes(Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierschutz'])
-      const baseThemes = (normalizedThemes.length ? normalizedThemes : ['Tierschutz']).slice(0, 6)
+      const isMunicipal = String(r?.source_id || '').startsWith('ch-municipal-')
+      const baseThemes = isMunicipal
+        ? municipalThemesFromTitle(displayTitle)
+        : (normalizedThemes.length ? normalizedThemes : ['Tierschutz']).slice(0, 6)
 
       if (!clean(displayTitle)) return null
 
@@ -393,6 +435,10 @@ export const handler = async () => {
         i18nOut.themes[l] = baseThemes
       }
 
+      const municipalSubmitters = String(r?.source_id || '').startsWith('ch-municipal-')
+        ? parseMunicipalSubmitters(displayBody)
+        : []
+
       return {
         id: `vp-${idSafe.toLowerCase()}`,
         titel: clean(displayTitle),
@@ -405,9 +451,9 @@ export const handler = async () => {
         status: statusLabel,
         datumEingereicht: eingereicht,
         datumAktualisiert: updated,
-        themen: baseThemes,
+        themen: baseThemes.map((x) => formatThemeLabel(x)),
         schlagwoerter: (Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierpolitik']).slice(0, 8),
-        einreichende: [inferSubmitter(sprache, displayTitle, displaySummary, displayBody)],
+        einreichende: municipalSubmitters.length ? municipalSubmitters : [inferSubmitter(sprache, displayTitle, displaySummary, displayBody)],
         linkGeschaeft: link,
         resultate: [{ datum: eingereicht, status: statusLabel, bemerkung: 'Stand gemäss Parlamentsdaten' }],
         medien: [],

@@ -177,11 +177,14 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
           <div className="detail-card">
             <span className="detail-label">{t.themes}</span>
             <div className="detail-link-row">
-              {item.themen.map((theme, index) => (
-                <button key={theme} className="text-link-btn" onClick={() => onQuickFilter('thema', theme)}>
-                  {themesLocalized[index] || translateContent(theme, lang)}
-                </button>
-              ))}
+              {item.themen.map((theme, index) => {
+                const label = String(themesLocalized[index] || translateContent(theme, lang) || theme)
+                return (
+                  <button key={theme} className="text-link-btn" onClick={() => onQuickFilter('thema', theme)}>
+                    {label.toUpperCase()}
+                  </button>
+                )
+              })}
             </div>
           </div>
           <div className="detail-card">
