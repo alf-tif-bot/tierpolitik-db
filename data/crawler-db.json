@@ -24190,8 +24190,25 @@
       ],
       "status": "queued",
       "reviewReason": "Direkt aus User-Input importiert"
+    },
+    {
+      "sourceId": "user-input",
+      "sourceUrl": "https://stadtrat.bern.ch",
+      "externalId": "user-bern-2026sr0055-biodiversitaet-siedlungsgebiet",
+      "title": "2026.SR.0055 · Motion: Biodiversität im Siedlungsgebiet fördern",
+      "summary": "Geschäftstyp: Motion als Richtlinie. Stand Beratung: Eingereicht. Eingereicht von u.a. Katharina Gallizzi, Nora Joos, Mirjam Läderach (gemäss Screenshot).",
+      "body": "Geschäftstyp: Motion als Richtlinie. Stand Beratung: Eingereicht. Eingereicht von u.a. Katharina Gallizzi, Nora Joos, Mirjam Läderach (gemäss Screenshot).",
+      "publishedAt": "2026-02-14T17:50:03.563Z",
+      "fetchedAt": "2026-02-14T17:50:10.818Z",
+      "language": "de",
+      "score": 0.5,
+      "matchedKeywords": [
+        "user-input"
+      ],
+      "status": "queued",
+      "reviewReason": "Direkt aus User-Input importiert"
     }
   ],
   "publications": [],
-  "updatedAt": "2026-02-14T17:46:39.645Z"
+  "updatedAt": "2026-02-14T17:50:15.270Z"
 }
