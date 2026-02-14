@@ -25,6 +25,19 @@ const fallbackData = (() => {
   }
 })()
 
+const isSaneLivePayload = (rows: Vorstoss[]) => {
+  if (!rows.length) return false
+  const placeholderTitles = rows.filter((v) => /^vorstoss\s+\d+$/i.test(String(v.titel || '').trim())).length
+  const missingBusinessNo = rows.filter((v) => !String(v.geschaeftsnummer || '').trim()).length
+  const sameDateRows = rows.filter((v) => String(v.datumEingereicht || '') === rows[0]?.datumEingereicht).length
+
+  if (placeholderTitles > Math.floor(rows.length * 0.15)) return false
+  if (missingBusinessNo > 0) return false
+  if (rows.length >= 20 && sameDateRows > Math.floor(rows.length * 0.8)) return false
+
+  return true
+}
+
 type ProfileState =
   | { kind: 'person'; value: string }
   | { kind: 'party'; value: string }
@@ -69,7 +82,7 @@ export default function App() {
               .map((r) => r.data)
           }
         }
-        if (parsed.length >= 20 && Math.abs(parsed.length - fallbackData.length) <= 10) {
+        if (parsed.length >= 20 && Math.abs(parsed.length - fallbackData.length) <= 10 && isSaneLivePayload(parsed)) {
           setData(parsed)
         }
       } catch {

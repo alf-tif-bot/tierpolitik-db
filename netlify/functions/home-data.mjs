@@ -204,6 +204,7 @@ export const handler = async () => {
         ) mv on true
         where m.status in ('approved','published')
           and m.source_id like 'ch-parliament-%'
+          and coalesce(mv.title, '') <> ''
           and coalesce(m.published_at, m.fetched_at) >= (now() - interval '5 years')
         order by m.updated_at desc
         limit 1200
@@ -294,9 +295,11 @@ export const handler = async () => {
       const normalizedThemes = sanitizeThemes(Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierschutz'])
       const baseThemes = (normalizedThemes.length ? normalizedThemes : ['Tierschutz']).slice(0, 6)
 
+      if (!clean(displayTitle)) return null
+
       return {
         id: `vp-${idSafe.toLowerCase()}`,
-        titel: displayTitle || `Vorstoss ${index + 1}`,
+        titel: clean(displayTitle),
         typ,
         kurzbeschreibung: summaryText,
         geschaeftsnummer: String(r.external_id || `AUTO-${index + 1}`),
@@ -316,8 +319,9 @@ export const handler = async () => {
       }
     })
 
+    const cleanedMapped = mapped.filter(Boolean)
     const minimumRows = Math.max(20, Math.min(60, fallbackVorstoesse.length || 20))
-    const payload = mapped.length >= minimumRows ? mapped : fallbackVorstoesse
+    const payload = cleanedMapped.length >= minimumRows ? cleanedMapped : fallbackVorstoesse
 
     return {
       statusCode: 200,
