@@ -24207,8 +24207,25 @@
       ],
       "status": "queued",
       "reviewReason": "Direkt aus User-Input importiert"
+    },
+    {
+      "sourceId": "user-input",
+      "sourceUrl": "https://stadtrat.bern.ch",
+      "externalId": "user-bern-2026sr0054-biodiversitaet-landwirtschaft",
+      "title": "2026.SR.0054 · Motion: Biodiversität im Landwirtschaftsgebiet fördern",
+      "summary": "Geschäftstyp: Motion als Richtlinie. Stand Beratung: Eingereicht. Eingereicht von u.a. Nora Joos, Mirjam Läderach, Katharina Gallizzi (gemäss Screenshot).",
+      "body": "Geschäftstyp: Motion als Richtlinie. Stand Beratung: Eingereicht. Eingereicht von u.a. Nora Joos, Mirjam Läderach, Katharina Gallizzi (gemäss Screenshot).",
+      "publishedAt": "2026-02-14T17:50:45.203Z",
+      "fetchedAt": "2026-02-14T17:50:53.439Z",
+      "language": "de",
+      "score": 0.5,
+      "matchedKeywords": [
+        "user-input"
+      ],
+      "status": "queued",
+      "reviewReason": "Direkt aus User-Input importiert"
     }
   ],
   "publications": [],
-  "updatedAt": "2026-02-14T17:50:15.270Z"
+  "updatedAt": "2026-02-14T17:50:57.943Z"
 }
