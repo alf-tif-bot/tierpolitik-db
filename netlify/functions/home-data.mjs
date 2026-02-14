@@ -144,21 +144,19 @@ const inferSubmitter = (lang, title = '', summary = '', body = '') => {
   return fallbackPersonByLang[lang] || fallbackPersonByLang.de
 }
 
-const buildInitiativeLinks = ({ typ, title, externalId, status }) => {
+const buildInitiativeLinks = ({ typ, externalId }) => {
   if (typ !== 'Volksinitiative') return undefined
 
   const affairId = String(externalId || '').split('-')[0]
   const mapped = initiativeLinkMap[affairId] || {}
-  const campaignUrl = mapped.campaignUrl
-    || `https://duckduckgo.com/?q=${encodeURIComponent(`${title} Volksinitiative Kampagne`)}`
+  const campaignUrl = String(mapped.campaignUrl || '').trim()
+  const resultUrl = String(mapped.resultUrl || '').trim()
 
-  const isPast = ['Angenommen', 'Abgelehnt', 'Abgeschrieben'].includes(status)
-  const resultUrl = mapped.resultUrl
-    || (isPast
-      ? `https://www.admin.ch/gov/de/start/suche.html?query=${encodeURIComponent(`${title} Volksinitiative Abstimmungsresultat`)}`
-      : undefined)
-
-  return { campaignUrl, resultUrl }
+  if (!campaignUrl && !resultUrl) return undefined
+  return {
+    ...(campaignUrl ? { campaignUrl } : {}),
+    ...(resultUrl ? { resultUrl } : {}),
+  }
 }
 
 const clean = (text = '') => String(text)
