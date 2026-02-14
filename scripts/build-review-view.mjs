@@ -50,11 +50,27 @@ for (const item of baseReviewItems) {
   }
 }
 
+const isHighConfidenceReview = (item) => {
+  const reason = String(item.reviewReason || '').toLowerCase()
+  const score = Number(item.score || 0)
+  const queued = item.status === 'queued' || item.status === 'new'
+  if (!queued) return false
+  if (reason.includes('feedback-negative-only') || reason.includes('noise-without-anchor')) return false
+
+  const hasStrongRule = reason.includes('[anchor+score]') || reason.includes('[anchor2+support]') || reason.includes('[feedback-recall]')
+  const hasAnchorSignal = /anchor=(?!-)/.test(reason)
+  return hasStrongRule && hasAnchorSignal && score >= 0.78
+}
+
 const reviewItems = [...grouped.values()]
   .sort((a, b) => {
     const aPending = (a.status === 'queued' || a.status === 'new') ? 1 : 0
     const bPending = (b.status === 'queued' || b.status === 'new') ? 1 : 0
     if (bPending !== aPending) return bPending - aPending
+
+    const aFast = isHighConfidenceReview(a) ? 1 : 0
+    const bFast = isHighConfidenceReview(b) ? 1 : 0
+    if (bFast !== aFast) return bFast - aFast
 
     const scoreDelta = Number(b.score || 0) - Number(a.score || 0)
     if (Math.abs(scoreDelta) > 0.0001) return scoreDelta
@@ -168,13 +184,14 @@ const humanizeReason = (reason = '') => {
 }
 
 const rows = reviewItems.map((item) => {
+  const fastLane = isHighConfidenceReview(item)
   const id = `${item.sourceId}:${item.externalId}`
   const isPending = item.status === 'queued' || item.status === 'new'
   const pendingBadge = isPending ? '<strong class="pending">offen</strong>' : '<span class="historic">historisch</span>'
   const sourceLabel = esc(sourceMap.get(item.sourceId) || item.sourceId)
   const entryType = item.sourceId === 'user-input' || item.sourceId === 'user-feedback' ? 'User-Feedback' : 'Crawler'
   const scoreValue = Number(item.score || 0)
-  const priorityLabel = scoreValue >= 0.8 ? 'hoch' : scoreValue >= 0.55 ? 'mittel' : 'niedriger'
+  const priorityLabel = fastLane ? 'fast-lane' : (scoreValue >= 0.8 ? 'hoch' : scoreValue >= 0.55 ? 'mittel' : 'niedriger')
   const sourceUrl = resolveOriginalUrl(item)
   const originalLink = sourceUrl
     ? `<a class="orig-link" href="${esc(sourceUrl)}" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>`
@@ -192,7 +209,7 @@ const rows = reviewItems.map((item) => {
   <div>${sourceLabel}</div>
   <small class="muted">${esc(item.sourceId)}</small>
 </td>
-<td>${scoreValue.toFixed(2)}<br><small class="muted">Priorität: ${priorityLabel}</small></td>
+<td>${scoreValue.toFixed(2)}<br><small class="muted">Priorität: ${priorityLabel}</small>${fastLane ? '<br><small class="fast-lane">⚡ Sehr wahrscheinlich relevant</small>' : ''}</td>
 <td>${esc((item.matchedKeywords || []).join(', '))}</td>
 <td>${esc(item.status)} (${pendingBadge})</td>
 <td><small>${humanizeReason(item.reviewReason || '-')}</small></td>
@@ -229,6 +246,7 @@ const html = `<!doctype html>
   .muted{color:#94a3b8}
   .pending{color:#f59e0b}
   .historic{color:#94a3b8}
+  .fast-lane{color:#fbbf24;font-weight:700}
 </style>
 </head>
 <body>
