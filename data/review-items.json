@@ -1,19 +1,17 @@
 {
-  "generatedAt": "2026-02-14T18:31:47.798Z",
-  "total": 76,
+  "generatedAt": "2026-02-14T18:48:41.731Z",
+  "total": 73,
   "ids": [
     "ch-municipal-parliament-bern-zurich:municipal-zuerich-0a92bddadf36",
     "ch-municipal-parliament-bern-zurich:municipal-bern-api-c6c65c8ce8a84435af97428996dadc64",
     "ch-municipal-parliament-bern-zurich:municipal-bern-api-b7e265b3766d43119b5279f5ea795e91",
     "ch-municipal-parliament-bern-zurich:municipal-bern-api-58a0ae87cf6f44e1a4030952a06a85bb",
-    "ch-municipal-parliament-bern-zurich:municipal-bern-api-35613219b77240ff9adf7978f17dd646",
     "ch-municipal-parliament-bern-zurich:municipal-bern-api-13284d70bb124c23a1bbba427e8a7c5c",
     "user-input:user-bern-2026sr0019-tierpark-alternativen-toetung",
     "user-input:user-bern-2026sr0054-biodiversitaet-landwirtschaft",
     "user-input:user-bern-2026sr0055-biodiversitaet-siedlungsgebiet",
     "user-input:user-bern-2026sr0056-biodiversitaet",
-    "ch-parliament-motions-de:20254462-de",
-    "ch-parliament-business-de:20254487-de",
+    "ch-municipal-parliament-bern-zurich:municipal-bern-1c6dc829b4ba",
     "ch-parliament-business-de:20244465-de",
     "ch-parliament-business-de:20237580-de",
     "ch-parliament-business-de:20233411-de",
@@ -26,7 +24,6 @@
     "ch-parliament-business-de:20218162-de",
     "ch-parliament-business-de:20210044-de",
     "ch-parliament-business-de:20210426-de",
-    "ch-parliament-business-de:20254697-de",
     "ch-parliament-business-de:20254010-de",
     "ch-parliament-business-de:20254812-de",
     "ch-parliament-business-de:20250078-de",
@@ -40,7 +37,6 @@
     "ch-parliament-business-de:20213405-de",
     "ch-parliament-business-de:20254788-de",
     "ch-parliament-business-de:20254380-de",
-    "ch-parliament-business-de:20253733-de",
     "ch-parliament-business-de:20240089-de",
     "ch-parliament-business-de:20223187-de",
     "ch-parliament-business-de:20233515-de",
@@ -77,6 +73,7 @@
     "ch-parliament-business-de:20223302-de",
     "ch-parliament-business-de:20213229-de",
     "ch-parliament-business-de:20258063-de",
-    "ch-parliament-business-de:20240331-de"
+    "ch-parliament-business-de:20240331-de",
+    "user-input:user-1770941941585"
   ]
 }

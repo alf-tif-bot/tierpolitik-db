@@ -34,9 +34,41 @@ const isReviewSource = (sourceId = '') => {
   return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-')
 }
 
+const isMunicipalOverviewNoise = (item) => {
+  const sid = String(item?.sourceId || '')
+  if (!sid.startsWith('ch-municipal-')) return false
+  const t = String(item?.title || '').toLowerCase()
+  const url = String(item?.meta?.sourceLink || item?.sourceUrl || '').toLowerCase()
+  return t.includes('übersichtsseite')
+    || t.includes('vorstösse und grsr-revisionen')
+    || t.includes('antworten auf kleine anfragen')
+    || url.includes('vorstoesse-und-grsr-revisionen')
+    || url.includes('antworten-auf-kleine-anfragen')
+}
+
+const MUNICIPAL_THEME_STRONG_KEYWORDS = [
+  'tier', 'tierschutz', 'tierwohl', 'tierpark', 'tierversuch', 'wildtier', 'haustier',
+  'zoo', 'vogel', 'hund', 'katze', 'fisch', 'jagd',
+]
+
+const MUNICIPAL_THEME_CONTEXT_KEYWORDS = [
+  'biodivers', 'wald', 'siedlungsgebiet', 'landwirtschaftsgebiet', 'feuerwerk', 'lärm', 'laerm',
+]
+
+const isMunicipalTopicRelevant = (item) => {
+  const sid = String(item?.sourceId || '')
+  if (!sid.startsWith('ch-municipal-')) return true
+  const text = `${item?.title || ''}\n${item?.summary || ''}\n${item?.body || ''}`.toLowerCase()
+  const strongHits = MUNICIPAL_THEME_STRONG_KEYWORDS.filter((kw) => text.includes(kw)).length
+  const contextHits = MUNICIPAL_THEME_CONTEXT_KEYWORDS.filter((kw) => text.includes(kw)).length
+  return strongHits > 0 || contextHits >= 2
+}
+
 const reviewCandidates = (db.items || [])
   .filter((item) => isReviewSource(item.sourceId))
-  .filter((item) => ['queued', 'approved', 'published'].includes(item.status))
+  .filter((item) => ['new', 'queued', 'approved', 'published'].includes(item.status))
+  .filter((item) => !isMunicipalOverviewNoise(item))
+  .filter((item) => isMunicipalTopicRelevant(item))
   .filter((item) => isWithin5Years(item))
 
 const expectedGrouped = new Map()

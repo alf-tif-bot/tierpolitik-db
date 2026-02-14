@@ -130,5 +130,21 @@
   "ch-parliament-business-de:20212027-de": {
     "fastlane": true,
     "taggedAt": "2026-02-14T10:51:44.244Z"
+  },
+  "ch-municipal-parliament-bern-zurich:municipal-bern-api-c6c65c8ce8a84435af97428996dadc64": {
+    "fastlane": true,
+    "taggedAt": "2026-02-14T18:37:06.036Z"
+  },
+  "ch-municipal-parliament-bern-zurich:municipal-bern-api-13284d70bb124c23a1bbba427e8a7c5c": {
+    "fastlane": true,
+    "taggedAt": "2026-02-14T18:37:25.611Z"
+  },
+  "user-input:user-bern-2026sr0019-tierpark-alternativen-toetung": {
+    "fastlane": true,
+    "taggedAt": "2026-02-14T18:43:35.637Z"
+  },
+  "ch-municipal-parliament-bern-zurich:municipal-bern-api-b7e265b3766d43119b5279f5ea795e91": {
+    "fastlane": true,
+    "taggedAt": "2026-02-14T18:44:17.747Z"
   }
 }

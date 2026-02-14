@@ -44,17 +44,22 @@ const isMunicipalOverviewNoise = (item) => {
     || url.includes('antworten-auf-kleine-anfragen')
 }
 
-const MUNICIPAL_THEME_KEYWORDS = [
+const MUNICIPAL_THEME_STRONG_KEYWORDS = [
   'tier', 'tierschutz', 'tierwohl', 'tierpark', 'tierversuch', 'wildtier', 'haustier',
-  'biodivers', 'wald', 'siedlungsgebiet', 'landwirtschaftsgebiet',
-  'feuerwerk', 'lärm', 'laerm', 'vogel', 'hund', 'katze', 'fisch', 'jagd',
+  'zoo', 'vogel', 'hund', 'katze', 'fisch', 'jagd',
+]
+
+const MUNICIPAL_THEME_CONTEXT_KEYWORDS = [
+  'biodivers', 'wald', 'siedlungsgebiet', 'landwirtschaftsgebiet', 'feuerwerk', 'lärm', 'laerm',
 ]
 
 const isMunicipalTopicRelevant = (item) => {
   const sid = String(item?.sourceId || '')
   if (!sid.startsWith('ch-municipal-')) return true
   const text = `${item?.title || ''}\n${item?.summary || ''}\n${item?.body || ''}`.toLowerCase()
-  return MUNICIPAL_THEME_KEYWORDS.some((kw) => text.includes(kw))
+  const strongHits = MUNICIPAL_THEME_STRONG_KEYWORDS.filter((kw) => text.includes(kw)).length
+  const contextHits = MUNICIPAL_THEME_CONTEXT_KEYWORDS.filter((kw) => text.includes(kw)).length
+  return strongHits > 0 || contextHits >= 2
 }
 
 const baseReviewItems = [...db.items]

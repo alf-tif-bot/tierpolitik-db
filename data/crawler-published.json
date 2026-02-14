@@ -36,7 +36,7 @@
     "summary": "Parlamentsgeschäft 20210044",
     "sourceId": "ch-parliament-business-fr",
     "publishedAt": "2026-02-13T23:06:02.214Z",
-    "score": 0.98,
+    "score": 1,
     "matchedKeywords": [
       "tiere",
       "massentierhaltung",
@@ -142,12 +142,21 @@
     ]
   },
   {
+    "id": "user-input:user-1770941941585",
+    "title": "Hinweis: Taubenschutz in Gemeinde X",
+    "summary": "Eingereicht durch User-Input-Kanal",
+    "sourceId": "user-input",
+    "publishedAt": "2026-02-13T00:19:01.585Z",
+    "score": 0,
+    "matchedKeywords": []
+  },
+  {
     "id": "ch-parliament-business-de:20210044-de",
     "title": "21.044 · Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative). Volksinitiative und direkter Gegenentwurf",
     "summary": "Botschaft vom 19. Mai 2021 zur Volksinitiative «Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative)» und zum direkten Gegenentwurf (Bundesbeschluss über den Schutz und das Wohlergehen der Tiere)",
     "sourceId": "ch-parliament-business-de",
     "publishedAt": "2021-05-19T00:00:00.000Z",
-    "score": 0.98,
+    "score": 1,
     "matchedKeywords": [
       "tiere",
       "massentierhaltung",
@@ -1171,6 +1180,26 @@
       "schwein",
       "schweine",
       "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-municipal-parliament-bern-zurich:municipal-bern-1c6dc829b4ba",
+    "title": "Bern · Interpellation: RWSU reicht Interpellation zur digitalen Souveränität der Stadt Bern ein",
+    "summary": "Gemeinde Bern (Stadtrat Bern) · Interpellation · RWSU reicht Interpellation zur digitalen Souveränität der Stadt Bern ein",
+    "sourceId": "ch-municipal-parliament-bern-zurich",
+    "publishedAt": "2026-02-14T17:26:09.462Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tiere",
+      "tierschutz",
+      "biodiversität",
+      "biodiversita",
+      "landwirtschaft",
+      "ernährung",
+      "initiative",
+      "motion",
+      "postulat",
+      "fleisch"
     ]
   }
 ]

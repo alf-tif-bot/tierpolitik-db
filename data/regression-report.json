@@ -1,12 +1,18 @@
 {
-  "generatedAt": "2026-02-14T17:19:33.426Z",
-  "expectedReview": 67,
-  "actualReview": 67,
+  "generatedAt": "2026-02-14T18:48:45.033Z",
+  "expectedReview": 68,
+  "actualReview": 73,
   "missingInReviewCount": 0,
   "missingInReview": [],
-  "extraInReviewCount": 0,
+  "extraInReviewCount": 5,
   "extraInReviewParliamentCount": 0,
-  "extraInReview": [],
+  "extraInReview": [
+    "user-input:user-bern-2026sr0019-tierpark-alternativen-toetung",
+    "user-input:user-bern-2026sr0054-biodiversitaet-landwirtschaft",
+    "user-input:user-bern-2026sr0055-biodiversitaet-siedlungsgebiet",
+    "user-input:user-bern-2026sr0056-biodiversitaet",
+    "user-input:user-1770941941585"
+  ],
   "extraInReviewParliament": [],
   "duplicateReviewIdsCount": 0,
   "duplicateReviewIds": [],
