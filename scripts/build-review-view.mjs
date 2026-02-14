@@ -34,6 +34,14 @@ const langRank = (item) => {
   return 3
 }
 
+const statusRank = (item) => {
+  const s = String(item.status || '')
+  if (s === 'published') return 3
+  if (s === 'approved') return 2
+  if (s === 'queued' || s === 'new') return 1
+  return 0
+}
+
 const grouped = new Map()
 for (const item of baseReviewItems) {
   const key = affairKey(item)
@@ -43,9 +51,11 @@ for (const item of baseReviewItems) {
     continue
   }
 
+  const betterStatus = statusRank(item) > statusRank(prev)
   const betterLang = langRank(item) < langRank(prev)
   const betterScore = (item.score ?? 0) > (prev.score ?? 0)
-  if (betterLang || (!betterLang && betterScore)) {
+
+  if (betterStatus || (!betterStatus && (betterLang || (!betterLang && betterScore)))) {
     grouped.set(key, item)
   }
 }
@@ -341,7 +351,10 @@ function hideDecidedRows(){
   rows.forEach((row)=>{
     const id = row.getAttribute('data-id');
     if (!id) return
-    const decided = Boolean(decisions[id])
+    const status = row.getAttribute('data-status') || ''
+    const serverDecided = status !== 'queued' && status !== 'new'
+    const localDecided = Boolean(decisions[id])
+    const decided = serverDecided || localDecided
     row.style.display = (!showDecided && decided) ? 'none' : ''
   });
 
