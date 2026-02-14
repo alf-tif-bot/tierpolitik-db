@@ -77,6 +77,18 @@
     }
   },
   {
+    "id": "ch-cantonal-portal-core",
+    "label": "Cantonal portals (core crawl)",
+    "type": "html",
+    "adapter": "cantonalPortal",
+    "url": "https://www.ag.ch/grosser-rat",
+    "enabled": true,
+    "options": {
+      "registryUrl": "data/cantonal-source-registry.json",
+      "cantons": "AG,AR,AI,BE,BS,FR,GE,GL,GR,JU,LU,NE,NW,OW,SG,SH,SO,SZ,TG,TI,UR,VD,ZG,ZH"
+    }
+  },
+  {
     "id": "blv-news",
     "label": "BLV News",
     "type": "rss",

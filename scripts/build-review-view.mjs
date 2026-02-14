@@ -36,12 +36,17 @@ const baseReviewItems = [...db.items]
   .filter((item) => enabledSourceIds.has(item.sourceId))
   .filter((item) => {
     const sid = String(item.sourceId || '')
-    return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-')
+    return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-')
   })
   .filter((item) => ['new', 'queued', 'approved', 'published'].includes(item.status))
   .filter((item) => isWithin5Years(item))
 
-const affairKey = (item) => String(item.externalId || '').split('-')[0] || `${item.sourceId}:${item.externalId}`
+const affairKey = (item) => {
+  const sid = String(item.sourceId || '')
+  const external = String(item.externalId || '')
+  if (sid.startsWith('ch-parliament-business-')) return external.split('-')[0] || `${sid}:${external}`
+  return `${sid}:${external}`
+}
 const entryKey = (item) => `${item.sourceId}:${item.externalId}`
 const decidedEntryKeys = new Set(Object.keys(localDecisions || {}))
 const decidedAffairKeys = new Set(Object.keys(localDecisions || {})

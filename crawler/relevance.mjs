@@ -346,7 +346,7 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     item.matchedKeywords = matched
 
     const prevStatus = item.status
-    const isManualLocked = ['approved', 'published', 'rejected'].includes(prevStatus)
+    const isManualLocked = ['approved', 'published'].includes(prevStatus)
     if (!isManualLocked) {
       item.status = isRelevant ? 'queued' : 'rejected'
     }
