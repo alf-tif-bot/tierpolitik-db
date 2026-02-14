@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 
-const KEYWORDS = [
+const BASE_KEYWORDS = [
   'vorstoss',
   'vorstösse',
   'geschaefte',
@@ -17,14 +17,45 @@ const KEYWORDS = [
   'granconsiglio',
 ]
 
+const CANTON_KEYWORDS = {
+  GE: ['grandconseil', 'recherche', 'dossiers'],
+  JU: ['interventions-parlementaires-deposees', 'questions-ecrites', 'interpellations'],
+  TI: ['gran consiglio', 'ricerca messaggi e atti', 'atti parlamentari', 'mozioni', 'interrogazioni'],
+  VD: ['objets-et-rapports-de-commissions', 'grand conseil', 'bulletin'],
+  VS: ['objets-parlementaires', 'interventions-parlementaires'],
+  BL: ['landrat', 'geschaefte-des-landrats'],
+}
+
+const CANTON_FALLBACK_LINKS = {
+  GE: [
+    { href: 'https://ge.ch/grandconseil/recherche-objets', text: 'Recherche objets parlementaires' },
+    { href: 'https://ge.ch/grandconseil/search', text: 'Recherche Grand Conseil' },
+    { href: 'https://ge.ch/grandconseil/memorial/dossiers/', text: 'Mémorial – Dossiers' },
+  ],
+  TI: [
+    { href: 'https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati', text: 'Ricerca messaggi e atti' },
+    { href: 'https://www4.ti.ch/index.php?id=83058', text: 'Ricerca messaggi governativi e atti parlamentari' },
+  ],
+  VD: [
+    { href: 'https://www.vd.ch/gc/objets-et-rapports-de-commissions', text: 'Objets et rapports de commissions' },
+    { href: 'https://www.vd.ch/toutes-les-autorites/grand-conseil/bulletin-du-grand-conseil', text: 'Bulletin du Grand Conseil' },
+  ],
+  VS: [
+    { href: 'https://www.vs.ch/fr/web/gc/objets-parlementaires', text: 'Objets parlementaires' },
+    { href: 'https://www.vs.ch/fr/web/gc/interventions-parlementaires', text: 'Interventions parlementaires' },
+  ],
+}
+
 const asList = (value) => String(value || '')
   .split(',')
   .map((x) => x.trim())
   .filter(Boolean)
 
-const scoreLink = (url = '', text = '') => {
+const scoreLink = (canton = '', url = '', text = '') => {
   const combined = `${url} ${text}`.toLowerCase()
-  return KEYWORDS.reduce((acc, kw) => (combined.includes(kw) ? acc + 1 : acc), 0)
+  const cantonKeywords = CANTON_KEYWORDS[canton] || []
+  const keywords = [...BASE_KEYWORDS, ...cantonKeywords]
+  return keywords.reduce((acc, kw) => (combined.includes(kw) ? acc + 1 : acc), 0)
 }
 
 const normalizeUrl = (href, baseUrl) => {
@@ -50,7 +81,7 @@ const pickLanguage = (canton, pageText) => {
   return 'de'
 }
 
-const parseLinks = (html = '', baseUrl = '') => {
+const parseLinks = (html = '', baseUrl = '', canton = '') => {
   const links = []
   const re = /<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi
   let m
@@ -58,14 +89,29 @@ const parseLinks = (html = '', baseUrl = '') => {
     const href = normalizeUrl(m[1], baseUrl)
     if (!href || !href.startsWith('http')) continue
     const text = stripTags(m[2]).slice(0, 180)
-    const rank = scoreLink(href, text)
+    const rank = scoreLink(canton, href, text)
     if (rank <= 0) continue
     links.push({ href, text, rank })
   }
 
   return [...new Map(links
     .sort((a, b) => b.rank - a.rank)
-    .map((l) => [l.href, l])).values()].slice(0, 8)
+    .map((l) => [l.href, l])).values()].slice(0, 10)
+}
+
+const appendFallbackLinks = (canton, links) => {
+  const fallback = CANTON_FALLBACK_LINKS[canton] || []
+  if (!fallback.length) return links
+
+  const merged = [...links]
+  for (const item of fallback) {
+    if (merged.some((entry) => entry.href === item.href)) continue
+    merged.push({ ...item, rank: scoreLink(canton, item.href, item.text) || 1 })
+  }
+
+  return merged
+    .sort((a, b) => b.rank - a.rank)
+    .slice(0, 10)
 }
 
 export function createCantonalPortalAdapter() {
@@ -110,7 +156,8 @@ export function createCantonalPortalAdapter() {
           const title = (html.match(/<title>([\s\S]*?)<\/title>/i)?.[1] || entry.parliament || `${canton} Parlament`)
             .replace(/\s+/g, ' ')
             .trim()
-          const links = parseLinks(html, response.url)
+          const parsedLinks = parseLinks(html, response.url, canton)
+          const links = appendFallbackLinks(canton, parsedLinks)
           const pageText = stripTags(html).slice(0, 5000)
           const language = pickLanguage(canton, pageText)
 
@@ -127,7 +174,7 @@ export function createCantonalPortalAdapter() {
             fetchedAt,
             language,
             score: Math.min(0.4 + links.length * 0.05, 0.85),
-            matchedKeywords: ['kanton', canton.toLowerCase(), ...new Set(links.flatMap((l) => KEYWORDS.filter((kw) => `${l.href} ${l.text}`.toLowerCase().includes(kw))))].slice(0, 12),
+            matchedKeywords: ['kanton', canton.toLowerCase(), ...new Set(links.flatMap((l) => [...BASE_KEYWORDS, ...(CANTON_KEYWORDS[canton] || [])].filter((kw) => `${l.href} ${l.text}`.toLowerCase().includes(kw))))].slice(0, 12),
             status: 'new',
             reviewReason: links.length ? 'cantonal-portal-links' : 'cantonal-portal-reachable',
             meta: {

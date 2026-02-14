@@ -5,12 +5,23 @@ const outPath = new URL('../data/cantonal-source-registry.json', import.meta.url
 
 const cantons = JSON.parse(fs.readFileSync(cantonsPath, 'utf8'))
 
+const PARLIAMENT_URL_HINTS = [
+  '/objets-parlementaires',
+  '/interventions-parlementaires',
+  '/objets-et-rapports-de-commissions',
+  '/recherche-objets',
+  '/ricerca-messaggi-e-atti',
+  '/grandconseil/',
+]
+
 const detectPlatform = (url = '', html = '') => {
   const u = String(url).toLowerCase()
   const h = String(html).toLowerCase()
+  if (h.includes('verifying your browser') || h.includes('vérification de votre navigateur')) return 'waf-challenge'
   if (u.includes('ratsinfo') || h.includes('ratsinfo')) return 'ratsinfo'
   if (u.includes('parlinfo') || h.includes('parlinfo') || u.includes('/grweb/')) return 'parliament-portal'
   if (u.includes('aio') || h.includes('allris') || h.includes('sessionnet')) return 'allris/sessionnet'
+  if (PARLIAMENT_URL_HINTS.some((hint) => u.includes(hint))) return 'parliament-portal'
   if (h.includes('traktanden') || h.includes('geschaefte') || h.includes('vorstoesse') || h.includes('objets parlementaires')) return 'parliament-portal'
   if (h.includes('drupal')) return 'drupal-site'
   if (h.includes('typo3')) return 'typo3-site'
@@ -20,12 +31,24 @@ const detectPlatform = (url = '', html = '') => {
 
 const classifyReadiness = ({ url = '', platform = 'generic-site', ok = false, httpStatus = null }) => {
   const u = String(url).toLowerCase()
-  if (!ok) {
-    if (httpStatus === 403 || httpStatus === 429) return 'blocked-needs-manual'
+  const hasParliamentHint = [
+    'parlament',
+    'kantonsrat',
+    'grandconseil',
+    'objets-parlementaires',
+    'interventions-parlementaires',
+    'objets-et-rapports-de-commissions',
+    'ricerca-messaggi-e-atti',
+  ].some((hint) => u.includes(hint))
+
+  if (!ok || platform === 'waf-challenge') {
+    if (httpStatus === 403 || httpStatus === 429 || platform === 'waf-challenge') return 'blocked-needs-manual'
     return 'unreachable-needs-manual'
   }
   if (platform === 'ratsinfo' || platform === 'allris/sessionnet') return 'adapter-ready-likely'
-  if (u.includes('parlament') || u.includes('kantonsrat') || platform === 'parliament-portal') return 'site-discovery-needed'
+  if (platform === 'parliament-portal' || (['typo3-site', 'drupal-site'].includes(platform) && hasParliamentHint) || hasParliamentHint) {
+    return 'site-discovery-needed'
+  }
   return 'manual-discovery-needed'
 }
 

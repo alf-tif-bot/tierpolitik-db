@@ -72,7 +72,9 @@
     "url": "https://ge.ch/grandconseil/objets-parlementaires",
     "sinceYear": 2020,
     "urlCandidates": [
-      "https://ge.ch/grandconseil/recherche-objets"
+      "https://ge.ch/grandconseil/recherche-objets",
+      "https://ge.ch/grandconseil/search",
+      "https://ge.ch/grandconseil/memorial/dossiers/"
     ]
   },
   {
@@ -99,7 +101,9 @@
     "url": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html",
     "sinceYear": 2020,
     "urlCandidates": [
-      "https://www.jura.ch/fr/Autorites/PLT/Documents-du-Parlement/Suivi-des-interventions/Suivi-des-interventions.html"
+      "https://www.jura.ch/fr/Autorites/PLT/Documents-du-Parlement/Suivi-des-interventions/Suivi-des-interventions.html",
+      "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions/Motions.html",
+      "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Postulats/Postulats.html"
     ]
   },
   {
@@ -185,6 +189,8 @@
     "url": "https://www4.ti.ch/poteri/gc/home",
     "sinceYear": 2020,
     "urlCandidates": [
+      "https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati",
+      "https://www4.ti.ch/index.php?id=83058",
       "https://www4.ti.ch/poteri/gc/attivita-parlamentare"
     ]
   },
@@ -202,6 +208,7 @@
     "url": "https://www.vd.ch/gc/",
     "sinceYear": 2020,
     "urlCandidates": [
+      "https://www.vd.ch/gc/objets-et-rapports-de-commissions",
       "https://www.vd.ch/gc/objets-du-conseil"
     ]
   },
@@ -212,7 +219,8 @@
     "url": "https://www.vs.ch/fr/web/gc/objets-parlementaires",
     "sinceYear": 2020,
     "urlCandidates": [
-      "https://www.vs.ch/fr/web/gc/interventions-parlementaires"
+      "https://www.vs.ch/fr/web/gc/interventions-parlementaires",
+      "https://www.vs.ch/de/web/gc/parlamentarische-vorstoesse"
     ]
   },
   {
