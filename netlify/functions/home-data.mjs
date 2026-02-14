@@ -1,15 +1,33 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { createRequire } from 'node:module'
 import { withPgClient } from '../../crawler/db-postgres.mjs'
+
+const require = createRequire(import.meta.url)
 
 const initiativeLinksPath = path.resolve(process.cwd(), 'data/initiative-links.json')
 const vorstoessePath = path.resolve(process.cwd(), 'data/vorstoesse.json')
 const initiativeLinkMap = fs.existsSync(initiativeLinksPath)
   ? JSON.parse(fs.readFileSync(initiativeLinksPath, 'utf8'))
   : {}
-const fallbackVorstoesse = fs.existsSync(vorstoessePath)
-  ? JSON.parse(fs.readFileSync(vorstoessePath, 'utf8'))
-  : []
+
+let fallbackVorstoesse = []
+try {
+  if (fs.existsSync(vorstoessePath)) {
+    fallbackVorstoesse = JSON.parse(fs.readFileSync(vorstoessePath, 'utf8'))
+  }
+} catch {
+  // ignore and try bundled fallback below
+}
+
+if (!Array.isArray(fallbackVorstoesse) || !fallbackVorstoesse.length) {
+  try {
+    const bundled = require('../../data/vorstoesse.json')
+    fallbackVorstoesse = Array.isArray(bundled) ? bundled : []
+  } catch {
+    fallbackVorstoesse = []
+  }
+}
 
 const inferType = (title = '', sourceId = '') => {
   const text = `${title} ${sourceId}`.toLowerCase()
@@ -388,8 +406,7 @@ export const handler = async () => {
     })
 
     const cleanedMapped = mapped.filter(Boolean)
-    const minimumRows = Math.max(20, Math.min(60, fallbackVorstoesse.length || 20))
-    const payload = cleanedMapped.length >= minimumRows ? cleanedMapped : fallbackVorstoesse
+    const payload = cleanedMapped.length > 0 ? cleanedMapped : fallbackVorstoesse
 
     return {
       statusCode: 200,
