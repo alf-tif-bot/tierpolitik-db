@@ -55,7 +55,7 @@ export function defaultFilters(): Filters {
   return {
     globalQuery: '',
     ebenen: [],
-    status: [],
+    status: ['Angenommen'],
     typen: [],
     kantone: [],
     themen: [],
