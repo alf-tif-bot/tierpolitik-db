@@ -3,9 +3,13 @@ import path from 'node:path'
 import { withPgClient } from '../../crawler/db-postgres.mjs'
 
 const initiativeLinksPath = path.resolve(process.cwd(), 'data/initiative-links.json')
+const vorstoessePath = path.resolve(process.cwd(), 'data/vorstoesse.json')
 const initiativeLinkMap = fs.existsSync(initiativeLinksPath)
   ? JSON.parse(fs.readFileSync(initiativeLinksPath, 'utf8'))
   : {}
+const fallbackVorstoesse = fs.existsSync(vorstoessePath)
+  ? JSON.parse(fs.readFileSync(vorstoessePath, 'utf8'))
+  : []
 
 const inferType = (title = '', sourceId = '') => {
   const text = `${title} ${sourceId}`.toLowerCase()
@@ -252,16 +256,18 @@ export const handler = async () => {
         status: statusLabel,
       })
 
+      const summaryText = clean(summarizeVorstoss({
+        title: displayTitle,
+        summary: displaySummary,
+        body: displayBody,
+        status: r.status,
+      })) || `Kurzüberblick: ${displayTitle || `Vorstoss ${index + 1}`} (${statusLabel}).`
+
       return {
         id: `vp-${idSafe.toLowerCase()}`,
         titel: displayTitle || `Vorstoss ${index + 1}`,
         typ,
-        kurzbeschreibung: summarizeVorstoss({
-          title: displayTitle,
-          summary: displaySummary,
-          body: displayBody,
-          status: r.status,
-        }),
+        kurzbeschreibung: summaryText,
         geschaeftsnummer: String(r.external_id || `AUTO-${index + 1}`),
         ebene: 'Bund',
         kanton: null,
@@ -279,16 +285,19 @@ export const handler = async () => {
       }
     })
 
+    const minimumRows = Math.max(8, Math.min(40, fallbackVorstoesse.length || 8))
+    const payload = mapped.length >= minimumRows ? mapped : fallbackVorstoesse
+
     return {
       statusCode: 200,
       headers: { 'content-type': 'application/json; charset=utf-8' },
-      body: JSON.stringify(mapped),
+      body: JSON.stringify(payload),
     }
-  } catch (error) {
+  } catch {
     return {
-      statusCode: 500,
+      statusCode: 200,
       headers: { 'content-type': 'application/json; charset=utf-8' },
-      body: JSON.stringify({ error: error.message || 'home-data failed' }),
+      body: JSON.stringify(fallbackVorstoesse),
     }
   }
 }
