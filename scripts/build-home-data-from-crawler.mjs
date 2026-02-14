@@ -204,6 +204,15 @@ const clean = (text = '') => String(text)
   .replace(/\s+/g, ' ')
   .replace(/^\s+|\s+$/g, '')
 
+const normalizeDisplayTitle = (item, title = '') => {
+  let t = clean(title)
+  if (!t) return t
+  if (String(item?.meta?.municipality || '').toLowerCase() === 'bern') {
+    t = t.replace(/^Bern\s*[·:-]\s*/i, '')
+  }
+  return t
+}
+
 const firstSentence = (text = '') => {
   const c = clean(text)
   if (!c) return ''
@@ -360,7 +369,8 @@ const vorstoesse = items.map((item, index) => {
   const isParliament = isParliamentSourceId(item.sourceId)
   const affairId = String(item.externalId || '').split('-')[0]
   const deVariant = isParliament ? deByAffair.get(affairId) : null
-  const displayTitle = deVariant?.title || item.title
+  const displayTitleRaw = deVariant?.title || item.title
+  const displayTitle = normalizeDisplayTitle(item, displayTitleRaw)
   const displaySummary = deVariant?.summary || item.summary
   const displayBody = deVariant?.body || item.body
   const inferredYear = inferYearFromBusiness(displayTitle, item.externalId)

@@ -22680,8 +22680,8 @@
         "postulat",
         "fleisch"
       ],
-      "status": "approved",
-      "reviewReason": "Review-Entscheid (approved)"
+      "status": "rejected",
+      "reviewReason": "User requested removal (RWSU not relevant)"
     },
     {
       "sourceId": "ch-municipal-parliament-bern-zurich",
@@ -26136,5 +26136,5 @@
     }
   ],
   "publications": [],
-  "updatedAt": "2026-02-14T21:43:29.488Z"
+  "updatedAt": "2026-02-14T21:46:19.036Z"
 }

@@ -148,6 +148,15 @@ const clean = (text = '') => String(text)
   .replace(/\s+/g, ' ')
   .replace(/^\s+|\s+$/g, '')
 
+const normalizeDisplayTitle = (row, title = '') => {
+  let t = clean(title)
+  if (!t) return t
+  const isBern = String(row?.source_id || '').includes('municipal-')
+    && String(row?.source_url || '').includes('stadtrat.bern.ch')
+  if (isBern) t = t.replace(/^Bern\s*[·:-]\s*/i, '')
+  return t
+}
+
 const THEME_EXCLUDE = new Set(['botschaft'])
 const sanitizeThemes = (arr = []) => arr
   .map((x) => String(x || '').trim())
@@ -324,7 +333,8 @@ export const handler = async () => {
       const isParliament = isParliamentSourceId(r.source_id)
       const affairId = String(r.external_id || '').split('-')[0]
       const deVariant = isParliament ? deByAffair.get(affairId) : null
-      const displayTitle = deVariant?.title || r.title
+      const displayTitleRaw = deVariant?.title || r.title
+      const displayTitle = normalizeDisplayTitle(r, displayTitleRaw)
       const displaySummary = deVariant?.summary || r.summary
       const displayBody = deVariant?.body || r.body
       const inferredYear = inferYearFromBusiness(displayTitle, r.external_id)

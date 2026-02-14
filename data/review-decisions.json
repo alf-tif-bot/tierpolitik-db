@@ -16,8 +16,10 @@
     "decidedAt": "2026-02-13T21:59:58.935Z"
   },
   "ch-parliament-business-de:20254487-de": {
-    "status": "approved",
-    "decidedAt": "2026-02-13T22:12:55.227Z"
+    "status": "rejected",
+    "decidedAt": "2026-02-13T22:12:55.227Z",
+    "syncedAt": "2026-02-14T21:46:38.800Z",
+    "syncReason": "regression-check-db-status"
   },
   "ch-parliament-business-de:20250079-de": {
     "status": "rejected",
@@ -28,8 +30,10 @@
     "decidedAt": "2026-02-13T22:25:57.656Z"
   },
   "ch-parliament-business-de:20254697-de": {
-    "status": "approved",
-    "decidedAt": "2026-02-13T22:27:58.895Z"
+    "status": "rejected",
+    "decidedAt": "2026-02-13T22:27:58.895Z",
+    "syncedAt": "2026-02-14T21:46:38.800Z",
+    "syncReason": "regression-check-db-status"
   },
   "ch-parliament-business-fr:20210055-fr": {
     "status": "rejected",
@@ -484,8 +488,10 @@
     "decidedAt": "2026-02-13T20:53:03.013Z"
   },
   "ch-parliament-business-de:20253733-de": {
-    "status": "approved",
-    "decidedAt": "2026-02-13T22:33:12.898Z"
+    "status": "rejected",
+    "decidedAt": "2026-02-13T22:33:12.898Z",
+    "syncedAt": "2026-02-14T21:46:38.800Z",
+    "syncReason": "regression-check-db-status"
   },
   "ch-parliament-business-de:20250099-de": {
     "status": "rejected",
@@ -2668,8 +2674,9 @@
     "decidedAt": "2026-02-14T13:13:23.531Z"
   },
   "ch-municipal-parliament-bern-zurich:municipal-bern-1c6dc829b4ba": {
-    "status": "approved",
-    "decidedAt": "2026-02-14T18:44:20.071Z"
+    "status": "rejected",
+    "decidedAt": "2026-02-14T21:46:07.040Z",
+    "note": "User requested removal (RWSU not relevant)"
   },
   "ch-municipal-parliament-bern-zurich:municipal-bern-api-c6c65c8ce8a84435af97428996dadc64": {
     "status": "approved",
