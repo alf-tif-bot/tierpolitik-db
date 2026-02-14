@@ -3,7 +3,11 @@ import fs from 'node:fs'
 const dbPath = new URL('../data/crawler-db.json', import.meta.url)
 const outPath = new URL('../public/review.html', import.meta.url)
 const reviewDataPath = new URL('../data/review-items.json', import.meta.url)
+const decisionsPath = new URL('../data/review-decisions.json', import.meta.url)
 const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
+const localDecisions = fs.existsSync(decisionsPath)
+  ? JSON.parse(fs.readFileSync(decisionsPath, 'utf8'))
+  : {}
 
 const enabledSourceIds = new Set((db.sources || [])
   .filter((s) => s.enabled !== false)
@@ -26,6 +30,15 @@ const baseReviewItems = [...db.items]
   .filter((item) => isWithin5Years(item))
 
 const affairKey = (item) => String(item.externalId || '').split('-')[0] || `${item.sourceId}:${item.externalId}`
+const entryKey = (item) => `${item.sourceId}:${item.externalId}`
+const decidedEntryKeys = new Set(Object.keys(localDecisions || {}))
+const decidedAffairKeys = new Set(Object.keys(localDecisions || {})
+  .map((id) => {
+    const externalId = String(id).split(':')[1] || ''
+    return String(externalId).split('-')[0]
+  })
+  .filter(Boolean))
+
 const langRank = (item) => {
   const src = String(item.sourceId || '').toLowerCase()
   if (src.endsWith('-de')) return 0
@@ -240,7 +253,12 @@ const humanizeReason = (reason = '') => {
   return parts.length ? parts.join('') : esc(text)
 }
 
-const fastLaneItems = reviewItems.filter((item) => isHighConfidenceReview(item))
+const fastLaneItems = reviewItems.filter((item) => {
+  if (!isHighConfidenceReview(item)) return false
+  if (decidedEntryKeys.has(entryKey(item))) return false
+  if (decidedAffairKeys.has(affairKey(item))) return false
+  return true
+})
 
 const fastLaneRows = fastLaneItems.map((item) => {
   const id = `${item.sourceId}:${item.externalId}`
