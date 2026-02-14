@@ -676,6 +676,12 @@ a { color: #0a4fa8; }
 
 .btn-secondary {
   background: #eef4ff;
+  color: #17365d;
+  border-color: #b9cae3;
+}
+
+.btn-secondary:hover {
+  background: #dfeafb;
 }
 
 .shortcuts-table {

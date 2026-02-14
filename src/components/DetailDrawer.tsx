@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { I18nText, Language } from '../i18n'
-import { translateContent, translateStatus } from '../i18n'
+import { translateContent, translateStatus, translateType } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
 
@@ -70,7 +70,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
       : 'Neutral / unklar'
 
   const metaRows = [
-    { label: t.type, value: item.typ, filterField: 'typ' as const },
+    { label: t.type, value: translateType(item.typ, lang), filterField: 'typ' as const, rawValue: item.typ },
     { label: t.businessNo, value: item.geschaeftsnummer },
     { label: t.level, value: level, filterField: 'ebene' as const, rawValue: item.ebene },
     { label: t.canton, value: item.kanton ?? '-', filterField: 'kanton' as const },

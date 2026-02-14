@@ -17,6 +17,14 @@ export const statusLabels: Record<string, Record<Language, string>> = {
   Zurückgezogen: { de: 'Zurückgezogen', fr: 'Retiré', it: 'Ritirato', en: 'Withdrawn' },
 }
 
+export const typeLabels: Record<string, Record<Language, string>> = {
+  Volksinitiative: { de: 'Volksinitiative', fr: 'Initiative populaire', it: 'Iniziativa popolare', en: 'Popular initiative' },
+  Interpellation: { de: 'Interpellation', fr: 'Interpellation', it: 'Interpellanza', en: 'Interpellation' },
+  Motion: { de: 'Motion', fr: 'Motion', it: 'Mozione', en: 'Motion' },
+  Postulat: { de: 'Postulat', fr: 'Postulat', it: 'Postulato', en: 'Postulate' },
+  Anfrage: { de: 'Anfrage', fr: 'Question', it: 'Interrogazione', en: 'Question' },
+}
+
 export type I18nText = {
   title: string
   subtitle: string
@@ -267,6 +275,12 @@ const contentDictionary: Record<Language, Array<[RegExp, string]>> = {
     [/geschaeft/gi, 'Geschäft'],
   ],
   fr: [
+    [/Volksinitiative/gi, 'Initiative populaire'],
+    [/Interpellation/gi, 'Interpellation'],
+    [/Motion/gi, 'Motion'],
+    [/Postulat/gi, 'Postulat'],
+    [/Anfrage/gi, 'Question'],
+    [/Themen/gi, 'Thèmes'],
     [/Vorstoss/gi, 'Intervention'],
     [/Frei erfundener Vorstoss zur Verbesserung von/gi, 'Intervention fictive visant à améliorer'],
     [/mit messbaren Kriterien und staerkerem Vollzug\./gi, 'avec des critères mesurables et une mise en œuvre renforcée.'],
@@ -289,6 +303,12 @@ const contentDictionary: Record<Language, Array<[RegExp, string]>> = {
     [/Strafe/gi, 'sanction'],
   ],
   it: [
+    [/Volksinitiative/gi, 'Iniziativa popolare'],
+    [/Interpellation/gi, 'Interpellanza'],
+    [/Motion/gi, 'Mozione'],
+    [/Postulat/gi, 'Postulato'],
+    [/Anfrage/gi, 'Interrogazione'],
+    [/Themen/gi, 'Temi'],
     [/Vorstoss/gi, 'Iniziativa'],
     [/Frei erfundener Vorstoss zur Verbesserung von/gi, 'Iniziativa fittizia per migliorare'],
     [/mit messbaren Kriterien und staerkerem Vollzug\./gi, 'con criteri misurabili e un’applicazione più rigorosa.'],
@@ -311,6 +331,12 @@ const contentDictionary: Record<Language, Array<[RegExp, string]>> = {
     [/Strafe/gi, 'sanzione'],
   ],
   en: [
+    [/Volksinitiative/gi, 'Popular initiative'],
+    [/Interpellation/gi, 'Interpellation'],
+    [/Motion/gi, 'Motion'],
+    [/Postulat/gi, 'Postulate'],
+    [/Anfrage/gi, 'Question'],
+    [/Themen/gi, 'Themes'],
     [/Vorstoss/gi, 'Initiative'],
     [/Frei erfundener Vorstoss zur Verbesserung von/gi, 'Sample initiative to improve'],
     [/mit messbaren Kriterien und staerkerem Vollzug\./gi, 'with measurable criteria and stronger enforcement.'],
@@ -336,6 +362,10 @@ const contentDictionary: Record<Language, Array<[RegExp, string]>> = {
 
 export function translateStatus(status: string, lang: Language): string {
   return statusLabels[status]?.[lang] ?? status
+}
+
+export function translateType(type: string, lang: Language): string {
+  return typeLabels[type]?.[lang] ?? type
 }
 
 export function translateContent(text: string, lang: Language): string {
