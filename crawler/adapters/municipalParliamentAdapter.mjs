@@ -58,6 +58,17 @@ const classifyMunicipalEntry = (text = '') => {
   return 'Parlamentsgeschäft'
 }
 
+const normalizeMunicipalTitle = (raw = '') => {
+  const text = String(raw || '').replace(/\s+/g, ' ').trim()
+  const low = text.toLowerCase()
+
+  if (!text) return 'Unbenanntes Parlamentsgeschäft'
+  if (low.includes('vorstösse und grsr-revisionen')) return 'Übersichtsseite: Vorstösse und GRSR-Revisionen'
+  if (low.includes('antworten auf kleine anfragen')) return 'Übersichtsseite: Antworten auf kleine Anfragen'
+
+  return text
+}
+
 const scoreLink = (href = '', text = '') => {
   const low = `${href} ${text}`.toLowerCase()
   const motionHits = MOTION_KEYWORDS.reduce((acc, kw) => (low.includes(kw) ? acc + 1 : acc), 0)
@@ -145,7 +156,7 @@ export function createMunicipalParliamentAdapter() {
             if (!links.length) continue
 
             for (const [index, link] of links.entries()) {
-              const inferredTitle = link.text || `${parliament} Geschäft ${index + 1}`
+              const inferredTitle = normalizeMunicipalTitle(link.text || `${parliament} Geschäft ${index + 1}`)
               const externalId = `municipal-${cityId}-${hashId(link.href)}`
               const entryType = classifyMunicipalEntry(inferredTitle)
 
@@ -154,7 +165,7 @@ export function createMunicipalParliamentAdapter() {
                 sourceUrl: response.url,
                 externalId,
                 title: `${municipalityName} · ${entryType}: ${inferredTitle}`.slice(0, 260),
-                summary: `Gemeinde ${municipalityName} (${parliament}) · ${entryType} · potenziell tierschutzrelevant`.slice(0, 300),
+                summary: `Gemeinde ${municipalityName} (${parliament}) · ${entryType} · ${inferredTitle}`.slice(0, 300),
                 body: `Titel: ${inferredTitle}\nTyp: ${entryType}\nQuelle: ${link.href}\nScreening-Hinweis: potenzieller Tierschutz-Vorstoss auf Gemeindeebene.`,
                 publishedAt: fetchedAt,
                 fetchedAt,
