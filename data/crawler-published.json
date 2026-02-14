@@ -19,7 +19,7 @@
     "summary": "En commission du Conseil national",
     "sourceId": "ch-parliament-business-fr",
     "publishedAt": "2021-03-18T00:00:00.000Z",
-    "score": 0.9,
+    "score": 0.98,
     "matchedKeywords": [
       "tierversuch",
       "tierversuche",
@@ -114,7 +114,7 @@
     "summary": "In Kommission des Nationalrats",
     "sourceId": "ch-parliament-business-de",
     "publishedAt": "2021-03-18T00:00:00.000Z",
-    "score": 0.9,
+    "score": 0.98,
     "matchedKeywords": [
       "tierversuch",
       "tierversuche",
@@ -123,6 +123,396 @@
       "sperimentazione animale",
       "3r",
       "animale"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20223187-de",
+    "title": "22.3187 · Hochgezüchtete Eier- und Geflügelfleischproduktion in Richtung Tierwohl weiterentwickeln",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2022-03-16T00:00:00.000Z",
+    "score": 0.84,
+    "matchedKeywords": [
+      "tierwohl",
+      "geflügel",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20254788-de",
+    "title": "25.4788 · Wiedereinführung zeitgemäss ausgestalteter Tierhalterbeiträge zur nachhaltigen Sicherung der Nutztierhaltung und Ernährung in der Schweiz",
+    "summary": "Eingereicht",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-12-19T00:00:00.000Z",
+    "score": 0.8400000000000001,
+    "matchedKeywords": [
+      "landwirtschaft",
+      "ernährung"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20223728-de",
+    "title": "22.3728 · Afrikanische Schweinepest. Schlachtbetriebe und damit die Versorgungssicherheit gefährden?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2022-06-16T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "schwein",
+      "schweine",
+      "schlacht"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20223633-de",
+    "title": "22.3633 · Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2022-06-15T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "schwein",
+      "schweine",
+      "landwirtschaft",
+      "schlacht"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20254809-de",
+    "title": "25.4809 · Keine Tierqual bei der Geflügelschlachtung",
+    "summary": "Eingereicht",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-12-19T00:00:00.000Z",
+    "score": 0.7000000000000001,
+    "matchedKeywords": [
+      "geflügel",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20237580-de",
+    "title": "23.7580 · Der Schutz des Menschen und der Nutztiere ist höher zu gewichten als der Wolf",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2023-09-13T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "nutztiere",
+      "wolf",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20237608-de",
+    "title": "23.7608 · Warum sollten Wolfsrudel unabhängig vom Risiko von Schäden an Nutztieren abgeschossen werden?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2023-09-13T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20237858-de",
+    "title": "23.7858 · Abschuss von Wolfsrudeln trotz immer weniger Schäden an Nutztieren?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2023-12-06T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20254380-de",
+    "title": "25.4380 · Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhühner\") gesetzlich verankern",
+    "summary": "Zugewiesen an die behandelnde Kommission",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-09-26T00:00:00.000Z",
+    "score": 0.8400000000000001,
+    "matchedKeywords": [
+      "geflügel",
+      "landwirtschaft",
+      "gesetz"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20250078-de",
+    "title": "25.078 · «Ja zur tierversuchsfreien Zukunft». Volksinitiative",
+    "summary": "Botschaft vom 8. Oktober 2025 zur Volksinitiative «Ja zur tierversuchsfreien Zukunft»",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-10-08T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuchsfreie",
+      "botschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20244696-de",
+    "title": "24.4696 · Sucht der Bund nach einer Strategie zur Einschränkung der Tierversuche?",
+    "summary": "Stellungnahme zum Vorstoss liegt vor",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2024-12-20T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20244695-de",
+    "title": "24.4695 · Alternativen zu Tierversuchen. Forschungsstandort Schweiz stärken!",
+    "summary": "Stellungnahme zum Vorstoss liegt vor",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2024-12-20T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20233515-de",
+    "title": "23.3515 · Fotovoltaik- oder Windkraftanlagen. Gefahr für die landwirtschaftlichen Nutztiere",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2023-05-02T00:00:00.000Z",
+    "score": 0.7600000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20237657-de",
+    "title": "23.7657 · Gerissene Nutztiere traumatisieren",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2023-09-19T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20244465-de",
+    "title": "24.4465 · Nutztiere, die von Tierheimen, Auffangstationen und Privatpersonen adoptiert werden. Status \"Heimtier\" zulassen, sofern sie nicht mehr der Lebensmittelproduktion dienen",
+    "summary": "Zugewiesen an die behandelnde Kommission",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2024-12-19T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "nutztiere",
+      "heimtier",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20227807-de",
+    "title": "22.7807 · Wer bezahlt die Schäden von Nutztieren, wenn die Gänsegeier vor der Wildhut den Kadaver zerfressen?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2022-09-21T00:00:00.000Z",
+    "score": 0.7600000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20237115-de",
+    "title": "23.7115 · Bedeutung von Netto-Null für schweizerische Nutztiere",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2023-03-01T00:00:00.000Z",
+    "score": 0.7600000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20254812-de",
+    "title": "25.4812 · Konsequenzen aus dem Tierschutzfall Ramiswil",
+    "summary": "Eingereicht",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-12-19T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20258205-de",
+    "title": "25.8205 · Reduktion der Tierschutzkontrollen: Ressourcen sparen auf Kosten der Tiere?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-12-10T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "tiere",
+      "tierschutz"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20237131-de",
+    "title": "23.7131 · Ziegen 1200 Tage pausenlos melken - vereinbar mit Tierschutzbestimmungen?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2023-03-01T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20213829-de",
+    "title": "21.3829 · Regelungskompetenz im Tierschutz. Auch bei den Kantonen",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2021-06-17T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20227004-de",
+    "title": "22.7004 · Absurde Auslegung der Tierschutzverordnung - täglicher Auslauf für Bauernhof Hunde?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2022-02-28T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tierschutz",
+      "hunde",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20213405-de",
+    "title": "21.3405 · Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2021-03-19T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "versuchstiere",
+      "haltung"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20213835-de",
+    "title": "21.3835 · Tierschutzverstösse besser ahnden",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2021-06-17T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20218161-de",
+    "title": "21.8161 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (1)",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2021-12-08T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "schwein",
+      "schweine",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20218163-de",
+    "title": "21.8163 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (3)",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2021-12-08T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "schwein",
+      "schweine",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20218162-de",
+    "title": "21.8162 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (2)",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2021-12-08T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "schwein",
+      "schweine",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20233411-de",
+    "title": "23.3411 · Eine langfristige Lösung für den Schweinemarkt",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2023-03-17T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "schwein",
+      "schweine",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20223299-de",
+    "title": "22.3299 · Kein Einsatz von PMSG bei Schweinezüchtern",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2022-03-17T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "schwein",
+      "schweine",
+      "schweinezucht",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20214435-de",
+    "title": "21.4435 · Afrikanische Schweinepest. Wildschweine vorsorglich eindämmen",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2021-12-15T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "schwein",
+      "schweine",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20254010-de",
+    "title": "25.4010 · Gesetzliches Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhuhn\")",
+    "summary": "Stellungnahme zum Vorstoss liegt vor",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-09-16T00:00:00.000Z",
+    "score": 0.8400000000000001,
+    "matchedKeywords": [
+      "geflügel",
+      "landwirtschaft",
+      "gesetz"
     ]
   }
 ]
