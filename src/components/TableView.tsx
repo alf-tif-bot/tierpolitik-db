@@ -33,12 +33,14 @@ type Props = {
 }
 
 const TABLE_PREFS_KEY = 'tierpolitik.table.prefs.v1'
+const PAGE_SIZE_OPTIONS = [25, 50, 100]
 const normalizeTitle = (value: string) => value
   .replace(/^Vorstoss\s+\d+\s*:\s*/i, '')
   .replace(/^\s*\d{2}\.\d{3,4}\s*[·\-–—:]\s*/u, '')
 
 export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboardEnabled = true, sectionId, lang, t }: Props) {
   const [sorting, setSorting] = useState<SortingState>([])
+  const [pageSize, setPageSize] = useState(25)
   const [highlightedRow, setHighlightedRow] = useState(0)
 
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
@@ -47,17 +49,18 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboard
     try {
       const raw = localStorage.getItem(TABLE_PREFS_KEY)
       if (!raw) return
-      const parsed = JSON.parse(raw) as { sorting?: SortingState }
+      const parsed = JSON.parse(raw) as { sorting?: SortingState; pageSize?: number }
       if (parsed.sorting) setSorting(parsed.sorting)
+      if (parsed.pageSize && PAGE_SIZE_OPTIONS.includes(parsed.pageSize)) setPageSize(parsed.pageSize)
     } catch {
       // ignore broken prefs
     }
   }, [])
 
   useEffect(() => {
-    const payload = JSON.stringify({ sorting })
+    const payload = JSON.stringify({ sorting, pageSize })
     localStorage.setItem(TABLE_PREFS_KEY, payload)
-  }, [sorting])
+  }, [sorting, pageSize])
 
   const columns = useMemo<ColumnDef<Vorstoss>[]>(() => [
     { accessorKey: 'titel', header: t.titleCol, cell: (i) => normalizeTitle(localizedMetaText(i.row.original, 'title', lang, i.getValue<string>())) },
@@ -94,12 +97,16 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboard
     getPaginationRowModel: getPaginationRowModel(),
     onSortingChange: setSorting,
     state: { sorting },
-    initialState: { pagination: { pageSize: 10 } },
+    initialState: { pagination: { pageSize: 25 } },
   })
 
   useEffect(() => {
     onVisibleColumnsChange(allColumnsMeta)
   }, [allColumnsMeta, onVisibleColumnsChange])
+
+  useEffect(() => {
+    table.setPageSize(pageSize)
+  }, [pageSize, table])
 
   useEffect(() => {
     const pageRows = table.getRowModel().rows
@@ -195,6 +202,24 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboard
         <button onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>{t.back}</button>
         <span>{t.page} {table.getState().pagination.pageIndex + 1} / {table.getPageCount()}</span>
         <button onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>{t.next}</button>
+        <span className="page-size-links">
+          Anzeigen:&nbsp;
+          {PAGE_SIZE_OPTIONS.map((size, idx) => (
+            <span key={size}>
+              <button
+                type="button"
+                className={pageSize === size ? 'text-link-btn active' : 'text-link-btn'}
+                onClick={() => {
+                  setPageSize(size)
+                  table.setPageIndex(0)
+                }}
+              >
+                {size}
+              </button>
+              {idx < PAGE_SIZE_OPTIONS.length - 1 ? ' / ' : ''}
+            </span>
+          ))}
+        </span>
       </div>
     </section>
   )

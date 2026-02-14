@@ -506,6 +506,23 @@ tbody tr:focus-visible td {
   padding: 0 0.2rem;
 }
 
+.pagination-row .page-size-links {
+  margin-left: auto;
+  font-size: 0.92rem;
+  opacity: 0.95;
+}
+
+.pagination-row .page-size-links .text-link-btn {
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.pagination-row .page-size-links .text-link-btn.active {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 .drawer-backdrop {
   position: fixed;
   inset: 0;
