@@ -74,9 +74,11 @@
     "summary": "Stellungnahme zum Vorstoss liegt vor",
     "sourceId": "ch-parliament-business-de",
     "publishedAt": "2025-12-18T00:00:00.000Z",
-    "score": 0.32000000000000006,
+    "score": 0.88,
     "matchedKeywords": [
-      "biodiversität"
+      "biodiversität",
+      "biodiversite",
+      "biodiversita"
     ]
   },
   {
@@ -104,6 +106,23 @@
       "stopfleber",
       "foie gras",
       "initiative"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20210426-de",
+    "title": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
+    "summary": "In Kommission des Nationalrats",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2021-03-18T00:00:00.000Z",
+    "score": 0.74,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche",
+      "animal",
+      "expérimentation animale",
+      "sperimentazione animale",
+      "3r",
+      "animale"
     ]
   }
 ]
