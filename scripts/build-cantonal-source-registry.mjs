@@ -36,11 +36,17 @@ const buildCandidates = (entry) => {
     : []
 
   const base = normalizeBase(entry.url)
+  const alternateHost = base.startsWith('https://www.')
+    ? base.replace('https://www.', 'https://')
+    : (base.startsWith('https://') ? base.replace('https://', 'https://www.') : base)
+
   const heuristics = [
     base,
+    alternateHost,
     `${base}/parlament`,
     `${base}/kantonsrat`,
     `${base}/grand-conseil`,
+    `${alternateHost}/parlament`,
   ]
 
   return [...new Set([...configured, ...heuristics].filter(Boolean))]

@@ -71,6 +71,11 @@ const normalize = (value = '') => String(value)
 const reviewDecisionsPath = path.resolve(process.cwd(), 'data/review-decisions.json')
 const feedbackOutPath = path.resolve(process.cwd(), 'data/relevance-feedback.json')
 
+const FEEDBACK_IGNORE_KEYWORDS = new Set([
+  'motion', 'initiative', 'postulat', 'gesetz', 'botschaft', 'kontrolle', 'transport', 'protection',
+  'agriculture', 'agricoltura', 'landwirtschaft', 'sanktion', 'verordnung',
+])
+
 const loadReviewDecisions = () => {
   try {
     if (!fs.existsSync(reviewDecisionsPath)) return {}
@@ -96,6 +101,7 @@ const buildFeedbackModel = (db, decisions) => {
     ])]
 
     for (const kw of kws) {
+      if (FEEDBACK_IGNORE_KEYWORDS.has(kw)) continue
       const s = stats.get(kw) || { approved: 0, rejected: 0 }
       if (decision === 'approved') s.approved += 1
       if (decision === 'rejected') s.rejected += 1
@@ -106,9 +112,10 @@ const buildFeedbackModel = (db, decisions) => {
   const weights = new Map()
   for (const [kw, s] of stats.entries()) {
     const total = s.approved + s.rejected
-    if (total < 2) continue
-    const weight = (s.approved - s.rejected) / total
-    weights.set(kw, weight)
+    if (total < 3) continue
+    const rawWeight = (s.approved - s.rejected) / total
+    const weight = Math.abs(rawWeight) < 0.2 ? 0 : rawWeight
+    if (weight !== 0) weights.set(kw, weight)
   }
 
   try {
@@ -194,10 +201,14 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     const { score, matched, anchorMatches, supportMatches, noiseMatches, whitelistedPeople, normalizedText } = scoreText(text, keywords)
 
     const feedbackSignal = [...new Set([...anchorMatches, ...supportMatches])]
+      .filter((kw) => !FEEDBACK_IGNORE_KEYWORDS.has(kw))
       .map((kw) => feedbackWeights.get(kw) || 0)
       .sort((a, b) => Math.abs(b) - Math.abs(a))
       .slice(0, 4)
-    const feedbackBoost = Math.max(-0.18, Math.min(0.18, feedbackSignal.reduce((a, b) => a + b, 0) * 0.12))
+    const feedbackMean = feedbackSignal.length
+      ? feedbackSignal.reduce((a, b) => a + b, 0) / feedbackSignal.length
+      : 0
+    const feedbackBoost = Math.max(-0.14, Math.min(0.14, feedbackMean * 0.2))
     const adjustedScore = Math.max(0, Math.min(1, score + feedbackBoost))
 
     const hasAnchor = anchorMatches.length > 0
