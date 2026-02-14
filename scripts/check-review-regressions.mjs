@@ -3,10 +3,12 @@ import fs from 'node:fs'
 const dbPath = new URL('../data/crawler-db.json', import.meta.url)
 const reviewItemsPath = new URL('../data/review-items.json', import.meta.url)
 const motionsPath = new URL('../data/vorstoesse.json', import.meta.url)
+const reviewDecisionsPath = new URL('../data/review-decisions.json', import.meta.url)
 
 const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
 const review = fs.existsSync(reviewItemsPath) ? JSON.parse(fs.readFileSync(reviewItemsPath, 'utf8')) : { ids: [] }
 const motions = fs.existsSync(motionsPath) ? JSON.parse(fs.readFileSync(motionsPath, 'utf8')) : []
+const reviewDecisions = fs.existsSync(reviewDecisionsPath) ? JSON.parse(fs.readFileSync(reviewDecisionsPath, 'utf8')) : {}
 
 const FIVE_YEARS_MS = 1000 * 60 * 60 * 24 * 365 * 5
 const cutoffTs = Date.now() - FIVE_YEARS_MS
@@ -17,12 +19,15 @@ const isWithin5Years = (item) => {
 }
 
 const langRank = (sourceId = '') => {
-  const s = String(sourceId).toLowerCase()
+  const s = String(sourceId || '').toLowerCase()
   if (s.endsWith('-de')) return 0
   if (s.endsWith('-fr')) return 1
   if (s.endsWith('-it')) return 2
   return 3
 }
+
+const itemId = (item) => `${item.sourceId}:${item.externalId}`
+const dbItemsById = new Map((db.items || []).map((item) => [itemId(item), item]))
 
 const reviewCandidates = (db.items || [])
   .filter((item) => String(item.sourceId || '').startsWith('ch-parliament-'))
@@ -42,7 +47,7 @@ for (const item of reviewCandidates) {
   if (betterLang || (!betterLang && betterScore)) expectedGrouped.set(affair, item)
 }
 
-const expectedReviewIds = new Set([...expectedGrouped.values()].map((item) => `${item.sourceId}:${item.externalId}`))
+const expectedReviewIds = new Set([...expectedGrouped.values()].map((item) => itemId(item)))
 
 const actualReviewIds = new Set(review.ids || [])
 const missingInReview = [...expectedReviewIds].filter((id) => !actualReviewIds.has(id))
@@ -62,6 +67,23 @@ const actualMotionAffairs = new Set(
 
 const missingInMotions = [...expectedPublishedAffairs].filter((affairId) => !actualMotionAffairs.has(affairId))
 
+const decisionsUnknownInDb = Object.keys(reviewDecisions).filter((id) => !dbItemsById.has(id))
+const decisionsStatusMismatch = Object.entries(reviewDecisions)
+  .filter(([id, decision]) => {
+    if (!dbItemsById.has(id)) return false
+    const dbStatus = dbItemsById.get(id)?.status
+    return decision?.status === 'approved'
+      ? !['approved', 'published'].includes(dbStatus)
+      : decision?.status === 'rejected'
+        ? dbStatus !== 'rejected'
+        : false
+  })
+  .map(([id, decision]) => ({
+    id,
+    decision: decision?.status,
+    dbStatus: dbItemsById.get(id)?.status,
+  }))
+
 const report = {
   generatedAt: new Date().toISOString(),
   expectedReview: expectedReviewIds.size,
@@ -72,11 +94,16 @@ const report = {
   actualMotions: actualMotionAffairs.size,
   missingInMotionsCount: missingInMotions.length,
   missingInMotions: missingInMotions.slice(0, 120),
+  reviewDecisionsCount: Object.keys(reviewDecisions).length,
+  decisionsUnknownInDbCount: decisionsUnknownInDb.length,
+  decisionsUnknownInDb: decisionsUnknownInDb.slice(0, 120),
+  decisionsStatusMismatchCount: decisionsStatusMismatch.length,
+  decisionsStatusMismatch: decisionsStatusMismatch.slice(0, 120),
 }
 
 fs.writeFileSync(new URL('../data/regression-report.json', import.meta.url), JSON.stringify(report, null, 2))
 
-if (missingInReview.length || missingInMotions.length) {
+if (missingInReview.length || missingInMotions.length || decisionsStatusMismatch.length) {
   console.error('Regression check FAILED', report)
   process.exit(1)
 }

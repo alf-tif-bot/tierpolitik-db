@@ -1,5 +1,117 @@
 [
   {
+    "id": "vp-20240331-fr",
+    "titel": "24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "",
+    "geschaeftsnummer": "20240331-fr",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": "Romandie",
+    "status": "In Beratung",
+    "datumEingereicht": "2024-12-19",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "apiculteur"
+    ],
+    "schlagwoerter": [
+      "apiculteur"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentarische Kommission",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20240331",
+    "resultate": [
+      {
+        "datum": "2024-12-19",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "fr",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen"
+        },
+        "summary": {
+          "de": ""
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "apiculteur"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20254697-de",
+    "titel": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Staatspolitik|Finanzwesen|Umwelt",
+    "geschaeftsnummer": "20254697-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-12-18",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "biodiversität"
+    ],
+    "schlagwoerter": [
+      "biodiversität"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254697",
+    "resultate": [
+      {
+        "datum": "2025-12-18",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung"
+        },
+        "summary": {
+          "de": "Staatspolitik|Finanzwesen|Umwelt"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "biodiversität"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
     "id": "vp-20250404-de",
     "titel": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative",
     "typ": "Volksinitiative",
@@ -131,6 +243,65 @@
     }
   },
   {
+    "id": "vp-20253733-de",
+    "titel": "25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Umwelt|Landwirtschaft",
+    "geschaeftsnummer": "20253733-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-06-19",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "landwirtschaft",
+      "agriculture"
+    ],
+    "schlagwoerter": [
+      "landwirtschaft",
+      "agriculture"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentarische Kommission",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253733",
+    "resultate": [
+      {
+        "datum": "2025-06-19",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren"
+        },
+        "summary": {
+          "de": "Umwelt|Landwirtschaft"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "landwirtschaft",
+            "agriculture"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
     "id": "vp-20210426-fr",
     "titel": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
     "typ": "Interpellation",
@@ -143,15 +314,14 @@
     "datumEingereicht": "2021-03-18",
     "datumAktualisiert": "2026-02-13",
     "themen": [
-      "tier",
       "tierversuch",
       "tierversuche",
       "animal",
       "expérimentation animale",
-      "sperimentazione animale"
+      "sperimentazione animale",
+      "3r"
     ],
     "schlagwoerter": [
-      "tier",
       "tierversuch",
       "tierversuche",
       "animal",
@@ -178,7 +348,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "fr",
-      "haltung": "pro-tierschutz",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben"
@@ -191,12 +361,77 @@
         },
         "themes": {
           "de": [
-            "tier",
             "tierversuch",
             "tierversuche",
             "animal",
             "expérimentation animale",
-            "sperimentazione animale"
+            "sperimentazione animale",
+            "3r"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20254487-de",
+    "titel": "25.4487 · Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Umwelt|Landwirtschaft|Gesundheit",
+    "geschaeftsnummer": "20254487-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-12-09",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "landwirtschaft",
+      "agriculture",
+      "agricoltura",
+      "nutrition"
+    ],
+    "schlagwoerter": [
+      "landwirtschaft",
+      "agriculture",
+      "agricoltura",
+      "nutrition"
+    ],
+    "einreichende": [
+      {
+        "name": "BLV",
+        "rolle": "Regierung",
+        "partei": "Bundesverwaltung"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254487",
+    "resultate": [
+      {
+        "datum": "2025-12-09",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "25.4487 · Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder"
+        },
+        "summary": {
+          "de": "Umwelt|Landwirtschaft|Gesundheit"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "landwirtschaft",
+            "agriculture",
+            "agricoltura",
+            "nutrition"
           ]
         }
       },

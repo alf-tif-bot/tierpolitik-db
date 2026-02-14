@@ -8,7 +8,7 @@ Vite/React-App plus Crawler-Workflow für eine nightly gepflegte Tierpolitik-Que
 
 - `npm run crawler:collect:v2`: affair-zentrierte Bundesdaten (DE/FR/IT zusammengeführt) + kantonales Registry-Scaffold
 - `npm run sources:build-cantonal-registry`: erzeugt `data/cantonal-source-registry.json` (alle 26 Kantone, Zielhistorie ab 2020)
-- `npm run check:review-regressions`: vergleicht DB-Motions vs. `review-items.json` und `vorstoesse.json`, schreibt `data/regression-report.json` und schlägt bei Regressions fehl
+- `npm run check:review-regressions`: vergleicht DB-Motions vs. `review-items.json` und `vorstoesse.json`, prüft zusätzlich `review-decisions.json` gegen den aktuellen DB-Status, schreibt `data/regression-report.json` und schlägt bei Regressions fehl
 
 Die Pipeline arbeitet **real-source-first**:
 - Primär: Parlament OData API (`ws.parlament.ch`)

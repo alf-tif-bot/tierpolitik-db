@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-13T22:31:50.274Z",
+  "updatedAt": "2026-02-14T00:46:21.543Z",
   "learned": [
     {
       "keyword": "transport",
@@ -38,11 +38,11 @@
       "weight": -0.985
     },
     {
-      "keyword": "landwirtschaft",
-      "weight": -0.867
+      "keyword": "initiative",
+      "weight": -0.733
     },
     {
-      "keyword": "initiative",
+      "keyword": "landwirtschaft",
       "weight": -0.733
     },
     {

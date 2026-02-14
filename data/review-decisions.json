@@ -1,18 +1,2670 @@
 {
   "ch-parlament-news:parl-1": {
     "status": "rejected",
-    "decidedAt": "2026-02-13T00:35:16.057Z"
+    "decidedAt": "2026-02-13T20:53:03.013Z"
   },
   "ch-parliament-business-de:20240089-de": {
     "status": "approved",
-    "decidedAt": "2026-02-13T10:49:55.327Z"
+    "decidedAt": "2026-02-13T23:06:26.619Z"
   },
   "ch-parliament-business-fr:20210426-fr": {
     "status": "approved",
-    "decidedAt": "2026-02-13T20:05:08.185Z"
+    "decidedAt": "2026-02-13T23:06:20.339Z"
   },
   "ch-parliament-business-de:20250404-de": {
     "status": "approved",
-    "decidedAt": "2026-02-13T20:05:39.742Z"
+    "decidedAt": "2026-02-13T21:59:58.935Z"
+  },
+  "ch-parliament-business-de:20254487-de": {
+    "status": "approved",
+    "decidedAt": "2026-02-13T22:12:55.227Z"
+  },
+  "ch-parliament-business-de:20250079-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T22:24:40.307Z"
+  },
+  "ch-parliament-business-de:20254860-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T22:25:57.656Z"
+  },
+  "ch-parliament-business-de:20254697-de": {
+    "status": "approved",
+    "decidedAt": "2026-02-13T22:27:58.895Z"
+  },
+  "ch-parliament-business-fr:20210055-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250030-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250095-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250057-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254040-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254494-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254489-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20220415-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254549-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250419-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250420-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250418-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250417-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250416-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250415-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250408-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250406-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254465-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20260019-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20240092-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254426-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254427-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254613-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254459-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254430-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254447-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254439-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254419-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254414-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254450-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20251060-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254478-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20251052-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254453-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254456-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254487-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20251054-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254462-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254463-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20220405-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T22:28:42.260Z"
+  },
+  "ch-parliament-business-fr:20254488-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254466-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254469-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254475-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254484-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20251057-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254480-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20251058-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254482-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20251062-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254483-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254486-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254490-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254491-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254492-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254495-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254496-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254497-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254499-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254502-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20184349-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254504-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20223229-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254507-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20140458-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254513-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254515-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20180403-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254518-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250434-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254519-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254523-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254527-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20170493-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250460-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20190300-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20253739-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20170493-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250460-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20190300-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20253739-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250402-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20260404-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20243209-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20253817-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250402-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20260404-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20243209-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20253817-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20260002-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250041-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20260001-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20240078-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20260003-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250073-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20260024-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250483-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20200406-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20260002-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250041-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20260001-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20240078-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20260003-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250073-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20260024-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250483-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20200406-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250098-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250097-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250096-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250098-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250097-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250096-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20253733-de": {
+    "status": "approved",
+    "decidedAt": "2026-02-13T22:33:12.898Z"
+  },
+  "ch-parliament-business-de:20250099-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250099-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254735-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20260021-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250100-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254735-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20260021-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250100-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254579-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254647-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254595-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254600-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254603-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254605-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254606-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254610-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254616-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254626-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254631-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254635-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254636-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254654-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254644-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254646-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254690-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254648-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254650-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254652-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254662-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254677-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254683-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254685-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254687-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254688-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254689-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254693-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254718-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254709-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254710-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254865-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254761-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254702-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254728-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254708-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254861-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254740-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254815-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254750-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254751-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254759-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254756-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254767-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254773-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254774-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254768-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254777-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254781-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254789-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254785-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254791-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254797-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254792-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254806-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254793-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254814-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254857-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254799-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254830-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254841-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254845-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254856-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254896-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254863-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254874-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254867-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254868-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254873-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254881-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254877-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254890-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254904-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254908-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20252047-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254864-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254914-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20263017-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20260300-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20260004-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250087-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20260008-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20262003-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250077-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20210472-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20213909-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250074-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20253154-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254552-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250071-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250063-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250043-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20210403-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20244255-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250474-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20262002-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20260018-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20252044-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20252019-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20242045-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20170526-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20180475-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20130426-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20163616-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20194111-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20150468-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20237283-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19953630-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19973229-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19940023-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19940059-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19980055-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19990065-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20160002-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20110212-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19930093-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19930080-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19990053-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20180061-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20120020-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19940100-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19980074-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19930058-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20120067-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19950072-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20030022-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20240319-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20233082-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20070491-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20170497-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20120001-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20120008-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20194177-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19950064-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19940068-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20130029-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20000035-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20000084-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19950031-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20100061-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19990202-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20100026-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20000018-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20050058-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20030015-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19950066-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20130030-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20010003-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20180075-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19940016-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20150076-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20070024-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20193494-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20100203-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20180071-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20180042-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20120095-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20010053-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19970044-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20100505-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19990033-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20130047-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20070500-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20160456-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19970082-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19930074-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19960059-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20050090-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19960026-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19970064-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19960005-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20070073-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20180021-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20080075-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20070075-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20060065-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20060062-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19960084-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20050086-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20070074-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19930067-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20180057-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19950091-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20020211-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19990088-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20140071-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20110468-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20180401-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20010077-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20030003-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19960035-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19950026-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19980034-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20020023-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20000033-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254609-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T22:44:34.929Z"
+  },
+  "ch-parliament-business-de:20020066-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19940012-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20140422-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20030061-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20090072-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20050061-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20020003-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20050209-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19960065-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20020025-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19930072-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20180058-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19960085-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20130046-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20170523-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20060027-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20090024-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19930097-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20194180-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19970002-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20110070-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19990078-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20040054-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19970073-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20160008-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20050080-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20100052-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20010051-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20130050-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19960088-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20000083-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20160500-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20110071-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20160023-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20020064-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20040005-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20140420-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20030056-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20090003-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20000007-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20000073-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20000068-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20193127-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20090007-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20030068-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20150059-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20000020-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19970037-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20180467-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19960115-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19970025-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:19970039-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254528-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254533-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254535-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254536-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254537-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254542-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254543-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254544-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254721-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254727-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20203080-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20160306-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20240466-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20253949-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20244042-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20240472-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20223950-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20223226-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20170314-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250469-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250447-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250064-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250058-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250049-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254696-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254612-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254672-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254692-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254733-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254554-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254587-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254588-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20240331-fr": {
+    "status": "approved",
+    "decidedAt": "2026-02-13T22:50:19.684Z"
+  },
+  "ch-parliament-business-fr:20254556-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254558-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254567-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254568-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254570-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254571-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254574-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254577-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254579-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254647-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254595-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254600-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254603-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254605-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254606-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254609-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254610-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254616-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254626-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254631-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254635-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254636-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254654-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254644-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254646-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254690-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254648-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254650-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254652-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254662-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254677-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254683-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254685-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254687-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254688-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254689-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254693-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254697-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254718-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254709-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254710-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254865-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254761-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254702-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254728-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254708-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254861-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254740-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254815-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254747-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254750-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254751-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254759-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254756-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254860-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254767-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254773-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254774-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254768-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254777-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254781-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254789-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254785-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254791-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254797-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254792-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254806-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254793-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254814-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254857-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254799-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254830-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254841-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254845-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254856-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254896-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254863-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254874-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254867-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254868-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254873-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254881-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254877-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254890-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254904-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20210044": {
+    "status": "approved",
+    "decidedAt": "2026-02-13T23:06:00.722Z"
+  },
+  "ch-parliament-business-fr:20254908-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20252047-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254864-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254914-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20263017-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20260300-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20260004-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250404-fr": {
+    "status": "queued",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250087-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20260008-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20262003-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250077-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20210472-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250079-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20213909-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250074-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20253154-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254552-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250071-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250063-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250043-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20240089-fr": {
+    "status": "queued",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20253733-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20210403-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20244255-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20250474-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20262002-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20260018-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20252044-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20170523-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20210426-de": {
+    "status": "queued",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-it:20210426-it": {
+    "status": "queued",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-it:20170493-it": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-it:20254466-it": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-motions-de:20223091-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-motions-de:20254453-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-postulates-de:20254459-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-postulates-de:20254492-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-postulates-de:20254616-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-postulates-de:20254687-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "blv-news:blv-1": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "bundesrat-news:br-1": {
+    "status": "queued",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "user-input:user-1770941941585": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254704-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254505-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20253943-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20223166-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20223091-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20240090-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20240026-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20210055-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20240331-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250030-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250095-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250057-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254040-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254494-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254489-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20220415-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254549-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250419-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250420-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250418-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250417-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250416-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250415-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250408-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250406-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254465-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20260019-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20240092-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254426-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254427-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254613-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254459-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254430-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254447-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254439-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254419-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254414-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254450-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20251060-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254478-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20251052-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254453-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254456-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20251054-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254463-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254488-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254466-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254469-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254475-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254484-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20251057-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254480-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20251058-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254482-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20251062-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254483-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254486-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254490-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254491-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254492-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254495-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254496-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254497-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254499-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254502-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20184349-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254504-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20223229-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254507-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20140458-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254513-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254515-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20180403-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254518-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250434-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254519-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254523-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254527-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254528-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254533-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254535-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254536-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254537-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254542-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254543-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254544-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254721-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254727-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20203080-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20160306-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20240466-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20253949-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20244042-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20240472-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20223950-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20223226-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20170314-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250469-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250447-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250064-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250058-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20250049-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254696-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254612-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254672-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254692-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254733-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254554-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254587-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254588-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254556-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254558-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254567-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254568-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254570-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254571-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254574-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254577-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254704-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20254505-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20253943-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20223166-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20223091-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20240090-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-fr:20240026-fr": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T20:53:03.013Z"
+  },
+  "ch-parliament-business-de:20254747-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T22:48:42.256Z"
+  },
+  "ch-parliament-business-de:20254462-de": {
+    "status": "rejected",
+    "decidedAt": "2026-02-13T22:49:39.816Z"
   }
 }

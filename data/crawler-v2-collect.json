@@ -1,0 +1,650 @@
+{
+  "generatedAt": "2026-02-14T00:45:35.106Z",
+  "registry": {
+    "total": 2,
+    "enabled": 2,
+    "byAdapter": {
+      "parliamentOdataV2": 1,
+      "cantonRegistry": 1
+    }
+  },
+  "sourceStats": [
+    {
+      "sourceId": "ch-parliament-affairs-v2",
+      "ok": false,
+      "reason": "Adapter timeout after 45s"
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "ok": true,
+      "fetched": 26
+    }
+  ],
+  "totalItems": 26,
+  "items": [
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-ag-2020",
+      "title": "Kantonsparlament AG: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für AG. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "AG",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-ai-2020",
+      "title": "Kantonsparlament AI: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für AI. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "AI",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-ar-2020",
+      "title": "Kantonsparlament AR: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für AR. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "AR",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-be-2020",
+      "title": "Kantonsparlament BE: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für BE. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "BE",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-bl-2020",
+      "title": "Kantonsparlament BL: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für BL. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "BL",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-bs-2020",
+      "title": "Kantonsparlament BS: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für BS. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "BS",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-fr-2020",
+      "title": "Kantonsparlament FR: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für FR. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "FR",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-ge-2020",
+      "title": "Kantonsparlament GE: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für GE. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "GE",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-gl-2020",
+      "title": "Kantonsparlament GL: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für GL. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "GL",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-gr-2020",
+      "title": "Kantonsparlament GR: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für GR. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "GR",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-ju-2020",
+      "title": "Kantonsparlament JU: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für JU. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "JU",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-lu-2020",
+      "title": "Kantonsparlament LU: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für LU. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "LU",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-ne-2020",
+      "title": "Kantonsparlament NE: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für NE. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "NE",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-nw-2020",
+      "title": "Kantonsparlament NW: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für NW. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "NW",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-ow-2020",
+      "title": "Kantonsparlament OW: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für OW. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "OW",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-sg-2020",
+      "title": "Kantonsparlament SG: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für SG. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "SG",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-sh-2020",
+      "title": "Kantonsparlament SH: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für SH. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "SH",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-so-2020",
+      "title": "Kantonsparlament SO: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für SO. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "SO",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-sz-2020",
+      "title": "Kantonsparlament SZ: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für SZ. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "SZ",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-tg-2020",
+      "title": "Kantonsparlament TG: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für TG. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "TG",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-ti-2020",
+      "title": "Kantonsparlament TI: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für TI. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "TI",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-ur-2020",
+      "title": "Kantonsparlament UR: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für UR. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "UR",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-vd-2020",
+      "title": "Kantonsparlament VD: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für VD. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "VD",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-vs-2020",
+      "title": "Kantonsparlament VS: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für VS. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "VS",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-zg-2020",
+      "title": "Kantonsparlament ZG: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für ZG. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "ZG",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    },
+    {
+      "sourceId": "ch-cantons-registry-v2",
+      "sourceUrl": "https://placeholder.invalid/cantons",
+      "externalId": "registry-zh-2020",
+      "title": "Kantonsparlament ZH: Quell-Adapter vorbereitet",
+      "summary": "Scaffold für ZH. Historisierung ab 2020 vorgesehen.",
+      "body": "V2 Registry Placeholder – noch keine produktive Erfassung angebunden.",
+      "publishedAt": "2020-01-01T00:00:00.000Z",
+      "fetchedAt": "2026-02-14T00:45:35.105Z",
+      "language": "de",
+      "score": 0,
+      "matchedKeywords": [
+        "kanton",
+        "scaffold"
+      ],
+      "status": "new",
+      "reviewReason": "registry-scaffold",
+      "meta": {
+        "canton": "ZH",
+        "sinceYear": 2020,
+        "scaffold": true,
+        "targetCoverage": "all-cantons"
+      }
+    }
+  ]
+}

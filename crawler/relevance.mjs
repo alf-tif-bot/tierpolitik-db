@@ -16,6 +16,7 @@ export const ANCHOR_KEYWORDS = [
   'expérimentation animale', 'experiment animal', 'sperimentazione animale',
   'jagd', 'chasse', 'caccia', 'fischerei', 'pêche', 'peche', 'pesca',
   'stopfleber', 'foie gras', 'pelz', 'fourrure', '3r', 'apiculture', 'apiculteur',
+  'sentience', 'empfindungsfähig', 'empfindungsfaehig', 'specisme', 'especismo',
 ]
 
 const SUPPORT_KEYWORDS = [
@@ -31,7 +32,7 @@ const SUPPORT_KEYWORDS = [
 
 const NOISE_KEYWORDS = [
   'energie', 'elektrizität', 'elektrizitaet', 'steuern', 'finanz', 'ahv', 'armee',
-  'rhone', 'gotthard', 'tunnel', 'digitalisierung',
+  'rhone', 'gotthard', 'tunnel', 'digitalisierung', 'strassenverkehr', 'parkplatz', 'tourismus',
 ]
 
 const PRO_STANCE_KEYWORDS = [
@@ -126,6 +127,9 @@ const hasKeyword = (normalizedText, keyword) => {
   if (!kw) return false
   if (kw.includes(' ')) return normalizedText.includes(kw)
   const tokens = normalizedText.split(' ')
+  if (kw.length <= 4) {
+    return tokens.some((token) => token === kw)
+  }
   return tokens.some((token) => token === kw || token.startsWith(kw))
 }
 
