@@ -49,6 +49,7 @@ const resolveDecisionId = (id) => {
 let applied = 0
 let remapped = 0
 let unresolved = 0
+let propagated = 0
 
 const normalizedRaw = Array.isArray(raw) ? null : { ...raw }
 
@@ -76,6 +77,21 @@ for (const decision of records) {
   item.status = decision.status
   item.reviewReason = decision.note || `Review-Entscheid (${decision.status})`
   applied += 1
+
+  const [resolvedSourceId, resolvedExternalId = ''] = String(resolvedId).split(':')
+  const affairId = String(resolvedExternalId).replace(/-[a-z]{2}$/i, '').split('-')[0]
+
+  if (resolvedSourceId.startsWith('ch-parliament-') && affairId) {
+    for (const candidate of db.items) {
+      if (!String(candidate.sourceId || '').startsWith('ch-parliament-')) continue
+      const candidateAffair = String(candidate.externalId || '').split('-')[0]
+      if (candidateAffair !== affairId) continue
+      if (candidate.status === decision.status) continue
+      candidate.status = decision.status
+      candidate.reviewReason = decision.note || `Review-Entscheid (${decision.status})`
+      propagated += 1
+    }
+  }
 }
 
 if (normalizedRaw) {
@@ -83,4 +99,4 @@ if (normalizedRaw) {
 }
 
 saveDb(db)
-console.log('Review-Entscheidungen angewendet', { applied, totalDecisions: records.length, remapped, unresolved })
+console.log('Review-Entscheidungen angewendet', { applied, propagated, totalDecisions: records.length, remapped, unresolved })

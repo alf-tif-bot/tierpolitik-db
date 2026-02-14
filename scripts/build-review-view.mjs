@@ -44,7 +44,7 @@ const baseReviewItems = [...db.items]
 const affairKey = (item) => {
   const sid = String(item.sourceId || '')
   const external = String(item.externalId || '')
-  if (sid.startsWith('ch-parliament-business-')) return external.split('-')[0] || `${sid}:${external}`
+  if (sid.startsWith('ch-parliament-')) return external.split('-')[0] || `${sid}:${external}`
   return `${sid}:${external}`
 }
 const entryKey = (item) => `${item.sourceId}:${item.externalId}`
@@ -444,7 +444,7 @@ function hideDecidedRows(){
   const decidedById = {}
 
   const localAffairDecided = new Set(Object.keys(decisions)
-    .filter((id) => String(id).startsWith('ch-parliament-business-'))
+    .filter((id) => String(id).startsWith('ch-parliament-'))
     .map((id) => {
       const external = String(id).split(':')[1] || ''
       return String(external).split('-')[0]
@@ -457,8 +457,8 @@ function hideDecidedRows(){
     const status = row.getAttribute('data-status') || ''
     const serverDecided = status !== 'queued' && status !== 'new'
     const localDecided = Boolean(decisions[id])
-    const isParliamentBusiness = String(id).startsWith('ch-parliament-business-')
-    const affairId = isParliamentBusiness ? (String(id).split(':')[1] || '').split('-')[0] : ''
+    const isParliamentEntry = String(id).startsWith('ch-parliament-')
+    const affairId = isParliamentEntry ? (String(id).split(':')[1] || '').split('-')[0] : ''
     const localAffairHit = Boolean(affairId) && localAffairDecided.has(affairId)
     const decided = serverDecided || localDecided || localAffairHit
     decidedById[id] = decided
