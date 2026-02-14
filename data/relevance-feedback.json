@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-02-14T00:46:21.543Z",
+  "updatedAt": "2026-02-14T02:18:16.954Z",
   "learned": [
     {
-      "keyword": "transport",
-      "weight": -1
-    },
-    {
-      "keyword": "kontrolle",
-      "weight": -1
+      "keyword": "stopfleber",
+      "weight": 1
     },
     {
       "keyword": "protection",
+      "weight": -1
+    },
+    {
+      "keyword": "transport",
       "weight": -1
     },
     {
@@ -18,12 +18,12 @@
       "weight": -1
     },
     {
-      "keyword": "motion",
+      "keyword": "kontrolle",
       "weight": -1
     },
     {
-      "keyword": "stopfleber",
-      "weight": 1
+      "keyword": "motion",
+      "weight": -1
     },
     {
       "keyword": "gesetz",

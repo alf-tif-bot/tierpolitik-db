@@ -167,6 +167,7 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
 
   for (const item of db.items) {
     if (!enabledSourceIds.has(item.sourceId)) continue
+    if (item?.meta?.scaffold) continue
     const affairId = String(item.affairId || item.externalId || '').split('-')[0]
     const variantText = Object.values(item.languageVariants || {})
       .map((v) => `${v?.title || ''}\n${v?.summary || ''}\n${v?.body || ''}`)
@@ -182,6 +183,7 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
 
   for (const item of db.items) {
     if (!enabledSourceIds.has(item.sourceId)) continue
+    if (item?.meta?.scaffold) continue
     const affairId = String(item.affairId || item.externalId || '').split('-')[0]
     const variantText = Object.values(item.languageVariants || {})
       .map((v) => `${v?.title || ''}\n${v?.summary || ''}\n${v?.body || ''}`)
@@ -223,7 +225,7 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     touched += 1
   }
 
-  const enabledItems = db.items.filter((item) => enabledSourceIds.has(item.sourceId))
+  const enabledItems = db.items.filter((item) => enabledSourceIds.has(item.sourceId) && !item?.meta?.scaffold)
 
   if (relevantCount === 0 && enabledItems.length > 0) {
     const fallback = [...enabledItems]

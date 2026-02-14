@@ -103,7 +103,7 @@ const report = {
 
 fs.writeFileSync(new URL('../data/regression-report.json', import.meta.url), JSON.stringify(report, null, 2))
 
-if (missingInReview.length || missingInMotions.length || decisionsStatusMismatch.length) {
+if (missingInReview.length || missingInMotions.length || decisionsStatusMismatch.length || decisionsUnknownInDb.length) {
   console.error('Regression check FAILED', report)
   process.exit(1)
 }

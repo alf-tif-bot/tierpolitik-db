@@ -1,40 +1,5 @@
 [
   {
-    "id": "ch-parliament-business-fr:20240331-fr",
-    "title": "24.331 · Soutien financier direct aux apiculteurs et apicultrices lors de situations géoclimatiques exceptionnelles",
-    "summary": "Fin des discussions en commission du Conseil des Etats",
-    "sourceId": "ch-parliament-business-fr",
-    "publishedAt": "2024-12-19T00:00:00.000Z",
-    "score": 0.18000000000000002,
-    "matchedKeywords": [
-      "apiculteur"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20254697-de",
-    "title": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
-    "summary": "Stellungnahme zum Vorstoss liegt vor",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2025-12-18T00:00:00.000Z",
-    "score": 0.32000000000000006,
-    "matchedKeywords": [
-      "biodiversität"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20250404-de",
-    "title": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative",
-    "summary": "Beratung in Kommission des Nationalrates abgeschlossen",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2025-02-21T00:00:00.000Z",
-    "score": 0.7320000000000001,
-    "matchedKeywords": [
-      "stopfleber",
-      "foie gras",
-      "initiative"
-    ]
-  },
-  {
     "id": "ch-parliament-business-de:20240089-de",
     "title": "24.089 · «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)». Volksinitiative",
     "summary": "Botschaft vom 20. November 2024 zur Volksinitiative «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)»",
@@ -46,18 +11,6 @@
       "foie gras",
       "initiative",
       "botschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20253733-de",
-    "title": "25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren",
-    "summary": "Beratung in Kommission des Ständerates abgeschlossen",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2025-06-19T00:00:00.000Z",
-    "score": 0.6600000000000001,
-    "matchedKeywords": [
-      "landwirtschaft",
-      "agriculture"
     ]
   },
   {
@@ -78,6 +31,49 @@
     ]
   },
   {
+    "id": "ch-parliament-business-fr:20210044",
+    "title": "Parlamentsgeschäft 20210044",
+    "summary": "Parlamentsgeschäft 20210044",
+    "sourceId": "ch-parliament-business-fr",
+    "publishedAt": "2026-02-13T23:06:02.214Z",
+    "score": 0,
+    "matchedKeywords": []
+  },
+  {
+    "id": "ch-parliament-business-fr:20240331-fr",
+    "title": "24.331 · Soutien financier direct aux apiculteurs et apicultrices lors de situations géoclimatiques exceptionnelles",
+    "summary": "Fin des discussions en commission du Conseil des Etats",
+    "sourceId": "ch-parliament-business-fr",
+    "publishedAt": "2024-12-19T00:00:00.000Z",
+    "score": 0.18000000000000002,
+    "matchedKeywords": [
+      "apiculteur"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20253733-de",
+    "title": "25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren",
+    "summary": "Beratung in Kommission des Ständerates abgeschlossen",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-06-19T00:00:00.000Z",
+    "score": 0.6600000000000001,
+    "matchedKeywords": [
+      "landwirtschaft",
+      "agriculture"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20254697-de",
+    "title": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
+    "summary": "Stellungnahme zum Vorstoss liegt vor",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-12-18T00:00:00.000Z",
+    "score": 0.32000000000000006,
+    "matchedKeywords": [
+      "biodiversität"
+    ]
+  },
+  {
     "id": "ch-parliament-business-de:20254487-de",
     "title": "25.4487 · Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder",
     "summary": "Stellungnahme zum Vorstoss liegt vor",
@@ -87,8 +83,20 @@
     "matchedKeywords": [
       "landwirtschaft",
       "agriculture",
-      "agricoltura",
       "nutrition"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20250404-de",
+    "title": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative",
+    "summary": "Beratung in Kommission des Nationalrates abgeschlossen",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-02-21T00:00:00.000Z",
+    "score": 0.7320000000000001,
+    "matchedKeywords": [
+      "stopfleber",
+      "foie gras",
+      "initiative"
     ]
   }
 ]

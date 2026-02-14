@@ -1,18 +1,16 @@
 {
-  "generatedAt": "2026-02-14T00:46:52.164Z",
-  "expectedReview": 66,
-  "actualReview": 66,
+  "generatedAt": "2026-02-14T02:18:23.957Z",
+  "expectedReview": 8,
+  "actualReview": 8,
   "missingInReviewCount": 0,
   "missingInReview": [],
-  "expectedPublishedAffairs": 7,
-  "actualMotions": 7,
+  "expectedPublishedAffairs": 8,
+  "actualMotions": 8,
   "missingInMotionsCount": 0,
   "missingInMotions": [],
   "reviewDecisionsCount": 667,
-  "decisionsUnknownInDbCount": 1,
-  "decisionsUnknownInDb": [
-    "ch-parliament-business-fr:20210044"
-  ],
+  "decisionsUnknownInDbCount": 0,
+  "decisionsUnknownInDb": [],
   "decisionsStatusMismatchCount": 0,
   "decisionsStatusMismatch": []
 }

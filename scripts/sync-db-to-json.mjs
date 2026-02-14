@@ -4,7 +4,24 @@ import { withPgClient, loadJsonCompatibleSnapshot } from '../crawler/db-postgres
 
 const outPath = resolve(process.cwd(), 'data', 'crawler-db.json')
 
-const snapshot = await withPgClient(async (client) => loadJsonCompatibleSnapshot(client))
+const sanitizeItem = (item) => {
+  const fallbackTitle = `Parlamentsgeschäft ${item?.externalId || item?.affairId || 'ohne-id'}`
+  const title = String(item?.title || '').trim()
+  const safeTitle = title.length >= 5 ? title : fallbackTitle
+  const summary = String(item?.summary || '').trim()
 
-fs.writeFileSync(outPath, JSON.stringify(snapshot, null, 2))
-console.log('DB -> JSON Sync abgeschlossen:', outPath, { items: snapshot.items.length, sources: snapshot.sources.length })
+  return {
+    ...item,
+    title: safeTitle,
+    summary: summary || safeTitle,
+  }
+}
+
+const snapshot = await withPgClient(async (client) => loadJsonCompatibleSnapshot(client))
+const sanitized = {
+  ...snapshot,
+  items: (snapshot.items || []).map(sanitizeItem),
+}
+
+fs.writeFileSync(outPath, JSON.stringify(sanitized, null, 2))
+console.log('DB -> JSON Sync abgeschlossen:', outPath, { items: sanitized.items.length, sources: sanitized.sources.length })

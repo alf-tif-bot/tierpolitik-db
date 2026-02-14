@@ -25,11 +25,19 @@ async function syncReviewDecisionsFromDb() {
       ? JSON.parse(fs.readFileSync(decisionsPath, 'utf8'))
       : {}
 
+    const liveKeys = new Set()
     for (const row of rows) {
       const key = `${row.source_id}:${row.external_id}`
+      liveKeys.add(key)
       current[key] = {
         status: String(row.status || 'queued'),
         decidedAt: new Date(row.decided_at || Date.now()).toISOString(),
+      }
+    }
+
+    for (const key of Object.keys(current)) {
+      if (key.startsWith('ch-parliament') && !liveKeys.has(key)) {
+        delete current[key]
       }
     }
 

@@ -1,182 +1,5 @@
 [
   {
-    "id": "vp-20240331-fr",
-    "titel": "24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "",
-    "geschaeftsnummer": "20240331-fr",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": "Romandie",
-    "status": "In Beratung",
-    "datumEingereicht": "2024-12-19",
-    "datumAktualisiert": "2026-02-13",
-    "themen": [
-      "apiculteur"
-    ],
-    "schlagwoerter": [
-      "apiculteur"
-    ],
-    "einreichende": [
-      {
-        "name": "Parlamentarische Kommission",
-        "rolle": "Nationalrat",
-        "partei": "Überparteilich"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20240331",
-    "resultate": [
-      {
-        "datum": "2024-12-19",
-        "status": "In Beratung",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "fr",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen"
-        },
-        "summary": {
-          "de": ""
-        },
-        "type": {
-          "de": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "apiculteur"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20254697-de",
-    "titel": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Staatspolitik|Finanzwesen|Umwelt",
-    "geschaeftsnummer": "20254697-de",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2025-12-18",
-    "datumAktualisiert": "2026-02-13",
-    "themen": [
-      "biodiversität"
-    ],
-    "schlagwoerter": [
-      "biodiversität"
-    ],
-    "einreichende": [
-      {
-        "name": "Parlamentsgeschäft (Bund)",
-        "rolle": "Nationalrat",
-        "partei": "Überparteilich"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254697",
-    "resultate": [
-      {
-        "datum": "2025-12-18",
-        "status": "In Beratung",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung"
-        },
-        "summary": {
-          "de": "Staatspolitik|Finanzwesen|Umwelt"
-        },
-        "type": {
-          "de": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "biodiversität"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20250404-de",
-    "titel": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative",
-    "typ": "Volksinitiative",
-    "kurzbeschreibung": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll. Wirtschaft|Umwelt",
-    "geschaeftsnummer": "20250404-de",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2025-02-21",
-    "datumAktualisiert": "2026-02-13",
-    "themen": [
-      "stopfleber",
-      "foie gras",
-      "initiative"
-    ],
-    "schlagwoerter": [
-      "stopfleber",
-      "foie gras",
-      "initiative"
-    ],
-    "einreichende": [
-      {
-        "name": "Parlamentarische Kommission",
-        "rolle": "Nationalrat",
-        "partei": "Überparteilich"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250404",
-    "resultate": [
-      {
-        "datum": "2025-02-21",
-        "status": "In Beratung",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "pro-tierschutz",
-      "initiativeLinks": {
-        "campaignUrl": "https://www.stopfleber-initiative.ch"
-      },
-      "i18n": {
-        "title": {
-          "de": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative"
-        },
-        "summary": {
-          "de": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll. Wirtschaft|Umwelt"
-        },
-        "type": {
-          "de": "Volksinitiative"
-        },
-        "themes": {
-          "de": [
-            "stopfleber",
-            "foie gras",
-            "initiative"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
     "id": "vp-20240089-de",
     "titel": "24.089 · «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)». Volksinitiative",
     "typ": "Volksinitiative",
@@ -243,6 +66,190 @@
     }
   },
   {
+    "id": "vp-20210426-fr",
+    "titel": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. In Kommission des Nationalrats",
+    "geschaeftsnummer": "20210426-fr",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": "Romandie",
+    "status": "In Beratung",
+    "datumEingereicht": "2021-03-18",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "tierversuch",
+      "tierversuche",
+      "animal",
+      "expérimentation animale",
+      "sperimentazione animale",
+      "3r"
+    ],
+    "schlagwoerter": [
+      "tierversuch",
+      "tierversuche",
+      "animal",
+      "expérimentation animale",
+      "sperimentazione animale",
+      "3r",
+      "animale"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentarische Kommission",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20210426",
+    "resultate": [
+      {
+        "datum": "2021-03-18",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "fr",
+      "haltung": "pro-tierschutz",
+      "i18n": {
+        "title": {
+          "de": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. In Kommission des Nationalrats"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "tierversuch",
+            "tierversuche",
+            "animal",
+            "expérimentation animale",
+            "sperimentazione animale",
+            "3r"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20210044",
+    "titel": "Parlamentsgeschäft 20210044",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Parlamentsgeschäft 20210044",
+    "geschaeftsnummer": "20210044",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": "Romandie",
+    "status": "In Beratung",
+    "datumEingereicht": "2026-02-13",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "Tierschutz"
+    ],
+    "schlagwoerter": [
+      "Tierpolitik"
+    ],
+    "einreichende": [
+      {
+        "name": "Objet parlementaire (Confédération)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20210044",
+    "resultate": [
+      {
+        "datum": "2026-02-13",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "fr",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "Parlamentsgeschäft 20210044"
+        },
+        "summary": {
+          "de": "Parlamentsgeschäft 20210044"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "Tierschutz"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20240331-fr",
+    "titel": "24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "",
+    "geschaeftsnummer": "20240331-fr",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": "Romandie",
+    "status": "In Beratung",
+    "datumEingereicht": "2024-12-19",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "apiculteur"
+    ],
+    "schlagwoerter": [
+      "apiculteur"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentarische Kommission",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20240331",
+    "resultate": [
+      {
+        "datum": "2024-12-19",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "fr",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen"
+        },
+        "summary": {
+          "de": ""
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "apiculteur"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
     "id": "vp-20253733-de",
     "titel": "25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren",
     "typ": "Interpellation",
@@ -302,71 +309,55 @@
     }
   },
   {
-    "id": "vp-20210426-fr",
-    "titel": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
+    "id": "vp-20254697-de",
+    "titel": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. In Kommission des Nationalrats",
-    "geschaeftsnummer": "20210426-fr",
+    "kurzbeschreibung": "Staatspolitik|Finanzwesen|Umwelt",
+    "geschaeftsnummer": "20254697-de",
     "ebene": "Bund",
     "kanton": null,
-    "regionGemeinde": "Romandie",
+    "regionGemeinde": null,
     "status": "In Beratung",
-    "datumEingereicht": "2021-03-18",
+    "datumEingereicht": "2025-12-18",
     "datumAktualisiert": "2026-02-13",
     "themen": [
-      "tierversuch",
-      "tierversuche",
-      "animal",
-      "expérimentation animale",
-      "sperimentazione animale",
-      "3r"
+      "biodiversität"
     ],
     "schlagwoerter": [
-      "tierversuch",
-      "tierversuche",
-      "animal",
-      "expérimentation animale",
-      "sperimentazione animale",
-      "3r",
-      "animale"
+      "biodiversität"
     ],
     "einreichende": [
       {
-        "name": "Parlamentarische Kommission",
+        "name": "Parlamentsgeschäft (Bund)",
         "rolle": "Nationalrat",
         "partei": "Überparteilich"
       }
     ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20210426",
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254697",
     "resultate": [
       {
-        "datum": "2021-03-18",
+        "datum": "2025-12-18",
         "status": "In Beratung",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
     "medien": [],
     "metadaten": {
-      "sprache": "fr",
+      "sprache": "de",
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben"
+          "de": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung"
         },
         "summary": {
-          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. In Kommission des Nationalrats"
+          "de": "Staatspolitik|Finanzwesen|Umwelt"
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "tierversuch",
-            "tierversuche",
-            "animal",
-            "expérimentation animale",
-            "sperimentazione animale",
-            "3r"
+            "biodiversität"
           ]
         }
       },
@@ -388,13 +379,11 @@
     "themen": [
       "landwirtschaft",
       "agriculture",
-      "agricoltura",
       "nutrition"
     ],
     "schlagwoerter": [
       "landwirtschaft",
       "agriculture",
-      "agricoltura",
       "nutrition"
     ],
     "einreichende": [
@@ -430,8 +419,72 @@
           "de": [
             "landwirtschaft",
             "agriculture",
-            "agricoltura",
             "nutrition"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20250404-de",
+    "titel": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative",
+    "typ": "Volksinitiative",
+    "kurzbeschreibung": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll. Wirtschaft|Umwelt",
+    "geschaeftsnummer": "20250404-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-02-21",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "stopfleber",
+      "foie gras",
+      "initiative"
+    ],
+    "schlagwoerter": [
+      "stopfleber",
+      "foie gras",
+      "initiative"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentarische Kommission",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250404",
+    "resultate": [
+      {
+        "datum": "2025-02-21",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "initiativeLinks": {
+        "campaignUrl": "https://www.stopfleber-initiative.ch"
+      },
+      "i18n": {
+        "title": {
+          "de": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll. Wirtschaft|Umwelt"
+        },
+        "type": {
+          "de": "Volksinitiative"
+        },
+        "themes": {
+          "de": [
+            "stopfleber",
+            "foie gras",
+            "initiative"
           ]
         }
       },
