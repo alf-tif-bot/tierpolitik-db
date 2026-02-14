@@ -32,13 +32,26 @@ const isWithin5Years = (item) => {
   return ts >= cutoffTs
 }
 
+const isMunicipalOverviewNoise = (item) => {
+  const sid = String(item?.sourceId || '')
+  if (!sid.startsWith('ch-municipal-')) return false
+  const t = String(item?.title || '').toLowerCase()
+  const url = String(item?.meta?.sourceLink || item?.sourceUrl || '').toLowerCase()
+  return t.includes('übersichtsseite')
+    || t.includes('vorstösse und grsr-revisionen')
+    || t.includes('antworten auf kleine anfragen')
+    || url.includes('vorstoesse-und-grsr-revisionen')
+    || url.includes('antworten-auf-kleine-anfragen')
+}
+
 const baseReviewItems = [...db.items]
-  .filter((item) => enabledSourceIds.has(item.sourceId))
+  .filter((item) => enabledSourceIds.has(item.sourceId) || String(item.sourceId || '') === 'user-input')
   .filter((item) => {
     const sid = String(item.sourceId || '')
-    return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-')
+    return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-') || sid === 'user-input'
   })
   .filter((item) => ['new', 'queued', 'approved', 'published'].includes(item.status))
+  .filter((item) => !isMunicipalOverviewNoise(item))
   .filter((item) => isWithin5Years(item))
 
 const affairKey = (item) => {

@@ -116,6 +116,11 @@ const isOverviewUrl = (href = '') => {
   return low.includes('vorstoesse-und-grsr-revisionen') || low.includes('antworten-auf-kleine-anfragen')
 }
 
+const isOverviewTitle = (title = '') => {
+  const low = String(title || '').toLowerCase()
+  return low.includes('übersichtsseite') || low.includes('vorstösse und grsr-revisionen') || low.includes('antworten auf kleine anfragen')
+}
+
 const parseLinks = (html = '', baseUrl = '') => {
   const links = []
   const re = /<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi
@@ -135,6 +140,36 @@ const parseLinks = (html = '', baseUrl = '') => {
       .sort((a, b) => b.score - a.score)
       .map((link) => [link.href, link]),
   ).values()]
+}
+
+const expandOverviewLinks = async (links = []) => {
+  const expanded = []
+
+  for (const link of links) {
+    if (!isOverviewUrl(link.href)) {
+      expanded.push(link)
+      continue
+    }
+
+    try {
+      const res = await fetch(link.href, {
+        headers: { 'user-agent': 'tierpolitik-crawler/municipal-adapter' },
+        redirect: 'follow',
+        signal: AbortSignal.timeout(12000),
+      })
+      if (!res.ok) continue
+      const html = await res.text()
+      const nested = parseLinks(html, res.url)
+        .filter((nestedLink) => !isOverviewUrl(nestedLink.href))
+        .map((nestedLink) => ({ ...nestedLink, score: nestedLink.score + 1 }))
+      expanded.push(...nested)
+    } catch {
+      // ignore nested page failures
+    }
+  }
+
+  return [...new Map(expanded.map((l) => [l.href, l])).values()]
+    .sort((a, b) => b.score - a.score)
 }
 
 const loadMunicipalSources = () => {
@@ -184,14 +219,15 @@ export function createMunicipalParliamentAdapter() {
             if (!response.ok) continue
 
             const html = await response.text()
-            const links = parseLinks(html, response.url).slice(0, maxItemsPerCity)
+            const parsedLinks = parseLinks(html, response.url)
+            const links = (await expandOverviewLinks(parsedLinks)).slice(0, maxItemsPerCity)
 
             if (!links.length) continue
 
             for (const [index, link] of links.entries()) {
               const rawTitle = link.text || `${parliament} Geschäft ${index + 1}`
               const inferredTitle = await enrichMunicipalTitle(link.href, rawTitle)
-              if (!inferredTitle || inferredTitle.toLowerCase() === 'parlamentsgeschäft') continue
+              if (!inferredTitle || inferredTitle.toLowerCase() === 'parlamentsgeschäft' || isOverviewTitle(inferredTitle)) continue
 
               const externalId = `municipal-${cityId}-${hashId(link.href)}`
               const entryType = classifyMunicipalEntry(inferredTitle)
