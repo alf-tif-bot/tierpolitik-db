@@ -47,11 +47,17 @@ const themeLabels = {
   pelz: { de: 'Pelz', fr: 'Fourrure', it: 'Pelliccia', en: 'Fur' },
   stopfleber: { de: 'Stopfleber', fr: 'Foie gras', it: 'Foie gras', en: 'Foie gras' },
   kontrollwesen: { de: 'Kontrollwesen', fr: 'Contrôles et application', it: 'Controlli e applicazione', en: 'Controls & enforcement' },
+  subventionen: { de: 'Subventionen', fr: 'Subventions', it: 'Sussidi', en: 'Subsidies' },
 }
 
 const CONTROL_KEYWORDS = new Set([
   'kontrolle', 'kontrollen', 'vollzug', 'aufsicht', 'monitoring', 'sanktion', 'sanktionen',
   'durchsetzung', 'inspektion', 'inspektionen', 'audit', 'audits',
+])
+
+const SUBSIDY_KEYWORDS = new Set([
+  'subvention', 'subventionen', 'subventionierung', 'foerderung', 'förderung', 'direktzahlung', 'direktzahlungen',
+  'beitrag', 'beitraege', 'beiträge', 'finanzhilfe', 'sussidi', 'sussidio', 'subventions',
 ])
 
 const mapThemesFromKeywords = (keywords = []) => {
@@ -72,6 +78,9 @@ const mapThemesFromKeywords = (keywords = []) => {
 
   const hasControl = raw.some((kw) => CONTROL_KEYWORDS.has(kw.toLowerCase()))
   if (hasControl) push('Kontrollwesen')
+
+  const hasSubsidy = raw.some((kw) => SUBSIDY_KEYWORDS.has(kw.toLowerCase()))
+  if (hasSubsidy) push('Subventionen')
 
   return out
 }
