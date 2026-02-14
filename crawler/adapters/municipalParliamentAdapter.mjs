@@ -186,6 +186,17 @@ const loadMunicipalSources = () => {
 
 const hashId = (input = '') => crypto.createHash('sha1').update(input).digest('hex').slice(0, 12)
 
+const BERN_ANIMAL_KEYWORDS = [
+  'tier', 'tierschutz', 'tierwohl', 'tierpark', 'tierversuch', 'wildtier', 'haustier',
+  'zoo', 'biodivers', 'wald', 'siedlungsgebiet', 'landwirtschaftsgebiet',
+  'feuerwerk', 'lärm', 'laerm', 'vogel', 'hund', 'katze', 'fisch', 'jagd',
+]
+
+const isBernAnimalRelevant = (text = '') => {
+  const low = String(text || '').toLowerCase()
+  return BERN_ANIMAL_KEYWORDS.some((kw) => low.includes(kw))
+}
+
 const fetchBernApiRows = async ({ municipalityName, canton, parliament, language, sourceId, apiEndpoint, maxItemsPerCity, fetchedAt }) => {
   const body = new URLSearchParams({
     'params[draw]': '1',
@@ -242,6 +253,8 @@ const fetchBernApiRows = async ({ municipalityName, canton, parliament, language
         .map((s) => String(s?.VornameName || '').replace(/\s+/g, ' ').trim())
         .filter(Boolean)
       const signerPreview = signerNames.slice(0, 6).join(', ')
+      const relevanceText = `${titleRaw} ${typ} ${statusRaw} ${signerNames.join(' ')}`
+      if (!isBernAnimalRelevant(relevanceText)) return null
 
       return {
         sourceId,

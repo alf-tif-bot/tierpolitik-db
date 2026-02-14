@@ -44,6 +44,19 @@ const isMunicipalOverviewNoise = (item) => {
     || url.includes('antworten-auf-kleine-anfragen')
 }
 
+const MUNICIPAL_THEME_KEYWORDS = [
+  'tier', 'tierschutz', 'tierwohl', 'tierpark', 'tierversuch', 'wildtier', 'haustier',
+  'biodivers', 'wald', 'siedlungsgebiet', 'landwirtschaftsgebiet',
+  'feuerwerk', 'lärm', 'laerm', 'vogel', 'hund', 'katze', 'fisch', 'jagd',
+]
+
+const isMunicipalTopicRelevant = (item) => {
+  const sid = String(item?.sourceId || '')
+  if (!sid.startsWith('ch-municipal-')) return true
+  const text = `${item?.title || ''}\n${item?.summary || ''}\n${item?.body || ''}`.toLowerCase()
+  return MUNICIPAL_THEME_KEYWORDS.some((kw) => text.includes(kw))
+}
+
 const baseReviewItems = [...db.items]
   .filter((item) => enabledSourceIds.has(item.sourceId) || String(item.sourceId || '') === 'user-input')
   .filter((item) => {
@@ -52,6 +65,7 @@ const baseReviewItems = [...db.items]
   })
   .filter((item) => ['new', 'queued', 'approved', 'published'].includes(item.status))
   .filter((item) => !isMunicipalOverviewNoise(item))
+  .filter((item) => isMunicipalTopicRelevant(item))
   .filter((item) => isWithin5Years(item))
 
 const affairKey = (item) => {
