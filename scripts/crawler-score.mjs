@@ -4,6 +4,7 @@ import { runRelevanceFilter } from '../crawler/relevance.mjs'
 import { withPgClient } from '../crawler/db-postgres.mjs'
 
 const decisionsPath = path.resolve(process.cwd(), 'data/review-decisions.json')
+const fastlaneTagsPath = path.resolve(process.cwd(), 'data/review-fastlane-tags.json')
 
 async function syncReviewDecisionsFromDb() {
   try {
@@ -48,6 +49,36 @@ async function syncReviewDecisionsFromDb() {
   }
 }
 
+async function syncFastlaneTagsFromDb() {
+  try {
+    const rows = await withPgClient(async (client) => {
+      const res = await client.query(`
+        select meta
+        from submissions
+        where created_source = 'fastlane-tag'
+      `)
+      return res.rows
+    })
+
+    const tags = {}
+    for (const row of rows) {
+      const meta = row?.meta || {}
+      const targetId = String(meta?.targetId || '')
+      if (!targetId.includes(':')) continue
+      tags[targetId] = {
+        fastlane: Boolean(meta?.fastlane),
+        taggedAt: meta?.taggedAt || new Date().toISOString(),
+      }
+    }
+
+    fs.writeFileSync(fastlaneTagsPath, JSON.stringify(tags, null, 2))
+    return Object.keys(tags).length
+  } catch {
+    return 0
+  }
+}
+
 const synced = await syncReviewDecisionsFromDb()
+const syncedFastlaneTags = await syncFastlaneTagsFromDb()
 const result = runRelevanceFilter({ minScore: 0.18, fallbackMin: 0 })
-console.log('Relevanz-Filter OK', { ...result, syncedReviewDecisions: synced })
+console.log('Relevanz-Filter OK', { ...result, syncedReviewDecisions: synced, syncedFastlaneTags })

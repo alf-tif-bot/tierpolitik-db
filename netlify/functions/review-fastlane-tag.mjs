@@ -1,20 +1,4 @@
-import fs from 'node:fs'
-import path from 'node:path'
-
-const tagsPath = path.resolve(process.cwd(), 'data/review-fastlane-tags.json')
-
-const loadTags = () => {
-  try {
-    if (!fs.existsSync(tagsPath)) return {}
-    return JSON.parse(fs.readFileSync(tagsPath, 'utf8'))
-  } catch {
-    return {}
-  }
-}
-
-const saveTags = (tags) => {
-  fs.writeFileSync(tagsPath, JSON.stringify(tags, null, 2))
-}
+import { withPgClient } from '../../crawler/db-postgres.mjs'
 
 export const handler = async (event) => {
   try {
@@ -31,9 +15,26 @@ export const handler = async (event) => {
       return { statusCode: 400, body: JSON.stringify({ ok: false, error: 'id must be sourceId:externalId' }) }
     }
 
-    const tags = loadTags()
-    tags[id] = { fastlane, taggedAt: taggedAt.toISOString() }
-    saveTags(tags)
+    const submissionId = `fastlane-tag:${id}`
+
+    await withPgClient(async (client) => {
+      await client.query(
+        `insert into submissions (id, title, url, summary, created_at, processed, created_source, meta)
+         values ($1, $2, $3, $4, $5, true, 'fastlane-tag', $6::jsonb)
+         on conflict (id) do update
+         set created_at = excluded.created_at,
+             meta = excluded.meta,
+             summary = excluded.summary`,
+        [
+          submissionId,
+          `Fastlane Tag ${id}`,
+          'https://tierpolitik.netlify.app/review.html',
+          fastlane ? 'tagged-fastlane' : 'untagged-fastlane',
+          taggedAt.toISOString(),
+          JSON.stringify({ targetId: id, fastlane, taggedAt: taggedAt.toISOString() }),
+        ],
+      )
+    })
 
     return {
       statusCode: 200,
