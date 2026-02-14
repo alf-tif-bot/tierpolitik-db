@@ -346,8 +346,15 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     item.matchedKeywords = matched
 
     const prevStatus = item.status
-    const isManualLocked = ['approved', 'published'].includes(prevStatus)
-    if (!isManualLocked) {
+    const itemDecision = decisions[`${item.sourceId}:${item.externalId}`]?.status
+    const normalizedDecision = ['queued', 'approved', 'published', 'rejected'].includes(String(itemDecision))
+      ? String(itemDecision)
+      : null
+    const isManualLocked = ['approved', 'published'].includes(prevStatus) || normalizedDecision !== null
+
+    if (normalizedDecision) {
+      item.status = normalizedDecision === 'published' ? 'published' : normalizedDecision
+    } else if (!isManualLocked) {
       item.status = isRelevant ? 'queued' : 'rejected'
     }
 

@@ -1,13 +1,13 @@
 [
   {
-    "id": "vp-20240089-de",
+    "id": "vp-20240089-it",
     "titel": "24.089 · «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)». Volksinitiative",
     "typ": "Volksinitiative",
     "kurzbeschreibung": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll. Botschaft vom 20. November 2024 zur Volksinitiative «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)»",
-    "geschaeftsnummer": "20240089-de",
+    "geschaeftsnummer": "20240089-it",
     "ebene": "Bund",
     "kanton": null,
-    "regionGemeinde": null,
+    "regionGemeinde": "Südschweiz",
     "status": "In Beratung",
     "datumEingereicht": "2024-11-14",
     "datumAktualisiert": "2024-02-14",
@@ -24,7 +24,7 @@
     ],
     "einreichende": [
       {
-        "name": "Parlamentsgeschäft (Bund)",
+        "name": "Atto parlamentare (Confederazione)",
         "rolle": "Nationalrat",
         "partei": "Überparteilich"
       }
@@ -39,7 +39,7 @@
     ],
     "medien": [],
     "metadaten": {
-      "sprache": "de",
+      "sprache": "it",
       "haltung": "pro-tierschutz",
       "initiativeLinks": {
         "campaignUrl": "https://www.stopfleber-initiative.ch"
@@ -112,7 +112,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben"
@@ -138,17 +138,17 @@
     }
   },
   {
-    "id": "vp-20210044",
+    "id": "vp-20210044-de",
     "titel": "21.044 · Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative). Volksinitiative und direkter Gegenentwurf",
     "typ": "Volksinitiative",
     "kurzbeschreibung": "Botschaft vom 19. Mai 2021 zur Volksinitiative «Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative)» und zum direkten Gegenentwurf (Bundesbeschluss über den Schutz und das Wohlergehen der Tiere) Botschaft vom 19. Mai 2021 zur Volksinitiative «Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative)» und zum direkten Gegenentwurf (Bundesbeschluss über den Schutz und das Wohlergehen der Tiere) Umwelt|",
-    "geschaeftsnummer": "20210044",
+    "geschaeftsnummer": "20210044-de",
     "ebene": "Bund",
     "kanton": null,
-    "regionGemeinde": "Romandie",
+    "regionGemeinde": null,
     "status": "In Beratung",
-    "datumEingereicht": "2021-02-13",
-    "datumAktualisiert": "2021-02-13",
+    "datumEingereicht": "2021-05-19",
+    "datumAktualisiert": "2021-02-14",
     "themen": [
       "tiere",
       "massentierhaltung",
@@ -164,7 +164,7 @@
     ],
     "einreichende": [
       {
-        "name": "Objet parlementaire (Confédération)",
+        "name": "Parlamentsgeschäft (Bund)",
         "rolle": "Nationalrat",
         "partei": "Überparteilich"
       }
@@ -172,15 +172,15 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20210044",
     "resultate": [
       {
-        "datum": "2021-02-13",
+        "datum": "2021-05-19",
         "status": "In Beratung",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
     "medien": [],
     "metadaten": {
-      "sprache": "fr",
-      "haltung": "neutral/unklar",
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
       "initiativeLinks": {
         "campaignUrl": "https://duckduckgo.com/?q=21.044%20%C2%B7%20Keine%20Massentierhaltung%20in%20der%20Schweiz%20(Massentierhaltungsinitiative).%20Volksinitiative%20und%20direkter%20Gegenentwurf%20Volksinitiative%20Kampagne"
       },
@@ -207,14 +207,14 @@
     }
   },
   {
-    "id": "vp-20240331-fr",
+    "id": "vp-20240331-de",
     "titel": "24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen",
     "typ": "Interpellation",
     "kurzbeschreibung": "Kurzüberblick: 24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen (In Beratung).",
-    "geschaeftsnummer": "20240331-fr",
+    "geschaeftsnummer": "20240331-de",
     "ebene": "Bund",
     "kanton": null,
-    "regionGemeinde": "Romandie",
+    "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2024-12-19",
     "datumAktualisiert": "2024-02-14",
@@ -241,7 +241,7 @@
     ],
     "medien": [],
     "metadaten": {
-      "sprache": "fr",
+      "sprache": "de",
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
@@ -449,14 +449,14 @@
     }
   },
   {
-    "id": "vp-20250404-de",
+    "id": "vp-20250404-it",
     "titel": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative",
     "typ": "Volksinitiative",
     "kurzbeschreibung": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll. Wirtschaft|Umwelt",
-    "geschaeftsnummer": "20250404-de",
+    "geschaeftsnummer": "20250404-it",
     "ebene": "Bund",
     "kanton": null,
-    "regionGemeinde": null,
+    "regionGemeinde": "Südschweiz",
     "status": "In Beratung",
     "datumEingereicht": "2025-02-21",
     "datumAktualisiert": "2026-02-14",
@@ -487,7 +487,7 @@
     ],
     "medien": [],
     "metadaten": {
-      "sprache": "de",
+      "sprache": "it",
       "haltung": "pro-tierschutz",
       "initiativeLinks": {
         "campaignUrl": "https://www.stopfleber-initiative.ch"
@@ -553,7 +553,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "22.3187 · Hochgezüchtete Eier- und Geflügelfleischproduktion in Richtung Tierwohl weiterentwickeln"
@@ -578,7 +578,7 @@
   {
     "id": "vp-20254788-de",
     "titel": "25.4788 · Wiedereinführung zeitgemäss ausgestalteter Tierhalterbeiträge zur nachhaltigen Sicherung der Nutztierhaltung und Ernährung in der Schweiz",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Eingereicht Umwelt|Landwirtschaft|Gesundheit",
     "geschaeftsnummer": "20254788-de",
     "ebene": "Bund",
@@ -622,7 +622,7 @@
           "de": "Eingereicht Umwelt|Landwirtschaft|Gesundheit"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
@@ -635,9 +635,298 @@
     }
   },
   {
+    "id": "vp-20234379-de",
+    "titel": "23.4379 · Anpassung des Gewässerschutzgesetzes an die praktizierte Nutztierhaltung",
+    "typ": "Motion",
+    "kurzbeschreibung": "Überwiesen an den Bundesrat Umwelt|Landwirtschaft",
+    "geschaeftsnummer": "20234379-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2023-12-18",
+    "datumAktualisiert": "2023-02-14",
+    "themen": [
+      "landwirtschaft"
+    ],
+    "schlagwoerter": [
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Bundesrat",
+        "rolle": "Regierung",
+        "partei": "Bundesrat"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20234379",
+    "resultate": [
+      {
+        "datum": "2023-12-18",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "23.4379 · Anpassung des Gewässerschutzgesetzes an die praktizierte Nutztierhaltung"
+        },
+        "summary": {
+          "de": "Überwiesen an den Bundesrat Umwelt|Landwirtschaft"
+        },
+        "type": {
+          "de": "Motion"
+        },
+        "themes": {
+          "de": [
+            "landwirtschaft"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20223302-de",
+    "titel": "22.3302 · Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung",
+    "typ": "Motion",
+    "kurzbeschreibung": "Umwelt|Landwirtschaft|Gesundheit",
+    "geschaeftsnummer": "20223302-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2022-03-17",
+    "datumAktualisiert": "2022-02-14",
+    "themen": [
+      "landwirtschaft"
+    ],
+    "schlagwoerter": [
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20223302",
+    "resultate": [
+      {
+        "datum": "2022-03-17",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "22.3302 · Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung"
+        },
+        "summary": {
+          "de": "Umwelt|Landwirtschaft|Gesundheit"
+        },
+        "type": {
+          "de": "Motion"
+        },
+        "themes": {
+          "de": [
+            "landwirtschaft"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20218021-de",
+    "titel": "21.8021 · Wann und wie gedenkt der Bundesrat die Motion 13.3324 \"Anpassung des Gewässerschutzgesetzes an die heutige Nutztierhaltung\", die von beiden Räten angenommen wurde, umzusetzen?",
+    "typ": "Motion",
+    "kurzbeschreibung": "Umwelt|Landwirtschaft",
+    "geschaeftsnummer": "20218021-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2021-11-30",
+    "datumAktualisiert": "2021-02-14",
+    "themen": [
+      "landwirtschaft",
+      "motion"
+    ],
+    "schlagwoerter": [
+      "landwirtschaft",
+      "motion"
+    ],
+    "einreichende": [
+      {
+        "name": "Bundesrat",
+        "rolle": "Regierung",
+        "partei": "Bundesrat"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20218021",
+    "resultate": [
+      {
+        "datum": "2021-11-30",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "21.8021 · Wann und wie gedenkt der Bundesrat die Motion 13.3324 \"Anpassung des Gewässerschutzgesetzes an die heutige Nutztierhaltung\", die von beiden Räten angenommen wurde, umzusetzen?"
+        },
+        "summary": {
+          "de": "Umwelt|Landwirtschaft"
+        },
+        "type": {
+          "de": "Motion"
+        },
+        "themes": {
+          "de": [
+            "landwirtschaft",
+            "motion"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20253976-de",
+    "titel": "25.3976 · Tierschutz und neue Schweiz-EU-Abkommen. Steht das Verbot ritueller Schlachtungen in der Schweiz vor dem Aus?",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Europapolitik|Wirtschaft|Umwelt|Kultur",
+    "geschaeftsnummer": "20253976-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-09-10",
+    "datumAktualisiert": "2026-02-14",
+    "themen": [
+      "tierschutz",
+      "schlacht"
+    ],
+    "schlagwoerter": [
+      "tierschutz",
+      "schlacht"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253976",
+    "resultate": [
+      {
+        "datum": "2025-09-10",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "i18n": {
+        "title": {
+          "de": "25.3976 · Tierschutz und neue Schweiz-EU-Abkommen. Steht das Verbot ritueller Schlachtungen in der Schweiz vor dem Aus?"
+        },
+        "summary": {
+          "de": "Europapolitik|Wirtschaft|Umwelt|Kultur"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "tierschutz",
+            "schlacht"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20232009-de",
+    "titel": "23.2009 · Für eine Änderung des Schweizer Tierschutzgesetzes (TSCHG) und für das Verbot der Euthanasie ohne triftigen Grund!",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "In Kommission des Ständerats",
+    "geschaeftsnummer": "20232009-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2023-03-02",
+    "datumAktualisiert": "2023-02-14",
+    "themen": [
+      "tierschutz",
+      "schweizer tierschutz"
+    ],
+    "schlagwoerter": [
+      "tierschutz",
+      "schweizer tierschutz"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentarische Kommission",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20232009",
+    "resultate": [
+      {
+        "datum": "2023-03-02",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "i18n": {
+        "title": {
+          "de": "23.2009 · Für eine Änderung des Schweizer Tierschutzgesetzes (TSCHG) und für das Verbot der Euthanasie ohne triftigen Grund!"
+        },
+        "summary": {
+          "de": "In Kommission des Ständerats"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "tierschutz",
+            "schweizer tierschutz"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
     "id": "vp-20223728-de",
     "titel": "22.3728 · Afrikanische Schweinepest. Schlachtbetriebe und damit die Versorgungssicherheit gefährden?",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Wirtschaft|Umwelt|Gesundheit",
     "geschaeftsnummer": "20223728-de",
     "ebene": "Bund",
@@ -683,7 +972,7 @@
           "de": "Wirtschaft|Umwelt|Gesundheit"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
@@ -699,7 +988,7 @@
   {
     "id": "vp-20223633-de",
     "titel": "22.3633 · Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden?",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Umwelt|Landwirtschaft|Gesundheit",
     "geschaeftsnummer": "20223633-de",
     "ebene": "Bund",
@@ -747,7 +1036,7 @@
           "de": "Umwelt|Landwirtschaft|Gesundheit"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
@@ -764,7 +1053,7 @@
   {
     "id": "vp-20254809-de",
     "titel": "25.4809 · Keine Tierqual bei der Geflügelschlachtung",
-    "typ": "Interpellation",
+    "typ": "Postulat",
     "kurzbeschreibung": "Eingereicht Umwelt|Landwirtschaft",
     "geschaeftsnummer": "20254809-de",
     "ebene": "Bund",
@@ -808,11 +1097,126 @@
           "de": "Eingereicht Umwelt|Landwirtschaft"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Postulat"
         },
         "themes": {
           "de": [
             "geflügel",
+            "landwirtschaft"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20223300-de",
+    "titel": "22.3300 · 3R-Kompetenz der kantonalen Tierversuchskommissionen stärken",
+    "typ": "Motion",
+    "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Wissenschaft und Forschung|Umwelt",
+    "geschaeftsnummer": "20223300-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2022-03-17",
+    "datumAktualisiert": "2022-02-14",
+    "themen": [
+      "tierversuch",
+      "3r"
+    ],
+    "schlagwoerter": [
+      "tierversuch",
+      "3r"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentarische Kommission",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20223300",
+    "resultate": [
+      {
+        "datum": "2022-03-17",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "i18n": {
+        "title": {
+          "de": "22.3300 · 3R-Kompetenz der kantonalen Tierversuchskommissionen stärken"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Wissenschaft und Forschung|Umwelt"
+        },
+        "type": {
+          "de": "Motion"
+        },
+        "themes": {
+          "de": [
+            "tierversuch",
+            "3r"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20254144-de",
+    "titel": "25.4144 · Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet?",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Umwelt|Landwirtschaft",
+    "geschaeftsnummer": "20254144-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-09-25",
+    "datumAktualisiert": "2026-02-14",
+    "themen": [
+      "landwirtschaft"
+    ],
+    "schlagwoerter": [
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254144",
+    "resultate": [
+      {
+        "datum": "2025-09-25",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "25.4144 · Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet?"
+        },
+        "summary": {
+          "de": "Umwelt|Landwirtschaft"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
             "landwirtschaft"
           ]
         }
@@ -860,7 +1264,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "23.7580 · Der Schutz des Menschen und der Nutztiere ist höher zu gewichten als der Wolf"
@@ -979,7 +1383,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "tierschutzkritisch",
       "i18n": {
         "title": {
           "de": "23.7858 · Abschuss von Wolfsrudeln trotz immer weniger Schäden an Nutztieren?"
@@ -1001,9 +1405,65 @@
     }
   },
   {
+    "id": "vp-20243277-de",
+    "titel": "24.3277 · Luchsbestände in der Schweiz sind bezüglich Nutztier- und Jagdregalschäden zu untersuchen",
+    "typ": "Postulat",
+    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten. Überwiesen an den Bundesrat",
+    "geschaeftsnummer": "20243277-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2024-03-14",
+    "datumAktualisiert": "2024-02-14",
+    "themen": [
+      "landwirtschaft"
+    ],
+    "schlagwoerter": [
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Bundesrat",
+        "rolle": "Regierung",
+        "partei": "Bundesrat"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20243277",
+    "resultate": [
+      {
+        "datum": "2024-03-14",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "24.3277 · Luchsbestände in der Schweiz sind bezüglich Nutztier- und Jagdregalschäden zu untersuchen"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten. Überwiesen an den Bundesrat"
+        },
+        "type": {
+          "de": "Postulat"
+        },
+        "themes": {
+          "de": [
+            "landwirtschaft"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
     "id": "vp-20254380-de",
     "titel": "25.4380 · Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhühner\") gesetzlich verankern",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Zugewiesen an die behandelnde Kommission Wirtschaft|Landwirtschaft|Gesundheit",
     "geschaeftsnummer": "20254380-de",
     "ebene": "Bund",
@@ -1049,7 +1509,7 @@
           "de": "Zugewiesen an die behandelnde Kommission Wirtschaft|Landwirtschaft|Gesundheit"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
@@ -1126,6 +1586,65 @@
     }
   },
   {
+    "id": "vp-20240436-de",
+    "titel": "24.436 · Zukunftsfähige Forschung mit einem Plan für den Ausstieg aus belastenden Tierversuchen fördern",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Wissenschaft und Forschung|Umwelt",
+    "geschaeftsnummer": "20240436-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2024-06-14",
+    "datumAktualisiert": "2024-02-14",
+    "themen": [
+      "tierversuch",
+      "tierversuche"
+    ],
+    "schlagwoerter": [
+      "tierversuch",
+      "tierversuche"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20240436",
+    "resultate": [
+      {
+        "datum": "2024-06-14",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "24.436 · Zukunftsfähige Forschung mit einem Plan für den Ausstieg aus belastenden Tierversuchen fördern"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Wissenschaft und Forschung|Umwelt"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "tierversuch",
+            "tierversuche"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
     "id": "vp-20244696-de",
     "titel": "24.4696 · Sucht der Bund nach einer Strategie zur Einschränkung der Tierversuche?",
     "typ": "Interpellation",
@@ -1187,7 +1706,7 @@
   {
     "id": "vp-20244695-de",
     "titel": "24.4695 · Alternativen zu Tierversuchen. Forschungsstandort Schweiz stärken!",
-    "typ": "Interpellation",
+    "typ": "Postulat",
     "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Wissenschaft und Forschung|Umwelt",
     "geschaeftsnummer": "20244695-de",
     "ebene": "Bund",
@@ -1222,7 +1741,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "24.4695 · Alternativen zu Tierversuchen. Forschungsstandort Schweiz stärken!"
@@ -1231,12 +1750,301 @@
           "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Wissenschaft und Forschung|Umwelt"
         },
         "type": {
+          "de": "Postulat"
+        },
+        "themes": {
+          "de": [
+            "tierversuch",
+            "tierversuche"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20212004-de",
+    "titel": "21.2004 · Jetzt umsteigen! Bessere Forschung ohne Tierversuche fördern",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich.",
+    "geschaeftsnummer": "20212004-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2021-02-22",
+    "datumAktualisiert": "2021-02-14",
+    "themen": [
+      "tierversuch",
+      "tierversuche"
+    ],
+    "schlagwoerter": [
+      "tierversuch",
+      "tierversuche"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20212004",
+    "resultate": [
+      {
+        "datum": "2021-02-22",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "21.2004 · Jetzt umsteigen! Bessere Forschung ohne Tierversuche fördern"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich."
+        },
+        "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
             "tierversuch",
             "tierversuche"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20213363-de",
+    "titel": "21.3363 · Gemeinsame Bewilligungsbehörde für eine einheitliche Beurteilung von Tierversuchen mit Schweregrad 3",
+    "typ": "Motion",
+    "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Wissenschaft und Forschung|Umwelt",
+    "geschaeftsnummer": "20213363-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2021-03-18",
+    "datumAktualisiert": "2021-02-14",
+    "themen": [
+      "tierversuch",
+      "tierversuche"
+    ],
+    "schlagwoerter": [
+      "tierversuch",
+      "tierversuche"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213363",
+    "resultate": [
+      {
+        "datum": "2021-03-18",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "21.3363 · Gemeinsame Bewilligungsbehörde für eine einheitliche Beurteilung von Tierversuchen mit Schweregrad 3"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Wissenschaft und Forschung|Umwelt"
+        },
+        "type": {
+          "de": "Motion"
+        },
+        "themes": {
+          "de": [
+            "tierversuch",
+            "tierversuche"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20223808-de",
+    "titel": "22.3808 · Aussagekräftige und transparente Tierversuchsstatistik",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Staatspolitik|Medien und Kommunikation|Wissenschaft und Forschung|Umwelt",
+    "geschaeftsnummer": "20223808-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2022-06-17",
+    "datumAktualisiert": "2022-02-14",
+    "themen": [
+      "tierversuch"
+    ],
+    "schlagwoerter": [
+      "tierversuch"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20223808",
+    "resultate": [
+      {
+        "datum": "2022-06-17",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "22.3808 · Aussagekräftige und transparente Tierversuchsstatistik"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Staatspolitik|Medien und Kommunikation|Wissenschaft und Forschung|Umwelt"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "tierversuch"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20213364-de",
+    "titel": "21.3364 · Impfstoffentwicklung mit neuen Methoden ohne Tierversuche",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Wissenschaft und Forschung|Umwelt|Gesundheit",
+    "geschaeftsnummer": "20213364-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2021-03-18",
+    "datumAktualisiert": "2021-02-14",
+    "themen": [
+      "tierversuch",
+      "tierversuche"
+    ],
+    "schlagwoerter": [
+      "tierversuch",
+      "tierversuche"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213364",
+    "resultate": [
+      {
+        "datum": "2021-03-18",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "21.3364 · Impfstoffentwicklung mit neuen Methoden ohne Tierversuche"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Wissenschaft und Forschung|Umwelt|Gesundheit"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "tierversuch",
+            "tierversuche"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20254071-de",
+    "titel": "25.4071 · Heim- versus Nutztier bei Equiden. Wieso diese Sonderregelung und wieso so viel Food Waste?",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Umwelt|Landwirtschaft",
+    "geschaeftsnummer": "20254071-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-09-23",
+    "datumAktualisiert": "2026-02-14",
+    "themen": [
+      "landwirtschaft"
+    ],
+    "schlagwoerter": [
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254071",
+    "resultate": [
+      {
+        "datum": "2025-09-23",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "25.4071 · Heim- versus Nutztier bei Equiden. Wieso diese Sonderregelung und wieso so viel Food Waste?"
+        },
+        "summary": {
+          "de": "Umwelt|Landwirtschaft"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "landwirtschaft"
           ]
         }
       },
@@ -1364,7 +2172,7 @@
   {
     "id": "vp-20244465-de",
     "titel": "24.4465 · Nutztiere, die von Tierheimen, Auffangstationen und Privatpersonen adoptiert werden. Status \"Heimtier\" zulassen, sofern sie nicht mehr der Lebensmittelproduktion dienen",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Zugewiesen an die behandelnde Kommission Umwelt|Landwirtschaft",
     "geschaeftsnummer": "20244465-de",
     "ebene": "Bund",
@@ -1410,7 +2218,7 @@
           "de": "Zugewiesen an die behandelnde Kommission Umwelt|Landwirtschaft"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
@@ -1483,6 +2291,62 @@
     }
   },
   {
+    "id": "vp-20213229-de",
+    "titel": "21.3229 · Erhaltung einheimischer Nutztierrassen",
+    "typ": "Motion",
+    "kurzbeschreibung": "Umwelt|Landwirtschaft",
+    "geschaeftsnummer": "20213229-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2021-03-17",
+    "datumAktualisiert": "2021-02-14",
+    "themen": [
+      "landwirtschaft"
+    ],
+    "schlagwoerter": [
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213229",
+    "resultate": [
+      {
+        "datum": "2021-03-17",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "21.3229 · Erhaltung einheimischer Nutztierrassen"
+        },
+        "summary": {
+          "de": "Umwelt|Landwirtschaft"
+        },
+        "type": {
+          "de": "Motion"
+        },
+        "themes": {
+          "de": [
+            "landwirtschaft"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
     "id": "vp-20237115-de",
     "titel": "23.7115 · Bedeutung von Netto-Null für schweizerische Nutztiere",
     "typ": "Interpellation",
@@ -1542,9 +2406,65 @@
     }
   },
   {
+    "id": "vp-20231034-de",
+    "titel": "23.1034 · Nutztierrisse und Herdenschutz",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Umwelt|Landwirtschaft",
+    "geschaeftsnummer": "20231034-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2023-06-15",
+    "datumAktualisiert": "2023-02-14",
+    "themen": [
+      "landwirtschaft"
+    ],
+    "schlagwoerter": [
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20231034",
+    "resultate": [
+      {
+        "datum": "2023-06-15",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "23.1034 · Nutztierrisse und Herdenschutz"
+        },
+        "summary": {
+          "de": "Umwelt|Landwirtschaft"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "landwirtschaft"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
     "id": "vp-20254812-de",
     "titel": "25.4812 · Konsequenzen aus dem Tierschutzfall Ramiswil",
-    "typ": "Interpellation",
+    "typ": "Postulat",
     "kurzbeschreibung": "Eingereicht Staatspolitik|Umwelt|Landwirtschaft",
     "geschaeftsnummer": "20254812-de",
     "ebene": "Bund",
@@ -1579,7 +2499,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "25.4812 · Konsequenzen aus dem Tierschutzfall Ramiswil"
@@ -1588,12 +2508,72 @@
           "de": "Eingereicht Staatspolitik|Umwelt|Landwirtschaft"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Postulat"
         },
         "themes": {
           "de": [
             "tierschutz",
             "landwirtschaft"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20250059-de",
+    "titel": "25.059 · «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelzinitiative)». Volksinitiative und indirekter Gegenvorschlag (Änderung des Tierschutzgesetzes)",
+    "typ": "Volksinitiative",
+    "kurzbeschreibung": "Botschaft vom 28. Mai 2025 zur Volksinitiative «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelzinitiative)» und zum indirekten Gegenvorschlag (Änderung des Tierschutzgesetzes) Botschaft vom 28. Mai 2025 zur Volksinitiative «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelzinitiative)» und zum indirekten Gegenvorschlag (Änderung des Tierschutzgesetzes) Wirtschaft|Umwelt",
+    "geschaeftsnummer": "20250059-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-05-28",
+    "datumAktualisiert": "2026-02-14",
+    "themen": [
+      "tierschutz"
+    ],
+    "schlagwoerter": [
+      "tierschutz",
+      "botschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250059",
+    "resultate": [
+      {
+        "datum": "2025-05-28",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "initiativeLinks": {
+        "campaignUrl": "https://duckduckgo.com/?q=25.059%20%C2%B7%20%C2%ABJa%20zum%20Importverbot%20f%C3%BCr%20tierqu%C3%A4lerisch%20erzeugte%20Pelzprodukte%20(Pelzinitiative)%C2%BB.%20Volksinitiative%20und%20indirekter%20Gegenvorschlag%20(%C3%84nderung%20des%20Tierschutzgesetzes)%20Volksinitiative%20Kampagne"
+      },
+      "i18n": {
+        "title": {
+          "de": "25.059 · «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelzinitiative)». Volksinitiative und indirekter Gegenvorschlag (Änderung des Tierschutzgesetzes)"
+        },
+        "summary": {
+          "de": "Botschaft vom 28. Mai 2025 zur Volksinitiative «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelzinitiative)» und zum indirekten Gegenvorschlag (Änderung des Tierschutzgesetzes) Botschaft vom 28. Mai 2025 zur Volksinitiative «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelzinitiative)» und zum indirekten Gegenvorschlag (Änderung des Tierschutzgesetzes) Wirtschaft|Umwelt"
+        },
+        "type": {
+          "de": "Volksinitiative"
+        },
+        "themes": {
+          "de": [
+            "tierschutz"
           ]
         }
       },
@@ -1638,7 +2618,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "25.8205 · Reduktion der Tierschutzkontrollen: Ressourcen sparen auf Kosten der Tiere?"
@@ -1652,6 +2632,62 @@
         "themes": {
           "de": [
             "tiere",
+            "tierschutz"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20243296-de",
+    "titel": "24.3296 · Effizienteren Tierschutz durch Interessenvertretung",
+    "typ": "Postulat",
+    "kurzbeschreibung": "Staatspolitik|Umwelt",
+    "geschaeftsnummer": "20243296-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2024-03-15",
+    "datumAktualisiert": "2024-02-14",
+    "themen": [
+      "tierschutz"
+    ],
+    "schlagwoerter": [
+      "tierschutz"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20243296",
+    "resultate": [
+      {
+        "datum": "2024-03-15",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "i18n": {
+        "title": {
+          "de": "24.3296 · Effizienteren Tierschutz durch Interessenvertretung"
+        },
+        "summary": {
+          "de": "Staatspolitik|Umwelt"
+        },
+        "type": {
+          "de": "Postulat"
+        },
+        "themes": {
+          "de": [
             "tierschutz"
           ]
         }
@@ -1697,7 +2733,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "23.7131 · Ziegen 1200 Tage pausenlos melken - vereinbar mit Tierschutzbestimmungen?"
@@ -1721,7 +2757,7 @@
   {
     "id": "vp-20213829-de",
     "titel": "21.3829 · Regelungskompetenz im Tierschutz. Auch bei den Kantonen",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Staatspolitik|Wirtschaft|Umwelt|Landwirtschaft",
     "geschaeftsnummer": "20213829-de",
     "ebene": "Bund",
@@ -1756,7 +2792,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "21.3829 · Regelungskompetenz im Tierschutz. Auch bei den Kantonen"
@@ -1765,12 +2801,124 @@
           "de": "Staatspolitik|Wirtschaft|Umwelt|Landwirtschaft"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
             "tierschutz",
             "landwirtschaft"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20244344-de",
+    "titel": "24.4344 · Tierschutzbeauftragte. Eine wirksame Unterstützung",
+    "typ": "Postulat",
+    "kurzbeschreibung": "Staatspolitik|Umwelt",
+    "geschaeftsnummer": "20244344-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2024-12-12",
+    "datumAktualisiert": "2024-02-14",
+    "themen": [
+      "tierschutz"
+    ],
+    "schlagwoerter": [
+      "tierschutz"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20244344",
+    "resultate": [
+      {
+        "datum": "2024-12-12",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "i18n": {
+        "title": {
+          "de": "24.4344 · Tierschutzbeauftragte. Eine wirksame Unterstützung"
+        },
+        "summary": {
+          "de": "Staatspolitik|Umwelt"
+        },
+        "type": {
+          "de": "Postulat"
+        },
+        "themes": {
+          "de": [
+            "tierschutz"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20252027-de",
+    "titel": "25.2027 · Für ein Beschwerderecht von Tierschutzverbänden bei Misshandlung",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "In beiden Kommissionen",
+    "geschaeftsnummer": "20252027-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-10-06",
+    "datumAktualisiert": "2026-02-14",
+    "themen": [
+      "tierschutz"
+    ],
+    "schlagwoerter": [
+      "tierschutz"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentarische Kommission",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20252027",
+    "resultate": [
+      {
+        "datum": "2025-10-06",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "i18n": {
+        "title": {
+          "de": "25.2027 · Für ein Beschwerderecht von Tierschutzverbänden bei Misshandlung"
+        },
+        "summary": {
+          "de": "In beiden Kommissionen"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "tierschutz"
           ]
         }
       },
@@ -1817,7 +2965,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "22.7004 · Absurde Auslegung der Tierschutzverordnung - täglicher Auslauf für Bauernhof Hunde?"
@@ -1840,9 +2988,121 @@
     }
   },
   {
+    "id": "vp-20212027-de",
+    "titel": "21.2027 · Echter Tierschutz jetzt!",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Kurzüberblick: 21.2027 · Echter Tierschutz jetzt! (In Beratung).",
+    "geschaeftsnummer": "20212027-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2021-10-06",
+    "datumAktualisiert": "2021-02-14",
+    "themen": [
+      "tierschutz"
+    ],
+    "schlagwoerter": [
+      "tierschutz"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20212027",
+    "resultate": [
+      {
+        "datum": "2021-10-06",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "i18n": {
+        "title": {
+          "de": "21.2027 · Echter Tierschutz jetzt!"
+        },
+        "summary": {
+          "de": "Kurzüberblick: 21.2027 · Echter Tierschutz jetzt! (In Beratung)."
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "tierschutz"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20223952-de",
+    "titel": "22.3952 · Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen",
+    "typ": "Motion",
+    "kurzbeschreibung": "Kurzüberblick: 22.3952 · Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen (In Beratung).",
+    "geschaeftsnummer": "20223952-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2022-09-21",
+    "datumAktualisiert": "2022-02-14",
+    "themen": [
+      "tierschutz"
+    ],
+    "schlagwoerter": [
+      "tierschutz"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20223952",
+    "resultate": [
+      {
+        "datum": "2022-09-21",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "i18n": {
+        "title": {
+          "de": "22.3952 · Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen"
+        },
+        "summary": {
+          "de": "Kurzüberblick: 22.3952 · Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen (In Beratung)."
+        },
+        "type": {
+          "de": "Motion"
+        },
+        "themes": {
+          "de": [
+            "tierschutz"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
     "id": "vp-20213405-de",
     "titel": "21.3405 · Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Wissenschaft und Forschung|Umwelt",
     "geschaeftsnummer": "20213405-de",
     "ebene": "Bund",
@@ -1879,7 +3139,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "21.3405 · Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere"
@@ -1888,7 +3148,7 @@
           "de": "Wissenschaft und Forschung|Umwelt"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
@@ -1904,7 +3164,7 @@
   {
     "id": "vp-20213835-de",
     "titel": "21.3835 · Tierschutzverstösse besser ahnden",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Wirtschaft|Umwelt|Landwirtschaft|Gesundheit",
     "geschaeftsnummer": "20213835-de",
     "ebene": "Bund",
@@ -1939,7 +3199,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "21.3835 · Tierschutzverstösse besser ahnden"
@@ -1948,12 +3208,68 @@
           "de": "Wirtschaft|Umwelt|Landwirtschaft|Gesundheit"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
             "tierschutz",
             "landwirtschaft"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20213703-de",
+    "titel": "21.3703 · Tierschutz im Indonesien-Abkommen",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Internationale Politik|Wirtschaft|Umwelt",
+    "geschaeftsnummer": "20213703-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2021-06-15",
+    "datumAktualisiert": "2021-02-14",
+    "themen": [
+      "tierschutz"
+    ],
+    "schlagwoerter": [
+      "tierschutz"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213703",
+    "resultate": [
+      {
+        "datum": "2021-06-15",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "i18n": {
+        "title": {
+          "de": "21.3703 · Tierschutz im Indonesien-Abkommen"
+        },
+        "summary": {
+          "de": "Internationale Politik|Wirtschaft|Umwelt"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "tierschutz"
           ]
         }
       },
@@ -2147,9 +3463,68 @@
     }
   },
   {
+    "id": "vp-20214167-de",
+    "titel": "21.4167 · Afrikanische Schweinepest ernst nehmen",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Umwelt|Gesundheit",
+    "geschaeftsnummer": "20214167-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2021-09-30",
+    "datumAktualisiert": "2021-02-14",
+    "themen": [
+      "schwein",
+      "schweine"
+    ],
+    "schlagwoerter": [
+      "schwein",
+      "schweine"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20214167",
+    "resultate": [
+      {
+        "datum": "2021-09-30",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "21.4167 · Afrikanische Schweinepest ernst nehmen"
+        },
+        "summary": {
+          "de": "Umwelt|Gesundheit"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "schwein",
+            "schweine"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
     "id": "vp-20233411-de",
     "titel": "23.3411 · Eine langfristige Lösung für den Schweinemarkt",
-    "typ": "Interpellation",
+    "typ": "Postulat",
     "kurzbeschreibung": "Wirtschaft|Umwelt|Landwirtschaft",
     "geschaeftsnummer": "20233411-de",
     "ebene": "Bund",
@@ -2195,7 +3570,7 @@
           "de": "Wirtschaft|Umwelt|Landwirtschaft"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Postulat"
         },
         "themes": {
           "de": [
@@ -2209,9 +3584,68 @@
     }
   },
   {
+    "id": "vp-20223210-de",
+    "titel": "22.3210 · Afrikanische Schweinepest nach Deutschland nun auch in Italien",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Internationale Politik|Umwelt|Gesundheit",
+    "geschaeftsnummer": "20223210-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2022-03-17",
+    "datumAktualisiert": "2022-02-14",
+    "themen": [
+      "schwein",
+      "schweine"
+    ],
+    "schlagwoerter": [
+      "schwein",
+      "schweine"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20223210",
+    "resultate": [
+      {
+        "datum": "2022-03-17",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "22.3210 · Afrikanische Schweinepest nach Deutschland nun auch in Italien"
+        },
+        "summary": {
+          "de": "Internationale Politik|Umwelt|Gesundheit"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "schwein",
+            "schweine"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
     "id": "vp-20223299-de",
     "titel": "22.3299 · Kein Einsatz von PMSG bei Schweinezüchtern",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Umwelt|Landwirtschaft|Gesundheit",
     "geschaeftsnummer": "20223299-de",
     "ebene": "Bund",
@@ -2259,7 +3693,7 @@
           "de": "Umwelt|Landwirtschaft|Gesundheit"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
@@ -2276,7 +3710,7 @@
   {
     "id": "vp-20214435-de",
     "titel": "21.4435 · Afrikanische Schweinepest. Wildschweine vorsorglich eindämmen",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Wirtschaft|Umwelt|Landwirtschaft|Gesundheit",
     "geschaeftsnummer": "20214435-de",
     "ebene": "Bund",
@@ -2322,7 +3756,7 @@
           "de": "Wirtschaft|Umwelt|Landwirtschaft|Gesundheit"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
@@ -2338,7 +3772,7 @@
   {
     "id": "vp-20254010-de",
     "titel": "25.4010 · Gesetzliches Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhuhn\")",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Wirtschaft|Landwirtschaft|Gesundheit",
     "geschaeftsnummer": "20254010-de",
     "ebene": "Bund",
@@ -2384,13 +3818,69 @@
           "de": "Wirtschaft|Landwirtschaft|Gesundheit"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
             "geflügel",
             "landwirtschaft",
             "gesetz"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20258063-de",
+    "titel": "25.8063 · Wenn in der Schweiz der Verkauf von Stopfleber verboten ist, hat dann das Schweizer Recht oder das europäische Recht Vorrang?",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll. Europapolitik|Wirtschaft|Umwelt",
+    "geschaeftsnummer": "20258063-de",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-12-03",
+    "datumAktualisiert": "2026-02-14",
+    "themen": [
+      "stopfleber"
+    ],
+    "schlagwoerter": [
+      "stopfleber"
+    ],
+    "einreichende": [
+      {
+        "name": "Parlamentsgeschäft (Bund)",
+        "rolle": "Nationalrat",
+        "partei": "Überparteilich"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258063",
+    "resultate": [
+      {
+        "datum": "2025-12-03",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "i18n": {
+        "title": {
+          "de": "25.8063 · Wenn in der Schweiz der Verkauf von Stopfleber verboten ist, hat dann das Schweizer Recht oder das europäische Recht Vorrang?"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll. Europapolitik|Wirtschaft|Umwelt"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "stopfleber"
           ]
         }
       },

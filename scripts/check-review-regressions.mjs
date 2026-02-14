@@ -51,8 +51,10 @@ const expectedReviewIds = new Set([...expectedGrouped.values()].map((item) => it
 
 const reviewIdsList = Array.isArray(review.ids) ? review.ids : []
 const actualReviewIds = new Set(reviewIdsList)
+const isParliamentReviewId = (id) => String(id || '').startsWith('ch-parliament-')
 const missingInReview = [...expectedReviewIds].filter((id) => !actualReviewIds.has(id))
 const extraInReview = [...actualReviewIds].filter((id) => !expectedReviewIds.has(id))
+const extraInReviewParliament = extraInReview.filter((id) => isParliamentReviewId(id))
 const duplicateReviewIds = reviewIdsList
   .filter((id, idx) => reviewIdsList.indexOf(id) !== idx)
   .filter((id, idx, arr) => arr.indexOf(id) === idx)
@@ -97,7 +99,9 @@ const report = {
   missingInReviewCount: missingInReview.length,
   missingInReview: missingInReview.slice(0, 120),
   extraInReviewCount: extraInReview.length,
+  extraInReviewParliamentCount: extraInReviewParliament.length,
   extraInReview: extraInReview.slice(0, 120),
+  extraInReviewParliament: extraInReviewParliament.slice(0, 120),
   duplicateReviewIdsCount: duplicateReviewIds.length,
   duplicateReviewIds: duplicateReviewIds.slice(0, 120),
   expectedPublishedAffairs: expectedPublishedAffairs.size,
@@ -115,7 +119,7 @@ const report = {
 
 fs.writeFileSync(new URL('../data/regression-report.json', import.meta.url), JSON.stringify(report, null, 2))
 
-if (missingInReview.length || missingInMotions.length || decisionsStatusMismatch.length || decisionsUnknownCritical.length || duplicateReviewIds.length) {
+if (missingInReview.length || missingInMotions.length || decisionsStatusMismatch.length || decisionsUnknownCritical.length || duplicateReviewIds.length || extraInReviewParliament.length) {
   console.error('Regression check FAILED', report)
   process.exit(1)
 }

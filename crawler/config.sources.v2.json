@@ -32,7 +32,6 @@
     "url": "https://raw.githubusercontent.com/yokimxyz/tierpolitik-vorstoesse-db/main/data/cantonal-source-registry.json",
     "enabled": true,
     "options": {
-      "cantons": "AG,AR,BL,FR,GE,GL,JU,TI,VD,VS,ZG",
       "registryUrl": "data/cantonal-source-registry.json"
     }
   },

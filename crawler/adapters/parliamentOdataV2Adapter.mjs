@@ -31,6 +31,34 @@ const parseCsvOption = (value) => String(value || '')
   .map((x) => x.trim())
   .filter(Boolean)
 
+const normalize = (value = '') => String(value)
+  .toLowerCase()
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .replace(/[^\p{L}\p{N}]+/gu, ' ')
+  .trim()
+
+const BUSINESS_TYPE_ALIASES = {
+  motion: ['motion', 'mozione'],
+  postulat: ['postulat', 'postulato'],
+  interpellation: ['interpellation', 'interpellanza'],
+  anfrage: ['anfrage', 'frage', 'question', 'questione'],
+}
+
+const buildBusinessTypeMatchers = (includes = []) => {
+  const normalized = includes.map((v) => normalize(v)).filter(Boolean)
+  const expanded = new Set()
+  for (const token of normalized) {
+    expanded.add(token)
+    for (const [key, variants] of Object.entries(BUSINESS_TYPE_ALIASES)) {
+      if (token.includes(key) || variants.some((v) => token.includes(v))) {
+        variants.forEach((v) => expanded.add(v))
+      }
+    }
+  }
+  return [...expanded]
+}
+
 const langPreference = ['de', 'fr', 'it', 'en']
 
 const pickBestVariant = (variants = {}) => {
@@ -47,6 +75,7 @@ export function createParliamentOdataV2Adapter() {
       const top = Number(source.options?.top ?? 900)
       const daysBack = Number(source.options?.daysBack ?? 3650)
       const businessTypeIncludes = parseCsvOption(source.options?.businessTypeIncludes)
+      const businessTypeMatchers = buildBusinessTypeMatchers(businessTypeIncludes)
       const since = new Date(Date.now() - daysBack * 86400000).toISOString().slice(0, 19)
 
       const select = [
@@ -80,9 +109,9 @@ export function createParliamentOdataV2Adapter() {
         const rows = await fetchRows(rawLang)
         for (const row of rows) {
           if (!row?.ID || !row?.Title) continue
-          if (businessTypeIncludes.length > 0) {
-            const t = String(row.BusinessTypeName || '').toLowerCase()
-            if (!businessTypeIncludes.some((v) => t.includes(v.toLowerCase()))) continue
+          if (businessTypeMatchers.length > 0) {
+            const t = normalize(row.BusinessTypeName || '')
+            if (!businessTypeMatchers.some((v) => t.includes(v))) continue
           }
 
           const lang = mapLanguage(row.Language || rawLang)

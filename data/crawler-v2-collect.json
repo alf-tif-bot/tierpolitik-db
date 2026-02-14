@@ -1,24 +1,25 @@
 {
-  "generatedAt": "2026-02-14T09:47:08.218Z",
+  "generatedAt": "2026-02-14T14:17:11.343Z",
   "registry": {
-    "total": 3,
-    "enabled": 3,
+    "total": 4,
+    "enabled": 4,
     "byAdapter": {
       "parliamentOdataV2": 1,
       "cantonRegistry": 1,
-      "cantonalPortal": 1
+      "cantonalPortal": 1,
+      "municipalParliament": 1
     }
   },
   "runtime": {
-    "collectConcurrency": 8,
-    "collectTimeoutMs": 8000
+    "collectConcurrency": 6,
+    "collectTimeoutMs": 15000
   },
   "sourceStats": [
     {
       "sourceId": "ch-cantonal-portal-priority-v2",
       "ok": true,
-      "fetched": 10,
-      "durationMs": 2390
+      "fetched": 25,
+      "durationMs": 8267
     },
     {
       "sourceId": "ch-cantons-registry-v2",
@@ -27,14 +28,20 @@
       "durationMs": 2
     },
     {
+      "sourceId": "ch-municipal-parliament-bern-zurich-v2",
+      "ok": true,
+      "fetched": 6,
+      "durationMs": 4669
+    },
+    {
       "sourceId": "ch-parliament-affairs-v2",
       "ok": false,
-      "reason": "Adapter timeout after 8000ms",
-      "durationMs": 8039,
+      "reason": "Adapter timeout after 15000ms",
+      "durationMs": 15029,
       "fetched": 0
     }
   ],
-  "totalItems": 36,
+  "totalItems": 57,
   "items": [
     {
       "sourceId": "ch-cantons-registry-v2",
@@ -44,7 +51,7 @@
       "summary": "Scaffold für AG. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Aargau (https://www.ag.ch/de/grosser-rat). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -72,7 +79,7 @@
       "summary": "Scaffold für AI. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Appenzell Innerrhoden (https://www.ai.ch/politik/grosser-rat). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -100,7 +107,7 @@
       "summary": "Scaffold für AR. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Appenzell Ausserrhoden (https://ar.ch/kantonsrat/parlamentsdienst/). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -128,7 +135,7 @@
       "summary": "Scaffold für BE. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Bern (https://www.parlament.be.ch). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -156,7 +163,7 @@
       "summary": "Scaffold für BL. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Landrat Basel-Landschaft (https://www.baselland.ch/politik-und-behorden/landrat-parlament). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -184,7 +191,7 @@
       "summary": "Scaffold für BS. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Basel-Stadt (https://www.grosserrat.bs.ch). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -212,7 +219,7 @@
       "summary": "Scaffold für FR. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grand Conseil Fribourg (https://www.fr.ch/parlinfo/membres-du-grand-conseil). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -240,7 +247,7 @@
       "summary": "Scaffold für GE. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grand Conseil Genève (https://ge.ch/grandconseil/objets-parlementaires). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -268,7 +275,7 @@
       "summary": "Scaffold für GL. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Landrat Glarus (https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -296,7 +303,7 @@
       "summary": "Scaffold für GR. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Graubünden (https://www.gr.ch/DE/institutionen/parlament). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -324,7 +331,7 @@
       "summary": "Scaffold für JU. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Parlement jurassien (https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -352,7 +359,7 @@
       "summary": "Scaffold für LU. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Luzern (https://www.lu.ch/kr). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -380,7 +387,7 @@
       "summary": "Scaffold für NE. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grand Conseil Neuchâtel (https://www.ne.ch/autorites/GC). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -408,7 +415,7 @@
       "summary": "Scaffold für NW. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Landrat Nidwalden (https://www.nw.ch/landrat). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -436,7 +443,7 @@
       "summary": "Scaffold für OW. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Obwalden (https://www.ow.ch/kantonsrat). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -464,7 +471,7 @@
       "summary": "Scaffold für SG. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat St. Gallen (https://www.ratsinfo.sg.ch). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -492,7 +499,7 @@
       "summary": "Scaffold für SH. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Schaffhausen (https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -520,7 +527,7 @@
       "summary": "Scaffold für SO. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Solothurn (https://so.ch/parlament). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -548,7 +555,7 @@
       "summary": "Scaffold für SZ. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Schwyz (https://www.sz.ch/parlament). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -576,7 +583,7 @@
       "summary": "Scaffold für TG. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Thurgau (https://grosserrat.tg.ch). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -604,7 +611,7 @@
       "summary": "Scaffold für TI. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Gran Consiglio Ticino (https://www4.ti.ch/poteri/gc/home). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -632,7 +639,7 @@
       "summary": "Scaffold für UR. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Landrat Uri (https://www.ur.ch/landrat). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -660,7 +667,7 @@
       "summary": "Scaffold für VD. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grand Conseil Vaud (https://www.vd.ch/gc/). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -688,7 +695,7 @@
       "summary": "Scaffold für VS. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grand Conseil Valais (https://www.vs.ch/fr/web/gc/objets-parlementaires). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -716,7 +723,7 @@
       "summary": "Scaffold für ZG. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Zug (https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -744,7 +751,7 @@
       "summary": "Scaffold für ZH. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Zürich (https://www.kantonsrat.zh.ch). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-14T09:47:00.190Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -765,14 +772,185 @@
       }
     },
     {
+      "sourceId": "ch-municipal-parliament-bern-zurich-v2",
+      "sourceUrl": "https://stadtrat.bern.ch/",
+      "externalId": "municipal-bern-26abc7626ef7",
+      "title": "Bern · Vorstösse: Übersichtsseite: Vorstösse und GRSR-Revisionen",
+      "summary": "Gemeinde Bern (Stadtrat Bern) · Vorstösse · Übersichtsseite: Vorstösse und GRSR-Revisionen",
+      "body": "Titel: Übersichtsseite: Vorstösse und GRSR-Revisionen\nTyp: Vorstösse\nQuelle: https://stadtrat.bern.ch/de/aktuelles/meldungen/1799125100.php\nScreening-Hinweis: potenzieller Tierschutz-Vorstoss auf Gemeindeebene.",
+      "publishedAt": "2026-02-14T14:16:56.329Z",
+      "fetchedAt": "2026-02-14T14:16:56.329Z",
+      "language": "de",
+      "score": 0.38,
+      "matchedKeywords": [
+        "gemeinde",
+        "bern"
+      ],
+      "status": "new",
+      "reviewReason": "municipal-source-candidate",
+      "meta": {
+        "level": "Gemeinde",
+        "municipality": "Bern",
+        "canton": "BE",
+        "parliament": "Stadtrat Bern",
+        "sourceLink": "https://stadtrat.bern.ch/de/aktuelles/meldungen/1799125100.php",
+        "rawType": null,
+        "rawStatus": null,
+        "adapterHint": "municipalParliament"
+      }
+    },
+    {
+      "sourceId": "ch-municipal-parliament-bern-zurich-v2",
+      "sourceUrl": "https://stadtrat.bern.ch/",
+      "externalId": "municipal-bern-277af652fe1f",
+      "title": "Bern · Anfrage: Übersichtsseite: Antworten auf kleine Anfragen",
+      "summary": "Gemeinde Bern (Stadtrat Bern) · Anfrage · Übersichtsseite: Antworten auf kleine Anfragen",
+      "body": "Titel: Übersichtsseite: Antworten auf kleine Anfragen\nTyp: Anfrage\nQuelle: https://stadtrat.bern.ch/de/aktuelles/meldungen/2957119384.php\nScreening-Hinweis: potenzieller Tierschutz-Vorstoss auf Gemeindeebene.",
+      "publishedAt": "2026-02-14T14:16:56.329Z",
+      "fetchedAt": "2026-02-14T14:16:56.329Z",
+      "language": "de",
+      "score": 0.38,
+      "matchedKeywords": [
+        "gemeinde",
+        "bern",
+        "anfrage"
+      ],
+      "status": "new",
+      "reviewReason": "municipal-source-candidate",
+      "meta": {
+        "level": "Gemeinde",
+        "municipality": "Bern",
+        "canton": "BE",
+        "parliament": "Stadtrat Bern",
+        "sourceLink": "https://stadtrat.bern.ch/de/aktuelles/meldungen/2957119384.php",
+        "rawType": "Anfrage",
+        "rawStatus": null,
+        "adapterHint": "municipalParliament"
+      }
+    },
+    {
+      "sourceId": "ch-municipal-parliament-bern-zurich-v2",
+      "sourceUrl": "https://stadtrat.bern.ch/",
+      "externalId": "municipal-bern-1c6dc829b4ba",
+      "title": "Bern · Interpellation: RWSU reicht Interpellation zur digitalen Souveränität der Stadt Bern ein",
+      "summary": "Gemeinde Bern (Stadtrat Bern) · Interpellation · RWSU reicht Interpellation zur digitalen Souveränität der Stadt Bern ein",
+      "body": "Titel: RWSU reicht Interpellation zur digitalen Souveränität der Stadt Bern ein\nTyp: Interpellation\nQuelle: https://stadtrat.bern.ch/de/aktuelles/meldungen/2336227412.php\nScreening-Hinweis: potenzieller Tierschutz-Vorstoss auf Gemeindeebene.",
+      "publishedAt": "2026-02-14T14:16:56.329Z",
+      "fetchedAt": "2026-02-14T14:16:56.329Z",
+      "language": "de",
+      "score": 0.38,
+      "matchedKeywords": [
+        "gemeinde",
+        "bern",
+        "interpellation"
+      ],
+      "status": "new",
+      "reviewReason": "municipal-source-candidate",
+      "meta": {
+        "level": "Gemeinde",
+        "municipality": "Bern",
+        "canton": "BE",
+        "parliament": "Stadtrat Bern",
+        "sourceLink": "https://stadtrat.bern.ch/de/aktuelles/meldungen/2336227412.php",
+        "rawType": "Interpellation",
+        "rawStatus": null,
+        "adapterHint": "municipalParliament"
+      }
+    },
+    {
+      "sourceId": "ch-municipal-parliament-bern-zurich-v2",
+      "sourceUrl": "https://stadtrat.bern.ch/",
+      "externalId": "municipal-bern-5e104086d5d2",
+      "title": "Bern · Vorstösse: Übersichtsseite: Vorstösse und GRSR-Revisionen",
+      "summary": "Gemeinde Bern (Stadtrat Bern) · Vorstösse · Übersichtsseite: Vorstösse und GRSR-Revisionen",
+      "body": "Titel: Übersichtsseite: Vorstösse und GRSR-Revisionen\nTyp: Vorstösse\nQuelle: https://stadtrat.bern.ch/de/aktuelles/meldungen/1193061215.php\nScreening-Hinweis: potenzieller Tierschutz-Vorstoss auf Gemeindeebene.",
+      "publishedAt": "2026-02-14T14:16:56.329Z",
+      "fetchedAt": "2026-02-14T14:16:56.329Z",
+      "language": "de",
+      "score": 0.38,
+      "matchedKeywords": [
+        "gemeinde",
+        "bern"
+      ],
+      "status": "new",
+      "reviewReason": "municipal-source-candidate",
+      "meta": {
+        "level": "Gemeinde",
+        "municipality": "Bern",
+        "canton": "BE",
+        "parliament": "Stadtrat Bern",
+        "sourceLink": "https://stadtrat.bern.ch/de/aktuelles/meldungen/1193061215.php",
+        "rawType": null,
+        "rawStatus": null,
+        "adapterHint": "municipalParliament"
+      }
+    },
+    {
+      "sourceId": "ch-municipal-parliament-bern-zurich-v2",
+      "sourceUrl": "https://stadtrat.bern.ch/",
+      "externalId": "municipal-bern-75aad09450f5",
+      "title": "Bern · Anfrage: Übersichtsseite: Antworten auf kleine Anfragen",
+      "summary": "Gemeinde Bern (Stadtrat Bern) · Anfrage · Übersichtsseite: Antworten auf kleine Anfragen",
+      "body": "Titel: Übersichtsseite: Antworten auf kleine Anfragen\nTyp: Anfrage\nQuelle: https://stadtrat.bern.ch/de/aktuelles/meldungen/8967043420.php\nScreening-Hinweis: potenzieller Tierschutz-Vorstoss auf Gemeindeebene.",
+      "publishedAt": "2026-02-14T14:16:56.329Z",
+      "fetchedAt": "2026-02-14T14:16:56.329Z",
+      "language": "de",
+      "score": 0.38,
+      "matchedKeywords": [
+        "gemeinde",
+        "bern",
+        "anfrage"
+      ],
+      "status": "new",
+      "reviewReason": "municipal-source-candidate",
+      "meta": {
+        "level": "Gemeinde",
+        "municipality": "Bern",
+        "canton": "BE",
+        "parliament": "Stadtrat Bern",
+        "sourceLink": "https://stadtrat.bern.ch/de/aktuelles/meldungen/8967043420.php",
+        "rawType": "Anfrage",
+        "rawStatus": null,
+        "adapterHint": "municipalParliament"
+      }
+    },
+    {
+      "sourceId": "ch-municipal-parliament-bern-zurich-v2",
+      "sourceUrl": "https://www.gemeinderat-zuerich.ch/",
+      "externalId": "municipal-zuerich-0a92bddadf36",
+      "title": "Zürich · Vorstösse: Erste Beratung von Jugendvorstössen im Gemeinderat",
+      "summary": "Gemeinde Zürich (Gemeinderat Zürich) · Vorstösse · Erste Beratung von Jugendvorstössen im Gemeinderat",
+      "body": "Titel: Erste Beratung von Jugendvorstössen im Gemeinderat\nTyp: Vorstösse\nQuelle: https://www.gemeinderat-zuerich.ch/medien-kontakt/medienmitteilungen/meldungen/2024-09-16_Jugendvorstoesse.php\nScreening-Hinweis: potenzieller Tierschutz-Vorstoss auf Gemeindeebene.",
+      "publishedAt": "2026-02-14T14:16:56.329Z",
+      "fetchedAt": "2026-02-14T14:16:56.329Z",
+      "language": "de",
+      "score": 0.38,
+      "matchedKeywords": [
+        "gemeinde",
+        "zürich"
+      ],
+      "status": "new",
+      "reviewReason": "municipal-source-candidate",
+      "meta": {
+        "level": "Gemeinde",
+        "municipality": "Zürich",
+        "canton": "ZH",
+        "parliament": "Gemeinderat Zürich",
+        "sourceLink": "https://www.gemeinderat-zuerich.ch/medien-kontakt/medienmitteilungen/meldungen/2024-09-16_Jugendvorstoesse.php",
+        "rawType": null,
+        "rawStatus": null,
+        "adapterHint": "municipalParliament"
+      }
+    },
+    {
       "sourceId": "ch-cantonal-portal-priority-v2",
       "sourceUrl": "https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte",
       "externalId": "cantonal-portal-ag",
-      "title": "Grosser Rat Aargau: Portal-Parsing",
-      "summary": "Geschäfte - Kanton Aargau – 6 relevante Linkziele erkannt",
+      "title": "AG · Grosser Rat Aargau: Parlamentarischer Vorstoss",
+      "summary": "Geschäfte - Kanton Aargau – 6 relevante Linkziele erkannt (Leitlink: Parlamentarischer Vorstoss)",
       "body": "1. Parlamentarischer Vorstoss – https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte#Njc2NTI1Mg\n2. Direkt zum Inhalt springen – https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte#main\n3. Sachvorlage – https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte#Njc2NTI1NA\n4. Kontakt – https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte#footer\n5. Karte – https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte#tabs__panel--124678--0\n6. Webseite – https://www.ag.ch/de/grosser-rat",
-      "publishedAt": "2026-02-14T09:47:00.191Z",
-      "fetchedAt": "2026-02-14T09:47:00.191Z",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0.7000000000000001,
       "matchedKeywords": [
@@ -787,7 +965,7 @@
       "meta": {
         "canton": "AG",
         "parliament": "Grosser Rat Aargau",
-        "readiness": "site-discovery-needed",
+        "readiness": "adapter-ready-likely",
         "extractedLinkCount": 6,
         "extractedLinks": [
           {
@@ -826,13 +1004,88 @@
     },
     {
       "sourceId": "ch-cantonal-portal-priority-v2",
+      "sourceUrl": "https://www.ai.ch/politik/grosser-rat",
+      "externalId": "cantonal-portal-ai",
+      "title": "AI · Grosser Rat Appenzell Innerrhoden: Grossratsgeschäfte",
+      "summary": "Grosser Rat — Appenzell Innerrhoden – 9 relevante Linkziele erkannt (Leitlink: Grossratsgeschäfte)",
+      "body": "1. Grossratsgeschäfte – https://www.ai.ch/politik/grosser-rat/geschaefte-grosser-rat\n2. Service Navigation – https://www.ai.ch/politik/grosser-rat#\n3. Büro Grosser Rat – https://www.ai.ch/politik/grosser-rat/buero-des-grossen-rates\n4. Mitglieder – https://www.ai.ch/politik/grosser-rat/mitglieder-29\n5. Kommissionen – https://www.ai.ch/politik/grosser-rat/komissionen\n6. Protokolle – https://www.ai.ch/politik/grosser-rat/protokolle\n7. Audio-Protokolle – https://www.ai.ch/politik/grosser-rat/audio-protokolle-1\n8. Medienmitteilungen Grosser Rat – https://www.ai.ch/politik/grosser-rat/medienmitteilungen-grosser-rat\n9. Sitzordnung 2025-2026 – https://www.ai.ch/politik/grosser-rat/sitzordnung-des-grossen-rates-2016-2017/sitzordnung-2025-2026.pdf/download",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
+      "language": "de",
+      "score": 0.85,
+      "matchedKeywords": [
+        "kanton",
+        "ai",
+        "geschaefte",
+        "geschäfte",
+        "grosser-rat"
+      ],
+      "status": "new",
+      "reviewReason": "cantonal-portal-links",
+      "meta": {
+        "canton": "AI",
+        "parliament": "Grosser Rat Appenzell Innerrhoden",
+        "readiness": "site-discovery-needed",
+        "extractedLinkCount": 9,
+        "extractedLinks": [
+          {
+            "href": "https://www.ai.ch/politik/grosser-rat/geschaefte-grosser-rat",
+            "text": "Grossratsgeschäfte",
+            "rank": 3
+          },
+          {
+            "href": "https://www.ai.ch/politik/grosser-rat#",
+            "text": "Service Navigation",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ai.ch/politik/grosser-rat/buero-des-grossen-rates",
+            "text": "Büro Grosser Rat",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ai.ch/politik/grosser-rat/mitglieder-29",
+            "text": "Mitglieder",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ai.ch/politik/grosser-rat/komissionen",
+            "text": "Kommissionen",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ai.ch/politik/grosser-rat/protokolle",
+            "text": "Protokolle",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ai.ch/politik/grosser-rat/audio-protokolle-1",
+            "text": "Audio-Protokolle",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ai.ch/politik/grosser-rat/medienmitteilungen-grosser-rat",
+            "text": "Medienmitteilungen Grosser Rat",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ai.ch/politik/grosser-rat/sitzordnung-des-grossen-rates-2016-2017/sitzordnung-2025-2026.pdf/download",
+            "text": "Sitzordnung 2025-2026",
+            "rank": 1
+          }
+        ],
+        "adapterHint": "cantonalPortal"
+      }
+    },
+    {
+      "sourceId": "ch-cantonal-portal-priority-v2",
       "sourceUrl": "https://ar.ch/kantonsrat",
       "externalId": "cantonal-portal-ar",
-      "title": "Kantonsrat Appenzell Ausserrhoden: Portal-Parsing",
-      "summary": "Kantonsrat - Appenzell Ausserrhoden – 10 relevante Linkziele erkannt",
+      "title": "AR · Kantonsrat Appenzell Ausserrhoden: Parlamentarische Vorstösse",
+      "summary": "Kantonsrat - Appenzell Ausserrhoden – 10 relevante Linkziele erkannt (Leitlink: Parlamentarische Vorstösse)",
       "body": "1. Parlamentarische Vorstösse – https://ar.ch/kantonsrat/parlamentarische-vorstoesse/\n2. Hauptnavigation – https://ar.ch/kantonsrat#MainNavigation\n3. Inhalt – https://ar.ch/kantonsrat#Content\n4. Metanavigation – https://ar.ch/kantonsrat#MetaNavigation\n5. Drucken – https://ar.ch/kantonsrat#\n6. Kantonsrat – https://ar.ch/kantonsrat/\n7. Mitglieder des Kantonsrates – https://ar.ch/kantonsrat/mitglieder-des-kantonsrates/\n8. Kantonsratspräsidium – https://ar.ch/kantonsrat/kantonsratspraesidium/\n9. Büro des Kantonsrates – https://ar.ch/kantonsrat/buero-des-kantonsrates/\n10. Sitzungen – https://ar.ch/kantonsrat/buero-des-kantonsrates/sitzungen/",
-      "publishedAt": "2026-02-14T09:47:00.191Z",
-      "fetchedAt": "2026-02-14T09:47:00.191Z",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0.85,
       "matchedKeywords": [
@@ -905,13 +1158,99 @@
     },
     {
       "sourceId": "ch-cantonal-portal-priority-v2",
-      "sourceUrl": "https://www.fr.ch/parlinfo/programmes-et-dates-des-sessions-du-grand-conseil",
+      "sourceUrl": "https://www.gr.be.ch/de/start.html",
+      "externalId": "cantonal-portal-be",
+      "title": "BE · Grosser Rat Bern: Kontakt",
+      "summary": "Grosser Rat Bern – 4 relevante Linkziele erkannt (Leitlink: Kontakt)",
+      "body": "1. Kontakt – https://www.gr.be.ch/de/start/grosser-rat/kontakt.html\n2. Mitglieder des Grossen Rates Legislatur 2022–2026 – https://www.gr.be.ch/de/start/grosser-rat/mitglieder.html\n3. Daten des Grossen Rates Zum Herunterladen – https://www.gr.be.ch/de/start/grosser-rat/open-data-angebot-gr.html\n4. Medienmitteilungen Aktuell – https://www.gr.be.ch/de/start/grosser-rat/aktuell.html",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
+      "language": "de",
+      "score": 0.6000000000000001,
+      "matchedKeywords": [
+        "kanton",
+        "be",
+        "grosser-rat"
+      ],
+      "status": "new",
+      "reviewReason": "cantonal-portal-links",
+      "meta": {
+        "canton": "BE",
+        "parliament": "Grosser Rat Bern",
+        "readiness": "site-discovery-needed",
+        "extractedLinkCount": 4,
+        "extractedLinks": [
+          {
+            "href": "https://www.gr.be.ch/de/start/grosser-rat/kontakt.html",
+            "text": "Kontakt",
+            "rank": 1
+          },
+          {
+            "href": "https://www.gr.be.ch/de/start/grosser-rat/mitglieder.html",
+            "text": "Mitglieder des Grossen Rates Legislatur 2022–2026",
+            "rank": 1
+          },
+          {
+            "href": "https://www.gr.be.ch/de/start/grosser-rat/open-data-angebot-gr.html",
+            "text": "Daten des Grossen Rates Zum Herunterladen",
+            "rank": 1
+          },
+          {
+            "href": "https://www.gr.be.ch/de/start/grosser-rat/aktuell.html",
+            "text": "Medienmitteilungen Aktuell",
+            "rank": 1
+          }
+        ],
+        "adapterHint": "cantonalPortal"
+      }
+    },
+    {
+      "sourceId": "ch-cantonal-portal-priority-v2",
+      "sourceUrl": "https://grosserrat.bs.ch/",
+      "externalId": "cantonal-portal-bs",
+      "title": "BS · Grosser Rat Basel-Stadt: Parlamentarische Vorstösse",
+      "summary": "Grosser Rat Basel-Stadt - Willkommen – 2 relevante Linkziele erkannt (Leitlink: Parlamentarische Vorstösse)",
+      "body": "1. Parlamentarische Vorstösse – https://grosserrat.bs.ch/parlamentswissen/parlamentarische-vorstoesse\n2. Neue Vorstösse – https://grosserrat.bs.ch/ratsbetrieb/neue-vorstoesse",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
+      "language": "de",
+      "score": 0.5,
+      "matchedKeywords": [
+        "kanton",
+        "bs",
+        "vorstösse"
+      ],
+      "status": "new",
+      "reviewReason": "cantonal-portal-links",
+      "meta": {
+        "canton": "BS",
+        "parliament": "Grosser Rat Basel-Stadt",
+        "readiness": "site-discovery-needed",
+        "extractedLinkCount": 2,
+        "extractedLinks": [
+          {
+            "href": "https://grosserrat.bs.ch/parlamentswissen/parlamentarische-vorstoesse",
+            "text": "Parlamentarische Vorstösse",
+            "rank": 1
+          },
+          {
+            "href": "https://grosserrat.bs.ch/ratsbetrieb/neue-vorstoesse",
+            "text": "Neue Vorstösse",
+            "rank": 1
+          }
+        ],
+        "adapterHint": "cantonalPortal"
+      }
+    },
+    {
+      "sourceId": "ch-cantonal-portal-priority-v2",
+      "sourceUrl": "https://www.fr.ch/parlinfo",
       "externalId": "cantonal-portal-fr",
-      "title": "Grand Conseil Fribourg: Portal-Parsing",
-      "summary": "Programmes et dates des sessions du Grand Conseil | Parlinfo – 7 relevante Linkziele erkannt",
-      "body": "1. Navigation – https://www.fr.ch/parlinfo/programmes-et-dates-des-sessions-du-grand-conseil#nav\n2. Contenu – https://www.fr.ch/parlinfo/programmes-et-dates-des-sessions-du-grand-conseil#main\n3. Présidence – https://www.fr.ch/parlinfo/presidence-du-grand-conseil\n4. Membres du Grand Conseil – https://www.fr.ch/parlinfo/membres-du-grand-conseil\n5. Anciens membres – https://www.fr.ch/parlinfo/anciens-membres-du-grand-conseil\n6. Bureau du Grand Conseil – https://www.fr.ch/parlinfo/bureau-du-grand-conseil\n7. Français (Langue active) – https://www.fr.ch/parlinfo/programmes-et-dates-des-sessions-du-grand-conseil",
-      "publishedAt": "2026-02-14T09:47:00.191Z",
-      "fetchedAt": "2026-02-14T09:47:00.191Z",
+      "title": "FR · Grand Conseil Fribourg: Présidence",
+      "summary": "Parlinfo | Grand Conseil du canton de Fribourg – 7 relevante Linkziele erkannt (Leitlink: Présidence)",
+      "body": "1. Présidence – https://www.fr.ch/parlinfo/presidence-du-grand-conseil\n2. Membres du Grand Conseil – https://www.fr.ch/parlinfo/membres-du-grand-conseil\n3. Anciens membres – https://www.fr.ch/parlinfo/anciens-membres-du-grand-conseil\n4. Bureau du Grand Conseil – https://www.fr.ch/parlinfo/bureau-du-grand-conseil\n5. Programmes et dates – https://www.fr.ch/parlinfo/programmes-et-dates-des-sessions-du-grand-conseil\n6. Plus d&#039;information – https://www.fr.ch/parlinfo/faq-du-grand-conseil\n7. Le Grand Conseil élit une Présidente au Tribunal d’arrondissement de la Veveyse 10 Février 2026 live – https://www.fr.ch/parlinfo/actualites/le-grand-conseil-elit-une-presidente-au-tribunal-darrondissement-de-la-veveyse",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "fr",
       "score": 0.75,
       "matchedKeywords": [
@@ -924,19 +1263,9 @@
       "meta": {
         "canton": "FR",
         "parliament": "Grand Conseil Fribourg",
-        "readiness": "unreachable-needs-manual",
+        "readiness": "site-discovery-needed",
         "extractedLinkCount": 7,
         "extractedLinks": [
-          {
-            "href": "https://www.fr.ch/parlinfo/programmes-et-dates-des-sessions-du-grand-conseil#nav",
-            "text": "Navigation",
-            "rank": 1
-          },
-          {
-            "href": "https://www.fr.ch/parlinfo/programmes-et-dates-des-sessions-du-grand-conseil#main",
-            "text": "Contenu",
-            "rank": 1
-          },
           {
             "href": "https://www.fr.ch/parlinfo/presidence-du-grand-conseil",
             "text": "Présidence",
@@ -959,7 +1288,17 @@
           },
           {
             "href": "https://www.fr.ch/parlinfo/programmes-et-dates-des-sessions-du-grand-conseil",
-            "text": "Français (Langue active)",
+            "text": "Programmes et dates",
+            "rank": 1
+          },
+          {
+            "href": "https://www.fr.ch/parlinfo/faq-du-grand-conseil",
+            "text": "Plus d&#039;information",
+            "rank": 1
+          },
+          {
+            "href": "https://www.fr.ch/parlinfo/actualites/le-grand-conseil-elit-une-presidente-au-tribunal-darrondissement-de-la-veveyse",
+            "text": "Le Grand Conseil élit une Présidente au Tribunal d’arrondissement de la Veveyse 10 Février 2026 live",
             "rank": 1
           }
         ],
@@ -970,11 +1309,11 @@
       "sourceId": "ch-cantonal-portal-priority-v2",
       "sourceUrl": "https://ge.ch/grandconseil/recherche-objets",
       "externalId": "cantonal-portal-ge",
-      "title": "Grand Conseil Genève: Portal-Parsing",
-      "summary": "Grand Conseil Genève – 10 relevante Linkziele erkannt",
+      "title": "GE · Grand Conseil Genève: Recherche objets parlementaires",
+      "summary": "Grand Conseil Genève – 10 relevante Linkziele erkannt (Leitlink: Recherche objets parlementaires)",
       "body": "1. Recherche objets parlementaires – https://ge.ch/grandconseil/recherche-objets\n2. Recherche avancée – https://ge.ch/grandconseil/memorial/recherche/\n3. Dossiers thématiques – https://ge.ch/grandconseil/memorial/dossiers/\n4. Recherche Grand Conseil – https://ge.ch/grandconseil/search\n5. Accueil – https://ge.ch/grandconseil\n6. Membres – https://ge.ch/grandconseil/secretariat/collaborateurs/#direction\n7. Conditions d'utilisation – https://ge.ch/grandconseil/divers/conditions/\n8. Parlement cantonal – https://ge.ch/grandconseil/gc/parlement/\n9. Présidence et Bureau – https://ge.ch/grandconseil/gc/presidence/\n10. Membres – https://ge.ch/grandconseil/gc/deputes/partis/",
-      "publishedAt": "2026-02-14T09:47:00.191Z",
-      "fetchedAt": "2026-02-14T09:47:00.191Z",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "fr",
       "score": 0.85,
       "matchedKeywords": [
@@ -990,7 +1329,7 @@
       "meta": {
         "canton": "GE",
         "parliament": "Grand Conseil Genève",
-        "readiness": "site-discovery-needed",
+        "readiness": "adapter-ready-likely",
         "extractedLinkCount": 10,
         "extractedLinks": [
           {
@@ -1051,11 +1390,11 @@
       "sourceId": "ch-cantonal-portal-priority-v2",
       "sourceUrl": "https://www.gl.ch/parlament/landrat/geschaefte/aktuelle-geschaefte.html/241",
       "externalId": "cantonal-portal-gl",
-      "title": "Landrat Glarus: Portal-Parsing",
-      "summary": "Aktuelle Geschäfte – Kanton Glarus – 10 relevante Linkziele erkannt",
+      "title": "GL · Landrat Glarus: Aktuelle Geschäfte",
+      "summary": "Aktuelle Geschäfte – Kanton Glarus – 10 relevante Linkziele erkannt (Leitlink: Aktuelle Geschäfte)",
       "body": "1. Aktuelle Geschäfte – https://www.gl.ch/parlament/landrat/geschaefte/aktuelle-geschaefte.html/241\n2. Vorstösse – https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248\n3. Geschäfte – https://www.gl.ch/parlament/landrat/geschaefte.html/249\n4. Navigation – https://www.gl.ch/parlament/landrat/geschaefte/aktuelle-geschaefte.html/241#mainnav\n5. Inhalt – https://www.gl.ch/parlament/landrat/geschaefte/aktuelle-geschaefte.html/241#main\n6. Suche – https://www.gl.ch/parlament/landrat/geschaefte/aktuelle-geschaefte.html/241#search-input\n7. Landrat – https://www.gl.ch/parlament/landrat.html/250\n8. Archiv – https://www.gl.ch/parlament/landrat/geschaefte/archiv.html/242\n9. Link kopieren – https://www.gl.ch/parlament/landrat/geschaefte/aktuelle-geschaefte.html/govisShortLink_raw\n10. Facebook – https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.gl.ch%2Fparlament%2Flandrat%2Fgeschaefte%2Faktuelle-geschaefte.html%2F241&amp;t=Aktuelle+Gesch%C3%A4fte",
-      "publishedAt": "2026-02-14T09:47:00.191Z",
-      "fetchedAt": "2026-02-14T09:47:00.191Z",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0.85,
       "matchedKeywords": [
@@ -1071,7 +1410,7 @@
       "meta": {
         "canton": "GL",
         "parliament": "Landrat Glarus",
-        "readiness": "site-discovery-needed",
+        "readiness": "adapter-ready-likely",
         "extractedLinkCount": 10,
         "extractedLinks": [
           {
@@ -1130,13 +1469,39 @@
     },
     {
       "sourceId": "ch-cantonal-portal-priority-v2",
+      "sourceUrl": "https://www.gr.ch/DE/institutionen/parlament/Seiten/start.aspx",
+      "externalId": "cantonal-portal-gr",
+      "title": "GR · Grosser Rat Graubünden: Parlamentsgeschäfte",
+      "summary": "Willkommen beim Grossen Rat des Kantons Graubünden – 0 relevante Linkziele erkannt (Leitlink: Parlamentsgeschäfte)",
+      "body": "Portal erreichbar (https://www.gr.ch/DE/institutionen/parlament/Seiten/start.aspx), aber noch ohne extrahierte Vorstoss-Links.",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
+      "language": "it",
+      "score": 0.4,
+      "matchedKeywords": [
+        "kanton",
+        "gr"
+      ],
+      "status": "new",
+      "reviewReason": "cantonal-portal-reachable",
+      "meta": {
+        "canton": "GR",
+        "parliament": "Grosser Rat Graubünden",
+        "readiness": "adapter-ready-likely",
+        "extractedLinkCount": 0,
+        "extractedLinks": [],
+        "adapterHint": "cantonalPortal"
+      }
+    },
+    {
+      "sourceId": "ch-cantonal-portal-priority-v2",
       "sourceUrl": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions/Motions.html",
       "externalId": "cantonal-portal-ju",
-      "title": "Parlement jurassien: Portal-Parsing",
-      "summary": "Motions - République et Canton du Jura – 10 relevante Linkziele erkannt",
+      "title": "JU · Parlement jurassien: Sauter la navigation",
+      "summary": "Motions - République et Canton du Jura – 10 relevante Linkziele erkannt (Leitlink: Sauter la navigation)",
       "body": "1. Sauter la navigation – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions/Motions.html#accesrapide\n2. Accepter – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions/Motions.html#\n3. Ohne Titel – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions/Motions.html#nav\n4. Motions – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions/Motions.html\n5. Postulats – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Postulats/Postulats.html\n6. Interpellations – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interpellations/Interpellations.html\n7. Questions écrites – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Questions-ecrites/Questions-ecrites.html\n8. Réponses aux questions écrites – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Reponses-aux-questions-ecrites.html\n9. Motions internes – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions-internes/Motions-internes.html\n10. Motions – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions.html",
-      "publishedAt": "2026-02-14T09:47:00.191Z",
-      "fetchedAt": "2026-02-14T09:47:00.191Z",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "fr",
       "score": 0.85,
       "matchedKeywords": [
@@ -1154,7 +1519,7 @@
       "meta": {
         "canton": "JU",
         "parliament": "Parlement jurassien",
-        "readiness": "site-discovery-needed",
+        "readiness": "adapter-ready-likely",
         "extractedLinkCount": 10,
         "extractedLinks": [
           {
@@ -1213,13 +1578,517 @@
     },
     {
       "sourceId": "ch-cantonal-portal-priority-v2",
+      "sourceUrl": "https://www.lu.ch/kr",
+      "externalId": "cantonal-portal-lu",
+      "title": "LU · Kantonsrat Luzern: Weitere Infos",
+      "summary": "Kantonsrat | lu.ch – 2 relevante Linkziele erkannt (Leitlink: Weitere Infos)",
+      "body": "1. Weitere Infos – https://www.lu.ch/kr/parlamentsgeschaefte\n2. Kantonsrat – https://www.lu.ch/kr",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
+      "language": "de",
+      "score": 0.5,
+      "matchedKeywords": [
+        "kanton",
+        "lu",
+        "geschaefte",
+        "kantonsrat"
+      ],
+      "status": "new",
+      "reviewReason": "cantonal-portal-links",
+      "meta": {
+        "canton": "LU",
+        "parliament": "Kantonsrat Luzern",
+        "readiness": "site-discovery-needed",
+        "extractedLinkCount": 2,
+        "extractedLinks": [
+          {
+            "href": "https://www.lu.ch/kr/parlamentsgeschaefte",
+            "text": "Weitere Infos",
+            "rank": 1
+          },
+          {
+            "href": "https://www.lu.ch/kr",
+            "text": "Kantonsrat",
+            "rank": 1
+          }
+        ],
+        "adapterHint": "cantonalPortal"
+      }
+    },
+    {
+      "sourceId": "ch-cantonal-portal-priority-v2",
+      "sourceUrl": "https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx",
+      "externalId": "cantonal-portal-ne",
+      "title": "NE · Grand Conseil Neuchâtel: Motions",
+      "summary": "Objets - R&eacute;publique et canton de Neuch&acirc;tel – 10 relevante Linkziele erkannt (Leitlink: Motions)",
+      "body": "1. Motions – https://www.ne.ch/autorites/GC/objets/motions/Pages/accueil.aspx\n2. Postulats – https://www.ne.ch/autorites/GC/objets/postulats/Pages/accueil.aspx\n3. Objets – https://www.ne.ch/autorites/GC/objets\n4. '); //]]> Médias – https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx#\n5. Ohne Titel – https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx#ctl00_PlaceHolderLeftPanel_breadCrumb2_ContentMap_SkipLink\n6. Objets – https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx\n7. Amendements – https://www.ne.ch/autorites/GC/objets/ad/Pages/accueil.aspx\n8. Interpellations – https://www.ne.ch/autorites/GC/objets/interpellations/Pages/accueil.aspx\n9. Projets de lois et de décrets – https://www.ne.ch/autorites/GC/objets/proj-lois-decrets/Pages/accueil.aspx\n10. Questions – https://www.ne.ch/autorites/GC/objets/questions/Pages/accueil.aspx",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
+      "language": "fr",
+      "score": 0.85,
+      "matchedKeywords": [
+        "kanton",
+        "ne",
+        "objets",
+        "motions",
+        "postulats"
+      ],
+      "status": "new",
+      "reviewReason": "cantonal-portal-links",
+      "meta": {
+        "canton": "NE",
+        "parliament": "Grand Conseil Neuchâtel",
+        "readiness": "adapter-ready-likely",
+        "extractedLinkCount": 10,
+        "extractedLinks": [
+          {
+            "href": "https://www.ne.ch/autorites/GC/objets/motions/Pages/accueil.aspx",
+            "text": "Motions",
+            "rank": 2
+          },
+          {
+            "href": "https://www.ne.ch/autorites/GC/objets/postulats/Pages/accueil.aspx",
+            "text": "Postulats",
+            "rank": 2
+          },
+          {
+            "href": "https://www.ne.ch/autorites/GC/objets",
+            "text": "Objets",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx#",
+            "text": "'); //]]> Médias",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx#ctl00_PlaceHolderLeftPanel_breadCrumb2_ContentMap_SkipLink",
+            "text": "",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx",
+            "text": "Objets",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ne.ch/autorites/GC/objets/ad/Pages/accueil.aspx",
+            "text": "Amendements",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ne.ch/autorites/GC/objets/interpellations/Pages/accueil.aspx",
+            "text": "Interpellations",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ne.ch/autorites/GC/objets/proj-lois-decrets/Pages/accueil.aspx",
+            "text": "Projets de lois et de décrets",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ne.ch/autorites/GC/objets/questions/Pages/accueil.aspx",
+            "text": "Questions",
+            "rank": 1
+          }
+        ],
+        "adapterHint": "cantonalPortal"
+      }
+    },
+    {
+      "sourceId": "ch-cantonal-portal-priority-v2",
+      "sourceUrl": "https://www.nw.ch/landratmain",
+      "externalId": "cantonal-portal-nw",
+      "title": "NW · Landrat Nidwalden: Direkt zur Hauptnavigation",
+      "summary": "Landrat | Kanton Nidwalden Online – 10 relevante Linkziele erkannt (Leitlink: Direkt zur Hauptnavigation)",
+      "body": "1. Direkt zur Hauptnavigation – https://www.nw.ch/landratmain#icms-navbar\n2. scroll up – https://www.nw.ch/landratmain#maincontent\n3. Menu – https://www.nw.ch/landratmain#\n4. Online-Schalter – https://www.nw.ch/landratmain#modal-quicklinks\n5. Suche – https://www.nw.ch/landratmain#modal-search\n6. Barrierefrei – https://www.nw.ch/landratmain?_display-mode=a11y\n7. Kontakt – https://www.nw.ch/landratmain#modal-contact\n8. Landrat (ausgewählt) – https://www.nw.ch/landratmain\n9. Landratsbüro – https://www.nw.ch/landratsbuero\n10. Kommissionen – https://www.nw.ch/kommissionenlandrat",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
+      "language": "de",
+      "score": 0.85,
+      "matchedKeywords": [
+        "kanton",
+        "nw",
+        "landrat"
+      ],
+      "status": "new",
+      "reviewReason": "cantonal-portal-links",
+      "meta": {
+        "canton": "NW",
+        "parliament": "Landrat Nidwalden",
+        "readiness": "site-discovery-needed",
+        "extractedLinkCount": 10,
+        "extractedLinks": [
+          {
+            "href": "https://www.nw.ch/landratmain#icms-navbar",
+            "text": "Direkt zur Hauptnavigation",
+            "rank": 1
+          },
+          {
+            "href": "https://www.nw.ch/landratmain#maincontent",
+            "text": "scroll up",
+            "rank": 1
+          },
+          {
+            "href": "https://www.nw.ch/landratmain#",
+            "text": "Menu",
+            "rank": 1
+          },
+          {
+            "href": "https://www.nw.ch/landratmain#modal-quicklinks",
+            "text": "Online-Schalter",
+            "rank": 1
+          },
+          {
+            "href": "https://www.nw.ch/landratmain#modal-search",
+            "text": "Suche",
+            "rank": 1
+          },
+          {
+            "href": "https://www.nw.ch/landratmain?_display-mode=a11y",
+            "text": "Barrierefrei",
+            "rank": 1
+          },
+          {
+            "href": "https://www.nw.ch/landratmain#modal-contact",
+            "text": "Kontakt",
+            "rank": 1
+          },
+          {
+            "href": "https://www.nw.ch/landratmain",
+            "text": "Landrat (ausgewählt)",
+            "rank": 1
+          },
+          {
+            "href": "https://www.nw.ch/landratsbuero",
+            "text": "Landratsbüro",
+            "rank": 1
+          },
+          {
+            "href": "https://www.nw.ch/kommissionenlandrat",
+            "text": "Kommissionen",
+            "rank": 1
+          }
+        ],
+        "adapterHint": "cantonalPortal"
+      }
+    },
+    {
+      "sourceId": "ch-cantonal-portal-priority-v2",
+      "sourceUrl": "https://www.ow.ch/kantonsratview",
+      "externalId": "cantonal-portal-ow",
+      "title": "OW · Kantonsrat Obwalden: Direkt zur Hauptnavigation",
+      "summary": "Obwalden - Der Obwaldner Kantonsrat – 10 relevante Linkziele erkannt (Leitlink: Direkt zur Hauptnavigation)",
+      "body": "1. Direkt zur Hauptnavigation – https://www.ow.ch/kantonsratview#icms-navbar\n2. Direkt zum Inhalt – https://www.ow.ch/kantonsratview#maincontent\n3. NACH OBEN – https://www.ow.ch/kantonsratview#\n4. Kantonsrat – https://www.ow.ch/kantonsratmain\n5. Übersicht (ausgewählt) – https://www.ow.ch/kantonsratview\n6. Geschäfte – https://www.ow.ch/politbusiness\n7. Statistisches – https://www.ow.ch/kantonsratstatistik\n8. Mitteilungen Kantonsrat – https://www.ow.ch/kantonsratsmitteilungen\n9. Vernehmlassungen – https://www.ow.ch/exekutivgeschaefte\n10. {title} – https://www.ow.ch/kantonsratview#link",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
+      "language": "de",
+      "score": 0.85,
+      "matchedKeywords": [
+        "kanton",
+        "ow",
+        "kantonsrat",
+        "geschäfte",
+        "geschaefte"
+      ],
+      "status": "new",
+      "reviewReason": "cantonal-portal-links",
+      "meta": {
+        "canton": "OW",
+        "parliament": "Kantonsrat Obwalden",
+        "readiness": "site-discovery-needed",
+        "extractedLinkCount": 10,
+        "extractedLinks": [
+          {
+            "href": "https://www.ow.ch/kantonsratview#icms-navbar",
+            "text": "Direkt zur Hauptnavigation",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ow.ch/kantonsratview#maincontent",
+            "text": "Direkt zum Inhalt",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ow.ch/kantonsratview#",
+            "text": "NACH OBEN",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ow.ch/kantonsratmain",
+            "text": "Kantonsrat",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ow.ch/kantonsratview",
+            "text": "Übersicht (ausgewählt)",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ow.ch/politbusiness",
+            "text": "Geschäfte",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ow.ch/kantonsratstatistik",
+            "text": "Statistisches",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ow.ch/kantonsratsmitteilungen",
+            "text": "Mitteilungen Kantonsrat",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ow.ch/exekutivgeschaefte",
+            "text": "Vernehmlassungen",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ow.ch/kantonsratview#link",
+            "text": "{title}",
+            "rank": 1
+          }
+        ],
+        "adapterHint": "cantonalPortal"
+      }
+    },
+    {
+      "sourceId": "ch-cantonal-portal-priority-v2",
+      "sourceUrl": "https://www.ratsinfo.sg.ch/",
+      "externalId": "cantonal-portal-sg",
+      "title": "SG · Kantonsrat St. Gallen: Parlamentsgeschäfte",
+      "summary": "Kantonsrat St. Gallen – 0 relevante Linkziele erkannt (Leitlink: Parlamentsgeschäfte)",
+      "body": "Portal erreichbar (https://www.ratsinfo.sg.ch/), aber noch ohne extrahierte Vorstoss-Links.",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
+      "language": "de",
+      "score": 0.4,
+      "matchedKeywords": [
+        "kanton",
+        "sg"
+      ],
+      "status": "new",
+      "reviewReason": "cantonal-portal-reachable",
+      "meta": {
+        "canton": "SG",
+        "parliament": "Kantonsrat St. Gallen",
+        "readiness": "adapter-ready-likely",
+        "extractedLinkCount": 0,
+        "extractedLinks": [],
+        "adapterHint": "cantonalPortal"
+      }
+    },
+    {
+      "sourceId": "ch-cantonal-portal-priority-v2",
+      "sourceUrl": "https://www.sitzungsdienst.net/",
+      "externalId": "cantonal-portal-sh",
+      "title": "SH · Kantonsrat Schaffhausen: Parlamentsgeschäfte",
+      "summary": "STERNBERG Software: Mit uns besser Beraten! – 0 relevante Linkziele erkannt (Leitlink: Parlamentsgeschäfte)",
+      "body": "Portal erreichbar (https://www.sitzungsdienst.net/), aber noch ohne extrahierte Vorstoss-Links.",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
+      "language": "de",
+      "score": 0.4,
+      "matchedKeywords": [
+        "kanton",
+        "sh"
+      ],
+      "status": "new",
+      "reviewReason": "cantonal-portal-reachable",
+      "meta": {
+        "canton": "SH",
+        "parliament": "Kantonsrat Schaffhausen",
+        "readiness": "adapter-ready-likely",
+        "extractedLinkCount": 0,
+        "extractedLinks": [],
+        "adapterHint": "cantonalPortal"
+      }
+    },
+    {
+      "sourceId": "ch-cantonal-portal-priority-v2",
+      "sourceUrl": "https://so.ch/parlament",
+      "externalId": "cantonal-portal-so",
+      "title": "SO · Kantonsrat Solothurn: Geschäfte",
+      "summary": "Parlament - Kanton Solothurn – 5 relevante Linkziele erkannt (Leitlink: Geschäfte)",
+      "body": "1. Geschäfte – https://so.ch/parlament/geschaefte/\n2. Ratsinformationssystem Der Kantonsrat Solothurn stellt am 01. August 2025 auf einen digitalen Ratsbetrieb um. Die Unterlagen zum Kantonsrat sind neu im Ratsinformationssystem zu fi – https://ratsinfo.so.ch/gremium/3/geschaefte?itemsPerPage=50&amp;ordering=-begin_date&amp;page=1\n3. Willkommensgruss Kantonsratspräsidentin Herzlich willkommen auf der Webseite des Parlaments des Kantons Solothurn! Treten Sie ein in unser virtuelles Rathaus: Hier erfahren Sie all – https://so.ch/parlament/willkommen-beim-kantonsrat-solothurn/\n4. Aktuelle Session Alle relevanten Informationen zur aktuellen Session, der entsprechenden Tagesordnung und den zugehörigen Geschäften sind hier zu finden. Die Abstimmungsresultate w – https://so.ch/parlament/sessionen/januar-session-2026/\n5. Ratsmitglieder Benötigen Sie die Kontaktangaben eines Mitglieds des Kantonsrats oder sind Sie einfach neugierig, wer im Kantonsrat Einsitz nimmt? Hier finden Sie alle relevanten In – https://so.ch/parlament/ratsmitglieder/",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
+      "language": "de",
+      "score": 0.65,
+      "matchedKeywords": [
+        "kanton",
+        "so",
+        "geschaefte",
+        "geschäfte",
+        "kantonsrat"
+      ],
+      "status": "new",
+      "reviewReason": "cantonal-portal-links",
+      "meta": {
+        "canton": "SO",
+        "parliament": "Kantonsrat Solothurn",
+        "readiness": "adapter-ready-likely",
+        "extractedLinkCount": 5,
+        "extractedLinks": [
+          {
+            "href": "https://so.ch/parlament/geschaefte/",
+            "text": "Geschäfte",
+            "rank": 2
+          },
+          {
+            "href": "https://ratsinfo.so.ch/gremium/3/geschaefte?itemsPerPage=50&amp;ordering=-begin_date&amp;page=1",
+            "text": "Ratsinformationssystem Der Kantonsrat Solothurn stellt am 01. August 2025 auf einen digitalen Ratsbetrieb um. Die Unterlagen zum Kantonsrat sind neu im Ratsinformationssystem zu fi",
+            "rank": 2
+          },
+          {
+            "href": "https://so.ch/parlament/willkommen-beim-kantonsrat-solothurn/",
+            "text": "Willkommensgruss Kantonsratspräsidentin Herzlich willkommen auf der Webseite des Parlaments des Kantons Solothurn! Treten Sie ein in unser virtuelles Rathaus: Hier erfahren Sie all",
+            "rank": 1
+          },
+          {
+            "href": "https://so.ch/parlament/sessionen/januar-session-2026/",
+            "text": "Aktuelle Session Alle relevanten Informationen zur aktuellen Session, der entsprechenden Tagesordnung und den zugehörigen Geschäften sind hier zu finden. Die Abstimmungsresultate w",
+            "rank": 1
+          },
+          {
+            "href": "https://so.ch/parlament/ratsmitglieder/",
+            "text": "Ratsmitglieder Benötigen Sie die Kontaktangaben eines Mitglieds des Kantonsrats oder sind Sie einfach neugierig, wer im Kantonsrat Einsitz nimmt? Hier finden Sie alle relevanten In",
+            "rank": 1
+          }
+        ],
+        "adapterHint": "cantonalPortal"
+      }
+    },
+    {
+      "sourceId": "ch-cantonal-portal-priority-v2",
+      "sourceUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799",
+      "externalId": "cantonal-portal-sz",
+      "title": "SZ · Kantonsrat Schwyz: Geschäfte",
+      "summary": "Kantonsrat – Kanton Schwyz – 10 relevante Linkziele erkannt (Leitlink: Geschäfte)",
+      "body": "1. Geschäfte – https://www.sz.ch/behoerden/kantonsrat/geschaefte.html/8756-8758-8799-9210\n2. Geplante Geschäfte an den Kantonsrat 2026 – https://www.sz.ch/public/upload/assets/91193/Geplante_Geschaefte_an_den_Kantonsrat_2026.pdf?fp=2\n3. Ratsleitung – https://www.sz.ch/behoerden/kantonsrat/ratsleitung.html/8756-8758-8799-9147\n4. Navigation – https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799#mainnav\n5. Inhalt – https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799#main\n6. Suche – https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799#search-input\n7. Ebau – https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799#\n8. Kantonsrat – https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799\n9. &nbsp;Kantonsrat – https://www.sz.ch/behoerden.html/8756-8758\n10. Kommissionen – https://www.sz.ch/behoerden/kantonsrat/kommissionen.html/8756-8758-8799-9152",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
+      "language": "de",
+      "score": 0.85,
+      "matchedKeywords": [
+        "kanton",
+        "sz",
+        "geschaefte",
+        "geschäfte",
+        "kantonsrat"
+      ],
+      "status": "new",
+      "reviewReason": "cantonal-portal-links",
+      "meta": {
+        "canton": "SZ",
+        "parliament": "Kantonsrat Schwyz",
+        "readiness": "site-discovery-needed",
+        "extractedLinkCount": 10,
+        "extractedLinks": [
+          {
+            "href": "https://www.sz.ch/behoerden/kantonsrat/geschaefte.html/8756-8758-8799-9210",
+            "text": "Geschäfte",
+            "rank": 3
+          },
+          {
+            "href": "https://www.sz.ch/public/upload/assets/91193/Geplante_Geschaefte_an_den_Kantonsrat_2026.pdf?fp=2",
+            "text": "Geplante Geschäfte an den Kantonsrat 2026",
+            "rank": 3
+          },
+          {
+            "href": "https://www.sz.ch/behoerden/kantonsrat/ratsleitung.html/8756-8758-8799-9147",
+            "text": "Ratsleitung",
+            "rank": 1
+          },
+          {
+            "href": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799#mainnav",
+            "text": "Navigation",
+            "rank": 1
+          },
+          {
+            "href": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799#main",
+            "text": "Inhalt",
+            "rank": 1
+          },
+          {
+            "href": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799#search-input",
+            "text": "Suche",
+            "rank": 1
+          },
+          {
+            "href": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799#",
+            "text": "Ebau",
+            "rank": 1
+          },
+          {
+            "href": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799",
+            "text": "Kantonsrat",
+            "rank": 1
+          },
+          {
+            "href": "https://www.sz.ch/behoerden.html/8756-8758",
+            "text": "&nbsp;Kantonsrat",
+            "rank": 1
+          },
+          {
+            "href": "https://www.sz.ch/behoerden/kantonsrat/kommissionen.html/8756-8758-8799-9152",
+            "text": "Kommissionen",
+            "rank": 1
+          }
+        ],
+        "adapterHint": "cantonalPortal"
+      }
+    },
+    {
+      "sourceId": "ch-cantonal-portal-priority-v2",
+      "sourceUrl": "https://parlament.tg.ch/",
+      "externalId": "cantonal-portal-tg",
+      "title": "TG · Grosser Rat Thurgau: Geschäftsdatenbank (GRGEKO) Hier finden Sie alle Informationen und Unterlagen zu den Geschäften des Grossen Rates. mehr zu diesem Thema",
+      "summary": "Grosser Rat – 2 relevante Linkziele erkannt (Leitlink: Geschäftsdatenbank (GRGEKO) Hier finden Sie alle Informationen und Unterlagen zu den Geschäften des Grossen Rates. mehr zu diesem Thema)",
+      "body": "1. Geschäftsdatenbank (GRGEKO) Hier finden Sie alle Informationen und Unterlagen zu den Geschäften des Grossen Rates. mehr zu diesem Thema – https://parlament.tg.ch/geschaefte.html/4466\n2. Ratsbetrieb Interessiert? Das&nbsp;Handbuch Grosser Rat&nbsp;gibt Auskunft. mehr zu diesem Thema – https://parlament.tg.ch/geschaefte/handbuch-grosser-rat.html/12314",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
+      "language": "de",
+      "score": 0.5,
+      "matchedKeywords": [
+        "kanton",
+        "tg",
+        "geschaefte",
+        "geschäfte",
+        "grosser-rat"
+      ],
+      "status": "new",
+      "reviewReason": "cantonal-portal-links",
+      "meta": {
+        "canton": "TG",
+        "parliament": "Grosser Rat Thurgau",
+        "readiness": "site-discovery-needed",
+        "extractedLinkCount": 2,
+        "extractedLinks": [
+          {
+            "href": "https://parlament.tg.ch/geschaefte.html/4466",
+            "text": "Geschäftsdatenbank (GRGEKO) Hier finden Sie alle Informationen und Unterlagen zu den Geschäften des Grossen Rates. mehr zu diesem Thema",
+            "rank": 2
+          },
+          {
+            "href": "https://parlament.tg.ch/geschaefte/handbuch-grosser-rat.html/12314",
+            "text": "Ratsbetrieb Interessiert? Das&nbsp;Handbuch Grosser Rat&nbsp;gibt Auskunft. mehr zu diesem Thema",
+            "rank": 2
+          }
+        ],
+        "adapterHint": "cantonalPortal"
+      }
+    },
+    {
+      "sourceId": "ch-cantonal-portal-priority-v2",
       "sourceUrl": "https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati",
       "externalId": "cantonal-portal-ti",
-      "title": "Gran Consiglio Ticino: Portal-Parsing",
-      "summary": "Risultati - GC (POTERI) - Repubblica e Cantone Ticino – 4 relevante Linkziele erkannt",
+      "title": "TI · Gran Consiglio Ticino: Parlamento (Gran Consiglio)",
+      "summary": "Risultati - GC (POTERI) - Repubblica e Cantone Ticino – 4 relevante Linkziele erkannt (Leitlink: Parlamento (Gran Consiglio))",
       "body": "1. Parlamento (Gran Consiglio) – https://www4.ti.ch/poteri/gc\n2. Ricerca messaggi e atti – https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati\n3. Definizioni atti parlamentari e Messaggio governativo – https://www4.ti.ch/fileadmin/POTERI/GC/definizioniGC.pdf\n4. Ricerca messaggi governativi e atti parlamentari – https://www4.ti.ch/index.php?id=83058",
-      "publishedAt": "2026-02-14T09:47:00.191Z",
-      "fetchedAt": "2026-02-14T09:47:00.191Z",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "it",
       "score": 0.6000000000000001,
       "matchedKeywords": [
@@ -1234,7 +2103,7 @@
       "meta": {
         "canton": "TI",
         "parliament": "Gran Consiglio Ticino",
-        "readiness": "site-discovery-needed",
+        "readiness": "adapter-ready-likely",
         "extractedLinkCount": 4,
         "extractedLinks": [
           {
@@ -1263,13 +2132,89 @@
     },
     {
       "sourceId": "ch-cantonal-portal-priority-v2",
+      "sourceUrl": "https://www.ur.ch/sitzung",
+      "externalId": "cantonal-portal-ur",
+      "title": "UR · Landrat Uri: Regierungsrätliche Planung der Landratsgeschäfte Externer Link wird in einem neuen Fenster geöffnet.",
+      "summary": "Kanton Uri - Sessionen – 9 relevante Linkziele erkannt (Leitlink: Regierungsrätliche Planung der Landratsgeschäfte Externer Link wird in einem neuen Fenster geöffnet.)",
+      "body": "1. Regierungsrätliche Planung der Landratsgeschäfte Externer Link wird in einem neuen Fenster geöffnet. – https://www.ur.ch/planungberichtereg/6152\n2. Landrat – https://www.ur.ch/landrat\n3. Landratsmitglieder – https://www.ur.ch/landratsmitglieder\n4. Landratssekretariat – https://www.ur.ch/landratssekretariat\n5. Geschäfte – https://www.ur.ch/politbusiness\n6. Medienmitteilungen Landrat – https://www.ur.ch/politikinformationen\n7. Vernehmlassungen – https://www.ur.ch/exekutivgeschaefte\n8. Liste der materiell und formell noch nicht erledigten Vorstösse Externer Link wird in einem neuen Fenster geöffnet. – https://www.ur.ch/planungberichtereg/7679\n9. Tonaufnahmen der Landratssessionen seit 1999 Externer Link wird in einem neuen Fenster geöffnet. – https://staur-digitalplattform.ch/tonaufnahmen/",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
+      "language": "de",
+      "score": 0.85,
+      "matchedKeywords": [
+        "kanton",
+        "ur",
+        "geschäfte",
+        "landrat",
+        "geschaefte",
+        "vorstösse"
+      ],
+      "status": "new",
+      "reviewReason": "cantonal-portal-links",
+      "meta": {
+        "canton": "UR",
+        "parliament": "Landrat Uri",
+        "readiness": "site-discovery-needed",
+        "extractedLinkCount": 9,
+        "extractedLinks": [
+          {
+            "href": "https://www.ur.ch/planungberichtereg/6152",
+            "text": "Regierungsrätliche Planung der Landratsgeschäfte Externer Link wird in einem neuen Fenster geöffnet.",
+            "rank": 2
+          },
+          {
+            "href": "https://www.ur.ch/landrat",
+            "text": "Landrat",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ur.ch/landratsmitglieder",
+            "text": "Landratsmitglieder",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ur.ch/landratssekretariat",
+            "text": "Landratssekretariat",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ur.ch/politbusiness",
+            "text": "Geschäfte",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ur.ch/politikinformationen",
+            "text": "Medienmitteilungen Landrat",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ur.ch/exekutivgeschaefte",
+            "text": "Vernehmlassungen",
+            "rank": 1
+          },
+          {
+            "href": "https://www.ur.ch/planungberichtereg/7679",
+            "text": "Liste der materiell und formell noch nicht erledigten Vorstösse Externer Link wird in einem neuen Fenster geöffnet.",
+            "rank": 1
+          },
+          {
+            "href": "https://staur-digitalplattform.ch/tonaufnahmen/",
+            "text": "Tonaufnahmen der Landratssessionen seit 1999 Externer Link wird in einem neuen Fenster geöffnet.",
+            "rank": 1
+          }
+        ],
+        "adapterHint": "cantonalPortal"
+      }
+    },
+    {
+      "sourceId": "ch-cantonal-portal-priority-v2",
       "sourceUrl": "https://www.vd.ch/gc/objets-et-rapports-de-commissions",
       "externalId": "cantonal-portal-vd",
-      "title": "Grand Conseil Vaud: Portal-Parsing",
-      "summary": "Objets et rapports de commissions | État de Vaud – 9 relevante Linkziele erkannt",
+      "title": "VD · Grand Conseil Vaud: Liste des objets en attente de traitement par le Grand Conseil",
+      "summary": "Objets et rapports de commissions | État de Vaud – 9 relevante Linkziele erkannt (Leitlink: Liste des objets en attente de traitement par le Grand Conseil)",
       "body": "1. Liste des objets en attente de traitement par le Grand Conseil – https://www.vd.ch/gc/liste-des-objets-en-attente-de-traitement-par-le-grand-conseil\n2. Bulletin du Grand Conseil – https://www.vd.ch/toutes-les-autorites/grand-conseil/bulletin-du-grand-conseil\n3. Haut&nbsp; – https://www.vd.ch/gc/objets-et-rapports-de-commissions#main\n4. Accès au champ de recherche – https://www.vd.ch/gc/objets-et-rapports-de-commissions#search-form\n5. Liste des rapports de commissions – https://www.vd.ch/gc/objets-et-rapports-de-commissions/liste-des-rapports-de-commission\n6. Objets et rapports de commissions – https://www.vd.ch/gc/objets-et-rapports-de-commissions\n7. Grand Conseil – https://www.vd.ch/gc\n8. Listes des objets et commissions nommées – https://www.vd.ch/gc/liste-des-objets-et-commissions-nommees\n9. Linkedin – https://www.linkedin.com/company/grand-conseil-du-canton-de-vaud",
-      "publishedAt": "2026-02-14T09:47:00.191Z",
-      "fetchedAt": "2026-02-14T09:47:00.191Z",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "fr",
       "score": 0.85,
       "matchedKeywords": [
@@ -1340,13 +2285,13 @@
     },
     {
       "sourceId": "ch-cantonal-portal-priority-v2",
-      "sourceUrl": "https://www.vs.ch/fr/web/gc/interventions-parlementaires",
+      "sourceUrl": "https://www.vs.ch/fr/web/gc/objets-parlementaires",
       "externalId": "cantonal-portal-vs",
-      "title": "Grand Conseil Valais: Portal-Parsing",
-      "summary": "Verifying your browser... – 2 relevante Linkziele erkannt",
+      "title": "VS · Grand Conseil Valais: Objets parlementaires",
+      "summary": "Verifying your browser... – 2 relevante Linkziele erkannt (Leitlink: Objets parlementaires)",
       "body": "1. Objets parlementaires – https://www.vs.ch/fr/web/gc/objets-parlementaires\n2. Interventions parlementaires – https://www.vs.ch/fr/web/gc/interventions-parlementaires",
-      "publishedAt": "2026-02-14T09:47:00.191Z",
-      "fetchedAt": "2026-02-14T09:47:00.191Z",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "fr",
       "score": 0.5,
       "matchedKeywords": [
@@ -1383,11 +2328,11 @@
       "sourceId": "ch-cantonal-portal-priority-v2",
       "sourceUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats",
       "externalId": "cantonal-portal-zg",
-      "title": "Kantonsrat Zug: Portal-Parsing",
-      "summary": "Geschäfte des Kantonsrats – 10 relevante Linkziele erkannt",
+      "title": "ZG · Kantonsrat Zug: Deutsch",
+      "summary": "Geschäfte des Kantonsrats – 10 relevante Linkziele erkannt (Leitlink: Deutsch)",
       "body": "1. Deutsch – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats\n2. Kantonsratsgeschäfte – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats#Kantonsratsgeschaefte\n3. Übersicht über die Geschäfte des Kantonsrats – https://kr-geschaefte.zug.ch/gast/geschaefte\n4. Geschäfte des Regierungsrats Beschlüsse, Vernehmlassungen, Informationen, Strategie – https://zg.ch/de/staat-politik/geschaefte-des-regierungsrats\n5. Organisation – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats#\n6. Traktandenlisten – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats#Traktandenlisten\n7. Protokolle und Abstimmungsergebnisse – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats#ProtokolleundAbstimmungsergebnisse\n8. Sitzungen – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats#Sitzungen\n9. Sitzplan – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats#Sitzplan\n10. Parlament – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats#Parlament",
-      "publishedAt": "2026-02-14T09:47:00.191Z",
-      "fetchedAt": "2026-02-14T09:47:00.191Z",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
       "language": "de",
       "score": 0.85,
       "matchedKeywords": [
@@ -1402,7 +2347,7 @@
       "meta": {
         "canton": "ZG",
         "parliament": "Kantonsrat Zug",
-        "readiness": "site-discovery-needed",
+        "readiness": "adapter-ready-likely",
         "extractedLinkCount": 10,
         "extractedLinks": [
           {
@@ -1454,6 +2399,86 @@
             "href": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats#Parlament",
             "text": "Parlament",
             "rank": 2
+          }
+        ],
+        "adapterHint": "cantonalPortal"
+      }
+    },
+    {
+      "sourceId": "ch-cantonal-portal-priority-v2",
+      "sourceUrl": "https://www.kantonsrat.zh.ch/",
+      "externalId": "cantonal-portal-zh",
+      "title": "ZH · Kantonsrat Zürich: Geschäfte",
+      "summary": "Kantonsrat Zürich | Home – 10 relevante Linkziele erkannt (Leitlink: Geschäfte)",
+      "body": "1. Geschäfte – https://www.kantonsrat.zh.ch/geschaefte/\n2. Geschäfte – https://www.kantonsrat.zh.ch/geschaefte\n3. Geschäfte per RSS abonnieren – https://www.kantonsrat.zh.ch/informiert-ueber-die-aktuellsten-geschaefte-des-kantonsrates\n4. Springe direkt zum Hauptinhalt – https://www.kantonsrat.zh.ch/#main\n5. Ohne Titel – https://www.kantonsrat.zh.ch/\n6. Aktuell – https://www.kantonsrat.zh.ch/aktuell/\n7. Medien&shy;mitteilungen – https://www.kantonsrat.zh.ch/aktuell/medienmitteilungen/\n8. Livestream – https://www.kantonsrat.zh.ch/aktuell/livestream/\n9. Stellen – https://www.kantonsrat.zh.ch/aktuell/stellenausschreibungen/\n10. Blog – https://www.kantonsrat.zh.ch/aktuell/blog/",
+      "publishedAt": "2026-02-14T14:16:56.328Z",
+      "fetchedAt": "2026-02-14T14:16:56.328Z",
+      "language": "de",
+      "score": 0.85,
+      "matchedKeywords": [
+        "kanton",
+        "zh",
+        "geschaefte",
+        "geschäfte",
+        "kantonsrat"
+      ],
+      "status": "new",
+      "reviewReason": "cantonal-portal-links",
+      "meta": {
+        "canton": "ZH",
+        "parliament": "Kantonsrat Zürich",
+        "readiness": "site-discovery-needed",
+        "extractedLinkCount": 10,
+        "extractedLinks": [
+          {
+            "href": "https://www.kantonsrat.zh.ch/geschaefte/",
+            "text": "Geschäfte",
+            "rank": 3
+          },
+          {
+            "href": "https://www.kantonsrat.zh.ch/geschaefte",
+            "text": "Geschäfte",
+            "rank": 3
+          },
+          {
+            "href": "https://www.kantonsrat.zh.ch/informiert-ueber-die-aktuellsten-geschaefte-des-kantonsrates",
+            "text": "Geschäfte per RSS abonnieren",
+            "rank": 3
+          },
+          {
+            "href": "https://www.kantonsrat.zh.ch/#main",
+            "text": "Springe direkt zum Hauptinhalt",
+            "rank": 1
+          },
+          {
+            "href": "https://www.kantonsrat.zh.ch/",
+            "text": "",
+            "rank": 1
+          },
+          {
+            "href": "https://www.kantonsrat.zh.ch/aktuell/",
+            "text": "Aktuell",
+            "rank": 1
+          },
+          {
+            "href": "https://www.kantonsrat.zh.ch/aktuell/medienmitteilungen/",
+            "text": "Medien&shy;mitteilungen",
+            "rank": 1
+          },
+          {
+            "href": "https://www.kantonsrat.zh.ch/aktuell/livestream/",
+            "text": "Livestream",
+            "rank": 1
+          },
+          {
+            "href": "https://www.kantonsrat.zh.ch/aktuell/stellenausschreibungen/",
+            "text": "Stellen",
+            "rank": 1
+          },
+          {
+            "href": "https://www.kantonsrat.zh.ch/aktuell/blog/",
+            "text": "Blog",
+            "rank": 1
           }
         ],
         "adapterHint": "cantonalPortal"
