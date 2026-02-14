@@ -1197,5 +1197,65 @@
       "postulat",
       "fleisch"
     ]
+  },
+  {
+    "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-c6c65c8ce8a84435af97428996dadc64",
+    "title": "Bern · Biodiversität im Wald fördern",
+    "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0056 · Eingereicht",
+    "sourceId": "ch-municipal-parliament-bern-zurich",
+    "publishedAt": "2026-02-11T23:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tiere",
+      "tierschutz",
+      "biodiversität",
+      "biodiversita",
+      "landwirtschaft",
+      "ernährung",
+      "initiative",
+      "motion",
+      "postulat",
+      "fleisch"
+    ]
+  },
+  {
+    "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-b7e265b3766d43119b5279f5ea795e91",
+    "title": "Bern · Biodiversität im Siedlungsgebiet fördern",
+    "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0055 · Eingereicht",
+    "sourceId": "ch-municipal-parliament-bern-zurich",
+    "publishedAt": "2026-02-11T23:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tiere",
+      "tierschutz",
+      "biodiversität",
+      "biodiversita",
+      "landwirtschaft",
+      "ernährung",
+      "initiative",
+      "motion",
+      "postulat",
+      "fleisch"
+    ]
+  },
+  {
+    "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-58a0ae87cf6f44e1a4030952a06a85bb",
+    "title": "Bern · Biodiversität im Landwirtschaftsgebiet fördern",
+    "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0054 · Eingereicht",
+    "sourceId": "ch-municipal-parliament-bern-zurich",
+    "publishedAt": "2026-02-11T23:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tiere",
+      "tierschutz",
+      "biodiversität",
+      "biodiversita",
+      "landwirtschaft",
+      "ernährung",
+      "initiative",
+      "motion",
+      "postulat",
+      "fleisch"
+    ]
   }
 ]
