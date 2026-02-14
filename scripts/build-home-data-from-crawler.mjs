@@ -16,14 +16,41 @@ const toIsoDate = (v) => {
   return d.toISOString().slice(0, 10)
 }
 
-const inferType = (title = '', sourceId = '') => {
-  const text = `${title} ${sourceId}`.toLowerCase()
-  if (text.includes('postulat')) return 'Postulat'
-  if (text.includes('motion')) return 'Motion'
-  if (text.includes('interpellation')) return 'Interpellation'
-  if (text.includes('anfrage') || text.includes('frage')) return 'Anfrage'
-  if (text.includes('initiative')) return 'Volksinitiative'
+const inferType = (title = '', sourceId = '', businessTypeName = '') => {
+  const text = `${title} ${sourceId} ${businessTypeName}`.toLowerCase()
+  if (text.includes('postulat') || text.includes('postulato') || text.includes('postulat')) return 'Postulat'
+  if (text.includes('motion') || text.includes('mozione')) return 'Motion'
+  if (text.includes('interpellation') || text.includes('interpellanza')) return 'Interpellation'
+  if (text.includes('anfrage') || text.includes('frage') || text.includes('question') || text.includes('interrogazione')) return 'Anfrage'
+  if (text.includes('initiative') || text.includes('iniziativa')) return 'Volksinitiative'
   return 'Interpellation'
+}
+
+const typeLabels = {
+  Volksinitiative: { de: 'Volksinitiative', fr: 'Initiative populaire', it: 'Iniziativa popolare', en: 'Popular initiative' },
+  Interpellation: { de: 'Interpellation', fr: 'Interpellation', it: 'Interpellanza', en: 'Interpellation' },
+  Motion: { de: 'Motion', fr: 'Motion', it: 'Mozione', en: 'Motion' },
+  Postulat: { de: 'Postulat', fr: 'Postulat', it: 'Postulato', en: 'Postulate' },
+  Anfrage: { de: 'Anfrage', fr: 'Question', it: 'Interrogazione', en: 'Question' },
+}
+
+const themeLabels = {
+  tier: { de: 'Tier', fr: 'Animal', it: 'Animale', en: 'Animal' },
+  tierschutz: { de: 'Tierschutz', fr: 'Protection animale', it: 'Protezione animale', en: 'Animal protection' },
+  tierwohl: { de: 'Tierwohl', fr: 'Bien-être animal', it: 'Benessere animale', en: 'Animal welfare' },
+  nutztiere: { de: 'Nutztiere', fr: 'Animaux d\'élevage', it: 'Animali da reddito', en: 'Farm animals' },
+  landwirtschaft: { de: 'Landwirtschaft', fr: 'Agriculture', it: 'Agricoltura', en: 'Agriculture' },
+  tierversuch: { de: 'Tierversuche', fr: 'Expérimentation animale', it: 'Sperimentazione animale', en: 'Animal testing' },
+  tierversuche: { de: 'Tierversuche', fr: 'Expérimentation animale', it: 'Sperimentazione animale', en: 'Animal testing' },
+  jagd: { de: 'Jagd', fr: 'Chasse', it: 'Caccia', en: 'Hunting' },
+  wolf: { de: 'Wolf', fr: 'Loup', it: 'Lupo', en: 'Wolf' },
+  pelz: { de: 'Pelz', fr: 'Fourrure', it: 'Pelliccia', en: 'Fur' },
+  stopfleber: { de: 'Stopfleber', fr: 'Foie gras', it: 'Foie gras', en: 'Foie gras' },
+}
+
+const localizeTheme = (keyword = '', lang = 'de') => {
+  const k = String(keyword || '').toLowerCase().trim()
+  return themeLabels[k]?.[lang] || keyword
 }
 
 const extractStance = (reason = '', title = '', summary = '', body = '') => {
@@ -193,6 +220,30 @@ const buildInitiativeLinks = ({ typ, title, externalId, status }) => {
   return { campaignUrl, resultUrl }
 }
 
+const buildI18nFromItem = (item, fallbackTitle, fallbackSummary, fallbackType, fallbackThemes) => {
+  const variants = item?.languageVariants || {}
+  const out = {
+    title: { de: fallbackTitle },
+    summary: { de: fallbackSummary },
+    type: { de: typeLabels[fallbackType]?.de || fallbackType },
+    themes: { de: fallbackThemes },
+  }
+
+  for (const [lang, variant] of Object.entries(variants)) {
+    const l = ['de', 'fr', 'it', 'en'].includes(lang) ? lang : 'de'
+    const title = clean(variant?.title || fallbackTitle)
+    const summary = clean(variant?.summary || variant?.body || fallbackSummary)
+    const typeDe = inferType(title, item.sourceId, variant?.businessTypeName || '')
+    const matched = (item.matchedKeywords || fallbackThemes || []).slice(0, 6)
+    out.title[l] = title || fallbackTitle
+    out.summary[l] = summary || fallbackSummary
+    out.type[l] = typeLabels[typeDe]?.[l] || typeLabels[fallbackType]?.[l] || fallbackType
+    out.themes[l] = matched.map((kw) => localizeTheme(kw, l))
+  }
+
+  return out
+}
+
 const vorstoesse = items.map((item, index) => {
   const sprache = langFromSource(item.sourceId)
   const affairId = String(item.externalId || '').split('-')[0]
@@ -203,7 +254,7 @@ const vorstoesse = items.map((item, index) => {
   const eingereicht = toIsoDate(item.publishedAt || item.fetchedAt)
   const updated = toIsoDate(item.fetchedAt || item.publishedAt)
   const status = mapStatus(item.status)
-  const typ = inferType(displayTitle, item.sourceId)
+  const typ = inferType(displayTitle, item.sourceId, item?.languageVariants?.de?.businessTypeName || '')
   const stance = extractStance(item.reviewReason, displayTitle, displaySummary, displayBody)
   const initiativeLinks = buildInitiativeLinks({
     typ,
@@ -216,16 +267,20 @@ const vorstoesse = items.map((item, index) => {
     ? item.sourceUrl
     : `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${String(item.externalId || '').split('-')[0]}`
 
+  const summaryText = summarizeVorstoss({
+    title: displayTitle,
+    summary: displaySummary,
+    body: displayBody,
+    status: item.status,
+  })
+  const baseThemes = sanitizeThemes(item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz']).slice(0, 6)
+  const i18nMeta = buildI18nFromItem(item, displayTitle || `Vorstoss ${index + 1}`, summaryText, typ, baseThemes)
+
   return {
     id: `vp-${idSafe.toLowerCase()}`,
     titel: displayTitle || `Vorstoss ${index + 1}`,
     typ,
-    kurzbeschreibung: summarizeVorstoss({
-      title: displayTitle,
-      summary: displaySummary,
-      body: displayBody,
-      status: item.status,
-    }),
+    kurzbeschreibung: summaryText,
     geschaeftsnummer: String(item.externalId || `AUTO-${index + 1}`),
     ebene: levelFromSource(item.sourceId),
     kanton: null,
@@ -233,7 +288,7 @@ const vorstoesse = items.map((item, index) => {
     status,
     datumEingereicht: eingereicht,
     datumAktualisiert: updated,
-    themen: sanitizeThemes(item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz']).slice(0, 6),
+    themen: baseThemes,
     schlagwoerter: (item.matchedKeywords?.length ? item.matchedKeywords : ['Tierpolitik']).slice(0, 8),
     einreichende: [inferSubmitter(sprache, displayTitle, displaySummary, displayBody)],
     linkGeschaeft: link,
@@ -249,6 +304,7 @@ const vorstoesse = items.map((item, index) => {
       sprache,
       haltung: stance,
       initiativeLinks,
+      i18n: i18nMeta,
       zuletztGeprueftVon: 'Crawler/DB Sync',
     },
   }

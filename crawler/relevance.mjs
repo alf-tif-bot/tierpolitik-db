@@ -159,12 +159,30 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
   const decisions = loadReviewDecisions()
   const feedbackWeights = buildFeedbackModel(db, decisions)
   const enabledSourceIds = new Set((db.sources || []).filter((s) => s.enabled !== false).map((s) => s.id))
+  const affairTextMap = new Map()
+
+  for (const item of db.items) {
+    if (!enabledSourceIds.has(item.sourceId)) continue
+    const affairId = String(item.affairId || item.externalId || '').split('-')[0]
+    const variantText = Object.values(item.languageVariants || {})
+      .map((v) => `${v?.title || ''}\n${v?.summary || ''}\n${v?.body || ''}`)
+      .join('\n')
+    const fullText = `${item.title}\n${item.summary}\n${item.body}\n${variantText}`.trim()
+    if (!fullText) continue
+    const prev = affairTextMap.get(affairId)
+    affairTextMap.set(affairId, prev ? `${prev}\n${fullText}` : fullText)
+  }
+
   let touched = 0
   let relevantCount = 0
 
   for (const item of db.items) {
     if (!enabledSourceIds.has(item.sourceId)) continue
-    const text = `${item.title}\n${item.summary}\n${item.body}`
+    const affairId = String(item.affairId || item.externalId || '').split('-')[0]
+    const variantText = Object.values(item.languageVariants || {})
+      .map((v) => `${v?.title || ''}\n${v?.summary || ''}\n${v?.body || ''}`)
+      .join('\n')
+    const text = `${item.title}\n${item.summary}\n${item.body}\n${variantText}\n${affairTextMap.get(affairId) || ''}`
     const { score, matched, anchorMatches, supportMatches, noiseMatches, whitelistedPeople, normalizedText } = scoreText(text, keywords)
 
     const feedbackSignal = [...new Set([...anchorMatches, ...supportMatches])]

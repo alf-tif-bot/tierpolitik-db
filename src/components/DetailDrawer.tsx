@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { I18nText, Language } from '../i18n'
-import { translateContent, translateStatus, translateType } from '../i18n'
+import { localizedMetaText, localizedMetaThemes, localizedMetaType, translateContent, translateStatus } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
 
@@ -44,6 +44,13 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
   const [feedbackText, setFeedbackText] = useState('')
   const [feedbackState, setFeedbackState] = useState<'idle' | 'saving' | 'done' | 'error'>('idle')
 
+  useEffect(() => {
+    setFeedbackOpen(false)
+    setFeedbackState('idle')
+    setFeedbackText('')
+    setFeedbackType('Fehler gefunden')
+  }, [item?.id])
+
   if (!item) return null
 
   const timeline: TimelineItem[] = [
@@ -69,8 +76,10 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
       ? 'Tierschutzkritisch'
       : 'Neutral / unklar'
 
+  const themesLocalized = localizedMetaThemes(item, lang)
+
   const metaRows = [
-    { label: t.type, value: translateType(item.typ, lang), filterField: 'typ' as const, rawValue: item.typ },
+    { label: t.type, value: localizedMetaType(item, lang), filterField: 'typ' as const, rawValue: item.typ },
     { label: t.businessNo, value: item.geschaeftsnummer },
     { label: t.level, value: level, filterField: 'ebene' as const, rawValue: item.ebene },
     { label: t.canton, value: item.kanton ?? '-', filterField: 'kanton' as const },
@@ -97,6 +106,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
       if (!res.ok) throw new Error(await res.text())
       setFeedbackState('done')
       setFeedbackText('')
+      setTimeout(() => setFeedbackOpen(false), 900)
     } catch {
       setFeedbackState('error')
     }
@@ -107,7 +117,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
       <aside className="drawer" onClick={(e) => e.stopPropagation()}>
         <div className="row drawer-head">
           <div>
-            <h2>{normalizeTitle(translateContent(item.titel, lang), item.typ)}</h2>
+            <h2>{normalizeTitle(localizedMetaText(item, 'title', lang, item.titel), item.typ)}</h2>
             <div className="drawer-status-row">
               <span className={`status-badge status-${statusSlug}`}>{translateStatus(item.status, lang)}</span>
             </div>
@@ -115,7 +125,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
           <button onClick={onClose}>{t.close}</button>
         </div>
 
-        <p className="drawer-summary">{translateContent(item.kurzbeschreibung, lang)}</p>
+        <p className="drawer-summary">{localizedMetaText(item, 'summary', lang, item.kurzbeschreibung)}</p>
 
         <h3>Falldaten</h3>
         <div className="detail-grid">
@@ -139,9 +149,9 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
           <div className="detail-card">
             <span className="detail-label">{t.themes}</span>
             <div className="detail-link-row">
-              {item.themen.map((theme) => (
+              {item.themen.map((theme, index) => (
                 <button key={theme} className="text-link-btn" onClick={() => onQuickFilter('thema', theme)}>
-                  {translateContent(theme, lang)}
+                  {themesLocalized[index] || translateContent(theme, lang)}
                 </button>
               ))}
             </div>
@@ -195,11 +205,14 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
             </li>
           ))}
         </ul>
-        <button className="bug-report-fab" type="button" onClick={() => setFeedbackOpen(true)}>Feedback</button>
+        <button className="bug-report-fab" type="button" onClick={() => { setFeedbackOpen(true); setFeedbackState('idle') }}>Feedback</button>
 
         {feedbackOpen && (
           <div className="feedback-modal" role="dialog" aria-modal="true">
-            <h3>Feedback</h3>
+            <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+              <h3>Feedback</h3>
+              <button type="button" onClick={() => setFeedbackOpen(false)}>{t.close}</button>
+            </div>
             <label>
               Kategorie
               <select value={feedbackType} onChange={(e) => setFeedbackType(e.target.value)}>
@@ -220,7 +233,14 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
               />
             </label>
             <div className="row">
-              <button className="btn-primary" onClick={submitFeedback} disabled={feedbackState === 'saving'}>Senden</button>
+              <button
+                className="btn-primary"
+                onClick={submitFeedback}
+                disabled={feedbackState === 'saving' || feedbackText.trim().length < 6}
+              >
+                Senden
+              </button>
+              <button type="button" onClick={() => setFeedbackOpen(false)}>Abbrechen</button>
             </div>
             {feedbackState === 'done' && <p className="muted">Danke dir fürs Feedback 🙌</p>}
             {feedbackState === 'error' && <p className="muted">Feedback konnte nicht gesendet werden.</p>}

@@ -257,11 +257,13 @@ const html = `<!doctype html>
   </main>
 <script>
 const key='tierpolitik.review';
+const uiKey='tierpolitik.review.ui';
 const read=()=>JSON.parse(localStorage.getItem(key)||'{}');
 const write=(v)=>localStorage.setItem(key,JSON.stringify(v,null,2));
+const readUi=()=>JSON.parse(localStorage.getItem(uiKey)||'{}');
+const writeUi=(v)=>localStorage.setItem(uiKey,JSON.stringify(v));
 
-let showDecided = false;
-let userToggledDecided = false;
+let showDecided = Boolean(readUi().showDecided);
 
 function updateStatusSummary(){
   const stats = { queued: 0, approved: 0, published: 0 }
@@ -296,8 +298,8 @@ function hideDecidedRows(){
 }
 
 function toggleDecided(){
-  userToggledDecided = true
   showDecided = !showDecided
+  writeUi({ showDecided })
   hideDecidedRows()
 }
 
@@ -339,7 +341,11 @@ async function setDecision(btn,id,status){
   write(s);
 
   const row = btn?.closest('tr[data-id]');
-  if (row) row.style.display='none';
+  if (row) {
+    row.setAttribute('data-status', status)
+    row.style.opacity = '0.72'
+    if (!showDecided) row.style.display='none'
+  }
   updateStatusSummary();
   if (statusEl) statusEl.textContent = 'Entscheidung gespeichert.';
 }

@@ -49,11 +49,17 @@ export const vorstossSchema = z.object({
   resultate: z.array(resultSchema),
   medien: z.array(mediaSchema),
   metadaten: z.object({
-    sprache: z.enum(['de', 'fr', 'it']),
+    sprache: z.enum(['de', 'fr', 'it', 'en']),
     haltung: z.enum(['pro-tierschutz', 'tierschutzkritisch', 'neutral/unklar']).optional(),
     initiativeLinks: z.object({
       campaignUrl: z.string().url().optional(),
       resultUrl: z.string().url().optional(),
+    }).optional(),
+    i18n: z.object({
+      title: z.record(z.string(), z.string()).optional(),
+      summary: z.record(z.string(), z.string()).optional(),
+      type: z.record(z.string(), z.string()).optional(),
+      themes: z.record(z.string(), z.array(z.string())).optional(),
     }).optional(),
     zuletztGeprueftVon: z.string().min(1),
   }),

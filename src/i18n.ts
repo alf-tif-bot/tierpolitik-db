@@ -372,3 +372,23 @@ export function translateContent(text: string, lang: Language): string {
   const rules = contentDictionary[lang]
   return rules.reduce((acc, [rx, replacement]) => acc.replace(rx, replacement), text)
 }
+
+export function localizedMetaText(item: { metadaten?: any }, field: 'title' | 'summary', lang: Language, fallback: string): string {
+  const fromMeta = item?.metadaten?.i18n?.[field]?.[lang]
+  if (typeof fromMeta === 'string' && fromMeta.trim()) return fromMeta.trim()
+  return translateContent(fallback, lang)
+}
+
+export function localizedMetaType(item: { metadaten?: any; typ: string }, lang: Language): string {
+  const fromMeta = item?.metadaten?.i18n?.type?.[lang]
+  if (typeof fromMeta === 'string' && fromMeta.trim()) return fromMeta.trim()
+  return translateType(item.typ, lang)
+}
+
+export function localizedMetaThemes(item: { metadaten?: any; themen: string[] }, lang: Language): string[] {
+  const fromMeta = item?.metadaten?.i18n?.themes?.[lang]
+  if (Array.isArray(fromMeta) && fromMeta.length) {
+    return fromMeta.map((x) => String(x || '').trim()).filter(Boolean)
+  }
+  return item.themen.map((theme) => translateContent(theme, lang))
+}

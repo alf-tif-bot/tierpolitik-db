@@ -9,7 +9,7 @@ import {
 } from '@tanstack/react-table'
 import { useEffect, useMemo, useState } from 'react'
 import type { I18nText, Language } from '../i18n'
-import { translateContent, translateStatus, translateType } from '../i18n'
+import { localizedMetaText, localizedMetaType, translateStatus } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
 
@@ -60,8 +60,8 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboard
   }, [sorting])
 
   const columns = useMemo<ColumnDef<Vorstoss>[]>(() => [
-    { accessorKey: 'titel', header: t.titleCol, cell: (i) => normalizeTitle(translateContent(i.getValue<string>(), lang)) },
-    { accessorKey: 'typ', header: t.type, cell: (i) => translateType(i.getValue<string>(), lang) },
+    { accessorKey: 'titel', header: t.titleCol, cell: (i) => normalizeTitle(localizedMetaText(i.row.original, 'title', lang, i.getValue<string>())) },
+    { accessorKey: 'typ', header: t.type, cell: (i) => localizedMetaType(i.row.original, lang) },
     {
       accessorKey: 'status',
       header: t.status,

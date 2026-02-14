@@ -13,10 +13,12 @@
     "datumAktualisiert": "2026-02-13",
     "themen": [
       "stopfleber",
+      "foie gras",
       "initiative"
     ],
     "schlagwoerter": [
       "stopfleber",
+      "foie gras",
       "initiative"
     ],
     "einreichende": [
@@ -41,6 +43,24 @@
       "initiativeLinks": {
         "campaignUrl": "https://www.stopfleber-initiative.ch"
       },
+      "i18n": {
+        "title": {
+          "de": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll. Wirtschaft|Umwelt"
+        },
+        "type": {
+          "de": "Volksinitiative"
+        },
+        "themes": {
+          "de": [
+            "stopfleber",
+            "foie gras",
+            "initiative"
+          ]
+        }
+      },
       "zuletztGeprueftVon": "Crawler/DB Sync"
     }
   },
@@ -58,10 +78,12 @@
     "datumAktualisiert": "2026-02-13",
     "themen": [
       "stopfleber",
+      "foie gras",
       "initiative"
     ],
     "schlagwoerter": [
       "stopfleber",
+      "foie gras",
       "initiative",
       "botschaft"
     ],
@@ -87,6 +109,24 @@
       "initiativeLinks": {
         "campaignUrl": "https://www.stopfleber-initiative.ch"
       },
+      "i18n": {
+        "title": {
+          "de": "24.089 · «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)». Volksinitiative"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll. Botschaft vom 20. November 2024 zur Volksinitiative «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)»"
+        },
+        "type": {
+          "de": "Volksinitiative"
+        },
+        "themes": {
+          "de": [
+            "stopfleber",
+            "foie gras",
+            "initiative"
+          ]
+        }
+      },
       "zuletztGeprueftVon": "Crawler/DB Sync"
     }
   },
@@ -103,14 +143,20 @@
     "datumEingereicht": "2021-03-18",
     "datumAktualisiert": "2026-02-13",
     "themen": [
+      "tier",
+      "tierversuch",
+      "tierversuche",
       "animal",
       "expérimentation animale",
-      "3r",
-      "animale"
+      "sperimentazione animale"
     ],
     "schlagwoerter": [
+      "tier",
+      "tierversuch",
+      "tierversuche",
       "animal",
       "expérimentation animale",
+      "sperimentazione animale",
       "3r",
       "animale"
     ],
@@ -133,6 +179,27 @@
     "metadaten": {
       "sprache": "fr",
       "haltung": "pro-tierschutz",
+      "i18n": {
+        "title": {
+          "de": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. In Kommission des Nationalrats"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "tier",
+            "tierversuch",
+            "tierversuche",
+            "animal",
+            "expérimentation animale",
+            "sperimentazione animale"
+          ]
+        }
+      },
       "zuletztGeprueftVon": "Crawler/DB Sync"
     }
   }
