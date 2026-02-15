@@ -220,22 +220,26 @@ const SUBMITTER_OVERRIDES = {
   '20.4731': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
   '21.3002': { name: 'Kommission für Umwelt, Raumplanung und Energie Ständerat', rolle: 'Kommission', partei: '' },
   '23.7580': { name: 'Rüegger Monika', rolle: 'Nationalrat', partei: 'SVP' },
+  '22.7004': { name: 'Egger Mike', rolle: 'Nationalrat', partei: 'SVP' },
 }
 
 const TYPE_OVERRIDES = {
   '23.7580': 'Anfrage',
+  '22.7004': 'Anfrage',
 }
 
 const THEME_OVERRIDES = {
   '20.4731': ['Nutztiere', 'Landwirtschaft', 'Umwelt'],
   '21.3002': ['Umwelt', 'Landwirtschaft'],
   '23.7580': ['Landwirtschaft', 'Umwelt'],
+  '22.7004': ['Landwirtschaft', 'Umwelt'],
 }
 
 const SUMMARY_OVERRIDES = {
   '21.3002': 'Die Motion verlangt, den Handlungsspielraum im Jagdgesetz per Verordnung auszuschöpfen, um die Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren zu regeln (u. a. Regulierung und Herdenschutz).',
   '25.4809': 'Der Vorstoss verlangt konkrete Massnahmen gegen Tierqual bei der Geflügelschlachtung und eine konsequent tierschutzkonforme Praxis.',
   '23.7580': 'Die Fragestunde-Frage verlangt vom Bundesrat die Priorisierung des Schutzes von Menschen und Nutztieren vor Wolfsangriffen, inklusive möglicher Verteidigungsabschüsse bei direkten Angriffen.',
+  '22.7004': 'Die Fragestunde-Frage kritisiert eine aus Sicht des Einreichers realitätsferne Auslegung der Tierschutzverordnung für Hofhunde und verlangt eine Klärung durch den Bundesrat.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {

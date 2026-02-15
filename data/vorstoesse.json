@@ -3386,8 +3386,8 @@
   {
     "id": "vp-20227004-de",
     "titel": "22.7004 · Absurde Auslegung der Tierschutzverordnung - täglicher Auslauf für Bauernhof Hunde?",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 22.7004 · Absurde Auslegung der Tierschutzverordnung - täglicher Auslauf für Bauernhof Hunde? (Erledigt).",
+    "typ": "Anfrage",
+    "kurzbeschreibung": "Die Fragestunde-Frage kritisiert eine aus Sicht des Einreichers realitätsferne Auslegung der Tierschutzverordnung für Hofhunde und verlangt eine Klärung durch den Bundesrat.",
     "geschaeftsnummer": "22.7004",
     "ebene": "Bund",
     "kanton": null,
@@ -3396,9 +3396,8 @@
     "datumEingereicht": "2022-02-28",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Tierschutz",
-      "Hunde",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierschutz",
@@ -3407,9 +3406,9 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Egger Mike",
+        "rolle": "Nationalrat",
+        "partei": "SVP"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20227004",
@@ -3432,13 +3431,12 @@
           "de": "Erledigt"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Anfrage"
         },
         "themes": {
           "de": [
-            "tierschutz",
-            "hunde",
-            "landwirtschaft"
+            "Landwirtschaft",
+            "Umwelt"
           ]
         }
       },
