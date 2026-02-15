@@ -24,6 +24,7 @@ const TARGET_SINCE_YEAR = Math.max(2020, Number(process.env.REVIEW_TARGET_SINCE_
 const targetSinceTs = Date.UTC(TARGET_SINCE_YEAR, 0, 1, 0, 0, 0)
 const fixDecisionMismatches = process.argv.includes('--fix-decisions')
 const pruneLegacyDecisions = process.argv.includes('--prune-legacy-decisions')
+const pruneReviewItems = process.argv.includes('--prune-review-items')
 const isInTargetHorizon = (item) => {
   const iso = item?.publishedAt || item?.fetchedAt
   const ts = Date.parse(String(iso || ''))
@@ -127,16 +128,34 @@ for (const item of reviewCandidates) {
 
 const expectedReviewIds = new Set([...expectedGrouped.values()].map((item) => itemId(item)))
 
-const reviewIdsList = Array.isArray(review.ids) ? review.ids : []
-const actualReviewIds = new Set(reviewIdsList)
+let reviewIdsList = Array.isArray(review.ids) ? review.ids : []
+let actualReviewIds = new Set(reviewIdsList)
 const isParliamentReviewId = (id) => String(id || '').startsWith('ch-parliament-')
-const missingInReview = [...expectedReviewIds].filter((id) => !actualReviewIds.has(id))
-const missingInReviewParliament = missingInReview.filter((id) => isParliamentReviewId(id))
-const extraInReview = [...actualReviewIds].filter((id) => !expectedReviewIds.has(id))
-const extraInReviewParliament = extraInReview.filter((id) => isParliamentReviewId(id))
-const duplicateReviewIds = reviewIdsList
+let missingInReview = [...expectedReviewIds].filter((id) => !actualReviewIds.has(id))
+let missingInReviewParliament = missingInReview.filter((id) => isParliamentReviewId(id))
+let extraInReview = [...actualReviewIds].filter((id) => !expectedReviewIds.has(id))
+let extraInReviewParliament = extraInReview.filter((id) => isParliamentReviewId(id))
+let duplicateReviewIds = reviewIdsList
   .filter((id, idx) => reviewIdsList.indexOf(id) !== idx)
   .filter((id, idx, arr) => arr.indexOf(id) === idx)
+
+if (pruneReviewItems && (extraInReview.length || duplicateReviewIds.length)) {
+  const deduped = [...new Set(reviewIdsList)]
+  review.ids = deduped.filter((id) => expectedReviewIds.has(id))
+  review.generatedAt = new Date().toISOString()
+  review.total = review.ids.length
+  fs.writeFileSync(reviewItemsPath, JSON.stringify(review, null, 2))
+
+  reviewIdsList = review.ids
+  actualReviewIds = new Set(reviewIdsList)
+  missingInReview = [...expectedReviewIds].filter((id) => !actualReviewIds.has(id))
+  missingInReviewParliament = missingInReview.filter((id) => isParliamentReviewId(id))
+  extraInReview = [...actualReviewIds].filter((id) => !expectedReviewIds.has(id))
+  extraInReviewParliament = extraInReview.filter((id) => isParliamentReviewId(id))
+  duplicateReviewIds = reviewIdsList
+    .filter((id, idx) => reviewIdsList.indexOf(id) !== idx)
+    .filter((id, idx, arr) => arr.indexOf(id) === idx)
+}
 
 const expectedPublishedAffairs = new Set(
   (published || [])
@@ -223,6 +242,7 @@ const report = {
   targetSinceYear: TARGET_SINCE_YEAR,
   fixDecisionMismatches,
   pruneLegacyDecisions,
+  pruneReviewItems,
   expectedReview: expectedReviewIds.size,
   actualReview: actualReviewIds.size,
   missingInReviewCount: missingInReview.length,

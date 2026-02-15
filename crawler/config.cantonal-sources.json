@@ -185,6 +185,7 @@
     "url": "https://so.ch/parlament",
     "sinceYear": 2020,
     "urlCandidates": [
+      "https://ratsinfo.so.ch",
       "https://so.ratsinfomanagement.net"
     ]
   },

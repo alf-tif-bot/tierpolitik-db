@@ -65,6 +65,11 @@ const CANTON_FALLBACK_LINKS = {
     { href: 'https://www.vs.ch/fr/web/gc/objets-parlementaires', text: 'Objets parlementaires' },
     { href: 'https://www.vs.ch/fr/web/gc/interventions-parlementaires', text: 'Interventions parlementaires' },
   ],
+  SO: [
+    { href: 'https://ratsinfo.so.ch/', text: 'Ratsinfo Solothurn' },
+    { href: 'https://ratsinfo.so.ch/geschaefte', text: 'Geschäfte' },
+    { href: 'https://ratsinfo.so.ch/interventionen', text: 'Interventionen' },
+  ],
 }
 
 const asList = (value) => String(value || '')
