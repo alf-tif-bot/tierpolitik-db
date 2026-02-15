@@ -3283,8 +3283,8 @@
   {
     "id": "vp-20218162-de",
     "titel": "21.8162 - Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (2)",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 21.8162 - Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (2) (Erledigt).",
+    "typ": "Anfrage",
+    "kurzbeschreibung": "Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und fragt, wie die Schweizer Holznachfrage bei grossflächigen und länger dauernden Sperrungen gedeckt werden soll.",
     "geschaeftsnummer": "21.8162",
     "ebene": "Bund",
     "kanton": null,
@@ -3293,8 +3293,6 @@
     "datumEingereicht": "2021-12-08",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Schwein",
-      "Schweine",
       "Landwirtschaft",
       "Umwelt"
     ],
@@ -3305,9 +3303,9 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "de Courten Thomas",
+        "rolle": "Nationalrat",
+        "partei": "SVP"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20218162",
@@ -3327,16 +3325,14 @@
           "de": "21.8162 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (2)"
         },
         "summary": {
-          "de": "Kurzüberblick: 21.8162 - Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (2) (Erledigt)."
+          "de": "Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und fragt, wie die Schweizer Holznachfrage bei grossflächigen und länger dauernden Sperrungen gedeckt werden soll."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Anfrage"
         },
         "themes": {
           "de": [
-            "schwein",
-            "schweine",
-            "landwirtschaft",
+            "Landwirtschaft",
             "Umwelt"
           ]
         }

@@ -245,6 +245,7 @@ const SUBMITTER_OVERRIDES = {
   '23.7580': { name: 'Rüegger Monika', rolle: 'Nationalrat', partei: 'SVP' },
   '22.7004': { name: 'Egger Mike', rolle: 'Nationalrat', partei: 'SVP' },
   '21.8161': { name: 'de Courten Thomas', rolle: 'Nationalrat', partei: 'SVP' },
+  '21.8162': { name: 'de Courten Thomas', rolle: 'Nationalrat', partei: 'SVP' },
   '21.8163': { name: 'de Courten Thomas', rolle: 'Nationalrat', partei: 'SVP' },
   '21.4435': { name: 'Grüter Franz', rolle: 'Nationalrat', partei: 'Schweizerische Volkspartei' },
   '25.2027': { name: 'Écologie et Altruisme', rolle: 'Petitionskomitee', partei: '' },
@@ -258,6 +259,7 @@ const TYPE_OVERRIDES = {
   '23.7580': 'Anfrage',
   '22.7004': 'Anfrage',
   '21.8161': 'Anfrage',
+  '21.8162': 'Anfrage',
   '21.8163': 'Anfrage',
   '23.7858': 'Anfrage',
   '25.2027': 'Petition',
@@ -274,6 +276,7 @@ const THEME_OVERRIDES = {
   '21.8163': ['Landwirtschaft', 'Staatspolitik', 'Umwelt', 'Beschäftigung und Arbeit'],
   '22.3299': ['Schweinezucht', 'Tierarzneimittel', 'Tierschutz'],
   '21.8161': ['Landwirtschaft', 'Umwelt'],
+  '21.8162': ['Landwirtschaft', 'Umwelt'],
   '21.4435': ['Gesundheit', 'Landwirtschaft', 'Umwelt', 'Wirtschaft'],
   '23.7858': ['Landwirtschaft', 'Umwelt'],
 }
@@ -289,6 +292,7 @@ const SUMMARY_OVERRIDES = {
   '23.7580': 'Die Fragestunde-Frage verlangt vom Bundesrat die Priorisierung des Schutzes von Menschen und Nutztieren vor Wolfsangriffen, inklusive möglicher Verteidigungsabschüsse bei direkten Angriffen.',
   '22.7004': 'Die Fragestunde-Frage kritisiert eine aus Sicht des Einreichers realitätsferne Auslegung der Tierschutzverordnung für Hofhunde und verlangt eine Klärung durch den Bundesrat.',
   '21.8161': 'Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und fragt nach Kriterien für Ausnahmen bei unerlässlichen Forstarbeiten (inkl. Aufforstung und Schutzwaldpflege).',
+  '21.8162': 'Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und fragt, wie die Schweizer Holznachfrage bei grossflächigen und länger dauernden Sperrungen gedeckt werden soll.',
   '21.8163': 'Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und deren Folgen für Forstbetriebe, Personal und Lernende; zudem werden Kompensationsmassnahmen des Bundes nachgefragt.',
   '21.4435': 'Die Motion verlangt, Wildtierpassagen an Nationalstrassen präventiv so auszurüsten, dass Wildschweine sie nicht passieren können, um die Ausbreitung der Afrikanischen Schweinepest einzudämmen.',
   '25.4010': 'Die Motion verlangt ein gesetzlich verankertes Importverbot für chemisch (insbesondere mit Chlor) behandeltes Geflügelfleisch und begründet dies mit Konsumentenschutz, Lebensmittelstandards und handelspolitischer Verlässlichkeit.',
@@ -344,8 +348,11 @@ const repairEncodingArtifacts = (text = '') => String(text)
   .replace(/Parlamentsgesch�ft/gi, 'Parlamentsgeschäft')
   .replace(/Gesch�ftsnummer/gi, 'Geschäftsnummer')
   .replace(/Kurz�berblick/gi, 'Kurzüberblick')
-  .replace(/gem�ss/g, 'gemäss')
+  .replace(/KurzA�berblick/gi, 'Kurzüberblick')
+  .replace(/gem�ss/gi, 'gemäss')
+  .replace(/gemass/gi, 'gemäss')
   .replace(/Gem�ss/g, 'Gemäss')
+  .replace(/GemAss/g, 'Gemäss')
   .replace(/\s�\s/g, ' - ')
 
 const clean = (text = '') => repairEncodingArtifacts(String(text))
