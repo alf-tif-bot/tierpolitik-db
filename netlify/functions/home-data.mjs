@@ -185,6 +185,7 @@ const sanitizeThemes = (arr = []) => arr
 const formatThemeLabel = (value = '') => {
   const s = String(value || '').trim()
   if (!s) return s
+  if (/^tierversuch(e)?$/i.test(s)) return 'Tierversuche'
   return s.charAt(0).toUpperCase() + s.slice(1)
 }
 
@@ -216,6 +217,16 @@ const firstSentence = (text = '') => {
   return c.slice(0, 220)
 }
 
+const isWeakSummarySentence = (text = '') => {
+  const s = String(text || '').toLowerCase().trim()
+  if (!s) return true
+  return s.includes('stellungnahme zum vorstoss liegt vor')
+    || s.includes('stellungnahme liegt vor')
+    || s.includes('antwort liegt vor')
+    || s.includes('|')
+    || /^parlamentsgesch(ä|a)ft\s+/i.test(s)
+}
+
 const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '', sourceId = '' }) => {
   const t = clean(title)
   if (String(sourceId || '').startsWith('ch-municipal-')) {
@@ -242,8 +253,8 @@ const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '', s
     sentences.push('Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.')
   }
 
-  if (s) sentences.push(s)
-  if (b && b !== s) sentences.push(b)
+  if (s && !isWeakSummarySentence(s)) sentences.push(s)
+  if (b && b !== s && !isWeakSummarySentence(b)) sentences.push(b)
 
   const unique = []
   const seen = new Set()
@@ -472,7 +483,7 @@ export const handler = async () => {
         status: statusLabel,
         datumEingereicht: eingereicht,
         datumAktualisiert: updated,
-        themen: baseThemes.map((x) => formatThemeLabel(x)),
+        themen: [...new Set(baseThemes.map((x) => formatThemeLabel(x)))],
         schlagwoerter: (Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierpolitik']).slice(0, 8),
         einreichende: municipalSubmitters.length ? municipalSubmitters : [inferSubmitter(sprache, displayTitle, displaySummary, displayBody)],
         linkGeschaeft: link,
