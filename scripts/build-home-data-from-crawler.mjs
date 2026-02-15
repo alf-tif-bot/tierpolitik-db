@@ -255,6 +255,7 @@ const SUBMITTER_OVERRIDES = {
   '25.4071': { name: 'Dittli Josef', rolle: 'Ständerat', partei: 'FDP.Die Liberalen' },
   '21.3703': { name: 'Badertscher Christine', rolle: 'Nationalrätin', partei: 'Grüne Fraktion' },
   '23.7858': { name: 'Clivaz Christophe', rolle: 'Nationalrat', partei: 'GRÜNE Schweiz' },
+  '25.4812': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'GRÜNE Schweiz' },
 }
 
 const TYPE_OVERRIDES = {
@@ -283,6 +284,7 @@ const THEME_OVERRIDES = {
   '21.8162': ['Landwirtschaft', 'Umwelt'],
   '21.4435': ['Gesundheit', 'Landwirtschaft', 'Umwelt', 'Wirtschaft'],
   '23.7858': ['Landwirtschaft', 'Umwelt'],
+  '25.4812': ['Landwirtschaft', 'Staatspolitik', 'Umwelt'],
 }
 
 const STATUS_OVERRIDES = {
@@ -306,6 +308,7 @@ const SUMMARY_OVERRIDES = {
   '25.4071': 'Die Interpellation fragt, weshalb Equiden in der Schweiz als Heim- oder Nutztiere deklariert werden, und thematisiert die Folgen für Kreislaufwirtschaft und Food Waste bei der Verwertung verstorbener Tiere.',
   '21.3703': 'Die Interpellation verlangt Auskunft, wie die Schweiz im Indonesien-Abkommen den Tierschutz bei tierischen Produkten stärken und den Import von Qualprodukten begrenzen will.',
   '23.7858': 'Die Fragestunde-Frage verlangt vom Bundesrat Angaben zur Entwicklung von Wolfsbestand und Nutztier-Schäden 2022–2023 sowie eine Begründung für den Abschuss ganzer Wolfsrudel trotz sinkender Schäden.',
+  '25.4812': 'Das Postulat beauftragt den Bundesrat zu prüfen, wie der Vollzug des Tierschutzgesetzes in den Kantonen verbessert werden kann, um Fälle wie in Ramiswil zu verhindern. Genannt werden insbesondere eine bessere Zusammenarbeit der Veterinärämter mit Tierschutzorganisationen, der Ausbau von Meldestellen und ausreichende kantonale Ressourcen.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {
@@ -425,7 +428,8 @@ const municipalThemesFromTitle = (title = '') => {
 const isWeakSummarySentence = (text = '') => {
   const s = String(text || '').toLowerCase().trim()
   if (!s) return true
-  return s.includes('stellungnahme zum vorstoss liegt vor')
+  return s === 'eingereicht'
+    || s.includes('stellungnahme zum vorstoss liegt vor')
     || s.includes('stellungnahme liegt vor')
     || s.includes('antwort liegt vor')
     || s.includes('zugewiesen an die behandelnde kommission')

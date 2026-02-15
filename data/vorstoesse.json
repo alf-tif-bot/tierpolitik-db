@@ -185,7 +185,7 @@
     "id": "vp-20202018-de",
     "titel": "20.2018 - Grundrechte für Schweine",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Eingereicht",
+    "kurzbeschreibung": "20.2018 - Grundrechte für Schweine (In Beratung).",
     "geschaeftsnummer": "20.2018",
     "ebene": "Bund",
     "kanton": null,
@@ -225,7 +225,7 @@
           "de": "20.2018 · Grundrechte für Schweine"
         },
         "summary": {
-          "de": "Eingereicht"
+          "de": "20.2018 - Grundrechte für Schweine (In Beratung)."
         },
         "type": {
           "de": "Interpellation"
@@ -3065,7 +3065,7 @@
     "id": "vp-20254788-de",
     "titel": "25.4788 - Wiedereinführung zeitgemäss ausgestalteter Tierhalterbeiträge zur nachhaltigen Sicherung der Nutztierhaltung und Ernährung in der Schweiz",
     "typ": "Motion",
-    "kurzbeschreibung": "Eingereicht",
+    "kurzbeschreibung": "25.4788 - Wiedereinführung zeitgemäss ausgestalteter Tierhalterbeiträge zur nachhaltigen Sicherung der Nutztierhaltung und Ernährung in der Schweiz (In Beratung).",
     "geschaeftsnummer": "25.4788",
     "ebene": "Bund",
     "kanton": null,
@@ -3107,7 +3107,7 @@
           "de": "25.4788 · Wiedereinführung zeitgemäss ausgestalteter Tierhalterbeiträge zur nachhaltigen Sicherung der Nutztierhaltung und Ernährung in der Schweiz"
         },
         "summary": {
-          "de": "Eingereicht"
+          "de": "25.4788 - Wiedereinführung zeitgemäss ausgestalteter Tierhalterbeiträge zur nachhaltigen Sicherung der Nutztierhaltung und Ernährung in der Schweiz (In Beratung)."
         },
         "type": {
           "de": "Motion"
@@ -4349,7 +4349,7 @@
     "id": "vp-20254812-de",
     "titel": "25.4812 - Konsequenzen aus dem Tierschutzfall Ramiswil",
     "typ": "Postulat",
-    "kurzbeschreibung": "Eingereicht",
+    "kurzbeschreibung": "Das Postulat beauftragt den Bundesrat zu prüfen, wie der Vollzug des Tierschutzgesetzes in den Kantonen verbessert werden kann, um Fälle wie in Ramiswil zu verhindern. Genannt werden insbesondere eine bessere Zusammenarbeit der Veterinärämter mit Tierschutzorganisationen, der Ausbau von Meldestellen und ausreichende kantonale Ressourcen.",
     "geschaeftsnummer": "25.4812",
     "ebene": "Bund",
     "kanton": null,
@@ -4358,7 +4358,6 @@
     "datumEingereicht": "2025-12-19",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Tierschutz",
       "Landwirtschaft",
       "Staatspolitik",
       "Umwelt"
@@ -4369,9 +4368,9 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Schneider Meret",
+        "rolle": "Nationalrat",
+        "partei": "GRÜNE Schweiz"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254812",
@@ -4391,15 +4390,14 @@
           "de": "25.4812 · Konsequenzen aus dem Tierschutzfall Ramiswil"
         },
         "summary": {
-          "de": "Eingereicht"
+          "de": "Das Postulat beauftragt den Bundesrat zu prüfen, wie der Vollzug des Tierschutzgesetzes in den Kantonen verbessert werden kann, um Fälle wie in Ramiswil zu verhindern. Genannt werden insbesondere eine bessere Zusammenarbeit der Veterinärämter mit Tierschutzorganisationen, der Ausbau von Meldestellen und ausreichende kantonale Ressourcen."
         },
         "type": {
           "de": "Postulat"
         },
         "themes": {
           "de": [
-            "tierschutz",
-            "landwirtschaft",
+            "Landwirtschaft",
             "Staatspolitik",
             "Umwelt"
           ]
