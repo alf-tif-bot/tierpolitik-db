@@ -6,9 +6,13 @@ import { withPgClient } from '../../crawler/db-postgres.mjs'
 const require = createRequire(import.meta.url)
 
 const initiativeLinksPath = path.resolve(process.cwd(), 'data/initiative-links.json')
+const decisionsPath = path.resolve(process.cwd(), 'data/review-decisions.json')
 const vorstoessePath = path.resolve(process.cwd(), 'data/vorstoesse.json')
 const initiativeLinkMap = fs.existsSync(initiativeLinksPath)
   ? JSON.parse(fs.readFileSync(initiativeLinksPath, 'utf8'))
+  : {}
+const reviewDecisions = fs.existsSync(decisionsPath)
+  ? JSON.parse(fs.readFileSync(decisionsPath, 'utf8'))
   : {}
 
 let fallbackVorstoesse = []
@@ -261,6 +265,13 @@ const isPublicSourceId = (sourceId = '') => {
   return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-')
 }
 
+const effectiveStatusForRow = (row) => {
+  const key = `${row?.source_id || ''}:${row?.external_id || ''}`
+  const decisionStatus = String(reviewDecisions?.[key]?.status || '').toLowerCase()
+  if (decisionStatus) return decisionStatus
+  return String(row?.status || '').toLowerCase()
+}
+
 export const handler = async () => {
   try {
     const rows = await withPgClient(async (client) => {
@@ -299,8 +310,11 @@ export const handler = async () => {
       return res.rows
     })
 
+    const effectiveRows = rows
+      .filter((r) => ['approved', 'published'].includes(effectiveStatusForRow(r)))
+
     const affairIds = [...new Set(
-      rows
+      effectiveRows
         .filter((r) => isParliamentSourceId(r.source_id))
         .map((r) => String(r.external_id || '').split('-')[0])
         .filter(Boolean),
@@ -334,7 +348,7 @@ export const handler = async () => {
     }
 
     const variantsByAffair = new Map()
-    for (const row of rows) {
+    for (const row of effectiveRows) {
       if (!isParliamentSourceId(row.source_id)) continue
       const affairId = String(row.external_id || '').split('-')[0]
       if (!affairId) continue
@@ -350,7 +364,7 @@ export const handler = async () => {
     }
 
     const grouped = new Map()
-    for (const row of rows) {
+    for (const row of effectiveRows) {
       const isParliament = isParliamentSourceId(row.source_id)
       const key = isParliament
         ? String(row.external_id || '').split('-')[0]

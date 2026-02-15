@@ -56,6 +56,10 @@ const MUNICIPAL_THEME_CONTEXT_KEYWORDS = [
 const isMunicipalTopicRelevant = (item) => {
   const sid = String(item?.sourceId || '')
   if (!sid.startsWith('ch-municipal-')) return true
+  const decisionKey = `${item?.sourceId || ''}:${item?.externalId || ''}`
+  const decisionStatus = String(localDecisions?.[decisionKey]?.status || '').toLowerCase()
+  const feedbackQueued = String(item?.reviewReason || '').toLowerCase().includes('user-feedback=irrelevant')
+  if (feedbackQueued || decisionStatus === 'queued' || decisionStatus === 'new' || decisionStatus === 'rejected') return true
   const text = `${item?.title || ''}\n${item?.summary || ''}\n${item?.body || ''}`.toLowerCase()
   const strongHits = MUNICIPAL_THEME_STRONG_KEYWORDS.filter((kw) => text.includes(kw)).length
   const contextHits = MUNICIPAL_THEME_CONTEXT_KEYWORDS.filter((kw) => text.includes(kw)).length

@@ -395,10 +395,13 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     const normalizedDecision = ['queued', 'approved', 'published', 'rejected'].includes(String(itemDecision))
       ? String(itemDecision)
       : null
-    const isManualLocked = ['approved', 'published'].includes(prevStatus) || normalizedDecision !== null
+    const feedbackIrrelevantLocked = String(item.reviewReason || '').toLowerCase().includes('user-feedback=irrelevant')
+    const isManualLocked = ['approved', 'published'].includes(prevStatus) || normalizedDecision !== null || feedbackIrrelevantLocked
 
     if (normalizedDecision) {
       item.status = normalizedDecision === 'published' ? 'published' : normalizedDecision
+    } else if (feedbackIrrelevantLocked) {
+      item.status = 'queued'
     } else if (!isManualLocked) {
       item.status = isRelevant ? 'queued' : 'rejected'
     }

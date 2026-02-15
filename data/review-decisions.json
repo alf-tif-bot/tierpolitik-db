@@ -2668,8 +2668,8 @@
     "decidedAt": "2026-02-14T13:13:23.531Z"
   },
   "ch-municipal-parliament-bern-zurich:municipal-bern-1c6dc829b4ba": {
-    "status": "rejected",
-    "decidedAt": "2026-02-14T22:31:47.670Z"
+    "status": "queued",
+    "decidedAt": "2026-02-15T09:05:56.246Z"
   },
   "ch-municipal-parliament-bern-zurich:municipal-bern-api-c6c65c8ce8a84435af97428996dadc64": {
     "status": "approved",

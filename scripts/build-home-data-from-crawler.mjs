@@ -2,11 +2,15 @@ import fs from 'node:fs'
 
 const crawlerDbPath = new URL('../data/crawler-db.json', import.meta.url)
 const initiativeLinksPath = new URL('../data/initiative-links.json', import.meta.url)
+const decisionsPath = new URL('../data/review-decisions.json', import.meta.url)
 const outPath = new URL('../data/vorstoesse.json', import.meta.url)
 
 const db = JSON.parse(fs.readFileSync(crawlerDbPath, 'utf8'))
 const initiativeLinkMap = fs.existsSync(initiativeLinksPath)
   ? JSON.parse(fs.readFileSync(initiativeLinksPath, 'utf8'))
+  : {}
+const reviewDecisions = fs.existsSync(decisionsPath)
+  ? JSON.parse(fs.readFileSync(decisionsPath, 'utf8'))
   : {}
 
 const toIsoDate = (v, fallbackYear) => {
@@ -320,10 +324,17 @@ const isPublicSourceId = (sourceId = '') => {
   return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-')
 }
 
+const effectiveStatusFor = (item) => {
+  const key = `${item?.sourceId || ''}:${item?.externalId || ''}`
+  const decisionStatus = String(reviewDecisions?.[key]?.status || '').toLowerCase()
+  if (decisionStatus) return decisionStatus
+  return String(item?.status || '').toLowerCase()
+}
+
 const baseItems = (db.items || [])
   .filter((item) => !item?.meta?.scaffold)
   .filter((item) => isPublicSourceId(item?.sourceId))
-  .filter((item) => ['approved', 'published'].includes(item.status))
+  .filter((item) => ['approved', 'published'].includes(effectiveStatusFor(item)))
 
 const groupedByAffair = new Map()
 for (const item of baseItems) {
