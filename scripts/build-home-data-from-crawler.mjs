@@ -181,10 +181,26 @@ const inferYearFromBusiness = (title = '', externalId = '') => {
   return undefined
 }
 
+const formatBusinessNumber = (title = '', externalId = '') => {
+  const titleMatch = String(title || '').match(/\b(\d{2}\.\d{4})\b/)
+  if (titleMatch?.[1]) return titleMatch[1]
+  const num = String(externalId || '').split('-')[0]
+  const m = num.match(/^(\d{4})(\d{4})$/)
+  if (m) {
+    const yy = String(Number(m[1]) % 100).padStart(2, '0')
+    return `${yy}.${m[2]}`
+  }
+  return String(externalId || '')
+}
+
 const fallbackPeopleByLang = {
-  de: { name: 'Parlamentsgeschäft (Bund)', rolle: 'Nationalrat', partei: 'Überparteilich' },
-  fr: { name: 'Objet parlementaire (Confédération)', rolle: 'Nationalrat', partei: 'Überparteilich' },
-  it: { name: 'Atto parlamentare (Confederazione)', rolle: 'Nationalrat', partei: 'Überparteilich' },
+  de: { name: 'Gemäss Curia Vista', rolle: '', partei: '' },
+  fr: { name: 'Selon Curia Vista', rolle: '', partei: '' },
+  it: { name: 'Secondo Curia Vista', rolle: '', partei: '' },
+}
+
+const SUBMITTER_OVERRIDES = {
+  '25.4380': { name: 'Mathilde Crevoisier Crelier', rolle: 'Ständerat', partei: 'SP' },
 }
 
 const parseMunicipalSubmitters = (body = '') => {
@@ -215,8 +231,8 @@ const inferSubmitter = (lang, title = '', summary = '', body = '', item = null) 
   if (text.includes('bundesrat') || text.includes('message du conseil fédéral') || text.includes('messaggio del consiglio federale')) {
     return { name: 'Bundesrat', rolle: 'Regierung', partei: 'Bundesrat' }
   }
-  if (text.includes('kommission')) {
-    return { name: 'Parlamentarische Kommission', rolle: 'Nationalrat', partei: 'Überparteilich' }
+  if (text.includes('kommission') && text.includes('curia vista')) {
+    return fallbackPeopleByLang[lang] || fallbackPeopleByLang.de
   }
   return fallbackPeopleByLang[lang] || fallbackPeopleByLang.de
 }
@@ -248,7 +264,7 @@ const firstSentence = (text = '') => {
   return c.slice(0, 220)
 }
 
-const THEME_EXCLUDE = new Set(['botschaft', 'initiative', 'motion', 'postulat', 'interpellation', 'anfrage'])
+const THEME_EXCLUDE = new Set(['botschaft', 'initiative', 'motion', 'postulat', 'interpellation', 'anfrage', 'gesetz'])
 
 const sanitizeThemes = (arr = []) => arr
   .map((x) => String(x || '').trim())
@@ -259,6 +275,7 @@ const formatThemeLabel = (value = '') => {
   const s = String(value || '').trim()
   if (!s) return s
   if (/^tierversuch(e)?$/i.test(s)) return 'Tierversuche'
+  if (/^geflügel$/i.test(s) || /^gefluegel$/i.test(s)) return 'Masthühner'
   return s.charAt(0).toUpperCase() + s.slice(1)
 }
 
@@ -282,6 +299,7 @@ const isWeakSummarySentence = (text = '') => {
   return s.includes('stellungnahme zum vorstoss liegt vor')
     || s.includes('stellungnahme liegt vor')
     || s.includes('antwort liegt vor')
+    || s.includes('zugewiesen an die behandelnde kommission')
     || s.includes('|')
     || /^parlamentsgesch(ä|a)ft\s+/i.test(s)
 }
@@ -301,7 +319,10 @@ const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '', s
 
   const sentences = []
 
-  if (low.includes('stopfleber') || low.includes('foie gras')) {
+  if (low.includes('chlorhühner') || low.includes('chlorhuehner') || (low.includes('geflügel') && low.includes('importverbot'))) {
+    sentences.push('Der Vorstoss verlangt ein klares Importverbot für chemisch behandeltes Geflügelfleisch ("Chlorhühner") und die Verankerung im Gesetz.')
+    sentences.push('Im Fokus steht, ob Tierschutz- und Konsumentenschutzstandards im Import konsequent abgesichert werden.')
+  } else if (low.includes('stopfleber') || low.includes('foie gras')) {
     sentences.push('Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs.')
     sentences.push('Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll.')
   } else if (low.includes('tierversuch') || low.includes('3r') || low.includes('expérimentation animale')) {
@@ -479,13 +500,15 @@ const vorstoesse = items.map((item, index) => {
   const municipalSubmitters = String(item?.sourceId || '').startsWith('ch-municipal-')
     ? parseMunicipalSubmitters(displayBody)
     : []
+  const businessNumber = formatBusinessNumber(displayTitle, item.externalId || `AUTO-${index + 1}`)
+  const submitterOverride = SUBMITTER_OVERRIDES[businessNumber]
 
   return {
     id: `vp-${idSafe.toLowerCase()}`,
     titel: displayTitle || `Vorstoss ${index + 1}`,
     typ,
     kurzbeschreibung: summaryText,
-    geschaeftsnummer: String(item.externalId || `AUTO-${index + 1}`),
+    geschaeftsnummer: businessNumber,
     ebene: levelFromItem(item),
     kanton: cantonFromItem(item),
     regionGemeinde: regionFromItem(item),
@@ -494,7 +517,9 @@ const vorstoesse = items.map((item, index) => {
     datumAktualisiert: updated,
     themen: [...new Set(baseThemes.map((x) => formatThemeLabel(x)))],
     schlagwoerter: (item.matchedKeywords?.length ? item.matchedKeywords : ['Tierpolitik']).slice(0, 8),
-    einreichende: municipalSubmitters.length ? municipalSubmitters : [inferSubmitter(sprache, displayTitle, displaySummary, displayBody, item)],
+    einreichende: submitterOverride
+      ? [submitterOverride]
+      : (municipalSubmitters.length ? municipalSubmitters : [inferSubmitter(sprache, displayTitle, displaySummary, displayBody, item)]),
     linkGeschaeft: link,
     resultate: [
       {
