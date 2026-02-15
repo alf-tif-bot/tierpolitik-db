@@ -41,6 +41,8 @@ const normalizeTitle = (value: string, typ?: string) => {
   return out
 }
 
+const API_BASE = (import.meta.env.VITE_API_BASE || '/.netlify/functions').replace(/\/$/, '')
+
 type TimelineItem = {
   datum: string
   label: string
@@ -124,7 +126,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
         category: feedbackType,
         message: feedbackText,
       }
-      const res = await fetch('/.netlify/functions/feedback-submit', {
+      const res = await fetch(`${API_BASE}/feedback-submit`, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(payload),

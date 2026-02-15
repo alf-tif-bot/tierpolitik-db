@@ -25,6 +25,8 @@ const fallbackData = (() => {
   }
 })()
 
+const API_BASE = (import.meta.env.VITE_API_BASE || '/.netlify/functions').replace(/\/$/, '')
+
 const isSaneLivePayload = (rows: Vorstoss[]) => {
   if (!rows.length) return false
   const placeholderTitles = rows.filter((v) => /^vorstoss\s+\d+$/i.test(String(v.titel || '').trim())).length
@@ -68,7 +70,7 @@ export default function App() {
   useEffect(() => {
     const loadLive = async () => {
       try {
-        const res = await fetch('/.netlify/functions/home-data', { cache: 'no-store' })
+        const res = await fetch(`${API_BASE}/home-data`, { cache: 'no-store' })
         if (!res.ok) return
         const payload = await res.json()
         let parsed: Vorstoss[] = []
