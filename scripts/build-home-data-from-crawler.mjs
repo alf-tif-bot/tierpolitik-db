@@ -232,6 +232,7 @@ const fallbackPeopleByLang = {
 }
 
 const SUBMITTER_OVERRIDES = {
+  '21.044': { name: 'Bundesrat', rolle: 'Regierung', partei: 'Bundesrat' },
   '25.4010': { name: 'David Roth', rolle: 'Nationalrat', partei: 'SP' },
   '25.4380': { name: 'Mathilde Crevoisier Crelier', rolle: 'Ständerat', partei: 'SP' },
   '24.3277': { name: 'Lorenz Hess', rolle: 'Nationalrat', partei: 'Die Mitte' },
@@ -258,6 +259,7 @@ const TYPE_OVERRIDES = {
 }
 
 const THEME_OVERRIDES = {
+  '21.044': ['Landwirtschaft', 'Umwelt'],
   '20.4731': ['Nutztiere', 'Landwirtschaft', 'Umwelt'],
   '21.3002': ['Umwelt', 'Landwirtschaft'],
   '23.7580': ['Landwirtschaft', 'Umwelt'],
@@ -267,6 +269,10 @@ const THEME_OVERRIDES = {
   '21.8163': ['Landwirtschaft', 'Staatspolitik', 'Umwelt', 'Beschäftigung und Arbeit'],
   '22.3299': ['Schweinezucht', 'Tierarzneimittel', 'Tierschutz'],
   '21.8161': ['Landwirtschaft', 'Umwelt'],
+}
+
+const STATUS_OVERRIDES = {
+  '21.044': 'Erledigt',
 }
 
 const SUMMARY_OVERRIDES = {
@@ -308,7 +314,14 @@ const inferSubmitter = (lang, title = '', summary = '', body = '', item = null) 
   if (text.includes('blv') || text.includes('lebensmittelsicherheit') || text.includes('veterinärwesen')) {
     return { name: 'BLV', rolle: 'Regierung', partei: 'Bundesverwaltung' }
   }
-  if (text.includes('eingereicht von bundesrat') || text.includes('message du conseil fédéral') || text.includes('messaggio del consiglio federale')) {
+  if (
+    text.includes('eingereicht von bundesrat')
+    || text.includes('message du conseil fédéral')
+    || text.includes('messaggio del consiglio federale')
+    || text.includes('geschäft des bundesrates')
+    || text.includes('geschaeft des bundesrates')
+    || (text.includes('botschaft') && text.includes('volksinitiative'))
+  ) {
     return { name: 'Bundesrat', rolle: 'Regierung', partei: 'Bundesrat' }
   }
   if (text.includes('kommission') && text.includes('curia vista')) {
@@ -550,7 +563,7 @@ const vorstoesse = items.map((item, index) => {
   const inferredYear = inferYearFromBusiness(displayTitle, item.externalId)
   const eingereicht = toIsoDate(item.publishedAt || item.fetchedAt, inferredYear)
   const updated = toIsoDate(item.fetchedAt || item.publishedAt)
-  const status = mapStatus(item.status, item?.meta?.rawStatus || '', displaySummary, displayBody)
+  const inferredStatus = mapStatus(item.status, item?.meta?.rawStatus || '', displaySummary, displayBody)
   const businessNumber = formatBusinessNumber(
     displayTitle,
     item.externalId || `AUTO-${index + 1}`,
@@ -558,6 +571,7 @@ const vorstoesse = items.map((item, index) => {
     displayBody,
     item?.meta,
   )
+  const status = STATUS_OVERRIDES[businessNumber] || inferredStatus
   const inferredType = inferType(displayTitle, item.sourceId, item?.languageVariants?.de?.businessTypeName || '', item?.meta?.rawType || '')
   const typ = TYPE_OVERRIDES[businessNumber] || inferredType
   const stance = extractStance(item.reviewReason, displayTitle, displaySummary, displayBody)

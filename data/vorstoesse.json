@@ -2019,9 +2019,9 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Bundesrat",
+        "rolle": "Regierung",
+        "partei": "Bundesrat"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250059",
@@ -3022,9 +3022,9 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Bundesrat",
+        "rolle": "Regierung",
+        "partei": "Bundesrat"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250078",
@@ -3133,16 +3133,12 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-05-19",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Massentierhaltung",
-      "Massentier",
-      "Animal",
-      "Animaux",
-      "Élevage",
-      "Elevage"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tiere",
@@ -3156,16 +3152,16 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Bundesrat",
+        "rolle": "Regierung",
+        "partei": "Bundesrat"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20210044",
     "resultate": [
       {
         "datum": "2021-05-19",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3191,12 +3187,8 @@
         },
         "themes": {
           "de": [
-            "massentierhaltung",
-            "massentier",
-            "animal",
-            "animaux",
-            "élevage",
-            "elevage"
+            "Landwirtschaft",
+            "Umwelt"
           ],
           "fr": [
             "tiere",
@@ -4605,9 +4597,9 @@
     ],
     "einreichende": [
       {
-        "name": "Secondo Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Bundesrat",
+        "rolle": "Regierung",
+        "partei": "Bundesrat"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20240089",
