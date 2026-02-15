@@ -35,7 +35,7 @@ async function fetchAffair(id, lang) {
   const params = new URLSearchParams({
     '$top': '1',
     '$filter': filter,
-    '$select': 'ID,Language,BusinessShortNumber,Title,Description,TagNames,SubmissionDate,Modified,BusinessStatusText',
+    '$select': 'ID,Language,BusinessShortNumber,Title,Description,TagNames,SubmissionDate,Modified,BusinessStatusText,SubmittedBy',
     '$format': 'json',
   })
   const url = `https://ws.parlament.ch/odata.svc/Business?${params.toString()}`
@@ -71,6 +71,9 @@ async function run() {
         matchedKeywords: ['seed-core'],
         status: 'new',
         reviewReason: `Seed import: ${seed.label || seed.id}`,
+        meta: {
+          submittedBy: stripHtml(row.SubmittedBy || ''),
+        },
       })
     }
   }

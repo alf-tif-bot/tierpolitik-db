@@ -242,6 +242,7 @@ const SUBMITTER_OVERRIDES = {
   '20.4731': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
   '21.3002': { name: 'Kommission für Umwelt, Raumplanung und Energie Ständerat', rolle: 'Kommission', partei: '' },
   '22.3299': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
+  '23.3411': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
   '23.7580': { name: 'Rüegger Monika', rolle: 'Nationalrat', partei: 'SVP' },
   '22.7004': { name: 'Egger Mike', rolle: 'Nationalrat', partei: 'SVP' },
   '21.8161': { name: 'de Courten Thomas', rolle: 'Nationalrat', partei: 'SVP' },
@@ -322,8 +323,13 @@ const parseMunicipalSubmitters = (body = '') => {
 
 const inferSubmitter = (lang, title = '', summary = '', body = '', item = null) => {
   const text = `${title} ${summary} ${body}`.toLowerCase()
-  if (String(item?.sourceId || '').toLowerCase().includes('municipal')) {
+  const sourceId = String(item?.sourceId || '').toLowerCase()
+  if (sourceId.includes('municipal')) {
     return { name: String(item?.meta?.parliament || item?.meta?.municipality || 'Stadtparlament'), rolle: 'Gemeinderat', partei: 'Überparteilich' }
+  }
+  const submitterFromMeta = clean(item?.meta?.submittedBy || item?.meta?.submitter || '')
+  if (sourceId.startsWith('ch-parliament-') && submitterFromMeta) {
+    return { name: submitterFromMeta, rolle: 'Parlament', partei: '' }
   }
   if (text.includes('blv') || text.includes('lebensmittelsicherheit') || text.includes('veterinärwesen')) {
     return { name: 'BLV', rolle: 'Regierung', partei: 'Bundesverwaltung' }
