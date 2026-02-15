@@ -123,6 +123,18 @@
       "cities": "bern,zuerich",
       "maxItemsPerCity": 24
     }
+  },
+  {
+    "id": "ch-cantonal-be-rss",
+    "label": "Grosser Rat Bern – Vorstösse (RSS)",
+    "type": "rss",
+    "adapter": "rss",
+    "url": "https://www.rrgr-service.apps.be.ch/api/gr/instances/1796b1af-bd1e-4ffa-a80d-ba08d1b8a2ed/render?lang=de",
+    "enabled": true,
+    "options": {
+      "canton": "BE",
+      "sinceYear": 2020
+    }
   }
 ]
 
