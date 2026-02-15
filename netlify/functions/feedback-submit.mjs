@@ -1,9 +1,26 @@
 import { withPgClient } from '../../crawler/db-postgres.mjs'
 
+const ALLOWED_ORIGINS = new Set([
+  'https://monitor.tierimfokus.ch',
+  'https://tierpolitik.netlify.app',
+])
+
+const corsHeaders = (origin = '') => ({
+  'content-type': 'application/json; charset=utf-8',
+  'access-control-allow-origin': ALLOWED_ORIGINS.has(origin) ? origin : 'https://monitor.tierimfokus.ch',
+  'access-control-allow-methods': 'GET,POST,OPTIONS',
+  'access-control-allow-headers': 'content-type,authorization',
+  'access-control-allow-credentials': 'false',
+})
+
 export const handler = async (event) => {
+  const origin = String(event?.headers?.origin || event?.headers?.Origin || '')
   try {
+    if (event.httpMethod === 'OPTIONS') {
+      return { statusCode: 204, headers: corsHeaders(origin), body: '' }
+    }
     if (event.httpMethod !== 'POST') {
-      return { statusCode: 405, body: 'Method Not Allowed' }
+      return { statusCode: 405, headers: corsHeaders(origin), body: 'Method Not Allowed' }
     }
 
     const body = JSON.parse(event.body || '{}')
@@ -14,7 +31,7 @@ export const handler = async (event) => {
     const businessNo = String(body.geschaeftsnummer || '')
 
     if (!title || !url) {
-      return { statusCode: 400, body: JSON.stringify({ ok: false, error: 'title/link missing' }) }
+      return { statusCode: 400, headers: corsHeaders(origin), body: JSON.stringify({ ok: false, error: 'title/link missing' }) }
     }
 
     const id = `feedback-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`
@@ -60,13 +77,13 @@ export const handler = async (event) => {
 
     return {
       statusCode: 200,
-      headers: { 'content-type': 'application/json; charset=utf-8' },
+      headers: corsHeaders(origin),
       body: JSON.stringify({ ok: true, id }),
     }
   } catch (error) {
     return {
       statusCode: 500,
-      headers: { 'content-type': 'application/json; charset=utf-8' },
+      headers: corsHeaders(origin),
       body: JSON.stringify({ ok: false, error: error.message || 'feedback submit failed' }),
     }
   }

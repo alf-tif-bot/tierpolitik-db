@@ -5,6 +5,19 @@ import { withPgClient } from '../../crawler/db-postgres.mjs'
 
 const require = createRequire(import.meta.url)
 
+const ALLOWED_ORIGINS = new Set([
+  'https://monitor.tierimfokus.ch',
+  'https://tierpolitik.netlify.app',
+])
+
+const corsHeaders = (origin = '') => ({
+  'content-type': 'application/json; charset=utf-8',
+  'access-control-allow-origin': ALLOWED_ORIGINS.has(origin) ? origin : 'https://monitor.tierimfokus.ch',
+  'access-control-allow-methods': 'GET,POST,OPTIONS',
+  'access-control-allow-headers': 'content-type,authorization',
+  'access-control-allow-credentials': 'false',
+})
+
 const initiativeLinksPath = path.resolve(process.cwd(), 'data/initiative-links.json')
 const decisionsPath = path.resolve(process.cwd(), 'data/review-decisions.json')
 const vorstoessePath = path.resolve(process.cwd(), 'data/vorstoesse.json')
@@ -311,7 +324,11 @@ const effectiveStatusForRow = (row) => {
   return String(row?.status || '').toLowerCase()
 }
 
-export const handler = async () => {
+export const handler = async (event) => {
+  const origin = String(event?.headers?.origin || event?.headers?.Origin || '')
+  if (event?.httpMethod === 'OPTIONS') {
+    return { statusCode: 204, headers: corsHeaders(origin), body: '' }
+  }
   try {
     const rows = await withPgClient(async (client) => {
       const res = await client.query(`
@@ -535,13 +552,13 @@ export const handler = async () => {
 
     return {
       statusCode: 200,
-      headers: { 'content-type': 'application/json; charset=utf-8' },
+      headers: corsHeaders(origin),
       body: JSON.stringify(payload),
     }
   } catch {
     return {
       statusCode: 200,
-      headers: { 'content-type': 'application/json; charset=utf-8' },
+      headers: corsHeaders(origin),
       body: JSON.stringify(fallbackVorstoesse),
     }
   }

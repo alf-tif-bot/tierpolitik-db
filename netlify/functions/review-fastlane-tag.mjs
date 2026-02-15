@@ -1,9 +1,26 @@
 import { withPgClient } from '../../crawler/db-postgres.mjs'
 
+const ALLOWED_ORIGINS = new Set([
+  'https://monitor.tierimfokus.ch',
+  'https://tierpolitik.netlify.app',
+])
+
+const corsHeaders = (origin = '') => ({
+  'content-type': 'application/json; charset=utf-8',
+  'access-control-allow-origin': ALLOWED_ORIGINS.has(origin) ? origin : 'https://monitor.tierimfokus.ch',
+  'access-control-allow-methods': 'GET,POST,OPTIONS',
+  'access-control-allow-headers': 'content-type,authorization',
+  'access-control-allow-credentials': 'false',
+})
+
 export const handler = async (event) => {
+  const origin = String(event?.headers?.origin || event?.headers?.Origin || '')
   try {
+    if (event.httpMethod === 'OPTIONS') {
+      return { statusCode: 204, headers: corsHeaders(origin), body: '' }
+    }
     if (event.httpMethod !== 'POST') {
-      return { statusCode: 405, body: 'Method Not Allowed' }
+      return { statusCode: 405, headers: corsHeaders(origin), body: 'Method Not Allowed' }
     }
 
     const body = JSON.parse(event.body || '{}')
@@ -12,7 +29,7 @@ export const handler = async (event) => {
     const taggedAt = body.taggedAt ? new Date(body.taggedAt) : new Date()
 
     if (!id.includes(':')) {
-      return { statusCode: 400, body: JSON.stringify({ ok: false, error: 'id must be sourceId:externalId' }) }
+      return { statusCode: 400, headers: corsHeaders(origin), body: JSON.stringify({ ok: false, error: 'id must be sourceId:externalId' }) }
     }
 
     const submissionId = `fastlane-tag:${id}`
@@ -38,13 +55,13 @@ export const handler = async (event) => {
 
     return {
       statusCode: 200,
-      headers: { 'content-type': 'application/json; charset=utf-8' },
+      headers: corsHeaders(origin),
       body: JSON.stringify({ ok: true, id, fastlane }),
     }
   } catch (error) {
     return {
       statusCode: 500,
-      headers: { 'content-type': 'application/json; charset=utf-8' },
+      headers: corsHeaders(origin),
       body: JSON.stringify({ ok: false, error: error.message || 'tag failed' }),
     }
   }

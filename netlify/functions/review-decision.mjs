@@ -2,6 +2,19 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { withPgClient } from '../../crawler/db-postgres.mjs'
 
+const ALLOWED_ORIGINS = new Set([
+  'https://monitor.tierimfokus.ch',
+  'https://tierpolitik.netlify.app',
+])
+
+const corsHeaders = (origin = '') => ({
+  'content-type': 'application/json; charset=utf-8',
+  'access-control-allow-origin': ALLOWED_ORIGINS.has(origin) ? origin : 'https://monitor.tierimfokus.ch',
+  'access-control-allow-methods': 'GET,POST,OPTIONS',
+  'access-control-allow-headers': 'content-type,authorization',
+  'access-control-allow-credentials': 'false',
+})
+
 const crawlerDbPath = path.resolve(process.cwd(), 'data/crawler-db.json')
 const crawlerDb = fs.existsSync(crawlerDbPath)
   ? JSON.parse(fs.readFileSync(crawlerDbPath, 'utf8'))
@@ -21,9 +34,13 @@ const findCrawlerItem = (sourceId, externalId) => {
 const ALLOWED = new Set(['approved', 'rejected', 'queued'])
 
 export const handler = async (event) => {
+  const origin = String(event?.headers?.origin || event?.headers?.Origin || '')
   try {
+    if (event.httpMethod === 'OPTIONS') {
+      return { statusCode: 204, headers: corsHeaders(origin), body: '' }
+    }
     if (event.httpMethod !== 'POST') {
-      return { statusCode: 405, body: 'Method Not Allowed' }
+      return { statusCode: 405, headers: corsHeaders(origin), body: 'Method Not Allowed' }
     }
 
     const body = JSON.parse(event.body || '{}')
@@ -32,10 +49,10 @@ export const handler = async (event) => {
     const decidedAt = body.decidedAt ? new Date(body.decidedAt) : new Date()
 
     if (!decisionId.includes(':')) {
-      return { statusCode: 400, body: JSON.stringify({ error: 'id must be sourceId:externalId' }) }
+      return { statusCode: 400, headers: corsHeaders(origin), body: JSON.stringify({ error: 'id must be sourceId:externalId' }) }
     }
     if (!ALLOWED.has(status)) {
-      return { statusCode: 400, body: JSON.stringify({ error: 'invalid status' }) }
+      return { statusCode: 400, headers: corsHeaders(origin), body: JSON.stringify({ error: 'invalid status' }) }
     }
 
     const [sourceId, externalIdRaw] = decisionId.split(':')
@@ -144,13 +161,13 @@ export const handler = async (event) => {
 
     return {
       statusCode: 200,
-      headers: { 'content-type': 'application/json; charset=utf-8' },
+      headers: corsHeaders(origin),
       body: JSON.stringify({ ok: true, ...result }),
     }
   } catch (error) {
     return {
       statusCode: 500,
-      headers: { 'content-type': 'application/json; charset=utf-8' },
+      headers: corsHeaders(origin),
       body: JSON.stringify({ ok: false, error: error.message || 'decision failed' }),
     }
   }
