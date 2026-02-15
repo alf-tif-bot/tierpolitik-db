@@ -214,6 +214,7 @@ const fallbackPeopleByLang = {
 }
 
 const SUBMITTER_OVERRIDES = {
+  '25.4010': { name: 'David Roth', rolle: 'Nationalrat', partei: 'SP' },
   '25.4380': { name: 'Mathilde Crevoisier Crelier', rolle: 'Ständerat', partei: 'SP' },
   '24.3277': { name: 'Lorenz Hess', rolle: 'Nationalrat', partei: 'Die Mitte' },
   '20.4731': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
