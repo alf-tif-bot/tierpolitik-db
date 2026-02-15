@@ -22,6 +22,7 @@ export const ANCHOR_KEYWORDS = [
   'maltraitance animale', 'detention des animaux', 'detenzione di animali',
   'herdenschutz', 'wildtierkorridor', 'faune sauvage', 'fauna selvatica',
   'jagdbann', 'wildruhezone', 'fischsterben', 'amphibien',
+  'tierquaelerei', 'tierquälerei', 'wildschwein', 'herdenschutzhund', 'streunerkatzen', 'kastrationspflicht',
 ]
 
 const SUPPORT_KEYWORDS = [
@@ -95,6 +96,11 @@ const PARLIAMENT_PROCESS_KEYWORDS = [
   'intervention parlementaire',
   'objet parlementaire',
   'atto parlamentare',
+  'kantonsrat',
+  'landrat',
+  'grosser rat',
+  'grand conseil',
+  'gran consiglio',
 ]
 
 const PROCESS_ONLY_SUPPORT_KEYWORDS = new Set([

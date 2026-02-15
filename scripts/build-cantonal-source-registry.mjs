@@ -87,6 +87,9 @@ const classifyReadiness = ({ url = '', platform = 'generic-site', ok = false, ht
 
   if (!ok || platform === 'waf-challenge') {
     if (httpStatus === 429 && (hasParliamentSignals || hasParliamentHint || platform === 'parliament-portal')) return 'site-discovery-needed'
+    if ([404, 410, 500, 502, 503].includes(Number(httpStatus)) && (hasParliamentSignals || hasParliamentHint || platform === 'parliament-portal')) {
+      return 'site-discovery-needed'
+    }
     if (httpStatus === 403 || platform === 'waf-challenge') return 'blocked-needs-manual'
     return 'unreachable-needs-manual'
   }
