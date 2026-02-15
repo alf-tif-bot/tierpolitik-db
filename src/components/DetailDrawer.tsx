@@ -250,16 +250,18 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
             </li>
           ))}
         </ul>
-        <button
-          className="bug-report-fab"
-          type="button"
-          onClick={() => {
-            setFeedbackOpen((open) => !open)
-            setFeedbackState('idle')
-          }}
-        >
-          Feedback
-        </button>
+        {!feedbackOpen && (
+          <button
+            className="bug-report-fab"
+            type="button"
+            onClick={() => {
+              setFeedbackOpen((open) => !open)
+              setFeedbackState('idle')
+            }}
+          >
+            Feedback
+          </button>
+        )}
 
         {feedbackOpen && (
           <div className="feedback-modal" role="dialog" aria-modal="true">
@@ -295,7 +297,13 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
                 {feedbackState === 'saving' ? 'Sende…' : 'Senden'}
               </button>
             </div>
-            {feedbackState === 'done' && <p className="muted">Danke dir fürs Feedback 🙌</p>}
+            {feedbackState === 'done' && (
+              <p className="muted">
+                {feedbackType === 'Beschreibung verbessern'
+                  ? 'Danke dir 💚 Beschreibung wird automatisch überarbeitet.'
+                  : 'Danke dir fürs Feedback 💚'}
+              </p>
+            )}
             {feedbackState === 'error' && <p className="muted">Feedback konnte nicht gesendet werden.</p>}
           </div>
         )}
