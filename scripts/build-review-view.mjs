@@ -69,13 +69,20 @@ const isMunicipalTopicRelevant = (item) => {
   return strongHits > 0 || contextHits >= 2
 }
 
+const normalizeReviewStatus = (item) => {
+  const sid = String(item?.sourceId || '')
+  const status = String(item?.status || '')
+  if (sid.startsWith('ch-cantonal-') && status === 'rejected') return 'queued'
+  return status
+}
+
 const baseReviewItems = [...db.items]
   .filter((item) => enabledSourceIds.has(item.sourceId) || String(item.sourceId || '') === 'user-input')
   .filter((item) => {
     const sid = String(item.sourceId || '')
     return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-') || sid === 'user-input'
   })
-  .filter((item) => ['new', 'queued', 'approved', 'published'].includes(item.status))
+  .filter((item) => ['new', 'queued', 'approved', 'published'].includes(normalizeReviewStatus(item)))
   .filter((item) => !isMunicipalOverviewNoise(item))
   .filter((item) => isMunicipalTopicRelevant(item))
   .filter((item) => isInTargetHorizon(item))
@@ -104,7 +111,7 @@ const langRank = (item) => {
 }
 
 const statusRank = (item) => {
-  const s = String(item.status || '')
+  const s = String(normalizeReviewStatus(item) || '')
   if (s === 'published') return 3
   if (s === 'approved') return 2
   if (s === 'queued' || s === 'new') return 1
@@ -337,7 +344,8 @@ const fastLaneRows = fastLaneItems.map((item) => {
 const rows = reviewItems.map((item) => {
   const fastLane = isHighConfidenceReview(item)
   const id = `${item.sourceId}:${item.externalId}`
-  const isPending = item.status === 'queued' || item.status === 'new'
+  const displayStatus = normalizeReviewStatus(item)
+  const isPending = displayStatus === 'queued' || displayStatus === 'new'
   const pendingBadge = isPending ? '<strong class="pending">offen</strong>' : '<span class="historic">historisch</span>'
   const sourceLabel = esc(sourceMap.get(item.sourceId) || item.sourceId)
   const entryType = item.sourceId === 'user-input' || item.sourceId === 'user-feedback' ? 'User-Feedback' : 'Crawler'
@@ -350,7 +358,7 @@ const rows = reviewItems.map((item) => {
     : '<span class="muted">kein gültiger Link</span>'
 
   return `
-<tr data-id="${esc(id)}" data-status="${esc(item.status)}" data-fastlane-tagged="${isTaggedFastlane ? '1' : '0'}" class="${fastLane ? 'row-fastlane' : ''}">
+<tr data-id="${esc(id)}" data-status="${esc(displayStatus)}" data-fastlane-tagged="${isTaggedFastlane ? '1' : '0'}" class="${fastLane ? 'row-fastlane' : ''}">
 <td>
   <strong>${esc(item.title)}</strong><br>
   <small>${esc(summarizeForReview(item))}</small><br>
@@ -363,7 +371,7 @@ const rows = reviewItems.map((item) => {
 </td>
 <td>${scoreValue.toFixed(2)}<br><small class="muted">Priorität: ${priorityLabel}</small>${fastLane ? '<br><small class="fast-lane">⚡ Sehr wahrscheinlich relevant</small>' : ''}${isTaggedFastlane ? '<br><small class="fast-lane">⭐ von dir als Fastlane markiert</small>' : ''}</td>
 <td>${esc((item.matchedKeywords || []).join(', '))}</td>
-<td>${esc(item.status)} (${pendingBadge})</td>
+<td>${esc(displayStatus)} (${pendingBadge})</td>
 <td><small>${humanizeReason(item.reviewReason || '-')}</small></td>
 <td>
 <button onclick="setDecision(this,'${esc(id)}','approved')">Approve</button>

@@ -85,7 +85,7 @@
     "enabled": true,
     "options": {
       "registryUrl": "data/cantonal-source-registry.json",
-      "cantons": "AG,AR,AI,BE,BS,FR,GE,GL,GR,JU,LU,NE,NW,OW,SG,SH,SO,SZ,TG,TI,UR,VD,ZG,ZH"
+      "cantons": "AG,AI,AR,BE,BL,BS,FR,GE,GL,GR,JU,LU,NE,NW,OW,SG,SH,SO,SZ,TG,TI,UR,VD,VS,ZG,ZH"
     }
   },
   {
