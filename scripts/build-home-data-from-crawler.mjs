@@ -37,12 +37,15 @@ const inferType = (title = '', sourceId = '', businessTypeName = '', rawType = '
   if (text.includes('dringliches postulat') || text.includes('postulat') || text.includes('postulato')) return 'Postulat'
   if (text.includes('interpellation') || text.includes('interpellanza')) return 'Interpellation'
   if (text.includes('schriftliche anfrage') || text.includes('kleine anfrage') || text.includes('anfrage') || text.includes('frage') || text.includes('question') || text.includes('interrogazione')) return 'Anfrage'
-  if (text.includes('parlamentarische initiative') || text.includes('initiative') || text.includes('iniziativa')) return 'Volksinitiative'
+  if (text.includes('parlamentarische initiative') || text.includes('initiative parlementaire') || text.includes('iniziativa parlamentare')) return 'Parlamentarische Initiative'
+  if (text.includes('volksinitiative') || text.includes('initiative populaire') || text.includes('iniziativa popolare')) return 'Volksinitiative'
+  if (text.includes('initiative') || text.includes('iniziativa')) return 'Volksinitiative'
   return 'Interpellation'
 }
 
 const typeLabels = {
   Volksinitiative: { de: 'Volksinitiative', fr: 'Initiative populaire', it: 'Iniziativa popolare', en: 'Popular initiative' },
+  'Parlamentarische Initiative': { de: 'Parlamentarische Initiative', fr: 'Initiative parlementaire', it: 'Iniziativa parlamentare', en: 'Parliamentary initiative' },
   Interpellation: { de: 'Interpellation', fr: 'Interpellation', it: 'Interpellanza', en: 'Interpellation' },
   Motion: { de: 'Motion', fr: 'Motion', it: 'Mozione', en: 'Motion' },
   Postulat: { de: 'Postulat', fr: 'Postulat', it: 'Postulato', en: 'Postulate' },
@@ -194,9 +197,9 @@ const formatBusinessNumber = (title = '', externalId = '', summary = '', body = 
   if (metaNo) return metaNo
   const bodyMatch = String(body || '').match(/Geschäftsnummer:\s*([A-Za-z0-9.\-]+)/i)
   if (bodyMatch?.[1]) return bodyMatch[1]
-  const summaryMatch = String(summary || '').match(/·\s*([0-9]{4}\.[A-Z]{2}\.[0-9]{4}|\d{2}\.\d{4})\s*·/)
+  const summaryMatch = String(summary || '').match(/·\s*([0-9]{4}\.[A-Z]{2}\.[0-9]{4}|\d{2}\.\d{3,4})\s*·/)
   if (summaryMatch?.[1]) return summaryMatch[1]
-  const titleMatch = String(title || '').match(/\b(\d{2}\.\d{4})\b/)
+  const titleMatch = String(title || '').match(/\b(\d{2}\.\d{3,4})\b/)
   if (titleMatch?.[1]) return titleMatch[1]
   const num = String(externalId || '').split('-')[0]
   const m = num.match(/^(\d{4})(\d{4})$/)
@@ -217,6 +220,7 @@ const SUBMITTER_OVERRIDES = {
   '25.4010': { name: 'David Roth', rolle: 'Nationalrat', partei: 'SP' },
   '25.4380': { name: 'Mathilde Crevoisier Crelier', rolle: 'Ständerat', partei: 'SP' },
   '24.3277': { name: 'Lorenz Hess', rolle: 'Nationalrat', partei: 'Die Mitte' },
+  '25.404': { name: 'Kommission für Wissenschaft, Bildung und Kultur Nationalrat', rolle: 'Kommission', partei: '' },
   '20.4731': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
   '21.3002': { name: 'Kommission für Umwelt, Raumplanung und Energie Ständerat', rolle: 'Kommission', partei: '' },
   '23.7580': { name: 'Rüegger Monika', rolle: 'Nationalrat', partei: 'SVP' },
@@ -225,6 +229,7 @@ const SUBMITTER_OVERRIDES = {
 }
 
 const TYPE_OVERRIDES = {
+  '25.404': 'Parlamentarische Initiative',
   '23.7580': 'Anfrage',
   '22.7004': 'Anfrage',
   '21.8163': 'Anfrage',

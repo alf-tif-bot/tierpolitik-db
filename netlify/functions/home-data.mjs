@@ -41,11 +41,13 @@ if (!Array.isArray(fallbackVorstoesse) || !fallbackVorstoesse.length) {
 
 const inferType = (title = '', sourceId = '') => {
   const text = `${title} ${sourceId}`.toLowerCase()
-  if (text.includes('postulat')) return 'Postulat'
-  if (text.includes('motion')) return 'Motion'
-  if (text.includes('interpellation')) return 'Interpellation'
-  if (text.includes('anfrage') || text.includes('frage')) return 'Anfrage'
-  if (text.includes('initiative')) return 'Volksinitiative'
+  if (text.includes('postulat') || text.includes('postulato')) return 'Postulat'
+  if (text.includes('motion') || text.includes('mozione')) return 'Motion'
+  if (text.includes('interpellation') || text.includes('interpellanza')) return 'Interpellation'
+  if (text.includes('anfrage') || text.includes('frage') || text.includes('question') || text.includes('interrogazione')) return 'Anfrage'
+  if (text.includes('parlamentarische initiative') || text.includes('initiative parlementaire') || text.includes('iniziativa parlamentare')) return 'Parlamentarische Initiative'
+  if (text.includes('volksinitiative') || text.includes('initiative populaire') || text.includes('iniziativa popolare')) return 'Volksinitiative'
+  if (text.includes('initiative') || text.includes('iniziativa')) return 'Volksinitiative'
   return 'Interpellation'
 }
 
@@ -98,6 +100,7 @@ const langRank = (lang = 'de') => {
 
 const typeLabels = {
   Volksinitiative: { de: 'Volksinitiative', fr: 'Initiative populaire', it: 'Iniziativa popolare', en: 'Popular initiative' },
+  'Parlamentarische Initiative': { de: 'Parlamentarische Initiative', fr: 'Initiative parlementaire', it: 'Iniziativa parlamentare', en: 'Parliamentary initiative' },
   Interpellation: { de: 'Interpellation', fr: 'Interpellation', it: 'Interpellanza', en: 'Interpellation' },
   Motion: { de: 'Motion', fr: 'Motion', it: 'Mozione', en: 'Motion' },
   Postulat: { de: 'Postulat', fr: 'Postulat', it: 'Postulato', en: 'Postulate' },
@@ -142,6 +145,7 @@ const fallbackPersonByLang = {
 const SUBMITTER_OVERRIDES = {
   '25.4380': { name: 'Mathilde Crevoisier Crelier', rolle: 'Ständerat', partei: 'SP' },
   '24.3277': { name: 'Lorenz Hess', rolle: 'Nationalrat', partei: 'Die Mitte' },
+  '25.404': { name: 'Kommission für Wissenschaft, Bildung und Kultur Nationalrat', rolle: 'Kommission', partei: '' },
   '21.3002': { name: 'Kommission für Umwelt, Raumplanung und Energie Ständerat', rolle: 'Kommission', partei: '' },
 }
 

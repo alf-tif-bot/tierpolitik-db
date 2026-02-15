@@ -773,7 +773,7 @@
     "titel": "24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen",
     "typ": "Interpellation",
     "kurzbeschreibung": "Kurzüberblick: 24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen (In Beratung).",
-    "geschaeftsnummer": "24.0331",
+    "geschaeftsnummer": "24.331",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": "Südschweiz",
@@ -1918,7 +1918,7 @@
     "titel": "25.059 · «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelzinitiative)». Volksinitiative und indirekter Gegenvorschlag (Änderung des Tierschutzgesetzes)",
     "typ": "Volksinitiative",
     "kurzbeschreibung": "Botschaft vom 28. Mai 2025 zur Volksinitiative «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelzinitiative)» und zum indirekten Gegenvorschlag (Änderung des Tierschutzgesetzes)",
-    "geschaeftsnummer": "25.0059",
+    "geschaeftsnummer": "25.059",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
@@ -2267,7 +2267,7 @@
     "titel": "24.436 · Zukunftsfähige Forschung mit einem Plan für den Ausstieg aus belastenden Tierversuchen fördern",
     "typ": "Interpellation",
     "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich.",
-    "geschaeftsnummer": "24.0436",
+    "geschaeftsnummer": "24.436",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
@@ -2858,7 +2858,7 @@
     "titel": "25.078 · «Ja zur tierversuchsfreien Zukunft». Volksinitiative",
     "typ": "Volksinitiative",
     "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. Botschaft vom 8. Oktober 2025 zur Volksinitiative «Ja zur tierversuchsfreien Zukunft»",
-    "geschaeftsnummer": "25.0078",
+    "geschaeftsnummer": "25.078",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
@@ -2977,7 +2977,7 @@
     "titel": "21.044 · Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative). Volksinitiative und direkter Gegenentwurf",
     "typ": "Volksinitiative",
     "kurzbeschreibung": "Botschaft vom 19. Mai 2021 zur Volksinitiative «Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative)» und zum direkten Gegenentwurf (Bundesbeschluss über den Schutz und das Wohlergehen der Tiere)",
-    "geschaeftsnummer": "21.0044",
+    "geschaeftsnummer": "21.044",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
@@ -4296,7 +4296,7 @@
     "titel": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
     "typ": "Interpellation",
     "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. In Kommission des Nationalrats",
-    "geschaeftsnummer": "21.0426",
+    "geschaeftsnummer": "21.426",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": "Romandie",
@@ -4389,7 +4389,7 @@
     "titel": "24.089 · «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)». Volksinitiative",
     "typ": "Volksinitiative",
     "kurzbeschreibung": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll. Botschaft vom 20. November 2024 zur Volksinitiative «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)»",
-    "geschaeftsnummer": "24.0089",
+    "geschaeftsnummer": "24.089",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": "Südschweiz",
@@ -4688,9 +4688,9 @@
   {
     "id": "vp-20250404-it",
     "titel": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative",
-    "typ": "Volksinitiative",
+    "typ": "Parlamentarische Initiative",
     "kurzbeschreibung": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll.",
-    "geschaeftsnummer": "25.0404",
+    "geschaeftsnummer": "25.404",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": "Südschweiz",
@@ -4708,8 +4708,8 @@
     ],
     "einreichende": [
       {
-        "name": "Secondo Curia Vista",
-        "rolle": "",
+        "name": "Kommission für Wissenschaft, Bildung und Kultur Nationalrat",
+        "rolle": "Kommission",
         "partei": ""
       }
     ],
@@ -4725,9 +4725,6 @@
     "metadaten": {
       "sprache": "it",
       "haltung": "pro-tierschutz",
-      "initiativeLinks": {
-        "campaignUrl": "https://www.stopfleber-initiative.ch"
-      },
       "i18n": {
         "title": {
           "de": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative",
@@ -4740,9 +4737,9 @@
           "it": "Fine delle discussioni della Commissione del Consiglio nazionale"
         },
         "type": {
-          "de": "Volksinitiative",
-          "fr": "Initiative populaire",
-          "it": "Iniziativa popolare"
+          "de": "Parlamentarische Initiative",
+          "fr": "Initiative parlementaire",
+          "it": "Iniziativa parlamentare"
         },
         "themes": {
           "de": [
