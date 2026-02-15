@@ -248,6 +248,7 @@ const SUBMITTER_OVERRIDES = {
   '21.4435': { name: 'Grüter Franz', rolle: 'Nationalrat', partei: 'Schweizerische Volkspartei' },
   '25.2027': { name: 'Écologie et Altruisme', rolle: 'Petitionskomitee', partei: '' },
   '25.4071': { name: 'Dittli Josef', rolle: 'Ständerat', partei: 'FDP.Die Liberalen' },
+  '21.3703': { name: 'Badertscher Christine', rolle: 'Nationalrätin', partei: 'Grüne Fraktion' },
 }
 
 const TYPE_OVERRIDES = {
@@ -290,6 +291,7 @@ const SUMMARY_OVERRIDES = {
   '22.3299': 'Die Motion verlangt ein Verbot PMSG-haltiger Tierarzneimittel in der Schweizer Schweinezucht und will verhindern, dass diese durch synthetische PMSG-Produkte ersetzt werden.',
   '25.2027': 'Die Petition verlangt ein Beschwerderecht für Tierschutzverbände bei Fällen von Tiermisshandlung, damit Missstände rechtlich wirksamer verfolgt werden können.',
   '25.4071': 'Die Interpellation fragt, weshalb Equiden in der Schweiz als Heim- oder Nutztiere deklariert werden, und thematisiert die Folgen für Kreislaufwirtschaft und Food Waste bei der Verwertung verstorbener Tiere.',
+  '21.3703': 'Die Interpellation verlangt Auskunft, wie die Schweiz im Indonesien-Abkommen den Tierschutz bei tierischen Produkten stärken und den Import von Qualprodukten begrenzen will.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {
@@ -333,13 +335,22 @@ const inferSubmitter = (lang, title = '', summary = '', body = '', item = null) 
   return fallbackPeopleByLang[lang] || fallbackPeopleByLang.de
 }
 
-const clean = (text = '') => String(text)
+const repairEncodingArtifacts = (text = '') => String(text)
+  .replace(/Parlamentsgesch�ft/gi, 'Parlamentsgeschäft')
+  .replace(/Gesch�ftsnummer/gi, 'Geschäftsnummer')
+  .replace(/Kurz�berblick/gi, 'Kurzüberblick')
+  .replace(/gem�ss/g, 'gemäss')
+  .replace(/Gem�ss/g, 'Gemäss')
+  .replace(/\s�\s/g, ' - ')
+
+const clean = (text = '') => repairEncodingArtifacts(String(text))
   .replace(/\s+/g, ' ')
   .replace(/^\s+|\s+$/g, '')
 
 const normalizeDisplayTitle = (item, title = '') => {
   let t = clean(title)
   if (!t) return t
+  t = t.replace(/^(\d{2}\.\d{3,4})\s*[·•]\s*/u, '$1 - ')
   if (String(item?.meta?.municipality || '').toLowerCase() === 'bern') {
     t = t.replace(/^Bern\s*[·:-]\s*/i, '')
   }
