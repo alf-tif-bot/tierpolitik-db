@@ -1,8 +1,9 @@
 {
-  "generatedAt": "2026-02-15T05:18:39.618Z",
-  "total": 81,
+  "generatedAt": "2026-02-15T06:46:59.221Z",
+  "total": 85,
   "ids": [
     "ch-municipal-parliament-bern-zurich:municipal-zuerich-0a92bddadf36",
+    "ch-parliament-motions-de:20254462-de",
     "ch-parliament-business-de:20203648",
     "ch-parliament-business-de:20218162",
     "ch-parliament-business-de:20218163",
@@ -18,6 +19,8 @@
     "ch-municipal-parliament-bern-zurich:municipal-bern-api-b7e265b3766d43119b5279f5ea795e91",
     "ch-municipal-parliament-bern-zurich:municipal-bern-api-58a0ae87cf6f44e1a4030952a06a85bb",
     "ch-municipal-parliament-bern-zurich:municipal-bern-api-13284d70bb124c23a1bbba427e8a7c5c",
+    "ch-parliament-business-de:20254697-de",
+    "ch-parliament-business-de:20254487-de",
     "ch-parliament-business-de:20210044-de",
     "ch-parliament-business-de:20210426-de",
     "ch-parliament-business-de:20240089-de",
@@ -42,6 +45,7 @@
     "ch-parliament-business-de:20254788",
     "ch-parliament-business-de:20223187",
     "ch-parliament-business-de:20254380",
+    "ch-parliament-business-de:20253733-de",
     "ch-parliament-business-de:20203021",
     "ch-parliament-business-de:20250404-de",
     "ch-parliament-business-de:20204214",

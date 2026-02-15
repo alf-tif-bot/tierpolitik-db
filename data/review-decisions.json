@@ -16,10 +16,8 @@
     "decidedAt": "2026-02-13T21:59:58.935Z"
   },
   "ch-parliament-business-de:20254487-de": {
-    "status": "rejected",
-    "decidedAt": "2026-02-13T22:12:55.227Z",
-    "syncedAt": "2026-02-15T05:18:51.360Z",
-    "syncReason": "regression-check-db-status"
+    "status": "approved",
+    "decidedAt": "2026-02-13T22:12:55.227Z"
   },
   "ch-parliament-business-de:20250079-de": {
     "status": "rejected",
@@ -30,10 +28,8 @@
     "decidedAt": "2026-02-13T22:25:57.656Z"
   },
   "ch-parliament-business-de:20254697-de": {
-    "status": "rejected",
-    "decidedAt": "2026-02-13T22:27:58.895Z",
-    "syncedAt": "2026-02-15T05:18:51.361Z",
-    "syncReason": "regression-check-db-status"
+    "status": "approved",
+    "decidedAt": "2026-02-13T22:27:58.895Z"
   },
   "ch-parliament-business-fr:20210055-fr": {
     "status": "rejected",
@@ -488,10 +484,8 @@
     "decidedAt": "2026-02-13T20:53:03.013Z"
   },
   "ch-parliament-business-de:20253733-de": {
-    "status": "rejected",
-    "decidedAt": "2026-02-13T22:33:12.898Z",
-    "syncedAt": "2026-02-15T05:18:51.361Z",
-    "syncReason": "regression-check-db-status"
+    "status": "approved",
+    "decidedAt": "2026-02-13T22:33:12.898Z"
   },
   "ch-parliament-business-de:20250099-de": {
     "status": "rejected",

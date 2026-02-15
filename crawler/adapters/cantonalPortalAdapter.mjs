@@ -17,13 +17,33 @@ const BASE_KEYWORDS = [
   'granconsiglio',
 ]
 
+const LINK_NOISE_KEYWORDS = [
+  'kontakt',
+  'contact',
+  'impressum',
+  'datenschutz',
+  'accessibilite',
+  'barrierefreiheit',
+  'sitemap',
+  'newsletter',
+  'medienmitteilung',
+  'communique',
+  'pdf',
+  '.ics',
+]
+
 const CANTON_KEYWORDS = {
+  AG: ['grweb', 'grossrat', 'geschaefte'],
+  BE: ['gr.be.ch', 'grosser-rat', 'geschaefte'],
+  BL: ['landrat', 'geschaefte-des-landrats'],
   GE: ['grandconseil', 'recherche', 'dossiers'],
   JU: ['interventions-parlementaires-deposees', 'questions-ecrites', 'interpellations'],
+  SZ: ['geschaefte-des-kantonsrats', 'behoerden/kantonsrat'],
   TI: ['gran consiglio', 'ricerca messaggi e atti', 'atti parlamentari', 'mozioni', 'interrogazioni'],
   VD: ['objets-et-rapports-de-commissions', 'grand conseil', 'bulletin'],
   VS: ['objets-parlementaires', 'interventions-parlementaires'],
-  BL: ['landrat', 'geschaefte-des-landrats'],
+  ZG: ['geschaefte-des-kantonsrats', 'behoerden/kantonsrat'],
+  ZH: ['kantonsrat.zh.ch/geschaefte', 'geschaeft'],
 }
 
 const CANTON_FALLBACK_LINKS = {
@@ -89,8 +109,10 @@ const parseLinks = (html = '', baseUrl = '', canton = '') => {
     const href = normalizeUrl(m[1], baseUrl)
     if (!href || !href.startsWith('http')) continue
     const text = stripTags(m[2]).slice(0, 180)
+    const merged = `${href} ${text}`.toLowerCase()
+    if (LINK_NOISE_KEYWORDS.some((kw) => merged.includes(kw))) continue
     const rank = scoreLink(canton, href, text)
-    if (rank <= 0) continue
+    if (rank < 2) continue
     links.push({ href, text, rank })
   }
 

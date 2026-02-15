@@ -108,8 +108,8 @@ const classifyReadiness = ({ url = '', platform = 'generic-site', ok = false, ht
     return 'unreachable-needs-manual'
   }
   if (platform === 'ratsinfo' || platform === 'allris/sessionnet') return 'adapter-ready-likely'
-  if (platform === 'parliament-portal' && hasSearchOrAffairPathForUrl) return 'adapter-ready-likely'
-  if (platform === 'parliament-portal' && hasParliamentSignals) return 'site-discovery-needed'
+  if (platform === 'parliament-portal' && hasSearchOrAffairPathForUrl && (hasParliamentSignals || hasParliamentHint)) return 'adapter-ready-likely'
+  if (platform === 'parliament-portal' && (hasParliamentSignals || hasSearchOrAffairPathForUrl)) return 'site-discovery-needed'
   if ((['typo3-site', 'drupal-site'].includes(platform) && hasParliamentHint) || hasParliamentHint || hasParliamentSignals) {
     return 'site-discovery-needed'
   }
