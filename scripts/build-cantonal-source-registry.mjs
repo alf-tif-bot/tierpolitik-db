@@ -79,7 +79,43 @@ const hasSearchOrAffairPath = (url = '') => [
   'kantonsrat.html',
 ].some((hint) => String(url).toLowerCase().includes(String(hint).toLowerCase()))
 
-const classifyReadiness = ({ url = '', platform = 'generic-site', ok = false, httpStatus = null, hasParliamentSignals = false, error = '' }) => {
+const extractYearsFromUrl = (url = '') => {
+  const matches = String(url).match(/(?:19|20)\d{2}/g) || []
+  return [...new Set(matches.map((value) => Number(value)).filter((value) => Number.isFinite(value)))]
+}
+
+const hasArchiveSignals = (url = '') => {
+  const lower = String(url).toLowerCase()
+  return [
+    'archive',
+    'archiv',
+    'historique',
+    'histoire',
+    'bis-',
+    'bis_',
+    'bis20',
+    'before-',
+    'avant-',
+    'fino-al-',
+  ].some((token) => lower.includes(token))
+}
+
+const isLikelyBeforeSinceYear = (url = '', sinceYear = 2020) => {
+  const years = extractYearsFromUrl(url)
+  if (!years.length) return false
+  const maxYear = Math.max(...years)
+  return maxYear < Number(sinceYear)
+}
+
+const classifyReadiness = ({
+  url = '',
+  platform = 'generic-site',
+  ok = false,
+  httpStatus = null,
+  hasParliamentSignals = false,
+  error = '',
+  sinceYear = 2020,
+}) => {
   const u = String(url).toLowerCase()
   const err = String(error || '').toLowerCase()
   const hasParliamentHint = [
@@ -107,8 +143,10 @@ const classifyReadiness = ({ url = '', platform = 'generic-site', ok = false, ht
     if (httpStatus === 403) return 'blocked-needs-manual'
     return 'unreachable-needs-manual'
   }
-  if (platform === 'ratsinfo' || platform === 'allris/sessionnet') return 'adapter-ready-likely'
-  if (platform === 'parliament-portal' && hasSearchOrAffairPathForUrl && (hasParliamentSignals || hasParliamentHint)) return 'adapter-ready-likely'
+  const likelyArchiveOnly = hasArchiveSignals(u) || isLikelyBeforeSinceYear(u, sinceYear)
+
+  if ((platform === 'ratsinfo' || platform === 'allris/sessionnet') && !likelyArchiveOnly) return 'adapter-ready-likely'
+  if (platform === 'parliament-portal' && hasSearchOrAffairPathForUrl && (hasParliamentSignals || hasParliamentHint) && !likelyArchiveOnly) return 'adapter-ready-likely'
   if (platform === 'parliament-portal' && (hasParliamentSignals || hasSearchOrAffairPathForUrl)) return 'site-discovery-needed'
   if ((['typo3-site', 'drupal-site'].includes(platform) && hasParliamentHint) || hasParliamentHint || hasParliamentSignals) {
     return 'site-discovery-needed'
@@ -191,7 +229,7 @@ const probeSource = async (url) => {
   }
 }
 
-const probeQuality = (probe) => {
+const probeQuality = (probe, sinceYear = 2020) => {
   if (!probe.ok) {
     if (probe.httpStatus === 403 || probe.httpStatus === 429) return probe.hasParliamentSignals ? 2 : 1
     return probe.hasParliamentSignals ? 1 : 0
@@ -200,38 +238,34 @@ const probeQuality = (probe) => {
   if (probe.platform === 'ratsinfo' || probe.platform === 'allris/sessionnet') score += 4
   if (probe.platform === 'parliament-portal') score += 2
   if (probe.hasParliamentSignals) score += 1
-  if (hasSearchOrAffairPath(probe.finalUrl || probe.url)) score += 3
+  const targetUrl = probe.finalUrl || probe.url
+  if (hasSearchOrAffairPath(targetUrl)) score += 3
   if (probe.finalUrl && probe.finalUrl !== probe.url) score += 1
+  if (hasArchiveSignals(targetUrl)) score -= 3
+  if (isLikelyBeforeSinceYear(targetUrl, sinceYear)) score -= 4
   return score
 }
 
-const selectBestProbe = (probes) => {
+const selectBestProbe = (probes, sinceYear = 2020) => {
   if (!probes.length) return null
-  return [...probes].sort((a, b) => probeQuality(b) - probeQuality(a))[0]
+  return [...probes].sort((a, b) => probeQuality(b, sinceYear) - probeQuality(a, sinceYear))[0]
 }
 
-const isStrongReadyProbe = (probe, candidateUrl) => probe.ok && (
-  ['ratsinfo', 'allris/sessionnet'].includes(probe.platform)
-  || (probe.platform === 'parliament-portal' && hasSearchOrAffairPath(probe.finalUrl || candidateUrl))
-)
+// intentionally probing all shortlisted candidates for better recall/precision
 
 const probeCandidates = async (candidates) => {
   const limited = candidates.slice(0, PROBE_CANDIDATE_LIMIT)
   const probes = new Array(limited.length)
   let nextIndex = 0
-  let stopAtFirstStrong = false
 
   const worker = async () => {
     while (true) {
       const current = nextIndex
       nextIndex += 1
-      if (current >= limited.length || stopAtFirstStrong) return
+      if (current >= limited.length) return
       const candidateUrl = limited[current]
       const probe = await probeSource(candidateUrl)
       probes[current] = { ...probe, url: candidateUrl }
-      if (isStrongReadyProbe(probe, candidateUrl)) {
-        stopAtFirstStrong = true
-      }
     }
   }
 
@@ -243,7 +277,7 @@ const sourceRows = await Promise.all(cantons.map(async (entry) => {
   const candidates = buildCandidates(entry)
   const probes = await probeCandidates(candidates)
 
-  const bestProbe = selectBestProbe(probes) || {
+  const bestProbe = selectBestProbe(probes, entry.sinceYear) || {
     ok: false,
     httpStatus: null,
     finalUrl: entry.url,
@@ -253,14 +287,17 @@ const sourceRows = await Promise.all(cantons.map(async (entry) => {
     url: entry.url,
   }
 
+  const bestUrl = bestProbe.finalUrl || entry.url
   const hasAnyParliamentSignals = probes.some((p) => p.hasParliamentSignals)
+  const sinceYearLikelyCovered = !isLikelyBeforeSinceYear(bestUrl, entry.sinceYear)
   const readiness = classifyReadiness({
-    url: bestProbe.finalUrl || entry.url,
+    url: bestUrl,
     platform: bestProbe.platform,
     ok: bestProbe.ok,
     httpStatus: bestProbe.httpStatus,
     hasParliamentSignals: bestProbe.hasParliamentSignals || hasAnyParliamentSignals,
     error: bestProbe.error,
+    sinceYear: entry.sinceYear,
   })
 
   return {
@@ -272,6 +309,7 @@ const sourceRows = await Promise.all(cantons.map(async (entry) => {
     sinceYear: entry.sinceYear,
     status: bestProbe.ok ? 'scaffolded' : 'probe-failed',
     readiness,
+    sinceYearLikelyCovered,
     probe: {
       checkedAt: new Date().toISOString(),
       ok: bestProbe.ok,
@@ -279,6 +317,8 @@ const sourceRows = await Promise.all(cantons.map(async (entry) => {
       finalUrl: bestProbe.finalUrl,
       platform: bestProbe.platform,
       hasParliamentSignals: Boolean(bestProbe.hasParliamentSignals),
+      archiveSignals: hasArchiveSignals(bestUrl),
+      yearsDetected: extractYearsFromUrl(bestUrl),
       error: bestProbe.error || null,
       candidateCount: candidates.length,
       candidatesTried: probes.map((p) => ({
@@ -288,6 +328,8 @@ const sourceRows = await Promise.all(cantons.map(async (entry) => {
         finalUrl: p.finalUrl,
         platform: p.platform,
         hasParliamentSignals: Boolean(p.hasParliamentSignals),
+        archiveSignals: hasArchiveSignals(p.finalUrl || p.url),
+        yearsDetected: extractYearsFromUrl(p.finalUrl || p.url),
       })),
     },
   }
@@ -308,6 +350,10 @@ const sinceYearViolations = sourceRows
   .filter((row) => Number(row.sinceYear) > 2020)
   .map((row) => ({ canton: row.canton, sinceYear: row.sinceYear }))
 
+const sinceYearCoverageGaps = sourceRows
+  .filter((row) => !row.sinceYearLikelyCovered)
+  .map((row) => ({ canton: row.canton, sinceYear: row.sinceYear, finalUrl: row?.probe?.finalUrl || row.url }))
+
 const unresolvedCantons = sourceRows
   .filter((row) => !['adapter-ready-likely', 'site-discovery-needed'].includes(row.readiness))
   .map((row) => row.canton)
@@ -322,6 +368,7 @@ const registry = {
     byAdapter,
     unresolvedCantons,
     sinceYearViolations,
+    sinceYearCoverageGaps,
   },
   sources: sourceRows,
 }

@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-02-15T14:17:09.757Z",
+  "generatedAt": "2026-02-15T15:47:40.615Z",
   "targetSinceYear": 2020,
   "fixDecisionMismatches": false,
   "pruneLegacyDecisions": false,
-  "pruneReviewItems": true,
+  "pruneReviewItems": false,
   "expectedReview": 83,
   "actualReview": 83,
   "missingInReviewCount": 0,
