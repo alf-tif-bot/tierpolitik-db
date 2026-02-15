@@ -222,6 +222,7 @@ const SUBMITTER_OVERRIDES = {
   '25.4010': { name: 'David Roth', rolle: 'Nationalrat', partei: 'SP' },
   '25.4380': { name: 'Mathilde Crevoisier Crelier', rolle: 'Ständerat', partei: 'SP' },
   '24.3277': { name: 'Lorenz Hess', rolle: 'Nationalrat', partei: 'Die Mitte' },
+  '20.3849': { name: 'Haab Martin', rolle: 'Nationalrat', partei: 'SVP' },
   '25.404': { name: 'Kommission für Wissenschaft, Bildung und Kultur Nationalrat', rolle: 'Kommission', partei: '' },
   '20.4731': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
   '21.3002': { name: 'Kommission für Umwelt, Raumplanung und Energie Ständerat', rolle: 'Kommission', partei: '' },
@@ -245,6 +246,7 @@ const THEME_OVERRIDES = {
   '21.3002': ['Umwelt', 'Landwirtschaft'],
   '23.7580': ['Landwirtschaft', 'Umwelt'],
   '22.7004': ['Landwirtschaft', 'Umwelt'],
+  '20.3849': ['Nutztiere', 'Landwirtschaft', 'Umwelt'],
   '25.4010': ['Landwirtschaft', 'Konsumentenschutz', 'Wirtschaft'],
   '21.8163': ['Landwirtschaft', 'Staatspolitik', 'Umwelt', 'Beschäftigung und Arbeit'],
   '22.3299': ['Schweinezucht', 'Tierarzneimittel', 'Tierschutz'],
@@ -253,6 +255,7 @@ const THEME_OVERRIDES = {
 const SUMMARY_OVERRIDES = {
   '21.3002': 'Die Motion verlangt, den Handlungsspielraum im Jagdgesetz per Verordnung auszuschöpfen, um die Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren zu regeln (u. a. Regulierung und Herdenschutz).',
   '25.4809': 'Der Vorstoss verlangt konkrete Massnahmen gegen Tierqual bei der Geflügelschlachtung und eine konsequent tierschutzkonforme Praxis.',
+  '20.3849': 'Die Interpellation thematisiert neue EU-Tiergesundheitsvorschriften, die den Export bestimmter Nutztiere aus der Schweiz erschweren. Der Bundesrat wird zu Kenntnisstand, Unterstützung betroffener Betriebe und möglichen Verhandlungsspielräumen mit der EU befragt.',
   '23.7580': 'Die Fragestunde-Frage verlangt vom Bundesrat die Priorisierung des Schutzes von Menschen und Nutztieren vor Wolfsangriffen, inklusive möglicher Verteidigungsabschüsse bei direkten Angriffen.',
   '22.7004': 'Die Fragestunde-Frage kritisiert eine aus Sicht des Einreichers realitätsferne Auslegung der Tierschutzverordnung für Hofhunde und verlangt eine Klärung durch den Bundesrat.',
   '21.8163': 'Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und deren Folgen für Forstbetriebe, Personal und Lernende; zudem werden Kompensationsmassnahmen des Bundes nachgefragt.',
@@ -498,10 +501,15 @@ const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallb
     const l = ['de', 'fr', 'it', 'en'].includes(lang) ? lang : 'de'
     const title = clean(variant?.title || fallbackTitle)
     const summary = clean(variant?.summary || variant?.body || fallbackSummary)
+    const summaryLow = summary.toLowerCase()
+    const weakSummary = !summary
+      || summary.length < 24
+      || summaryLow === 'erledigt'
+      || /^parlamentsgeschäft\s+\d+$/i.test(summary)
     const typeDe = TYPE_OVERRIDES[businessNumber] || inferType(title, item.sourceId, variant?.businessTypeName || '', item?.meta?.rawType || '')
     const matched = mapThemesFromKeywords(item.matchedKeywords || fallbackThemes || []).slice(0, 6)
     out.title[l] = title || fallbackTitle
-    out.summary[l] = summary || fallbackSummary
+    out.summary[l] = weakSummary ? fallbackSummary : summary
     out.type[l] = typeLabels[typeDe]?.[l] || typeLabels[fallbackType]?.[l] || fallbackType
     out.themes[l] = l === 'de'
       ? fallbackThemes

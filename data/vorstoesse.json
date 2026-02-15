@@ -100,7 +100,7 @@
           "de": "20.4002 · Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 20.4002 · Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung (Erledigt)."
         },
         "type": {
           "de": "Motion"
@@ -158,7 +158,7 @@
           "de": "20.1046 · Schweizer Tierschutz im internationalen Vergleich"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 20.1046 · Schweizer Tierschutz im internationalen Vergleich (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -276,7 +276,7 @@
           "de": "20.4214 · Amtliche Tierschutzkontrollen nachhaltig aus dem Landwirtschaftsbudget mitfinanzieren und transparent machen"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 20.4214 · Amtliche Tierschutzkontrollen nachhaltig aus dem Landwirtschaftsbudget mitfinanzieren und transparent machen (Erledigt)."
         },
         "type": {
           "de": "Motion"
@@ -295,7 +295,7 @@
     "id": "vp-20203849-de",
     "titel": "20.3849 · Erschwerte Exportvorschriften der EU für Nutztiere aus der Schweiz",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 20.3849 · Erschwerte Exportvorschriften der EU für Nutztiere aus der Schweiz (Erledigt).",
+    "kurzbeschreibung": "Die Interpellation thematisiert neue EU-Tiergesundheitsvorschriften, die den Export bestimmter Nutztiere aus der Schweiz erschweren. Der Bundesrat wird zu Kenntnisstand, Unterstützung betroffener Betriebe und möglichen Verhandlungsspielräumen mit der EU befragt.",
     "geschaeftsnummer": "20.3849",
     "ebene": "Bund",
     "kanton": null,
@@ -305,7 +305,8 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "nutztiere",
@@ -313,9 +314,9 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Haab Martin",
+        "rolle": "Nationalrat",
+        "partei": "SVP"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20203849",
@@ -335,15 +336,16 @@
           "de": "20.3849 · Erschwerte Exportvorschriften der EU für Nutztiere aus der Schweiz"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Die Interpellation thematisiert neue EU-Tiergesundheitsvorschriften, die den Export bestimmter Nutztiere aus der Schweiz erschweren. Der Bundesrat wird zu Kenntnisstand, Unterstützung betroffener Betriebe und möglichen Verhandlungsspielräumen mit der EU befragt."
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "nutztiere",
-            "landwirtschaft"
+            "Nutztiere",
+            "Landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -394,7 +396,7 @@
           "de": "20.4340 · Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten."
         },
         "type": {
           "de": "Motion"
@@ -453,7 +455,7 @@
           "de": "20.3591 · Griffige Instrumente für die Oberaufsicht im Tierschutzrecht"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 20.3591 · Griffige Instrumente für die Oberaufsicht im Tierschutzrecht (Erledigt)."
         },
         "type": {
           "de": "Postulat"
@@ -512,7 +514,7 @@
           "de": "20.4108 · Enthornung von Nutztieren"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 20.4108 · Enthornung von Nutztieren (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -571,7 +573,7 @@
           "de": "20.4730 · Tierfreundliche Kennzeichnung von Nutztieren"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 20.4730 · Tierfreundliche Kennzeichnung von Nutztieren (Erledigt)."
         },
         "type": {
           "de": "Postulat"
@@ -631,7 +633,7 @@
           "de": "20.4731 · Kein Experimentieren bei Ohrmarken für Nutztiere"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 20.4731 · Kein Experimentieren bei Ohrmarken für Nutztiere (Erledigt)."
         },
         "type": {
           "de": "Motion"
@@ -691,7 +693,7 @@
           "de": "21.3002 · Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Die Motion verlangt, den Handlungsspielraum im Jagdgesetz per Verordnung auszuschöpfen, um die Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren zu regeln (u. a. Regulierung und Herdenschutz)."
         },
         "type": {
           "de": "Motion"
@@ -752,7 +754,7 @@
           "de": "20.3648 · Schlafen im Stroh auch für Schweine"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 20.3648 · Schlafen im Stroh auch für Schweine (Erledigt)."
         },
         "type": {
           "de": "Motion"
@@ -878,7 +880,7 @@
           "de": "21.2027 · Echter Tierschutz jetzt!"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 21.2027 · Echter Tierschutz jetzt! (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -934,7 +936,7 @@
           "de": "21.3703 · Tierschutz im Indonesien-Abkommen"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 21.3703 · Tierschutz im Indonesien-Abkommen (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -990,7 +992,7 @@
           "de": "25.4144 · Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet?"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 25.4144 · Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet? (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -1046,7 +1048,7 @@
           "de": "25.4071 · Heim- versus Nutztier bei Equiden. Wieso diese Sonderregelung und wieso so viel Food Waste?"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 25.4071 · Heim- versus Nutztier bei Equiden. Wieso diese Sonderregelung und wieso so viel Food Waste? (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -1216,7 +1218,7 @@
           "de": "23.1034 · Nutztierrisse und Herdenschutz"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 23.1034 · Nutztierrisse und Herdenschutz (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -1273,7 +1275,7 @@
           "de": "22.3302 · Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 22.3302 · Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung (Erledigt)."
         },
         "type": {
           "de": "Motion"
@@ -1329,7 +1331,7 @@
           "de": "21.3229 · Erhaltung einheimischer Nutztierrassen"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 21.3229 · Erhaltung einheimischer Nutztierrassen (Erledigt)."
         },
         "type": {
           "de": "Motion"
@@ -1385,7 +1387,7 @@
           "de": "25.8063 · Wenn in der Schweiz der Verkauf von Stopfleber verboten ist, hat dann das Schweizer Recht oder das europäische Recht Vorrang?"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll."
         },
         "type": {
           "de": "Interpellation"
@@ -1441,7 +1443,7 @@
           "de": "22.3808 · Aussagekräftige und transparente Tierversuchsstatistik"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich."
         },
         "type": {
           "de": "Interpellation"
@@ -1497,7 +1499,7 @@
           "de": "22.3952 · Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 22.3952 · Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen (Erledigt)."
         },
         "type": {
           "de": "Motion"
@@ -1609,7 +1611,7 @@
           "de": "24.4344 · Tierschutzbeauftragte. Eine wirksame Unterstützung"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 24.4344 · Tierschutzbeauftragte. Eine wirksame Unterstützung (Erledigt)."
         },
         "type": {
           "de": "Postulat"
@@ -1665,7 +1667,7 @@
           "de": "25.2027 · Für ein Beschwerderecht von Tierschutzverbänden bei Misshandlung"
         },
         "summary": {
-          "de": "In beiden Kommissionen"
+          "de": "Die Petition verlangt ein Beschwerderecht für Tierschutzverbände bei Fällen von Tiermisshandlung, damit Missstände rechtlich wirksamer verfolgt werden können."
         },
         "type": {
           "de": "Petition"
@@ -1723,7 +1725,7 @@
           "de": "21.4167 · Afrikanische Schweinepest ernst nehmen"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 21.4167 · Afrikanische Schweinepest ernst nehmen (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -1781,7 +1783,7 @@
           "de": "21.8021 · Wann und wie gedenkt der Bundesrat die Motion 13.3324 \"Anpassung des Gewässerschutzgesetzes an die heutige Nutztierhaltung\", die von beiden Räten angenommen wurde, umzusetzen?"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 21.8021 · Wann und wie gedenkt der Bundesrat die Motion 13.3324 \"Anpassung des Gewässerschutzgesetzes an die heutige Nutztierhaltung\", die von beiden Räten angenommen wurde, umzusetzen? (Erledigt)."
         },
         "type": {
           "de": "Motion"
@@ -1839,7 +1841,7 @@
           "de": "22.3210 · Afrikanische Schweinepest nach Deutschland nun auch in Italien"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 22.3210 · Afrikanische Schweinepest nach Deutschland nun auch in Italien (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -2072,7 +2074,7 @@
           "de": "21.2004 · Jetzt umsteigen! Bessere Forschung ohne Tierversuche fördern"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich."
         },
         "type": {
           "de": "Interpellation"
@@ -2130,7 +2132,7 @@
           "de": "21.3364 · Impfstoffentwicklung mit neuen Methoden ohne Tierversuche"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich."
         },
         "type": {
           "de": "Interpellation"
@@ -2188,7 +2190,7 @@
           "de": "21.3363 · Gemeinsame Bewilligungsbehörde für eine einheitliche Beurteilung von Tierversuchen mit Schweregrad 3"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich."
         },
         "type": {
           "de": "Motion"
@@ -2247,7 +2249,7 @@
           "de": "22.3300 · 3R-Kompetenz der kantonalen Tierversuchskommissionen stärken"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich."
         },
         "type": {
           "de": "Motion"
@@ -2305,7 +2307,7 @@
           "de": "24.436 · Zukunftsfähige Forschung mit einem Plan für den Ausstieg aus belastenden Tierversuchen fördern"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich."
         },
         "type": {
           "de": "Interpellation"
@@ -2541,7 +2543,7 @@
           "de": "25.8205 · Reduktion der Tierschutzkontrollen: Ressourcen sparen auf Kosten der Tiere?"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 25.8205 · Reduktion der Tierschutzkontrollen: Ressourcen sparen auf Kosten der Tiere? (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -2599,7 +2601,7 @@
           "de": "22.7807 · Wer bezahlt die Schäden von Nutztieren, wenn die Gänsegeier vor der Wildhut den Kadaver zerfressen?"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 22.7807 · Wer bezahlt die Schäden von Nutztieren, wenn die Gänsegeier vor der Wildhut den Kadaver zerfressen? (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -2658,7 +2660,7 @@
           "de": "23.7115 · Bedeutung von Netto-Null für schweizerische Nutztiere"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 23.7115 · Bedeutung von Netto-Null für schweizerische Nutztiere (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -2717,7 +2719,7 @@
           "de": "23.3515 · Fotovoltaik- oder Windkraftanlagen. Gefahr für die landwirtschaftlichen Nutztiere"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 23.3515 · Fotovoltaik- oder Windkraftanlagen. Gefahr für die landwirtschaftlichen Nutztiere (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -2778,7 +2780,7 @@
           "de": "21.3405 · Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 21.3405 · Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere (Erledigt)."
         },
         "type": {
           "de": "Motion"
@@ -2838,7 +2840,7 @@
           "de": "21.3835 · Tierschutzverstösse besser ahnden"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 21.3835 · Tierschutzverstösse besser ahnden (Erledigt)."
         },
         "type": {
           "de": "Motion"
@@ -3115,7 +3117,7 @@
           "de": "22.3633 · Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden?"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 22.3633 · Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden? (Erledigt)."
         },
         "type": {
           "de": "Motion"
@@ -3178,7 +3180,7 @@
           "de": "21.8162 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (2)"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 21.8162 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (2) (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -3241,7 +3243,7 @@
           "de": "21.8163 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (3)"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und deren Folgen für Forstbetriebe, Personal und Lernende; zudem werden Kompensationsmassnahmen des Bundes nachgefragt."
         },
         "type": {
           "de": "Anfrage"
@@ -3304,7 +3306,7 @@
           "de": "21.8161 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (1)"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 21.8161 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (1) (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -3368,7 +3370,7 @@
           "de": "21.4435 · Afrikanische Schweinepest. Wildschweine vorsorglich eindämmen"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 21.4435 · Afrikanische Schweinepest. Wildschweine vorsorglich eindämmen (Erledigt)."
         },
         "type": {
           "de": "Motion"
@@ -3430,7 +3432,7 @@
           "de": "22.7004 · Absurde Auslegung der Tierschutzverordnung - täglicher Auslauf für Bauernhof Hunde?"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Die Fragestunde-Frage kritisiert eine aus Sicht des Einreichers realitätsferne Auslegung der Tierschutzverordnung für Hofhunde und verlangt eine Klärung durch den Bundesrat."
         },
         "type": {
           "de": "Anfrage"
@@ -3491,7 +3493,7 @@
           "de": "22.3187 · Hochgezüchtete Eier- und Geflügelfleischproduktion in Richtung Tierwohl weiterentwickeln"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 22.3187 · Hochgezüchtete Eier- und Geflügelfleischproduktion in Richtung Tierwohl weiterentwickeln (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -3554,7 +3556,7 @@
           "de": "22.3299 · Kein Einsatz von PMSG bei Schweinezüchtern"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Die Motion verlangt ein Verbot PMSG-haltiger Tierarzneimittel in der Schweizer Schweinezucht und will verhindern, dass diese durch synthetische PMSG-Produkte ersetzt werden."
         },
         "type": {
           "de": "Motion"
@@ -3616,7 +3618,7 @@
           "de": "23.3411 · Eine langfristige Lösung für den Schweinemarkt"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 23.3411 · Eine langfristige Lösung für den Schweinemarkt (Erledigt)."
         },
         "type": {
           "de": "Postulat"
@@ -3677,7 +3679,7 @@
           "de": "23.7580 · Der Schutz des Menschen und der Nutztiere ist höher zu gewichten als der Wolf"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Die Fragestunde-Frage verlangt vom Bundesrat die Priorisierung des Schutzes von Menschen und Nutztieren vor Wolfsangriffen, inklusive möglicher Verteidigungsabschüsse bei direkten Angriffen."
         },
         "type": {
           "de": "Anfrage"
@@ -3858,7 +3860,7 @@
           "de": "21.3829 · Regelungskompetenz im Tierschutz. Auch bei den Kantonen"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 21.3829 · Regelungskompetenz im Tierschutz. Auch bei den Kantonen (Erledigt)."
         },
         "type": {
           "de": "Motion"
@@ -3919,7 +3921,7 @@
           "de": "22.3728 · Afrikanische Schweinepest. Schlachtbetriebe und damit die Versorgungssicherheit gefährden?"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 22.3728 · Afrikanische Schweinepest. Schlachtbetriebe und damit die Versorgungssicherheit gefährden? (Erledigt)."
         },
         "type": {
           "de": "Motion"
@@ -3979,7 +3981,7 @@
           "de": "23.7131 · Ziegen 1200 Tage pausenlos melken - vereinbar mit Tierschutzbestimmungen?"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 23.7131 · Ziegen 1200 Tage pausenlos melken - vereinbar mit Tierschutzbestimmungen? (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -4038,7 +4040,7 @@
           "de": "23.7608 · Warum sollten Wolfsrudel unabhängig vom Risiko von Schäden an Nutztieren abgeschossen werden?"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten."
         },
         "type": {
           "de": "Interpellation"
@@ -4097,7 +4099,7 @@
           "de": "23.7657 · Gerissene Nutztiere traumatisieren"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Kurzüberblick: 23.7657 · Gerissene Nutztiere traumatisieren (Erledigt)."
         },
         "type": {
           "de": "Interpellation"
@@ -4156,7 +4158,7 @@
           "de": "23.7858 · Abschuss von Wolfsrudeln trotz immer weniger Schäden an Nutztieren?"
         },
         "summary": {
-          "de": "Erledigt"
+          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten."
         },
         "type": {
           "de": "Interpellation"
@@ -4274,7 +4276,7 @@
           "de": "25.4809 · Keine Tierqual bei der Geflügelschlachtung"
         },
         "summary": {
-          "de": "Eingereicht"
+          "de": "Der Vorstoss verlangt konkrete Massnahmen gegen Tierqual bei der Geflügelschlachtung und eine konsequent tierschutzkonforme Praxis."
         },
         "type": {
           "de": "Postulat"
