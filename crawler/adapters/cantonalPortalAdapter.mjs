@@ -99,6 +99,30 @@ const CANTON_FALLBACK_LINKS = {
     { href: 'https://ratsinfo.so.ch/geschaefte', text: 'Geschäfte' },
     { href: 'https://ratsinfo.so.ch/interventionen', text: 'Interventionen' },
   ],
+  LU: [
+    { href: 'https://www.lu.ch/kr/geschaefte', text: 'Geschäfte Kantonsrat Luzern' },
+    { href: 'https://www.lu.ch/kr/geschaefte?jahr=2020', text: 'Geschäfte ab 2020' },
+  ],
+  SG: [
+    { href: 'https://www.ratsinfo.sg.ch/', text: 'Ratsinfo St. Gallen' },
+    { href: 'https://www.ratsinfo.sg.ch/geschaefte', text: 'Geschäfte Kantonsrat SG' },
+  ],
+  SH: [
+    { href: 'https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html', text: 'Kantonsrat Schaffhausen' },
+    { href: 'https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Parlamentarische-Vorstoesse-3341988-DE.html', text: 'Parlamentarische Vorstösse SH' },
+  ],
+  UR: [
+    { href: 'https://www.ur.ch/landrat/geschaefte', text: 'Geschäfte Landrat Uri' },
+    { href: 'https://www.ur.ch/landrat', text: 'Landrat Uri' },
+  ],
+  NW: [
+    { href: 'https://www.nw.ch/landrat', text: 'Landrat Nidwalden' },
+    { href: 'https://www.nw.ch/landratmain', text: 'Landratmain Nidwalden' },
+  ],
+  JU: [
+    { href: 'https://www.jura.ch/fr/Autorites/PLT/Documents-du-Parlement/Suivi-des-interventions/Suivi-des-interventions.html', text: 'Suivi des interventions JU' },
+    { href: 'https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html', text: 'Interventions parlementaires JU' },
+  ],
 }
 
 const asList = (value) => String(value || '')
@@ -159,9 +183,20 @@ const isLikelyNoiseLink = (href = '', text = '') => {
 
 const isSameSiteOrParliamentHost = (href = '', baseUrl = '') => {
   try {
-    const linkHost = new URL(href).hostname.replace(/^www\./, '')
-    const baseHost = new URL(baseUrl).hostname.replace(/^www\./, '')
+    const link = new URL(href)
+    const base = new URL(baseUrl)
+    const linkHost = link.hostname.replace(/^www\./, '')
+    const baseHost = base.hostname.replace(/^www\./, '')
     if (linkHost === baseHost) return true
+
+    const linkPath = `${link.pathname}${link.search}`.toLowerCase()
+    const sameCountryGov = linkHost.endsWith('.ch') && baseHost.endsWith('.ch')
+    const hasParliamentPathHint = [
+      'parlament', 'parliament', 'grandconseil', 'kantonsrat', 'landrat', 'grosserrat',
+      'vorstoss', 'vorstoesse', 'objets', 'interventions', 'geschaefte', 'gesch%C3%A4fte'.toLowerCase(),
+    ].some((token) => linkPath.includes(token))
+
+    if (sameCountryGov && hasParliamentPathHint) return true
     return linkHost.includes('ratsinfo') || linkHost.includes('sitzungsdienst')
   } catch {
     return false
@@ -216,9 +251,14 @@ const candidateUrlsFromRegistry = (entry) => {
     ? entry.probe.candidatesTried.map((candidate) => candidate?.url)
     : []
 
+  const configuredCandidates = Array.isArray(entry?.urlCandidates)
+    ? entry.urlCandidates
+    : []
+
   return [...new Set([
     entry?.probe?.finalUrl,
     entry?.url,
+    ...configuredCandidates,
     ...fromProbe,
     ...explicitCandidates,
   ].filter(Boolean))]

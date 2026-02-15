@@ -329,6 +329,7 @@ const sourceRows = await Promise.all(cantons.map(async (entry) => {
     parliament: entry.parliament,
     adapter: entry.adapter,
     url: entry.url,
+    urlCandidates: Array.isArray(entry.urlCandidates) ? entry.urlCandidates : [],
     sinceYear: entry.sinceYear,
     status: bestProbe.ok ? 'scaffolded' : 'probe-failed',
     readiness,
