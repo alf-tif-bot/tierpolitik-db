@@ -221,11 +221,13 @@ const SUBMITTER_OVERRIDES = {
   '21.3002': { name: 'Kommission für Umwelt, Raumplanung und Energie Ständerat', rolle: 'Kommission', partei: '' },
   '23.7580': { name: 'Rüegger Monika', rolle: 'Nationalrat', partei: 'SVP' },
   '22.7004': { name: 'Egger Mike', rolle: 'Nationalrat', partei: 'SVP' },
+  '21.8163': { name: 'de Courten Thomas', rolle: 'Nationalrat', partei: 'SVP' },
 }
 
 const TYPE_OVERRIDES = {
   '23.7580': 'Anfrage',
   '22.7004': 'Anfrage',
+  '21.8163': 'Anfrage',
 }
 
 const THEME_OVERRIDES = {
@@ -234,6 +236,7 @@ const THEME_OVERRIDES = {
   '23.7580': ['Landwirtschaft', 'Umwelt'],
   '22.7004': ['Landwirtschaft', 'Umwelt'],
   '25.4010': ['Landwirtschaft', 'Konsumentenschutz', 'Wirtschaft'],
+  '21.8163': ['Landwirtschaft', 'Staatspolitik', 'Umwelt', 'Beschäftigung und Arbeit'],
 }
 
 const SUMMARY_OVERRIDES = {
@@ -241,6 +244,7 @@ const SUMMARY_OVERRIDES = {
   '25.4809': 'Der Vorstoss verlangt konkrete Massnahmen gegen Tierqual bei der Geflügelschlachtung und eine konsequent tierschutzkonforme Praxis.',
   '23.7580': 'Die Fragestunde-Frage verlangt vom Bundesrat die Priorisierung des Schutzes von Menschen und Nutztieren vor Wolfsangriffen, inklusive möglicher Verteidigungsabschüsse bei direkten Angriffen.',
   '22.7004': 'Die Fragestunde-Frage kritisiert eine aus Sicht des Einreichers realitätsferne Auslegung der Tierschutzverordnung für Hofhunde und verlangt eine Klärung durch den Bundesrat.',
+  '21.8163': 'Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und deren Folgen für Forstbetriebe, Personal und Lernende; zudem werden Kompensationsmassnahmen des Bundes nachgefragt.',
   '25.4010': 'Die Motion verlangt ein gesetzlich verankertes Importverbot für chemisch (insbesondere mit Chlor) behandeltes Geflügelfleisch und begründet dies mit Konsumentenschutz, Lebensmittelstandards und handelspolitischer Verlässlichkeit.',
 }
 

@@ -3197,8 +3197,8 @@
   {
     "id": "vp-20218163-de",
     "titel": "21.8163 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (3)",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 21.8163 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (3) (Erledigt).",
+    "typ": "Anfrage",
+    "kurzbeschreibung": "Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und deren Folgen für Forstbetriebe, Personal und Lernende; zudem werden Kompensationsmassnahmen des Bundes nachgefragt.",
     "geschaeftsnummer": "21.8163",
     "ebene": "Bund",
     "kanton": null,
@@ -3207,9 +3207,10 @@
     "datumEingereicht": "2021-12-08",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Schwein",
-      "Schweine",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Staatspolitik",
+      "Umwelt",
+      "Beschäftigung und Arbeit"
     ],
     "schlagwoerter": [
       "schwein",
@@ -3218,9 +3219,9 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "de Courten Thomas",
+        "rolle": "Nationalrat",
+        "partei": "SVP"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20218163",
@@ -3243,13 +3244,14 @@
           "de": "Erledigt"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Anfrage"
         },
         "themes": {
           "de": [
-            "schwein",
-            "schweine",
-            "landwirtschaft"
+            "Landwirtschaft",
+            "Staatspolitik",
+            "Umwelt",
+            "Beschäftigung und Arbeit"
           ]
         }
       },
@@ -4779,12 +4781,9 @@
       "Wald"
     ],
     "schlagwoerter": [
-      "tiere",
-      "tierschutz",
       "biodiversität",
       "biodiversita",
-      "motion",
-      "landwirtschaft"
+      "motion"
     ],
     "einreichende": [
       {
@@ -4829,7 +4828,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "pro-tierschutz",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "Biodiversität im Wald fördern"
@@ -4867,12 +4866,9 @@
       "Siedlungsgebiet"
     ],
     "schlagwoerter": [
-      "tiere",
-      "tierschutz",
       "biodiversität",
       "biodiversita",
-      "motion",
-      "landwirtschaft"
+      "motion"
     ],
     "einreichende": [
       {
@@ -4917,7 +4913,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "pro-tierschutz",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "Biodiversität im Siedlungsgebiet fördern"
@@ -4955,8 +4951,6 @@
       "Landwirtschaft"
     ],
     "schlagwoerter": [
-      "tiere",
-      "tierschutz",
       "biodiversität",
       "biodiversita",
       "motion",
@@ -5005,7 +4999,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "pro-tierschutz",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "Biodiversität im Landwirtschaftsgebiet fördern"
@@ -5042,12 +5036,7 @@
       "Zoo"
     ],
     "schlagwoerter": [
-      "tiere",
-      "tierschutz",
-      "biodiversität",
-      "biodiversita",
-      "motion",
-      "landwirtschaft"
+      "tiere"
     ],
     "einreichende": [
       {
@@ -5082,7 +5071,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "pro-tierschutz",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "Tierpark Bern: Welche Alternativen zur Tötung überzähliger Tiere gibt es?"
