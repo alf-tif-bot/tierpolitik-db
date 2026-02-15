@@ -35,9 +35,19 @@ type Props = {
 
 const TABLE_PREFS_KEY = 'tierpolitik.table.prefs.v1'
 const PAGE_SIZE_OPTIONS = [15, 35, 50]
-const normalizeTitle = (value: string) => value
-  .replace(/^Vorstoss\s+\d+\s*:\s*/i, '')
-  .replace(/^\s*\d{2}\.\d{3,4}\s*[·\-–—:]\s*/u, '')
+const normalizeTitle = (value: string, typ?: string) => {
+  let out = value
+    .replace(/^Vorstoss\s+\d+\s*:\s*/i, '')
+    .replace(/^\s*\d{2}\.\d{3,4}\s*[·\-–—:]\s*/u, '')
+    .trim()
+
+  if (typ) {
+    const escaped = typ.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    out = out.replace(new RegExp(`(?:\\.|,)?\\s*${escaped}\\s*$`, 'i'), '').trim()
+  }
+
+  return out
+}
 
 export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboardEnabled = true, sectionId, lang, t }: Props) {
   const [sorting, setSorting] = useState<SortingState>([])
@@ -63,7 +73,7 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboard
   }, [sorting])
 
   const columns = useMemo<ColumnDef<Vorstoss>[]>(() => [
-    { accessorKey: 'titel', header: t.titleCol, cell: (i) => normalizeTitle(localizedMetaText(i.row.original, 'title', lang, i.getValue<string>())) },
+    { accessorKey: 'titel', header: t.titleCol, cell: (i) => normalizeTitle(localizedMetaText(i.row.original, 'title', lang, i.getValue<string>()), i.row.original.typ) },
     { accessorKey: 'typ', header: t.type, cell: (i) => localizedMetaType(i.row.original, lang) },
     {
       accessorKey: 'status',
