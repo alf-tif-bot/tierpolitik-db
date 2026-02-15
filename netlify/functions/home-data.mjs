@@ -1,9 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { createRequire } from 'node:module'
 import { withPgClient } from '../../crawler/db-postgres.mjs'
-
-const require = createRequire(import.meta.url)
 
 const ALLOWED_ORIGINS = new Set([
   'https://monitor.tierimfokus.ch',
@@ -37,13 +34,8 @@ try {
   // ignore and try bundled fallback below
 }
 
-if (!Array.isArray(fallbackVorstoesse) || !fallbackVorstoesse.length) {
-  try {
-    const bundled = require('../../data/vorstoesse.json')
-    fallbackVorstoesse = Array.isArray(bundled) ? bundled : []
-  } catch {
-    fallbackVorstoesse = []
-  }
+if (!Array.isArray(fallbackVorstoesse)) {
+  fallbackVorstoesse = []
 }
 
 const inferType = (title = '', sourceId = '') => {
