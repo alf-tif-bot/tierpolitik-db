@@ -192,7 +192,7 @@ const municipalThemesFromTitle = (title = '') => {
   const t = String(title || '').toLowerCase()
   const out = []
   if (t.includes('feuerwerk') || t.includes('lärm') || t.includes('laerm')) out.push('Feuerwerk')
-  if (t.includes('tierpark')) out.push('Tierpark')
+  if (t.includes('tierpark')) out.push('Zoo')
   if (t.includes('biodivers')) out.push('Biodiversität')
   if (t.includes('wald')) out.push('Wald')
   if (t.includes('siedlungsgebiet')) out.push('Siedlungsgebiet')
