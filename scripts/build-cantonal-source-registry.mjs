@@ -20,6 +20,7 @@ const PARLIAMENT_URL_HINTS = [
   '/recherche-objets',
   '/ricerca-messaggi-e-atti',
   '/geschaefte',
+  '/geschaefte-grosser-rat',
   '/geschaefte-des-kantonsrats',
   '/geschaefte-suche',
   '/vorstoesse',
@@ -63,6 +64,7 @@ const detectPlatform = ({ requestUrl = '', finalUrl = '', html = '' } = {}) => {
 
 const hasSearchOrAffairPath = (url = '') => [
   'geschaefte',
+  'geschaefte-grosser-rat',
   'geschaefte-des-kantonsrats',
   'geschaefte-suche',
   'vorstoesse',
@@ -168,6 +170,7 @@ const buildCandidates = (entry) => {
 
   const pathHints = [
     'geschaefte',
+    'geschaefte-grosser-rat',
     'vorstoesse',
     'objets-parlementaires',
     'interventions-parlementaires',
