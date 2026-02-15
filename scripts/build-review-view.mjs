@@ -56,6 +56,28 @@ const MUNICIPAL_THEME_CONTEXT_KEYWORDS = [
   'biodivers', 'wald', 'siedlungsgebiet', 'landwirtschaftsgebiet', 'feuerwerk', 'lärm', 'laerm',
 ]
 
+const CANTONAL_THEME_STRONG_KEYWORDS = [
+  'tier', 'tierschutz', 'tierwohl', 'tierhalteverbot', 'nutztier', 'masthuhn', 'geflügel', 'schlacht',
+  'tierversuch', '3r', 'wildtier', 'jagd', 'zoo', 'tierpark', 'biodivers', 'artenschutz', 'wolf', 'fuchs',
+]
+
+const isCantonalReadableRelevant = (item) => {
+  const sid = String(item?.sourceId || '')
+  if (!sid.startsWith('ch-cantonal-')) return true
+  const title = String(item?.title || '').trim()
+  const summary = String(item?.summary || '').trim().toLowerCase()
+  const text = `${title}\n${summary}\n${String(item?.body || '')}`.toLowerCase()
+
+  const looksUnreadable =
+    /^parlamentsgesch(ä|a)ft\s+/i.test(title)
+    || title.toLowerCase().includes('quell-adapter vorbereitet')
+    || summary.includes('0 relevante linkziele erkannt')
+    || summary.includes('verifying your browser')
+
+  if (looksUnreadable) return false
+  return CANTONAL_THEME_STRONG_KEYWORDS.some((kw) => text.includes(kw))
+}
+
 const isMunicipalTopicRelevant = (item) => {
   const sid = String(item?.sourceId || '')
   if (!sid.startsWith('ch-municipal-')) return true
@@ -85,6 +107,7 @@ const baseReviewItems = [...db.items]
   .filter((item) => ['new', 'queued', 'approved', 'published'].includes(normalizeReviewStatus(item)))
   .filter((item) => !isMunicipalOverviewNoise(item))
   .filter((item) => isMunicipalTopicRelevant(item))
+  .filter((item) => isCantonalReadableRelevant(item))
   .filter((item) => isInTargetHorizon(item))
 
 const affairKey = (item) => {
