@@ -79,8 +79,9 @@ const hasSearchOrAffairPath = (url = '') => [
   'kantonsrat.html',
 ].some((hint) => String(url).toLowerCase().includes(String(hint).toLowerCase()))
 
-const classifyReadiness = ({ url = '', platform = 'generic-site', ok = false, httpStatus = null, hasParliamentSignals = false }) => {
+const classifyReadiness = ({ url = '', platform = 'generic-site', ok = false, httpStatus = null, hasParliamentSignals = false, error = '' }) => {
   const u = String(url).toLowerCase()
+  const err = String(error || '').toLowerCase()
   const hasParliamentHint = [
     'parlament',
     'kantonsrat',
@@ -89,15 +90,21 @@ const classifyReadiness = ({ url = '', platform = 'generic-site', ok = false, ht
     'interventions-parlementaires',
     'objets-et-rapports-de-commissions',
     'ricerca-messaggi-e-atti',
+    'parlinfo',
+    'grosserrat',
   ].some((hint) => u.includes(hint))
   const hasSearchOrAffairPathForUrl = hasSearchOrAffairPath(u)
 
   if (!ok || platform === 'waf-challenge') {
+    if (platform === 'waf-challenge' && (hasParliamentSignals || hasParliamentHint)) return 'site-discovery-needed'
     if (httpStatus === 429 && (hasParliamentSignals || hasParliamentHint || platform === 'parliament-portal')) return 'site-discovery-needed'
     if ([404, 410, 500, 502, 503].includes(Number(httpStatus)) && (hasParliamentSignals || hasParliamentHint || platform === 'parliament-portal')) {
       return 'site-discovery-needed'
     }
-    if (httpStatus === 403 || platform === 'waf-challenge') return 'blocked-needs-manual'
+    if (!httpStatus && err.includes('timeout') && (hasParliamentSignals || hasParliamentHint || platform === 'parliament-portal')) {
+      return 'site-discovery-needed'
+    }
+    if (httpStatus === 403) return 'blocked-needs-manual'
     return 'unreachable-needs-manual'
   }
   if (platform === 'ratsinfo' || platform === 'allris/sessionnet') return 'adapter-ready-likely'
@@ -253,6 +260,7 @@ const sourceRows = await Promise.all(cantons.map(async (entry) => {
     ok: bestProbe.ok,
     httpStatus: bestProbe.httpStatus,
     hasParliamentSignals: bestProbe.hasParliamentSignals || hasAnyParliamentSignals,
+    error: bestProbe.error,
   })
 
   return {
