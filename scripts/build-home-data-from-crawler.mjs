@@ -233,6 +233,7 @@ const THEME_OVERRIDES = {
   '21.3002': ['Umwelt', 'Landwirtschaft'],
   '23.7580': ['Landwirtschaft', 'Umwelt'],
   '22.7004': ['Landwirtschaft', 'Umwelt'],
+  '25.4010': ['Landwirtschaft', 'Konsumentenschutz', 'Wirtschaft'],
 }
 
 const SUMMARY_OVERRIDES = {
@@ -240,6 +241,7 @@ const SUMMARY_OVERRIDES = {
   '25.4809': 'Der Vorstoss verlangt konkrete Massnahmen gegen Tierqual bei der Geflügelschlachtung und eine konsequent tierschutzkonforme Praxis.',
   '23.7580': 'Die Fragestunde-Frage verlangt vom Bundesrat die Priorisierung des Schutzes von Menschen und Nutztieren vor Wolfsangriffen, inklusive möglicher Verteidigungsabschüsse bei direkten Angriffen.',
   '22.7004': 'Die Fragestunde-Frage kritisiert eine aus Sicht des Einreichers realitätsferne Auslegung der Tierschutzverordnung für Hofhunde und verlangt eine Klärung durch den Bundesrat.',
+  '25.4010': 'Die Motion verlangt ein gesetzlich verankertes Importverbot für chemisch (insbesondere mit Chlor) behandeltes Geflügelfleisch und begründet dies mit Konsumentenschutz, Lebensmittelstandards und handelspolitischer Verlässlichkeit.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {

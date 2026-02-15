@@ -3696,7 +3696,7 @@
     "id": "vp-20254010-de",
     "titel": "25.4010 · Gesetzliches Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhuhn\")",
     "typ": "Motion",
-    "kurzbeschreibung": "Der Vorstoss verlangt ein klares Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhühner\") und die Verankerung im Gesetz. Im Fokus steht, ob Tierschutz- und Konsumentenschutzstandards im Import konsequent abgesichert werden.",
+    "kurzbeschreibung": "Die Motion verlangt ein gesetzlich verankertes Importverbot für chemisch (insbesondere mit Chlor) behandeltes Geflügelfleisch und begründet dies mit Konsumentenschutz, Lebensmittelstandards und handelspolitischer Verlässlichkeit.",
     "geschaeftsnummer": "25.4010",
     "ebene": "Bund",
     "kanton": null,
@@ -3705,8 +3705,9 @@
     "datumEingereicht": "2025-09-16",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Masthühner",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Konsumentenschutz",
+      "Wirtschaft"
     ],
     "schlagwoerter": [
       "geflügel",
@@ -3744,8 +3745,9 @@
         },
         "themes": {
           "de": [
-            "geflügel",
-            "landwirtschaft"
+            "Landwirtschaft",
+            "Konsumentenschutz",
+            "Wirtschaft"
           ]
         }
       },
