@@ -9,7 +9,7 @@ export const languageNames: Record<Language, string> = {
 
 export const statusLabels: Record<string, Record<Language, string>> = {
   Eingereicht: { de: 'Eingereicht', fr: 'Déposé', it: 'Presentato', en: 'Submitted' },
-  'In Beratung': { de: 'Bearbeitung', fr: 'En délibération', it: 'In discussione', en: 'In review' },
+  'In Beratung': { de: 'Beratung', fr: 'En délibération', it: 'In discussione', en: 'In review' },
   Angenommen: { de: 'Angenommen', fr: 'Accepté', it: 'Accolto', en: 'Accepted' },
   Abgelehnt: { de: 'Abgelehnt', fr: 'Rejeté', it: 'Respinto', en: 'Rejected' },
   Abgeschrieben: { de: 'Abgeschrieben', fr: 'Classé', it: 'Archiviato', en: 'Closed' },
