@@ -15,7 +15,11 @@
     "parliament": "Grosser Rat Appenzell Innerrhoden",
     "adapter": "cantonRegistry",
     "url": "https://www.ai.ch/politik/grosser-rat",
-    "sinceYear": 2020
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://www.ai.ch/politik/grosser-rat/geschaefte",
+      "https://www.ai.ch/politik/grosser-rat/protokolle"
+    ]
   },
   {
     "canton": "AR",
@@ -57,7 +61,11 @@
     "parliament": "Grosser Rat Basel-Stadt",
     "adapter": "cantonRegistry",
     "url": "https://www.grosserrat.bs.ch",
-    "sinceYear": 2020
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://grosserrat.bs.ch/geschaefte",
+      "https://grosserrat.bs.ch/geschaefte/suche"
+    ]
   },
   {
     "canton": "FR",
@@ -165,7 +173,11 @@
     "parliament": "Kantonsrat St. Gallen",
     "adapter": "cantonRegistry",
     "url": "https://www.ratsinfo.sg.ch",
-    "sinceYear": 2020
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://www.ratsinfo.sg.ch/geschaefte",
+      "https://www.ratsinfo.sg.ch/sessionen"
+    ]
   },
   {
     "canton": "SH",

@@ -4521,7 +4521,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "fr",
-      "haltung": "pro-tierschutz",
+      "haltung": "neutral/unklar",
       "i18n": {
         "title": {
           "de": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
@@ -4656,12 +4656,12 @@
     "id": "vp-20253733-de",
     "titel": "25.3733 - Verhältnismässigkeit in der Direktzahlungsverordnung wahren",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 25.3733 - Verhältnismässigkeit in der Direktzahlungsverordnung wahren (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 25.3733 - Verhältnismässigkeit in der Direktzahlungsverordnung wahren (Abgelehnt).",
     "geschaeftsnummer": "25.3733",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Abgelehnt",
     "datumEingereicht": "2025-06-19",
     "datumAktualisiert": "2026-02-13",
     "themen": [
@@ -4684,7 +4684,7 @@
     "resultate": [
       {
         "datum": "2025-06-19",
-        "status": "In Beratung",
+        "status": "Abgelehnt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -4724,12 +4724,12 @@
     "id": "vp-20254697-de",
     "titel": "25.4697 - Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 25.4697 - Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 25.4697 - Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung (Abgelehnt).",
     "geschaeftsnummer": "25.4697",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Abgelehnt",
     "datumEingereicht": "2025-12-18",
     "datumAktualisiert": "2026-02-13",
     "themen": [
@@ -4756,7 +4756,7 @@
     "resultate": [
       {
         "datum": "2025-12-18",
-        "status": "In Beratung",
+        "status": "Abgelehnt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -4800,12 +4800,12 @@
     "id": "vp-20254487-de",
     "titel": "25.4487 - Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 25.4487 - Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 25.4487 - Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder (Abgelehnt).",
     "geschaeftsnummer": "25.4487",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Abgelehnt",
     "datumEingereicht": "2025-12-09",
     "datumAktualisiert": "2026-02-13",
     "themen": [
@@ -4833,7 +4833,7 @@
     "resultate": [
       {
         "datum": "2025-12-09",
-        "status": "In Beratung",
+        "status": "Abgelehnt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-15T17:16:51.046Z",
+  "generatedAt": "2026-02-15T18:46:46.667Z",
   "coverage": {
     "target": "all-cantons",
     "sinceYearMin": 2020,
@@ -26,7 +26,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:45.938Z",
+        "checkedAt": "2026-02-15T18:46:42.135Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte",
@@ -35,7 +35,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 34,
+        "candidateCount": 49,
         "candidatesTried": [
           {
             "url": "https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte",
@@ -78,40 +78,40 @@
             "yearsDetected": []
           },
           {
+            "url": "https://ag.ratsinfomanagement.net",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.sitzungsdienst.net/",
+            "platform": "ratsinfo",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://www.ratsinfo.ag.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.ag.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://ratsinfo.ag.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.ag.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
             "url": "https://www.ag.ch/de/grosser-rat/geschaefte",
             "ok": true,
             "httpStatus": 200,
             "finalUrl": "https://www.ag.ch/grossrat/grweb/de/196/Gesch%25C3%25A4fte",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.ag.ch/de/grosser-rat/geschaefte-grosser-rat",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://www.ag.ch/grossrat/grweb/de/196/Gesch%25C3%25A4fte",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.ag.ch/de/grosser-rat/vorstoesse",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://www.ag.ch/grossrat/grweb/",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.ag.ch/de/grosser-rat/objets-parlementaires",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://www.ag.ch/grossrat/grweb/",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
@@ -131,7 +131,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:44.394Z",
+        "checkedAt": "2026-02-15T18:46:40.036Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ai.ch/politik/grosser-rat/geschaefte-grosser-rat",
@@ -140,8 +140,30 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 32,
+        "candidateCount": 48,
         "candidatesTried": [
+          {
+            "url": "https://www.ai.ch/politik/grosser-rat/geschaefte",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.ai.ch/politik/grosser-rat/geschaefte-grosser-rat/geschaefte-bis-2018",
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true,
+            "archiveSignals": true,
+            "yearsDetected": [
+              2018
+            ]
+          },
+          {
+            "url": "https://www.ai.ch/politik/grosser-rat/protokolle",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.ai.ch/politik/grosser-rat/protokolle",
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
           {
             "url": "https://www.ai.ch/politik/grosser-rat",
             "ok": true,
@@ -163,62 +185,40 @@
             "yearsDetected": []
           },
           {
-            "url": "https://www.ai.ch/politik/grosser-rat/geschaefte",
+            "url": "https://ai.ratsinfomanagement.net",
             "ok": true,
             "httpStatus": 200,
-            "finalUrl": "https://www.ai.ch/politik/grosser-rat/geschaefte-grosser-rat/geschaefte-bis-2018",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": true,
-            "yearsDetected": [
-              2018
-            ]
+            "finalUrl": "https://www.sitzungsdienst.net/",
+            "platform": "ratsinfo",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://www.ratsinfo.ai.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.ai.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://ratsinfo.ai.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.ai.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
           },
           {
             "url": "https://www.ai.ch/politik/grosser-rat/geschaefte-grosser-rat",
             "ok": true,
             "httpStatus": 200,
             "finalUrl": "https://www.ai.ch/politik/grosser-rat/geschaefte-grosser-rat",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.ai.ch/politik/grosser-rat/vorstoesse",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.ai.ch/politik/grosser-rat/vorstoesse",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.ai.ch/politik/grosser-rat/objets-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.ai.ch/politik/grosser-rat/objets-parlementaires",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.ai.ch/politik/grosser-rat/interventions-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.ai.ch/politik/grosser-rat/interventions-parlementaires",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.ai.ch/politik/grosser-rat/objets-et-rapports-de-commissions",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.ai.ch/politik/grosser-rat/objets-et-rapports-de-commissions",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
@@ -238,7 +238,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:44.433Z",
+        "checkedAt": "2026-02-15T18:46:40.146Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://ar.ch/kantonsrat/parlamentsdienst",
@@ -247,7 +247,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 33,
+        "candidateCount": 48,
         "candidatesTried": [
           {
             "url": "https://ar.ch/kantonsrat",
@@ -280,6 +280,36 @@
             "yearsDetected": []
           },
           {
+            "url": "https://ar.ratsinfomanagement.net",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.sitzungsdienst.net/",
+            "platform": "ratsinfo",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://www.ratsinfo.ar.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.ar.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://ratsinfo.ar.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.ar.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
             "url": "https://ar.ch/kantonsrat/parlamentsdienst/geschaefte",
             "ok": false,
             "httpStatus": 404,
@@ -294,36 +324,6 @@
             "ok": false,
             "httpStatus": 404,
             "finalUrl": "https://ar.ch/kantonsrat/parlamentsdienst/geschaefte-grosser-rat",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://ar.ch/kantonsrat/parlamentsdienst/vorstoesse",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://ar.ch/kantonsrat/parlamentsdienst/vorstoesse",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://ar.ch/kantonsrat/parlamentsdienst/objets-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://ar.ch/kantonsrat/parlamentsdienst/objets-parlementaires",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://ar.ch/kantonsrat/parlamentsdienst/interventions-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://ar.ch/kantonsrat/parlamentsdienst/interventions-parlementaires",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
@@ -343,7 +343,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:44.606Z",
+        "checkedAt": "2026-02-15T18:46:41.649Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.gr.be.ch/de/start/geschaefte.html",
@@ -352,7 +352,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 36,
+        "candidateCount": 51,
         "candidatesTried": [
           {
             "url": "https://www.gr.be.ch",
@@ -415,20 +415,20 @@
             "yearsDetected": []
           },
           {
-            "url": "https://www.parlament.be.ch/geschaefte",
-            "ok": false,
-            "httpStatus": null,
-            "finalUrl": "https://www.parlament.be.ch/geschaefte",
-            "platform": "unreachable",
+            "url": "https://be.ratsinfomanagement.net",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.sitzungsdienst.net/",
+            "platform": "ratsinfo",
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           },
           {
-            "url": "https://www.parlament.be.ch/geschaefte-grosser-rat",
+            "url": "https://www.ratsinfo.be.ch",
             "ok": false,
             "httpStatus": null,
-            "finalUrl": "https://www.parlament.be.ch/geschaefte-grosser-rat",
+            "finalUrl": "https://www.ratsinfo.be.ch",
             "platform": "unreachable",
             "hasParliamentSignals": false,
             "archiveSignals": false,
@@ -448,7 +448,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:44.798Z",
+        "checkedAt": "2026-02-15T18:46:42.176Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -457,7 +457,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 35,
+        "candidateCount": 49,
         "candidatesTried": [
           {
             "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/geschaefte-des-landrats",
@@ -510,30 +510,30 @@
             "yearsDetected": []
           },
           {
+            "url": "https://www.ratsinfo.bl.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.bl.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://ratsinfo.bl.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.bl.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
             "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/geschaefte",
             "ok": false,
             "httpStatus": 403,
             "finalUrl": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/geschaefte",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/geschaefte-grosser-rat",
-            "ok": false,
-            "httpStatus": 403,
-            "finalUrl": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/geschaefte-grosser-rat",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/vorstoesse",
-            "ok": false,
-            "httpStatus": 403,
-            "finalUrl": "https://www.baselland.ch/politik-und-behorden/landrat-parlament/vorstoesse",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
@@ -553,7 +553,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:45.689Z",
+        "checkedAt": "2026-02-15T18:46:42.086Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://grosserrat.bs.ch/",
@@ -562,8 +562,28 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 32,
+        "candidateCount": 48,
         "candidatesTried": [
+          {
+            "url": "https://grosserrat.bs.ch/geschaefte",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://grosserrat.bs.ch/geschaefte",
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://grosserrat.bs.ch/geschaefte/suche",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://grosserrat.bs.ch/geschaefte/suche",
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
           {
             "url": "https://www.grosserrat.bs.ch",
             "ok": true,
@@ -585,60 +605,40 @@
             "yearsDetected": []
           },
           {
+            "url": "https://bs.ratsinfomanagement.net",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.sitzungsdienst.net/",
+            "platform": "ratsinfo",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://www.ratsinfo.bs.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.bs.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://ratsinfo.bs.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.bs.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
             "url": "https://www.grosserrat.bs.ch/geschaefte",
             "ok": false,
             "httpStatus": 404,
             "finalUrl": "https://grosserrat.bs.ch/geschaefte",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.grosserrat.bs.ch/geschaefte-grosser-rat",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://grosserrat.bs.ch/geschaefte-grosser-rat",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.grosserrat.bs.ch/vorstoesse",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://grosserrat.bs.ch/vorstoesse",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.grosserrat.bs.ch/objets-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://grosserrat.bs.ch/objets-parlementaires",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.grosserrat.bs.ch/interventions-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://grosserrat.bs.ch/interventions-parlementaires",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.grosserrat.bs.ch/objets-et-rapports-de-commissions",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://grosserrat.bs.ch/objets-et-rapports-de-commissions",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
@@ -658,7 +658,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:51.046Z",
+        "checkedAt": "2026-02-15T18:46:46.666Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.fr.ch/parlinfo/membres-du-grand-conseil/geschaefte",
@@ -667,7 +667,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 35,
+        "candidateCount": 49,
         "candidatesTried": [
           {
             "url": "https://www.fr.ch/parlinfo",
@@ -711,9 +711,29 @@
           },
           {
             "url": "https://fr.ch/parlinfo/membres-du-grand-conseil",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.fr.ch/parlinfo/membres-du-grand-conseil",
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://www.ratsinfo.fr.ch",
             "ok": false,
             "httpStatus": null,
-            "finalUrl": "https://fr.ch/parlinfo/membres-du-grand-conseil",
+            "finalUrl": "https://www.ratsinfo.fr.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://ratsinfo.fr.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.fr.ch",
             "platform": "unreachable",
             "hasParliamentSignals": false,
             "archiveSignals": false,
@@ -724,26 +744,6 @@
             "ok": true,
             "httpStatus": 200,
             "finalUrl": "https://www.fr.ch/parlinfo/membres-du-grand-conseil/geschaefte",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.fr.ch/parlinfo/membres-du-grand-conseil/geschaefte-grosser-rat",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://www.fr.ch/parlinfo/membres-du-grand-conseil/geschaefte-grosser-rat",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.fr.ch/parlinfo/membres-du-grand-conseil/vorstoesse",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://www.fr.ch/parlinfo/membres-du-grand-conseil/vorstoesse",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
@@ -763,7 +763,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:44.824Z",
+        "checkedAt": "2026-02-15T18:46:41.888Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://ge.ch/grandconseil/recherche-objets",
@@ -772,7 +772,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 35,
+        "candidateCount": 50,
         "candidatesTried": [
           {
             "url": "https://ge.ch/grandconseil/recherche-objets",
@@ -825,32 +825,32 @@
             "yearsDetected": []
           },
           {
-            "url": "https://ge.ch/grandconseil/objets-parlementaires/geschaefte",
+            "url": "https://ge.ratsinfomanagement.net",
             "ok": true,
             "httpStatus": 200,
-            "finalUrl": "https://ge.ch/grandconseil/objets-parlementaires/geschaefte",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
+            "finalUrl": "https://www.sitzungsdienst.net/",
+            "platform": "ratsinfo",
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           },
           {
-            "url": "https://ge.ch/grandconseil/objets-parlementaires/geschaefte-grosser-rat",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://ge.ch/grandconseil/objets-parlementaires/geschaefte-grosser-rat",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
+            "url": "https://www.ratsinfo.ge.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.ge.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           },
           {
-            "url": "https://ge.ch/grandconseil/objets-parlementaires/vorstoesse",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://ge.ch/grandconseil/objets-parlementaires/vorstoesse",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
+            "url": "https://ratsinfo.ge.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.ge.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           }
@@ -868,16 +868,16 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:44.413Z",
+        "checkedAt": "2026-02-15T18:46:40.515Z",
         "ok": true,
         "httpStatus": 200,
-        "finalUrl": "https://www.gl.ch/parlament/landrat/geschaefte/aktuelle-geschaefte.html/241",
+        "finalUrl": "https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248",
         "platform": "parliament-portal",
         "hasParliamentSignals": true,
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 33,
+        "candidateCount": 48,
         "candidatesTried": [
           {
             "url": "https://www.gl.ch/parlament/landrat/geschaefte/aktuelle-geschaefte.html/241",
@@ -901,11 +901,41 @@
           },
           {
             "url": "https://gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248",
-            "ok": false,
-            "httpStatus": 429,
+            "ok": true,
+            "httpStatus": 200,
             "finalUrl": "https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://gl.ratsinfomanagement.net",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.sitzungsdienst.net/",
+            "platform": "ratsinfo",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://www.ratsinfo.gl.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.gl.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://ratsinfo.gl.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.gl.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           },
@@ -921,39 +951,9 @@
           },
           {
             "url": "https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248/geschaefte-grosser-rat",
-            "ok": true,
-            "httpStatus": 200,
+            "ok": false,
+            "httpStatus": 429,
             "finalUrl": "https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248/geschaefte-grosser-rat",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248/vorstoesse",
-            "ok": false,
-            "httpStatus": 429,
-            "finalUrl": "https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248/vorstoesse",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248/objets-parlementaires",
-            "ok": false,
-            "httpStatus": 429,
-            "finalUrl": "https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248/objets-parlementaires",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248/interventions-parlementaires",
-            "ok": false,
-            "httpStatus": 429,
-            "finalUrl": "https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248/interventions-parlementaires",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
@@ -973,7 +973,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:45.102Z",
+        "checkedAt": "2026-02-15T18:46:41.871Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.gr.ch/DE/institutionen/parlament/Seiten/start.aspx",
@@ -982,7 +982,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 33,
+        "candidateCount": 47,
         "candidatesTried": [
           {
             "url": "https://gr.ratsinfomanagement.net",
@@ -1015,6 +1015,26 @@
             "yearsDetected": []
           },
           {
+            "url": "https://www.ratsinfo.gr.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.gr.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://ratsinfo.gr.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.gr.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
             "url": "https://www.gr.ch/DE/institutionen/parlament/geschaefte",
             "ok": false,
             "httpStatus": 404,
@@ -1035,30 +1055,10 @@
             "yearsDetected": []
           },
           {
-            "url": "https://www.gr.ch/DE/institutionen/parlament/vorstoesse",
+            "url": "https://www.gr.ch/DE/institutionen/parlament/geschaefte-des-kantonsrats",
             "ok": false,
             "httpStatus": 404,
-            "finalUrl": "https://www.gr.ch/DE/institutionen/parlament/vorstoesse",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.gr.ch/DE/institutionen/parlament/objets-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.gr.ch/DE/institutionen/parlament/objets-parlementaires",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.gr.ch/DE/institutionen/parlament/interventions-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.gr.ch/DE/institutionen/parlament/interventions-parlementaires",
+            "finalUrl": "https://www.gr.ch/DE/institutionen/parlament/geschaefte-des-kantonsrats",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
@@ -1078,7 +1078,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:44.808Z",
+        "checkedAt": "2026-02-15T18:46:41.958Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html",
@@ -1087,7 +1087,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 36,
+        "candidateCount": 50,
         "candidatesTried": [
           {
             "url": "https://www.jura.ch/fr/Autorites/PLT/Documents-du-Parlement/Suivi-des-interventions/Suivi-des-interventions.html",
@@ -1150,22 +1150,22 @@
             "yearsDetected": []
           },
           {
-            "url": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html/geschaefte",
+            "url": "https://www.ratsinfo.ju.ch",
             "ok": false,
-            "httpStatus": 500,
-            "finalUrl": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html/geschaefte",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.ju.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           },
           {
-            "url": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html/geschaefte-grosser-rat",
+            "url": "https://ratsinfo.ju.ch",
             "ok": false,
-            "httpStatus": 500,
-            "finalUrl": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html/geschaefte-grosser-rat",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.ju.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           }
@@ -1183,7 +1183,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:44.997Z",
+        "checkedAt": "2026-02-15T18:46:42.718Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -1192,7 +1192,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 33,
+        "candidateCount": 47,
         "candidatesTried": [
           {
             "url": "https://lu.ratsinfomanagement.net",
@@ -1225,6 +1225,26 @@
             "yearsDetected": []
           },
           {
+            "url": "https://www.ratsinfo.lu.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.lu.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://ratsinfo.lu.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.lu.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
             "url": "https://www.lu.ch/kr/geschaefte",
             "ok": false,
             "httpStatus": 404,
@@ -1245,30 +1265,10 @@
             "yearsDetected": []
           },
           {
-            "url": "https://www.lu.ch/kr/vorstoesse",
+            "url": "https://www.lu.ch/kr/geschaefte-des-kantonsrats",
             "ok": false,
             "httpStatus": 404,
-            "finalUrl": "https://www.lu.ch/notfound?item=%2fkr%2fvorstoesse&user=extranet%5cAnonymous&site=kantonlu-website&url=%2fkr%2fvorstoesse",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.lu.ch/kr/objets-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.lu.ch/notfound?item=%2fkr%2fobjets-parlementaires&user=extranet%5cAnonymous&site=kantonlu-website&url=%2fkr%2fobjets-parlementaires",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.lu.ch/kr/interventions-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.lu.ch/notfound?item=%2fkr%2finterventions-parlementaires&user=extranet%5cAnonymous&site=kantonlu-website&url=%2fkr%2finterventions-parlementaires",
+            "finalUrl": "https://www.lu.ch/notfound?item=%2fkr%2fgeschaefte-des-kantonsrats&user=extranet%5cAnonymous&site=kantonlu-website&url=%2fkr%2fgeschaefte-des-kantonsrats",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
@@ -1288,7 +1288,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:44.925Z",
+        "checkedAt": "2026-02-15T18:46:42.527Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx",
@@ -1297,7 +1297,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 34,
+        "candidateCount": 48,
         "candidatesTried": [
           {
             "url": "https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx",
@@ -1340,6 +1340,26 @@
             "yearsDetected": []
           },
           {
+            "url": "https://www.ratsinfo.ne.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.ne.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://ratsinfo.ne.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.ne.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
             "url": "https://www.ne.ch/autorites/GC/geschaefte",
             "ok": false,
             "httpStatus": 404,
@@ -1354,26 +1374,6 @@
             "ok": false,
             "httpStatus": 404,
             "finalUrl": "https://www.ne.ch/autorites/GC/geschaefte-grosser-rat",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.ne.ch/autorites/GC/vorstoesse",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.ne.ch/autorites/GC/vorstoesse",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.ne.ch/autorites/GC/objets-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.ne.ch/autorites/GC/objets-parlementaires",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
@@ -1393,7 +1393,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:46.505Z",
+        "checkedAt": "2026-02-15T18:46:42.705Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -1402,7 +1402,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 34,
+        "candidateCount": 48,
         "candidatesTried": [
           {
             "url": "https://www.nw.ch/landratmain",
@@ -1445,6 +1445,26 @@
             "yearsDetected": []
           },
           {
+            "url": "https://www.ratsinfo.nw.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.nw.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://ratsinfo.nw.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.nw.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
             "url": "https://www.nw.ch/landrat/geschaefte",
             "ok": false,
             "httpStatus": 404,
@@ -1459,26 +1479,6 @@
             "ok": false,
             "httpStatus": 404,
             "finalUrl": "https://www.nw.ch/landrat/geschaefte-grosser-rat",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.nw.ch/landrat/vorstoesse",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.nw.ch/landrat/vorstoesse",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.nw.ch/landrat/objets-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.nw.ch/landrat/objets-parlementaires",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
@@ -1498,7 +1498,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:45.260Z",
+        "checkedAt": "2026-02-15T18:46:42.572Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -1507,7 +1507,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 35,
+        "candidateCount": 49,
         "candidatesTried": [
           {
             "url": "https://www.ow.ch/kantonsratmain",
@@ -1560,30 +1560,30 @@
             "yearsDetected": []
           },
           {
+            "url": "https://www.ratsinfo.ow.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.ow.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://ratsinfo.ow.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.ow.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
             "url": "https://www.ow.ch/kantonsrat/geschaefte",
             "ok": false,
             "httpStatus": 404,
             "finalUrl": "https://www.ow.ch/kantonsrat/geschaefte",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.ow.ch/kantonsrat/geschaefte-grosser-rat",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.ow.ch/kantonsrat/geschaefte-grosser-rat",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.ow.ch/kantonsrat/vorstoesse",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.ow.ch/kantonsrat/vorstoesse",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
@@ -1603,7 +1603,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:44.471Z",
+        "checkedAt": "2026-02-15T18:46:40.681Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ratsinfo.sg.ch/geschaefte",
@@ -1612,8 +1612,28 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 32,
+        "candidateCount": 46,
         "candidatesTried": [
+          {
+            "url": "https://www.ratsinfo.sg.ch/geschaefte",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.ratsinfo.sg.ch/geschaefte",
+            "platform": "ratsinfo",
+            "hasParliamentSignals": true,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://www.ratsinfo.sg.ch/sessionen",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.ratsinfo.sg.ch/sessionen",
+            "platform": "ratsinfo",
+            "hasParliamentSignals": true,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
           {
             "url": "https://www.ratsinfo.sg.ch",
             "ok": true,
@@ -1635,12 +1655,12 @@
             "yearsDetected": []
           },
           {
-            "url": "https://www.ratsinfo.sg.ch/geschaefte",
+            "url": "https://sg.ratsinfomanagement.net",
             "ok": true,
             "httpStatus": 200,
-            "finalUrl": "https://www.ratsinfo.sg.ch/geschaefte",
+            "finalUrl": "https://www.sitzungsdienst.net/",
             "platform": "ratsinfo",
-            "hasParliamentSignals": true,
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           },
@@ -1655,40 +1675,20 @@
             "yearsDetected": []
           },
           {
-            "url": "https://www.ratsinfo.sg.ch/vorstoesse",
+            "url": "https://www.ratsinfo.sg.ch/geschaefte-des-kantonsrats",
             "ok": true,
             "httpStatus": 200,
-            "finalUrl": "https://www.ratsinfo.sg.ch/vorstoesse",
+            "finalUrl": "https://www.ratsinfo.sg.ch/geschaefte-des-kantonsrats",
             "platform": "ratsinfo",
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": []
           },
           {
-            "url": "https://www.ratsinfo.sg.ch/objets-parlementaires",
+            "url": "https://www.ratsinfo.sg.ch/geschaefte-suche",
             "ok": true,
             "httpStatus": 200,
-            "finalUrl": "https://www.ratsinfo.sg.ch/objets-parlementaires",
-            "platform": "ratsinfo",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.ratsinfo.sg.ch/interventions-parlementaires",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://www.ratsinfo.sg.ch/interventions-parlementaires",
-            "platform": "ratsinfo",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.ratsinfo.sg.ch/objets-et-rapports-de-commissions",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://www.ratsinfo.sg.ch/objets-et-rapports-de-commissions",
+            "finalUrl": "https://www.ratsinfo.sg.ch/geschaefte-suche",
             "platform": "ratsinfo",
             "hasParliamentSignals": true,
             "archiveSignals": false,
@@ -1708,7 +1708,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:44.997Z",
+        "checkedAt": "2026-02-15T18:46:42.268Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -1717,7 +1717,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 34,
+        "candidateCount": 48,
         "candidatesTried": [
           {
             "url": "https://sh.ratsinfomanagement.net",
@@ -1760,6 +1760,26 @@
             "yearsDetected": []
           },
           {
+            "url": "https://www.ratsinfo.sh.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.sh.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://ratsinfo.sh.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.sh.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
             "url": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html/geschaefte",
             "ok": false,
             "httpStatus": 404,
@@ -1774,26 +1794,6 @@
             "ok": false,
             "httpStatus": 404,
             "finalUrl": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html/geschaefte-grosser-rat",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html/vorstoesse",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html/vorstoesse",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html/objets-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html/objets-parlementaires",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
@@ -1813,7 +1813,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:44.866Z",
+        "checkedAt": "2026-02-15T18:46:41.219Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://so.ch/parlament/geschaefte",
@@ -1822,7 +1822,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 34,
+        "candidateCount": 47,
         "candidatesTried": [
           {
             "url": "https://ratsinfo.so.ch",
@@ -1865,6 +1865,16 @@
             "yearsDetected": []
           },
           {
+            "url": "https://www.ratsinfo.so.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.so.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
             "url": "https://so.ch/parlament/geschaefte",
             "ok": true,
             "httpStatus": 200,
@@ -1885,20 +1895,10 @@
             "yearsDetected": []
           },
           {
-            "url": "https://so.ch/parlament/vorstoesse",
+            "url": "https://so.ch/parlament/geschaefte-des-kantonsrats",
             "ok": false,
             "httpStatus": 404,
-            "finalUrl": "https://so.ch/parlament/vorstoesse",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://so.ch/parlament/objets-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://so.ch/parlament/objets-parlementaires",
+            "finalUrl": "https://so.ch/parlament/geschaefte-des-kantonsrats",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
@@ -1918,7 +1918,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:44.600Z",
+        "checkedAt": "2026-02-15T18:46:41.123Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799",
@@ -1927,7 +1927,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 35,
+        "candidateCount": 50,
         "candidatesTried": [
           {
             "url": "https://www.sz.ch/behoerden/kantonsrat.html/8799",
@@ -1980,32 +1980,32 @@
             "yearsDetected": []
           },
           {
-            "url": "https://www.sz.ch/parlament/geschaefte",
-            "ok": false,
-            "httpStatus": 429,
-            "finalUrl": "https://www.sz.ch/parlament/geschaefte",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
+            "url": "https://sz.ratsinfomanagement.net",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.sitzungsdienst.net/",
+            "platform": "ratsinfo",
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           },
           {
-            "url": "https://www.sz.ch/parlament/geschaefte-grosser-rat",
+            "url": "https://www.ratsinfo.sz.ch",
             "ok": false,
-            "httpStatus": 429,
-            "finalUrl": "https://www.sz.ch/parlament/geschaefte-grosser-rat",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.sz.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           },
           {
-            "url": "https://www.sz.ch/parlament/vorstoesse",
+            "url": "https://ratsinfo.sz.ch",
             "ok": false,
-            "httpStatus": 429,
-            "finalUrl": "https://www.sz.ch/parlament/vorstoesse",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.sz.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           }
@@ -2023,7 +2023,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:44.858Z",
+        "checkedAt": "2026-02-15T18:46:42.269Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -2032,7 +2032,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 34,
+        "candidateCount": 48,
         "candidatesTried": [
           {
             "url": "https://parlament.tg.ch",
@@ -2075,6 +2075,26 @@
             "yearsDetected": []
           },
           {
+            "url": "https://www.ratsinfo.tg.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.tg.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://ratsinfo.tg.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.tg.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
             "url": "https://grosserrat.tg.ch/geschaefte",
             "ok": false,
             "httpStatus": null,
@@ -2089,26 +2109,6 @@
             "ok": false,
             "httpStatus": null,
             "finalUrl": "https://grosserrat.tg.ch/geschaefte-grosser-rat",
-            "platform": "unreachable",
-            "hasParliamentSignals": false,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://grosserrat.tg.ch/vorstoesse",
-            "ok": false,
-            "httpStatus": null,
-            "finalUrl": "https://grosserrat.tg.ch/vorstoesse",
-            "platform": "unreachable",
-            "hasParliamentSignals": false,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://grosserrat.tg.ch/objets-parlementaires",
-            "ok": false,
-            "httpStatus": null,
-            "finalUrl": "https://grosserrat.tg.ch/objets-parlementaires",
             "platform": "unreachable",
             "hasParliamentSignals": false,
             "archiveSignals": false,
@@ -2128,7 +2128,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:46.108Z",
+        "checkedAt": "2026-02-15T18:46:43.234Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati",
@@ -2137,7 +2137,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 35,
+        "candidateCount": 50,
         "candidatesTried": [
           {
             "url": "https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati",
@@ -2174,8 +2174,8 @@
             "ok": true,
             "httpStatus": 200,
             "finalUrl": "https://www4.ti.ch/poteri/gc/home",
-            "platform": "typo3-site",
-            "hasParliamentSignals": false,
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": []
           },
@@ -2190,32 +2190,32 @@
             "yearsDetected": []
           },
           {
-            "url": "https://www4.ti.ch/poteri/gc/home/geschaefte",
+            "url": "https://ti.ratsinfomanagement.net",
             "ok": true,
             "httpStatus": 200,
-            "finalUrl": "https://www4.ti.ch/poteri/gc/home",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
+            "finalUrl": "https://www.sitzungsdienst.net/",
+            "platform": "ratsinfo",
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           },
           {
-            "url": "https://www4.ti.ch/poteri/gc/home/geschaefte-grosser-rat",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://www4.ti.ch/poteri/gc/home",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
+            "url": "https://www.ratsinfo.ti.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.ti.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           },
           {
-            "url": "https://www4.ti.ch/poteri/gc/home/vorstoesse",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://www4.ti.ch/poteri/gc/home",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
+            "url": "https://ratsinfo.ti.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.ti.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           }
@@ -2233,7 +2233,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:45.406Z",
+        "checkedAt": "2026-02-15T18:46:43.635Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -2242,7 +2242,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 33,
+        "candidateCount": 47,
         "candidatesTried": [
           {
             "url": "https://ur.ratsinfomanagement.net",
@@ -2275,6 +2275,26 @@
             "yearsDetected": []
           },
           {
+            "url": "https://www.ratsinfo.ur.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.ur.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://ratsinfo.ur.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.ur.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
             "url": "https://www.ur.ch/landrat/geschaefte",
             "ok": false,
             "httpStatus": 404,
@@ -2295,30 +2315,10 @@
             "yearsDetected": []
           },
           {
-            "url": "https://www.ur.ch/landrat/vorstoesse",
+            "url": "https://www.ur.ch/landrat/geschaefte-des-kantonsrats",
             "ok": false,
             "httpStatus": 404,
-            "finalUrl": "https://www.ur.ch/landrat/vorstoesse",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.ur.ch/landrat/objets-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.ur.ch/landrat/objets-parlementaires",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.ur.ch/landrat/interventions-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.ur.ch/landrat/interventions-parlementaires",
+            "finalUrl": "https://www.ur.ch/landrat/geschaefte-des-kantonsrats",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
@@ -2338,7 +2338,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:44.676Z",
+        "checkedAt": "2026-02-15T18:46:42.413Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.vd.ch/gc/objets-et-rapports-de-commissions",
@@ -2347,7 +2347,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 33,
+        "candidateCount": 47,
         "candidatesTried": [
           {
             "url": "https://www.vd.ch/gc/objets-et-rapports-de-commissions",
@@ -2400,32 +2400,32 @@
             "yearsDetected": []
           },
           {
-            "url": "https://www.vd.ch/gc/geschaefte",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.vd.ch/gc/geschaefte",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
+            "url": "https://vd.ratsinfomanagement.net",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.sitzungsdienst.net/",
+            "platform": "ratsinfo",
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           },
           {
-            "url": "https://www.vd.ch/gc/geschaefte-grosser-rat",
+            "url": "https://www.ratsinfo.vd.ch",
             "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.vd.ch/gc/geschaefte-grosser-rat",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.vd.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           },
           {
-            "url": "https://www.vd.ch/gc/vorstoesse",
+            "url": "https://ratsinfo.vd.ch",
             "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.vd.ch/gc/vorstoesse",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.vd.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           }
@@ -2443,7 +2443,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:44.967Z",
+        "checkedAt": "2026-02-15T18:46:41.839Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -2452,7 +2452,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 36,
+        "candidateCount": 50,
         "candidatesTried": [
           {
             "url": "https://www.vs.ch/fr/web/gc/interventions-parlementaires",
@@ -2515,22 +2515,22 @@
             "yearsDetected": []
           },
           {
-            "url": "https://www.vs.ch/fr/web/gc/objets-parlementaires/geschaefte",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://www.vs.ch/fr/web/gc/objets-parlementaires/geschaefte",
-            "platform": "waf-challenge",
-            "hasParliamentSignals": true,
+            "url": "https://www.ratsinfo.vs.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.vs.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           },
           {
-            "url": "https://www.vs.ch/fr/web/gc/objets-parlementaires/geschaefte-grosser-rat",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://www.vs.ch/fr/web/gc/objets-parlementaires/geschaefte-grosser-rat",
-            "platform": "waf-challenge",
-            "hasParliamentSignals": true,
+            "url": "https://ratsinfo.vs.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.vs.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": []
           }
@@ -2548,7 +2548,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:49.951Z",
+        "checkedAt": "2026-02-15T18:46:45.488Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats",
@@ -2557,7 +2557,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 34,
+        "candidateCount": 48,
         "candidatesTried": [
           {
             "url": "https://zg.ch/de/behoerden/kantonsrat",
@@ -2600,6 +2600,26 @@
             "yearsDetected": []
           },
           {
+            "url": "https://www.ratsinfo.zg.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.zg.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://ratsinfo.zg.ch",
+            "ok": false,
+            "httpStatus": 404,
+            "finalUrl": "https://ratsinfo.zg.ch/",
+            "platform": "ratsinfo",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
             "url": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/geschaefte",
             "ok": false,
             "httpStatus": 404,
@@ -2614,26 +2634,6 @@
             "ok": false,
             "httpStatus": 404,
             "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/geschaefte-grosser-rat",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/vorstoesse",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/vorstoesse",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/objets-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/objets-parlementaires",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
@@ -2653,7 +2653,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T17:16:44.889Z",
+        "checkedAt": "2026-02-15T18:46:41.583Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.kantonsrat.zh.ch/geschaefte/",
@@ -2662,7 +2662,7 @@
         "archiveSignals": false,
         "yearsDetected": [],
         "error": null,
-        "candidateCount": 34,
+        "candidateCount": 49,
         "candidatesTried": [
           {
             "url": "https://www.kantonsrat.zh.ch/geschaefte/",
@@ -2705,40 +2705,40 @@
             "yearsDetected": []
           },
           {
+            "url": "https://zh.ratsinfomanagement.net",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.sitzungsdienst.net/",
+            "platform": "ratsinfo",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://www.ratsinfo.zh.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://www.ratsinfo.zh.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
+            "url": "https://ratsinfo.zh.ch",
+            "ok": false,
+            "httpStatus": null,
+            "finalUrl": "https://ratsinfo.zh.ch",
+            "platform": "unreachable",
+            "hasParliamentSignals": false,
+            "archiveSignals": false,
+            "yearsDetected": []
+          },
+          {
             "url": "https://www.kantonsrat.zh.ch/geschaefte",
             "ok": true,
             "httpStatus": 200,
             "finalUrl": "https://www.kantonsrat.zh.ch/geschaefte/",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.kantonsrat.zh.ch/geschaefte-grosser-rat",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.kantonsrat.zh.ch/geschaefte-grosser-rat",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.kantonsrat.zh.ch/vorstoesse",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.kantonsrat.zh.ch/vorstoesse",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true,
-            "archiveSignals": false,
-            "yearsDetected": []
-          },
-          {
-            "url": "https://www.kantonsrat.zh.ch/objets-parlementaires",
-            "ok": false,
-            "httpStatus": 404,
-            "finalUrl": "https://www.kantonsrat.zh.ch/objets-parlementaires",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,

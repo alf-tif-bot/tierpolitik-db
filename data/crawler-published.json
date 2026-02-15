@@ -950,45 +950,6 @@
     ]
   },
   {
-    "id": "ch-parliament-business-de:20253733-de",
-    "title": "25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren",
-    "summary": "Beratung in Kommission des Ständerates abgeschlossen",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2025-06-19T00:00:00.000Z",
-    "score": 0.2,
-    "matchedKeywords": [
-      "landwirtschaft",
-      "agriculture"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20254697-de",
-    "title": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
-    "summary": "Stellungnahme zum Vorstoss liegt vor",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2025-12-18T00:00:00.000Z",
-    "score": 1,
-    "matchedKeywords": [
-      "biodiversität",
-      "biodiversite",
-      "biodiversita"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20254487-de",
-    "title": "25.4487 · Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder",
-    "summary": "Stellungnahme zum Vorstoss liegt vor",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2025-12-09T00:00:00.000Z",
-    "score": 0.76,
-    "matchedKeywords": [
-      "nutrition",
-      "landwirtschaft",
-      "agriculture",
-      "agricoltura"
-    ]
-  },
-  {
     "id": "ch-parliament-business-de:20250404-de",
     "title": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative",
     "summary": "Beratung in Kommission des Nationalrates abgeschlossen",
@@ -999,6 +960,50 @@
       "stopfleber",
       "foie gras",
       "initiative"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-fr:20250404-fr",
+    "title": "25.404 · Contre-projet indirect à l’initiative foie gras",
+    "summary": "Fin des discussions en commission du Conseil national",
+    "sourceId": "ch-parliament-business-fr",
+    "publishedAt": "2025-02-21T00:00:00.000Z",
+    "score": 0.8200000000000001,
+    "matchedKeywords": [
+      "stopfleber",
+      "foie gras",
+      "initiative"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-fr:20240089-fr",
+    "title": "24.089 · «Oui à l’interdiction d’importer du foie gras (initiative foie gras)». Initiative populaire",
+    "summary": "Message du 20 novembre 2024 concernant l’initiative populaire « Oui à l’interdiction d’importer du foie gras (initiative foie gras) »",
+    "sourceId": "ch-parliament-business-fr",
+    "publishedAt": "2024-11-14T00:00:00.000Z",
+    "score": 0.9600000000000001,
+    "matchedKeywords": [
+      "stopfleber",
+      "foie gras",
+      "initiative",
+      "botschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-it:20210426-it",
+    "title": "21.426 · Più risorse e incentivi a favore della ricerca 3R per accelerare lo sviluppo di metodi alternativi alla sperimentazione animale",
+    "summary": "Nella Commissione del Consiglio nazionale",
+    "sourceId": "ch-parliament-business-it",
+    "publishedAt": "2021-03-18T00:00:00.000Z",
+    "score": 0.98,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche",
+      "animal",
+      "expérimentation animale",
+      "sperimentazione animale",
+      "3r",
+      "animale"
     ]
   },
   {

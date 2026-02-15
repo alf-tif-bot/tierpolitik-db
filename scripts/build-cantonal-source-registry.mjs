@@ -23,6 +23,9 @@ const PARLIAMENT_URL_HINTS = [
   '/geschaefte-grosser-rat',
   '/geschaefte-des-kantonsrats',
   '/geschaefte-suche',
+  '/geschaefte/suche',
+  '/sessionen',
+  '/protokolle',
   '/vorstoesse',
   '/vorstosse',
   '/kantonsrat',
@@ -44,6 +47,7 @@ const PARLIAMENT_TEXT_HINTS = [
   'kantonsrat',
   'landrat',
   'grosser rat',
+  'session',
   'parlement',
 ]
 
@@ -168,13 +172,26 @@ const buildCandidates = (entry) => {
     ? base.replace('https://www.', 'https://')
     : (base.startsWith('https://') ? base.replace('https://', 'https://www.') : base)
 
+  const cantonCode = String(entry?.canton || '').toLowerCase()
+  const hostHints = cantonCode
+    ? [
+      `https://${cantonCode}.ratsinfomanagement.net`,
+      `https://www.ratsinfo.${cantonCode}.ch`,
+      `https://ratsinfo.${cantonCode}.ch`,
+    ]
+    : []
+
   const pathHints = [
     'geschaefte',
     'geschaefte-grosser-rat',
+    'geschaefte-des-kantonsrats',
+    'geschaefte-suche',
     'vorstoesse',
+    'vorstosse',
     'objets-parlementaires',
     'interventions-parlementaires',
     'objets-et-rapports-de-commissions',
+    'objets-du-conseil',
     'recherche-objets',
     'ricerca-messaggi-e-atti',
     'parlamentsdienst',
@@ -183,12 +200,15 @@ const buildCandidates = (entry) => {
     'parlament',
     'kantonsrat',
     'landrat',
+    'grand-conseil',
+    'gran-consiglio',
     'behoerden/kantonsrat.html',
   ]
 
   const heuristics = [
     base,
     alternateHost,
+    ...hostHints,
     ...pathHints.map((hint) => `${base}/${hint}`),
     ...pathHints.map((hint) => `${alternateHost}/${hint}`),
   ]
