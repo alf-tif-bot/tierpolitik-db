@@ -14,6 +14,9 @@ const PARLIAMENT_URL_HINTS = [
   '/objets-et-rapports-de-commissions',
   '/objets-du-conseil',
   '/objets/pages/accueil.aspx',
+  '/parlamentsdienst',
+  '/grosserrat',
+  '/kantonsrat.html',
   '/recherche-objets',
   '/ricerca-messaggi-e-atti',
   '/geschaefte',
@@ -66,10 +69,14 @@ const hasSearchOrAffairPath = (url = '') => [
   'vorstosse',
   'objets-parlementaires',
   'interventions-parlementaires',
+  'objets-et-rapports-de-commissions',
   'recherche-objets',
   'ricerca-messaggi-e-atti',
   'objets-du-conseil',
   'objets/pages/accueil.aspx',
+  'parlamentsdienst',
+  'grosserrat',
+  'kantonsrat.html',
 ].some((hint) => String(url).toLowerCase().includes(String(hint).toLowerCase()))
 
 const classifyReadiness = ({ url = '', platform = 'generic-site', ok = false, httpStatus = null, hasParliamentSignals = false }) => {
@@ -119,8 +126,12 @@ const buildCandidates = (entry) => {
     'vorstoesse',
     'objets-parlementaires',
     'interventions-parlementaires',
+    'objets-et-rapports-de-commissions',
     'recherche-objets',
     'ricerca-messaggi-e-atti',
+    'parlamentsdienst',
+    'grosserrat',
+    'kantonsrat.html',
     'parlament',
     'kantonsrat',
     'landrat',
@@ -194,7 +205,7 @@ const selectBestProbe = (probes) => {
 
 const isStrongReadyProbe = (probe, candidateUrl) => probe.ok && (
   ['ratsinfo', 'allris/sessionnet'].includes(probe.platform)
-  || (probe.platform === 'parliament-portal' && (hasSearchOrAffairPath(probe.finalUrl || candidateUrl) || probe.hasParliamentSignals))
+  || (probe.platform === 'parliament-portal' && hasSearchOrAffairPath(probe.finalUrl || candidateUrl))
 )
 
 const probeCandidates = async (candidates) => {
