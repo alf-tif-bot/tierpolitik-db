@@ -4293,8 +4293,8 @@
   {
     "id": "vp-20237858-de",
     "titel": "23.7858 - Abschuss von Wolfsrudeln trotz immer weniger Schäden an Nutztieren?",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
+    "typ": "Anfrage",
+    "kurzbeschreibung": "Die Fragestunde-Frage verlangt vom Bundesrat Angaben zur Entwicklung von Wolfsbestand und Nutztier-Schäden 2022–2023 sowie eine Begründung für den Abschuss ganzer Wolfsrudel trotz sinkender Schäden.",
     "geschaeftsnummer": "23.7858",
     "ebene": "Bund",
     "kanton": null,
@@ -4303,7 +4303,6 @@
     "datumEingereicht": "2023-12-06",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Nutztiere",
       "Landwirtschaft",
       "Umwelt"
     ],
@@ -4313,9 +4312,9 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Clivaz Christophe",
+        "rolle": "Nationalrat",
+        "partei": "GRÜNE Schweiz"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20237858",
@@ -4335,15 +4334,14 @@
           "de": "23.7858 · Abschuss von Wolfsrudeln trotz immer weniger Schäden an Nutztieren?"
         },
         "summary": {
-          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten."
+          "de": "Die Fragestunde-Frage verlangt vom Bundesrat Angaben zur Entwicklung von Wolfsbestand und Nutztier-Schäden 2022–2023 sowie eine Begründung für den Abschuss ganzer Wolfsrudel trotz sinkender Schäden."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Anfrage"
         },
         "themes": {
           "de": [
-            "nutztiere",
-            "landwirtschaft",
+            "Landwirtschaft",
             "Umwelt"
           ]
         }

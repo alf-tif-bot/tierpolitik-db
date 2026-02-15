@@ -36,6 +36,7 @@ const inferType = (title = '', sourceId = '', businessTypeName = '', rawType = '
   if (text.includes('petition') || text.includes('pétition') || text.includes('petizione')) return 'Petition'
   if (text.includes('dringliche motion') || text.includes('motion') || text.includes('mozione')) return 'Motion'
   if (text.includes('dringliches postulat') || text.includes('postulat') || text.includes('postulato')) return 'Postulat'
+  if (text.includes('fragestunde') || text.includes('question time') || text.includes('heure des questions') || text.includes('ora delle domande')) return 'Anfrage'
   if (text.includes('interpellation') || text.includes('interpellanza')) return 'Interpellation'
   if (text.includes('schriftliche anfrage') || text.includes('kleine anfrage') || text.includes('anfrage') || text.includes('frage') || text.includes('question') || text.includes('interrogazione')) return 'Anfrage'
   if (text.includes('parlamentarische initiative') || text.includes('initiative parlementaire') || text.includes('iniziativa parlamentare')) return 'Parlamentarische Initiative'
@@ -249,6 +250,7 @@ const SUBMITTER_OVERRIDES = {
   '25.2027': { name: 'Écologie et Altruisme', rolle: 'Petitionskomitee', partei: '' },
   '25.4071': { name: 'Dittli Josef', rolle: 'Ständerat', partei: 'FDP.Die Liberalen' },
   '21.3703': { name: 'Badertscher Christine', rolle: 'Nationalrätin', partei: 'Grüne Fraktion' },
+  '23.7858': { name: 'Clivaz Christophe', rolle: 'Nationalrat', partei: 'GRÜNE Schweiz' },
 }
 
 const TYPE_OVERRIDES = {
@@ -257,6 +259,7 @@ const TYPE_OVERRIDES = {
   '22.7004': 'Anfrage',
   '21.8161': 'Anfrage',
   '21.8163': 'Anfrage',
+  '23.7858': 'Anfrage',
   '25.2027': 'Petition',
 }
 
@@ -272,6 +275,7 @@ const THEME_OVERRIDES = {
   '22.3299': ['Schweinezucht', 'Tierarzneimittel', 'Tierschutz'],
   '21.8161': ['Landwirtschaft', 'Umwelt'],
   '21.4435': ['Gesundheit', 'Landwirtschaft', 'Umwelt', 'Wirtschaft'],
+  '23.7858': ['Landwirtschaft', 'Umwelt'],
 }
 
 const STATUS_OVERRIDES = {
@@ -292,6 +296,7 @@ const SUMMARY_OVERRIDES = {
   '25.2027': 'Die Petition verlangt ein Beschwerderecht für Tierschutzverbände bei Fällen von Tiermisshandlung, damit Missstände rechtlich wirksamer verfolgt werden können.',
   '25.4071': 'Die Interpellation fragt, weshalb Equiden in der Schweiz als Heim- oder Nutztiere deklariert werden, und thematisiert die Folgen für Kreislaufwirtschaft und Food Waste bei der Verwertung verstorbener Tiere.',
   '21.3703': 'Die Interpellation verlangt Auskunft, wie die Schweiz im Indonesien-Abkommen den Tierschutz bei tierischen Produkten stärken und den Import von Qualprodukten begrenzen will.',
+  '23.7858': 'Die Fragestunde-Frage verlangt vom Bundesrat Angaben zur Entwicklung von Wolfsbestand und Nutztier-Schäden 2022–2023 sowie eine Begründung für den Abschuss ganzer Wolfsrudel trotz sinkender Schäden.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {
