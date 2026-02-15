@@ -112,14 +112,22 @@ const extractStance = (reason = '', title = '', summary = '', body = '') => {
   return (m?.[1] || 'neutral/unklar').trim()
 }
 
-const mapStatus = (status = '', rawStatus = '') => {
+const mapStatus = (status = '', rawStatus = '', summary = '', body = '') => {
   const sourceStatus = String(rawStatus || '').toLowerCase()
   if (sourceStatus.includes('hängig') || sourceStatus.includes('haengig') || sourceStatus.includes('in bearbeitung') || sourceStatus.includes('überwiesen') || sourceStatus.includes('ueberwiesen')) return 'In Beratung'
   if (sourceStatus.includes('angenommen') || sourceStatus.includes('erheblich erklärt') || sourceStatus.includes('erheblich erklaert')) return 'Angenommen'
   if (sourceStatus.includes('abgelehnt') || sourceStatus.includes('nicht überwiesen') || sourceStatus.includes('nicht ueberwiesen')) return 'Abgelehnt'
   if (sourceStatus.includes('abgeschrieben')) return 'Abgeschrieben'
   if (sourceStatus.includes('zurückgezogen') || sourceStatus.includes('zurueckgezogen')) return 'Zurückgezogen'
+  if (sourceStatus.includes('erledigt')) return 'Erledigt'
   if (sourceStatus.includes('eingereicht')) return 'In Beratung'
+
+  const textStatus = `${summary} ${body}`.toLowerCase()
+  if (textStatus.includes('abgeschrieben')) return 'Abgeschrieben'
+  if (textStatus.includes('zurückgezogen') || textStatus.includes('zurueckgezogen')) return 'Zurückgezogen'
+  if (textStatus.includes('abgelehnt')) return 'Abgelehnt'
+  if (textStatus.includes('angenommen')) return 'Angenommen'
+  if (textStatus.includes('erledigt')) return 'Erledigt'
 
   const s = String(status).toLowerCase()
   if (s === 'published') return 'Angenommen'
@@ -208,6 +216,11 @@ const fallbackPeopleByLang = {
 const SUBMITTER_OVERRIDES = {
   '25.4380': { name: 'Mathilde Crevoisier Crelier', rolle: 'Ständerat', partei: 'SP' },
   '24.3277': { name: 'Lorenz Hess', rolle: 'Nationalrat', partei: 'Die Mitte' },
+  '20.4731': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
+}
+
+const THEME_OVERRIDES = {
+  '20.4731': ['Nutztiere', 'Landwirtschaft', 'Umwelt'],
 }
 
 const parseMunicipalSubmitters = (body = '') => {
@@ -469,8 +482,8 @@ const vorstoesse = items.map((item, index) => {
   const displayBody = deVariant?.body || item.body
   const inferredYear = inferYearFromBusiness(displayTitle, item.externalId)
   const eingereicht = toIsoDate(item.publishedAt || item.fetchedAt, inferredYear)
-  const updated = toIsoDate(item.fetchedAt || item.publishedAt, inferredYear)
-  const status = mapStatus(item.status, item?.meta?.rawStatus || '')
+  const updated = toIsoDate(item.fetchedAt || item.publishedAt)
+  const status = mapStatus(item.status, item?.meta?.rawStatus || '', displaySummary, displayBody)
   const typ = inferType(displayTitle, item.sourceId, item?.languageVariants?.de?.businessTypeName || '', item?.meta?.rawType || '')
   const stance = extractStance(item.reviewReason, displayTitle, displaySummary, displayBody)
   const initiativeLinks = buildInitiativeLinks({
@@ -498,17 +511,6 @@ const vorstoesse = items.map((item, index) => {
   const summaryText = normalizedSummary.length >= 10
     ? normalizedSummary
     : `Kurzüberblick: ${displayTitle || `Vorstoss ${index + 1}`} (${status}).`
-  const normalizedThemes = sanitizeThemes(mapThemesFromKeywords(item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz']))
-  const isMunicipal = String(item?.sourceId || '').startsWith('ch-municipal-')
-  const baseThemes = isMunicipal
-    ? municipalThemesFromTitle(displayTitle)
-    : (normalizedThemes.length ? normalizedThemes : ['Tierschutz']).slice(0, 6)
-  const i18nVariants = isParliament ? (variantsByAffair.get(affairId) || {}) : {}
-  const i18nMeta = buildI18nFromItem(i18nVariants, item, displayTitle || `Vorstoss ${index + 1}`, summaryText, typ, baseThemes)
-
-  const municipalSubmitters = String(item?.sourceId || '').startsWith('ch-municipal-')
-    ? parseMunicipalSubmitters(displayBody)
-    : []
   const businessNumber = formatBusinessNumber(
     displayTitle,
     item.externalId || `AUTO-${index + 1}`,
@@ -516,6 +518,20 @@ const vorstoesse = items.map((item, index) => {
     displayBody,
     item?.meta,
   )
+  const normalizedThemes = sanitizeThemes(mapThemesFromKeywords(item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz']))
+  const isMunicipal = String(item?.sourceId || '').startsWith('ch-municipal-')
+  const themeOverride = THEME_OVERRIDES[businessNumber]
+  const baseThemes = Array.isArray(themeOverride) && themeOverride.length
+    ? themeOverride
+    : (isMunicipal
+      ? municipalThemesFromTitle(displayTitle)
+      : (normalizedThemes.length ? normalizedThemes : ['Tierschutz']).slice(0, 6))
+  const i18nVariants = isParliament ? (variantsByAffair.get(affairId) || {}) : {}
+  const i18nMeta = buildI18nFromItem(i18nVariants, item, displayTitle || `Vorstoss ${index + 1}`, summaryText, typ, baseThemes)
+
+  const municipalSubmitters = String(item?.sourceId || '').startsWith('ch-municipal-')
+    ? parseMunicipalSubmitters(displayBody)
+    : []
   const submitterOverride = SUBMITTER_OVERRIDES[businessNumber]
 
   return {

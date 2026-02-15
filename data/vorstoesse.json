@@ -10,7 +10,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2020-03-02",
-    "datumAktualisiert": "2020-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Landwirtschaft",
       "Stopfleber"
@@ -62,14 +62,14 @@
     "id": "vp-20204002-de",
     "titel": "20.4002 · Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung",
     "typ": "Motion",
-    "kurzbeschreibung": "Kurzüberblick: 20.4002 · Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 20.4002 · Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung (Erledigt).",
     "geschaeftsnummer": "20.4002",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2020-09-16",
-    "datumAktualisiert": "2020-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz"
     ],
@@ -87,7 +87,7 @@
     "resultate": [
       {
         "datum": "2020-09-16",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -118,14 +118,14 @@
     "id": "vp-20201046-de",
     "titel": "20.1046 · Schweizer Tierschutz im internationalen Vergleich",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 20.1046 · Schweizer Tierschutz im internationalen Vergleich (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 20.1046 · Schweizer Tierschutz im internationalen Vergleich (Erledigt).",
     "geschaeftsnummer": "20.1046",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2020-09-24",
-    "datumAktualisiert": "2020-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz",
       "Schweizer tierschutz"
@@ -145,7 +145,7 @@
     "resultate": [
       {
         "datum": "2020-09-24",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -184,7 +184,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2020-08-28",
-    "datumAktualisiert": "2020-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Schwein",
       "Schweine"
@@ -236,14 +236,14 @@
     "id": "vp-20204214-de",
     "titel": "20.4214 · Amtliche Tierschutzkontrollen nachhaltig aus dem Landwirtschaftsbudget mitfinanzieren und transparent machen",
     "typ": "Motion",
-    "kurzbeschreibung": "Kurzüberblick: 20.4214 · Amtliche Tierschutzkontrollen nachhaltig aus dem Landwirtschaftsbudget mitfinanzieren und transparent machen (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 20.4214 · Amtliche Tierschutzkontrollen nachhaltig aus dem Landwirtschaftsbudget mitfinanzieren und transparent machen (Erledigt).",
     "geschaeftsnummer": "20.4214",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2020-09-25",
-    "datumAktualisiert": "2020-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz",
       "Landwirtschaft"
@@ -263,7 +263,7 @@
     "resultate": [
       {
         "datum": "2020-09-25",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -295,14 +295,14 @@
     "id": "vp-20203849-de",
     "titel": "20.3849 · Erschwerte Exportvorschriften der EU für Nutztiere aus der Schweiz",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 20.3849 · Erschwerte Exportvorschriften der EU für Nutztiere aus der Schweiz (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 20.3849 · Erschwerte Exportvorschriften der EU für Nutztiere aus der Schweiz (Erledigt).",
     "geschaeftsnummer": "20.3849",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2020-06-19",
-    "datumAktualisiert": "2020-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
       "Landwirtschaft"
@@ -322,7 +322,7 @@
     "resultate": [
       {
         "datum": "2020-06-19",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -359,9 +359,9 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2020-11-17",
-    "datumAktualisiert": "2020-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
       "Landwirtschaft"
@@ -381,7 +381,7 @@
     "resultate": [
       {
         "datum": "2020-11-17",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -413,14 +413,14 @@
     "id": "vp-20203591-de",
     "titel": "20.3591 · Griffige Instrumente für die Oberaufsicht im Tierschutzrecht",
     "typ": "Postulat",
-    "kurzbeschreibung": "Kurzüberblick: 20.3591 · Griffige Instrumente für die Oberaufsicht im Tierschutzrecht (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 20.3591 · Griffige Instrumente für die Oberaufsicht im Tierschutzrecht (Erledigt).",
     "geschaeftsnummer": "20.3591",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2020-06-11",
-    "datumAktualisiert": "2020-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz",
       "Landwirtschaft"
@@ -440,7 +440,7 @@
     "resultate": [
       {
         "datum": "2020-06-11",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -472,14 +472,14 @@
     "id": "vp-20204108-de",
     "titel": "20.4108 · Enthornung von Nutztieren",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 20.4108 · Enthornung von Nutztieren (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 20.4108 · Enthornung von Nutztieren (Erledigt).",
     "geschaeftsnummer": "20.4108",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2020-09-24",
-    "datumAktualisiert": "2020-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
       "Landwirtschaft"
@@ -499,7 +499,7 @@
     "resultate": [
       {
         "datum": "2020-09-24",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -531,14 +531,14 @@
     "id": "vp-20204730-de",
     "titel": "20.4730 · Tierfreundliche Kennzeichnung von Nutztieren",
     "typ": "Postulat",
-    "kurzbeschreibung": "Kurzüberblick: 20.4730 · Tierfreundliche Kennzeichnung von Nutztieren (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 20.4730 · Tierfreundliche Kennzeichnung von Nutztieren (Erledigt).",
     "geschaeftsnummer": "20.4730",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2020-12-18",
-    "datumAktualisiert": "2020-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
       "Landwirtschaft"
@@ -558,7 +558,7 @@
     "resultate": [
       {
         "datum": "2020-12-18",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -590,17 +590,18 @@
     "id": "vp-20204731-de",
     "titel": "20.4731 · Kein Experimentieren bei Ohrmarken für Nutztiere",
     "typ": "Motion",
-    "kurzbeschreibung": "Kurzüberblick: 20.4731 · Kein Experimentieren bei Ohrmarken für Nutztiere (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 20.4731 · Kein Experimentieren bei Ohrmarken für Nutztiere (Erledigt).",
     "geschaeftsnummer": "20.4731",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2020-12-18",
-    "datumAktualisiert": "2020-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "nutztiere",
@@ -608,16 +609,16 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Schneider Meret",
+        "rolle": "Nationalrat",
+        "partei": "Grüne Partei der Schweiz"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20204731",
     "resultate": [
       {
         "datum": "2020-12-18",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -654,9 +655,9 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-01-14",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
       "Landwirtschaft"
@@ -676,7 +677,7 @@
     "resultate": [
       {
         "datum": "2021-01-14",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -708,14 +709,14 @@
     "id": "vp-20203648-de",
     "titel": "20.3648 · Schlafen im Stroh auch für Schweine",
     "typ": "Motion",
-    "kurzbeschreibung": "Kurzüberblick: 20.3648 · Schlafen im Stroh auch für Schweine (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 20.3648 · Schlafen im Stroh auch für Schweine (Erledigt).",
     "geschaeftsnummer": "20.3648",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2020-06-17",
-    "datumAktualisiert": "2020-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Schwein",
       "Schweine",
@@ -737,7 +738,7 @@
     "resultate": [
       {
         "datum": "2020-06-17",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -777,7 +778,7 @@
     "regionGemeinde": "Südschweiz",
     "status": "In Beratung",
     "datumEingereicht": "2024-12-19",
-    "datumAktualisiert": "2024-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Apiculteur"
     ],
@@ -838,14 +839,14 @@
     "id": "vp-20212027-de",
     "titel": "21.2027 · Echter Tierschutz jetzt!",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 21.2027 · Echter Tierschutz jetzt! (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 21.2027 · Echter Tierschutz jetzt! (Erledigt).",
     "geschaeftsnummer": "21.2027",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-10-06",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz"
     ],
@@ -863,7 +864,7 @@
     "resultate": [
       {
         "datum": "2021-10-06",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -894,14 +895,14 @@
     "id": "vp-20213703-de",
     "titel": "21.3703 · Tierschutz im Indonesien-Abkommen",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 21.3703 · Tierschutz im Indonesien-Abkommen (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 21.3703 · Tierschutz im Indonesien-Abkommen (Erledigt).",
     "geschaeftsnummer": "21.3703",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-06-15",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz"
     ],
@@ -919,7 +920,7 @@
     "resultate": [
       {
         "datum": "2021-06-15",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -950,12 +951,12 @@
     "id": "vp-20254144-de",
     "titel": "25.4144 · Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet?",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 25.4144 · Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet? (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 25.4144 · Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet? (Erledigt).",
     "geschaeftsnummer": "25.4144",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2025-09-25",
     "datumAktualisiert": "2026-02-15",
     "themen": [
@@ -975,7 +976,7 @@
     "resultate": [
       {
         "datum": "2025-09-25",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1006,12 +1007,12 @@
     "id": "vp-20254071-de",
     "titel": "25.4071 · Heim- versus Nutztier bei Equiden. Wieso diese Sonderregelung und wieso so viel Food Waste?",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 25.4071 · Heim- versus Nutztier bei Equiden. Wieso diese Sonderregelung und wieso so viel Food Waste? (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 25.4071 · Heim- versus Nutztier bei Equiden. Wieso diese Sonderregelung und wieso so viel Food Waste? (Erledigt).",
     "geschaeftsnummer": "25.4071",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2025-09-23",
     "datumAktualisiert": "2026-02-15",
     "themen": [
@@ -1031,7 +1032,7 @@
     "resultate": [
       {
         "datum": "2025-09-23",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1069,7 +1070,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2024-03-14",
-    "datumAktualisiert": "2024-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Landwirtschaft"
     ],
@@ -1125,7 +1126,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2023-12-18",
-    "datumAktualisiert": "2023-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Landwirtschaft"
     ],
@@ -1174,14 +1175,14 @@
     "id": "vp-20231034-de",
     "titel": "23.1034 · Nutztierrisse und Herdenschutz",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 23.1034 · Nutztierrisse und Herdenschutz (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 23.1034 · Nutztierrisse und Herdenschutz (Erledigt).",
     "geschaeftsnummer": "23.1034",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2023-06-15",
-    "datumAktualisiert": "2023-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Landwirtschaft",
       "Herdenschutz"
@@ -1201,7 +1202,7 @@
     "resultate": [
       {
         "datum": "2023-06-15",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1233,14 +1234,14 @@
     "id": "vp-20223302-de",
     "titel": "22.3302 · Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung",
     "typ": "Motion",
-    "kurzbeschreibung": "Kurzüberblick: 22.3302 · Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 22.3302 · Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung (Erledigt).",
     "geschaeftsnummer": "22.3302",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2022-03-17",
-    "datumAktualisiert": "2022-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Landwirtschaft"
     ],
@@ -1258,7 +1259,7 @@
     "resultate": [
       {
         "datum": "2022-03-17",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1289,14 +1290,14 @@
     "id": "vp-20213229-de",
     "titel": "21.3229 · Erhaltung einheimischer Nutztierrassen",
     "typ": "Motion",
-    "kurzbeschreibung": "Kurzüberblick: 21.3229 · Erhaltung einheimischer Nutztierrassen (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 21.3229 · Erhaltung einheimischer Nutztierrassen (Erledigt).",
     "geschaeftsnummer": "21.3229",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-03-17",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Landwirtschaft"
     ],
@@ -1314,7 +1315,7 @@
     "resultate": [
       {
         "datum": "2021-03-17",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1350,7 +1351,7 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2025-12-03",
     "datumAktualisiert": "2026-02-15",
     "themen": [
@@ -1370,7 +1371,7 @@
     "resultate": [
       {
         "datum": "2025-12-03",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1406,9 +1407,9 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2022-06-17",
-    "datumAktualisiert": "2022-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierversuche"
     ],
@@ -1426,7 +1427,7 @@
     "resultate": [
       {
         "datum": "2022-06-17",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1457,14 +1458,14 @@
     "id": "vp-20223952-de",
     "titel": "22.3952 · Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen",
     "typ": "Motion",
-    "kurzbeschreibung": "Kurzüberblick: 22.3952 · Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 22.3952 · Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen (Erledigt).",
     "geschaeftsnummer": "22.3952",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2022-09-21",
-    "datumAktualisiert": "2022-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz"
     ],
@@ -1482,7 +1483,7 @@
     "resultate": [
       {
         "datum": "2022-09-21",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1520,7 +1521,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2024-03-15",
-    "datumAktualisiert": "2024-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz"
     ],
@@ -1569,14 +1570,14 @@
     "id": "vp-20244344-de",
     "titel": "24.4344 · Tierschutzbeauftragte. Eine wirksame Unterstützung",
     "typ": "Postulat",
-    "kurzbeschreibung": "Kurzüberblick: 24.4344 · Tierschutzbeauftragte. Eine wirksame Unterstützung (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 24.4344 · Tierschutzbeauftragte. Eine wirksame Unterstützung (Erledigt).",
     "geschaeftsnummer": "24.4344",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2024-12-12",
-    "datumAktualisiert": "2024-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz"
     ],
@@ -1594,7 +1595,7 @@
     "resultate": [
       {
         "datum": "2024-12-12",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1681,14 +1682,14 @@
     "id": "vp-20214167-de",
     "titel": "21.4167 · Afrikanische Schweinepest ernst nehmen",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 21.4167 · Afrikanische Schweinepest ernst nehmen (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 21.4167 · Afrikanische Schweinepest ernst nehmen (Erledigt).",
     "geschaeftsnummer": "21.4167",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-09-30",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Schwein",
       "Schweine"
@@ -1708,7 +1709,7 @@
     "resultate": [
       {
         "datum": "2021-09-30",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1740,14 +1741,14 @@
     "id": "vp-20218021-de",
     "titel": "21.8021 · Wann und wie gedenkt der Bundesrat die Motion 13.3324 \"Anpassung des Gewässerschutzgesetzes an die heutige Nutztierhaltung\", die von beiden Räten angenommen wurde, umzusetzen?",
     "typ": "Motion",
-    "kurzbeschreibung": "Kurzüberblick: 21.8021 · Wann und wie gedenkt der Bundesrat die Motion 13.3324 \"Anpassung des Gewässerschutzgesetzes an die heutige Nutztierhaltung\", die von beiden Räten angenommen wurde, umzusetzen? (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 21.8021 · Wann und wie gedenkt der Bundesrat die Motion 13.3324 \"Anpassung des Gewässerschutzgesetzes an die heutige Nutztierhaltung\", die von beiden Räten angenommen wurde, umzusetzen? (Erledigt).",
     "geschaeftsnummer": "21.8021",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-11-30",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Landwirtschaft"
     ],
@@ -1766,7 +1767,7 @@
     "resultate": [
       {
         "datum": "2021-11-30",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1798,14 +1799,14 @@
     "id": "vp-20223210-de",
     "titel": "22.3210 · Afrikanische Schweinepest nach Deutschland nun auch in Italien",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 22.3210 · Afrikanische Schweinepest nach Deutschland nun auch in Italien (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 22.3210 · Afrikanische Schweinepest nach Deutschland nun auch in Italien (Erledigt).",
     "geschaeftsnummer": "22.3210",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2022-03-17",
-    "datumAktualisiert": "2022-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Schwein",
       "Schweine"
@@ -1825,7 +1826,7 @@
     "resultate": [
       {
         "datum": "2022-03-17",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1864,7 +1865,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2023-03-02",
-    "datumAktualisiert": "2023-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz",
       "Schweizer tierschutz"
@@ -2038,9 +2039,9 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-02-22",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierversuche"
     ],
@@ -2059,7 +2060,7 @@
     "resultate": [
       {
         "datum": "2021-02-22",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -2096,9 +2097,9 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-03-18",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierversuche"
     ],
@@ -2117,7 +2118,7 @@
     "resultate": [
       {
         "datum": "2021-03-18",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -2154,9 +2155,9 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-03-18",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierversuche"
     ],
@@ -2175,7 +2176,7 @@
     "resultate": [
       {
         "datum": "2021-03-18",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -2212,9 +2213,9 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2022-03-17",
-    "datumAktualisiert": "2022-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierversuche",
       "3r"
@@ -2234,7 +2235,7 @@
     "resultate": [
       {
         "datum": "2022-03-17",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -2271,9 +2272,9 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2024-06-14",
-    "datumAktualisiert": "2024-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierversuche"
     ],
@@ -2292,7 +2293,7 @@
     "resultate": [
       {
         "datum": "2024-06-14",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -2331,7 +2332,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2024-12-19",
-    "datumAktualisiert": "2024-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
       "Heimtier",
@@ -2393,7 +2394,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2024-12-20",
-    "datumAktualisiert": "2024-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierversuche"
     ],
@@ -2451,7 +2452,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2024-12-20",
-    "datumAktualisiert": "2024-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierversuche"
     ],
@@ -2502,12 +2503,12 @@
     "id": "vp-20258205-de",
     "titel": "25.8205 · Reduktion der Tierschutzkontrollen: Ressourcen sparen auf Kosten der Tiere?",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 25.8205 · Reduktion der Tierschutzkontrollen: Ressourcen sparen auf Kosten der Tiere? (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 25.8205 · Reduktion der Tierschutzkontrollen: Ressourcen sparen auf Kosten der Tiere? (Erledigt).",
     "geschaeftsnummer": "25.8205",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2025-12-10",
     "datumAktualisiert": "2026-02-15",
     "themen": [
@@ -2528,7 +2529,7 @@
     "resultate": [
       {
         "datum": "2025-12-10",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -2560,14 +2561,14 @@
     "id": "vp-20227807-de",
     "titel": "22.7807 · Wer bezahlt die Schäden von Nutztieren, wenn die Gänsegeier vor der Wildhut den Kadaver zerfressen?",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 22.7807 · Wer bezahlt die Schäden von Nutztieren, wenn die Gänsegeier vor der Wildhut den Kadaver zerfressen? (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 22.7807 · Wer bezahlt die Schäden von Nutztieren, wenn die Gänsegeier vor der Wildhut den Kadaver zerfressen? (Erledigt).",
     "geschaeftsnummer": "22.7807",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2022-09-21",
-    "datumAktualisiert": "2022-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
       "Landwirtschaft"
@@ -2587,7 +2588,7 @@
     "resultate": [
       {
         "datum": "2022-09-21",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -2619,14 +2620,14 @@
     "id": "vp-20237115-de",
     "titel": "23.7115 · Bedeutung von Netto-Null für schweizerische Nutztiere",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 23.7115 · Bedeutung von Netto-Null für schweizerische Nutztiere (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 23.7115 · Bedeutung von Netto-Null für schweizerische Nutztiere (Erledigt).",
     "geschaeftsnummer": "23.7115",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2023-03-01",
-    "datumAktualisiert": "2023-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
       "Landwirtschaft"
@@ -2646,7 +2647,7 @@
     "resultate": [
       {
         "datum": "2023-03-01",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -2678,14 +2679,14 @@
     "id": "vp-20233515-de",
     "titel": "23.3515 · Fotovoltaik- oder Windkraftanlagen. Gefahr für die landwirtschaftlichen Nutztiere",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 23.3515 · Fotovoltaik- oder Windkraftanlagen. Gefahr für die landwirtschaftlichen Nutztiere (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 23.3515 · Fotovoltaik- oder Windkraftanlagen. Gefahr für die landwirtschaftlichen Nutztiere (Erledigt).",
     "geschaeftsnummer": "23.3515",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2023-05-02",
-    "datumAktualisiert": "2023-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
       "Landwirtschaft"
@@ -2705,7 +2706,7 @@
     "resultate": [
       {
         "datum": "2023-05-02",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -2737,14 +2738,14 @@
     "id": "vp-20213405-de",
     "titel": "21.3405 · Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere",
     "typ": "Motion",
-    "kurzbeschreibung": "Kurzüberblick: 21.3405 · Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 21.3405 · Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere (Erledigt).",
     "geschaeftsnummer": "21.3405",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-03-19",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz",
       "Versuchstiere",
@@ -2766,7 +2767,7 @@
     "resultate": [
       {
         "datum": "2021-03-19",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -2799,14 +2800,14 @@
     "id": "vp-20213835-de",
     "titel": "21.3835 · Tierschutzverstösse besser ahnden",
     "typ": "Motion",
-    "kurzbeschreibung": "Kurzüberblick: 21.3835 · Tierschutzverstösse besser ahnden (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 21.3835 · Tierschutzverstösse besser ahnden (Erledigt).",
     "geschaeftsnummer": "21.3835",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-06-17",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz",
       "Landwirtschaft"
@@ -2826,7 +2827,7 @@
     "resultate": [
       {
         "datum": "2021-06-17",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -2985,7 +2986,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2021-05-19",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Massentierhaltung",
       "Massentier",
@@ -3073,14 +3074,14 @@
     "id": "vp-20223633-de",
     "titel": "22.3633 · Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden?",
     "typ": "Motion",
-    "kurzbeschreibung": "Kurzüberblick: 22.3633 · Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden? (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 22.3633 · Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden? (Erledigt).",
     "geschaeftsnummer": "22.3633",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2022-06-15",
-    "datumAktualisiert": "2022-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Schwein",
       "Schweine",
@@ -3104,7 +3105,7 @@
     "resultate": [
       {
         "datum": "2022-06-15",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3138,14 +3139,14 @@
     "id": "vp-20218162-de",
     "titel": "21.8162 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (2)",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 21.8162 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (2) (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 21.8162 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (2) (Erledigt).",
     "geschaeftsnummer": "21.8162",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-12-08",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Schwein",
       "Schweine",
@@ -3167,7 +3168,7 @@
     "resultate": [
       {
         "datum": "2021-12-08",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3200,14 +3201,14 @@
     "id": "vp-20218163-de",
     "titel": "21.8163 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (3)",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 21.8163 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (3) (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 21.8163 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (3) (Erledigt).",
     "geschaeftsnummer": "21.8163",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-12-08",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Schwein",
       "Schweine",
@@ -3229,7 +3230,7 @@
     "resultate": [
       {
         "datum": "2021-12-08",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3262,14 +3263,14 @@
     "id": "vp-20218161-de",
     "titel": "21.8161 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (1)",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 21.8161 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (1) (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 21.8161 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (1) (Erledigt).",
     "geschaeftsnummer": "21.8161",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-12-08",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Schwein",
       "Schweine",
@@ -3291,7 +3292,7 @@
     "resultate": [
       {
         "datum": "2021-12-08",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3324,14 +3325,14 @@
     "id": "vp-20214435-de",
     "titel": "21.4435 · Afrikanische Schweinepest. Wildschweine vorsorglich eindämmen",
     "typ": "Motion",
-    "kurzbeschreibung": "Kurzüberblick: 21.4435 · Afrikanische Schweinepest. Wildschweine vorsorglich eindämmen (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 21.4435 · Afrikanische Schweinepest. Wildschweine vorsorglich eindämmen (Erledigt).",
     "geschaeftsnummer": "21.4435",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-12-15",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Schwein",
       "Schweine",
@@ -3355,7 +3356,7 @@
     "resultate": [
       {
         "datum": "2021-12-15",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3389,14 +3390,14 @@
     "id": "vp-20227004-de",
     "titel": "22.7004 · Absurde Auslegung der Tierschutzverordnung - täglicher Auslauf für Bauernhof Hunde?",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 22.7004 · Absurde Auslegung der Tierschutzverordnung - täglicher Auslauf für Bauernhof Hunde? (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 22.7004 · Absurde Auslegung der Tierschutzverordnung - täglicher Auslauf für Bauernhof Hunde? (Erledigt).",
     "geschaeftsnummer": "22.7004",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2022-02-28",
-    "datumAktualisiert": "2022-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz",
       "Hunde",
@@ -3418,7 +3419,7 @@
     "resultate": [
       {
         "datum": "2022-02-28",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3451,14 +3452,14 @@
     "id": "vp-20223187-de",
     "titel": "22.3187 · Hochgezüchtete Eier- und Geflügelfleischproduktion in Richtung Tierwohl weiterentwickeln",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 22.3187 · Hochgezüchtete Eier- und Geflügelfleischproduktion in Richtung Tierwohl weiterentwickeln (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 22.3187 · Hochgezüchtete Eier- und Geflügelfleischproduktion in Richtung Tierwohl weiterentwickeln (Erledigt).",
     "geschaeftsnummer": "22.3187",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2022-03-16",
-    "datumAktualisiert": "2022-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierwohl",
       "Masthühner",
@@ -3480,7 +3481,7 @@
     "resultate": [
       {
         "datum": "2022-03-16",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3513,14 +3514,14 @@
     "id": "vp-20223299-de",
     "titel": "22.3299 · Kein Einsatz von PMSG bei Schweinezüchtern",
     "typ": "Motion",
-    "kurzbeschreibung": "Kurzüberblick: 22.3299 · Kein Einsatz von PMSG bei Schweinezüchtern (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 22.3299 · Kein Einsatz von PMSG bei Schweinezüchtern (Erledigt).",
     "geschaeftsnummer": "22.3299",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2022-03-17",
-    "datumAktualisiert": "2022-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Schwein",
       "Schweine",
@@ -3544,7 +3545,7 @@
     "resultate": [
       {
         "datum": "2022-03-17",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3578,14 +3579,14 @@
     "id": "vp-20233411-de",
     "titel": "23.3411 · Eine langfristige Lösung für den Schweinemarkt",
     "typ": "Postulat",
-    "kurzbeschreibung": "Kurzüberblick: 23.3411 · Eine langfristige Lösung für den Schweinemarkt (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 23.3411 · Eine langfristige Lösung für den Schweinemarkt (Erledigt).",
     "geschaeftsnummer": "23.3411",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2023-03-17",
-    "datumAktualisiert": "2023-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Schwein",
       "Schweine",
@@ -3607,7 +3608,7 @@
     "resultate": [
       {
         "datum": "2023-03-17",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3645,9 +3646,9 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2023-09-13",
-    "datumAktualisiert": "2023-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
       "Wolf",
@@ -3669,7 +3670,7 @@
     "resultate": [
       {
         "datum": "2023-09-13",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3824,14 +3825,14 @@
     "id": "vp-20213829-de",
     "titel": "21.3829 · Regelungskompetenz im Tierschutz. Auch bei den Kantonen",
     "typ": "Motion",
-    "kurzbeschreibung": "Kurzüberblick: 21.3829 · Regelungskompetenz im Tierschutz. Auch bei den Kantonen (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 21.3829 · Regelungskompetenz im Tierschutz. Auch bei den Kantonen (Erledigt).",
     "geschaeftsnummer": "21.3829",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-06-17",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz",
       "Landwirtschaft"
@@ -3851,7 +3852,7 @@
     "resultate": [
       {
         "datum": "2021-06-17",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3883,14 +3884,14 @@
     "id": "vp-20223728-de",
     "titel": "22.3728 · Afrikanische Schweinepest. Schlachtbetriebe und damit die Versorgungssicherheit gefährden?",
     "typ": "Motion",
-    "kurzbeschreibung": "Kurzüberblick: 22.3728 · Afrikanische Schweinepest. Schlachtbetriebe und damit die Versorgungssicherheit gefährden? (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 22.3728 · Afrikanische Schweinepest. Schlachtbetriebe und damit die Versorgungssicherheit gefährden? (Erledigt).",
     "geschaeftsnummer": "22.3728",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2022-06-16",
-    "datumAktualisiert": "2022-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Schwein",
       "Schweine",
@@ -3912,7 +3913,7 @@
     "resultate": [
       {
         "datum": "2022-06-16",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3945,14 +3946,14 @@
     "id": "vp-20237131-de",
     "titel": "23.7131 · Ziegen 1200 Tage pausenlos melken - vereinbar mit Tierschutzbestimmungen?",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 23.7131 · Ziegen 1200 Tage pausenlos melken - vereinbar mit Tierschutzbestimmungen? (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 23.7131 · Ziegen 1200 Tage pausenlos melken - vereinbar mit Tierschutzbestimmungen? (Erledigt).",
     "geschaeftsnummer": "23.7131",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2023-03-01",
-    "datumAktualisiert": "2023-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz",
       "Landwirtschaft"
@@ -3972,7 +3973,7 @@
     "resultate": [
       {
         "datum": "2023-03-01",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -4009,9 +4010,9 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2023-09-13",
-    "datumAktualisiert": "2023-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
       "Landwirtschaft"
@@ -4031,7 +4032,7 @@
     "resultate": [
       {
         "datum": "2023-09-13",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -4063,14 +4064,14 @@
     "id": "vp-20237657-de",
     "titel": "23.7657 · Gerissene Nutztiere traumatisieren",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 23.7657 · Gerissene Nutztiere traumatisieren (In Beratung).",
+    "kurzbeschreibung": "Kurzüberblick: 23.7657 · Gerissene Nutztiere traumatisieren (Erledigt).",
     "geschaeftsnummer": "23.7657",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2023-09-19",
-    "datumAktualisiert": "2023-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
       "Landwirtschaft"
@@ -4090,7 +4091,7 @@
     "resultate": [
       {
         "datum": "2023-09-19",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -4127,9 +4128,9 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2023-12-06",
-    "datumAktualisiert": "2023-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
       "Landwirtschaft"
@@ -4149,7 +4150,7 @@
     "resultate": [
       {
         "datum": "2023-12-06",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -4306,7 +4307,7 @@
     "regionGemeinde": "Romandie",
     "status": "In Beratung",
     "datumEingereicht": "2021-03-18",
-    "datumAktualisiert": "2021-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierversuche",
       "Animal",
@@ -4399,7 +4400,7 @@
     "regionGemeinde": "Südschweiz",
     "status": "In Beratung",
     "datumEingereicht": "2024-11-14",
-    "datumAktualisiert": "2024-02-15",
+    "datumAktualisiert": "2026-02-15",
     "themen": [
       "Stopfleber",
       "Foie gras"
