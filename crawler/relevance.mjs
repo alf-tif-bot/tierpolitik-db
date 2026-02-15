@@ -9,7 +9,6 @@ export const ANCHOR_KEYWORDS = [
   'wildtier', 'wildtiere', 'wolf', 'biber', 'fuchs',
   'biodiversität', 'biodiversitaet', 'biodiversite', 'biodiversita',
   'zoo', 'zoos', 'zirkus', 'wildpark',
-  'landwirtschaft', 'agriculture', 'agricoltura',
   'ernährung', 'ernaehrung', 'nutrition', 'alimentazione',
   'veterinär', 'veterinaer', 'vétérinaire', 'veterinaire', 'veterinario',
   'animal', 'animaux', 'animali', 'protection animale', 'bien-être animal', 'bien etre animal', 'benessere animale',
@@ -23,6 +22,7 @@ export const ANCHOR_KEYWORDS = [
   'herdenschutz', 'wildtierkorridor', 'faune sauvage', 'fauna selvatica',
   'jagdbann', 'wildruhezone', 'fischsterben', 'amphibien',
   'tierquaelerei', 'tierquälerei', 'wildschwein', 'herdenschutzhund', 'streunerkatzen', 'kastrationspflicht',
+  'tiergesundheit', 'animal welfare', 'welfare animale',
 ]
 
 const SUPPORT_KEYWORDS = [
@@ -30,7 +30,7 @@ const SUPPORT_KEYWORDS = [
   'gesetz', 'initiative', 'motion', 'postulat', 'botschaft', 'sanktion', 'zucht', 'fleisch', 'proviande', 'suisseporcs', 'swissmilk', 'schweizer tierschutz', 'sts',
   'tierseuche', 'tierseuchen', 'zoonose', 'zoonosen', 'haustierhaltung',
   'schlacht', 'mast', 'pelz', 'fisch', 'jagd', 'wildtier', 'bien-être', 'bien etre',
-  'protection', 'animalier', 'animale', 'animali', 'faune', 'allevamenti',
+  'animalier', 'animale', 'animali', 'faune', 'allevamenti',
   'biodiversität', 'biodiversitaet', 'biodiversite',
   'landwirtschaft', 'agriculture', 'agricoltura',
   'ernährung', 'ernaehrung', 'nutrition', 'alimentazione',

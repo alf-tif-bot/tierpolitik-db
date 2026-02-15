@@ -16,10 +16,8 @@
     "decidedAt": "2026-02-13T21:59:58.935Z"
   },
   "ch-parliament-business-de:20254487-de": {
-    "status": "rejected",
-    "decidedAt": "2026-02-13T22:12:55.227Z",
-    "syncedAt": "2026-02-15T09:45:45.858Z",
-    "syncReason": "regression-check-db-status"
+    "status": "approved",
+    "decidedAt": "2026-02-13T22:12:55.227Z"
   },
   "ch-parliament-business-de:20250079-de": {
     "status": "rejected",
@@ -30,10 +28,8 @@
     "decidedAt": "2026-02-13T22:25:57.656Z"
   },
   "ch-parliament-business-de:20254697-de": {
-    "status": "rejected",
-    "decidedAt": "2026-02-13T22:27:58.895Z",
-    "syncedAt": "2026-02-15T09:45:45.859Z",
-    "syncReason": "regression-check-db-status"
+    "status": "approved",
+    "decidedAt": "2026-02-13T22:27:58.895Z"
   },
   "ch-parliament-business-fr:20210055-fr": {
     "status": "rejected",
@@ -488,10 +484,8 @@
     "decidedAt": "2026-02-13T20:53:03.013Z"
   },
   "ch-parliament-business-de:20253733-de": {
-    "status": "rejected",
-    "decidedAt": "2026-02-13T22:33:12.898Z",
-    "syncedAt": "2026-02-15T09:45:45.859Z",
-    "syncReason": "regression-check-db-status"
+    "status": "approved",
+    "decidedAt": "2026-02-13T22:33:12.898Z"
   },
   "ch-parliament-business-de:20250099-de": {
     "status": "rejected",
@@ -3167,6 +3161,12 @@
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
     "syncedAt": "2026-02-15T09:45:45.859Z",
+    "syncReason": "regression-check-db-status"
+  },
+  "ch-cantonal-be-rss:www-gr-be-ch-de-start-geschaefte-geschaeftssuche-geschaeftsdetail-html-guid-57c34c78ddf541f098b29f4c2be2cbfa": {
+    "status": "new",
+    "decidedAt": "2026-02-15T10:58:27.266Z",
+    "syncedAt": "2026-02-15T11:16:44.544Z",
     "syncReason": "regression-check-db-status"
   }
 }

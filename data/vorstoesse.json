@@ -12,12 +12,12 @@
     "datumEingereicht": "2020-03-02",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Landwirtschaft",
-      "Stopfleber"
+      "Stopfleber",
+      "Landwirtschaft"
     ],
     "schlagwoerter": [
-      "landwirtschaft",
-      "stopfleber"
+      "stopfleber",
+      "landwirtschaft"
     ],
     "einreichende": [
       {
@@ -50,8 +50,8 @@
         },
         "themes": {
           "de": [
-            "Landwirtschaft",
-            "Stopfleber"
+            "Stopfleber",
+            "Landwirtschaft"
           ]
         }
       },
@@ -1184,12 +1184,12 @@
     "datumEingereicht": "2023-06-15",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Landwirtschaft",
-      "Herdenschutz"
+      "Herdenschutz",
+      "Landwirtschaft"
     ],
     "schlagwoerter": [
-      "landwirtschaft",
-      "herdenschutz"
+      "herdenschutz",
+      "landwirtschaft"
     ],
     "einreichende": [
       {
@@ -1222,8 +1222,8 @@
         },
         "themes": {
           "de": [
-            "Landwirtschaft",
-            "herdenschutz"
+            "herdenschutz",
+            "Landwirtschaft"
           ]
         }
       },
@@ -1753,8 +1753,8 @@
       "Landwirtschaft"
     ],
     "schlagwoerter": [
-      "landwirtschaft",
-      "motion"
+      "motion",
+      "landwirtschaft"
     ],
     "einreichende": [
       {
@@ -1787,8 +1787,8 @@
         },
         "themes": {
           "de": [
-            "Landwirtschaft",
-            "motion"
+            "motion",
+            "Landwirtschaft"
           ]
         }
       },
@@ -2929,12 +2929,12 @@
     "datumEingereicht": "2025-12-19",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Landwirtschaft",
-      "Ernährung"
+      "Ernährung",
+      "Landwirtschaft"
     ],
     "schlagwoerter": [
-      "landwirtschaft",
-      "ernährung"
+      "ernährung",
+      "landwirtschaft"
     ],
     "einreichende": [
       {
@@ -2967,8 +2967,8 @@
         },
         "themes": {
           "de": [
-            "Landwirtschaft",
-            "ernährung"
+            "ernährung",
+            "Landwirtschaft"
           ]
         }
       },
@@ -2990,20 +2990,20 @@
     "themen": [
       "Massentierhaltung",
       "Massentier",
-      "Landwirtschaft",
-      "Agriculture",
-      "Agricoltura",
-      "Animal"
+      "Animal",
+      "Animaux",
+      "Élevage",
+      "Elevage"
     ],
     "schlagwoerter": [
       "tiere",
       "massentierhaltung",
       "massentier",
-      "landwirtschaft",
-      "agriculture",
-      "agricoltura",
       "animal",
-      "animaux"
+      "animaux",
+      "animali",
+      "élevage",
+      "elevage"
     ],
     "einreichende": [
       {
@@ -3045,25 +3045,25 @@
             "tiere",
             "massentierhaltung",
             "massentier",
-            "Landwirtschaft",
-            "agriculture",
-            "agricoltura"
+            "animal",
+            "animaux",
+            "animali"
           ],
           "fr": [
             "tiere",
             "massentierhaltung",
             "massentier",
-            "Agriculture",
-            "agriculture",
-            "agricoltura"
+            "animal",
+            "animaux",
+            "animali"
           ],
           "it": [
             "tiere",
             "massentierhaltung",
             "massentier",
-            "Agricoltura",
-            "agriculture",
-            "agricoltura"
+            "animal",
+            "animaux",
+            "animali"
           ]
         }
       },
@@ -3085,14 +3085,14 @@
     "themen": [
       "Schwein",
       "Schweine",
-      "Landwirtschaft",
-      "Schlacht"
+      "Schlacht",
+      "Landwirtschaft"
     ],
     "schlagwoerter": [
       "schwein",
       "schweine",
-      "landwirtschaft",
-      "schlacht"
+      "schlacht",
+      "landwirtschaft"
     ],
     "einreichende": [
       {
@@ -3127,8 +3127,8 @@
           "de": [
             "schwein",
             "schweine",
-            "Landwirtschaft",
-            "schlacht"
+            "schlacht",
+            "Landwirtschaft"
           ]
         }
       },
@@ -3336,14 +3336,14 @@
     "themen": [
       "Schwein",
       "Schweine",
-      "Landwirtschaft",
-      "Wildschwein"
+      "Wildschwein",
+      "Landwirtschaft"
     ],
     "schlagwoerter": [
       "schwein",
       "schweine",
-      "landwirtschaft",
-      "wildschwein"
+      "wildschwein",
+      "landwirtschaft"
     ],
     "einreichende": [
       {
@@ -3378,8 +3378,8 @@
           "de": [
             "schwein",
             "schweine",
-            "Landwirtschaft",
-            "wildschwein"
+            "wildschwein",
+            "Landwirtschaft"
           ]
         }
       },
@@ -3717,8 +3717,8 @@
     ],
     "schlagwoerter": [
       "geflügel",
-      "landwirtschaft",
-      "gesetz"
+      "gesetz",
+      "landwirtschaft"
     ],
     "einreichende": [
       {
@@ -3752,8 +3752,8 @@
         "themes": {
           "de": [
             "geflügel",
-            "Landwirtschaft",
-            "gesetz"
+            "gesetz",
+            "Landwirtschaft"
           ]
         }
       },
@@ -3778,8 +3778,8 @@
     ],
     "schlagwoerter": [
       "geflügel",
-      "landwirtschaft",
-      "gesetz"
+      "gesetz",
+      "landwirtschaft"
     ],
     "einreichende": [
       {
@@ -3813,8 +3813,8 @@
         "themes": {
           "de": [
             "geflügel",
-            "Landwirtschaft",
-            "gesetz"
+            "gesetz",
+            "Landwirtschaft"
           ]
         }
       },
@@ -4342,7 +4342,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "fr",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
@@ -4474,6 +4474,225 @@
     }
   },
   {
+    "id": "vp-20253733-de",
+    "titel": "25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Kurzüberblick: 25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren (In Beratung).",
+    "geschaeftsnummer": "25.3733",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-06-19",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "Landwirtschaft",
+      "Agriculture"
+    ],
+    "schlagwoerter": [
+      "landwirtschaft",
+      "agriculture"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253733",
+    "resultate": [
+      {
+        "datum": "2025-06-19",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren",
+          "fr": "25.3733 · Respecter la proportionnalité dans l’ordonnance sur les paiements directs"
+        },
+        "summary": {
+          "de": "Beratung in Kommission des Ständerates abgeschlossen",
+          "fr": "Fin des discussions en commission du Conseil des Etats"
+        },
+        "type": {
+          "de": "Interpellation",
+          "fr": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "Landwirtschaft",
+            "agriculture"
+          ],
+          "fr": [
+            "Agriculture",
+            "agriculture"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20254697-de",
+    "titel": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Kurzüberblick: 25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung (In Beratung).",
+    "geschaeftsnummer": "25.4697",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-12-18",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "Biodiversität",
+      "Biodiversite",
+      "Biodiversita"
+    ],
+    "schlagwoerter": [
+      "biodiversität",
+      "biodiversite",
+      "biodiversita"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254697",
+    "resultate": [
+      {
+        "datum": "2025-12-18",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
+          "fr": "25.4697 · Subventions dommageables à la biodiversité. Collaboration entre la Confédération et les cantons"
+        },
+        "summary": {
+          "de": "Stellungnahme zum Vorstoss liegt vor",
+          "fr": "L’avis relatif à l’intervention est disponible"
+        },
+        "type": {
+          "de": "Interpellation",
+          "fr": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "biodiversität",
+            "biodiversite",
+            "biodiversita"
+          ],
+          "fr": [
+            "biodiversität",
+            "biodiversite",
+            "biodiversita"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20254487-de",
+    "titel": "25.4487 · Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Kurzüberblick: 25.4487 · Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder (In Beratung).",
+    "geschaeftsnummer": "25.4487",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-12-09",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "Nutrition",
+      "Landwirtschaft",
+      "Agriculture",
+      "Agricoltura"
+    ],
+    "schlagwoerter": [
+      "nutrition",
+      "landwirtschaft",
+      "agriculture",
+      "agricoltura"
+    ],
+    "einreichende": [
+      {
+        "name": "BLV",
+        "rolle": "Regierung",
+        "partei": "Bundesverwaltung"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254487",
+    "resultate": [
+      {
+        "datum": "2025-12-09",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "25.4487 · Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder",
+          "fr": "25.4487 · Recommandations nutritionnelles végétariennes pour les enfants. Parti pris de l'OSAV",
+          "it": "25.4487 · Ricette vegetariane per bambini. Raccomandazioni unilaterali dell’USAV"
+        },
+        "summary": {
+          "de": "Stellungnahme zum Vorstoss liegt vor",
+          "fr": "L’avis relatif à l’intervention est disponible",
+          "it": "La dichiarazione sull’intervento è disponibile"
+        },
+        "type": {
+          "de": "Interpellation",
+          "fr": "Interpellation",
+          "it": "Interpellanza"
+        },
+        "themes": {
+          "de": [
+            "nutrition",
+            "Landwirtschaft",
+            "agriculture",
+            "agricoltura"
+          ],
+          "fr": [
+            "nutrition",
+            "Agriculture",
+            "agriculture",
+            "agricoltura"
+          ],
+          "it": [
+            "nutrition",
+            "Agricoltura",
+            "agriculture",
+            "agricoltura"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
     "id": "vp-20250404-it",
     "titel": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative",
     "typ": "Volksinitiative",
@@ -4574,8 +4793,8 @@
       "tierschutz",
       "biodiversität",
       "biodiversita",
-      "landwirtschaft",
-      "motion"
+      "motion",
+      "landwirtschaft"
     ],
     "einreichende": [
       {
@@ -4620,7 +4839,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "Biodiversität im Wald fördern"
@@ -4662,8 +4881,8 @@
       "tierschutz",
       "biodiversität",
       "biodiversita",
-      "landwirtschaft",
-      "motion"
+      "motion",
+      "landwirtschaft"
     ],
     "einreichende": [
       {
@@ -4708,7 +4927,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "Biodiversität im Siedlungsgebiet fördern"
@@ -4750,8 +4969,8 @@
       "tierschutz",
       "biodiversität",
       "biodiversita",
-      "landwirtschaft",
-      "motion"
+      "motion",
+      "landwirtschaft"
     ],
     "einreichende": [
       {
@@ -4796,7 +5015,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "Biodiversität im Landwirtschaftsgebiet fördern"
@@ -4837,8 +5056,8 @@
       "tierschutz",
       "biodiversität",
       "biodiversita",
-      "landwirtschaft",
-      "motion"
+      "motion",
+      "landwirtschaft"
     ],
     "einreichende": [
       {
@@ -4873,7 +5092,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "Tierpark Bern: Welche Alternativen zur Tötung überzähliger Tiere gibt es?"
