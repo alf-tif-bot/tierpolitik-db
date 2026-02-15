@@ -18,6 +18,15 @@ type Props = {
   t: I18nText
 }
 
+const inferFederalChamber = (businessNo = '', level = '') => {
+  if (level !== 'Bund') return '-'
+  const m = String(businessNo || '').match(/\b\d{2}\.(\d{4})\b/)
+  const block = m?.[1] || ''
+  if (block.startsWith('3')) return 'Nationalrat'
+  if (block.startsWith('4')) return 'Ständerat'
+  return '-'
+}
+
 const normalizeTitle = (value: string, typ?: string) => {
   let out = value
     .replace(/^Vorstoss\s+\d+\s*:\s*/i, '')
@@ -98,6 +107,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
     { label: t.type, value: localizedMetaType(item, lang), filterField: 'typ' as const, rawValue: item.typ },
     { label: t.businessNo, value: item.geschaeftsnummer },
     { label: t.level, value: level, filterField: 'ebene' as const, rawValue: item.ebene },
+    { label: 'Rat', value: inferFederalChamber(item.geschaeftsnummer, item.ebene) },
     { label: t.canton, value: item.kanton ?? '-', filterField: 'kanton' as const },
     { label: t.region, value: item.regionGemeinde ?? '-', filterField: 'region' as const },
     { label: t.dateSubmitted, value: formatDateCH(item.datumEingereicht) },

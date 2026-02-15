@@ -131,6 +131,7 @@ const fallbackPersonByLang = {
 
 const SUBMITTER_OVERRIDES = {
   '25.4380': { name: 'Mathilde Crevoisier Crelier', rolle: 'Ständerat', partei: 'SP' },
+  '24.3277': { name: 'Lorenz Hess', rolle: 'Nationalrat', partei: 'Die Mitte' },
 }
 
 const parseMunicipalSubmitters = (body = '') => {
@@ -155,7 +156,7 @@ const inferSubmitter = (lang, title = '', summary = '', body = '') => {
   if (text.includes('blv') || text.includes('lebensmittelsicherheit') || text.includes('veterinärwesen')) {
     return { name: 'BLV', rolle: 'Regierung', partei: 'Bundesverwaltung' }
   }
-  if (text.includes('bundesrat') || text.includes('message du conseil fédéral') || text.includes('messaggio del consiglio federale')) {
+  if (text.includes('eingereicht von bundesrat') || text.includes('message du conseil fédéral') || text.includes('messaggio del consiglio federale')) {
     return { name: 'Bundesrat', rolle: 'Regierung', partei: 'Bundesrat' }
   }
   if (text.includes('kommission') && text.includes('curia vista')) {
@@ -241,6 +242,8 @@ const isWeakSummarySentence = (text = '') => {
     || s.includes('stellungnahme liegt vor')
     || s.includes('antwort liegt vor')
     || s.includes('zugewiesen an die behandelnde kommission')
+    || s.includes('überwiesen an den bundesrat')
+    || s.includes('ueberwiesen an den bundesrat')
     || s.includes('|')
     || /^parlamentsgesch(ä|a)ft\s+/i.test(s)
 }

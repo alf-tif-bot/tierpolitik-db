@@ -3,7 +3,7 @@
     "id": "vp-20203021-de",
     "titel": "20.3021 · Importverbot für tierquälerisch erzeugte Stopfleber",
     "typ": "Motion",
-    "kurzbeschreibung": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll. Überwiesen an den Bundesrat",
+    "kurzbeschreibung": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll.",
     "geschaeftsnummer": "20.3021",
     "ebene": "Bund",
     "kanton": null,
@@ -21,9 +21,9 @@
     ],
     "einreichende": [
       {
-        "name": "Bundesrat",
-        "rolle": "Regierung",
-        "partei": "Bundesrat"
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20203021",
@@ -1062,7 +1062,7 @@
     "id": "vp-20243277-de",
     "titel": "24.3277 · Luchsbestände in der Schweiz sind bezüglich Nutztier- und Jagdregalschäden zu untersuchen",
     "typ": "Postulat",
-    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten. Überwiesen an den Bundesrat",
+    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
     "geschaeftsnummer": "24.3277",
     "ebene": "Bund",
     "kanton": null,
@@ -1078,9 +1078,9 @@
     ],
     "einreichende": [
       {
-        "name": "Bundesrat",
-        "rolle": "Regierung",
-        "partei": "Bundesrat"
+        "name": "Lorenz Hess",
+        "rolle": "Nationalrat",
+        "partei": "Die Mitte"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20243277",
@@ -1118,7 +1118,7 @@
     "id": "vp-20234379-de",
     "titel": "23.4379 · Anpassung des Gewässerschutzgesetzes an die praktizierte Nutztierhaltung",
     "typ": "Motion",
-    "kurzbeschreibung": "Überwiesen an den Bundesrat",
+    "kurzbeschreibung": "Kurzüberblick: 23.4379 · Anpassung des Gewässerschutzgesetzes an die praktizierte Nutztierhaltung (In Beratung).",
     "geschaeftsnummer": "23.4379",
     "ebene": "Bund",
     "kanton": null,
@@ -1134,9 +1134,9 @@
     ],
     "einreichende": [
       {
-        "name": "Bundesrat",
-        "rolle": "Regierung",
-        "partei": "Bundesrat"
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20234379",
@@ -1757,9 +1757,9 @@
     ],
     "einreichende": [
       {
-        "name": "Bundesrat",
-        "rolle": "Regierung",
-        "partei": "Bundesrat"
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20218021",
@@ -4466,225 +4466,6 @@
             "foie gras",
             "initiative",
             "botschaft"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20253733-de",
-    "titel": "25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren (Abgelehnt).",
-    "geschaeftsnummer": "25.3733",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Abgelehnt",
-    "datumEingereicht": "2025-06-19",
-    "datumAktualisiert": "2026-02-13",
-    "themen": [
-      "Landwirtschaft",
-      "Agriculture"
-    ],
-    "schlagwoerter": [
-      "landwirtschaft",
-      "agriculture"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253733",
-    "resultate": [
-      {
-        "datum": "2025-06-19",
-        "status": "Abgelehnt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren",
-          "fr": "25.3733 · Respecter la proportionnalité dans l’ordonnance sur les paiements directs"
-        },
-        "summary": {
-          "de": "Beratung in Kommission des Ständerates abgeschlossen",
-          "fr": "Fin des discussions en commission du Conseil des Etats"
-        },
-        "type": {
-          "de": "Interpellation",
-          "fr": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "Landwirtschaft",
-            "agriculture"
-          ],
-          "fr": [
-            "Agriculture",
-            "agriculture"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20254697-de",
-    "titel": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung (Abgelehnt).",
-    "geschaeftsnummer": "25.4697",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Abgelehnt",
-    "datumEingereicht": "2025-12-18",
-    "datumAktualisiert": "2026-02-13",
-    "themen": [
-      "Biodiversität",
-      "Biodiversite",
-      "Biodiversita"
-    ],
-    "schlagwoerter": [
-      "biodiversität",
-      "biodiversite",
-      "biodiversita"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254697",
-    "resultate": [
-      {
-        "datum": "2025-12-18",
-        "status": "Abgelehnt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
-          "fr": "25.4697 · Subventions dommageables à la biodiversité. Collaboration entre la Confédération et les cantons"
-        },
-        "summary": {
-          "de": "Stellungnahme zum Vorstoss liegt vor",
-          "fr": "L’avis relatif à l’intervention est disponible"
-        },
-        "type": {
-          "de": "Interpellation",
-          "fr": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "biodiversität",
-            "biodiversite",
-            "biodiversita"
-          ],
-          "fr": [
-            "biodiversität",
-            "biodiversite",
-            "biodiversita"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20254487-de",
-    "titel": "25.4487 · Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 25.4487 · Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder (Abgelehnt).",
-    "geschaeftsnummer": "25.4487",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Abgelehnt",
-    "datumEingereicht": "2025-12-09",
-    "datumAktualisiert": "2026-02-13",
-    "themen": [
-      "Landwirtschaft",
-      "Agriculture",
-      "Agricoltura",
-      "Nutrition"
-    ],
-    "schlagwoerter": [
-      "landwirtschaft",
-      "agriculture",
-      "agricoltura",
-      "nutrition"
-    ],
-    "einreichende": [
-      {
-        "name": "BLV",
-        "rolle": "Regierung",
-        "partei": "Bundesverwaltung"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254487",
-    "resultate": [
-      {
-        "datum": "2025-12-09",
-        "status": "Abgelehnt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "25.4487 · Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder",
-          "fr": "25.4487 · Recommandations nutritionnelles végétariennes pour les enfants. Parti pris de l'OSAV",
-          "it": "25.4487 · Ricette vegetariane per bambini. Raccomandazioni unilaterali dell’USAV"
-        },
-        "summary": {
-          "de": "Stellungnahme zum Vorstoss liegt vor",
-          "fr": "L’avis relatif à l’intervention est disponible",
-          "it": "La dichiarazione sull’intervento è disponibile"
-        },
-        "type": {
-          "de": "Interpellation",
-          "fr": "Interpellation",
-          "it": "Interpellanza"
-        },
-        "themes": {
-          "de": [
-            "Landwirtschaft",
-            "agriculture",
-            "agricoltura",
-            "nutrition"
-          ],
-          "fr": [
-            "Agriculture",
-            "agriculture",
-            "agricoltura",
-            "nutrition"
-          ],
-          "it": [
-            "Agricoltura",
-            "agriculture",
-            "agricoltura",
-            "nutrition"
           ]
         }
       },
