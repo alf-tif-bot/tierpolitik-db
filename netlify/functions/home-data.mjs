@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import fallbackBundled from '../../data/vorstoesse.json' with { type: 'json' }
 import { withPgClient } from '../../crawler/db-postgres.mjs'
 
 const ALLOWED_ORIGINS = new Set([
@@ -34,8 +35,8 @@ try {
   // ignore and try bundled fallback below
 }
 
-if (!Array.isArray(fallbackVorstoesse)) {
-  fallbackVorstoesse = []
+if (!Array.isArray(fallbackVorstoesse) || !fallbackVorstoesse.length) {
+  fallbackVorstoesse = Array.isArray(fallbackBundled) ? fallbackBundled : []
 }
 
 const inferType = (title = '', sourceId = '') => {
