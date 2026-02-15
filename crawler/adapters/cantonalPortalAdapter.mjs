@@ -28,9 +28,10 @@ const LINK_NOISE_KEYWORDS = [
   'newsletter',
   'medienmitteilung',
   'communique',
-  'pdf',
   '.ics',
 ]
+
+const LINK_NOISE_EXTENSIONS = ['.pdf', '.doc', '.docx', '.xls', '.xlsx', '.zip', '.jpg', '.jpeg', '.png']
 
 const CANTON_KEYWORDS = {
   AG: ['grweb', 'grossrat', 'geschaefte'],
@@ -101,6 +102,23 @@ const pickLanguage = (canton, pageText) => {
   return 'de'
 }
 
+const isLikelyNoiseLink = (href = '', text = '') => {
+  const merged = `${href} ${text}`.toLowerCase()
+  if (LINK_NOISE_KEYWORDS.some((kw) => merged.includes(kw))) return true
+  return LINK_NOISE_EXTENSIONS.some((ext) => href.toLowerCase().includes(ext))
+}
+
+const isSameSiteOrParliamentHost = (href = '', baseUrl = '') => {
+  try {
+    const linkHost = new URL(href).hostname.replace(/^www\./, '')
+    const baseHost = new URL(baseUrl).hostname.replace(/^www\./, '')
+    if (linkHost === baseHost) return true
+    return linkHost.includes('ratsinfo') || linkHost.includes('sitzungsdienst')
+  } catch {
+    return false
+  }
+}
+
 const parseLinks = (html = '', baseUrl = '', canton = '') => {
   const links = []
   const re = /<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi
@@ -109,8 +127,8 @@ const parseLinks = (html = '', baseUrl = '', canton = '') => {
     const href = normalizeUrl(m[1], baseUrl)
     if (!href || !href.startsWith('http')) continue
     const text = stripTags(m[2]).slice(0, 180)
-    const merged = `${href} ${text}`.toLowerCase()
-    if (LINK_NOISE_KEYWORDS.some((kw) => merged.includes(kw))) continue
+    if (isLikelyNoiseLink(href, text)) continue
+    if (!isSameSiteOrParliamentHost(href, baseUrl)) continue
     const rank = scoreLink(canton, href, text)
     if (rank < 2) continue
     links.push({ href, text, rank })
@@ -134,6 +152,43 @@ const appendFallbackLinks = (canton, links) => {
   return merged
     .sort((a, b) => b.rank - a.rank)
     .slice(0, 10)
+}
+
+const candidateUrlsFromRegistry = (entry) => {
+  const fromProbe = Array.isArray(entry?.probe?.candidatesTried)
+    ? entry.probe.candidatesTried
+      .filter((candidate) => candidate?.ok)
+      .map((candidate) => candidate?.finalUrl || candidate?.url)
+    : []
+
+  const explicitCandidates = Array.isArray(entry?.probe?.candidatesTried)
+    ? entry.probe.candidatesTried.map((candidate) => candidate?.url)
+    : []
+
+  return [...new Set([
+    entry?.probe?.finalUrl,
+    entry?.url,
+    ...fromProbe,
+    ...explicitCandidates,
+  ].filter(Boolean))]
+}
+
+const fetchFirstReachable = async (urls = []) => {
+  for (const url of urls) {
+    try {
+      const response = await fetch(url, {
+        headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
+        redirect: 'follow',
+        signal: AbortSignal.timeout(12000),
+      })
+      if (!response.ok) continue
+      const html = await response.text()
+      return { response, html, usedUrl: url }
+    } catch {
+      // try next candidate
+    }
+  }
+  return null
 }
 
 export function createCantonalPortalAdapter() {
@@ -163,56 +218,51 @@ export function createCantonalPortalAdapter() {
         const canton = String(entry?.canton || '').toUpperCase()
         if (!canton || (cantonFilter.size && !cantonFilter.has(canton))) continue
 
-        const pageUrl = entry?.probe?.finalUrl || entry?.url
-        if (!pageUrl || entry?.probe?.httpStatus === 403) continue
+        const candidateUrls = candidateUrlsFromRegistry(entry)
+        if (!candidateUrls.length || entry?.probe?.httpStatus === 403) continue
 
-        try {
-          const response = await fetch(pageUrl, {
-            headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
-            redirect: 'follow',
-            signal: AbortSignal.timeout(12000),
-          })
-          if (!response.ok) continue
+        const fetched = await fetchFirstReachable(candidateUrls)
+        if (!fetched) continue
 
-          const html = await response.text()
-          const title = (html.match(/<title>([\s\S]*?)<\/title>/i)?.[1] || entry.parliament || `${canton} Parlament`)
-            .replace(/\s+/g, ' ')
-            .trim()
-          const parsedLinks = parseLinks(html, response.url, canton)
-          const links = appendFallbackLinks(canton, parsedLinks)
-          const pageText = stripTags(html).slice(0, 5000)
-          const language = pickLanguage(canton, pageText)
+        const { response, html, usedUrl } = fetched
 
-          const topLink = links[0]?.text || 'Parlamentsgeschäfte'
+        const title = (html.match(/<title>([\s\S]*?)<\/title>/i)?.[1] || entry.parliament || `${canton} Parlament`)
+          .replace(/\s+/g, ' ')
+          .trim()
+        const parsedLinks = parseLinks(html, response.url, canton)
+        const links = appendFallbackLinks(canton, parsedLinks)
+        const pageText = stripTags(html).slice(0, 5000)
+        const language = pickLanguage(canton, pageText)
 
-          rows.push({
-            sourceId: source.id,
-            sourceUrl: response.url,
-            externalId: `cantonal-portal-${canton.toLowerCase()}`,
-            title: `${canton} · ${entry.parliament}: ${topLink}`.slice(0, 260),
-            summary: `${title} – ${links.length} relevante Linkziele erkannt (Leitlink: ${topLink})`.slice(0, 300),
-            body: links.length
-              ? links.map((l, idx) => `${idx + 1}. ${l.text || 'Ohne Titel'} – ${l.href}`).join('\n')
-              : `Portal erreichbar (${response.url}), aber noch ohne extrahierte Vorstoss-Links.`,
-            publishedAt: fetchedAt,
-            fetchedAt,
-            language,
-            score: Math.min(0.4 + links.length * 0.05, 0.85),
-            matchedKeywords: ['kanton', canton.toLowerCase(), ...new Set(links.flatMap((l) => [...BASE_KEYWORDS, ...(CANTON_KEYWORDS[canton] || [])].filter((kw) => `${l.href} ${l.text}`.toLowerCase().includes(kw))))].slice(0, 12),
-            status: 'new',
-            reviewReason: links.length ? 'cantonal-portal-links' : 'cantonal-portal-reachable',
-            meta: {
-              canton,
-              parliament: entry.parliament,
-              readiness: entry.readiness,
-              extractedLinkCount: links.length,
-              extractedLinks: links,
-              adapterHint: 'cantonalPortal',
-            },
-          })
-        } catch {
-          // keep crawl robust; unresolved cantons remain in registry
-        }
+        const topLink = links[0]?.text || 'Parlamentsgeschäfte'
+
+        rows.push({
+          sourceId: source.id,
+          sourceUrl: response.url,
+          externalId: `cantonal-portal-${canton.toLowerCase()}`,
+          title: `${canton} · ${entry.parliament}: ${topLink}`.slice(0, 260),
+          summary: `${title} – ${links.length} relevante Linkziele erkannt (Leitlink: ${topLink})`.slice(0, 300),
+          body: links.length
+            ? links.map((l, idx) => `${idx + 1}. ${l.text || 'Ohne Titel'} – ${l.href}`).join('\n')
+            : `Portal erreichbar (${response.url}), aber noch ohne extrahierte Vorstoss-Links.`,
+          publishedAt: fetchedAt,
+          fetchedAt,
+          language,
+          score: Math.min(0.4 + links.length * 0.05, 0.85),
+          matchedKeywords: ['kanton', canton.toLowerCase(), ...new Set(links.flatMap((l) => [...BASE_KEYWORDS, ...(CANTON_KEYWORDS[canton] || [])].filter((kw) => `${l.href} ${l.text}`.toLowerCase().includes(kw))))].slice(0, 12),
+          status: 'new',
+          reviewReason: links.length ? 'cantonal-portal-links' : 'cantonal-portal-reachable',
+          meta: {
+            canton,
+            parliament: entry.parliament,
+            readiness: entry.readiness,
+            extractedLinkCount: links.length,
+            extractedLinks: links,
+            adapterHint: 'cantonalPortal',
+            candidateUrlsTried: candidateUrls.slice(0, 8),
+            fetchUrl: usedUrl,
+          },
+        })
       }
 
       return rows
