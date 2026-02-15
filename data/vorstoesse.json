@@ -3637,8 +3637,8 @@
   {
     "id": "vp-20237580-de",
     "titel": "23.7580 · Der Schutz des Menschen und der Nutztiere ist höher zu gewichten als der Wolf",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
+    "typ": "Anfrage",
+    "kurzbeschreibung": "Die Fragestunde-Frage verlangt vom Bundesrat die Priorisierung des Schutzes von Menschen und Nutztieren vor Wolfsangriffen, inklusive möglicher Verteidigungsabschüsse bei direkten Angriffen.",
     "geschaeftsnummer": "23.7580",
     "ebene": "Bund",
     "kanton": null,
@@ -3647,9 +3647,8 @@
     "datumEingereicht": "2023-09-13",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Nutztiere",
-      "Wolf",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "nutztiere",
@@ -3658,9 +3657,9 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Rüegger Monika",
+        "rolle": "Nationalrat",
+        "partei": "SVP"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20237580",
@@ -3683,13 +3682,12 @@
           "de": "Erledigt"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Anfrage"
         },
         "themes": {
           "de": [
-            "nutztiere",
-            "wolf",
-            "landwirtschaft"
+            "Landwirtschaft",
+            "Umwelt"
           ]
         }
       },

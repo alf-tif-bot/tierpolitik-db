@@ -219,16 +219,23 @@ const SUBMITTER_OVERRIDES = {
   '24.3277': { name: 'Lorenz Hess', rolle: 'Nationalrat', partei: 'Die Mitte' },
   '20.4731': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
   '21.3002': { name: 'Kommission für Umwelt, Raumplanung und Energie Ständerat', rolle: 'Kommission', partei: '' },
+  '23.7580': { name: 'Rüegger Monika', rolle: 'Nationalrat', partei: 'SVP' },
+}
+
+const TYPE_OVERRIDES = {
+  '23.7580': 'Anfrage',
 }
 
 const THEME_OVERRIDES = {
   '20.4731': ['Nutztiere', 'Landwirtschaft', 'Umwelt'],
   '21.3002': ['Umwelt', 'Landwirtschaft'],
+  '23.7580': ['Landwirtschaft', 'Umwelt'],
 }
 
 const SUMMARY_OVERRIDES = {
   '21.3002': 'Die Motion verlangt, den Handlungsspielraum im Jagdgesetz per Verordnung auszuschöpfen, um die Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren zu regeln (u. a. Regulierung und Herdenschutz).',
   '25.4809': 'Der Vorstoss verlangt konkrete Massnahmen gegen Tierqual bei der Geflügelschlachtung und eine konsequent tierschutzkonforme Praxis.',
+  '23.7580': 'Die Fragestunde-Frage verlangt vom Bundesrat die Priorisierung des Schutzes von Menschen und Nutztieren vor Wolfsangriffen, inklusive möglicher Verteidigungsabschüsse bei direkten Angriffen.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {
@@ -456,7 +463,7 @@ const buildInitiativeLinks = ({ typ, externalId }) => {
   }
 }
 
-const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallbackType, fallbackThemes) => {
+const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallbackType, fallbackThemes, businessNumber = '') => {
   const out = {
     title: { de: fallbackTitle },
     summary: { de: fallbackSummary },
@@ -468,7 +475,7 @@ const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallb
     const l = ['de', 'fr', 'it', 'en'].includes(lang) ? lang : 'de'
     const title = clean(variant?.title || fallbackTitle)
     const summary = clean(variant?.summary || variant?.body || fallbackSummary)
-    const typeDe = inferType(title, item.sourceId, variant?.businessTypeName || '', item?.meta?.rawType || '')
+    const typeDe = TYPE_OVERRIDES[businessNumber] || inferType(title, item.sourceId, variant?.businessTypeName || '', item?.meta?.rawType || '')
     const matched = mapThemesFromKeywords(item.matchedKeywords || fallbackThemes || []).slice(0, 6)
     out.title[l] = title || fallbackTitle
     out.summary[l] = summary || fallbackSummary
@@ -494,7 +501,15 @@ const vorstoesse = items.map((item, index) => {
   const eingereicht = toIsoDate(item.publishedAt || item.fetchedAt, inferredYear)
   const updated = toIsoDate(item.fetchedAt || item.publishedAt)
   const status = mapStatus(item.status, item?.meta?.rawStatus || '', displaySummary, displayBody)
-  const typ = inferType(displayTitle, item.sourceId, item?.languageVariants?.de?.businessTypeName || '', item?.meta?.rawType || '')
+  const businessNumber = formatBusinessNumber(
+    displayTitle,
+    item.externalId || `AUTO-${index + 1}`,
+    displaySummary,
+    displayBody,
+    item?.meta,
+  )
+  const inferredType = inferType(displayTitle, item.sourceId, item?.languageVariants?.de?.businessTypeName || '', item?.meta?.rawType || '')
+  const typ = TYPE_OVERRIDES[businessNumber] || inferredType
   const stance = extractStance(item.reviewReason, displayTitle, displaySummary, displayBody)
   const initiativeLinks = buildInitiativeLinks({
     typ,
@@ -509,14 +524,6 @@ const vorstoesse = items.map((item, index) => {
     : (item.sourceUrl && item.sourceUrl.startsWith('http')
       ? item.sourceUrl
       : `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${String(item.externalId || '').split('-')[0]}`)
-
-  const businessNumber = formatBusinessNumber(
-    displayTitle,
-    item.externalId || `AUTO-${index + 1}`,
-    displaySummary,
-    displayBody,
-    item?.meta,
-  )
   const rawSummaryText = SUMMARY_OVERRIDES[businessNumber] || summarizeVorstoss({
     title: displayTitle,
     summary: displaySummary,
@@ -537,7 +544,7 @@ const vorstoesse = items.map((item, index) => {
       ? municipalThemesFromTitle(displayTitle)
       : (normalizedThemes.length ? normalizedThemes : ['Tierschutz']).slice(0, 6))
   const i18nVariants = isParliament ? (variantsByAffair.get(affairId) || {}) : {}
-  const i18nMeta = buildI18nFromItem(i18nVariants, item, displayTitle || `Vorstoss ${index + 1}`, summaryText, typ, baseThemes)
+  const i18nMeta = buildI18nFromItem(i18nVariants, item, displayTitle || `Vorstoss ${index + 1}`, summaryText, typ, baseThemes, businessNumber)
 
   const municipalSubmitters = String(item?.sourceId || '').startsWith('ch-municipal-')
     ? parseMunicipalSubmitters(displayBody)
