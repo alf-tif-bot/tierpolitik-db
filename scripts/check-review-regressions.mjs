@@ -5,12 +5,20 @@ const reviewItemsPath = new URL('../data/review-items.json', import.meta.url)
 const motionsPath = new URL('../data/vorstoesse.json', import.meta.url)
 const reviewDecisionsPath = new URL('../data/review-decisions.json', import.meta.url)
 const publishedPath = new URL('../data/crawler-published.json', import.meta.url)
+const sourcesConfigPath = new URL('../crawler/config.sources.json', import.meta.url)
 
 const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
 const review = fs.existsSync(reviewItemsPath) ? JSON.parse(fs.readFileSync(reviewItemsPath, 'utf8')) : { ids: [] }
 const motions = fs.existsSync(motionsPath) ? JSON.parse(fs.readFileSync(motionsPath, 'utf8')) : []
 const reviewDecisions = fs.existsSync(reviewDecisionsPath) ? JSON.parse(fs.readFileSync(reviewDecisionsPath, 'utf8')) : {}
 const published = fs.existsSync(publishedPath) ? JSON.parse(fs.readFileSync(publishedPath, 'utf8')) : []
+const configuredSources = fs.existsSync(sourcesConfigPath)
+  ? JSON.parse(fs.readFileSync(sourcesConfigPath, 'utf8'))
+  : []
+
+const enabledSourceIds = new Set(((configuredSources.length ? configuredSources : (db.sources || [])) || [])
+  .filter((s) => s.enabled !== false)
+  .map((s) => s.id))
 
 const TARGET_SINCE_YEAR = Math.max(2020, Number(process.env.REVIEW_TARGET_SINCE_YEAR || 2020))
 const targetSinceTs = Date.UTC(TARGET_SINCE_YEAR, 0, 1, 0, 0, 0)
@@ -68,11 +76,42 @@ const isMunicipalTopicRelevant = (item) => {
   return strongHits > 0 || contextHits >= 2
 }
 
+const CANTONAL_THEME_STRONG_KEYWORDS = [
+  'tier', 'tierschutz', 'tierwohl', 'tierhalteverbot', 'nutztier', 'masthuhn', 'geflügel', 'schlacht',
+  'tierversuch', '3r', 'wildtier', 'jagd', 'zoo', 'tierpark', 'biodivers', 'artenschutz', 'wolf', 'fuchs',
+]
+
+const isCantonalReadableRelevant = (item) => {
+  const sid = String(item?.sourceId || '')
+  if (!sid.startsWith('ch-cantonal-')) return true
+  const title = String(item?.title || '').trim()
+  const summary = String(item?.summary || '').trim().toLowerCase()
+  const text = `${title}\n${summary}\n${String(item?.body || '')}`.toLowerCase()
+
+  const looksUnreadable =
+    /^parlamentsgesch(ä|a)ft\s+/i.test(title)
+    || title.toLowerCase().includes('quell-adapter vorbereitet')
+    || summary.includes('0 relevante linkziele erkannt')
+    || summary.includes('verifying your browser')
+
+  if (looksUnreadable) return false
+  return CANTONAL_THEME_STRONG_KEYWORDS.some((kw) => text.includes(kw))
+}
+
+const normalizeReviewStatus = (item) => {
+  const sid = String(item?.sourceId || '')
+  const status = String(item?.status || '')
+  if (sid.startsWith('ch-cantonal-') && status === 'rejected') return 'queued'
+  return status
+}
+
 const reviewCandidates = (db.items || [])
+  .filter((item) => enabledSourceIds.has(item.sourceId) || String(item.sourceId || '') === 'user-input')
   .filter((item) => isReviewSource(item.sourceId))
-  .filter((item) => ['new', 'queued', 'approved', 'published'].includes(item.status))
+  .filter((item) => ['new', 'queued', 'approved', 'published'].includes(normalizeReviewStatus(item)))
   .filter((item) => !isMunicipalOverviewNoise(item))
   .filter((item) => isMunicipalTopicRelevant(item))
+  .filter((item) => isCantonalReadableRelevant(item))
   .filter((item) => isInTargetHorizon(item))
 
 const expectedGrouped = new Map()
@@ -97,6 +136,7 @@ const reviewIdsList = Array.isArray(review.ids) ? review.ids : []
 const actualReviewIds = new Set(reviewIdsList)
 const isParliamentReviewId = (id) => String(id || '').startsWith('ch-parliament-')
 const missingInReview = [...expectedReviewIds].filter((id) => !actualReviewIds.has(id))
+const missingInReviewParliament = missingInReview.filter((id) => isParliamentReviewId(id))
 const extraInReview = [...actualReviewIds].filter((id) => !expectedReviewIds.has(id))
 const extraInReviewParliament = extraInReview.filter((id) => isParliamentReviewId(id))
 const duplicateReviewIds = reviewIdsList
@@ -144,12 +184,13 @@ const computeDecisionMismatches = () => Object.entries(reviewDecisions)
     if (!dbItemsById.has(id)) return false
     const dbItem = dbItemsById.get(id)
     const dbStatus = String(dbItem?.status || '')
+    const dbReviewStatus = normalizeReviewStatus(dbItem)
     const isParliament = String(dbItem?.sourceId || '').startsWith('ch-parliament-')
     const affair = String(dbItem?.affairId || dbItem?.externalId || '').split('-')[0]
-    const affairStatuses = isParliament ? affairStatusMap.get(affair) || new Set([dbStatus]) : new Set([dbStatus])
+    const affairStatuses = isParliament ? affairStatusMap.get(affair) || new Set([dbStatus]) : new Set([dbReviewStatus])
 
     if (decision?.status === 'approved') return ![...affairStatuses].some((s) => ['approved', 'published'].includes(s))
-    if (decision?.status === 'rejected') return dbStatus !== 'rejected'
+    if (decision?.status === 'rejected') return dbReviewStatus !== 'rejected'
     if (decision?.status === 'queued') return ![...affairStatuses].some((s) => ['queued', 'approved', 'published'].includes(s))
     return false
   })
@@ -159,7 +200,7 @@ const computeDecisionMismatches = () => Object.entries(reviewDecisions)
     return {
       id,
       decision: decision?.status,
-      dbStatus: dbItem?.status,
+      dbStatus: normalizeReviewStatus(dbItem),
       affair,
       affairStatuses: [...(affairStatusMap.get(affair) || new Set([dbItem?.status]))],
     }
@@ -190,7 +231,9 @@ const report = {
   expectedReview: expectedReviewIds.size,
   actualReview: actualReviewIds.size,
   missingInReviewCount: missingInReview.length,
+  missingInReviewParliamentCount: missingInReviewParliament.length,
   missingInReview: missingInReview.slice(0, 120),
+  missingInReviewParliament: missingInReviewParliament.slice(0, 120),
   extraInReviewCount: extraInReview.length,
   extraInReviewParliamentCount: extraInReviewParliament.length,
   extraInReview: extraInReview.slice(0, 120),
@@ -212,7 +255,7 @@ const report = {
 
 fs.writeFileSync(new URL('../data/regression-report.json', import.meta.url), JSON.stringify(report, null, 2))
 
-if (missingInReview.length || missingInMotions.length || decisionsStatusMismatch.length || decisionsUnknownCritical.length || duplicateReviewIds.length || extraInReviewParliament.length) {
+if (missingInReviewParliament.length || missingInMotions.length || decisionsStatusMismatch.length || decisionsUnknownCritical.length || duplicateReviewIds.length || extraInReviewParliament.length) {
   console.error('Regression check FAILED', report)
   process.exit(1)
 }

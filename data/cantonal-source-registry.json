@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-02-15T08:15:01.353Z",
+  "generatedAt": "2026-02-15T09:44:52.768Z",
   "coverage": {
     "target": "all-cantons",
     "sinceYearMin": 2020,
     "totalCantons": 26,
     "byReadiness": {
-      "adapter-ready-likely": 9,
-      "site-discovery-needed": 17
+      "adapter-ready-likely": 10,
+      "site-discovery-needed": 16
     },
     "byAdapter": {
       "cantonRegistry": 26
@@ -25,7 +25,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-15T08:14:54.282Z",
+        "checkedAt": "2026-02-15T09:44:45.677Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte",
@@ -79,7 +79,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-15T08:14:54.282Z",
+        "checkedAt": "2026-02-15T09:44:45.941Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ai.ch/politik/grosser-rat",
@@ -147,10 +147,10 @@
           {
             "url": "https://www.ai.ch/politik/grosser-rat/recherche-objets",
             "ok": false,
-            "httpStatus": 404,
+            "httpStatus": null,
             "finalUrl": "https://www.ai.ch/politik/grosser-rat/recherche-objets",
-            "platform": "parliament-portal",
-            "hasParliamentSignals": true
+            "platform": "unreachable",
+            "hasParliamentSignals": false
           }
         ]
       }
@@ -165,7 +165,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-15T08:14:47.634Z",
+        "checkedAt": "2026-02-15T09:44:39.035Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://ar.ch/kantonsrat/parlamentsdienst",
@@ -219,7 +219,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-15T08:14:54.607Z",
+        "checkedAt": "2026-02-15T09:44:45.956Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.gr.be.ch/de/start/geschaefte.html",
@@ -281,7 +281,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-15T08:14:54.825Z",
+        "checkedAt": "2026-02-15T09:44:46.113Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -300,10 +300,10 @@
           },
           {
             "url": "https://bl.ratsinfomanagement.net",
-            "ok": false,
-            "httpStatus": null,
-            "finalUrl": "https://bl.ratsinfomanagement.net",
-            "platform": "unreachable",
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.sitzungsdienst.net/",
+            "platform": "ratsinfo",
             "hasParliamentSignals": false
           },
           {
@@ -351,7 +351,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-15T08:14:54.283Z",
+        "checkedAt": "2026-02-15T09:44:45.690Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://grosserrat.bs.ch/",
@@ -405,7 +405,7 @@
       "status": "probe-failed",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-15T08:15:01.295Z",
+        "checkedAt": "2026-02-15T09:44:48.863Z",
         "ok": false,
         "httpStatus": null,
         "finalUrl": "https://www.fr.ch/parlinfo",
@@ -491,7 +491,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-15T08:15:00.023Z",
+        "checkedAt": "2026-02-15T09:44:49.148Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://ge.ch/grandconseil/objets-parlementaires/geschaefte",
@@ -577,7 +577,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-15T08:14:59.855Z",
+        "checkedAt": "2026-02-15T09:44:48.835Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248/vorstoesse",
@@ -663,7 +663,7 @@
       "status": "probe-failed",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-15T08:14:59.806Z",
+        "checkedAt": "2026-02-15T09:44:48.947Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://www.gr.ch/DE/institutionen/parlament/vorstoesse",
@@ -746,13 +746,13 @@
       "adapter": "cantonRegistry",
       "url": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html",
       "sinceYear": 2020,
-      "status": "probe-failed",
-      "readiness": "site-discovery-needed",
+      "status": "scaffolded",
+      "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-15T08:15:01.300Z",
-        "ok": false,
-        "httpStatus": 500,
-        "finalUrl": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html/geschaefte",
+        "checkedAt": "2026-02-15T09:44:49.322Z",
+        "ok": true,
+        "httpStatus": 200,
+        "finalUrl": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html",
         "platform": "parliament-portal",
         "hasParliamentSignals": true,
         "error": null,
@@ -792,19 +792,19 @@
           },
           {
             "url": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html",
-            "ok": false,
-            "httpStatus": null,
+            "ok": true,
+            "httpStatus": 200,
             "finalUrl": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html",
-            "platform": "unreachable",
-            "hasParliamentSignals": false
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true
           },
           {
             "url": "https://jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html",
-            "ok": false,
-            "httpStatus": null,
-            "finalUrl": "https://jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html",
-            "platform": "unreachable",
-            "hasParliamentSignals": false
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html",
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true
           },
           {
             "url": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html/geschaefte",
@@ -817,10 +817,10 @@
           {
             "url": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html/vorstoesse",
             "ok": false,
-            "httpStatus": null,
+            "httpStatus": 500,
             "finalUrl": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html/vorstoesse",
-            "platform": "unreachable",
-            "hasParliamentSignals": false
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true
           }
         ]
       }
@@ -835,7 +835,7 @@
       "status": "probe-failed",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-15T08:15:00.240Z",
+        "checkedAt": "2026-02-15T09:44:49.098Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://www.lu.ch/notfound?item=%2fkr%2fvorstoesse&user=extranet%5cAnonymous&site=kantonlu-website&url=%2fkr%2fvorstoesse",
@@ -921,7 +921,7 @@
       "status": "probe-failed",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-15T08:14:59.796Z",
+        "checkedAt": "2026-02-15T09:44:48.775Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://www.ne.ch/autorites/GC/geschaefte",
@@ -1007,7 +1007,7 @@
       "status": "probe-failed",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-15T08:15:00.935Z",
+        "checkedAt": "2026-02-15T09:44:49.987Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://www.nw.ch/landrat/geschaefte",
@@ -1093,10 +1093,10 @@
       "status": "probe-failed",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-15T08:15:01.326Z",
+        "checkedAt": "2026-02-15T09:44:49.459Z",
         "ok": false,
         "httpStatus": 404,
-        "finalUrl": "https://www.ow.ch/kantonsrat/objets-parlementaires",
+        "finalUrl": "https://www.ow.ch/kantonsrat",
         "platform": "parliament-portal",
         "hasParliamentSignals": true,
         "error": null,
@@ -1137,26 +1137,26 @@
           {
             "url": "https://ow.ch/kantonsrat",
             "ok": false,
-            "httpStatus": null,
-            "finalUrl": "https://ow.ch/kantonsrat",
-            "platform": "unreachable",
-            "hasParliamentSignals": false
+            "httpStatus": 404,
+            "finalUrl": "https://www.ow.ch/kantonsrat",
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true
           },
           {
             "url": "https://www.ow.ch/kantonsrat/geschaefte",
             "ok": false,
-            "httpStatus": null,
+            "httpStatus": 404,
             "finalUrl": "https://www.ow.ch/kantonsrat/geschaefte",
-            "platform": "unreachable",
-            "hasParliamentSignals": false
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true
           },
           {
             "url": "https://www.ow.ch/kantonsrat/vorstoesse",
             "ok": false,
-            "httpStatus": null,
+            "httpStatus": 404,
             "finalUrl": "https://www.ow.ch/kantonsrat/vorstoesse",
-            "platform": "unreachable",
-            "hasParliamentSignals": false
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true
           },
           {
             "url": "https://www.ow.ch/kantonsrat/objets-parlementaires",
@@ -1179,7 +1179,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-15T08:14:59.873Z",
+        "checkedAt": "2026-02-15T09:44:48.855Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ratsinfo.sg.ch/objets-parlementaires",
@@ -1265,7 +1265,7 @@
       "status": "probe-failed",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-15T08:14:59.934Z",
+        "checkedAt": "2026-02-15T09:44:48.959Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html/geschaefte",
@@ -1351,7 +1351,7 @@
       "status": "probe-failed",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-15T08:14:59.959Z",
+        "checkedAt": "2026-02-15T09:44:48.981Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://so.ch/parlament/vorstoesse",
@@ -1437,10 +1437,10 @@
       "status": "probe-failed",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-15T08:15:00.342Z",
+        "checkedAt": "2026-02-15T09:44:49.292Z",
         "ok": false,
         "httpStatus": 429,
-        "finalUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799",
+        "finalUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8799",
         "platform": "parliament-portal",
         "hasParliamentSignals": true,
         "error": null,
@@ -1490,7 +1490,7 @@
             "url": "https://www.sz.ch/parlament/geschaefte",
             "ok": false,
             "httpStatus": 429,
-            "finalUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799",
+            "finalUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8799",
             "platform": "parliament-portal",
             "hasParliamentSignals": true
           },
@@ -1498,7 +1498,7 @@
             "url": "https://www.sz.ch/parlament/vorstoesse",
             "ok": false,
             "httpStatus": 429,
-            "finalUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8799",
+            "finalUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799",
             "platform": "parliament-portal",
             "hasParliamentSignals": true
           },
@@ -1523,7 +1523,7 @@
       "status": "probe-failed",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-15T08:14:59.809Z",
+        "checkedAt": "2026-02-15T09:44:48.673Z",
         "ok": false,
         "httpStatus": null,
         "finalUrl": "https://parlament.tg.ch",
@@ -1606,16 +1606,16 @@
       "adapter": "cantonRegistry",
       "url": "https://www4.ti.ch/poteri/gc/home",
       "sinceYear": 2020,
-      "status": "probe-failed",
+      "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-15T08:15:01.344Z",
-        "ok": false,
-        "httpStatus": null,
-        "finalUrl": "https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati",
-        "platform": "unreachable",
-        "hasParliamentSignals": false,
-        "error": "The operation was aborted due to timeout",
+        "checkedAt": "2026-02-15T09:44:50.263Z",
+        "ok": true,
+        "httpStatus": 200,
+        "finalUrl": "https://www4.ti.ch/poteri/gc/home",
+        "platform": "parliament-portal",
+        "hasParliamentSignals": true,
+        "error": null,
         "candidateCount": 33,
         "candidatesTried": [
           {
@@ -1660,27 +1660,27 @@
           },
           {
             "url": "https://www4.ti.ch/poteri/gc/home/geschaefte",
-            "ok": false,
-            "httpStatus": null,
-            "finalUrl": "https://www4.ti.ch/poteri/gc/home/geschaefte",
-            "platform": "unreachable",
-            "hasParliamentSignals": false
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www4.ti.ch/poteri/gc/home",
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true
           },
           {
             "url": "https://www4.ti.ch/poteri/gc/home/vorstoesse",
-            "ok": false,
-            "httpStatus": null,
-            "finalUrl": "https://www4.ti.ch/poteri/gc/home/vorstoesse",
-            "platform": "unreachable",
-            "hasParliamentSignals": false
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www4.ti.ch/poteri/gc/home",
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true
           },
           {
             "url": "https://www4.ti.ch/poteri/gc/home/objets-parlementaires",
-            "ok": false,
-            "httpStatus": null,
-            "finalUrl": "https://www4.ti.ch/poteri/gc/home/objets-parlementaires",
-            "platform": "unreachable",
-            "hasParliamentSignals": false
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www4.ti.ch/poteri/gc/home",
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true
           }
         ]
       }
@@ -1695,7 +1695,7 @@
       "status": "probe-failed",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-15T08:15:00.481Z",
+        "checkedAt": "2026-02-15T09:44:49.325Z",
         "ok": false,
         "httpStatus": 404,
         "finalUrl": "https://www.ur.ch/landrat/vorstoesse",
@@ -1781,7 +1781,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-15T08:15:00.335Z",
+        "checkedAt": "2026-02-15T09:44:49.152Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.vd.ch/gc",
@@ -1867,7 +1867,7 @@
       "status": "scaffolded",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-15T08:15:00.280Z",
+        "checkedAt": "2026-02-15T09:44:49.178Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.vs.ch/fr/web/gc/objets-parlementaires",
@@ -1953,13 +1953,13 @@
       "status": "probe-failed",
       "readiness": "site-discovery-needed",
       "probe": {
-        "checkedAt": "2026-02-15T08:15:01.353Z",
+        "checkedAt": "2026-02-15T09:44:52.768Z",
         "ok": false,
-        "httpStatus": null,
-        "finalUrl": "https://zg.ch/de/behoerden/kantonsrat",
-        "platform": "unreachable",
-        "hasParliamentSignals": false,
-        "error": "The operation was aborted due to timeout",
+        "httpStatus": 404,
+        "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/vorstoesse",
+        "platform": "parliament-portal",
+        "hasParliamentSignals": true,
+        "error": null,
         "candidateCount": 32,
         "candidatesTried": [
           {
@@ -2005,26 +2005,26 @@
           {
             "url": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/vorstoesse",
             "ok": false,
-            "httpStatus": null,
+            "httpStatus": 404,
             "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/vorstoesse",
-            "platform": "unreachable",
-            "hasParliamentSignals": false
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true
           },
           {
             "url": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/objets-parlementaires",
             "ok": false,
-            "httpStatus": null,
+            "httpStatus": 404,
             "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/objets-parlementaires",
-            "platform": "unreachable",
-            "hasParliamentSignals": false
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true
           },
           {
             "url": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/interventions-parlementaires",
             "ok": false,
-            "httpStatus": null,
+            "httpStatus": 404,
             "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/interventions-parlementaires",
-            "platform": "unreachable",
-            "hasParliamentSignals": false
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true
           }
         ]
       }
@@ -2039,7 +2039,7 @@
       "status": "scaffolded",
       "readiness": "adapter-ready-likely",
       "probe": {
-        "checkedAt": "2026-02-15T08:15:00.327Z",
+        "checkedAt": "2026-02-15T09:44:49.171Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.kantonsrat.zh.ch/geschaefte/",
