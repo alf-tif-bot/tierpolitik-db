@@ -55,7 +55,7 @@ const mapStatus = (status = '') => {
   if (s === 'published') return 'Angenommen'
   if (s === 'approved') return 'In Beratung'
   if (s === 'rejected') return 'Abgelehnt'
-  return 'Eingereicht'
+  return 'In Beratung'
 }
 
 const toIsoDate = (value, fallbackYear) => {
@@ -219,7 +219,7 @@ const firstSentence = (text = '') => {
 const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '', sourceId = '' }) => {
   const t = clean(title)
   if (String(sourceId || '').startsWith('ch-municipal-')) {
-    const state = status === 'published' ? 'abgeschlossen' : status === 'approved' ? 'in Beratung' : 'eingereicht'
+    const state = status === 'published' ? 'abgeschlossen' : 'in Beratung'
     return `${t} (Gemeinde, ${state}).`
   }
   const summaryClean = clean(summary).replace(/eingereicht von:[^\n]*/ig, '').trim()
@@ -227,7 +227,7 @@ const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '', s
   const s = firstSentence(summaryClean)
   const b = firstSentence(bodyClean)
   const low = `${t} ${summary} ${body}`.toLowerCase()
-  const statusLabel = status === 'approved' ? 'in Beratung' : status === 'published' ? 'abgeschlossen' : 'eingereicht'
+  const statusLabel = status === 'published' ? 'abgeschlossen' : 'in Beratung'
 
   const sentences = []
 

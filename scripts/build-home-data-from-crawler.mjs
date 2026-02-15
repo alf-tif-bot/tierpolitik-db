@@ -119,14 +119,14 @@ const mapStatus = (status = '', rawStatus = '') => {
   if (sourceStatus.includes('abgelehnt') || sourceStatus.includes('nicht überwiesen') || sourceStatus.includes('nicht ueberwiesen')) return 'Abgelehnt'
   if (sourceStatus.includes('abgeschrieben')) return 'Abgeschrieben'
   if (sourceStatus.includes('zurückgezogen') || sourceStatus.includes('zurueckgezogen')) return 'Zurückgezogen'
-  if (sourceStatus.includes('eingereicht')) return 'Eingereicht'
+  if (sourceStatus.includes('eingereicht')) return 'In Beratung'
 
   const s = String(status).toLowerCase()
   if (s === 'published') return 'Angenommen'
   if (s === 'approved') return 'In Beratung'
   if (s === 'rejected') return 'Abgelehnt'
-  if (s === 'queued' || s === 'new') return 'Eingereicht'
-  return 'Eingereicht'
+  if (s === 'queued' || s === 'new') return 'In Beratung'
+  return 'In Beratung'
 }
 
 const levelFromItem = (item) => {
@@ -278,7 +278,7 @@ const municipalThemesFromTitle = (title = '') => {
 const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '', sourceId = '' }) => {
   const t = clean(title)
   if (String(sourceId || '').startsWith('ch-municipal-')) {
-    const state = status === 'published' ? 'abgeschlossen' : status === 'approved' ? 'in Beratung' : 'eingereicht'
+    const state = status === 'published' ? 'abgeschlossen' : 'in Beratung'
     return `${t} (Gemeinde, ${state}).`
   }
   const summaryClean = clean(summary).replace(/eingereicht von:[^\n]*/ig, '').trim()
@@ -286,7 +286,7 @@ const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '', s
   const s = firstSentence(summaryClean)
   const b = firstSentence(bodyClean)
   const low = `${t} ${summary} ${body}`.toLowerCase()
-  const statusLabel = status === 'approved' ? 'in Beratung' : status === 'published' ? 'abgeschlossen' : 'eingereicht'
+  const statusLabel = status === 'published' ? 'abgeschlossen' : 'in Beratung'
 
   const sentences = []
 
