@@ -555,10 +555,14 @@ export const handler = async (event) => {
     const cleanedMapped = mapped.filter(Boolean)
     const payload = cleanedMapped.length > 0 ? cleanedMapped : fallbackVorstoesse
 
+    const finalPayload = Array.isArray(payload) && payload.length >= 20
+      ? payload
+      : (Array.isArray(fallbackVorstoesse) && fallbackVorstoesse.length ? fallbackVorstoesse : payload)
+
     return {
       statusCode: 200,
       headers: corsHeaders(origin),
-      body: JSON.stringify(payload),
+      body: JSON.stringify(finalPayload),
     }
   } catch {
     return {
