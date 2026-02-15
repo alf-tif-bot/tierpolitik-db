@@ -181,7 +181,13 @@ const inferYearFromBusiness = (title = '', externalId = '') => {
   return undefined
 }
 
-const formatBusinessNumber = (title = '', externalId = '') => {
+const formatBusinessNumber = (title = '', externalId = '', summary = '', body = '', meta = null) => {
+  const metaNo = String(meta?.businessNumber || '').trim()
+  if (metaNo) return metaNo
+  const bodyMatch = String(body || '').match(/Geschäftsnummer:\s*([A-Za-z0-9.\-]+)/i)
+  if (bodyMatch?.[1]) return bodyMatch[1]
+  const summaryMatch = String(summary || '').match(/·\s*([0-9]{4}\.[A-Z]{2}\.[0-9]{4}|\d{2}\.\d{4})\s*·/)
+  if (summaryMatch?.[1]) return summaryMatch[1]
   const titleMatch = String(title || '').match(/\b(\d{2}\.\d{4})\b/)
   if (titleMatch?.[1]) return titleMatch[1]
   const num = String(externalId || '').split('-')[0]
@@ -503,7 +509,13 @@ const vorstoesse = items.map((item, index) => {
   const municipalSubmitters = String(item?.sourceId || '').startsWith('ch-municipal-')
     ? parseMunicipalSubmitters(displayBody)
     : []
-  const businessNumber = formatBusinessNumber(displayTitle, item.externalId || `AUTO-${index + 1}`)
+  const businessNumber = formatBusinessNumber(
+    displayTitle,
+    item.externalId || `AUTO-${index + 1}`,
+    displaySummary,
+    displayBody,
+    item?.meta,
+  )
   const submitterOverride = SUBMITTER_OVERRIDES[businessNumber]
 
   return {
