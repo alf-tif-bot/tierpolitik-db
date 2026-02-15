@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-15T18:46:46.667Z",
+  "generatedAt": "2026-02-15T20:18:01.545Z",
   "coverage": {
     "target": "all-cantons",
     "sinceYearMin": 2020,
@@ -26,7 +26,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:42.135Z",
+        "checkedAt": "2026-02-15T20:17:55.293Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte",
@@ -131,7 +131,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:40.036Z",
+        "checkedAt": "2026-02-15T20:17:55.115Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ai.ch/politik/grosser-rat/geschaefte-grosser-rat",
@@ -238,7 +238,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:40.146Z",
+        "checkedAt": "2026-02-15T20:17:54.329Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://ar.ch/kantonsrat/parlamentsdienst",
@@ -343,7 +343,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:41.649Z",
+        "checkedAt": "2026-02-15T20:17:54.920Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.gr.be.ch/de/start/geschaefte.html",
@@ -448,7 +448,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:42.176Z",
+        "checkedAt": "2026-02-15T20:17:55.280Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -553,7 +553,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:42.086Z",
+        "checkedAt": "2026-02-15T20:17:55.400Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://grosserrat.bs.ch/",
@@ -658,7 +658,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:46.666Z",
+        "checkedAt": "2026-02-15T20:18:01.544Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.fr.ch/parlinfo/membres-du-grand-conseil/geschaefte",
@@ -763,7 +763,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:41.888Z",
+        "checkedAt": "2026-02-15T20:17:55.239Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://ge.ch/grandconseil/recherche-objets",
@@ -868,7 +868,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:40.515Z",
+        "checkedAt": "2026-02-15T20:17:54.591Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248",
@@ -973,7 +973,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:41.871Z",
+        "checkedAt": "2026-02-15T20:17:55.080Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.gr.ch/DE/institutionen/parlament/Seiten/start.aspx",
@@ -1078,7 +1078,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:41.958Z",
+        "checkedAt": "2026-02-15T20:17:54.809Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html",
@@ -1183,7 +1183,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:42.718Z",
+        "checkedAt": "2026-02-15T20:17:55.427Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -1288,7 +1288,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:42.527Z",
+        "checkedAt": "2026-02-15T20:17:55.594Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx",
@@ -1393,7 +1393,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:42.705Z",
+        "checkedAt": "2026-02-15T20:17:56.792Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -1498,7 +1498,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:42.572Z",
+        "checkedAt": "2026-02-15T20:17:55.522Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -1603,7 +1603,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:40.681Z",
+        "checkedAt": "2026-02-15T20:17:54.651Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.ratsinfo.sg.ch/geschaefte",
@@ -1708,7 +1708,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:42.268Z",
+        "checkedAt": "2026-02-15T20:17:55.294Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -1813,7 +1813,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:41.219Z",
+        "checkedAt": "2026-02-15T20:17:54.721Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://so.ch/parlament/geschaefte",
@@ -1918,7 +1918,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:41.123Z",
+        "checkedAt": "2026-02-15T20:17:55.027Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799",
@@ -2023,7 +2023,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:42.269Z",
+        "checkedAt": "2026-02-15T20:17:55.237Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -2128,7 +2128,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:43.234Z",
+        "checkedAt": "2026-02-15T20:17:55.877Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati",
@@ -2233,7 +2233,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:43.635Z",
+        "checkedAt": "2026-02-15T20:17:56.155Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -2338,7 +2338,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:42.413Z",
+        "checkedAt": "2026-02-15T20:17:55.183Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.vd.ch/gc/objets-et-rapports-de-commissions",
@@ -2443,7 +2443,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:41.839Z",
+        "checkedAt": "2026-02-15T20:17:55.473Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -2548,7 +2548,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:45.488Z",
+        "checkedAt": "2026-02-15T20:17:59.279Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats",
@@ -2653,7 +2653,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-15T18:46:41.583Z",
+        "checkedAt": "2026-02-15T20:17:55.167Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.kantonsrat.zh.ch/geschaefte/",

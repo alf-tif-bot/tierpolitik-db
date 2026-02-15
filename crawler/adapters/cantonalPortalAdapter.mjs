@@ -29,6 +29,11 @@ const LINK_NOISE_KEYWORDS = [
   'medienmitteilung',
   'communique',
   '.ics',
+  'direkt zum inhalt',
+  'skiplink',
+  'service navigation',
+  'langue active',
+  'sprungmarke',
 ]
 
 const LINK_NOISE_EXTENSIONS = ['.pdf', '.doc', '.docx', '.xls', '.xlsx', '.zip', '.jpg', '.jpeg', '.png']
@@ -48,6 +53,26 @@ const CANTON_KEYWORDS = {
 }
 
 const CANTON_FALLBACK_LINKS = {
+  AG: [
+    { href: 'https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte', text: 'Geschäfte Grosser Rat' },
+    { href: 'https://www.ag.ch/grossrat/grweb/', text: 'GRweb Aargau' },
+  ],
+  BE: [
+    { href: 'https://www.gr.be.ch/de/start/geschaefte.html', text: 'Geschäfte Grosser Rat Bern' },
+    { href: 'https://www.gr.be.ch/de/start/suche-geschaefte.html', text: 'Geschäftssuche Grosser Rat Bern' },
+  ],
+  BL: [
+    { href: 'https://www.baselland.ch/politik-und-behorden/landrat-parlament/geschaefte-des-landrats', text: 'Geschäfte des Landrats BL' },
+    { href: 'https://bl.ratsinfomanagement.net/', text: 'Ratsinfo BL' },
+  ],
+  BS: [
+    { href: 'https://grosserrat.bs.ch/geschaefte', text: 'Geschäfte Grosser Rat BS' },
+    { href: 'https://grosserrat.bs.ch/geschaefte/suche', text: 'Geschäftssuche Grosser Rat BS' },
+  ],
+  FR: [
+    { href: 'https://www.fr.ch/parlinfo', text: 'Parlinfo Fribourg' },
+    { href: 'https://www.fr.ch/parlinfo/programmes-et-dates-des-sessions-du-grand-conseil', text: 'Sessions Grand Conseil FR' },
+  ],
   GE: [
     { href: 'https://ge.ch/grandconseil/recherche-objets', text: 'Recherche objets parlementaires' },
     { href: 'https://ge.ch/grandconseil/search', text: 'Recherche Grand Conseil' },
@@ -65,6 +90,10 @@ const CANTON_FALLBACK_LINKS = {
     { href: 'https://www.vs.ch/fr/web/gc/objets-parlementaires', text: 'Objets parlementaires' },
     { href: 'https://www.vs.ch/fr/web/gc/interventions-parlementaires', text: 'Interventions parlementaires' },
   ],
+  GR: [
+    { href: 'https://gr.ratsinfomanagement.net/', text: 'Ratsinfo Graubünden' },
+    { href: 'https://www.gr.ch/DE/institutionen/parlament/Seiten/geschaefte.aspx', text: 'Geschäfte Grosser Rat GR' },
+  ],
   SO: [
     { href: 'https://ratsinfo.so.ch/', text: 'Ratsinfo Solothurn' },
     { href: 'https://ratsinfo.so.ch/geschaefte', text: 'Geschäfte' },
@@ -81,7 +110,9 @@ const scoreLink = (canton = '', url = '', text = '') => {
   const combined = `${url} ${text}`.toLowerCase()
   const cantonKeywords = CANTON_KEYWORDS[canton] || []
   const keywords = [...BASE_KEYWORDS, ...cantonKeywords]
-  return keywords.reduce((acc, kw) => (combined.includes(kw) ? acc + 1 : acc), 0)
+  const positive = keywords.reduce((acc, kw) => (combined.includes(kw) ? acc + 1 : acc), 0)
+  const penalty = LINK_NOISE_KEYWORDS.reduce((acc, kw) => (combined.includes(kw) ? acc + 2 : acc), 0)
+  return Math.max(0, positive - penalty)
 }
 
 const normalizeUrl = (href, baseUrl) => {
@@ -89,6 +120,19 @@ const normalizeUrl = (href, baseUrl) => {
     return new URL(href, baseUrl).toString()
   } catch {
     return null
+  }
+}
+
+const isSameDocumentAnchor = (href = '', baseUrl = '') => {
+  try {
+    const target = new URL(href, baseUrl)
+    const base = new URL(baseUrl)
+    return target.origin === base.origin
+      && target.pathname === base.pathname
+      && target.search === base.search
+      && Boolean(target.hash)
+  } catch {
+    return false
   }
 }
 
@@ -131,7 +175,9 @@ const parseLinks = (html = '', baseUrl = '', canton = '') => {
   while ((m = re.exec(html))) {
     const href = normalizeUrl(m[1], baseUrl)
     if (!href || !href.startsWith('http')) continue
+    if (isSameDocumentAnchor(href, baseUrl)) continue
     const text = stripTags(m[2]).slice(0, 180)
+    if (text.length < 3) continue
     if (isLikelyNoiseLink(href, text)) continue
     if (!isSameSiteOrParliamentHost(href, baseUrl)) continue
     const rank = scoreLink(canton, href, text)
