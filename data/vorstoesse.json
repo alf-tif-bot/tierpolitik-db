@@ -3263,8 +3263,8 @@
   {
     "id": "vp-20218161-de",
     "titel": "21.8161 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (1)",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 21.8161 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (1) (Erledigt).",
+    "typ": "Anfrage",
+    "kurzbeschreibung": "Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und fragt nach Kriterien für Ausnahmen bei unerlässlichen Forstarbeiten (inkl. Aufforstung und Schutzwaldpflege).",
     "geschaeftsnummer": "21.8161",
     "ebene": "Bund",
     "kanton": null,
@@ -3273,9 +3273,8 @@
     "datumEingereicht": "2021-12-08",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Schwein",
-      "Schweine",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "schwein",
@@ -3284,9 +3283,9 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "de Courten Thomas",
+        "rolle": "Nationalrat",
+        "partei": "SVP"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20218161",
@@ -3306,16 +3305,15 @@
           "de": "21.8161 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (1)"
         },
         "summary": {
-          "de": "Kurzüberblick: 21.8161 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (1) (Erledigt)."
+          "de": "Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und fragt nach Kriterien für Ausnahmen bei unerlässlichen Forstarbeiten (inkl. Aufforstung und Schutzwaldpflege)."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Anfrage"
         },
         "themes": {
           "de": [
-            "schwein",
-            "schweine",
-            "landwirtschaft"
+            "Landwirtschaft",
+            "Umwelt"
           ]
         }
       },

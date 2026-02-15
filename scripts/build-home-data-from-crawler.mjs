@@ -229,6 +229,7 @@ const SUBMITTER_OVERRIDES = {
   '22.3299': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
   '23.7580': { name: 'Rüegger Monika', rolle: 'Nationalrat', partei: 'SVP' },
   '22.7004': { name: 'Egger Mike', rolle: 'Nationalrat', partei: 'SVP' },
+  '21.8161': { name: 'de Courten Thomas', rolle: 'Nationalrat', partei: 'SVP' },
   '21.8163': { name: 'de Courten Thomas', rolle: 'Nationalrat', partei: 'SVP' },
   '25.2027': { name: 'Écologie et Altruisme', rolle: 'Petitionskomitee', partei: '' },
 }
@@ -237,6 +238,7 @@ const TYPE_OVERRIDES = {
   '25.404': 'Parlamentarische Initiative',
   '23.7580': 'Anfrage',
   '22.7004': 'Anfrage',
+  '21.8161': 'Anfrage',
   '21.8163': 'Anfrage',
   '25.2027': 'Petition',
 }
@@ -250,6 +252,7 @@ const THEME_OVERRIDES = {
   '25.4010': ['Landwirtschaft', 'Konsumentenschutz', 'Wirtschaft'],
   '21.8163': ['Landwirtschaft', 'Staatspolitik', 'Umwelt', 'Beschäftigung und Arbeit'],
   '22.3299': ['Schweinezucht', 'Tierarzneimittel', 'Tierschutz'],
+  '21.8161': ['Landwirtschaft', 'Umwelt'],
 }
 
 const SUMMARY_OVERRIDES = {
@@ -258,6 +261,7 @@ const SUMMARY_OVERRIDES = {
   '20.3849': 'Die Interpellation thematisiert neue EU-Tiergesundheitsvorschriften, die den Export bestimmter Nutztiere aus der Schweiz erschweren. Der Bundesrat wird zu Kenntnisstand, Unterstützung betroffener Betriebe und möglichen Verhandlungsspielräumen mit der EU befragt.',
   '23.7580': 'Die Fragestunde-Frage verlangt vom Bundesrat die Priorisierung des Schutzes von Menschen und Nutztieren vor Wolfsangriffen, inklusive möglicher Verteidigungsabschüsse bei direkten Angriffen.',
   '22.7004': 'Die Fragestunde-Frage kritisiert eine aus Sicht des Einreichers realitätsferne Auslegung der Tierschutzverordnung für Hofhunde und verlangt eine Klärung durch den Bundesrat.',
+  '21.8161': 'Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und fragt nach Kriterien für Ausnahmen bei unerlässlichen Forstarbeiten (inkl. Aufforstung und Schutzwaldpflege).',
   '21.8163': 'Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und deren Folgen für Forstbetriebe, Personal und Lernende; zudem werden Kompensationsmassnahmen des Bundes nachgefragt.',
   '25.4010': 'Die Motion verlangt ein gesetzlich verankertes Importverbot für chemisch (insbesondere mit Chlor) behandeltes Geflügelfleisch und begründet dies mit Konsumentenschutz, Lebensmittelstandards und handelspolitischer Verlässlichkeit.',
   '22.3299': 'Die Motion verlangt ein Verbot PMSG-haltiger Tierarzneimittel in der Schweizer Schweinezucht und will verhindern, dass diese durch synthetische PMSG-Produkte ersetzt werden.',
