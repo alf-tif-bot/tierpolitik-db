@@ -110,6 +110,19 @@ const localizeTheme = (keyword = '', lang = 'de') => {
   return themeLabels[k]?.[lang] || keyword
 }
 
+const parseStructuredThemes = (text = '') => {
+  const raw = String(text || '')
+  if (!raw.includes('|')) return []
+
+  return raw
+    .split('|')
+    .map((x) => String(x || '').trim())
+    .filter(Boolean)
+    .filter((x) => x.length <= 50)
+    .filter((x) => !/[.!?\n]/.test(x))
+    .filter((x) => !/^\d{2}\.\d{3,4}\b/.test(x))
+}
+
 const extractStance = (reason = '', title = '', summary = '', body = '') => {
   const text = `${title} ${summary} ${body}`.toLowerCase()
   if (text.includes('stopfleber') || text.includes('foie gras')) return 'pro-tierschutz'
@@ -232,6 +245,7 @@ const SUBMITTER_OVERRIDES = {
   '21.8161': { name: 'de Courten Thomas', rolle: 'Nationalrat', partei: 'SVP' },
   '21.8163': { name: 'de Courten Thomas', rolle: 'Nationalrat', partei: 'SVP' },
   '25.2027': { name: 'Écologie et Altruisme', rolle: 'Petitionskomitee', partei: '' },
+  '25.4071': { name: 'Dittli Josef', rolle: 'Ständerat', partei: 'FDP.Die Liberalen' },
 }
 
 const TYPE_OVERRIDES = {
@@ -266,6 +280,7 @@ const SUMMARY_OVERRIDES = {
   '25.4010': 'Die Motion verlangt ein gesetzlich verankertes Importverbot für chemisch (insbesondere mit Chlor) behandeltes Geflügelfleisch und begründet dies mit Konsumentenschutz, Lebensmittelstandards und handelspolitischer Verlässlichkeit.',
   '22.3299': 'Die Motion verlangt ein Verbot PMSG-haltiger Tierarzneimittel in der Schweizer Schweinezucht und will verhindern, dass diese durch synthetische PMSG-Produkte ersetzt werden.',
   '25.2027': 'Die Petition verlangt ein Beschwerderecht für Tierschutzverbände bei Fällen von Tiermisshandlung, damit Missstände rechtlich wirksamer verfolgt werden können.',
+  '25.4071': 'Die Interpellation fragt, weshalb Equiden in der Schweiz als Heim- oder Nutztiere deklariert werden, und thematisiert die Folgen für Kreislaufwirtschaft und Food Waste bei der Verwertung verstorbener Tiere.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {
@@ -570,7 +585,14 @@ const vorstoesse = items.map((item, index) => {
   const summaryText = normalizedSummary.length >= 10
     ? normalizedSummary
     : `Kurzüberblick: ${displayTitle || `Vorstoss ${index + 1}`} (${status}).`
-  const normalizedThemes = sanitizeThemes(mapThemesFromKeywords(item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz']))
+  const inlineThemes = [
+    ...parseStructuredThemes(displaySummary),
+    ...parseStructuredThemes(displayBody),
+  ]
+  const themeKeywords = item.matchedKeywords?.length
+    ? [...item.matchedKeywords, ...inlineThemes]
+    : (inlineThemes.length ? inlineThemes : ['Tierschutz'])
+  const normalizedThemes = sanitizeThemes(mapThemesFromKeywords(themeKeywords))
   const isMunicipal = String(item?.sourceId || '').startsWith('ch-municipal-')
   const themeOverride = THEME_OVERRIDES[businessNumber]
   const baseThemes = Array.isArray(themeOverride) && themeOverride.length

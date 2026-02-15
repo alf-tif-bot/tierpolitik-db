@@ -13,7 +13,9 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Stopfleber",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Wirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "stopfleber",
@@ -51,7 +53,9 @@
         "themes": {
           "de": [
             "stopfleber",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Wirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -71,7 +75,9 @@
     "datumEingereicht": "2020-09-16",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Tierschutz"
+      "Tierschutz",
+      "Verkehr",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierschutz"
@@ -107,7 +113,9 @@
         },
         "themes": {
           "de": [
-            "tierschutz"
+            "tierschutz",
+            "Verkehr",
+            "Umwelt"
           ]
         }
       },
@@ -246,7 +254,9 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Finanzwesen",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierschutz",
@@ -284,7 +294,9 @@
         "themes": {
           "de": [
             "tierschutz",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Finanzwesen",
+            "Umwelt"
           ]
         }
       },
@@ -366,7 +378,8 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "nutztiere",
@@ -404,7 +417,8 @@
         "themes": {
           "de": [
             "nutztiere",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -425,7 +439,9 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Staatspolitik",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierschutz",
@@ -463,7 +479,9 @@
         "themes": {
           "de": [
             "tierschutz",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Staatspolitik",
+            "Umwelt"
           ]
         }
       },
@@ -484,7 +502,9 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Staatspolitik",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "nutztiere",
@@ -522,7 +542,9 @@
         "themes": {
           "de": [
             "nutztiere",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Staatspolitik",
+            "Umwelt"
           ]
         }
       },
@@ -543,7 +565,8 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "nutztiere",
@@ -581,7 +604,8 @@
         "themes": {
           "de": [
             "nutztiere",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -723,7 +747,8 @@
     "themen": [
       "Schwein",
       "Schweine",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "schwein",
@@ -763,7 +788,8 @@
           "de": [
             "schwein",
             "schweine",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -907,7 +933,10 @@
     "datumEingereicht": "2021-06-15",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Tierschutz"
+      "Tierschutz",
+      "Internationale Politik",
+      "Wirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierschutz"
@@ -943,7 +972,10 @@
         },
         "themes": {
           "de": [
-            "tierschutz"
+            "tierschutz",
+            "Internationale Politik",
+            "Wirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -963,7 +995,8 @@
     "datumEingereicht": "2025-09-25",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "landwirtschaft"
@@ -999,7 +1032,8 @@
         },
         "themes": {
           "de": [
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -1010,7 +1044,7 @@
     "id": "vp-20254071-de",
     "titel": "25.4071 · Heim- versus Nutztier bei Equiden. Wieso diese Sonderregelung und wieso so viel Food Waste?",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 25.4071 · Heim- versus Nutztier bei Equiden. Wieso diese Sonderregelung und wieso so viel Food Waste? (Erledigt).",
+    "kurzbeschreibung": "Die Interpellation fragt, weshalb Equiden in der Schweiz als Heim- oder Nutztiere deklariert werden, und thematisiert die Folgen für Kreislaufwirtschaft und Food Waste bei der Verwertung verstorbener Tiere.",
     "geschaeftsnummer": "25.4071",
     "ebene": "Bund",
     "kanton": null,
@@ -1019,16 +1053,17 @@
     "datumEingereicht": "2025-09-23",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "landwirtschaft"
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Dittli Josef",
+        "rolle": "Ständerat",
+        "partei": "FDP.Die Liberalen"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254071",
@@ -1048,14 +1083,15 @@
           "de": "25.4071 · Heim- versus Nutztier bei Equiden. Wieso diese Sonderregelung und wieso so viel Food Waste?"
         },
         "summary": {
-          "de": "Kurzüberblick: 25.4071 · Heim- versus Nutztier bei Equiden. Wieso diese Sonderregelung und wieso so viel Food Waste? (Erledigt)."
+          "de": "Die Interpellation fragt, weshalb Equiden in der Schweiz als Heim- oder Nutztiere deklariert werden, und thematisiert die Folgen für Kreislaufwirtschaft und Food Waste bei der Verwertung verstorbener Tiere."
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -1075,7 +1111,8 @@
     "datumEingereicht": "2024-03-14",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "landwirtschaft"
@@ -1111,7 +1148,8 @@
         },
         "themes": {
           "de": [
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -1131,7 +1169,8 @@
     "datumEingereicht": "2023-12-18",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "landwirtschaft"
@@ -1167,7 +1206,8 @@
         },
         "themes": {
           "de": [
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -1188,7 +1228,8 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Herdenschutz",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "herdenschutz",
@@ -1226,7 +1267,8 @@
         "themes": {
           "de": [
             "herdenschutz",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -1246,7 +1288,9 @@
     "datumEingereicht": "2022-03-17",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt",
+      "Gesundheit"
     ],
     "schlagwoerter": [
       "landwirtschaft"
@@ -1282,7 +1326,9 @@
         },
         "themes": {
           "de": [
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt",
+            "Gesundheit"
           ]
         }
       },
@@ -1302,7 +1348,8 @@
     "datumEingereicht": "2021-03-17",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "landwirtschaft"
@@ -1338,7 +1385,8 @@
         },
         "themes": {
           "de": [
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -1358,7 +1406,10 @@
     "datumEingereicht": "2025-12-03",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Stopfleber"
+      "Stopfleber",
+      "Europapolitik",
+      "Wirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "stopfleber"
@@ -1394,7 +1445,10 @@
         },
         "themes": {
           "de": [
-            "stopfleber"
+            "stopfleber",
+            "Europapolitik",
+            "Wirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -1414,7 +1468,11 @@
     "datumEingereicht": "2022-06-17",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Tierversuche"
+      "Tierversuche",
+      "Staatspolitik",
+      "Medien und Kommunikation",
+      "Wissenschaft und Forschung",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierversuch"
@@ -1450,7 +1508,11 @@
         },
         "themes": {
           "de": [
-            "tierversuch"
+            "tierversuch",
+            "Staatspolitik",
+            "Medien und Kommunikation",
+            "Wissenschaft und Forschung",
+            "Umwelt"
           ]
         }
       },
@@ -1526,7 +1588,9 @@
     "datumEingereicht": "2024-03-15",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Tierschutz"
+      "Tierschutz",
+      "Staatspolitik",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierschutz"
@@ -1562,7 +1626,9 @@
         },
         "themes": {
           "de": [
-            "tierschutz"
+            "tierschutz",
+            "Staatspolitik",
+            "Umwelt"
           ]
         }
       },
@@ -1582,7 +1648,9 @@
     "datumEingereicht": "2024-12-12",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Tierschutz"
+      "Tierschutz",
+      "Staatspolitik",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierschutz"
@@ -1618,7 +1686,9 @@
         },
         "themes": {
           "de": [
-            "tierschutz"
+            "tierschutz",
+            "Staatspolitik",
+            "Umwelt"
           ]
         }
       },
@@ -1695,7 +1765,9 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Schwein",
-      "Schweine"
+      "Schweine",
+      "Umwelt",
+      "Gesundheit"
     ],
     "schlagwoerter": [
       "schwein",
@@ -1733,7 +1805,9 @@
         "themes": {
           "de": [
             "schwein",
-            "schweine"
+            "schweine",
+            "Umwelt",
+            "Gesundheit"
           ]
         }
       },
@@ -1753,7 +1827,8 @@
     "datumEingereicht": "2021-11-30",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "motion",
@@ -1790,7 +1865,8 @@
         },
         "themes": {
           "de": [
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -1811,7 +1887,10 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Schwein",
-      "Schweine"
+      "Schweine",
+      "Internationale Politik",
+      "Umwelt",
+      "Gesundheit"
     ],
     "schlagwoerter": [
       "schwein",
@@ -1849,7 +1928,10 @@
         "themes": {
           "de": [
             "schwein",
-            "schweine"
+            "schweine",
+            "Internationale Politik",
+            "Umwelt",
+            "Gesundheit"
           ]
         }
       },
@@ -1928,7 +2010,8 @@
     "datumEingereicht": "2025-05-28",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Tierschutz"
+      "Tierschutz",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierschutz",
@@ -1965,7 +2048,8 @@
         },
         "themes": {
           "de": [
-            "tierschutz"
+            "tierschutz",
+            "Umwelt"
           ]
         }
       },
@@ -1986,7 +2070,11 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz",
-      "Schlacht"
+      "Schlacht",
+      "Europapolitik",
+      "Wirtschaft",
+      "Umwelt",
+      "Kultur"
     ],
     "schlagwoerter": [
       "tierschutz",
@@ -2024,7 +2112,11 @@
         "themes": {
           "de": [
             "tierschutz",
-            "schlacht"
+            "schlacht",
+            "Europapolitik",
+            "Wirtschaft",
+            "Umwelt",
+            "Kultur"
           ]
         }
       },
@@ -2102,7 +2194,10 @@
     "datumEingereicht": "2021-03-18",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Tierversuche"
+      "Tierversuche",
+      "Wissenschaft und Forschung",
+      "Umwelt",
+      "Gesundheit"
     ],
     "schlagwoerter": [
       "tierversuch",
@@ -2140,7 +2235,10 @@
         "themes": {
           "de": [
             "tierversuch",
-            "tierversuche"
+            "tierversuche",
+            "Wissenschaft und Forschung",
+            "Umwelt",
+            "Gesundheit"
           ]
         }
       },
@@ -2160,7 +2258,9 @@
     "datumEingereicht": "2021-03-18",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Tierversuche"
+      "Tierversuche",
+      "Wissenschaft und Forschung",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierversuch",
@@ -2198,7 +2298,9 @@
         "themes": {
           "de": [
             "tierversuch",
-            "tierversuche"
+            "tierversuche",
+            "Wissenschaft und Forschung",
+            "Umwelt"
           ]
         }
       },
@@ -2219,7 +2321,9 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierversuche",
-      "3r"
+      "3r",
+      "Wissenschaft und Forschung",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierversuch",
@@ -2257,7 +2361,9 @@
         "themes": {
           "de": [
             "tierversuch",
-            "3r"
+            "3r",
+            "Wissenschaft und Forschung",
+            "Umwelt"
           ]
         }
       },
@@ -2277,7 +2383,9 @@
     "datumEingereicht": "2024-06-14",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Tierversuche"
+      "Tierversuche",
+      "Wissenschaft und Forschung",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierversuch",
@@ -2315,7 +2423,9 @@
         "themes": {
           "de": [
             "tierversuch",
-            "tierversuche"
+            "tierversuche",
+            "Wissenschaft und Forschung",
+            "Umwelt"
           ]
         }
       },
@@ -2337,7 +2447,8 @@
     "themen": [
       "Nutztiere",
       "Heimtier",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "nutztiere",
@@ -2377,7 +2488,8 @@
           "de": [
             "nutztiere",
             "heimtier",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -2397,7 +2509,9 @@
     "datumEingereicht": "2024-12-20",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Tierversuche"
+      "Tierversuche",
+      "Wissenschaft und Forschung",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierversuch",
@@ -2435,7 +2549,9 @@
         "themes": {
           "de": [
             "tierversuch",
-            "tierversuche"
+            "tierversuche",
+            "Wissenschaft und Forschung",
+            "Umwelt"
           ]
         }
       },
@@ -2455,7 +2571,9 @@
     "datumEingereicht": "2024-12-20",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Tierversuche"
+      "Tierversuche",
+      "Wissenschaft und Forschung",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierversuch",
@@ -2493,7 +2611,9 @@
         "themes": {
           "de": [
             "tierversuch",
-            "tierversuche"
+            "tierversuche",
+            "Wissenschaft und Forschung",
+            "Umwelt"
           ]
         }
       },
@@ -2571,7 +2691,9 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Finanzwesen",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "nutztiere",
@@ -2609,7 +2731,9 @@
         "themes": {
           "de": [
             "nutztiere",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Finanzwesen",
+            "Umwelt"
           ]
         }
       },
@@ -2630,7 +2754,9 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt",
+      "Energie"
     ],
     "schlagwoerter": [
       "nutztiere",
@@ -2668,7 +2794,9 @@
         "themes": {
           "de": [
             "nutztiere",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt",
+            "Energie"
           ]
         }
       },
@@ -2689,7 +2817,9 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt",
+      "Energie"
     ],
     "schlagwoerter": [
       "nutztiere",
@@ -2727,7 +2857,9 @@
         "themes": {
           "de": [
             "nutztiere",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt",
+            "Energie"
           ]
         }
       },
@@ -2749,7 +2881,9 @@
     "themen": [
       "Tierschutz",
       "Versuchstiere",
-      "Haltung"
+      "Haltung",
+      "Wissenschaft und Forschung",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierschutz",
@@ -2789,7 +2923,9 @@
           "de": [
             "tierschutz",
             "versuchstiere",
-            "haltung"
+            "haltung",
+            "Wissenschaft und Forschung",
+            "Umwelt"
           ]
         }
       },
@@ -2810,7 +2946,10 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Wirtschaft",
+      "Umwelt",
+      "Gesundheit"
     ],
     "schlagwoerter": [
       "tierschutz",
@@ -2848,7 +2987,10 @@
         "themes": {
           "de": [
             "tierschutz",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Wirtschaft",
+            "Umwelt",
+            "Gesundheit"
           ]
         }
       },
@@ -2869,7 +3011,9 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierversuche",
-      "Tierversuchsfreie"
+      "Tierversuchsfreie",
+      "Wissenschaft und Forschung",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierversuch",
@@ -2908,7 +3052,9 @@
         "themes": {
           "de": [
             "tierversuch",
-            "tierversuchsfreie"
+            "tierversuchsfreie",
+            "Wissenschaft und Forschung",
+            "Umwelt"
           ]
         }
       },
@@ -2929,7 +3075,9 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Ernährung",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt",
+      "Gesundheit"
     ],
     "schlagwoerter": [
       "ernährung",
@@ -2967,7 +3115,9 @@
         "themes": {
           "de": [
             "ernährung",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt",
+            "Gesundheit"
           ]
         }
       },
@@ -3085,7 +3235,9 @@
       "Schwein",
       "Schweine",
       "Schlacht",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt",
+      "Gesundheit"
     ],
     "schlagwoerter": [
       "schwein",
@@ -3127,7 +3279,9 @@
             "schwein",
             "schweine",
             "schlacht",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt",
+            "Gesundheit"
           ]
         }
       },
@@ -3149,7 +3303,8 @@
     "themen": [
       "Schwein",
       "Schweine",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "schwein",
@@ -3189,7 +3344,8 @@
           "de": [
             "schwein",
             "schweine",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -3336,7 +3492,9 @@
       "Schwein",
       "Schweine",
       "Wildschwein",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Wirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "schwein",
@@ -3378,7 +3536,9 @@
             "schwein",
             "schweine",
             "wildschwein",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Wirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -3460,7 +3620,8 @@
     "themen": [
       "Tierwohl",
       "Masthühner",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierwohl",
@@ -3500,7 +3661,8 @@
           "de": [
             "tierwohl",
             "geflügel",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -3585,7 +3747,9 @@
     "themen": [
       "Schwein",
       "Schweine",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Wirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "schwein",
@@ -3625,7 +3789,9 @@
           "de": [
             "schwein",
             "schweine",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Wirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -3768,7 +3934,9 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Masthühner",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Wirtschaft",
+      "Gesundheit"
     ],
     "schlagwoerter": [
       "geflügel",
@@ -3807,7 +3975,9 @@
         "themes": {
           "de": [
             "geflügel",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Wirtschaft",
+            "Gesundheit"
           ]
         }
       },
@@ -3828,7 +3998,10 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Staatspolitik",
+      "Wirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierschutz",
@@ -3866,7 +4039,10 @@
         "themes": {
           "de": [
             "tierschutz",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Staatspolitik",
+            "Wirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -3888,7 +4064,10 @@
     "themen": [
       "Schwein",
       "Schweine",
-      "Schlacht"
+      "Schlacht",
+      "Wirtschaft",
+      "Umwelt",
+      "Gesundheit"
     ],
     "schlagwoerter": [
       "schwein",
@@ -3928,7 +4107,10 @@
           "de": [
             "schwein",
             "schweine",
-            "schlacht"
+            "schlacht",
+            "Wirtschaft",
+            "Umwelt",
+            "Gesundheit"
           ]
         }
       },
@@ -3949,7 +4131,8 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierschutz",
@@ -3987,7 +4170,8 @@
         "themes": {
           "de": [
             "tierschutz",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -4008,7 +4192,8 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "nutztiere",
@@ -4046,7 +4231,8 @@
         "themes": {
           "de": [
             "nutztiere",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -4067,7 +4253,9 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt",
+      "Gesundheit"
     ],
     "schlagwoerter": [
       "nutztiere",
@@ -4105,7 +4293,9 @@
         "themes": {
           "de": [
             "nutztiere",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt",
+            "Gesundheit"
           ]
         }
       },
@@ -4126,7 +4316,8 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Nutztiere",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "nutztiere",
@@ -4164,7 +4355,8 @@
         "themes": {
           "de": [
             "nutztiere",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -4185,7 +4377,9 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Tierschutz",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Staatspolitik",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "tierschutz",
@@ -4223,7 +4417,9 @@
         "themes": {
           "de": [
             "tierschutz",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Staatspolitik",
+            "Umwelt"
           ]
         }
       },
@@ -4244,7 +4440,8 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Masthühner",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "geflügel",
@@ -4282,7 +4479,8 @@
         "themes": {
           "de": [
             "geflügel",
-            "landwirtschaft"
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -4396,7 +4594,8 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Stopfleber",
-      "Foie gras"
+      "Foie gras",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "stopfleber",
@@ -4445,7 +4644,8 @@
         "themes": {
           "de": [
             "stopfleber",
-            "foie gras"
+            "foie gras",
+            "Umwelt"
           ],
           "fr": [
             "Foie gras",
@@ -4478,7 +4678,8 @@
     "datumAktualisiert": "2026-02-13",
     "themen": [
       "Landwirtschaft",
-      "Agriculture"
+      "Agriculture",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "landwirtschaft",
@@ -4519,7 +4720,8 @@
         "themes": {
           "de": [
             "landwirtschaft",
-            "agriculture"
+            "agriculture",
+            "Umwelt"
           ],
           "fr": [
             "Agriculture",
@@ -4545,7 +4747,10 @@
     "themen": [
       "Biodiversität",
       "Biodiversite",
-      "Biodiversita"
+      "Biodiversita",
+      "Staatspolitik",
+      "Finanzwesen",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "biodiversität",
@@ -4588,7 +4793,10 @@
           "de": [
             "biodiversität",
             "biodiversite",
-            "biodiversita"
+            "biodiversita",
+            "Staatspolitik",
+            "Finanzwesen",
+            "Umwelt"
           ],
           "fr": [
             "biodiversität",
@@ -4616,7 +4824,9 @@
       "Nutrition",
       "Landwirtschaft",
       "Agriculture",
-      "Agricoltura"
+      "Agricoltura",
+      "Umwelt",
+      "Gesundheit"
     ],
     "schlagwoerter": [
       "nutrition",
@@ -4664,7 +4874,9 @@
             "nutrition",
             "landwirtschaft",
             "agriculture",
-            "agricoltura"
+            "agricoltura",
+            "Umwelt",
+            "Gesundheit"
           ],
           "fr": [
             "nutrition",
@@ -4697,7 +4909,9 @@
     "datumAktualisiert": "2026-02-15",
     "themen": [
       "Stopfleber",
-      "Foie gras"
+      "Foie gras",
+      "Wirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "stopfleber",
@@ -4742,7 +4956,9 @@
         "themes": {
           "de": [
             "stopfleber",
-            "foie gras"
+            "foie gras",
+            "Wirtschaft",
+            "Umwelt"
           ],
           "fr": [
             "Foie gras",
