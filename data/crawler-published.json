@@ -5,7 +5,7 @@
     "summary": "Botschaft vom 20. November 2024 zur Volksinitiative «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)»",
     "sourceId": "ch-parliament-business-de",
     "publishedAt": "2024-11-14T00:00:00.000Z",
-    "score": 0.8400000000000001,
+    "score": 0.9600000000000001,
     "matchedKeywords": [
       "stopfleber",
       "foie gras",
@@ -101,7 +101,7 @@
     "summary": "Beratung in Kommission des Nationalrates abgeschlossen",
     "sourceId": "ch-parliament-business-de",
     "publishedAt": "2025-02-21T00:00:00.000Z",
-    "score": 0.7000000000000001,
+    "score": 0.8200000000000001,
     "matchedKeywords": [
       "stopfleber",
       "foie gras",
@@ -843,7 +843,7 @@
     "summary": "Erledigt",
     "sourceId": "ch-parliament-business-de",
     "publishedAt": "2025-12-03T00:00:00.000Z",
-    "score": 0.28,
+    "score": 0.4,
     "matchedKeywords": [
       "stopfleber"
     ]
@@ -854,7 +854,7 @@
     "summary": "Fine delle discussioni della Commissione del Consiglio nazionale",
     "sourceId": "ch-parliament-business-it",
     "publishedAt": "2025-02-21T00:00:00.000Z",
-    "score": 0.7000000000000001,
+    "score": 0.8200000000000001,
     "matchedKeywords": [
       "stopfleber",
       "foie gras",
@@ -867,7 +867,7 @@
     "summary": "Messaggio del 20 novembre 2024 concernente l’iniziativa popolare federale «Sì al divieto di importazione di foie g",
     "sourceId": "ch-parliament-business-it",
     "publishedAt": "2024-11-14T00:00:00.000Z",
-    "score": 0.8400000000000001,
+    "score": 0.9600000000000001,
     "matchedKeywords": [
       "stopfleber",
       "foie gras",
@@ -1179,26 +1179,6 @@
     ]
   },
   {
-    "id": "ch-municipal-parliament-bern-zurich:municipal-bern-1c6dc829b4ba",
-    "title": "Bern · Interpellation: RWSU reicht Interpellation zur digitalen Souveränität der Stadt Bern ein",
-    "summary": "Gemeinde Bern (Stadtrat Bern) · Interpellation · RWSU reicht Interpellation zur digitalen Souveränität der Stadt Bern ein",
-    "sourceId": "ch-municipal-parliament-bern-zurich",
-    "publishedAt": "2026-02-14T17:26:09.462Z",
-    "score": 1,
-    "matchedKeywords": [
-      "tiere",
-      "tierschutz",
-      "biodiversität",
-      "biodiversita",
-      "landwirtschaft",
-      "ernährung",
-      "initiative",
-      "motion",
-      "postulat",
-      "fleisch"
-    ]
-  },
-  {
     "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-c6c65c8ce8a84435af97428996dadc64",
     "title": "Bern · Biodiversität im Wald fördern",
     "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0056 · Eingereicht",
@@ -1244,6 +1224,26 @@
     "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0054 · Eingereicht",
     "sourceId": "ch-municipal-parliament-bern-zurich",
     "publishedAt": "2026-02-11T23:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tiere",
+      "tierschutz",
+      "biodiversität",
+      "biodiversita",
+      "landwirtschaft",
+      "ernährung",
+      "initiative",
+      "motion",
+      "postulat",
+      "fleisch"
+    ]
+  },
+  {
+    "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-13284d70bb124c23a1bbba427e8a7c5c",
+    "title": "Bern · Tierpark Bern: Welche Alternativen zur Tötung überzähliger Tiere gibt es?",
+    "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0019 · Eingereicht",
+    "sourceId": "ch-municipal-parliament-bern-zurich",
+    "publishedAt": "2026-01-28T23:00:00.000Z",
     "score": 1,
     "matchedKeywords": [
       "tiere",
