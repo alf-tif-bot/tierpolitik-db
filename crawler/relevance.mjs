@@ -423,9 +423,10 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
 
     const prevStatus = item.status
     const itemDecision = decisions[`${item.sourceId}:${item.externalId}`]?.status
-    const normalizedDecision = ['queued', 'approved', 'published', 'rejected'].includes(String(itemDecision))
+    const normalizedDecision = ['approved', 'published', 'rejected'].includes(String(itemDecision))
       ? String(itemDecision)
       : null
+    const hasQueuedDecision = String(itemDecision) === 'queued'
     const feedbackIrrelevantLocked = String(item.reviewReason || '').toLowerCase().includes('user-feedback=irrelevant')
     const isManualLocked = ['approved', 'published'].includes(prevStatus) || normalizedDecision !== null || feedbackIrrelevantLocked
 
@@ -435,6 +436,10 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
       item.status = 'queued'
     } else if (!isManualLocked) {
       item.status = isRelevant ? 'queued' : 'rejected'
+    }
+
+    if (hasQueuedDecision && !isRelevant && !isManualLocked) {
+      item.status = 'rejected'
     }
 
     const rule = isRelevant

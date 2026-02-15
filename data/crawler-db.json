@@ -231,7 +231,7 @@
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [cantonal/municipal-placeholder-noise] · stance=neutral/unklar · anchor=- · support=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -23746,7 +23746,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=grosser rat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -23796,7 +23796,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=grosser rat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -23836,7 +23836,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|vorstosse · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -23891,7 +23891,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=grosser rat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -23936,7 +23936,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=grosser rat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -23986,7 +23986,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=grand conseil · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -24041,7 +24041,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=grand conseil · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -24129,7 +24129,7 @@
         "motion",
         "postulat"
       ],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [cantonal/municipal-placeholder-noise] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
     },
     {
@@ -24218,7 +24218,7 @@
         "motion",
         "postulat"
       ],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [cantonal/municipal-placeholder-noise] · stance=neutral/unklar · anchor=- · support=initiative|motion|postulat · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.42"
     },
     {
@@ -24252,7 +24252,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [cantonal/municipal-placeholder-noise] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -24337,7 +24337,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [cantonal/municipal-placeholder-noise] · stance=neutral/unklar · anchor=- · support=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -24371,7 +24371,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [cantonal/municipal-placeholder-noise] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|grosser rat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -24416,7 +24416,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=gran consiglio · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -24471,7 +24471,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=grand conseil · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -24526,7 +24526,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -24855,7 +24855,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=grosser rat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -24889,7 +24889,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [cantonal/municipal-placeholder-noise] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -24937,7 +24937,7 @@
         "motion",
         "postulat"
       ],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=grand conseil · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
     },
     {
@@ -24971,7 +24971,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [cantonal/municipal-placeholder-noise] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|landrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -25005,7 +25005,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [cantonal/municipal-placeholder-noise] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -25039,7 +25039,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [cantonal/municipal-placeholder-noise] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -25114,7 +25114,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=interpellation|kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -25148,7 +25148,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [cantonal/municipal-placeholder-noise] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|landrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -25203,7 +25203,7 @@
       },
       "score": 0,
       "matchedKeywords": [],
-      "status": "queued",
+      "status": "rejected",
       "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
@@ -25794,5 +25794,5 @@
     }
   ],
   "publications": [],
-  "updatedAt": "2026-02-15T20:28:00.951Z"
+  "updatedAt": "2026-02-15T21:45:30.793Z"
 }

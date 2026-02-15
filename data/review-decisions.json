@@ -16,10 +16,8 @@
     "decidedAt": "2026-02-13T21:59:58.935Z"
   },
   "ch-parliament-business-de:20254487-de": {
-    "status": "rejected",
-    "decidedAt": "2026-02-13T22:12:55.227Z",
-    "syncedAt": "2026-02-15T18:49:09.056Z",
-    "syncReason": "regression-check-db-status"
+    "status": "approved",
+    "decidedAt": "2026-02-13T22:12:55.227Z"
   },
   "ch-parliament-business-de:20250079-de": {
     "status": "rejected",
@@ -30,10 +28,8 @@
     "decidedAt": "2026-02-13T22:25:57.656Z"
   },
   "ch-parliament-business-de:20254697-de": {
-    "status": "rejected",
-    "decidedAt": "2026-02-13T22:27:58.895Z",
-    "syncedAt": "2026-02-15T18:49:09.057Z",
-    "syncReason": "regression-check-db-status"
+    "status": "approved",
+    "decidedAt": "2026-02-13T22:27:58.895Z"
   },
   "ch-parliament-business-fr:20210055-fr": {
     "status": "rejected",
@@ -488,10 +484,8 @@
     "decidedAt": "2026-02-13T20:53:03.013Z"
   },
   "ch-parliament-business-de:20253733-de": {
-    "status": "rejected",
-    "decidedAt": "2026-02-13T22:33:12.898Z",
-    "syncedAt": "2026-02-15T18:49:09.057Z",
-    "syncReason": "regression-check-db-status"
+    "status": "approved",
+    "decidedAt": "2026-02-13T22:33:12.898Z"
   },
   "ch-parliament-business-de:20250099-de": {
     "status": "rejected",
@@ -2674,8 +2668,10 @@
     "decidedAt": "2026-02-14T13:13:23.531Z"
   },
   "ch-municipal-parliament-bern-zurich:municipal-bern-1c6dc829b4ba": {
-    "status": "queued",
-    "decidedAt": "2026-02-15T09:05:56.246Z"
+    "status": "rejected",
+    "decidedAt": "2026-02-15T09:05:56.246Z",
+    "syncedAt": "2026-02-15T21:45:43.749Z",
+    "syncReason": "regression-check-db-status"
   },
   "ch-municipal-parliament-bern-zurich:municipal-bern-api-c6c65c8ce8a84435af97428996dadc64": {
     "status": "approved",
@@ -2988,171 +2984,171 @@
     "note": "overview/noise"
   },
   "ch-cantonal-portal-core:cantonal-portal-ag": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.749Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-ai": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.749Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-ar": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.749Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-be": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.749Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-bs": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.749Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-fr": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.749Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-ge": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.749Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-gl": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.749Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-ju": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.749Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-sg": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.749Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-sz": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.749Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-tg": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.749Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-ti": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.749Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-vd": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.749Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-zh": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.750Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-gr": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.750Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-lu": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.750Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-ne": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.750Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-nw": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.750Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-ow": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.750Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-sh": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.750Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-so": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.750Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-ur": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.750Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-zg": {
-    "status": "queued",
+    "status": "rejected",
     "decidedAt": "2026-02-15T09:38:05.320Z",
     "note": "Show cantonal entries in review (all cantons)",
-    "syncedAt": "2026-02-15T09:46:55.301Z",
+    "syncedAt": "2026-02-15T21:45:43.750Z",
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-portal-core:cantonal-portal-bl": {
