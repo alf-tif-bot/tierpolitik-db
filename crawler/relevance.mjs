@@ -299,6 +299,21 @@ const deriveAffairKey = (item) => {
   return raw
 }
 
+const isCantonalOrMunicipalPlaceholder = (item) => {
+  const sid = String(item?.sourceId || '')
+  if (!sid.startsWith('ch-cantonal-') && !sid.startsWith('ch-municipal-')) return false
+
+  const title = String(item?.title || '').trim().toLowerCase()
+  const summary = String(item?.summary || '').trim().toLowerCase()
+  const url = String(item?.sourceUrl || item?.meta?.sourceLink || '').toLowerCase()
+
+  return /^parlamentsgesch(ä|a)ft\s+/i.test(title)
+    || title.includes('quell-adapter vorbereitet')
+    || summary.includes('0 relevante linkziele erkannt')
+    || summary.includes('verifying your browser')
+    || url.includes('sitzungsdienst.net')
+}
+
 export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords = DEFAULT_KEYWORDS } = {}) {
   const db = loadDb()
   const decisions = loadReviewDecisions()
@@ -369,6 +384,7 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     const hasSupport = supportMatches.length > 0
     const hasContextual = contextualHits.length > 0
     const supportStrong = supportMatches.length >= 3
+    const placeholderNoise = isCantonalOrMunicipalPlaceholder(item)
     const weakAnchorCount = anchorMatches.filter((kw) => WEAK_ANCHOR_KEYWORDS.has(kw)).length
     const onlyWeakAnchors = hasAnchor && weakAnchorCount === anchorMatches.length
     const hasWhitelistedPerson = whitelistedPeople.length > 0
@@ -394,7 +410,7 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
       && supportMatches.length <= 1
       && adjustedScore < Math.max(minScore + 0.08, 0.36)
 
-    const isRelevant = !noisyWithoutAnchor && !negativeFeedbackOnly && !weakAnchorBlocked && !weakAnchorNoisy && (
+    const isRelevant = !placeholderNoise && !noisyWithoutAnchor && !negativeFeedbackOnly && !weakAnchorBlocked && !weakAnchorNoisy && (
       (hasAnchor && (adjustedScore >= minScore || (anchorMatches.length >= 2 && hasSupport)))
       || (hasContextual && (hasAnchor || hasSupport) && adjustedScore >= Math.max(0.26, minScore - 0.06))
       || (supportStrong && !supportIsProcessOnly && adjustedScore >= Math.max(0.5, minScore + 0.08))
@@ -429,13 +445,15 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
           : (supportStrong && !hasAnchor
             ? 'support-strong+score'
             : (recallByFeedback ? 'feedback-recall' : (adjustedScore >= minScore ? 'anchor+score' : 'anchor2+support')))))
-      : (noisyWithoutAnchor
-        ? 'noise-without-anchor'
-        : (negativeFeedbackOnly
-          ? 'feedback-negative-only'
-          : (weakAnchorBlocked
-            ? 'weak-anchor-without-context'
-            : (weakAnchorNoisy ? 'weak-anchor+noise' : (!hasAnchor ? 'missing-anchor' : 'below-threshold')))))
+      : (placeholderNoise
+        ? 'cantonal/municipal-placeholder-noise'
+        : (noisyWithoutAnchor
+          ? 'noise-without-anchor'
+          : (negativeFeedbackOnly
+            ? 'feedback-negative-only'
+            : (weakAnchorBlocked
+              ? 'weak-anchor-without-context'
+              : (weakAnchorNoisy ? 'weak-anchor+noise' : (!hasAnchor ? 'missing-anchor' : 'below-threshold'))))))
     const stance = classifyStance(normalizedText)
 
     item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · stance=${stance} · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · context=${contextualHits.slice(0, 2).join('|') || '-'} · process=${processHits.slice(0, 2).join('|') || '-'} · fb+=${strongPositiveHits.slice(0, 2).join('|') || '-'} · fb-=${strongNegativeHits.slice(0, 2).join('|') || '-'} · people=${whitelistedPeople.slice(0, 2).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · feedback=${feedbackBoost.toFixed(2)} · fastlane=${fastlaneBoost.toFixed(2)} · score=${adjustedScore.toFixed(2)}`
