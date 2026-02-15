@@ -98,12 +98,7 @@ const isCantonalReadableRelevant = (item) => {
   return CANTONAL_THEME_STRONG_KEYWORDS.some((kw) => text.includes(kw))
 }
 
-const normalizeReviewStatus = (item) => {
-  const sid = String(item?.sourceId || '')
-  const status = String(item?.status || '')
-  if (sid.startsWith('ch-cantonal-') && status === 'rejected') return 'queued'
-  return status
-}
+const normalizeReviewStatus = (item) => String(item?.status || '')
 
 const reviewCandidates = (db.items || [])
   .filter((item) => enabledSourceIds.has(item.sourceId) || String(item.sourceId || '') === 'user-input')

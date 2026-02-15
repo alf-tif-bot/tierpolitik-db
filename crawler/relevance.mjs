@@ -290,6 +290,15 @@ export function scoreText(text, keywords = DEFAULT_KEYWORDS) {
   return { score, matched, normalizedText, anchorMatches, supportMatches, contextualHits, processHits, noiseMatches, whitelistedPeople }
 }
 
+const deriveAffairKey = (item) => {
+  const raw = String(item?.affairId || item?.externalId || '').trim()
+  if (!raw) return ''
+  if (String(item?.sourceId || '').startsWith('ch-parliament-business')) {
+    return raw.replace(/-(de|fr|it)$/i, '')
+  }
+  return raw
+}
+
 export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords = DEFAULT_KEYWORDS } = {}) {
   const db = loadDb()
   const decisions = loadReviewDecisions()
@@ -302,7 +311,7 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
   for (const item of db.items) {
     if (!enabledSourceIds.has(item.sourceId)) continue
     if (item?.meta?.scaffold) continue
-    const affairId = String(item.affairId || item.externalId || '').split('-')[0]
+    const affairId = deriveAffairKey(item)
     const variantText = Object.values(item.languageVariants || {})
       .map((v) => `${v?.title || ''}\n${v?.summary || ''}\n${v?.body || ''}`)
       .join('\n')
@@ -329,7 +338,7 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
   for (const item of db.items) {
     if (!enabledSourceIds.has(item.sourceId)) continue
     if (item?.meta?.scaffold) continue
-    const affairId = String(item.affairId || item.externalId || '').split('-')[0]
+    const affairId = deriveAffairKey(item)
     const variantText = Object.values(item.languageVariants || {})
       .map((v) => `${v?.title || ''}\n${v?.summary || ''}\n${v?.body || ''}`)
       .join('\n')
@@ -377,9 +386,15 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     const weakAnchorBlocked = onlyWeakAnchors
       && !hasContextual
       && (!hasSupport || supportIsProcessOnly)
+      && strongPositiveHits.length === 0
       && adjustedScore < Math.max(minScore + 0.12, 0.48)
+    const weakAnchorNoisy = onlyWeakAnchors
+      && noiseMatches.length >= 1
+      && !hasContextual
+      && supportMatches.length <= 1
+      && adjustedScore < Math.max(minScore + 0.08, 0.36)
 
-    const isRelevant = !noisyWithoutAnchor && !negativeFeedbackOnly && !weakAnchorBlocked && (
+    const isRelevant = !noisyWithoutAnchor && !negativeFeedbackOnly && !weakAnchorBlocked && !weakAnchorNoisy && (
       (hasAnchor && (adjustedScore >= minScore || (anchorMatches.length >= 2 && hasSupport)))
       || (hasContextual && (hasAnchor || hasSupport) && adjustedScore >= Math.max(0.26, minScore - 0.06))
       || (supportStrong && !supportIsProcessOnly && adjustedScore >= Math.max(0.5, minScore + 0.08))
@@ -418,7 +433,9 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
         ? 'noise-without-anchor'
         : (negativeFeedbackOnly
           ? 'feedback-negative-only'
-          : (weakAnchorBlocked ? 'weak-anchor-without-context' : (!hasAnchor ? 'missing-anchor' : 'below-threshold'))))
+          : (weakAnchorBlocked
+            ? 'weak-anchor-without-context'
+            : (weakAnchorNoisy ? 'weak-anchor+noise' : (!hasAnchor ? 'missing-anchor' : 'below-threshold')))))
     const stance = classifyStance(normalizedText)
 
     item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · stance=${stance} · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · context=${contextualHits.slice(0, 2).join('|') || '-'} · process=${processHits.slice(0, 2).join('|') || '-'} · fb+=${strongPositiveHits.slice(0, 2).join('|') || '-'} · fb-=${strongNegativeHits.slice(0, 2).join('|') || '-'} · people=${whitelistedPeople.slice(0, 2).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · feedback=${feedbackBoost.toFixed(2)} · fastlane=${fastlaneBoost.toFixed(2)} · score=${adjustedScore.toFixed(2)}`

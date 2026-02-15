@@ -3164,9 +3164,7 @@
     "syncReason": "regression-check-db-status"
   },
   "ch-cantonal-be-rss:www-gr-be-ch-de-start-geschaefte-geschaeftssuche-geschaeftsdetail-html-guid-57c34c78ddf541f098b29f4c2be2cbfa": {
-    "status": "new",
-    "decidedAt": "2026-02-15T10:58:27.266Z",
-    "syncedAt": "2026-02-15T11:16:44.544Z",
-    "syncReason": "regression-check-db-status"
+    "status": "rejected",
+    "decidedAt": "2026-02-15T10:58:27.266Z"
   }
 }

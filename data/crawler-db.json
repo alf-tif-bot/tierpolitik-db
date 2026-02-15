@@ -229,17 +229,10 @@
       "publishedAt": "2026-02-14T13:25:22.067Z",
       "fetchedAt": "2026-02-14T13:25:22.067Z",
       "language": "de",
-      "score": 1,
-      "matchedKeywords": [
-        "tiere",
-        "tierschutz",
-        "biodiversität",
-        "biodiversita",
-        "motion",
-        "landwirtschaft"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Relevant [whitelist+theme] · stance=pro-tierschutz · anchor=tiere|tierschutz|biodiversität · support=motion|biodiversität|landwirtschaft · context=- · process=interpellation|anfrage · fb+=biodiversität|biodiversita · fb-=- · people=tobias sennhauser · noise=- · feedback=0.06 · fastlane=0.16 · score=1.00"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -21835,12 +21828,10 @@
       "publishedAt": "2025-12-03T00:00:00.000Z",
       "fetchedAt": "2026-02-15T12:25:47.693Z",
       "language": "de",
-      "score": 0.06000000000000001,
-      "matchedKeywords": [
-        "transport"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=transport · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-parliament-motions-de",
@@ -21972,12 +21963,10 @@
       "publishedAt": "2022-03-17T00:00:00.000Z",
       "fetchedAt": "2026-02-15T12:25:47.693Z",
       "language": "de",
-      "score": 0.06000000000000001,
-      "matchedKeywords": [
-        "transport"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=transport · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-parliament-motions-de",
@@ -22079,13 +22068,12 @@
       "publishedAt": "2020-03-10T00:00:00.000Z",
       "fetchedAt": "2026-02-15T12:25:47.693Z",
       "language": "de",
-      "score": 0.10000000000000002,
+      "score": 0,
       "matchedKeywords": [
-        "transport",
         "gesetz"
       ],
       "status": "rejected",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=transport|gesetz · context=- · process=- · fb+=- · fb-=- · people=- · noise=tourismus · feedback=0.00 · fastlane=0.00 · score=0.10"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=gesetz · context=- · process=- · fb+=- · fb-=- · people=- · noise=tourismus · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-parliament-motions-de",
@@ -22098,11 +22086,9 @@
       "fetchedAt": "2026-02-15T12:25:47.693Z",
       "language": "de",
       "score": 0,
-      "matchedKeywords": [
-        "transport"
-      ],
+      "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=transport · context=- · process=- · fb+=- · fb-=- · people=- · noise=finanz · feedback=0.00 · fastlane=0.00 · score=0.00"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=finanz · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-parliament-motions-de",
@@ -22115,11 +22101,9 @@
       "fetchedAt": "2026-02-15T12:25:47.693Z",
       "language": "de",
       "score": 0,
-      "matchedKeywords": [
-        "transport"
-      ],
+      "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=transport · context=- · process=- · fb+=- · fb-=- · people=- · noise=finanz · feedback=0.00 · fastlane=0.00 · score=0.00"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=finanz · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-parliament-motions-de",
@@ -22311,12 +22295,10 @@
       "publishedAt": "2025-12-17T00:00:00.000Z",
       "fetchedAt": "2026-02-15T12:25:47.693Z",
       "language": "de",
-      "score": 0.06000000000000001,
-      "matchedKeywords": [
-        "transport"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=transport · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-parliament-motions-de",
@@ -22344,11 +22326,9 @@
       "fetchedAt": "2026-02-15T12:25:47.693Z",
       "language": "de",
       "score": 0,
-      "matchedKeywords": [
-        "transport"
-      ],
+      "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=transport · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=finanz · feedback=0.00 · fastlane=0.00 · score=0.00"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=finanz · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-parliament-motions-de",
@@ -22525,12 +22505,10 @@
       "publishedAt": "2025-12-19T00:00:00.000Z",
       "fetchedAt": "2026-02-15T12:25:47.693Z",
       "language": "de",
-      "score": 0.06000000000000001,
-      "matchedKeywords": [
-        "transport"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=transport · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-parliament-motions-de",
@@ -22572,12 +22550,10 @@
       "publishedAt": "2025-12-19T00:00:00.000Z",
       "fetchedAt": "2026-02-15T12:25:47.693Z",
       "language": "de",
-      "score": 0.06000000000000001,
-      "matchedKeywords": [
-        "initiative"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=initiative · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-parliament-motions-de",
@@ -22590,11 +22566,9 @@
       "fetchedAt": "2026-02-15T12:25:47.693Z",
       "language": "de",
       "score": 0,
-      "matchedKeywords": [
-        "transport"
-      ],
+      "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=transport · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=finanz · feedback=0.00 · fastlane=0.00 · score=0.00"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=finanz · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-parliament-motions-de",
@@ -22621,12 +22595,10 @@
       "publishedAt": "2025-12-19T00:00:00.000Z",
       "fetchedAt": "2026-02-15T12:25:47.693Z",
       "language": "de",
-      "score": 0.06000000000000001,
-      "matchedKeywords": [
-        "transport"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=transport · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-parliament-motions-de",
@@ -22686,11 +22658,9 @@
       "fetchedAt": "2026-02-15T12:25:47.693Z",
       "language": "de",
       "score": 0,
-      "matchedKeywords": [
-        "transport"
-      ],
+      "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Ausgeschlossen [noise-without-anchor] · stance=neutral/unklar · anchor=- · support=transport · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=tunnel|wohnung · feedback=0.00 · fastlane=0.00 · score=0.00"
+      "reviewReason": "Ausgeschlossen [noise-without-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=tunnel|wohnung · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-parliament-motions-de",
@@ -22702,12 +22672,10 @@
       "publishedAt": "2025-12-19T00:00:00.000Z",
       "fetchedAt": "2026-02-15T12:25:47.693Z",
       "language": "de",
-      "score": 0.06000000000000001,
-      "matchedKeywords": [
-        "transport"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=transport · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-parliament-motions-de",
@@ -22764,13 +22732,12 @@
       "publishedAt": "2025-06-19T00:00:00.000Z",
       "fetchedAt": "2026-02-15T12:25:47.693Z",
       "language": "de",
-      "score": 0.2,
+      "score": 0.06000000000000001,
       "matchedKeywords": [
-        "landwirtschaft",
-        "agriculture"
+        "landwirtschaft"
       ],
       "status": "rejected",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=landwirtschaft|agriculture · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=landwirtschaft · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
     },
     {
       "sourceId": "ch-parliament-motions-de",
@@ -23783,13 +23750,10 @@
         ],
         "fetchUrl": "https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|grosser rat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -23851,13 +23815,10 @@
         ],
         "fetchUrl": "https://www.ai.ch/politik/grosser-rat/geschaefte-grosser-rat/geschaefte-bis-2018"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=grosser rat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -23892,13 +23853,10 @@
         ],
         "fetchUrl": "https://ar.ch/kantonsrat/parlamentsdienst"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|vorstosse · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -23963,13 +23921,10 @@
         ],
         "fetchUrl": "https://www.gr.be.ch/de/start/geschaefte.html"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=grosser rat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -23997,13 +23952,10 @@
         ],
         "fetchUrl": "https://grosserrat.bs.ch/"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|grosser rat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -24033,13 +23985,10 @@
         ],
         "fetchUrl": "https://www.sitzungsdienst.net/"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|grand conseil · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -24087,13 +24036,10 @@
         ],
         "fetchUrl": "https://ge.ch/grandconseil/recherche-objets"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=grand conseil · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -24263,7 +24209,7 @@
         "postulat"
       ],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -24292,13 +24238,10 @@
         ],
         "fetchUrl": "https://www.ratsinfo.sg.ch/geschaefte"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -24380,13 +24323,10 @@
         ],
         "fetchUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -24417,13 +24357,10 @@
         ],
         "fetchUrl": "https://www.sitzungsdienst.net/"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|grosser rat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -24462,13 +24399,10 @@
         ],
         "fetchUrl": "https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=gran consiglio · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -24527,13 +24461,10 @@
         ],
         "fetchUrl": "https://www.vd.ch/gc/objets-et-rapports-de-commissions"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=grand conseil · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -24587,13 +24518,10 @@
         ],
         "fetchUrl": "https://www.kantonsrat.zh.ch/geschaefte/"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-municipal-parliament-bern-zurich",
@@ -24618,15 +24546,12 @@
       },
       "score": 1,
       "matchedKeywords": [
-        "tiere",
-        "tierschutz",
         "biodiversität",
         "biodiversita",
-        "motion",
-        "landwirtschaft"
+        "motion"
       ],
       "status": "approved",
-      "reviewReason": "Relevant [whitelist+theme] · stance=pro-tierschutz · anchor=tiere|tierschutz|biodiversität · support=motion|biodiversität|landwirtschaft · context=- · process=interpellation|anfrage · fb+=biodiversität|biodiversita · fb-=- · people=tobias sennhauser · noise=- · feedback=0.06 · fastlane=0.16 · score=1.00"
+      "reviewReason": "Relevant [whitelist+theme] · stance=neutral/unklar · anchor=biodiversität|biodiversita · support=motion|biodiversität · context=- · process=- · fb+=biodiversität|biodiversita · fb-=- · people=tobias sennhauser · noise=- · feedback=0.12 · fastlane=0.16 · score=1.00"
     },
     {
       "sourceId": "ch-municipal-parliament-bern-zurich",
@@ -24651,15 +24576,12 @@
       },
       "score": 1,
       "matchedKeywords": [
-        "tiere",
-        "tierschutz",
         "biodiversität",
         "biodiversita",
-        "motion",
-        "landwirtschaft"
+        "motion"
       ],
       "status": "approved",
-      "reviewReason": "Relevant [whitelist+theme] · stance=pro-tierschutz · anchor=tiere|tierschutz|biodiversität · support=motion|biodiversität|landwirtschaft · context=- · process=interpellation|anfrage · fb+=biodiversität|biodiversita · fb-=- · people=tobias sennhauser · noise=- · feedback=0.06 · fastlane=0.16 · score=1.00"
+      "reviewReason": "Relevant [feedback-recall] · stance=neutral/unklar · anchor=biodiversität|biodiversita · support=motion|biodiversität · context=- · process=- · fb+=biodiversität|biodiversita · fb-=- · people=- · noise=- · feedback=0.12 · fastlane=0.16 · score=1.00"
     },
     {
       "sourceId": "ch-municipal-parliament-bern-zurich",
@@ -24684,15 +24606,13 @@
       },
       "score": 1,
       "matchedKeywords": [
-        "tiere",
-        "tierschutz",
         "biodiversität",
         "biodiversita",
         "motion",
         "landwirtschaft"
       ],
       "status": "approved",
-      "reviewReason": "Relevant [whitelist+theme] · stance=pro-tierschutz · anchor=tiere|tierschutz|biodiversität · support=motion|biodiversität|landwirtschaft · context=- · process=interpellation|anfrage · fb+=biodiversität|biodiversita · fb-=- · people=tobias sennhauser · noise=- · feedback=0.06 · fastlane=0.16 · score=1.00"
+      "reviewReason": "Relevant [whitelist+theme] · stance=neutral/unklar · anchor=biodiversität|biodiversita · support=motion|biodiversität|landwirtschaft · context=- · process=- · fb+=biodiversität|biodiversita · fb-=- · people=tobias sennhauser · noise=- · feedback=0.12 · fastlane=0.16 · score=1.00"
     },
     {
       "sourceId": "ch-municipal-parliament-bern-zurich",
@@ -24715,17 +24635,10 @@
         "businessNumber": "2026.SR.0031",
         "adapterHint": "municipalParliament"
       },
-      "score": 1,
-      "matchedKeywords": [
-        "tiere",
-        "tierschutz",
-        "biodiversität",
-        "biodiversita",
-        "motion",
-        "landwirtschaft"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Relevant [whitelist+theme] · stance=pro-tierschutz · anchor=tiere|tierschutz|biodiversität · support=motion|biodiversität|landwirtschaft · context=- · process=interpellation|anfrage · fb+=biodiversität|biodiversita · fb-=- · people=tobias sennhauser · noise=- · feedback=0.06 · fastlane=0.16 · score=1.00"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=anfrage · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-municipal-parliament-bern-zurich",
@@ -24748,17 +24661,12 @@
         "businessNumber": "2026.SR.0019",
         "adapterHint": "municipalParliament"
       },
-      "score": 1,
+      "score": 0.55,
       "matchedKeywords": [
-        "tiere",
-        "tierschutz",
-        "biodiversität",
-        "biodiversita",
-        "motion",
-        "landwirtschaft"
+        "tiere"
       ],
       "status": "approved",
-      "reviewReason": "Relevant [whitelist+theme] · stance=pro-tierschutz · anchor=tiere|tierschutz|biodiversität · support=motion|biodiversität|landwirtschaft · context=- · process=interpellation|anfrage · fb+=biodiversität|biodiversita · fb-=- · people=tobias sennhauser · noise=- · feedback=0.06 · fastlane=0.16 · score=1.00"
+      "reviewReason": "Relevant [whitelist+theme] · stance=neutral/unklar · anchor=tiere · support=- · context=- · process=interpellation · fb+=- · fb-=- · people=tobias sennhauser · noise=- · feedback=0.00 · fastlane=0.12 · score=0.55"
     },
     {
       "sourceId": "ch-municipal-parliament-bern-zurich",
@@ -24780,17 +24688,12 @@
         "rawStatus": null,
         "adapterHint": "municipalParliament"
       },
-      "score": 1,
+      "score": 0.52,
       "matchedKeywords": [
-        "tiere",
-        "tierschutz",
-        "biodiversität",
-        "biodiversita",
-        "motion",
-        "landwirtschaft"
+        "tierschutz"
       ],
       "status": "rejected",
-      "reviewReason": "Relevant [whitelist+theme] · stance=pro-tierschutz · anchor=tiere|tierschutz|biodiversität · support=motion|biodiversität|landwirtschaft · context=- · process=interpellation|anfrage · fb+=biodiversität|biodiversita · fb-=- · people=tobias sennhauser · noise=- · feedback=0.06 · fastlane=0.16 · score=1.00"
+      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=- · context=- · process=vorstoss|vorstosse · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.16 · score=0.52"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -24932,13 +24835,10 @@
         ],
         "fetchUrl": "https://www.gr.ch/DE/institutionen/parlament/Seiten/start.aspx"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|grosser rat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -24968,13 +24868,10 @@
         ],
         "fetchUrl": "https://www.sitzungsdienst.net/"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -25021,7 +24918,7 @@
         "postulat"
       ],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=grand conseil · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -25050,13 +24947,10 @@
         ],
         "fetchUrl": "https://www.sitzungsdienst.net/"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|landrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -25087,13 +24981,10 @@
         ],
         "fetchUrl": "https://www.sitzungsdienst.net/"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -25122,13 +25013,10 @@
         ],
         "fetchUrl": "https://www.sitzungsdienst.net/"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -25182,13 +25070,10 @@
         ],
         "fetchUrl": "https://so.ch/parlament/geschaefte"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=interpellation|kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -25217,13 +25102,10 @@
         ],
         "fetchUrl": "https://www.sitzungsdienst.net/"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|landrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -25302,13 +25184,10 @@
         ],
         "fetchUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "queued",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25320,13 +25199,10 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
-      "matchedKeywords": [
-        "fuchs",
-        "motion"
-      ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25338,13 +25214,12 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
+      "score": 0.06000000000000001,
       "matchedKeywords": [
-        "fuchs",
         "motion"
       ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=pro-tierschutz · anchor=- · support=motion · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25356,13 +25231,12 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
+      "score": 0.06000000000000001,
       "matchedKeywords": [
-        "fuchs",
         "motion"
       ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25374,13 +25248,12 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
+      "score": 0.06000000000000001,
       "matchedKeywords": [
-        "fuchs",
         "motion"
       ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25392,13 +25265,12 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
+      "score": 0.06000000000000001,
       "matchedKeywords": [
-        "fuchs",
         "motion"
       ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25410,13 +25282,12 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
+      "score": 0.06000000000000001,
       "matchedKeywords": [
-        "fuchs",
         "motion"
       ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25428,13 +25299,12 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
+      "score": 0.06000000000000001,
       "matchedKeywords": [
-        "fuchs",
         "motion"
       ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25446,13 +25316,10 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
-      "matchedKeywords": [
-        "fuchs",
-        "motion"
-      ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25464,13 +25331,12 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
+      "score": 0.06000000000000001,
       "matchedKeywords": [
-        "fuchs",
         "motion"
       ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25482,13 +25348,12 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
+      "score": 0.06000000000000001,
       "matchedKeywords": [
-        "fuchs",
         "motion"
       ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25500,13 +25365,10 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
-      "matchedKeywords": [
-        "fuchs",
-        "motion"
-      ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25518,13 +25380,10 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
-      "matchedKeywords": [
-        "fuchs",
-        "motion"
-      ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25536,13 +25395,12 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
+      "score": 0.06000000000000001,
       "matchedKeywords": [
-        "fuchs",
         "motion"
       ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25554,13 +25412,10 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
-      "matchedKeywords": [
-        "fuchs",
-        "motion"
-      ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25572,13 +25427,10 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
-      "matchedKeywords": [
-        "fuchs",
-        "motion"
-      ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=pro-tierschutz · anchor=- · support=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25590,13 +25442,12 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
+      "score": 0.06000000000000001,
       "matchedKeywords": [
-        "fuchs",
         "motion"
       ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25608,13 +25459,13 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
+      "score": 0.42000000000000004,
       "matchedKeywords": [
         "fuchs",
         "motion"
       ],
       "status": "rejected",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=fuchs · support=motion · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.42"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25626,13 +25477,10 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
-      "matchedKeywords": [
-        "fuchs",
-        "motion"
-      ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25644,13 +25492,10 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
-      "matchedKeywords": [
-        "fuchs",
-        "motion"
-      ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25662,13 +25507,12 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
+      "score": 0.06000000000000001,
       "matchedKeywords": [
-        "fuchs",
         "motion"
       ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25680,13 +25524,10 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
-      "matchedKeywords": [
-        "fuchs",
-        "motion"
-      ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25698,13 +25539,12 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
+      "score": 0,
       "matchedKeywords": [
-        "fuchs",
         "motion"
       ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · context=- · process=- · fb+=- · fb-=- · people=- · noise=energie · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25716,13 +25556,10 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
-      "matchedKeywords": [
-        "fuchs",
-        "motion"
-      ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=datenschutz · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25734,13 +25571,12 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
+      "score": 0.06000000000000001,
       "matchedKeywords": [
-        "fuchs",
         "motion"
       ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.06"
     },
     {
       "sourceId": "ch-cantonal-be-rss",
@@ -25752,13 +25588,10 @@
       "publishedAt": null,
       "fetchedAt": "2026-02-15T12:26:34.265Z",
       "language": "de",
-      "score": 0.25000000000000006,
-      "matchedKeywords": [
-        "fuchs",
-        "motion"
-      ],
-      "status": "queued",
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=fuchs · support=motion · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=energie|datenschutz · feedback=0.00 · fastlane=0.00 · score=0.25"
+      "score": 0,
+      "matchedKeywords": [],
+      "status": "rejected",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -25788,13 +25621,10 @@
         ],
         "fetchUrl": "https://www.sitzungsdienst.net/"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=vorstoss|landrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-cantonal-portal-core",
@@ -25836,13 +25666,10 @@
         ],
         "fetchUrl": "https://www.sitzungsdienst.net/"
       },
-      "score": 0.2,
-      "matchedKeywords": [
-        "motion",
-        "postulat"
-      ],
+      "score": 0,
+      "matchedKeywords": [],
       "status": "rejected",
-      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion|postulat · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.20"
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · context=- · process=grand conseil · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.00"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -25938,5 +25765,5 @@
     }
   ],
   "publications": [],
-  "updatedAt": "2026-02-15T12:26:39.440Z"
+  "updatedAt": "2026-02-15T12:46:43.342Z"
 }
