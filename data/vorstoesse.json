@@ -3472,7 +3472,7 @@
     "id": "vp-20214435-de",
     "titel": "21.4435 · Afrikanische Schweinepest. Wildschweine vorsorglich eindämmen",
     "typ": "Motion",
-    "kurzbeschreibung": "Kurzüberblick: 21.4435 · Afrikanische Schweinepest. Wildschweine vorsorglich eindämmen (Erledigt).",
+    "kurzbeschreibung": "Die Motion verlangt, Wildtierpassagen an Nationalstrassen präventiv so auszurüsten, dass Wildschweine sie nicht passieren können, um die Ausbreitung der Afrikanischen Schweinepest einzudämmen.",
     "geschaeftsnummer": "21.4435",
     "ebene": "Bund",
     "kanton": null,
@@ -3481,12 +3481,10 @@
     "datumEingereicht": "2021-12-15",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Schwein",
-      "Schweine",
-      "Wildschwein",
+      "Gesundheit",
       "Landwirtschaft",
-      "Wirtschaft",
-      "Umwelt"
+      "Umwelt",
+      "Wirtschaft"
     ],
     "schlagwoerter": [
       "schwein",
@@ -3496,9 +3494,9 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Grüter Franz",
+        "rolle": "Nationalrat",
+        "partei": "Schweizerische Volkspartei"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20214435",
@@ -3518,19 +3516,17 @@
           "de": "21.4435 · Afrikanische Schweinepest. Wildschweine vorsorglich eindämmen"
         },
         "summary": {
-          "de": "Kurzüberblick: 21.4435 · Afrikanische Schweinepest. Wildschweine vorsorglich eindämmen (Erledigt)."
+          "de": "Die Motion verlangt, Wildtierpassagen an Nationalstrassen präventiv so auszurüsten, dass Wildschweine sie nicht passieren können, um die Ausbreitung der Afrikanischen Schweinepest einzudämmen."
         },
         "type": {
           "de": "Motion"
         },
         "themes": {
           "de": [
-            "schwein",
-            "schweine",
-            "wildschwein",
-            "landwirtschaft",
-            "Wirtschaft",
-            "Umwelt"
+            "Gesundheit",
+            "Landwirtschaft",
+            "Umwelt",
+            "Wirtschaft"
           ]
         }
       },

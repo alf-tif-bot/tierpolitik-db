@@ -245,6 +245,7 @@ const SUBMITTER_OVERRIDES = {
   '22.7004': { name: 'Egger Mike', rolle: 'Nationalrat', partei: 'SVP' },
   '21.8161': { name: 'de Courten Thomas', rolle: 'Nationalrat', partei: 'SVP' },
   '21.8163': { name: 'de Courten Thomas', rolle: 'Nationalrat', partei: 'SVP' },
+  '21.4435': { name: 'Grüter Franz', rolle: 'Nationalrat', partei: 'Schweizerische Volkspartei' },
   '25.2027': { name: 'Écologie et Altruisme', rolle: 'Petitionskomitee', partei: '' },
   '25.4071': { name: 'Dittli Josef', rolle: 'Ständerat', partei: 'FDP.Die Liberalen' },
 }
@@ -269,6 +270,7 @@ const THEME_OVERRIDES = {
   '21.8163': ['Landwirtschaft', 'Staatspolitik', 'Umwelt', 'Beschäftigung und Arbeit'],
   '22.3299': ['Schweinezucht', 'Tierarzneimittel', 'Tierschutz'],
   '21.8161': ['Landwirtschaft', 'Umwelt'],
+  '21.4435': ['Gesundheit', 'Landwirtschaft', 'Umwelt', 'Wirtschaft'],
 }
 
 const STATUS_OVERRIDES = {
@@ -283,6 +285,7 @@ const SUMMARY_OVERRIDES = {
   '22.7004': 'Die Fragestunde-Frage kritisiert eine aus Sicht des Einreichers realitätsferne Auslegung der Tierschutzverordnung für Hofhunde und verlangt eine Klärung durch den Bundesrat.',
   '21.8161': 'Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und fragt nach Kriterien für Ausnahmen bei unerlässlichen Forstarbeiten (inkl. Aufforstung und Schutzwaldpflege).',
   '21.8163': 'Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und deren Folgen für Forstbetriebe, Personal und Lernende; zudem werden Kompensationsmassnahmen des Bundes nachgefragt.',
+  '21.4435': 'Die Motion verlangt, Wildtierpassagen an Nationalstrassen präventiv so auszurüsten, dass Wildschweine sie nicht passieren können, um die Ausbreitung der Afrikanischen Schweinepest einzudämmen.',
   '25.4010': 'Die Motion verlangt ein gesetzlich verankertes Importverbot für chemisch (insbesondere mit Chlor) behandeltes Geflügelfleisch und begründet dies mit Konsumentenschutz, Lebensmittelstandards und handelspolitischer Verlässlichkeit.',
   '22.3299': 'Die Motion verlangt ein Verbot PMSG-haltiger Tierarzneimittel in der Schweizer Schweinezucht und will verhindern, dass diese durch synthetische PMSG-Produkte ersetzt werden.',
   '25.2027': 'Die Petition verlangt ein Beschwerderecht für Tierschutzverbände bei Fällen von Tiermisshandlung, damit Missstände rechtlich wirksamer verfolgt werden können.',
