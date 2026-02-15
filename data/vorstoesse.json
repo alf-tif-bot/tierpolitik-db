@@ -1941,7 +1941,7 @@
   {
     "id": "vp-20232009-de",
     "titel": "23.2009 - Für eine Änderung des Schweizer Tierschutzgesetzes (TSCHG) und für das Verbot der Euthanasie ohne triftigen Grund!",
-    "typ": "Interpellation",
+    "typ": "Petition",
     "kurzbeschreibung": "In Kommission des Ständerats",
     "geschaeftsnummer": "23.2009",
     "ebene": "Bund",
@@ -1960,8 +1960,8 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
+        "name": "Fondation SOS Chats Noiraigue",
+        "rolle": "Petitionskomitee",
         "partei": ""
       }
     ],
@@ -1985,7 +1985,7 @@
           "de": "In Kommission des Ständerats"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Petition"
         },
         "themes": {
           "de": [
@@ -4515,7 +4515,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "fr",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
@@ -4650,12 +4650,12 @@
     "id": "vp-20253733-de",
     "titel": "25.3733 - Verhältnismässigkeit in der Direktzahlungsverordnung wahren",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 25.3733 - Verhältnismässigkeit in der Direktzahlungsverordnung wahren (Abgelehnt).",
+    "kurzbeschreibung": "Kurzüberblick: 25.3733 - Verhältnismässigkeit in der Direktzahlungsverordnung wahren (In Beratung).",
     "geschaeftsnummer": "25.3733",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "Abgelehnt",
+    "status": "In Beratung",
     "datumEingereicht": "2025-06-19",
     "datumAktualisiert": "2026-02-13",
     "themen": [
@@ -4678,7 +4678,7 @@
     "resultate": [
       {
         "datum": "2025-06-19",
-        "status": "Abgelehnt",
+        "status": "In Beratung",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -4718,12 +4718,12 @@
     "id": "vp-20254697-de",
     "titel": "25.4697 - Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 25.4697 - Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung (Abgelehnt).",
+    "kurzbeschreibung": "Kurzüberblick: 25.4697 - Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung (In Beratung).",
     "geschaeftsnummer": "25.4697",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "Abgelehnt",
+    "status": "In Beratung",
     "datumEingereicht": "2025-12-18",
     "datumAktualisiert": "2026-02-13",
     "themen": [
@@ -4750,7 +4750,7 @@
     "resultate": [
       {
         "datum": "2025-12-18",
-        "status": "Abgelehnt",
+        "status": "In Beratung",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -4794,12 +4794,12 @@
     "id": "vp-20254487-de",
     "titel": "25.4487 - Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Kurzüberblick: 25.4487 - Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder (Abgelehnt).",
+    "kurzbeschreibung": "Kurzüberblick: 25.4487 - Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder (In Beratung).",
     "geschaeftsnummer": "25.4487",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "Abgelehnt",
+    "status": "In Beratung",
     "datumEingereicht": "2025-12-09",
     "datumAktualisiert": "2026-02-13",
     "themen": [
@@ -4827,7 +4827,7 @@
     "resultate": [
       {
         "datum": "2025-12-09",
-        "status": "Abgelehnt",
+        "status": "In Beratung",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],

@@ -250,6 +250,7 @@ const SUBMITTER_OVERRIDES = {
   '21.8163': { name: 'de Courten Thomas', rolle: 'Nationalrat', partei: 'SVP' },
   '21.4435': { name: 'Grüter Franz', rolle: 'Nationalrat', partei: 'Schweizerische Volkspartei' },
   '25.2027': { name: 'Écologie et Altruisme', rolle: 'Petitionskomitee', partei: '' },
+  '23.2009': { name: 'Fondation SOS Chats Noiraigue', rolle: 'Petitionskomitee', partei: '' },
   '25.4071': { name: 'Dittli Josef', rolle: 'Ständerat', partei: 'FDP.Die Liberalen' },
   '21.3703': { name: 'Badertscher Christine', rolle: 'Nationalrätin', partei: 'Grüne Fraktion' },
   '23.7858': { name: 'Clivaz Christophe', rolle: 'Nationalrat', partei: 'GRÜNE Schweiz' },
@@ -264,6 +265,7 @@ const TYPE_OVERRIDES = {
   '21.8163': 'Anfrage',
   '23.7858': 'Anfrage',
   '25.2027': 'Petition',
+  '23.2009': 'Petition',
 }
 
 const THEME_OVERRIDES = {
