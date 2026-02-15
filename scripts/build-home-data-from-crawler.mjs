@@ -259,6 +259,7 @@ const SUBMITTER_OVERRIDES = {
   '25.4812': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'GRÜNE Schweiz' },
   '24.3296': { name: 'Munz Martina', rolle: 'Nationalrätin', partei: 'SP' },
   '21.3363': { name: 'Munz Martina', rolle: 'Nationalrätin', partei: 'SP' },
+  '21.3835': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
 }
 
 const TYPE_OVERRIDES = {
@@ -317,6 +318,7 @@ const SUMMARY_OVERRIDES = {
   '25.4812': 'Das Postulat beauftragt den Bundesrat zu prüfen, wie der Vollzug des Tierschutzgesetzes in den Kantonen verbessert werden kann, um Fälle wie in Ramiswil zu verhindern. Genannt werden insbesondere eine bessere Zusammenarbeit der Veterinärämter mit Tierschutzorganisationen, der Ausbau von Meldestellen und ausreichende kantonale Ressourcen.',
   '24.3296': 'Das Postulat beauftragt den Bundesrat zu prüfen, welche gesetzlichen Anpassungen für eine unabhängige Tieranwaltschaft und minimale subjektive Rechte für höher entwickelte Tiere erforderlich wären.',
   '21.3363': 'Die Motion verlangt, dass Tierversuche mit Schweregrad 3 schweizweit von einer gemeinsamen Instanz beurteilt werden, um eine einheitliche Bewilligungspraxis sicherzustellen.',
+  '21.3835': 'Die Motion verlangt stichprobenhafte Kontrollen von Tierkadavern in der Fleischkontrolle und in Sammelstellen, um Tierschutzverstösse besser zu erkennen und den Ursprung zurückzuverfolgen.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {
