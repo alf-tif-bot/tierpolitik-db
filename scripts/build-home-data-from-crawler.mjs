@@ -257,6 +257,7 @@ const SUBMITTER_OVERRIDES = {
   '23.7858': { name: 'Clivaz Christophe', rolle: 'Nationalrat', partei: 'GRÜNE Schweiz' },
   '25.4812': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'GRÜNE Schweiz' },
   '24.3296': { name: 'Munz Martina', rolle: 'Nationalrätin', partei: 'SP' },
+  '21.3363': { name: 'Munz Martina', rolle: 'Nationalrätin', partei: 'SP' },
 }
 
 const TYPE_OVERRIDES = {
@@ -286,6 +287,7 @@ const THEME_OVERRIDES = {
   '21.4435': ['Gesundheit', 'Landwirtschaft', 'Umwelt', 'Wirtschaft'],
   '23.7858': ['Landwirtschaft', 'Umwelt'],
   '25.4812': ['Landwirtschaft', 'Staatspolitik', 'Umwelt'],
+  '21.3363': ['Umwelt', 'Wissenschaft und Forschung'],
 }
 
 const STATUS_OVERRIDES = {
@@ -311,6 +313,7 @@ const SUMMARY_OVERRIDES = {
   '23.7858': 'Die Fragestunde-Frage verlangt vom Bundesrat Angaben zur Entwicklung von Wolfsbestand und Nutztier-Schäden 2022–2023 sowie eine Begründung für den Abschuss ganzer Wolfsrudel trotz sinkender Schäden.',
   '25.4812': 'Das Postulat beauftragt den Bundesrat zu prüfen, wie der Vollzug des Tierschutzgesetzes in den Kantonen verbessert werden kann, um Fälle wie in Ramiswil zu verhindern. Genannt werden insbesondere eine bessere Zusammenarbeit der Veterinärämter mit Tierschutzorganisationen, der Ausbau von Meldestellen und ausreichende kantonale Ressourcen.',
   '24.3296': 'Das Postulat beauftragt den Bundesrat zu prüfen, welche gesetzlichen Anpassungen für eine unabhängige Tieranwaltschaft und minimale subjektive Rechte für höher entwickelte Tiere erforderlich wären.',
+  '21.3363': 'Die Motion verlangt, dass Tierversuche mit Schweregrad 3 schweizweit von einer gemeinsamen Instanz beurteilt werden, um eine einheitliche Bewilligungspraxis sicherzustellen.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {

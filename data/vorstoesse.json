@@ -2249,7 +2249,7 @@
     "id": "vp-20213363-de",
     "titel": "21.3363 - Gemeinsame Bewilligungsbehörde für eine einheitliche Beurteilung von Tierversuchen mit Schweregrad 3",
     "typ": "Motion",
-    "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich.",
+    "kurzbeschreibung": "Die Motion verlangt, dass Tierversuche mit Schweregrad 3 schweizweit von einer gemeinsamen Instanz beurteilt werden, um eine einheitliche Bewilligungspraxis sicherzustellen.",
     "geschaeftsnummer": "21.3363",
     "ebene": "Bund",
     "kanton": null,
@@ -2258,9 +2258,8 @@
     "datumEingereicht": "2021-03-18",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Tierversuche",
-      "Wissenschaft und Forschung",
-      "Umwelt"
+      "Umwelt",
+      "Wissenschaft und Forschung"
     ],
     "schlagwoerter": [
       "tierversuch",
@@ -2268,9 +2267,9 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Munz Martina",
+        "rolle": "Nationalrätin",
+        "partei": "SP"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213363",
@@ -2290,17 +2289,15 @@
           "de": "21.3363 · Gemeinsame Bewilligungsbehörde für eine einheitliche Beurteilung von Tierversuchen mit Schweregrad 3"
         },
         "summary": {
-          "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich."
+          "de": "Die Motion verlangt, dass Tierversuche mit Schweregrad 3 schweizweit von einer gemeinsamen Instanz beurteilt werden, um eine einheitliche Bewilligungspraxis sicherzustellen."
         },
         "type": {
           "de": "Motion"
         },
         "themes": {
           "de": [
-            "tierversuch",
-            "tierversuche",
-            "Wissenschaft und Forschung",
-            "Umwelt"
+            "Umwelt",
+            "Wissenschaft und Forschung"
           ]
         }
       },
