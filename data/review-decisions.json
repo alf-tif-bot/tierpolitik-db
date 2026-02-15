@@ -2668,8 +2668,9 @@
     "decidedAt": "2026-02-14T13:13:23.531Z"
   },
   "ch-municipal-parliament-bern-zurich:municipal-bern-1c6dc829b4ba": {
-    "status": "queued",
-    "decidedAt": "2026-02-15T09:05:56.246Z"
+    "status": "rejected",
+    "decidedAt": "2026-02-15T09:29:00.250Z",
+    "note": "placeholder/noise"
   },
   "ch-municipal-parliament-bern-zurich:municipal-bern-api-c6c65c8ce8a84435af97428996dadc64": {
     "status": "approved",
@@ -2975,5 +2976,10 @@
   "ch-parliament-business-de:20244465": {
     "status": "approved",
     "decidedAt": "2026-02-14T10:35:34.511Z"
+  },
+  "ch-municipal-parliament-bern-zurich:municipal-zuerich-0a92bddadf36": {
+    "status": "rejected",
+    "decidedAt": "2026-02-15T09:29:00.250Z",
+    "note": "overview/noise"
   }
 }

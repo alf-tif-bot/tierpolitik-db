@@ -40,8 +40,11 @@ const isMunicipalOverviewNoise = (item) => {
   return t.includes('übersichtsseite')
     || t.includes('vorstösse und grsr-revisionen')
     || t.includes('antworten auf kleine anfragen')
+    || t.includes('erste beratung von jugendvorst')
+    || /^parlamentsgesch(ä|a)ft\s+municipal-/.test(t)
     || url.includes('vorstoesse-und-grsr-revisionen')
     || url.includes('antworten-auf-kleine-anfragen')
+    || url.includes('suche-curia-vista/geschaeft?affairid=municipal')
 }
 
 const MUNICIPAL_THEME_STRONG_KEYWORDS = [
