@@ -67,7 +67,8 @@
     "sinceYear": 2020,
     "urlCandidates": [
       "https://www.fr.ch/parlinfo",
-      "https://www.fr.ch/parlinfo/programmes-et-dates-des-sessions-du-grand-conseil"
+      "https://www.fr.ch/parlinfo/programmes-et-dates-des-sessions-du-grand-conseil",
+      "https://fr.ratsinfomanagement.net"
     ]
   },
   {
@@ -97,7 +98,10 @@
     "parliament": "Grosser Rat Graubünden",
     "adapter": "cantonRegistry",
     "url": "https://www.gr.ch/DE/institutionen/parlament",
-    "sinceYear": 2020
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://gr.ratsinfomanagement.net"
+    ]
   },
   {
     "canton": "JU",
@@ -108,7 +112,8 @@
     "urlCandidates": [
       "https://www.jura.ch/fr/Autorites/PLT/Documents-du-Parlement/Suivi-des-interventions/Suivi-des-interventions.html",
       "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions/Motions.html",
-      "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Postulats/Postulats.html"
+      "https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Postulats/Postulats.html",
+      "https://ju.ratsinfomanagement.net"
     ]
   },
   {
@@ -116,7 +121,10 @@
     "parliament": "Kantonsrat Luzern",
     "adapter": "cantonRegistry",
     "url": "https://www.lu.ch/kr",
-    "sinceYear": 2020
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://lu.ratsinfomanagement.net"
+    ]
   },
   {
     "canton": "NE",
@@ -125,7 +133,8 @@
     "url": "https://www.ne.ch/autorites/GC",
     "sinceYear": 2020,
     "urlCandidates": [
-      "https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx"
+      "https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx",
+      "https://ne.ratsinfomanagement.net"
     ]
   },
   {
@@ -135,7 +144,8 @@
     "url": "https://www.nw.ch/landrat",
     "sinceYear": 2020,
     "urlCandidates": [
-      "https://www.nw.ch/landratmain"
+      "https://www.nw.ch/landratmain",
+      "https://nw.ratsinfomanagement.net"
     ]
   },
   {
@@ -146,7 +156,8 @@
     "sinceYear": 2020,
     "urlCandidates": [
       "https://www.ow.ch/kantonsratmain",
-      "https://www.ow.ch/kantonsratview"
+      "https://www.ow.ch/kantonsratview",
+      "https://ow.ratsinfomanagement.net"
     ]
   },
   {
@@ -172,7 +183,10 @@
     "parliament": "Kantonsrat Solothurn",
     "adapter": "cantonRegistry",
     "url": "https://so.ch/parlament",
-    "sinceYear": 2020
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://so.ratsinfomanagement.net"
+    ]
   },
   {
     "canton": "SZ",
@@ -192,7 +206,8 @@
     "adapter": "cantonRegistry",
     "url": "https://grosserrat.tg.ch",
     "urlCandidates": [
-      "https://parlament.tg.ch"
+      "https://parlament.tg.ch",
+      "https://tg.ratsinfomanagement.net"
     ],
     "sinceYear": 2020
   },
@@ -213,7 +228,10 @@
     "parliament": "Landrat Uri",
     "adapter": "cantonRegistry",
     "url": "https://www.ur.ch/landrat",
-    "sinceYear": 2020
+    "sinceYear": 2020,
+    "urlCandidates": [
+      "https://ur.ratsinfomanagement.net"
+    ]
   },
   {
     "canton": "VD",
@@ -247,7 +265,8 @@
     "url": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats",
     "sinceYear": 2020,
     "urlCandidates": [
-      "https://zg.ch/de/behoerden/kantonsrat"
+      "https://zg.ch/de/behoerden/kantonsrat",
+      "https://zg.ratsinfomanagement.net"
     ]
   },
   {

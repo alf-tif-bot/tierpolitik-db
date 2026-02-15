@@ -219,7 +219,7 @@
         "transport"
       ],
       "status": "rejected",
-      "reviewReason": "Relevant [feedback-recall] · stance=neutral/unklar · anchor=biodiversität|biodiversite|biodiversita · support=transport|biodiversität|biodiversite · context=- · process=vorstoss · fb+=biodiversität|biodiversita · fb-=- · people=- · noise=finanz|wohnung · feedback=0.08 · fastlane=0.16 · score=1.00"
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=biodiversität|biodiversite|biodiversita · support=transport|biodiversität|biodiversite · context=- · process=vorstoss · fb+=biodiversität|biodiversita · fb-=- · people=- · noise=finanz|wohnung · feedback=0.08 · fastlane=0.16 · score=1.00"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -7308,7 +7308,7 @@
         "transport"
       ],
       "status": "rejected",
-      "reviewReason": "Relevant [feedback-recall] · stance=neutral/unklar · anchor=biodiversität|biodiversite|biodiversita · support=transport|biodiversität|biodiversite · context=- · process=vorstoss · fb+=biodiversität|biodiversita · fb-=- · people=- · noise=finanz|wohnung · feedback=0.08 · fastlane=0.16 · score=1.00"
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=biodiversität|biodiversite|biodiversita · support=transport|biodiversität|biodiversite · context=- · process=vorstoss · fb+=biodiversität|biodiversita · fb-=- · people=- · noise=finanz|wohnung · feedback=0.08 · fastlane=0.16 · score=1.00"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -26086,5 +26086,5 @@
     }
   ],
   "publications": [],
-  "updatedAt": "2026-02-15T00:28:30.504Z"
+  "updatedAt": "2026-02-15T00:46:52.962Z"
 }

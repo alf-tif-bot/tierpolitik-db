@@ -361,7 +361,11 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     const strongNegativeHits = [...new Set([...anchorMatches, ...supportMatches])].filter((kw) => strongNegativeKeywords.has(kw))
     const noisyWithoutAnchor = !hasAnchor && noiseMatches.length >= 2
     const negativeFeedbackOnly = strongNegativeHits.length > 0 && !hasAnchor && adjustedScore < Math.max(0.42, minScore + 0.06)
-    const recallByFeedback = strongPositiveHits.length >= 2 && adjustedScore >= Math.max(0.22, minScore - 0.08)
+    const feedbackRecallNeedsTheme = hasContextual || supportMatches.length >= 2 || processHits.length > 0 || hasWhitelistedPerson
+    const recallByFeedback = strongPositiveHits.length >= 2
+      && feedbackRecallNeedsTheme
+      && noiseMatches.length <= 1
+      && adjustedScore >= Math.max(0.24, minScore - 0.04)
 
     const supportIsProcessOnly = hasSupport && supportMatches.every((kw) => PROCESS_ONLY_SUPPORT_KEYWORDS.has(kw))
     const weakAnchorBlocked = onlyWeakAnchors
