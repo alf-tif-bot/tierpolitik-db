@@ -223,6 +223,7 @@ const SUBMITTER_OVERRIDES = {
   '25.404': { name: 'Kommission für Wissenschaft, Bildung und Kultur Nationalrat', rolle: 'Kommission', partei: '' },
   '20.4731': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
   '21.3002': { name: 'Kommission für Umwelt, Raumplanung und Energie Ständerat', rolle: 'Kommission', partei: '' },
+  '22.3299': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
   '23.7580': { name: 'Rüegger Monika', rolle: 'Nationalrat', partei: 'SVP' },
   '22.7004': { name: 'Egger Mike', rolle: 'Nationalrat', partei: 'SVP' },
   '21.8163': { name: 'de Courten Thomas', rolle: 'Nationalrat', partei: 'SVP' },
@@ -242,6 +243,7 @@ const THEME_OVERRIDES = {
   '22.7004': ['Landwirtschaft', 'Umwelt'],
   '25.4010': ['Landwirtschaft', 'Konsumentenschutz', 'Wirtschaft'],
   '21.8163': ['Landwirtschaft', 'Staatspolitik', 'Umwelt', 'Beschäftigung und Arbeit'],
+  '22.3299': ['Schweinezucht', 'Tierarzneimittel', 'Tierschutz'],
 }
 
 const SUMMARY_OVERRIDES = {
@@ -251,6 +253,7 @@ const SUMMARY_OVERRIDES = {
   '22.7004': 'Die Fragestunde-Frage kritisiert eine aus Sicht des Einreichers realitätsferne Auslegung der Tierschutzverordnung für Hofhunde und verlangt eine Klärung durch den Bundesrat.',
   '21.8163': 'Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und deren Folgen für Forstbetriebe, Personal und Lernende; zudem werden Kompensationsmassnahmen des Bundes nachgefragt.',
   '25.4010': 'Die Motion verlangt ein gesetzlich verankertes Importverbot für chemisch (insbesondere mit Chlor) behandeltes Geflügelfleisch und begründet dies mit Konsumentenschutz, Lebensmittelstandards und handelspolitischer Verlässlichkeit.',
+  '22.3299': 'Die Motion verlangt ein Verbot PMSG-haltiger Tierarzneimittel in der Schweizer Schweinezucht und will verhindern, dass diese durch synthetische PMSG-Produkte ersetzt werden.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {

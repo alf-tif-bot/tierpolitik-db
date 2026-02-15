@@ -3511,7 +3511,7 @@
     "id": "vp-20223299-de",
     "titel": "22.3299 · Kein Einsatz von PMSG bei Schweinezüchtern",
     "typ": "Motion",
-    "kurzbeschreibung": "Kurzüberblick: 22.3299 · Kein Einsatz von PMSG bei Schweinezüchtern (Erledigt).",
+    "kurzbeschreibung": "Die Motion verlangt ein Verbot PMSG-haltiger Tierarzneimittel in der Schweizer Schweinezucht und will verhindern, dass diese durch synthetische PMSG-Produkte ersetzt werden.",
     "geschaeftsnummer": "22.3299",
     "ebene": "Bund",
     "kanton": null,
@@ -3520,10 +3520,9 @@
     "datumEingereicht": "2022-03-17",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Schwein",
-      "Schweine",
       "Schweinezucht",
-      "Landwirtschaft"
+      "Tierarzneimittel",
+      "Tierschutz"
     ],
     "schlagwoerter": [
       "schwein",
@@ -3533,9 +3532,9 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Schneider Meret",
+        "rolle": "Nationalrat",
+        "partei": "Grüne Partei der Schweiz"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20223299",
@@ -3562,10 +3561,9 @@
         },
         "themes": {
           "de": [
-            "schwein",
-            "schweine",
-            "schweinezucht",
-            "landwirtschaft"
+            "Schweinezucht",
+            "Tierarzneimittel",
+            "Tierschutz"
           ]
         }
       },
