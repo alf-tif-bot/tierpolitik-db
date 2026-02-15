@@ -50,8 +50,8 @@
         },
         "themes": {
           "de": [
-            "Stopfleber",
-            "Landwirtschaft"
+            "stopfleber",
+            "landwirtschaft"
           ]
         }
       },
@@ -107,7 +107,7 @@
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "tierschutz"
           ]
         }
       },
@@ -165,7 +165,7 @@
         },
         "themes": {
           "de": [
-            "Tierschutz",
+            "tierschutz",
             "schweizer tierschutz"
           ]
         }
@@ -283,8 +283,8 @@
         },
         "themes": {
           "de": [
-            "Tierschutz",
-            "Landwirtschaft"
+            "tierschutz",
+            "landwirtschaft"
           ]
         }
       },
@@ -342,8 +342,8 @@
         },
         "themes": {
           "de": [
-            "Nutztiere",
-            "Landwirtschaft"
+            "nutztiere",
+            "landwirtschaft"
           ]
         }
       },
@@ -401,8 +401,8 @@
         },
         "themes": {
           "de": [
-            "Nutztiere",
-            "Landwirtschaft"
+            "nutztiere",
+            "landwirtschaft"
           ]
         }
       },
@@ -460,8 +460,8 @@
         },
         "themes": {
           "de": [
-            "Tierschutz",
-            "Landwirtschaft"
+            "tierschutz",
+            "landwirtschaft"
           ]
         }
       },
@@ -519,8 +519,8 @@
         },
         "themes": {
           "de": [
-            "Nutztiere",
-            "Landwirtschaft"
+            "nutztiere",
+            "landwirtschaft"
           ]
         }
       },
@@ -578,8 +578,8 @@
         },
         "themes": {
           "de": [
-            "Nutztiere",
-            "Landwirtschaft"
+            "nutztiere",
+            "landwirtschaft"
           ]
         }
       },
@@ -639,7 +639,8 @@
         "themes": {
           "de": [
             "Nutztiere",
-            "Landwirtschaft"
+            "Landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -650,7 +651,7 @@
     "id": "vp-20213002-de",
     "titel": "21.3002 · Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren",
     "typ": "Motion",
-    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
+    "kurzbeschreibung": "Die Motion verlangt, den Handlungsspielraum im Jagdgesetz per Verordnung auszuschöpfen, um die Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren zu regeln (u. a. Regulierung und Herdenschutz).",
     "geschaeftsnummer": "21.3002",
     "ebene": "Bund",
     "kanton": null,
@@ -659,7 +660,7 @@
     "datumEingereicht": "2021-01-14",
     "datumAktualisiert": "2026-02-15",
     "themen": [
-      "Nutztiere",
+      "Umwelt",
       "Landwirtschaft"
     ],
     "schlagwoerter": [
@@ -668,8 +669,8 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
+        "name": "Kommission für Umwelt, Raumplanung und Energie Ständerat",
+        "rolle": "Kommission",
         "partei": ""
       }
     ],
@@ -697,7 +698,7 @@
         },
         "themes": {
           "de": [
-            "Nutztiere",
+            "Umwelt",
             "Landwirtschaft"
           ]
         }
@@ -760,7 +761,7 @@
           "de": [
             "schwein",
             "schweine",
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -884,7 +885,7 @@
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "tierschutz"
           ]
         }
       },
@@ -940,7 +941,7 @@
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "tierschutz"
           ]
         }
       },
@@ -996,7 +997,7 @@
         },
         "themes": {
           "de": [
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -1052,7 +1053,7 @@
         },
         "themes": {
           "de": [
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -1108,7 +1109,7 @@
         },
         "themes": {
           "de": [
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -1164,7 +1165,7 @@
         },
         "themes": {
           "de": [
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -1223,7 +1224,7 @@
         "themes": {
           "de": [
             "herdenschutz",
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -1279,7 +1280,7 @@
         },
         "themes": {
           "de": [
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -1335,7 +1336,7 @@
         },
         "themes": {
           "de": [
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -1391,7 +1392,7 @@
         },
         "themes": {
           "de": [
-            "Stopfleber"
+            "stopfleber"
           ]
         }
       },
@@ -1447,7 +1448,7 @@
         },
         "themes": {
           "de": [
-            "Tierversuche"
+            "tierversuch"
           ]
         }
       },
@@ -1503,7 +1504,7 @@
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "tierschutz"
           ]
         }
       },
@@ -1559,7 +1560,7 @@
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "tierschutz"
           ]
         }
       },
@@ -1615,7 +1616,7 @@
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "tierschutz"
           ]
         }
       },
@@ -1671,7 +1672,7 @@
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "tierschutz"
           ]
         }
       },
@@ -1787,8 +1788,7 @@
         },
         "themes": {
           "de": [
-            "motion",
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -1905,7 +1905,7 @@
         },
         "themes": {
           "de": [
-            "Tierschutz",
+            "tierschutz",
             "schweizer tierschutz"
           ]
         }
@@ -1963,8 +1963,7 @@
         },
         "themes": {
           "de": [
-            "Tierschutz",
-            "botschaft"
+            "tierschutz"
           ]
         }
       },
@@ -2022,7 +2021,7 @@
         },
         "themes": {
           "de": [
-            "Tierschutz",
+            "tierschutz",
             "schlacht"
           ]
         }
@@ -2080,8 +2079,8 @@
         },
         "themes": {
           "de": [
-            "Tierversuche",
-            "Tierversuche"
+            "tierversuch",
+            "tierversuche"
           ]
         }
       },
@@ -2138,8 +2137,8 @@
         },
         "themes": {
           "de": [
-            "Tierversuche",
-            "Tierversuche"
+            "tierversuch",
+            "tierversuche"
           ]
         }
       },
@@ -2196,8 +2195,8 @@
         },
         "themes": {
           "de": [
-            "Tierversuche",
-            "Tierversuche"
+            "tierversuch",
+            "tierversuche"
           ]
         }
       },
@@ -2255,7 +2254,7 @@
         },
         "themes": {
           "de": [
-            "Tierversuche",
+            "tierversuch",
             "3r"
           ]
         }
@@ -2313,8 +2312,8 @@
         },
         "themes": {
           "de": [
-            "Tierversuche",
-            "Tierversuche"
+            "tierversuch",
+            "tierversuche"
           ]
         }
       },
@@ -2374,9 +2373,9 @@
         },
         "themes": {
           "de": [
-            "Nutztiere",
+            "nutztiere",
             "heimtier",
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -2433,8 +2432,8 @@
         },
         "themes": {
           "de": [
-            "Tierversuche",
-            "Tierversuche"
+            "tierversuch",
+            "tierversuche"
           ]
         }
       },
@@ -2491,8 +2490,8 @@
         },
         "themes": {
           "de": [
-            "Tierversuche",
-            "Tierversuche"
+            "tierversuch",
+            "tierversuche"
           ]
         }
       },
@@ -2549,8 +2548,7 @@
         },
         "themes": {
           "de": [
-            "tiere",
-            "Tierschutz"
+            "tierschutz"
           ]
         }
       },
@@ -2608,8 +2606,8 @@
         },
         "themes": {
           "de": [
-            "Nutztiere",
-            "Landwirtschaft"
+            "nutztiere",
+            "landwirtschaft"
           ]
         }
       },
@@ -2667,8 +2665,8 @@
         },
         "themes": {
           "de": [
-            "Nutztiere",
-            "Landwirtschaft"
+            "nutztiere",
+            "landwirtschaft"
           ]
         }
       },
@@ -2726,8 +2724,8 @@
         },
         "themes": {
           "de": [
-            "Nutztiere",
-            "Landwirtschaft"
+            "nutztiere",
+            "landwirtschaft"
           ]
         }
       },
@@ -2787,7 +2785,7 @@
         },
         "themes": {
           "de": [
-            "Tierschutz",
+            "tierschutz",
             "versuchstiere",
             "haltung"
           ]
@@ -2847,8 +2845,8 @@
         },
         "themes": {
           "de": [
-            "Tierschutz",
-            "Landwirtschaft"
+            "tierschutz",
+            "landwirtschaft"
           ]
         }
       },
@@ -2907,9 +2905,8 @@
         },
         "themes": {
           "de": [
-            "Tierversuche",
-            "tierversuchsfreie",
-            "botschaft"
+            "tierversuch",
+            "tierversuchsfreie"
           ]
         }
       },
@@ -2968,7 +2965,7 @@
         "themes": {
           "de": [
             "ernährung",
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -3042,12 +3039,12 @@
         },
         "themes": {
           "de": [
-            "tiere",
             "massentierhaltung",
             "massentier",
             "animal",
             "animaux",
-            "animali"
+            "élevage",
+            "elevage"
           ],
           "fr": [
             "tiere",
@@ -3128,7 +3125,7 @@
             "schwein",
             "schweine",
             "schlacht",
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -3190,7 +3187,7 @@
           "de": [
             "schwein",
             "schweine",
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -3252,7 +3249,7 @@
           "de": [
             "schwein",
             "schweine",
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -3314,7 +3311,7 @@
           "de": [
             "schwein",
             "schweine",
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -3379,7 +3376,7 @@
             "schwein",
             "schweine",
             "wildschwein",
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -3439,9 +3436,9 @@
         },
         "themes": {
           "de": [
-            "Tierschutz",
+            "tierschutz",
             "hunde",
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -3501,9 +3498,9 @@
         },
         "themes": {
           "de": [
-            "Tierwohl",
+            "tierwohl",
             "geflügel",
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -3568,7 +3565,7 @@
             "schwein",
             "schweine",
             "schweinezucht",
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -3630,7 +3627,7 @@
           "de": [
             "schwein",
             "schweine",
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -3690,9 +3687,9 @@
         },
         "themes": {
           "de": [
-            "Nutztiere",
-            "Wolf",
-            "Landwirtschaft"
+            "nutztiere",
+            "wolf",
+            "landwirtschaft"
           ]
         }
       },
@@ -3752,8 +3749,7 @@
         "themes": {
           "de": [
             "geflügel",
-            "gesetz",
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -3813,8 +3809,7 @@
         "themes": {
           "de": [
             "geflügel",
-            "gesetz",
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -3872,8 +3867,8 @@
         },
         "themes": {
           "de": [
-            "Tierschutz",
-            "Landwirtschaft"
+            "tierschutz",
+            "landwirtschaft"
           ]
         }
       },
@@ -3993,8 +3988,8 @@
         },
         "themes": {
           "de": [
-            "Tierschutz",
-            "Landwirtschaft"
+            "tierschutz",
+            "landwirtschaft"
           ]
         }
       },
@@ -4052,8 +4047,8 @@
         },
         "themes": {
           "de": [
-            "Nutztiere",
-            "Landwirtschaft"
+            "nutztiere",
+            "landwirtschaft"
           ]
         }
       },
@@ -4111,8 +4106,8 @@
         },
         "themes": {
           "de": [
-            "Nutztiere",
-            "Landwirtschaft"
+            "nutztiere",
+            "landwirtschaft"
           ]
         }
       },
@@ -4170,8 +4165,8 @@
         },
         "themes": {
           "de": [
-            "Nutztiere",
-            "Landwirtschaft"
+            "nutztiere",
+            "landwirtschaft"
           ]
         }
       },
@@ -4229,8 +4224,8 @@
         },
         "themes": {
           "de": [
-            "Tierschutz",
-            "Landwirtschaft"
+            "tierschutz",
+            "landwirtschaft"
           ]
         }
       },
@@ -4289,7 +4284,7 @@
         "themes": {
           "de": [
             "geflügel",
-            "Landwirtschaft"
+            "landwirtschaft"
           ]
         }
       },
@@ -4361,8 +4356,8 @@
         },
         "themes": {
           "de": [
-            "Tierversuche",
-            "Tierversuche",
+            "tierversuch",
+            "tierversuche",
             "animal",
             "expérimentation animale",
             "sperimentazione animale",
@@ -4451,10 +4446,8 @@
         },
         "themes": {
           "de": [
-            "Stopfleber",
-            "foie gras",
-            "initiative",
-            "botschaft"
+            "stopfleber",
+            "foie gras"
           ],
           "fr": [
             "Foie gras",
@@ -4527,7 +4520,7 @@
         },
         "themes": {
           "de": [
-            "Landwirtschaft",
+            "landwirtschaft",
             "agriculture"
           ],
           "fr": [
@@ -4671,7 +4664,7 @@
         "themes": {
           "de": [
             "nutrition",
-            "Landwirtschaft",
+            "landwirtschaft",
             "agriculture",
             "agricoltura"
           ],
@@ -4753,9 +4746,8 @@
         },
         "themes": {
           "de": [
-            "Stopfleber",
-            "foie gras",
-            "initiative"
+            "stopfleber",
+            "foie gras"
           ],
           "fr": [
             "Foie gras",

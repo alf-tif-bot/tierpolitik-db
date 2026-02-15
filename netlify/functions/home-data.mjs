@@ -149,6 +149,15 @@ const fallbackPersonByLang = {
 const SUBMITTER_OVERRIDES = {
   '25.4380': { name: 'Mathilde Crevoisier Crelier', rolle: 'Ständerat', partei: 'SP' },
   '24.3277': { name: 'Lorenz Hess', rolle: 'Nationalrat', partei: 'Die Mitte' },
+  '21.3002': { name: 'Kommission für Umwelt, Raumplanung und Energie Ständerat', rolle: 'Kommission', partei: '' },
+}
+
+const THEME_OVERRIDES = {
+  '21.3002': ['Umwelt', 'Landwirtschaft'],
+}
+
+const SUMMARY_OVERRIDES = {
+  '21.3002': 'Die Motion verlangt, den Handlungsspielraum im Jagdgesetz per Verordnung auszuschöpfen, um die Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren zu regeln (u. a. Regulierung und Herdenschutz).',
 }
 
 const parseMunicipalSubmitters = (body = '') => {
@@ -469,7 +478,13 @@ export const handler = async (event) => {
         status: statusLabel,
       })
 
-      const normalizedSummary = clean(summarizeVorstoss({
+      const businessNumber = formatBusinessNumber(
+        displayTitle,
+        r.external_id || `AUTO-${index + 1}`,
+        displaySummary,
+        displayBody,
+      )
+      const normalizedSummary = clean(SUMMARY_OVERRIDES[businessNumber] || summarizeVorstoss({
         title: displayTitle,
         summary: displaySummary,
         body: displayBody,
@@ -482,9 +497,12 @@ export const handler = async (event) => {
 
       const normalizedThemes = sanitizeThemes(Array.isArray(r.matched_keywords) && r.matched_keywords.length ? r.matched_keywords : ['Tierschutz'])
       const isMunicipal = String(r?.source_id || '').startsWith('ch-municipal-')
-      const baseThemes = isMunicipal
-        ? municipalThemesFromTitle(displayTitle)
-        : (normalizedThemes.length ? normalizedThemes : ['Tierschutz']).slice(0, 6)
+      const themeOverride = THEME_OVERRIDES[businessNumber]
+      const baseThemes = Array.isArray(themeOverride) && themeOverride.length
+        ? themeOverride
+        : (isMunicipal
+          ? municipalThemesFromTitle(displayTitle)
+          : (normalizedThemes.length ? normalizedThemes : ['Tierschutz']).slice(0, 6))
 
       if (!clean(displayTitle)) return null
 
@@ -515,12 +533,6 @@ export const handler = async (event) => {
       const municipalSubmitters = String(r?.source_id || '').startsWith('ch-municipal-')
         ? parseMunicipalSubmitters(displayBody)
         : []
-      const businessNumber = formatBusinessNumber(
-        displayTitle,
-        r.external_id || `AUTO-${index + 1}`,
-        displaySummary,
-        displayBody,
-      )
       const submitterOverride = SUBMITTER_OVERRIDES[businessNumber]
 
       return {

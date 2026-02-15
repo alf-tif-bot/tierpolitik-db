@@ -218,10 +218,16 @@ const SUBMITTER_OVERRIDES = {
   '25.4380': { name: 'Mathilde Crevoisier Crelier', rolle: 'Ständerat', partei: 'SP' },
   '24.3277': { name: 'Lorenz Hess', rolle: 'Nationalrat', partei: 'Die Mitte' },
   '20.4731': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
+  '21.3002': { name: 'Kommission für Umwelt, Raumplanung und Energie Ständerat', rolle: 'Kommission', partei: '' },
 }
 
 const THEME_OVERRIDES = {
   '20.4731': ['Nutztiere', 'Landwirtschaft', 'Umwelt'],
+  '21.3002': ['Umwelt', 'Landwirtschaft'],
+}
+
+const SUMMARY_OVERRIDES = {
+  '21.3002': 'Die Motion verlangt, den Handlungsspielraum im Jagdgesetz per Verordnung auszuschöpfen, um die Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren zu regeln (u. a. Regulierung und Herdenschutz).',
 }
 
 const parseMunicipalSubmitters = (body = '') => {
@@ -466,7 +472,9 @@ const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallb
     out.title[l] = title || fallbackTitle
     out.summary[l] = summary || fallbackSummary
     out.type[l] = typeLabels[typeDe]?.[l] || typeLabels[fallbackType]?.[l] || fallbackType
-    out.themes[l] = matched.map((kw) => localizeTheme(kw, l))
+    out.themes[l] = l === 'de'
+      ? fallbackThemes
+      : matched.map((kw) => localizeTheme(kw, l))
   }
 
   return out
@@ -501,7 +509,14 @@ const vorstoesse = items.map((item, index) => {
       ? item.sourceUrl
       : `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${String(item.externalId || '').split('-')[0]}`)
 
-  const rawSummaryText = summarizeVorstoss({
+  const businessNumber = formatBusinessNumber(
+    displayTitle,
+    item.externalId || `AUTO-${index + 1}`,
+    displaySummary,
+    displayBody,
+    item?.meta,
+  )
+  const rawSummaryText = SUMMARY_OVERRIDES[businessNumber] || summarizeVorstoss({
     title: displayTitle,
     summary: displaySummary,
     body: displayBody,
@@ -512,13 +527,6 @@ const vorstoesse = items.map((item, index) => {
   const summaryText = normalizedSummary.length >= 10
     ? normalizedSummary
     : `Kurzüberblick: ${displayTitle || `Vorstoss ${index + 1}`} (${status}).`
-  const businessNumber = formatBusinessNumber(
-    displayTitle,
-    item.externalId || `AUTO-${index + 1}`,
-    displaySummary,
-    displayBody,
-    item?.meta,
-  )
   const normalizedThemes = sanitizeThemes(mapThemesFromKeywords(item.matchedKeywords?.length ? item.matchedKeywords : ['Tierschutz']))
   const isMunicipal = String(item?.sourceId || '').startsWith('ch-municipal-')
   const themeOverride = THEME_OVERRIDES[businessNumber]
