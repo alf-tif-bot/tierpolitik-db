@@ -91,12 +91,7 @@ const isMunicipalTopicRelevant = (item) => {
   return strongHits > 0 || contextHits >= 2
 }
 
-const normalizeReviewStatus = (item) => {
-  const sid = String(item?.sourceId || '')
-  const status = String(item?.status || '')
-  if (sid.startsWith('ch-cantonal-') && status === 'rejected') return 'queued'
-  return status
-}
+const normalizeReviewStatus = (item) => String(item?.status || '')
 
 const baseReviewItems = [...db.items]
   .filter((item) => enabledSourceIds.has(item.sourceId) || String(item.sourceId || '') === 'user-input')
