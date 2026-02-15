@@ -1626,8 +1626,8 @@
   {
     "id": "vp-20252027-de",
     "titel": "25.2027 · Für ein Beschwerderecht von Tierschutzverbänden bei Misshandlung",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "In beiden Kommissionen",
+    "typ": "Petition",
+    "kurzbeschreibung": "Die Petition verlangt ein Beschwerderecht für Tierschutzverbände bei Fällen von Tiermisshandlung, damit Missstände rechtlich wirksamer verfolgt werden können.",
     "geschaeftsnummer": "25.2027",
     "ebene": "Bund",
     "kanton": null,
@@ -1643,8 +1643,8 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
+        "name": "Écologie et Altruisme",
+        "rolle": "Petitionskomitee",
         "partei": ""
       }
     ],
@@ -1668,7 +1668,7 @@
           "de": "In beiden Kommissionen"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Petition"
         },
         "themes": {
           "de": [

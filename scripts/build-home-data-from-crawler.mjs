@@ -33,6 +33,7 @@ const toIsoDate = (v, fallbackYear) => {
 
 const inferType = (title = '', sourceId = '', businessTypeName = '', rawType = '') => {
   const text = `${title} ${sourceId} ${businessTypeName} ${rawType}`.toLowerCase()
+  if (text.includes('petition') || text.includes('pétition') || text.includes('petizione')) return 'Petition'
   if (text.includes('dringliche motion') || text.includes('motion') || text.includes('mozione')) return 'Motion'
   if (text.includes('dringliches postulat') || text.includes('postulat') || text.includes('postulato')) return 'Postulat'
   if (text.includes('interpellation') || text.includes('interpellanza')) return 'Interpellation'
@@ -50,6 +51,7 @@ const typeLabels = {
   Motion: { de: 'Motion', fr: 'Motion', it: 'Mozione', en: 'Motion' },
   Postulat: { de: 'Postulat', fr: 'Postulat', it: 'Postulato', en: 'Postulate' },
   Anfrage: { de: 'Anfrage', fr: 'Question', it: 'Interrogazione', en: 'Question' },
+  Petition: { de: 'Petition', fr: 'Pétition', it: 'Petizione', en: 'Petition' },
 }
 
 const themeLabels = {
@@ -227,6 +229,7 @@ const SUBMITTER_OVERRIDES = {
   '23.7580': { name: 'Rüegger Monika', rolle: 'Nationalrat', partei: 'SVP' },
   '22.7004': { name: 'Egger Mike', rolle: 'Nationalrat', partei: 'SVP' },
   '21.8163': { name: 'de Courten Thomas', rolle: 'Nationalrat', partei: 'SVP' },
+  '25.2027': { name: 'Écologie et Altruisme', rolle: 'Petitionskomitee', partei: '' },
 }
 
 const TYPE_OVERRIDES = {
@@ -234,6 +237,7 @@ const TYPE_OVERRIDES = {
   '23.7580': 'Anfrage',
   '22.7004': 'Anfrage',
   '21.8163': 'Anfrage',
+  '25.2027': 'Petition',
 }
 
 const THEME_OVERRIDES = {
@@ -254,6 +258,7 @@ const SUMMARY_OVERRIDES = {
   '21.8163': 'Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und deren Folgen für Forstbetriebe, Personal und Lernende; zudem werden Kompensationsmassnahmen des Bundes nachgefragt.',
   '25.4010': 'Die Motion verlangt ein gesetzlich verankertes Importverbot für chemisch (insbesondere mit Chlor) behandeltes Geflügelfleisch und begründet dies mit Konsumentenschutz, Lebensmittelstandards und handelspolitischer Verlässlichkeit.',
   '22.3299': 'Die Motion verlangt ein Verbot PMSG-haltiger Tierarzneimittel in der Schweizer Schweinezucht und will verhindern, dass diese durch synthetische PMSG-Produkte ersetzt werden.',
+  '25.2027': 'Die Petition verlangt ein Beschwerderecht für Tierschutzverbände bei Fällen von Tiermisshandlung, damit Missstände rechtlich wirksamer verfolgt werden können.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {
