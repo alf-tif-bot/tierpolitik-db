@@ -439,7 +439,7 @@ const SUMMARY_OVERRIDES = {
   '22.3808': 'Die Interpellation verlangt einen transparenteren Zugang zur Tierversuchsstatistik und fragt unter anderem nach einer besseren Verknüpfung der Datenquellen auf tv-statistik.ch sowie nach zusätzlichen Publikationen.',
   '23.3411': 'Das Postulat beauftragt den Bundesrat zu prüfen, wie gemeinsam mit der Branche eine langfristige Lösung für die Krise auf dem Schweinemarkt gefunden werden kann, inklusive Unterstützung für Betriebe bei Umstellung oder Bestandsreduktion.',
   '25.2027': 'Die Petition verlangt ein Beschwerderecht für Tierschutzverbände bei Fällen von Tiermisshandlung, damit Missstände rechtlich wirksamer verfolgt werden können.',
-  '21.2027': 'Die Petition «Echter Tierschutz jetzt!» verlangt wirksamere Massnahmen gegen Tiermisshandlung und eine konsequentere Durchsetzung des Tierschutzes.',
+  '21.2027': 'Die Petition «Echter Tierschutz jetzt!» verlangt eine stärkere gesetzliche und behördliche Umsetzung des Tierschutzes in der Schweiz.',
   '25.3976': 'Die Interpellation fragt den Bundesrat, ob die geplanten Schweiz-EU-Abkommen den geltenden Tierschutz beim Schlachten schwächen könnten und wie die Betäubungspflicht bei rituellen Schlachtmethoden rechtlich abgesichert bleibt.',
   '25.4071': 'Die Interpellation fragt, weshalb Equiden in der Schweiz als Heim- oder Nutztiere deklariert werden, und thematisiert die Folgen für Kreislaufwirtschaft und Food Waste bei der Verwertung verstorbener Tiere.',
   '25.4144': 'Die Interpellation fragt den Bundesrat, ob die geplante Totalrevision der Tierzuchtverordnung die Erhaltung seltener Nutztierrassen gefährdet und wie der gesetzliche Auftrag zur Sicherung tiergenetischer Ressourcen konkret umgesetzt wird.',
