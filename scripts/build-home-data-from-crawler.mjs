@@ -141,6 +141,7 @@ const mapStatus = (status = '', rawStatus = '', summary = '', body = '') => {
   if (sourceStatus.includes('zurückgezogen') || sourceStatus.includes('zurueckgezogen')) return 'Zurückgezogen'
   if (sourceStatus.includes('erledigt')) return 'Erledigt'
   if (sourceStatus.includes('eingereicht')) return 'In Beratung'
+  if (sourceStatus.includes('stellungnahme zum vorstoss liegt vor') || sourceStatus.includes('stellungnahme liegt vor')) return 'Stellungnahme zum Vorstoss liegt vor'
 
   const textStatus = `${summary} ${body}`.toLowerCase()
   if (textStatus.includes('abgeschrieben')) return 'Abgeschrieben'
@@ -341,6 +342,7 @@ const STATUS_OVERRIDES = {
   '22.7807': 'Erledigt',
   '23.3411': 'Erledigt',
   '25.3976': 'Stellungnahme zum Vorstoss liegt vor',
+  '24.4696': 'Stellungnahme zum Vorstoss liegt vor',
   '25.4144': 'Erledigt',
   '22.3187': 'Erledigt',
   '20.2018': 'Eingereicht',
