@@ -2315,7 +2315,7 @@
   {
     "id": "vp-20223300",
     "titel": "22.3300 - 3R-Kompetenz der kantonalen Tierversuchskommissionen stärken",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich.",
     "geschaeftsnummer": "22.3300",
     "ebene": "Bund",
@@ -2326,7 +2326,7 @@
     "datumAktualisiert": "2026-02-14",
     "themen": [
       "Tierversuche",
-      "3r",
+      "3R",
       "Wissenschaft und Forschung",
       "Umwelt"
     ],
@@ -2336,9 +2336,9 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Schneider Meret",
+        "rolle": "Nationalrat",
+        "partei": "Grüne Partei der Schweiz"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20223300",
@@ -2361,7 +2361,7 @@
           "de": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
@@ -4449,7 +4449,7 @@
       "Animal",
       "Expérimentation animale",
       "Sperimentazione animale",
-      "3r"
+      "3R"
     ],
     "schlagwoerter": [
       "tierversuch",

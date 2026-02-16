@@ -257,6 +257,7 @@ const SUBMITTER_OVERRIDES = {
   '25.404': { name: 'Kommission für Wissenschaft, Bildung und Kultur Nationalrat', rolle: 'Kommission', partei: '' },
   '20.4731': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
   '20.3648': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
+  '22.3300': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
   '21.3002': { name: 'Kommission für Umwelt, Raumplanung und Energie Ständerat', rolle: 'Kommission', partei: '' },
   '22.3299': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
   '22.3808': { name: 'Schneider Meret', rolle: 'Nationalrätin', partei: 'Grüne Partei der Schweiz' },
@@ -314,6 +315,7 @@ const TYPE_OVERRIDES = {
   '20.4002': 'Motion',
   '22.3952': 'Motion',
   '22.3633': 'Motion',
+  '22.3300': 'Motion',
   '24.4344': 'Postulat',
   '21.3363': 'Motion',
   '21.044': 'Geschäft des Bundesrates',
@@ -584,6 +586,7 @@ const formatThemeLabel = (value = '') => {
   const s = String(value || '').trim()
   if (!s) return s
   if (/^tierversuch(e)?$/i.test(s)) return 'Tierversuche'
+  if (/^3r$/i.test(s)) return '3R'
   if (/^geflügel$/i.test(s) || /^gefluegel$/i.test(s)) return 'Masthühner'
   return s.charAt(0).toUpperCase() + s.slice(1)
 }
