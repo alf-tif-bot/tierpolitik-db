@@ -3413,18 +3413,20 @@
   },
   {
     "id": "vp-20233411",
-    "titel": "Parlamentsgeschäft 20233411",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 20233411 (In Beratung).",
+    "titel": "23.3411 - Eine langfristige Lösung für den Schweinemarkt",
+    "typ": "Postulat",
+    "kurzbeschreibung": "Das Postulat beauftragt den Bundesrat zu prüfen, wie gemeinsam mit der Branche eine langfristige Lösung für die Krise auf dem Schweinemarkt gefunden werden kann, inklusive Unterstützung für Betriebe bei Umstellung oder Bestandsreduktion.",
     "geschaeftsnummer": "23.3411",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2023-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2023-03-17",
     "datumAktualisiert": "2026-02-14",
     "themen": [
-      "Tierschutz"
+      "Landwirtschaft",
+      "Umwelt",
+      "Wirtschaft"
     ],
     "schlagwoerter": [
       "Tierpolitik"
@@ -3439,8 +3441,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20233411",
     "resultate": [
       {
-        "datum": "2023-02-14",
-        "status": "In Beratung",
+        "datum": "2023-03-17",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3450,17 +3452,19 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 20233411"
+          "de": "23.3411 - Eine langfristige Lösung für den Schweinemarkt"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 20233411 (In Beratung)."
+          "de": "Das Postulat beauftragt den Bundesrat zu prüfen, wie gemeinsam mit der Branche eine langfristige Lösung für die Krise auf dem Schweinemarkt gefunden werden kann, inklusive Unterstützung für Betriebe bei Umstellung oder Bestandsreduktion."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Postulat"
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "Landwirtschaft",
+            "Umwelt",
+            "Wirtschaft"
           ]
         }
       },

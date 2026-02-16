@@ -266,6 +266,7 @@ const SUBMITTER_OVERRIDES = {
 
 const TYPE_OVERRIDES = {
   '25.404': 'Parlamentarische Initiative',
+  '23.3411': 'Postulat',
   '23.7580': 'Anfrage',
   '22.7004': 'Anfrage',
   '21.8161': 'Anfrage',
@@ -288,6 +289,7 @@ const THEME_OVERRIDES = {
   '21.8163': ['Landwirtschaft', 'Staatspolitik', 'Umwelt', 'Beschäftigung und Arbeit'],
   '22.3299': ['Schweinezucht', 'Tierarzneimittel', 'Tierschutz'],
   '22.3808': ['Staatspolitik', 'Medien und Kommunikation', 'Wissenschaft und Forschung', 'Umwelt'],
+  '23.3411': ['Landwirtschaft', 'Umwelt', 'Wirtschaft'],
   '21.8161': ['Landwirtschaft', 'Umwelt'],
   '21.8162': ['Landwirtschaft', 'Umwelt'],
   '21.4435': ['Gesundheit', 'Landwirtschaft', 'Umwelt', 'Wirtschaft'],
@@ -300,10 +302,16 @@ const THEME_OVERRIDES = {
 const STATUS_OVERRIDES = {
   '21.044': 'Erledigt',
   '22.7807': 'Erledigt',
+  '23.3411': 'Erledigt',
+}
+
+const SUBMISSION_DATE_OVERRIDES = {
+  '23.3411': '2023-03-17',
 }
 
 const TITLE_OVERRIDES = {
   '22.7807': '22.7807 - Wer bezahlt die Schäden von Nutztieren, wenn die Gänsegeier vor der Wildhut den Kadaver zerfressen?',
+  '23.3411': '23.3411 - Eine langfristige Lösung für den Schweinemarkt',
 }
 
 const SUMMARY_OVERRIDES = {
@@ -320,6 +328,7 @@ const SUMMARY_OVERRIDES = {
   '25.4010': 'Die Motion verlangt ein gesetzlich verankertes Importverbot für chemisch (insbesondere mit Chlor) behandeltes Geflügelfleisch und begründet dies mit Konsumentenschutz, Lebensmittelstandards und handelspolitischer Verlässlichkeit.',
   '22.3299': 'Die Motion verlangt ein Verbot PMSG-haltiger Tierarzneimittel in der Schweizer Schweinezucht und will verhindern, dass diese durch synthetische PMSG-Produkte ersetzt werden.',
   '22.3808': 'Die Interpellation verlangt einen transparenteren Zugang zur Tierversuchsstatistik und fragt unter anderem nach einer besseren Verknüpfung der Datenquellen auf tv-statistik.ch sowie nach zusätzlichen Publikationen.',
+  '23.3411': 'Das Postulat beauftragt den Bundesrat zu prüfen, wie gemeinsam mit der Branche eine langfristige Lösung für die Krise auf dem Schweinemarkt gefunden werden kann, inklusive Unterstützung für Betriebe bei Umstellung oder Bestandsreduktion.',
   '25.2027': 'Die Petition verlangt ein Beschwerderecht für Tierschutzverbände bei Fällen von Tiermisshandlung, damit Missstände rechtlich wirksamer verfolgt werden können.',
   '25.4071': 'Die Interpellation fragt, weshalb Equiden in der Schweiz als Heim- oder Nutztiere deklariert werden, und thematisiert die Folgen für Kreislaufwirtschaft und Food Waste bei der Verwertung verstorbener Tiere.',
   '21.3703': 'Die Interpellation verlangt Auskunft, wie die Schweiz im Indonesien-Abkommen den Tierschutz bei tierischen Produkten stärken und den Import von Qualprodukten begrenzen will.',
@@ -623,7 +632,7 @@ const vorstoesse = items.map((item, index) => {
   const displaySummary = deVariant?.summary || item.summary
   const displayBody = deVariant?.body || item.body
   const inferredYear = inferYearFromBusiness(displayTitle, item.externalId)
-  const eingereicht = toIsoDate(item.publishedAt || item.fetchedAt, inferredYear)
+  const computedEingereicht = toIsoDate(item.publishedAt || item.fetchedAt, inferredYear)
   const updated = toIsoDate(item.fetchedAt || item.publishedAt)
   const inferredStatus = mapStatus(item.status, item?.meta?.rawStatus || '', displaySummary, displayBody)
   const businessNumber = formatBusinessNumber(
@@ -633,6 +642,7 @@ const vorstoesse = items.map((item, index) => {
     displayBody,
     item?.meta,
   )
+  const eingereicht = SUBMISSION_DATE_OVERRIDES[businessNumber] || computedEingereicht
   const status = STATUS_OVERRIDES[businessNumber] || inferredStatus
   const titleOverride = TITLE_OVERRIDES[businessNumber]
   const finalTitle = titleOverride || displayTitle
