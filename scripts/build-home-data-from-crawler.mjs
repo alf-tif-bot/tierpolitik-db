@@ -516,11 +516,23 @@ const repairEncodingArtifacts = (text = '') => String(text)
   .replace(/Gesch(?:�|Ã¤)ftsnummer/gi, 'Geschäftsnummer')
   .replace(/Kurz(?:�|Ã¼)berblick/gi, 'Kurzüberblick')
   .replace(/KurzA(?:�|Ã¼)berblick/gi, 'Kurzüberblick')
+  .replace(/Aussagekr(?:�|Ã¤)ftig/gi, 'Aussagekräftig')
+  .replace(/Verkn(?:�|Ã¼)pf/gi, 'Verknüpf')
+  .replace(/zus(?:�|Ã¤)tzlich/gi, 'zusätzlich')
+  .replace(/Nationalr(?:�|Ã¤)tin/gi, 'Nationalrätin')
+  .replace(/f(?:�|Ã¼)r/gi, 'für')
+  .replace(/gr(?:�|Ã¼)ne/gi, 'grüne')
+  .replace(/Gr(?:�|Ã¼)ne/gi, 'Grüne')
+  .replace(/GR(?:�|Ã)NE/gi, 'GRÜNE')
+  .replace(/R(?:�|Ã¼)egger/gi, 'Rüegger')
+  .replace(/Gr(?:�|Ã¼)ter/gi, 'Grüter')
+  .replace(/M(?:�|Ã¼)ller/gi, 'Müller')
   .replace(/gem(?:�|Ã¤)ss/gi, 'gemäss')
   .replace(/gemass/gi, 'gemäss')
   .replace(/Gem(?:�|Ã¤)ss/g, 'Gemäss')
   .replace(/GemAss/g, 'Gemäss')
   .replace(/\s�\s/g, ' - ')
+  .replace(/\sÃ\s/g, ' - ')
 
 const clean = (text = '') => repairEncodingArtifacts(String(text))
   .replace(/\s+/g, ' ')
@@ -859,7 +871,11 @@ const vorstoesse = items.map((item, index) => {
     themen: [...new Set(baseThemes.map((x) => formatThemeLabel(x)))],
     schlagwoerter: (item.matchedKeywords?.length ? item.matchedKeywords : ['Tierpolitik']).slice(0, 8),
     einreichende: submitterOverride
-      ? [submitterOverride]
+      ? [{
+        name: clean(submitterOverride.name),
+        rolle: clean(submitterOverride.rolle),
+        partei: clean(submitterOverride.partei),
+      }]
       : (municipalSubmitters.length ? municipalSubmitters : [inferSubmitter(sprache, finalTitle, displaySummary, displayBody, item)]),
     linkGeschaeft: link,
     resultate: [
