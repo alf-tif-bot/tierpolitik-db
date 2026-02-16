@@ -248,6 +248,8 @@ const buildCandidates = (entry) => {
   })
 
   const configuredDeepLinks = configured.filter((url) => !configuredTopLevel.includes(url))
+  const configuredTopLevelPriority = configuredTopLevel.filter((url) => !isGenericSitzungsdienstLanding(url))
+  const configuredTopLevelFallback = configuredTopLevel.filter((url) => isGenericSitzungsdienstLanding(url))
 
   const pathHints = [
     'geschaefte',
@@ -280,15 +282,19 @@ const buildCandidates = (entry) => {
     ...pathHints.flatMap((hint) => expandCandidateVariants(`${alternateHost}/${hint}`)),
   ]
 
-  // Priorisierung für Recall: zuerst bekannte Base-Hosts + ratsinfo/allris-Hosthints,
-  // dann tiefe URL-Kandidaten und erst danach heuristische Pfadvarianten.
+  // Priorisierung für Recall/Precision:
+  // 1) konkret konfigurierte Deep-Links (Interventionen/Geschäfte) zuerst,
+  // 2) bekannte Top-Level-Hosts (ohne generische sitzungsdienst-Landing),
+  // 3) Hosthints + heuristische Pfadvarianten,
+  // 4) generische sitzungsdienst-Landing nur als letzte Fallback-Option.
   return [...new Set([
-    ...configuredTopLevel,
+    ...configuredDeepLinks,
+    ...configuredTopLevelPriority,
     ...expandCandidateVariants(base),
     ...expandCandidateVariants(alternateHost),
-    ...configuredDeepLinks,
     ...hostHints,
     ...heuristics,
+    ...configuredTopLevelFallback,
   ].filter(Boolean))]
 }
 
