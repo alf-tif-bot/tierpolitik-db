@@ -74,8 +74,9 @@
     "regionGemeinde": null,
     "status": "Abgeschrieben",
     "datumEingereicht": "2020-09-16",
-    "datumAktualisiert": "2026-02-14",
+    "datumAktualisiert": "2026-02-16",
     "themen": [
+      "Umwelt",
       "Tierschutz",
       "Nutztiere",
       "Verkehr"
@@ -93,9 +94,9 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20204002",
     "resultate": [
       {
-        "datum": "2020-09-16",
+        "datum": "2022-09-30",
         "status": "Abgeschrieben",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
+        "bemerkung": "Abgeschrieben am 30.09.2022 (nicht innert zwei Jahren abschliessend behandelt; Curia Vista Chronologie)"
       }
     ],
     "medien": [],
@@ -114,6 +115,7 @@
         },
         "themes": {
           "de": [
+            "Umwelt",
             "Tierschutz",
             "Nutztiere",
             "Verkehr"
