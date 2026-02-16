@@ -234,6 +234,7 @@ const fallbackPeopleByLang = {
 
 const SUBMITTER_OVERRIDES = {
   '21.044': { name: 'Bundesrat', rolle: 'Regierung', partei: 'Bundesrat' },
+  '23.7115': { name: 'Egger Mike', rolle: 'Nationalrat', partei: 'SVP' },
   '25.4010': { name: 'David Roth', rolle: 'Nationalrat', partei: 'SP' },
   '25.4380': { name: 'Mathilde Crevoisier Crelier', rolle: 'Ständerat', partei: 'SP' },
   '24.3277': { name: 'Lorenz Hess', rolle: 'Nationalrat', partei: 'Die Mitte' },
@@ -270,6 +271,7 @@ const SUBMITTER_OVERRIDES = {
 
 const TYPE_OVERRIDES = {
   '25.404': 'Parlamentarische Initiative',
+  '23.7115': 'Anfrage',
   '23.3411': 'Postulat',
   '23.7580': 'Anfrage',
   '22.7004': 'Anfrage',
@@ -286,6 +288,7 @@ const TYPE_OVERRIDES = {
 
 const THEME_OVERRIDES = {
   '21.044': ['Landwirtschaft', 'Umwelt'],
+  '23.7115': ['Energie', 'Landwirtschaft', 'Umwelt'],
   '20.4731': ['Nutztiere', 'Landwirtschaft', 'Umwelt'],
   '21.3002': ['Umwelt', 'Landwirtschaft'],
   '23.7580': ['Landwirtschaft', 'Umwelt'],
@@ -311,6 +314,7 @@ const THEME_OVERRIDES = {
 
 const STATUS_OVERRIDES = {
   '21.044': 'Erledigt',
+  '23.7115': 'Erledigt',
   '22.7807': 'Erledigt',
   '23.3411': 'Erledigt',
   '25.4144': 'Erledigt',
@@ -320,6 +324,7 @@ const STATUS_OVERRIDES = {
 }
 
 const SUBMISSION_DATE_OVERRIDES = {
+  '23.7115': '2023-03-01',
   '23.3411': '2023-03-17',
   '25.4144': '2025-09-25',
   '22.3187': '2022-03-16',
@@ -328,6 +333,7 @@ const SUBMISSION_DATE_OVERRIDES = {
 }
 
 const TITLE_OVERRIDES = {
+  '23.7115': '23.7115 - Bedeutung von Netto-Null für schweizerische Nutztiere',
   '22.7807': '22.7807 - Wer bezahlt die Schäden von Nutztieren, wenn die Gänsegeier vor der Wildhut den Kadaver zerfressen?',
   '23.3411': '23.3411 - Eine langfristige Lösung für den Schweinemarkt',
   '25.4144': '25.4144 - Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet?',
@@ -337,6 +343,7 @@ const TITLE_OVERRIDES = {
 }
 
 const SUMMARY_OVERRIDES = {
+  '23.7115': 'Die Fragestunde-Frage thematisiert den Zusammenhang von Netto-Null-Zielen, landwirtschaftlichen Treibhausgasen und Nutztierhaltung. Der Bundesrat wird gefragt, ob Tierbestände reguliert werden sollen, welche Nutztiere zur Fleischproduktion kein CO2 verursachen und wie er entsprechende Forderungen von Umweltverbänden einordnet.',
   '21.3002': 'Die Motion verlangt, den Handlungsspielraum im Jagdgesetz per Verordnung auszuschöpfen, um die Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren zu regeln (u. a. Regulierung und Herdenschutz).',
   '25.4809': 'Der Vorstoss verlangt konkrete Massnahmen gegen Tierqual bei der Geflügelschlachtung und eine konsequent tierschutzkonforme Praxis.',
   '20.3849': 'Die Interpellation thematisiert neue EU-Tiergesundheitsvorschriften, die den Export bestimmter Nutztiere aus der Schweiz erschweren. Der Bundesrat wird zu Kenntnisstand, Unterstützung betroffener Betriebe und möglichen Verhandlungsspielräumen mit der EU befragt.',
@@ -414,13 +421,13 @@ const inferSubmitter = (lang, title = '', summary = '', body = '', item = null) 
 }
 
 const repairEncodingArtifacts = (text = '') => String(text)
-  .replace(/Parlamentsgesch�ft/gi, 'Parlamentsgeschäft')
-  .replace(/Gesch�ftsnummer/gi, 'Geschäftsnummer')
-  .replace(/Kurz�berblick/gi, 'Kurzüberblick')
-  .replace(/KurzA�berblick/gi, 'Kurzüberblick')
-  .replace(/gem�ss/gi, 'gemäss')
+  .replace(/Parlamentsgesch(?:�|Ã¤)ft/gi, 'Parlamentsgeschäft')
+  .replace(/Gesch(?:�|Ã¤)ftsnummer/gi, 'Geschäftsnummer')
+  .replace(/Kurz(?:�|Ã¼)berblick/gi, 'Kurzüberblick')
+  .replace(/KurzA(?:�|Ã¼)berblick/gi, 'Kurzüberblick')
+  .replace(/gem(?:�|Ã¤)ss/gi, 'gemäss')
   .replace(/gemass/gi, 'gemäss')
-  .replace(/Gem�ss/g, 'Gemäss')
+  .replace(/Gem(?:�|Ã¤)ss/g, 'Gemäss')
   .replace(/GemAss/g, 'Gemäss')
   .replace(/\s�\s/g, ' - ')
 

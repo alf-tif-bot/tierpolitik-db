@@ -2561,34 +2561,36 @@
   },
   {
     "id": "vp-20237115",
-    "titel": "Parlamentsgeschäft 23.7115",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 23.7115 (In Beratung).",
+    "titel": "23.7115 - Bedeutung von Netto-Null für schweizerische Nutztiere",
+    "typ": "Anfrage",
+    "kurzbeschreibung": "Die Fragestunde-Frage thematisiert den Zusammenhang von Netto-Null-Zielen, landwirtschaftlichen Treibhausgasen und Nutztierhaltung. Der Bundesrat wird gefragt, ob Tierbestände reguliert werden sollen, welche Nutztiere zur Fleischproduktion kein CO2 verursachen und wie er entsprechende Forderungen von Umweltverbänden einordnet.",
     "geschaeftsnummer": "23.7115",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2023-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2023-03-01",
     "datumAktualisiert": "2026-02-14",
     "themen": [
-      "Tierschutz"
+      "Energie",
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "Tierpolitik"
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Egger Mike",
+        "rolle": "Nationalrat",
+        "partei": "SVP"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20237115",
     "resultate": [
       {
-        "datum": "2023-02-14",
-        "status": "In Beratung",
+        "datum": "2023-03-01",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -2598,17 +2600,19 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 23.7115"
+          "de": "23.7115 - Bedeutung von Netto-Null für schweizerische Nutztiere"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 23.7115 (In Beratung)."
+          "de": "Die Fragestunde-Frage thematisiert den Zusammenhang von Netto-Null-Zielen, landwirtschaftlichen Treibhausgasen und Nutztierhaltung. Der Bundesrat wird gefragt, ob Tierbestände reguliert werden sollen, welche Nutztiere zur Fleischproduktion kein CO2 verursachen und wie er entsprechende Forderungen von Umweltverbänden einordnet."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Anfrage"
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "Energie",
+            "Landwirtschaft",
+            "Umwelt"
           ]
         }
       },
