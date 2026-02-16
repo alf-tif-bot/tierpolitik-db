@@ -3161,15 +3161,15 @@
   },
   {
     "id": "vp-20218161",
-    "titel": "Parlamentsgeschäft 21.8161",
-    "typ": "Anfrage",
+    "titel": "21.8161 - Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (1)",
+    "typ": "Fragestunde. Frage",
     "kurzbeschreibung": "Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und fragt nach Kriterien für Ausnahmen bei unerlässlichen Forstarbeiten (inkl. Aufforstung und Schutzwaldpflege).",
     "geschaeftsnummer": "21.8161",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2021-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2021-12-08",
     "datumAktualisiert": "2026-02-14",
     "themen": [
       "Landwirtschaft",
@@ -3188,8 +3188,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20218161",
     "resultate": [
       {
-        "datum": "2021-02-14",
-        "status": "In Beratung",
+        "datum": "2021-12-08",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3199,13 +3199,13 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 21.8161"
+          "de": "21.8161 · Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (1)"
         },
         "summary": {
           "de": "Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und fragt nach Kriterien für Ausnahmen bei unerlässlichen Forstarbeiten (inkl. Aufforstung und Schutzwaldpflege)."
         },
         "type": {
-          "de": "Anfrage"
+          "de": "Fragestunde. Frage"
         },
         "themes": {
           "de": [
