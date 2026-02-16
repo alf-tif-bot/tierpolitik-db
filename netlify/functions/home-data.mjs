@@ -294,7 +294,7 @@ const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '', s
     sentences.push('Der Vorstoss verlangt ein klares Importverbot für chemisch behandeltes Geflügelfleisch ("Chlorhühner") und die Verankerung im Gesetz.')
     sentences.push('Im Fokus steht, ob Tierschutz- und Konsumentenschutzstandards im Import konsequent abgesichert werden.')
   } else if (low.includes('stopfleber') || low.includes('foie gras')) {
-    sentences.push('Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines Importverbots bzw. eines indirekten Gegenentwurfs.')
+    sentences.push('Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines indirekten Gegenentwurfs mit stufenweisen Importbeschränkungen.')
     sentences.push('Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll.')
   } else if (low.includes('tierversuch') || low.includes('3r') || low.includes('expérimentation animale')) {
     sentences.push('Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann.')
