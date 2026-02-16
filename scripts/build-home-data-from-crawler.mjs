@@ -261,6 +261,7 @@ const SUBMITTER_OVERRIDES = {
   '24.3296': { name: 'Munz Martina', rolle: 'Nationalrätin', partei: 'SP' },
   '21.3363': { name: 'Munz Martina', rolle: 'Nationalrätin', partei: 'Sozialdemokratische Partei der Schweiz' },
   '21.3835': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
+  '22.7807': { name: 'Friedli Esther', rolle: 'Nationalrätin', partei: 'Schweizerische Volkspartei' },
 }
 
 const TYPE_OVERRIDES = {
@@ -271,6 +272,7 @@ const TYPE_OVERRIDES = {
   '21.8162': 'Anfrage',
   '21.8163': 'Anfrage',
   '23.7858': 'Anfrage',
+  '22.7807': 'Anfrage',
   '25.2027': 'Petition',
   '23.2009': 'Petition',
 }
@@ -290,12 +292,18 @@ const THEME_OVERRIDES = {
   '21.8162': ['Landwirtschaft', 'Umwelt'],
   '21.4435': ['Gesundheit', 'Landwirtschaft', 'Umwelt', 'Wirtschaft'],
   '23.7858': ['Landwirtschaft', 'Umwelt'],
+  '22.7807': ['Finanzwesen', 'Landwirtschaft', 'Umwelt'],
   '25.4812': ['Landwirtschaft', 'Staatspolitik', 'Umwelt'],
   '21.3363': ['Umwelt', 'Wissenschaft und Forschung'],
 }
 
 const STATUS_OVERRIDES = {
   '21.044': 'Erledigt',
+  '22.7807': 'Erledigt',
+}
+
+const TITLE_OVERRIDES = {
+  '22.7807': '22.7807 - Wer bezahlt die Schäden von Nutztieren, wenn die Gänsegeier vor der Wildhut den Kadaver zerfressen?',
 }
 
 const SUMMARY_OVERRIDES = {
@@ -316,6 +324,7 @@ const SUMMARY_OVERRIDES = {
   '25.4071': 'Die Interpellation fragt, weshalb Equiden in der Schweiz als Heim- oder Nutztiere deklariert werden, und thematisiert die Folgen für Kreislaufwirtschaft und Food Waste bei der Verwertung verstorbener Tiere.',
   '21.3703': 'Die Interpellation verlangt Auskunft, wie die Schweiz im Indonesien-Abkommen den Tierschutz bei tierischen Produkten stärken und den Import von Qualprodukten begrenzen will.',
   '23.7858': 'Die Fragestunde-Frage verlangt vom Bundesrat Angaben zur Entwicklung von Wolfsbestand und Nutztier-Schäden 2022–2023 sowie eine Begründung für den Abschuss ganzer Wolfsrudel trotz sinkender Schäden.',
+  '22.7807': 'Die Fragestunde-Frage verlangt eine Klärung, wie gerissene Nutztiere entschädigt werden, wenn Gänsegeier Kadaver vor der Begutachtung durch die Wildhut stark beschädigen.',
   '24.4695': 'Das Postulat beauftragt den Bundesrat zu prüfen und Bericht zu erstatten, welche im Ausland eingesetzten Ansätze zur Förderung tierversuchsfreier Forschungsmethoden sich für die Schweiz eignen.',
   '25.4812': 'Das Postulat beauftragt den Bundesrat zu prüfen, wie der Vollzug des Tierschutzgesetzes in den Kantonen verbessert werden kann, um Fälle wie in Ramiswil zu verhindern. Genannt werden insbesondere eine bessere Zusammenarbeit der Veterinärämter mit Tierschutzorganisationen, der Ausbau von Meldestellen und ausreichende kantonale Ressourcen.',
   '24.3296': 'Das Postulat beauftragt den Bundesrat zu prüfen, welche gesetzlichen Anpassungen für eine unabhängige Tieranwaltschaft und minimale subjektive Rechte für höher entwickelte Tiere erforderlich wären.',
@@ -584,6 +593,7 @@ const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallb
   for (const [lang, variant] of Object.entries(variants || {})) {
     const l = ['de', 'fr', 'it', 'en'].includes(lang) ? lang : 'de'
     const title = clean(variant?.title || fallbackTitle)
+    const weakTitle = !title || /^parlamentsgeschäft\s+\d+$/i.test(title)
     const summary = clean(variant?.summary || variant?.body || fallbackSummary)
     const summaryLow = summary.toLowerCase()
     const weakSummary = !summary
@@ -592,7 +602,7 @@ const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallb
       || /^parlamentsgeschäft\s+\d+$/i.test(summary)
     const typeDe = TYPE_OVERRIDES[businessNumber] || inferType(title, item.sourceId, variant?.businessTypeName || '', item?.meta?.rawType || '')
     const matched = mapThemesFromKeywords(item.matchedKeywords || fallbackThemes || []).slice(0, 6)
-    out.title[l] = title || fallbackTitle
+    out.title[l] = weakTitle ? fallbackTitle : title
     out.summary[l] = weakSummary ? fallbackSummary : summary
     out.type[l] = typeLabels[typeDe]?.[l] || typeLabels[fallbackType]?.[l] || fallbackType
     out.themes[l] = l === 'de'
@@ -624,9 +634,11 @@ const vorstoesse = items.map((item, index) => {
     item?.meta,
   )
   const status = STATUS_OVERRIDES[businessNumber] || inferredStatus
-  const inferredType = inferType(displayTitle, item.sourceId, item?.languageVariants?.de?.businessTypeName || '', item?.meta?.rawType || '')
+  const titleOverride = TITLE_OVERRIDES[businessNumber]
+  const finalTitle = titleOverride || displayTitle
+  const inferredType = inferType(finalTitle, item.sourceId, item?.languageVariants?.de?.businessTypeName || '', item?.meta?.rawType || '')
   const typ = TYPE_OVERRIDES[businessNumber] || inferredType
-  const stance = extractStance(item.reviewReason, displayTitle, displaySummary, displayBody)
+  const stance = extractStance(item.reviewReason, finalTitle, displaySummary, displayBody)
   const initiativeLinks = buildInitiativeLinks({
     typ,
     title: displayTitle,
@@ -641,7 +653,7 @@ const vorstoesse = items.map((item, index) => {
       ? item.sourceUrl
       : `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${String(item.externalId || '').split('-')[0]}`)
   const rawSummaryText = SUMMARY_OVERRIDES[businessNumber] || summarizeVorstoss({
-    title: displayTitle,
+    title: finalTitle,
     summary: displaySummary,
     body: displayBody,
     status: item.status,
@@ -650,7 +662,7 @@ const vorstoesse = items.map((item, index) => {
   const normalizedSummary = clean(rawSummaryText)
   const summaryText = normalizedSummary.length >= 10
     ? normalizedSummary
-    : `${displayTitle || `Vorstoss ${index + 1}`} (${status}).`
+    : `${finalTitle || `Vorstoss ${index + 1}`} (${status}).`
   const inlineThemes = [
     ...parseStructuredThemes(displaySummary),
     ...parseStructuredThemes(displayBody),
@@ -664,10 +676,10 @@ const vorstoesse = items.map((item, index) => {
   const baseThemes = Array.isArray(themeOverride) && themeOverride.length
     ? themeOverride
     : (isMunicipal
-      ? municipalThemesFromTitle(displayTitle)
+      ? municipalThemesFromTitle(finalTitle)
       : (normalizedThemes.length ? normalizedThemes : ['Tierschutz']).slice(0, 6))
   const i18nVariants = isParliament ? (variantsByAffair.get(affairId) || {}) : {}
-  const i18nMeta = buildI18nFromItem(i18nVariants, item, displayTitle || `Vorstoss ${index + 1}`, summaryText, typ, baseThemes, businessNumber)
+  const i18nMeta = buildI18nFromItem(i18nVariants, item, finalTitle || `Vorstoss ${index + 1}`, summaryText, typ, baseThemes, businessNumber)
 
   const municipalSubmitters = String(item?.sourceId || '').startsWith('ch-municipal-')
     ? parseMunicipalSubmitters(displayBody)
@@ -676,7 +688,7 @@ const vorstoesse = items.map((item, index) => {
 
   return {
     id: `vp-${idSafe.toLowerCase()}`,
-    titel: displayTitle || `Vorstoss ${index + 1}`,
+    titel: finalTitle || `Vorstoss ${index + 1}`,
     typ,
     kurzbeschreibung: summaryText,
     geschaeftsnummer: businessNumber,
@@ -690,7 +702,7 @@ const vorstoesse = items.map((item, index) => {
     schlagwoerter: (item.matchedKeywords?.length ? item.matchedKeywords : ['Tierpolitik']).slice(0, 8),
     einreichende: submitterOverride
       ? [submitterOverride]
-      : (municipalSubmitters.length ? municipalSubmitters : [inferSubmitter(sprache, displayTitle, displaySummary, displayBody, item)]),
+      : (municipalSubmitters.length ? municipalSubmitters : [inferSubmitter(sprache, finalTitle, displaySummary, displayBody, item)]),
     linkGeschaeft: link,
     resultate: [
       {
