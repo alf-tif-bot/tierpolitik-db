@@ -278,6 +278,7 @@ const SUBMITTER_OVERRIDES = {
   '20.2018': { name: 'Tier im Fokus', rolle: 'Petitionskomitee', partei: '' },
   '22.3952': { name: 'Giacometti Anna', rolle: 'Nationalrätin', partei: 'FDP.Die Liberalen' },
   '22.3633': { name: 'Stark Jakob', rolle: 'Ständerat', partei: 'Schweizerische Volkspartei' },
+  '24.4344': { name: 'Vara Céline', rolle: 'Ständerätin', partei: 'GRÜNE Schweiz' },
 }
 
 const TYPE_OVERRIDES = {
@@ -297,6 +298,7 @@ const TYPE_OVERRIDES = {
   '20.4002': 'Motion',
   '22.3952': 'Motion',
   '22.3633': 'Motion',
+  '24.4344': 'Postulat',
   '21.044': 'Geschäft des Bundesrates',
 }
 
@@ -327,6 +329,7 @@ const THEME_OVERRIDES = {
   '20.4002': ['Tierschutz', 'Nutztiere', 'Verkehr'],
   '22.3952': ['Tierschutz', 'Nutztiere'],
   '22.3633': ['Landwirtschaft', 'Gesundheit', 'Umwelt', 'Nutztiere'],
+  '24.4344': ['Staatspolitik', 'Umwelt'],
 }
 
 const STATUS_OVERRIDES = {
@@ -365,6 +368,7 @@ const TITLE_OVERRIDES = {
   '22.3952': '22.3952 - Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen',
   '22.3633': '22.3633 - Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden?',
   '24.4696': '24.4696 - Sucht der Bund nach einer Strategie zur Einschränkung der Tierversuche?',
+  '24.4344': '24.4344 - Tierschutzbeauftragte. Eine wirksame Unterstützung',
 }
 
 const SUMMARY_OVERRIDES = {
@@ -401,6 +405,7 @@ const SUMMARY_OVERRIDES = {
   '20.4002': 'Die Motion verlangt, dass Transportfahrzeuge für Nutztiere bereits bei Zulassung und periodischen Kontrollen systematisch auf die Vorgaben der Tierschutzgesetzgebung geprüft werden.',
   '22.3952': 'Die Motion verlangt, die Tierschutzverordnung so anzupassen, dass den artspezifischen Bedürfnissen von Eseln, Maultieren und Mauleseln besser Rechnung getragen wird, insbesondere beim Sozialkontakt und bei der Haltung.',
   '22.3633': 'Die Motion verlangt eine Entschädigungslösung für behördlich angeordnete Betriebsschliessungen und Notschlachtungen im Zusammenhang mit der Afrikanischen Schweinepest, insbesondere für Schlacht-, Zerlege-, Verarbeitungs- und Entsorgungsbetriebe.',
+  '24.4344': 'Das Postulat beauftragt den Bundesrat zu prüfen, wie die Ernennung von Tierschutzbeauftragten nach dem Modell des Kantons St. Gallen in den Kantonen gefördert und erleichtert werden kann. Ziel ist ein wirksamerer Vollzug des Tierschutzrechts durch bessere Zusammenarbeit zwischen Gemeinden und kantonalen Behörden.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {

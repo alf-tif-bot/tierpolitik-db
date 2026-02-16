@@ -1602,8 +1602,8 @@
   {
     "id": "vp-20244344",
     "titel": "24.4344 - Tierschutzbeauftragte. Eine wirksame Unterstützung",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "24.4344 - Tierschutzbeauftragte. Eine wirksame Unterstützung (Erledigt).",
+    "typ": "Postulat",
+    "kurzbeschreibung": "Das Postulat beauftragt den Bundesrat zu prüfen, wie die Ernennung von Tierschutzbeauftragten nach dem Modell des Kantons St. Gallen in den Kantonen gefördert und erleichtert werden kann. Ziel ist ein wirksamerer Vollzug des Tierschutzrechts durch bessere Zusammenarbeit zwischen Gemeinden und kantonalen Behörden.",
     "geschaeftsnummer": "24.4344",
     "ebene": "Bund",
     "kanton": null,
@@ -1620,9 +1620,9 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Vara Céline",
+        "rolle": "Ständerätin",
+        "partei": "GRÜNE Schweiz"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20244344",
@@ -1642,10 +1642,10 @@
           "de": "24.4344 · Tierschutzbeauftragte. Eine wirksame Unterstützung"
         },
         "summary": {
-          "de": "24.4344 - Tierschutzbeauftragte. Eine wirksame Unterstützung (Erledigt)."
+          "de": "Das Postulat beauftragt den Bundesrat zu prüfen, wie die Ernennung von Tierschutzbeauftragten nach dem Modell des Kantons St. Gallen in den Kantonen gefördert und erleichtert werden kann. Ziel ist ein wirksamerer Vollzug des Tierschutzrechts durch bessere Zusammenarbeit zwischen Gemeinden und kantonalen Behörden."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Postulat"
         },
         "themes": {
           "de": [
