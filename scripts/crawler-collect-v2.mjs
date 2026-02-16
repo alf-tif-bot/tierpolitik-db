@@ -13,6 +13,18 @@ const parseIntSafe = (value, fallback) => {
 const COLLECT_TIMEOUT_MS = parseIntSafe(process.env.CRAWLER_COLLECT_TIMEOUT_MS, 45000)
 const COLLECT_CONCURRENCY = parseIntSafe(process.env.CRAWLER_COLLECT_CONCURRENCY, 4)
 
+const withTimeout = async (promise, timeoutMs) => {
+  let timer
+  try {
+    const timeoutPromise = new Promise((_, reject) => {
+      timer = setTimeout(() => reject(new Error(`Adapter timeout after ${timeoutMs}ms`)), timeoutMs)
+    })
+    return await Promise.race([promise, timeoutPromise])
+  } finally {
+    if (timer) clearTimeout(timer)
+  }
+}
+
 const collectOneSource = async (source) => {
   const adapterKey = source.adapter || source.type
   const adapter = adapters[adapterKey]
@@ -22,10 +34,7 @@ const collectOneSource = async (source) => {
 
   const startedAt = Date.now()
   try {
-    const rows = await Promise.race([
-      adapter.fetch(source),
-      new Promise((_, reject) => setTimeout(() => reject(new Error(`Adapter timeout after ${COLLECT_TIMEOUT_MS}ms`)), COLLECT_TIMEOUT_MS)),
-    ])
+    const rows = await withTimeout(adapter.fetch(source), COLLECT_TIMEOUT_MS)
     return {
       sourceId: source.id,
       ok: true,

@@ -222,6 +222,16 @@ const buildCandidates = (entry) => {
     ]
     : []
 
+  const configuredTopLevel = configured.filter((url) => {
+    try {
+      return new URL(url).pathname === '/'
+    } catch {
+      return false
+    }
+  })
+
+  const configuredDeepLinks = configured.filter((url) => !configuredTopLevel.includes(url))
+
   const pathHints = [
     'geschaefte',
     'geschaefte-grosser-rat',
@@ -249,12 +259,20 @@ const buildCandidates = (entry) => {
   const heuristics = [
     ...expandCandidateVariants(base),
     ...expandCandidateVariants(alternateHost),
-    ...hostHints,
     ...pathHints.flatMap((hint) => expandCandidateVariants(`${base}/${hint}`)),
     ...pathHints.flatMap((hint) => expandCandidateVariants(`${alternateHost}/${hint}`)),
   ]
 
-  return [...new Set([...configured, ...heuristics].filter(Boolean))]
+  // Priorisierung für Recall: zuerst bekannte Base-Hosts + ratsinfo/allris-Hosthints,
+  // dann tiefe URL-Kandidaten und erst danach heuristische Pfadvarianten.
+  return [...new Set([
+    ...configuredTopLevel,
+    ...expandCandidateVariants(base),
+    ...expandCandidateVariants(alternateHost),
+    ...hostHints,
+    ...configuredDeepLinks,
+    ...heuristics,
+  ].filter(Boolean))]
 }
 
 const detectParliamentSignals = ({ requestUrl = '', finalUrl = '', html = '' } = {}) => {
