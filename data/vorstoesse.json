@@ -3075,7 +3075,7 @@
     "kanton": null,
     "regionGemeinde": null,
     "status": "Erledigt",
-    "datumEingereicht": "2022-02-14",
+    "datumEingereicht": "2022-06-15",
     "datumAktualisiert": "2026-02-14",
     "themen": [
       "Landwirtschaft",
@@ -3096,7 +3096,7 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20223633",
     "resultate": [
       {
-        "datum": "2022-02-14",
+        "datum": "2022-06-15",
         "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
