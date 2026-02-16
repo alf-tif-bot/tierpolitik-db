@@ -64,6 +64,7 @@ const detectPlatform = ({ requestUrl = '', finalUrl = '', html = '' } = {}) => {
   if (h.includes('verifying your browser') || h.includes('vérification de votre navigateur')) return 'waf-challenge'
   if (h.includes('maintenance page') || h.includes('site en maintenance')) return 'maintenance-mode'
   if (u.includes('ratsinfo') || h.includes('ratsinfo')) return 'ratsinfo'
+  if (u.includes('mobileclient-ext.') || u.includes('/webclient/')) return 'allris/sessionnet'
   if (u.includes('parlinfo') || h.includes('parlinfo') || u.includes('/grweb/')) return 'parliament-portal'
   if (u.includes('aio') || h.includes('allris') || h.includes('sessionnet')) return 'allris/sessionnet'
   if (PARLIAMENT_URL_HINTS.some((hint) => u.includes(hint))) return 'parliament-portal'
@@ -138,7 +139,7 @@ const hasNonRootPath = (url = '') => {
 const hasParliamentHost = (url = '') => {
   try {
     const host = new URL(String(url)).hostname.toLowerCase()
-    return ['parlament', 'parliament', 'kantonsrat', 'landrat', 'grosserrat', 'grandconseil'].some((token) => host.includes(token))
+    return ['parlament', 'parlement', 'parliament', 'kantonsrat', 'landrat', 'grosserrat', 'grandconseil'].some((token) => host.includes(token))
   } catch {
     return false
   }
@@ -185,6 +186,7 @@ const classifyReadiness = ({
   if ((platform === 'ratsinfo' || platform === 'allris/sessionnet') && !likelyArchiveOnly) return 'adapter-ready-likely'
   if (platform === 'parliament-portal' && hasSearchOrAffairPathForUrl && (hasParliamentSignals || hasParliamentHint) && !likelyArchiveOnly) return 'adapter-ready-likely'
   if (platform === 'parliament-portal' && hasParliamentSignals && (hasNonRootPath(u) || hasParliamentHost(u)) && !likelyArchiveOnly) return 'adapter-ready-likely'
+  if (platform === 'parliament-portal' && hasParliamentHost(u) && hasNonRootPath(u) && !likelyArchiveOnly) return 'adapter-ready-likely'
   if (platform === 'parliament-portal' && (hasParliamentSignals || hasSearchOrAffairPathForUrl)) return 'site-discovery-needed'
   if ((['typo3-site', 'drupal-site'].includes(platform) && hasParliamentHint) || hasParliamentHint || hasParliamentSignals) {
     return 'site-discovery-needed'

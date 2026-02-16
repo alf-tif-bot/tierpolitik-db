@@ -128,9 +128,11 @@
     "canton": "LU",
     "parliament": "Kantonsrat Luzern",
     "adapter": "cantonRegistry",
-    "url": "https://www.lu.ch/kr",
+    "url": "https://mobileclient-ext.lu.ch/webclient/kr/#/apps",
     "sinceYear": 2020,
     "urlCandidates": [
+      "https://mobileclient-ext.lu.ch/webclient/kr/#/apps",
+      "https://www.lu.ch/kr",
       "https://lu.ratsinfomanagement.net"
     ]
   },
@@ -267,9 +269,10 @@
     "canton": "VS",
     "parliament": "Grand Conseil Valais",
     "adapter": "cantonRegistry",
-    "url": "https://www.vs.ch/fr/web/gc/objets-parlementaires",
+    "url": "https://parlement.vs.ch/app/",
     "sinceYear": 2020,
     "urlCandidates": [
+      "https://parlement.vs.ch/app/",
       "https://www.vs.ch/fr/web/gc/interventions-parlementaires",
       "https://www.vs.ch/fr/web/gc/objets-parlementaires",
       "https://www.vs.ch/de/web/gc/parlamentarische-vorstoesse",
