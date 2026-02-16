@@ -57,34 +57,36 @@
   },
   {
     "id": "vp-20204002",
-    "titel": "Parlamentsgeschäft 20204002",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 20204002 (In Beratung).",
+    "titel": "20.4002 - Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung",
+    "typ": "Motion",
+    "kurzbeschreibung": "Die Motion verlangt, dass Transportfahrzeuge für Nutztiere bereits bei Zulassung und periodischen Kontrollen systematisch auf die Vorgaben der Tierschutzgesetzgebung geprüft werden.",
     "geschaeftsnummer": "20.4002",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2020-02-14",
+    "status": "Abgeschrieben",
+    "datumEingereicht": "2020-09-16",
     "datumAktualisiert": "2026-02-14",
     "themen": [
-      "Tierschutz"
+      "Tierschutz",
+      "Nutztiere",
+      "Verkehr"
     ],
     "schlagwoerter": [
       "Tierpolitik"
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Badertscher Christine",
+        "rolle": "Nationalrätin",
+        "partei": "Grüne Fraktion"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20204002",
     "resultate": [
       {
-        "datum": "2020-02-14",
-        "status": "In Beratung",
+        "datum": "2020-09-16",
+        "status": "Abgeschrieben",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -94,17 +96,19 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 20204002"
+          "de": "20.4002 - Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 20204002 (In Beratung)."
+          "de": "Die Motion verlangt, dass Transportfahrzeuge für Nutztiere bereits bei Zulassung und periodischen Kontrollen systematisch auf die Vorgaben der Tierschutzgesetzgebung geprüft werden."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "Tierschutz",
+            "Nutztiere",
+            "Verkehr"
           ]
         }
       },

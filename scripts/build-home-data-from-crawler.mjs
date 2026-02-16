@@ -256,6 +256,7 @@ const SUBMITTER_OVERRIDES = {
   '25.4071': { name: 'Dittli Josef', rolle: 'Ständerat', partei: 'FDP.Die Liberalen' },
   '25.4144': { name: 'Graf Maya', rolle: 'Ständerätin', partei: 'GRÜNE Schweiz' },
   '21.3703': { name: 'Badertscher Christine', rolle: 'Nationalrätin', partei: 'Grüne Fraktion' },
+  '20.4002': { name: 'Badertscher Christine', rolle: 'Nationalrätin', partei: 'Grüne Fraktion' },
   '23.7858': { name: 'Clivaz Christophe', rolle: 'Nationalrat', partei: 'GRÜNE Schweiz' },
   '24.4695': { name: 'Schneider Meret', rolle: 'Nationalrätin', partei: 'GRÜNE Schweiz' },
   '25.4812': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'GRÜNE Schweiz' },
@@ -279,6 +280,7 @@ const TYPE_OVERRIDES = {
   '25.2027': 'Petition',
   '23.2009': 'Petition',
   '20.2018': 'Petition',
+  '20.4002': 'Motion',
 }
 
 const THEME_OVERRIDES = {
@@ -302,6 +304,7 @@ const THEME_OVERRIDES = {
   '25.4812': ['Landwirtschaft', 'Staatspolitik', 'Umwelt'],
   '21.3363': ['Umwelt', 'Wissenschaft und Forschung'],
   '20.2018': ['Tierschutz', 'Tierrechte', 'Nutztiere'],
+  '20.4002': ['Tierschutz', 'Nutztiere', 'Verkehr'],
 }
 
 const STATUS_OVERRIDES = {
@@ -310,12 +313,14 @@ const STATUS_OVERRIDES = {
   '23.3411': 'Erledigt',
   '25.4144': 'Erledigt',
   '20.2018': 'Eingereicht',
+  '20.4002': 'Abgeschrieben',
 }
 
 const SUBMISSION_DATE_OVERRIDES = {
   '23.3411': '2023-03-17',
   '25.4144': '2025-09-25',
   '20.2018': '2020-08-28',
+  '20.4002': '2020-09-16',
 }
 
 const TITLE_OVERRIDES = {
@@ -323,6 +328,7 @@ const TITLE_OVERRIDES = {
   '23.3411': '23.3411 - Eine langfristige Lösung für den Schweinemarkt',
   '25.4144': '25.4144 - Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet?',
   '20.2018': '20.2018 - Grundrechte für Schweine',
+  '20.4002': '20.4002 - Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung',
 }
 
 const SUMMARY_OVERRIDES = {
@@ -352,6 +358,7 @@ const SUMMARY_OVERRIDES = {
   '21.3363': 'Die Motion beauftragt den Bundesrat, die gesetzlichen Grundlagen so anzupassen, dass Tierversuche mit Schweregrad 3 schweizweit durch die gleiche Tierversuchskommission beurteilt werden.',
   '21.3835': 'Die Motion verlangt stichprobenhafte Kontrollen von Tierkadavern in der Fleischkontrolle und in Sammelstellen, um Tierschutzverstösse besser zu erkennen und den Ursprung zurückzuverfolgen.',
   '20.2018': 'Die Petition fordert Grundrechte für Schweine und bringt damit die rechtliche Stellung von Nutztieren im schweizerischen Recht auf die politische Agenda.',
+  '20.4002': 'Die Motion verlangt, dass Transportfahrzeuge für Nutztiere bereits bei Zulassung und periodischen Kontrollen systematisch auf die Vorgaben der Tierschutzgesetzgebung geprüft werden.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {
