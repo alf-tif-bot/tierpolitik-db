@@ -40,14 +40,17 @@ const LINK_NOISE_EXTENSIONS = ['.pdf', '.doc', '.docx', '.xls', '.xlsx', '.zip',
 
 const CANTON_KEYWORDS = {
   AG: ['grweb', 'grossrat', 'geschaefte'],
+  AR: ['parlamentsdienst', 'kantonsrat', 'vorstoss'],
   BE: ['gr.be.ch', 'grosser-rat', 'geschaefte'],
   BL: ['landrat', 'geschaefte-des-landrats'],
   GE: ['grandconseil', 'recherche', 'dossiers'],
   JU: ['interventions-parlementaires-deposees', 'questions-ecrites', 'interpellations'],
+  OW: ['kantonsratview', 'kantonsratmain', 'geschaefte'],
   SZ: ['geschaefte-des-kantonsrats', 'behoerden/kantonsrat'],
   TI: ['gran consiglio', 'ricerca messaggi e atti', 'atti parlamentari', 'mozioni', 'interrogazioni'],
   VD: ['objets-et-rapports-de-commissions', 'grand conseil', 'bulletin'],
   VS: ['objets-parlementaires', 'interventions-parlementaires'],
+  TG: ['parlament.tg.ch', 'grosser-rat', 'geschaefte'],
   ZG: ['geschaefte-des-kantonsrats', 'behoerden/kantonsrat'],
   ZH: ['kantonsrat.zh.ch/geschaefte', 'geschaeft'],
 }
@@ -56,6 +59,10 @@ const CANTON_FALLBACK_LINKS = {
   AG: [
     { href: 'https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte', text: 'Geschäfte Grosser Rat' },
     { href: 'https://www.ag.ch/grossrat/grweb/', text: 'GRweb Aargau' },
+  ],
+  AR: [
+    { href: 'https://ar.ch/kantonsrat/parlamentsdienst', text: 'Parlamentsdienst AR' },
+    { href: 'https://ar.ch/kantonsrat/parlamentsdienst/parlamentarische-vorstoesse', text: 'Parlamentarische Vorstösse AR' },
   ],
   BE: [
     { href: 'https://www.gr.be.ch/de/start/geschaefte.html', text: 'Geschäfte Grosser Rat Bern' },
@@ -118,6 +125,14 @@ const CANTON_FALLBACK_LINKS = {
   NW: [
     { href: 'https://www.nw.ch/landrat', text: 'Landrat Nidwalden' },
     { href: 'https://www.nw.ch/landratmain', text: 'Landratmain Nidwalden' },
+  ],
+  OW: [
+    { href: 'https://www.ow.ch/kantonsratview', text: 'Kantonsrat Obwalden' },
+    { href: 'https://www.ow.ch/kantonsratview?open=VOR', text: 'Vorstösse Kantonsrat OW' },
+  ],
+  TG: [
+    { href: 'https://parlament.tg.ch/', text: 'Grosser Rat Thurgau' },
+    { href: 'https://parlament.tg.ch/traktanden-und-vorlagen', text: 'Traktanden und Vorlagen TG' },
   ],
   JU: [
     { href: 'https://www.jura.ch/fr/Autorites/PLT/Documents-du-Parlement/Suivi-des-interventions/Suivi-des-interventions.html', text: 'Suivi des interventions JU' },

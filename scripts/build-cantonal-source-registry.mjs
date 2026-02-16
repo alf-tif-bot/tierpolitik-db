@@ -15,6 +15,8 @@ const PARLIAMENT_URL_HINTS = [
   '/objets-du-conseil',
   '/objets/pages/accueil.aspx',
   '/parlamentsdienst',
+  '/kantonsratview',
+  '/kantonsratmain',
   '/grosserrat',
   '/kantonsrat.html',
   '/recherche-objets',
@@ -81,6 +83,8 @@ const hasSearchOrAffairPath = (url = '') => [
   'objets-du-conseil',
   'objets/pages/accueil.aspx',
   'parlamentsdienst',
+  'kantonsratview',
+  'kantonsratmain',
   'grosserrat',
   'kantonsrat.html',
 ].some((hint) => String(url).toLowerCase().includes(String(hint).toLowerCase()))
@@ -111,6 +115,24 @@ const isLikelyBeforeSinceYear = (url = '', sinceYear = 2020) => {
   if (!years.length) return false
   const maxYear = Math.max(...years)
   return maxYear < Number(sinceYear)
+}
+
+const hasNonRootPath = (url = '') => {
+  try {
+    const parsed = new URL(String(url))
+    return parsed.pathname && parsed.pathname !== '/'
+  } catch {
+    return String(url).replace(/^https?:\/\/[^/]+/i, '').length > 1
+  }
+}
+
+const hasParliamentHost = (url = '') => {
+  try {
+    const host = new URL(String(url)).hostname.toLowerCase()
+    return ['parlament', 'parliament', 'kantonsrat', 'landrat', 'grosserrat', 'grandconseil'].some((token) => host.includes(token))
+  } catch {
+    return false
+  }
 }
 
 const classifyReadiness = ({
@@ -153,6 +175,7 @@ const classifyReadiness = ({
 
   if ((platform === 'ratsinfo' || platform === 'allris/sessionnet') && !likelyArchiveOnly) return 'adapter-ready-likely'
   if (platform === 'parliament-portal' && hasSearchOrAffairPathForUrl && (hasParliamentSignals || hasParliamentHint) && !likelyArchiveOnly) return 'adapter-ready-likely'
+  if (platform === 'parliament-portal' && hasParliamentSignals && (hasNonRootPath(u) || hasParliamentHost(u)) && !likelyArchiveOnly) return 'adapter-ready-likely'
   if (platform === 'parliament-portal' && (hasParliamentSignals || hasSearchOrAffairPathForUrl)) return 'site-discovery-needed'
   if ((['typo3-site', 'drupal-site'].includes(platform) && hasParliamentHint) || hasParliamentHint || hasParliamentSignals) {
     return 'site-discovery-needed'
@@ -262,10 +285,12 @@ const probeQuality = (probe, sinceYear = 2020) => {
   if (probe.platform === 'parliament-portal') score += 2
   if (probe.hasParliamentSignals) score += 1
   const targetUrl = probe.finalUrl || probe.url
+  const targetLower = String(targetUrl).toLowerCase()
   if (hasSearchOrAffairPath(targetUrl)) score += 3
   if (probe.finalUrl && probe.finalUrl !== probe.url) score += 1
   if (hasArchiveSignals(targetUrl)) score -= 3
   if (isLikelyBeforeSinceYear(targetUrl, sinceYear)) score -= 4
+  if (targetLower.includes('sitzungsdienst.net') && !hasSearchOrAffairPath(targetLower) && !probe.hasParliamentSignals) score -= 6
   return score
 }
 

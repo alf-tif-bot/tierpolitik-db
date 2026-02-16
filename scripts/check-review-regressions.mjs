@@ -24,6 +24,7 @@ const TARGET_SINCE_YEAR = Math.max(2020, Number(process.env.REVIEW_TARGET_SINCE_
 const targetSinceTs = Date.UTC(TARGET_SINCE_YEAR, 0, 1, 0, 0, 0)
 const fixDecisionMismatches = process.argv.includes('--fix-decisions')
 const pruneLegacyDecisions = process.argv.includes('--prune-legacy-decisions')
+const pruneUnknownDecisions = process.argv.includes('--prune-unknown-decisions')
 const pruneReviewItems = process.argv.includes('--prune-review-items')
 const isInTargetHorizon = (item) => {
   const iso = item?.publishedAt || item?.fetchedAt
@@ -184,6 +185,14 @@ if (pruneLegacyDecisions && decisionsUnknownLegacy.length) {
   decisionsUnknownCritical = decisionsUnknownInDb.filter((id) => !decisionsUnknownLegacy.includes(id))
 }
 
+if (pruneUnknownDecisions && decisionsUnknownInDb.length) {
+  for (const unknownId of decisionsUnknownInDb) delete reviewDecisions[unknownId]
+  fs.writeFileSync(reviewDecisionsPath, JSON.stringify(reviewDecisions, null, 2))
+  decisionsUnknownInDb = Object.keys(reviewDecisions).filter((id) => !dbItemsById.has(id))
+  decisionsUnknownLegacy = decisionsUnknownInDb.filter((id) => /^ch-parliament-business-(de|fr|it):\d+$/.test(id))
+  decisionsUnknownCritical = decisionsUnknownInDb.filter((id) => !decisionsUnknownLegacy.includes(id))
+}
+
 const affairStatusMap = new Map()
 for (const item of (db.items || []).filter((entry) => String(entry.sourceId || '').startsWith('ch-parliament-'))) {
   const affair = String(item.affairId || item.externalId || '').split('-')[0]
@@ -242,6 +251,7 @@ const report = {
   targetSinceYear: TARGET_SINCE_YEAR,
   fixDecisionMismatches,
   pruneLegacyDecisions,
+  pruneUnknownDecisions,
   pruneReviewItems,
   expectedReview: expectedReviewIds.size,
   actualReview: actualReviewIds.size,

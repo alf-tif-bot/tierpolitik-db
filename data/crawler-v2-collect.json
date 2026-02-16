@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-15T23:17:08.897Z",
+  "generatedAt": "2026-02-16T00:49:17.069Z",
   "registry": {
     "total": 5,
     "enabled": 5,
@@ -20,31 +20,31 @@
       "sourceId": "ch-cantonal-be-rss-v2",
       "ok": true,
       "fetched": 25,
-      "durationMs": 206
+      "durationMs": 197
     },
     {
       "sourceId": "ch-cantonal-portal-priority-v2",
       "ok": true,
       "fetched": 26,
-      "durationMs": 5783
+      "durationMs": 8377
     },
     {
       "sourceId": "ch-cantons-registry-v2",
       "ok": true,
       "fetched": 26,
-      "durationMs": 3
+      "durationMs": 4
     },
     {
       "sourceId": "ch-municipal-parliament-bern-zurich-v2",
       "ok": true,
       "fetched": 6,
-      "durationMs": 5279
+      "durationMs": 5307
     },
     {
       "sourceId": "ch-parliament-affairs-v2",
       "ok": true,
       "fetched": 242,
-      "durationMs": 12316
+      "durationMs": 12612
     }
   ],
   "totalItems": 325,
@@ -57,7 +57,7 @@
       "summary": "Scaffold für AG. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Aargau (https://www.ag.ch/de/grosser-rat). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -85,7 +85,7 @@
       "summary": "Scaffold für AI. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Appenzell Innerrhoden (https://www.ai.ch/politik/grosser-rat). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -113,7 +113,7 @@
       "summary": "Scaffold für AR. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Appenzell Ausserrhoden (https://ar.ch/kantonsrat/parlamentsdienst/). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -141,7 +141,7 @@
       "summary": "Scaffold für BE. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Bern (https://www.parlament.be.ch). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -169,7 +169,7 @@
       "summary": "Scaffold für BL. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Landrat Basel-Landschaft (https://www.baselland.ch/politik-und-behorden/landrat-parlament). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -197,7 +197,7 @@
       "summary": "Scaffold für BS. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Basel-Stadt (https://www.grosserrat.bs.ch). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -225,7 +225,7 @@
       "summary": "Scaffold für FR. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grand Conseil Fribourg (https://www.fr.ch/parlinfo/membres-du-grand-conseil). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -253,7 +253,7 @@
       "summary": "Scaffold für GE. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grand Conseil Genève (https://ge.ch/grandconseil/objets-parlementaires). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -281,7 +281,7 @@
       "summary": "Scaffold für GL. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Landrat Glarus (https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -309,7 +309,7 @@
       "summary": "Scaffold für GR. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Graubünden (https://www.gr.ch/DE/institutionen/parlament). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -337,7 +337,7 @@
       "summary": "Scaffold für JU. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Parlement jurassien (https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -365,7 +365,7 @@
       "summary": "Scaffold für LU. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Luzern (https://www.lu.ch/kr). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -393,7 +393,7 @@
       "summary": "Scaffold für NE. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grand Conseil Neuchâtel (https://www.ne.ch/autorites/GC). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -421,7 +421,7 @@
       "summary": "Scaffold für NW. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Landrat Nidwalden (https://www.nw.ch/landrat). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -449,7 +449,7 @@
       "summary": "Scaffold für OW. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Obwalden (https://www.ow.ch/kantonsrat). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -477,7 +477,7 @@
       "summary": "Scaffold für SG. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat St. Gallen (https://www.ratsinfo.sg.ch). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -505,7 +505,7 @@
       "summary": "Scaffold für SH. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Schaffhausen (https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -533,7 +533,7 @@
       "summary": "Scaffold für SO. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Solothurn (https://so.ch/parlament). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -561,7 +561,7 @@
       "summary": "Scaffold für SZ. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Schwyz (https://www.sz.ch/parlament). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -589,7 +589,7 @@
       "summary": "Scaffold für TG. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grosser Rat Thurgau (https://grosserrat.tg.ch). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -617,7 +617,7 @@
       "summary": "Scaffold für TI. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Gran Consiglio Ticino (https://www4.ti.ch/poteri/gc/home). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -645,7 +645,7 @@
       "summary": "Scaffold für UR. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Landrat Uri (https://www.ur.ch/landrat). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -673,7 +673,7 @@
       "summary": "Scaffold für VD. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grand Conseil Vaud (https://www.vd.ch/gc/). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -701,7 +701,7 @@
       "summary": "Scaffold für VS. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Grand Conseil Valais (https://www.vs.ch/fr/web/gc/objets-parlementaires). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -729,7 +729,7 @@
       "summary": "Scaffold für ZG. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Zug (https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -757,7 +757,7 @@
       "summary": "Scaffold für ZH. Historisierung ab 2020 vorgesehen.",
       "body": "V2 Registry Placeholder – Kantonsrat Zürich (https://www.kantonsrat.zh.ch). Noch keine produktive Erfassung angebunden.",
       "publishedAt": "2020-01-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [
@@ -785,7 +785,7 @@
       "summary": "Geschäftstyp: Interpellation",
       "body": "Geschäftstyp: Interpellation",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -800,7 +800,7 @@
       "summary": "Geschäftstyp: Motion",
       "body": "Geschäftstyp: Motion",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -815,7 +815,7 @@
       "summary": "Geschäftstyp: Motion",
       "body": "Geschäftstyp: Motion",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -830,7 +830,7 @@
       "summary": "Geschäftstyp: Motion",
       "body": "Geschäftstyp: Motion",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -845,7 +845,7 @@
       "summary": "Geschäftstyp: Motion",
       "body": "Geschäftstyp: Motion",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -860,7 +860,7 @@
       "summary": "Geschäftstyp: Motion",
       "body": "Geschäftstyp: Motion",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -875,7 +875,7 @@
       "summary": "Geschäftstyp: Motion",
       "body": "Geschäftstyp: Motion",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -890,7 +890,7 @@
       "summary": "Geschäftstyp: Interpellation",
       "body": "Geschäftstyp: Interpellation",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -905,7 +905,7 @@
       "summary": "Geschäftstyp: Motion",
       "body": "Geschäftstyp: Motion",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -920,7 +920,7 @@
       "summary": "Geschäftstyp: Motion",
       "body": "Geschäftstyp: Motion",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -935,7 +935,7 @@
       "summary": "Geschäftstyp: Interpellation",
       "body": "Geschäftstyp: Interpellation",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -950,7 +950,7 @@
       "summary": "Geschäftstyp: Interpellation",
       "body": "Geschäftstyp: Interpellation",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -965,7 +965,7 @@
       "summary": "Geschäftstyp: Motion",
       "body": "Geschäftstyp: Motion",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -980,7 +980,7 @@
       "summary": "Geschäftstyp: Interpellation",
       "body": "Geschäftstyp: Interpellation",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -995,7 +995,7 @@
       "summary": "Geschäftstyp: Interpellation",
       "body": "Geschäftstyp: Interpellation",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -1010,7 +1010,7 @@
       "summary": "Geschäftstyp: Motion",
       "body": "Geschäftstyp: Motion",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -1025,7 +1025,7 @@
       "summary": "Geschäftstyp: Motion",
       "body": "Geschäftstyp: Motion",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -1040,7 +1040,7 @@
       "summary": "Geschäftstyp: Interpellation",
       "body": "Geschäftstyp: Interpellation",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -1055,7 +1055,7 @@
       "summary": "Geschäftstyp: Interpellation",
       "body": "Geschäftstyp: Interpellation",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -1070,7 +1070,7 @@
       "summary": "Geschäftstyp: Motion",
       "body": "Geschäftstyp: Motion",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -1085,7 +1085,7 @@
       "summary": "Geschäftstyp: Interpellation",
       "body": "Geschäftstyp: Interpellation",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -1100,7 +1100,7 @@
       "summary": "Geschäftstyp: Motion",
       "body": "Geschäftstyp: Motion",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -1115,7 +1115,7 @@
       "summary": "Geschäftstyp: Interpellation",
       "body": "Geschäftstyp: Interpellation",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -1130,7 +1130,7 @@
       "summary": "Geschäftstyp: Motion",
       "body": "Geschäftstyp: Motion",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -1145,7 +1145,7 @@
       "summary": "Geschäftstyp: Interpellation",
       "body": "Geschäftstyp: Interpellation",
       "publishedAt": null,
-      "fetchedAt": "2026-02-15T23:16:56.807Z",
+      "fetchedAt": "2026-02-16T00:49:04.675Z",
       "language": "de",
       "score": 0,
       "matchedKeywords": [],
@@ -1160,7 +1160,7 @@
       "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0056 · Eingereicht",
       "body": "Titel: Biodiversität im Wald fördern\nGeschäftsnummer: 2026.SR.0056\nTyp: Motion als Richtlinie\nStand: Eingereicht\nEingereicht von: Nora Joos (JA), Mirjam Läderach (GB), Katharina Gallizzi (GB), Tobias Sennhauser (TIF), Anouk Ursin (AL), Matteo Micieli (PdA)\nQuelle: https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=c6c65c8ce8a84435af97428996dadc64",
       "publishedAt": "2026-02-11T23:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.601Z",
+      "fetchedAt": "2026-02-16T00:49:04.476Z",
       "language": "de",
       "score": 0.64,
       "matchedKeywords": [
@@ -1205,7 +1205,7 @@
       "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0055 · Eingereicht",
       "body": "Titel: Biodiversität im Siedlungsgebiet fördern\nGeschäftsnummer: 2026.SR.0055\nTyp: Motion als Richtlinie\nStand: Eingereicht\nEingereicht von: Anouk Ursin (AL), Matteo Micieli (PdA), Raffael Joggi (AL), Franziska Geiser (GB), Anna Leissing (GB), Esther Meier (GB)\nQuelle: https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=b7e265b3766d43119b5279f5ea795e91",
       "publishedAt": "2026-02-11T23:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.601Z",
+      "fetchedAt": "2026-02-16T00:49:04.476Z",
       "language": "de",
       "score": 0.64,
       "matchedKeywords": [
@@ -1250,7 +1250,7 @@
       "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0054 · Eingereicht",
       "body": "Titel: Biodiversität im Landwirtschaftsgebiet fördern\nGeschäftsnummer: 2026.SR.0054\nTyp: Motion als Richtlinie\nStand: Eingereicht\nEingereicht von: Nora Joos (JA), Mirjam Läderach (GB), Katharina Gallizzi (GB), Tobias Sennhauser (TIF), Anouk Ursin (AL), Matteo Micieli (PdA)\nQuelle: https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=58a0ae87cf6f44e1a4030952a06a85bb",
       "publishedAt": "2026-02-11T23:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.601Z",
+      "fetchedAt": "2026-02-16T00:49:04.476Z",
       "language": "de",
       "score": 0.64,
       "matchedKeywords": [
@@ -1295,7 +1295,7 @@
       "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0031 · Eingereicht",
       "body": "Titel: Strafverfolgung bei Feuerwerkszündung in der Innenstadt\nGeschäftsnummer: 2026.SR.0031\nTyp: Kleine Anfrage\nStand: Eingereicht\nEingereicht von: Michelle Steinemann (Mitte), Nicolas Lutz (Mitte), Laura Curau (Mitte), Andreas Egli (Mitte), Oliver Berger (FDP), Nik Eugster (FDP)\nQuelle: https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=35613219b77240ff9adf7978f17dd646",
       "publishedAt": "2026-01-28T23:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.601Z",
+      "fetchedAt": "2026-02-16T00:49:04.476Z",
       "language": "de",
       "score": 0.64,
       "matchedKeywords": [
@@ -1335,7 +1335,7 @@
       "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0019 · Eingereicht",
       "body": "Titel: Tierpark Bern: Welche Alternativen zur Tötung überzähliger Tiere gibt es?\nGeschäftsnummer: 2026.SR.0019\nTyp: Interpellation\nStand: Eingereicht\nEingereicht von: Raffael Joggi (AL), Tobias Sennhauser (TIF), Matteo Micieli (PdA), Anouk Ursin (AL)\nQuelle: https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=13284d70bb124c23a1bbba427e8a7c5c",
       "publishedAt": "2026-01-28T23:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.601Z",
+      "fetchedAt": "2026-02-16T00:49:04.476Z",
       "language": "de",
       "score": 0.64,
       "matchedKeywords": [
@@ -1368,8 +1368,8 @@
       "title": "Zürich · Vorstösse: Erste Beratung von Jugendvorstössen im Gemeinderat",
       "summary": "Gemeinde Zürich (Gemeinderat Zürich) · Vorstösse · Erste Beratung von Jugendvorstössen im Gemeinderat",
       "body": "Titel: Erste Beratung von Jugendvorstössen im Gemeinderat\nTyp: Vorstösse\nQuelle: https://www.gemeinderat-zuerich.ch/medien-kontakt/medienmitteilungen/meldungen/2024-09-16_Jugendvorstoesse.php\nScreening-Hinweis: potenzieller Tierschutz-Vorstoss auf Gemeindeebene.",
-      "publishedAt": "2026-02-15T23:16:56.601Z",
-      "fetchedAt": "2026-02-15T23:16:56.601Z",
+      "publishedAt": "2026-02-16T00:49:04.476Z",
+      "fetchedAt": "2026-02-16T00:49:04.476Z",
       "language": "de",
       "score": 0.38,
       "matchedKeywords": [
@@ -1396,8 +1396,8 @@
       "title": "AG · Grosser Rat Aargau: Geschäfte Grosser Rat",
       "summary": "Geschäfte - Kanton Aargau – 3 relevante Linkziele erkannt (Leitlink: Geschäfte Grosser Rat)",
       "body": "1. Geschäfte Grosser Rat – https://www.ag.ch/de/ueber-uns/grosser-rat/geschaefte\n2. Gesch&auml;ftsdatenbank – https://www.ag.ch/grossrat/grweb/de/196/Gesch%C3%A4fte?ResetBreadCrumbs=T&ResetFilter=T\n3. GRweb Aargau – https://www.ag.ch/grossrat/grweb/",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0.55,
       "matchedKeywords": [
@@ -1454,8 +1454,8 @@
       "title": "AI · Grosser Rat Appenzell Innerrhoden: Unterlagen der Sessionen von 2002 bis 2018",
       "summary": "Grossratsgeschäfte — Appenzell Innerrhoden – 3 relevante Linkziele erkannt (Leitlink: Unterlagen der Sessionen von 2002 bis 2018)",
       "body": "1. Unterlagen der Sessionen von 2002 bis 2018 – https://www.ai.ch/politik/grosser-rat/geschaefte-grosser-rat/geschaefte-bis-2018\n2. Geschäfte ab 2019 – https://www.ai.ch/politik/grosser-rat/geschaefte-grosser-rat/geschaefte-ab-2019\n3. Mobile navigation – https://www.ai.ch/politik/grosser-rat/geschaefte-grosser-rat#",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0.55,
       "matchedKeywords": [
@@ -1507,18 +1507,19 @@
       "sourceId": "ch-cantonal-portal-priority-v2",
       "sourceUrl": "https://ar.ch/kantonsrat/parlamentsdienst",
       "externalId": "cantonal-portal-ar",
-      "title": "AR · Kantonsrat Appenzell Ausserrhoden: Parlamentarische Vorstösse",
-      "summary": "Parlamentsdienst - Appenzell Ausserrhoden – 1 relevante Linkziele erkannt (Leitlink: Parlamentarische Vorstösse)",
-      "body": "1. Parlamentarische Vorstösse – https://ar.ch/kantonsrat/parlamentarische-vorstoesse/",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "title": "AR · Kantonsrat Appenzell Ausserrhoden: Parlamentarische Vorstösse AR",
+      "summary": "Parlamentsdienst - Appenzell Ausserrhoden – 10 relevante Linkziele erkannt (Leitlink: Parlamentarische Vorstösse AR)",
+      "body": "1. Parlamentarische Vorstösse AR – https://ar.ch/kantonsrat/parlamentsdienst/parlamentarische-vorstoesse\n2. Drucken – https://ar.ch/kantonsrat/parlamentsdienst#\n3. Parlamentarische Vorstösse – https://ar.ch/kantonsrat/parlamentarische-vorstoesse/\n4. Parlamentsdienst – https://ar.ch/kantonsrat/parlamentsdienst/\n5. Parlamentsdienst AR – https://ar.ch/kantonsrat/parlamentsdienst\n6. Kantonsrat – https://ar.ch/kantonsrat/\n7. Mitglieder des Kantonsrates – https://ar.ch/kantonsrat/mitglieder-des-kantonsrates/\n8. Kantonsratspräsidium – https://ar.ch/kantonsrat/kantonsratspraesidium/\n9. Büro des Kantonsrates – https://ar.ch/kantonsrat/buero-des-kantonsrates/\n10. Sitzungen – https://ar.ch/kantonsrat/buero-des-kantonsrates/sitzungen/",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
-      "score": 0.45,
+      "score": 0.85,
       "matchedKeywords": [
         "kanton",
         "ar",
         "vorstösse",
-        "kantonsrat"
+        "kantonsrat",
+        "parlamentsdienst"
       ],
       "status": "new",
       "reviewReason": "cantonal-portal-links",
@@ -1526,11 +1527,56 @@
         "canton": "AR",
         "parliament": "Kantonsrat Appenzell Ausserrhoden",
         "readiness": "adapter-ready-likely",
-        "extractedLinkCount": 1,
+        "extractedLinkCount": 10,
         "extractedLinks": [
+          {
+            "href": "https://ar.ch/kantonsrat/parlamentsdienst/parlamentarische-vorstoesse",
+            "text": "Parlamentarische Vorstösse AR",
+            "rank": 4
+          },
+          {
+            "href": "https://ar.ch/kantonsrat/parlamentsdienst#",
+            "text": "Drucken",
+            "rank": 3
+          },
           {
             "href": "https://ar.ch/kantonsrat/parlamentarische-vorstoesse/",
             "text": "Parlamentarische Vorstösse",
+            "rank": 3
+          },
+          {
+            "href": "https://ar.ch/kantonsrat/parlamentsdienst/",
+            "text": "Parlamentsdienst",
+            "rank": 3
+          },
+          {
+            "href": "https://ar.ch/kantonsrat/parlamentsdienst",
+            "text": "Parlamentsdienst AR",
+            "rank": 3
+          },
+          {
+            "href": "https://ar.ch/kantonsrat/",
+            "text": "Kantonsrat",
+            "rank": 2
+          },
+          {
+            "href": "https://ar.ch/kantonsrat/mitglieder-des-kantonsrates/",
+            "text": "Mitglieder des Kantonsrates",
+            "rank": 2
+          },
+          {
+            "href": "https://ar.ch/kantonsrat/kantonsratspraesidium/",
+            "text": "Kantonsratspräsidium",
+            "rank": 2
+          },
+          {
+            "href": "https://ar.ch/kantonsrat/buero-des-kantonsrates/",
+            "text": "Büro des Kantonsrates",
+            "rank": 2
+          },
+          {
+            "href": "https://ar.ch/kantonsrat/buero-des-kantonsrates/sitzungen/",
+            "text": "Sitzungen",
             "rank": 2
           }
         ],
@@ -1555,8 +1601,8 @@
       "title": "BE · Grosser Rat Bern: Geschäfte Grosser Rat Bern",
       "summary": "Grosser Rat Bern – 4 relevante Linkziele erkannt (Leitlink: Geschäfte Grosser Rat Bern)",
       "body": "1. Geschäfte Grosser Rat Bern – https://www.gr.be.ch/de/start/geschaefte.html\n2. Symbolbild Geschäftssuche. (Foto: Susanne Goldschmid) Geschäftssuche – https://www.gr.be.ch/de/start/geschaefte/geschaeftssuche.html\n3. Nach Geschäftsarten gefiltert – https://www.gr.be.ch/de/start/geschaefte/nach-geschaeftsarten.html\n4. Geschäftssuche Grosser Rat Bern – https://www.gr.be.ch/de/start/suche-geschaefte.html",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0.6000000000000001,
       "matchedKeywords": [
@@ -1616,8 +1662,8 @@
       "title": "BL · Landrat Basel-Landschaft: Geschäfte des Landrats BL",
       "summary": "STERNBERG Software: Mit uns besser Beraten! – 2 relevante Linkziele erkannt (Leitlink: Geschäfte des Landrats BL)",
       "body": "1. Geschäfte des Landrats BL – https://www.baselland.ch/politik-und-behorden/landrat-parlament/geschaefte-des-landrats\n2. Ratsinfo BL – https://bl.ratsinfomanagement.net/",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0.5,
       "matchedKeywords": [
@@ -1668,8 +1714,8 @@
       "title": "BS · Grosser Rat Basel-Stadt: Geschäfte Grosser Rat BS",
       "summary": "Grosser Rat Basel-Stadt - Willkommen – 2 relevante Linkziele erkannt (Leitlink: Geschäfte Grosser Rat BS)",
       "body": "1. Geschäfte Grosser Rat BS – https://grosserrat.bs.ch/geschaefte\n2. Geschäftssuche Grosser Rat BS – https://grosserrat.bs.ch/geschaefte/suche",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0.5,
       "matchedKeywords": [
@@ -1718,8 +1764,8 @@
       "title": "FR · Grand Conseil Fribourg: Votes",
       "summary": "| Parlinfo – 3 relevante Linkziele erkannt (Leitlink: Votes)",
       "body": "1. Votes – https://www.fr.ch/parlinfo/membres-du-grand-conseil/geschaefte#\n2. Parlinfo Fribourg – https://www.fr.ch/parlinfo\n3. Sessions Grand Conseil FR – https://www.fr.ch/parlinfo/programmes-et-dates-des-sessions-du-grand-conseil",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "fr",
       "score": 0.55,
       "matchedKeywords": [
@@ -1773,8 +1819,8 @@
       "title": "GE · Grand Conseil Genève: Recherche objets parlementaires",
       "summary": "Grand Conseil Genève – 4 relevante Linkziele erkannt (Leitlink: Recherche objets parlementaires)",
       "body": "1. Recherche objets parlementaires – https://ge.ch/grandconseil/recherche-objets\n2. Recherche avancée – https://ge.ch/grandconseil/memorial/recherche/\n3. Dossiers thématiques – https://ge.ch/grandconseil/memorial/dossiers/\n4. Recherche Grand Conseil – https://ge.ch/grandconseil/search",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "fr",
       "score": 0.6000000000000001,
       "matchedKeywords": [
@@ -1835,8 +1881,8 @@
       "title": "GL · Landrat Glarus: Geschäfte",
       "summary": "Vorstösse – Kanton Glarus – 10 relevante Linkziele erkannt (Leitlink: Geschäfte)",
       "body": "1. Geschäfte – https://www.gl.ch/parlament/landrat/geschaefte.html/249\n2. Interpellationen – https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse/interpellationen.html/246\n3. Vorstösse – https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248\n4. Memorialsanträge – https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse/memorialsantraege.html/243\n5. Motionen – https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse/motionen.html/244\n6. Postulate – https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse/postulate.html/245\n7. Archiv – https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse/archiv.html/247\n8. Link kopieren – https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/govisShortLink_raw\n9. Seite drucken – https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248/print/html\n10. zum Seitenanfang – https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248#",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0.85,
       "matchedKeywords": [
@@ -1928,8 +1974,8 @@
       "title": "GR · Grosser Rat Graubünden: Geschäfte Grosser Rat GR",
       "summary": "Willkommen beim Grossen Rat des Kantons Graubünden – 2 relevante Linkziele erkannt (Leitlink: Geschäfte Grosser Rat GR)",
       "body": "1. Geschäfte Grosser Rat GR – https://www.gr.ch/DE/institutionen/parlament/Seiten/geschaefte.aspx\n2. Ratsinfo Graubünden – https://gr.ratsinfomanagement.net/",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "it",
       "score": 0.5,
       "matchedKeywords": [
@@ -1978,8 +2024,8 @@
       "title": "JU · Parlement jurassien: La motion charge le Gouvernement de présenter un projet de disposition constitutionnelle, de loi ou de décret, ou lui donne des instructions impératives au sujet de mesures à prend",
       "summary": "Les interventions parlementaires - République et Canton du Jura – 10 relevante Linkziele erkannt (Leitlink: La motion charge le Gouvernement de présenter un projet de disposition constitutionnelle, de loi ou de décret, ou lui donne des instructions impératives au sujet de mesures à prend)",
       "body": "1. La motion charge le Gouvernement de présenter un projet de disposition constitutionnelle, de loi ou de décret, ou lui donne des instructions impératives au sujet de mesures à prend – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions/Motions.html\n2. Le postulat invite le Gouvernement à faire une étude sur une question déterminée et à déposer un rapport et des propositions – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Postulats/Postulats.html\n3. L'interpellation est une demande d'explication adressée au Gouvernement sur n'importe quel objet ressortissant à la politique ou à l'administration du Canton – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interpellations/Interpellations.html\n4. La question écrite porte sur toute matière ressortissant à la politique ou à l'administration du Canton – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Questions-ecrites/Questions-ecrites.html\n5. Réponses aux questions écrites – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Reponses-aux-questions-ecrites.html\n6. Tout député a le droit de demander, sous forme de motion interne, qu'un objet concernant exclusivement le Parlement soit mis en discussion – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Motions-internes/Motions-internes.html\n7. Réponses du Gouvernement aux questions écrites du Parlement – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Reponses-aux-questions-ecrites/Reponses-aux-questions-ecrites.html\n8. Interventions parlementaires déposées – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html\n9. Accepter – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html#\n10. L'initiative parlementaire est une intervention rédigée de toutes pièces demandant l'adoption, la modification ou l'abrogation d'un article constitutionnel, d'une loi ou d'un décre – https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Initiatives-parlementaires/Initiatives-parlementaires.html",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "fr",
       "score": 0.85,
       "matchedKeywords": [
@@ -2067,13 +2113,13 @@
     },
     {
       "sourceId": "ch-cantonal-portal-priority-v2",
-      "sourceUrl": "https://www.sitzungsdienst.net/",
+      "sourceUrl": "https://www.lu.ch/",
       "externalId": "cantonal-portal-lu",
       "title": "LU · Kantonsrat Luzern: Geschäfte Kantonsrat Luzern",
-      "summary": "STERNBERG Software: Mit uns besser Beraten! – 2 relevante Linkziele erkannt (Leitlink: Geschäfte Kantonsrat Luzern)",
+      "summary": "Willkommen im Kanton Luzern | lu.ch – 2 relevante Linkziele erkannt (Leitlink: Geschäfte Kantonsrat Luzern)",
       "body": "1. Geschäfte Kantonsrat Luzern – https://www.lu.ch/kr/geschaefte\n2. Geschäfte ab 2020 – https://www.lu.ch/kr/geschaefte?jahr=2020",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0.5,
       "matchedKeywords": [
@@ -2088,7 +2134,7 @@
       "meta": {
         "canton": "LU",
         "parliament": "Kantonsrat Luzern",
-        "readiness": "adapter-ready-likely",
+        "readiness": "site-discovery-needed",
         "extractedLinkCount": 2,
         "extractedLinks": [
           {
@@ -2104,16 +2150,16 @@
         ],
         "adapterHint": "cantonalPortal",
         "candidateUrlsTried": [
-          "https://www.sitzungsdienst.net/",
+          "https://www.lu.ch/",
           "https://www.lu.ch/kr",
           "https://lu.ratsinfomanagement.net",
-          "https://www.lu.ch/",
+          "https://www.sitzungsdienst.net/",
           "https://lu.ch/kr",
           "https://www.ratsinfo.lu.ch",
           "https://ratsinfo.lu.ch",
           "https://www.lu.ch/kr/geschaefte"
         ],
-        "fetchUrl": "https://www.sitzungsdienst.net/"
+        "fetchUrl": "https://www.lu.ch/"
       }
     },
     {
@@ -2123,8 +2169,8 @@
       "title": "NE · Grand Conseil Neuchâtel: Motions",
       "summary": "Objets - R&eacute;publique et canton de Neuch&acirc;tel – 2 relevante Linkziele erkannt (Leitlink: Motions)",
       "body": "1. Motions – https://www.ne.ch/autorites/GC/objets/motions/Pages/accueil.aspx\n2. Postulats – https://www.ne.ch/autorites/GC/objets/postulats/Pages/accueil.aspx",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "fr",
       "score": 0.5,
       "matchedKeywords": [
@@ -2169,13 +2215,13 @@
     },
     {
       "sourceId": "ch-cantonal-portal-priority-v2",
-      "sourceUrl": "https://www.sitzungsdienst.net/",
+      "sourceUrl": "https://www.nw.ch/landratmain",
       "externalId": "cantonal-portal-nw",
       "title": "NW · Landrat Nidwalden: Landrat Nidwalden",
-      "summary": "STERNBERG Software: Mit uns besser Beraten! – 2 relevante Linkziele erkannt (Leitlink: Landrat Nidwalden)",
+      "summary": "Landrat | Kanton Nidwalden Online – 2 relevante Linkziele erkannt (Leitlink: Landrat Nidwalden)",
       "body": "1. Landrat Nidwalden – https://www.nw.ch/landrat\n2. Landratmain Nidwalden – https://www.nw.ch/landratmain",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0.5,
       "matchedKeywords": [
@@ -2204,53 +2250,84 @@
         ],
         "adapterHint": "cantonalPortal",
         "candidateUrlsTried": [
-          "https://www.sitzungsdienst.net/",
-          "https://www.nw.ch/landrat",
           "https://www.nw.ch/landratmain",
+          "https://www.nw.ch/landrat",
           "https://nw.ratsinfomanagement.net",
+          "https://www.sitzungsdienst.net/",
           "https://nw.ch/landrat",
           "https://www.ratsinfo.nw.ch",
           "https://ratsinfo.nw.ch",
           "https://www.nw.ch/landrat/geschaefte"
         ],
-        "fetchUrl": "https://www.sitzungsdienst.net/"
+        "fetchUrl": "https://www.nw.ch/landratmain"
       }
     },
     {
       "sourceId": "ch-cantonal-portal-priority-v2",
-      "sourceUrl": "https://www.sitzungsdienst.net/",
+      "sourceUrl": "https://www.ow.ch/kantonsratview",
       "externalId": "cantonal-portal-ow",
-      "title": "OW · Kantonsrat Obwalden: Parlamentsgeschäfte",
-      "summary": "STERNBERG Software: Mit uns besser Beraten! – 0 relevante Linkziele erkannt (Leitlink: Parlamentsgeschäfte)",
-      "body": "Portal erreichbar (https://www.sitzungsdienst.net/), aber noch ohne extrahierte Vorstoss-Links.",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "title": "OW · Kantonsrat Obwalden: Vorstösse Kantonsrat OW",
+      "summary": "Obwalden - Der Obwaldner Kantonsrat – 5 relevante Linkziele erkannt (Leitlink: Vorstösse Kantonsrat OW)",
+      "body": "1. Vorstösse Kantonsrat OW – https://www.ow.ch/kantonsratview?open=VOR\n2. NACH OBEN – https://www.ow.ch/kantonsratview#\n3. Kantonsrat – https://www.ow.ch/kantonsratmain\n4. Übersicht (ausgewählt) – https://www.ow.ch/kantonsratview\n5. Vernehmlassungen – https://www.ow.ch/exekutivgeschaefte",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
-      "score": 0.4,
+      "score": 0.65,
       "matchedKeywords": [
         "kanton",
-        "ow"
+        "ow",
+        "vorstösse",
+        "kantonsrat",
+        "kantonsratview",
+        "kantonsratmain",
+        "geschaefte"
       ],
       "status": "new",
-      "reviewReason": "cantonal-portal-reachable",
+      "reviewReason": "cantonal-portal-links",
       "meta": {
         "canton": "OW",
         "parliament": "Kantonsrat Obwalden",
         "readiness": "adapter-ready-likely",
-        "extractedLinkCount": 0,
-        "extractedLinks": [],
+        "extractedLinkCount": 5,
+        "extractedLinks": [
+          {
+            "href": "https://www.ow.ch/kantonsratview?open=VOR",
+            "text": "Vorstösse Kantonsrat OW",
+            "rank": 3
+          },
+          {
+            "href": "https://www.ow.ch/kantonsratview#",
+            "text": "NACH OBEN",
+            "rank": 2
+          },
+          {
+            "href": "https://www.ow.ch/kantonsratmain",
+            "text": "Kantonsrat",
+            "rank": 2
+          },
+          {
+            "href": "https://www.ow.ch/kantonsratview",
+            "text": "Übersicht (ausgewählt)",
+            "rank": 2
+          },
+          {
+            "href": "https://www.ow.ch/exekutivgeschaefte",
+            "text": "Vernehmlassungen",
+            "rank": 2
+          }
+        ],
         "adapterHint": "cantonalPortal",
         "candidateUrlsTried": [
-          "https://www.sitzungsdienst.net/",
+          "https://www.ow.ch/kantonsratview",
           "https://www.ow.ch/kantonsrat",
           "https://www.ow.ch/kantonsratmain",
-          "https://www.ow.ch/kantonsratview",
           "https://ow.ratsinfomanagement.net",
+          "https://www.sitzungsdienst.net/",
           "https://ow.ch/kantonsrat",
           "https://www.ratsinfo.ow.ch",
           "https://ratsinfo.ow.ch"
         ],
-        "fetchUrl": "https://www.sitzungsdienst.net/"
+        "fetchUrl": "https://www.ow.ch/kantonsratview"
       }
     },
     {
@@ -2260,8 +2337,8 @@
       "title": "SG · Kantonsrat St. Gallen: Geschäfte Kantonsrat SG",
       "summary": "Kantonsrat St. Gallen – 2 relevante Linkziele erkannt (Leitlink: Geschäfte Kantonsrat SG)",
       "body": "1. Geschäfte Kantonsrat SG – https://www.ratsinfo.sg.ch/geschaefte\n2. Ratsinfo St. Gallen – https://www.ratsinfo.sg.ch/",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0.5,
       "matchedKeywords": [
@@ -2306,13 +2383,13 @@
     },
     {
       "sourceId": "ch-cantonal-portal-priority-v2",
-      "sourceUrl": "https://www.sitzungsdienst.net/",
+      "sourceUrl": "https://sh.ch/CMS/Webseite/Kanton-Schaffhausen-1756-DE.html",
       "externalId": "cantonal-portal-sh",
       "title": "SH · Kantonsrat Schaffhausen: Kantonsrat Schaffhausen",
-      "summary": "STERNBERG Software: Mit uns besser Beraten! – 2 relevante Linkziele erkannt (Leitlink: Kantonsrat Schaffhausen)",
+      "summary": "Kanton Schaffhausen – 2 relevante Linkziele erkannt (Leitlink: Kantonsrat Schaffhausen)",
       "body": "1. Kantonsrat Schaffhausen – https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html\n2. Parlamentarische Vorstösse SH – https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Parlamentarische-Vorstoesse-3341988-DE.html",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0.5,
       "matchedKeywords": [
@@ -2342,16 +2419,16 @@
         ],
         "adapterHint": "cantonalPortal",
         "candidateUrlsTried": [
-          "https://www.sitzungsdienst.net/",
+          "https://sh.ch/CMS/Webseite/Kanton-Schaffhausen-1756-DE.html",
           "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html",
           "https://sh.ratsinfomanagement.net",
           "https://www.sh.ch/parlament",
-          "https://sh.ch/CMS/Webseite/Kanton-Schaffhausen-1756-DE.html",
+          "https://www.sitzungsdienst.net/",
           "https://sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html",
           "https://www.ratsinfo.sh.ch",
           "https://ratsinfo.sh.ch"
         ],
-        "fetchUrl": "https://www.sitzungsdienst.net/"
+        "fetchUrl": "https://sh.ch/CMS/Webseite/Kanton-Schaffhausen-1756-DE.html"
       }
     },
     {
@@ -2361,8 +2438,8 @@
       "title": "SO · Kantonsrat Solothurn: Geschäfte",
       "summary": "Geschäfte - Kanton Solothurn – 8 relevante Linkziele erkannt (Leitlink: Geschäfte)",
       "body": "1. Geschäfte – https://so.ch/parlament/geschaefte/\n2. Sachgeschäfte – https://ratsinfo.so.ch/gremium/3/geschaefte?itemsPerPage=50&amp;state=open&amp;type=36&amp;ordering=-begin_date&amp;page=1\n3. Rechtsetzungsgeschäfte – https://ratsinfo.so.ch/gremium/3/geschaefte?itemsPerPage=50&amp;state=open&amp;type=32&amp;ordering=-begin_date&amp;page=1\n4. Wahlgeschäfte – https://ratsinfo.so.ch/gremium/3/geschaefte?itemsPerPage=50&amp;state=open&amp;type=45&amp;ordering=-begin_date&amp;page=1\n5. Interpellationen – https://ratsinfo.so.ch/gremium/3/geschaefte?itemsPerPage=50&amp;state=open&amp;type=19&amp;ordering=-begin_date&amp;page=1\n6. Geschäfte – https://ratsinfo.so.ch/geschaefte\n7. Ratsinfo Solothurn – https://ratsinfo.so.ch/\n8. Interventionen – https://ratsinfo.so.ch/interventionen",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0.8,
       "matchedKeywords": [
@@ -2442,8 +2519,8 @@
       "title": "SZ · Kantonsrat Schwyz: Geschäfte",
       "summary": "Kantonsrat – Kanton Schwyz – 10 relevante Linkziele erkannt (Leitlink: Geschäfte)",
       "body": "1. Geschäfte – https://www.sz.ch/behoerden/kantonsrat/geschaefte.html/8756-8758-8799-9210\n2. Ratsleitung – https://www.sz.ch/behoerden/kantonsrat/ratsleitung.html/8756-8758-8799-9147\n3. Ebau – https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799#\n4. Kantonsrat – https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799\n5. Kommissionen – https://www.sz.ch/behoerden/kantonsrat/kommissionen.html/8756-8758-8799-9152\n6. Fraktionsmitglieder – https://www.sz.ch/behoerden/kantonsrat/fraktionen.html/8756-8758-8799-9200\n7. Mitglieder des Kantonsrates – https://www.sz.ch/behoerden/kantonsrat/mitglieder.html/8756-8758-8799-9113\n8. Sitzungen und Protokolle – https://www.sz.ch/behoerden/kantonsrat/kantonsratssitzungen.html/8756-8758-8799-9204\n9. Link zum Profil des Kantonsratspräsidenten – https://www.sz.ch/behoerden/kantonsrat/mitglieder/mitglied-im-kantonsrat.html/8756-8758-8799-9113-9270/person_guid/dadc5e76cf8c4c01b0084b187ed31c0e\n10. Staatswirtschaftskommission (STAWIKO) – https://www.sz.ch/behoerden/kantonsrat/kommissionen/staatswirtschaftskommission-stawiko.html/8756-8758-8799-9152-9154",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0.85,
       "matchedKeywords": [
@@ -2529,39 +2606,64 @@
     },
     {
       "sourceId": "ch-cantonal-portal-priority-v2",
-      "sourceUrl": "https://www.sitzungsdienst.net/",
+      "sourceUrl": "https://parlament.tg.ch/",
       "externalId": "cantonal-portal-tg",
-      "title": "TG · Grosser Rat Thurgau: Parlamentsgeschäfte",
-      "summary": "STERNBERG Software: Mit uns besser Beraten! – 0 relevante Linkziele erkannt (Leitlink: Parlamentsgeschäfte)",
-      "body": "Portal erreichbar (https://www.sitzungsdienst.net/), aber noch ohne extrahierte Vorstoss-Links.",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "title": "TG · Grosser Rat Thurgau: Ratsbetrieb Interessiert? Das&nbsp;Handbuch Grosser Rat&nbsp;gibt Auskunft. mehr zu diesem Thema",
+      "summary": "Grosser Rat – 4 relevante Linkziele erkannt (Leitlink: Ratsbetrieb Interessiert? Das&nbsp;Handbuch Grosser Rat&nbsp;gibt Auskunft. mehr zu diesem Thema)",
+      "body": "1. Ratsbetrieb Interessiert? Das&nbsp;Handbuch Grosser Rat&nbsp;gibt Auskunft. mehr zu diesem Thema – https://parlament.tg.ch/geschaefte/handbuch-grosser-rat.html/12314\n2. Geschäftsdatenbank (GRGEKO) Hier finden Sie alle Informationen und Unterlagen zu den Geschäften des Grossen Rates. mehr zu diesem Thema – https://parlament.tg.ch/geschaefte.html/4466\n3. Grosser Rat Thurgau – https://parlament.tg.ch/\n4. Traktanden und Vorlagen TG – https://parlament.tg.ch/traktanden-und-vorlagen",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
-      "score": 0.4,
+      "score": 0.6000000000000001,
       "matchedKeywords": [
         "kanton",
-        "tg"
+        "tg",
+        "geschaefte",
+        "grosser-rat",
+        "parlament.tg.ch",
+        "geschäfte"
       ],
       "status": "new",
-      "reviewReason": "cantonal-portal-reachable",
+      "reviewReason": "cantonal-portal-links",
       "meta": {
         "canton": "TG",
         "parliament": "Grosser Rat Thurgau",
         "readiness": "adapter-ready-likely",
-        "extractedLinkCount": 0,
-        "extractedLinks": [],
+        "extractedLinkCount": 4,
+        "extractedLinks": [
+          {
+            "href": "https://parlament.tg.ch/geschaefte/handbuch-grosser-rat.html/12314",
+            "text": "Ratsbetrieb Interessiert? Das&nbsp;Handbuch Grosser Rat&nbsp;gibt Auskunft. mehr zu diesem Thema",
+            "rank": 5
+          },
+          {
+            "href": "https://parlament.tg.ch/geschaefte.html/4466",
+            "text": "Geschäftsdatenbank (GRGEKO) Hier finden Sie alle Informationen und Unterlagen zu den Geschäften des Grossen Rates. mehr zu diesem Thema",
+            "rank": 4
+          },
+          {
+            "href": "https://parlament.tg.ch/",
+            "text": "Grosser Rat Thurgau",
+            "rank": 1
+          },
+          {
+            "href": "https://parlament.tg.ch/traktanden-und-vorlagen",
+            "text": "Traktanden und Vorlagen TG",
+            "rank": 1
+          }
+        ],
         "adapterHint": "cantonalPortal",
         "candidateUrlsTried": [
-          "https://www.sitzungsdienst.net/",
+          "https://parlament.tg.ch/",
           "https://grosserrat.tg.ch",
           "https://parlament.tg.ch",
           "https://tg.ratsinfomanagement.net",
-          "https://parlament.tg.ch/",
+          "https://www.sitzungsdienst.net/",
           "https://www.grosserrat.tg.ch",
           "https://www.ratsinfo.tg.ch",
           "https://ratsinfo.tg.ch"
         ],
-        "fetchUrl": "https://www.sitzungsdienst.net/"
+        "fetchUrl": "https://parlament.tg.ch/"
       }
     },
     {
@@ -2571,8 +2673,8 @@
       "title": "TI · Gran Consiglio Ticino: Ricerca messaggi e atti",
       "summary": "Risultati - GC (POTERI) - Repubblica e Cantone Ticino – 2 relevante Linkziele erkannt (Leitlink: Ricerca messaggi e atti)",
       "body": "1. Ricerca messaggi e atti – https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati\n2. Ricerca messaggi governativi e atti parlamentari – https://www4.ti.ch/index.php?id=83058",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "it",
       "score": 0.5,
       "matchedKeywords": [
@@ -2607,24 +2709,24 @@
           "https://www4.ti.ch/index.php?id=83058",
           "https://www4.ti.ch/poteri/gc/attivita-parlamentare",
           "https://www4.ti.ch/poteri/cds/home",
+          "https://www.sitzungsdienst.net/",
           "https://www.www4.ti.ch/poteri/gc/home",
-          "https://ti.ratsinfomanagement.net",
-          "https://www.ratsinfo.ti.ch"
+          "https://ti.ratsinfomanagement.net"
         ],
         "fetchUrl": "https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati"
       }
     },
     {
       "sourceId": "ch-cantonal-portal-priority-v2",
-      "sourceUrl": "https://www.sitzungsdienst.net/",
+      "sourceUrl": "https://www.ur.ch/sitzung",
       "externalId": "cantonal-portal-ur",
       "title": "UR · Landrat Uri: Geschäfte Landrat Uri",
-      "summary": "STERNBERG Software: Mit uns besser Beraten! – 2 relevante Linkziele erkannt (Leitlink: Geschäfte Landrat Uri)",
-      "body": "1. Geschäfte Landrat Uri – https://www.ur.ch/landrat/geschaefte\n2. Landrat Uri – https://www.ur.ch/landrat",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "summary": "Kanton Uri - Sessionen – 3 relevante Linkziele erkannt (Leitlink: Geschäfte Landrat Uri)",
+      "body": "1. Geschäfte Landrat Uri – https://www.ur.ch/landrat/geschaefte\n2. Regierungsrätliche Planung der Landratsgeschäfte Externer Link wird in einem neuen Fenster geöffnet. – https://www.ur.ch/planungberichtereg/6152\n3. Landrat Uri – https://www.ur.ch/landrat",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
-      "score": 0.5,
+      "score": 0.55,
       "matchedKeywords": [
         "kanton",
         "ur",
@@ -2638,12 +2740,17 @@
         "canton": "UR",
         "parliament": "Landrat Uri",
         "readiness": "adapter-ready-likely",
-        "extractedLinkCount": 2,
+        "extractedLinkCount": 3,
         "extractedLinks": [
           {
             "href": "https://www.ur.ch/landrat/geschaefte",
             "text": "Geschäfte Landrat Uri",
             "rank": 3
+          },
+          {
+            "href": "https://www.ur.ch/planungberichtereg/6152",
+            "text": "Regierungsrätliche Planung der Landratsgeschäfte Externer Link wird in einem neuen Fenster geöffnet.",
+            "rank": 2
           },
           {
             "href": "https://www.ur.ch/landrat",
@@ -2653,16 +2760,16 @@
         ],
         "adapterHint": "cantonalPortal",
         "candidateUrlsTried": [
-          "https://www.sitzungsdienst.net/",
+          "https://www.ur.ch/sitzung",
           "https://www.ur.ch/landrat",
           "https://ur.ratsinfomanagement.net",
-          "https://www.ur.ch/sitzung",
+          "https://www.sitzungsdienst.net/",
           "https://ur.ch/landrat",
           "https://www.ratsinfo.ur.ch",
           "https://ratsinfo.ur.ch",
           "https://www.ur.ch/landrat/geschaefte"
         ],
-        "fetchUrl": "https://www.sitzungsdienst.net/"
+        "fetchUrl": "https://www.ur.ch/sitzung"
       }
     },
     {
@@ -2672,8 +2779,8 @@
       "title": "VD · Grand Conseil Vaud: Liste des objets en attente de traitement par le Grand Conseil",
       "summary": "Objets et rapports de commissions | État de Vaud – 4 relevante Linkziele erkannt (Leitlink: Liste des objets en attente de traitement par le Grand Conseil)",
       "body": "1. Liste des objets en attente de traitement par le Grand Conseil – https://www.vd.ch/gc/liste-des-objets-en-attente-de-traitement-par-le-grand-conseil\n2. Bulletin du Grand Conseil – https://www.vd.ch/toutes-les-autorites/grand-conseil/bulletin-du-grand-conseil\n3. Liste des rapports de commissions – https://www.vd.ch/gc/objets-et-rapports-de-commissions/liste-des-rapports-de-commission\n4. Objets et rapports de commissions – https://www.vd.ch/gc/objets-et-rapports-de-commissions",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "fr",
       "score": 0.6000000000000001,
       "matchedKeywords": [
@@ -2730,13 +2837,13 @@
     },
     {
       "sourceId": "ch-cantonal-portal-priority-v2",
-      "sourceUrl": "https://www.sitzungsdienst.net/",
+      "sourceUrl": "https://www.vs.ch/fr/web/gc/objets-parlementaires",
       "externalId": "cantonal-portal-vs",
       "title": "VS · Grand Conseil Valais: Objets parlementaires",
-      "summary": "STERNBERG Software: Mit uns besser Beraten! – 2 relevante Linkziele erkannt (Leitlink: Objets parlementaires)",
+      "summary": "Verifying your browser... – 2 relevante Linkziele erkannt (Leitlink: Objets parlementaires)",
       "body": "1. Objets parlementaires – https://www.vs.ch/fr/web/gc/objets-parlementaires\n2. Interventions parlementaires – https://www.vs.ch/fr/web/gc/interventions-parlementaires",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "fr",
       "score": 0.5,
       "matchedKeywords": [
@@ -2752,7 +2859,7 @@
       "meta": {
         "canton": "VS",
         "parliament": "Grand Conseil Valais",
-        "readiness": "adapter-ready-likely",
+        "readiness": "site-discovery-needed",
         "extractedLinkCount": 2,
         "extractedLinks": [
           {
@@ -2768,16 +2875,16 @@
         ],
         "adapterHint": "cantonalPortal",
         "candidateUrlsTried": [
-          "https://www.sitzungsdienst.net/",
           "https://www.vs.ch/fr/web/gc/objets-parlementaires",
           "https://www.vs.ch/fr/web/gc/interventions-parlementaires",
           "https://www.vs.ch/de/web/gc/parlamentarische-vorstoesse",
           "https://vs.ratsinfomanagement.net",
           "https://www.sitzungsdienst.net",
+          "https://www.sitzungsdienst.net/",
           "https://vs.ch/fr/web/gc/objets-parlementaires",
           "https://www.ratsinfo.vs.ch"
         ],
-        "fetchUrl": "https://www.sitzungsdienst.net/"
+        "fetchUrl": "https://www.vs.ch/fr/web/gc/objets-parlementaires"
       }
     },
     {
@@ -2787,8 +2894,8 @@
       "title": "ZG · Kantonsrat Zug: Deutsch",
       "summary": "Geschäfte des Kantonsrats – 5 relevante Linkziele erkannt (Leitlink: Deutsch)",
       "body": "1. Deutsch – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats\n2. Organisation – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats#\n3. Übersicht über die Geschäfte des Kantonsrats – https://kr-geschaefte.zug.ch/gast/geschaefte\n4. Zu den Protokollen und Abstimmungsergebnissen – https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/protokolle\n5. Geschäfte des Regierungsrats Beschlüsse, Vernehmlassungen, Informationen, Strategie – https://zg.ch/de/staat-politik/geschaefte-des-regierungsrats",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0.65,
       "matchedKeywords": [
@@ -2854,8 +2961,8 @@
       "title": "ZH · Kantonsrat Zürich: Geschäfte",
       "summary": "Kantonsrat Zürich | Geschäfte – 4 relevante Linkziele erkannt (Leitlink: Geschäfte)",
       "body": "1. Geschäfte – https://www.kantonsrat.zh.ch/geschaefte/\n2. Geschäfte – https://www.kantonsrat.zh.ch/geschaefte\n3. Geschäfte per RSS abonnieren – https://www.kantonsrat.zh.ch/informiert-ueber-die-aktuellsten-geschaefte-des-kantonsrates\n4. Geschäftsleitung – https://www.kantonsrat.zh.ch/organisation/geschaeftsleitung/",
-      "publishedAt": "2026-02-15T23:16:56.599Z",
-      "fetchedAt": "2026-02-15T23:16:56.599Z",
+      "publishedAt": "2026-02-16T00:49:04.474Z",
+      "fetchedAt": "2026-02-16T00:49:04.474Z",
       "language": "de",
       "score": 0.6000000000000001,
       "matchedKeywords": [
@@ -2919,7 +3026,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Sicherheitspolitik|Finanzwesen|Kultur",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -2964,7 +3071,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Finanzwesen|Strafrecht|Migration",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3009,7 +3116,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Medien und Kommunikation|Gerichtswesen",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3054,7 +3161,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Wirtschaft|Beschäftigung und Arbeit|Sozialer Schutz",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3099,7 +3206,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Energie|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3144,7 +3251,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Internationale Politik|Sicherheitspolitik|Umwelt",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3189,7 +3296,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Strafrecht|Gesundheit",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3234,7 +3341,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Internationale Politik|Finanzwesen|Strafrecht",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3279,7 +3386,7 @@
       "summary": "Eingereicht",
       "body": "",
       "publishedAt": "2026-02-13T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3324,7 +3431,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Staatspolitik|Gesundheit",
       "publishedAt": "2024-02-26T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3369,7 +3476,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Staatspolitik|Gesundheit",
       "publishedAt": "2023-09-29T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3414,7 +3521,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Gesundheit",
       "publishedAt": "2019-05-03T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3459,7 +3566,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Finanzwesen|Gesundheit",
       "publishedAt": "2017-12-14T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3504,7 +3611,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Wirtschaft|Gesundheit",
       "publishedAt": "2015-05-06T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3549,7 +3656,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Internationale Politik|Soziale Fragen|Strafrecht|Menschenrechte",
       "publishedAt": "2020-06-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3594,7 +3701,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Wirtschaft|Finanzwesen|Wissenschaft und Forschung",
       "publishedAt": "2023-06-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3639,7 +3746,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Staatspolitik|Wirtschaft|Beschäftigung und Arbeit|Sozialer Schutz",
       "publishedAt": "2023-03-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3684,7 +3791,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Gesundheit",
       "publishedAt": "2024-02-23T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3729,7 +3836,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Gesundheit",
       "publishedAt": "2023-11-14T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3774,7 +3881,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Gesundheit",
       "publishedAt": "2022-12-14T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3819,7 +3926,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Umwelt|Gesundheit",
       "publishedAt": "2022-12-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3864,7 +3971,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Soziale Fragen|Beschäftigung und Arbeit",
       "publishedAt": "2021-09-30T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3909,7 +4016,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Soziale Fragen|Beschäftigung und Arbeit",
       "publishedAt": "2021-06-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3954,7 +4061,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Finanzwesen|Steuer|Sozialer Schutz|Gesundheit",
       "publishedAt": "2024-09-27T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -3999,7 +4106,7 @@
       "summary": "In Kommission des Nationalrats",
       "body": "Soziale Fragen|Zivilrecht|Internationales Recht",
       "publishedAt": "2025-04-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4044,7 +4151,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Wirtschaft|Steuer|Gesundheit",
       "publishedAt": "2023-05-23T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4089,7 +4196,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Staatspolitik|Sicherheitspolitik|Wirtschaft|Finanzwesen",
       "publishedAt": "2022-05-09T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4134,7 +4241,7 @@
       "summary": "Überwiesen an den Bundesrat",
       "body": "Staatspolitik|Finanzwesen",
       "publishedAt": "2024-12-20T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4179,7 +4286,7 @@
       "summary": "Zugewiesen an die behandelnde Kommission",
       "body": "Soziale Fragen|Sozialer Schutz|Gesundheit",
       "publishedAt": "2019-03-12T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4224,7 +4331,7 @@
       "summary": "Überwiesen an den Bundesrat",
       "body": "Staatspolitik|Finanzwesen",
       "publishedAt": "2024-12-20T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4269,7 +4376,7 @@
       "summary": "Überwiesen an den Bundesrat",
       "body": "Staatspolitik|Finanzwesen",
       "publishedAt": "2024-12-20T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4314,7 +4421,7 @@
       "summary": "Überwiesen an den Bundesrat",
       "body": "Staatspolitik|Finanzwesen",
       "publishedAt": "2024-12-20T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4359,7 +4466,7 @@
       "summary": "Eingereicht",
       "body": "Soziale Fragen|Beschäftigung und Arbeit|Parlament",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4404,7 +4511,7 @@
       "summary": "Überwiesen an den Bundesrat",
       "body": "Staatspolitik|Finanzwesen",
       "publishedAt": "2024-12-20T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4449,7 +4556,7 @@
       "summary": "Überwiesen an den Bundesrat",
       "body": "Staatspolitik|Finanzwesen",
       "publishedAt": "2024-12-20T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4494,7 +4601,7 @@
       "summary": "Überwiesen an den Bundesrat",
       "body": "Sicherheitspolitik|Wirtschaft",
       "publishedAt": "2025-01-09T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4539,7 +4646,7 @@
       "summary": "Überwiesen an den Bundesrat",
       "body": "Sicherheitspolitik|Wirtschaft|Finanzwesen",
       "publishedAt": "2025-01-27T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4584,7 +4691,7 @@
       "summary": "Überwiesen an den Bundesrat",
       "body": "Internationale Politik|Sicherheitspolitik|Finanzwesen|Migration",
       "publishedAt": "2025-02-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4629,7 +4736,7 @@
       "summary": "Überwiesen an den Bundesrat",
       "body": "Internationale Politik|Sicherheitspolitik|Finanzwesen|Migration",
       "publishedAt": "2025-02-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4674,7 +4781,7 @@
       "summary": "Überwiesen an den Bundesrat",
       "body": "Sicherheitspolitik|Kultur",
       "publishedAt": "2024-10-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4719,7 +4826,7 @@
       "summary": "Überwiesen an den Bundesrat",
       "body": "Internationale Politik|Sicherheitspolitik",
       "publishedAt": "2024-10-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4764,7 +4871,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4809,7 +4916,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Verkehr",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4854,7 +4961,7 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Staatspolitik|Sicherheitspolitik|Medien und Kommunikation",
       "publishedAt": "2024-03-14T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4899,7 +5006,7 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Sicherheitspolitik|Soziale Fragen|Beschäftigung und Arbeit",
       "publishedAt": "2025-06-20T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4944,7 +5051,7 @@
       "summary": "In Kommission des Nationalrats",
       "body": "Europapolitik|Internationales Recht",
       "publishedAt": "2025-06-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -4989,7 +5096,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Soziale Fragen|Gesundheit",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5034,7 +5141,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Finanzwesen|Umwelt",
       "publishedAt": "2025-12-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5079,7 +5186,7 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Energie",
       "publishedAt": "2025-06-24T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5124,7 +5231,7 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Energie",
       "publishedAt": "2022-03-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5169,7 +5276,7 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Wirtschaft|Energie",
       "publishedAt": "2022-03-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5214,7 +5321,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Finanzwesen|Verkehr|Umwelt",
       "publishedAt": "2025-09-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5259,7 +5366,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Bildung",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5304,7 +5411,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Zivilrecht|Strafrecht",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5349,7 +5456,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Soziale Fragen",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5394,7 +5501,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Gesundheit",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5439,7 +5546,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Gesundheit",
       "publishedAt": "2025-12-02T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5484,7 +5591,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Beschäftigung und Arbeit",
       "publishedAt": "2025-12-02T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5529,7 +5636,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Wirtschaft|Sozialer Schutz",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5574,7 +5681,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Medien und Kommunikation|Verkehr|Menschenrechte",
       "publishedAt": "2025-12-02T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5619,7 +5726,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Soziale Fragen|Verkehr",
       "publishedAt": "2025-12-03T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5664,7 +5771,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Recht Allgemein|Medien und Kommunikation",
       "publishedAt": "2025-12-03T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5709,7 +5816,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Wirtschaft",
       "publishedAt": "2025-12-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5754,7 +5861,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Bildung|Medien und Kommunikation|Beschäftigung und Arbeit",
       "publishedAt": "2025-11-13T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5799,7 +5906,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Beschäftigung und Arbeit|Umwelt",
       "publishedAt": "2025-12-03T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5844,7 +5951,7 @@
       "summary": "Erledigt",
       "body": "Medien und Kommunikation",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5880,7 +5987,7 @@
       "summary": "Erledigt",
       "body": "Staatspolitik|Soziale Fragen|Strafrecht",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5916,7 +6023,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Recht Allgemein|Wirtschaft|Gesundheit",
       "publishedAt": "2025-12-03T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -5961,7 +6068,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Recht Allgemein|Soziale Fragen|Migration|Kultur",
       "publishedAt": "2025-12-03T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6006,7 +6113,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Umwelt|Landwirtschaft|Gesundheit",
       "publishedAt": "2025-12-09T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6051,7 +6158,7 @@
       "summary": "Erledigt",
       "body": "Soziale Fragen|Medien und Kommunikation|Strafrecht",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6087,7 +6194,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Energie",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6132,7 +6239,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Finanzwesen",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6177,7 +6284,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Finanzwesen|Medien und Kommunikation|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-09T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6222,7 +6329,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Internationale Politik|Sicherheitspolitik|Beschäftigung und Arbeit",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6267,7 +6374,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Medien und Kommunikation|Kultur",
       "publishedAt": "2025-12-04T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6312,7 +6419,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Internationale Politik|Gesundheit",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6357,7 +6464,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Sicherheitspolitik|Soziale Fragen",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6402,7 +6509,7 @@
       "summary": "Erledigt",
       "body": "Verkehr|Umwelt",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6438,7 +6545,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Strafrecht|Migration",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6483,7 +6590,7 @@
       "summary": "Erledigt",
       "body": "Wirtschaft|Finanzwesen|Medien und Kommunikation",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6519,7 +6626,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Finanzwesen|Umwelt|Steuer",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6564,7 +6671,7 @@
       "summary": "Erledigt",
       "body": "Medien und Kommunikation|Umwelt|Gesundheit",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6600,7 +6707,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Bildung|Beschäftigung und Arbeit",
       "publishedAt": "2025-12-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6645,7 +6752,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wissenschaft und Forschung|Umwelt",
       "publishedAt": "2025-12-09T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6690,7 +6797,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Sicherheitspolitik",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6735,7 +6842,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Medien und Kommunikation|Beschäftigung und Arbeit|Verkehr",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6780,7 +6887,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen|Bildung|Beschäftigung und Arbeit",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6825,7 +6932,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Umwelt",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6870,7 +6977,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Beschäftigung und Arbeit|Verkehr",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6915,7 +7022,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen|Medien und Kommunikation|Gesundheit",
       "publishedAt": "2025-12-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -6960,7 +7067,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Umwelt|Energie",
       "publishedAt": "2025-12-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7005,7 +7112,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik",
       "publishedAt": "2025-12-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7050,7 +7157,7 @@
       "summary": "Erledigt",
       "body": "Internationale Politik|Wirtschaft|Parlament",
       "publishedAt": "2018-12-14T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7095,7 +7202,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Finanzwesen|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7140,7 +7247,7 @@
       "summary": "Überwiesen an den Bundesrat",
       "body": "Wirtschaft|Verkehr",
       "publishedAt": "2022-03-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7185,7 +7292,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Strafrecht|Migration",
       "publishedAt": "2025-12-11T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7230,7 +7337,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen|Zivilrecht|Migration",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7275,7 +7382,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Finanzwesen",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7320,7 +7427,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen|Strafrecht|Migration",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7365,7 +7472,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Sicherheitspolitik|Medien und Kommunikation|Kultur",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7410,7 +7517,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Wirtschaft",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7455,7 +7562,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Soziale Fragen|Strafrecht",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7500,7 +7607,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Internationale Politik|Finanzwesen|Umwelt",
       "publishedAt": "2025-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7545,7 +7652,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Gesundheit",
       "publishedAt": "2025-12-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7590,7 +7697,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Finanzwesen|Verkehr",
       "publishedAt": "2025-12-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7635,7 +7742,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Bildung|Beschäftigung und Arbeit|Energie",
       "publishedAt": "2025-12-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7680,7 +7787,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen|Beschäftigung und Arbeit|Steuer|Sozialer Schutz",
       "publishedAt": "2025-12-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7725,7 +7832,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Wirtschaft|Migration",
       "publishedAt": "2025-12-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7770,7 +7877,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Umwelt",
       "publishedAt": "2025-12-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7815,7 +7922,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Finanzwesen|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7860,7 +7967,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7905,7 +8012,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Verkehr|Umwelt|Gesundheit",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7950,7 +8057,7 @@
       "summary": "In Kommission des Nationalrats",
       "body": "Wirtschaft|Soziale Fragen|Verkehr",
       "publishedAt": "2020-03-10T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -7995,7 +8102,7 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Finanzwesen|Verkehr",
       "publishedAt": "2025-07-01T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8040,7 +8147,7 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Finanzwesen|Verkehr",
       "publishedAt": "2024-09-26T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8085,7 +8192,7 @@
       "summary": "In Kommission des Ständerats",
       "body": "Staatspolitik|Recht Allgemein|Wirtschaft|Medien und Kommunikation",
       "publishedAt": "2022-09-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8130,7 +8237,7 @@
       "summary": "In Kommission des Ständerats",
       "body": "Staatspolitik|Wirtschaft|Medien und Kommunikation",
       "publishedAt": "2022-03-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8175,7 +8282,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Finanzwesen|Energie",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8220,7 +8327,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Recht Allgemein|Energie",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8265,7 +8372,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Strafrecht",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8310,7 +8417,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Soziale Fragen|Medien und Kommunikation",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8355,7 +8462,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Umwelt|Energie",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8400,7 +8507,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen|Medien und Kommunikation|Gesundheit",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8445,7 +8552,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Recht Allgemein|Migration|Sozialer Schutz",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8490,7 +8597,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Strafrecht|Migration",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8535,7 +8642,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen|Strafrecht",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8580,7 +8687,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8625,7 +8732,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Medien und Kommunikation",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8670,7 +8777,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Internationale Politik|Sicherheitspolitik|Wirtschaft|Medien und Kommunikation",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8715,7 +8822,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Strafrecht|Migration",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8760,7 +8867,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Verkehr",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8805,7 +8912,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Strafrecht|Migration",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8850,7 +8957,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Umwelt|Menschenrechte|Gesundheit",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8895,7 +9002,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Migration|Sozialer Schutz",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8940,7 +9047,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Internationale Politik|Sicherheitspolitik|Menschenrechte",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -8985,7 +9092,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Medien und Kommunikation|Verkehr|Umwelt",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9030,7 +9137,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Migration|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9075,7 +9182,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Verkehr",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9120,7 +9227,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Wirtschaft|Verkehr|Gesundheit",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9165,7 +9272,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Umwelt|Landwirtschaft|Gesundheit",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9210,7 +9317,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen|Migration",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9255,7 +9362,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Medien und Kommunikation",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9300,7 +9407,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Strafrecht",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9345,7 +9452,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Finanzwesen|Verkehr",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9390,7 +9497,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Finanzwesen|Migration",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9435,7 +9542,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Internationale Politik|Wirtschaft|Medien und Kommunikation|Menschenrechte",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9480,7 +9587,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Verkehr|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9525,7 +9632,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Beschäftigung und Arbeit|Zivilrecht",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9570,7 +9677,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Energie",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9615,7 +9722,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Verkehr",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9660,7 +9767,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Soziale Fragen|Strafrecht|Migration",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9705,7 +9812,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Beschäftigung und Arbeit|Steuer|Sozialer Schutz",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9750,7 +9857,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Verkehr",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9795,7 +9902,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Migration|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9840,7 +9947,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Finanzwesen|Migration|Sozialer Schutz",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9885,7 +9992,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Internationale Politik|Strafrecht",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9930,7 +10037,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Strafrecht",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -9975,7 +10082,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Soziale Fragen|Strafrecht",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10020,7 +10127,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Soziale Fragen",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10065,7 +10172,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Finanzwesen|Umwelt",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10110,7 +10217,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Finanzwesen|Medien und Kommunikation|Strafrecht",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10155,7 +10262,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Internationales Recht|Sozialer Schutz",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10200,7 +10307,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Sicherheitspolitik|Wirtschaft|Strafrecht",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10245,7 +10352,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Recht Allgemein|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10290,7 +10397,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Bildung|Beschäftigung und Arbeit|Migration|Kultur",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10335,7 +10442,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Beschäftigung und Arbeit|Steuer|Sozialer Schutz",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10380,7 +10487,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen|Medien und Kommunikation|Gesundheit",
       "publishedAt": "2025-12-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10425,7 +10532,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Europapolitik|Strafrecht",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10470,7 +10577,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Finanzwesen",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10515,7 +10622,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Soziale Fragen|Medien und Kommunikation|Strafrecht",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10560,7 +10667,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Finanzwesen|Verkehr|Umwelt|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10605,7 +10712,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Medien und Kommunikation",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10650,7 +10757,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Umwelt|Energie",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10695,7 +10802,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Europapolitik|Migration",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10740,7 +10847,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Soziale Fragen",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10785,7 +10892,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Umwelt|Landwirtschaft|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10830,7 +10937,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Verkehr|Gesundheit",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10875,7 +10982,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Umwelt",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10920,7 +11027,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Sicherheitspolitik|Soziale Fragen",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -10965,7 +11072,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11010,7 +11117,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Medien und Kommunikation",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11055,7 +11162,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Migration",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11100,7 +11207,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11145,7 +11252,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Internationale Politik|Finanzwesen|Verkehr",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11190,7 +11297,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Medien und Kommunikation|Strafrecht|Menschenrechte",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11235,7 +11342,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Verkehr|Umwelt|Energie",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11280,7 +11387,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Umwelt|Energie",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11325,7 +11432,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Verkehr|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11370,7 +11477,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Verkehr|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11415,7 +11522,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11460,7 +11567,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11505,7 +11612,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Verkehr",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11550,7 +11657,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Verkehr",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11595,7 +11702,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Sicherheitspolitik|Soziale Fragen",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11640,7 +11747,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Finanzwesen|Verkehr",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11685,7 +11792,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Wirtschaft|Umwelt|Energie",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11730,7 +11837,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Finanzwesen|Energie|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11775,7 +11882,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Migration",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11820,7 +11927,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Sicherheitspolitik|Finanzwesen|Soziale Fragen",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11865,7 +11972,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11910,7 +12017,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Internationale Politik|Umwelt|Energie",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -11955,7 +12062,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Sicherheitspolitik|Migration",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12000,7 +12107,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Soziale Fragen|Umwelt|Sozialer Schutz",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12045,7 +12152,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Verkehr|Raumplanung und Wohnungswesen",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12090,7 +12197,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Medien und Kommunikation|Verkehr",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12135,7 +12242,7 @@
       "summary": "Stellungnahme zum Vorstoss liegt vor",
       "body": "Staatspolitik|Medien und Kommunikation",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12180,7 +12287,7 @@
       "summary": "Erledigt",
       "body": "Verkehr|Umwelt|Steuer",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12225,7 +12332,7 @@
       "summary": "Eingereicht",
       "body": "Finanzwesen|Parlament",
       "publishedAt": "2026-02-09T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12270,7 +12377,7 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Finanzwesen",
       "publishedAt": "2021-06-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12315,7 +12422,7 @@
       "summary": "Erledigt",
       "body": "Europapolitik|Umwelt|Gesundheit",
       "publishedAt": "2025-03-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12360,7 +12467,7 @@
       "summary": "Eingereicht",
       "body": "Recht Allgemein|Wirtschaft|Umwelt",
       "publishedAt": "2025-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12405,7 +12512,7 @@
       "summary": "Beratung in Kommission des Ständerates abgeschlossen",
       "body": "Umwelt|Landwirtschaft",
       "publishedAt": "2025-06-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12450,7 +12557,7 @@
       "summary": "Erledigt",
       "body": "Internationale Politik|Strafrecht|Migration",
       "publishedAt": "2016-06-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12495,7 +12602,7 @@
       "summary": "Erledigt",
       "body": "Soziale Fragen|Medien und Kommunikation|Strafrecht",
       "publishedAt": "2019-09-24T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12540,7 +12647,7 @@
       "summary": "Erledigt",
       "body": "Sicherheitspolitik|Finanzwesen",
       "publishedAt": "2023-05-30T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12576,7 +12683,7 @@
       "summary": "Erledigt",
       "body": "",
       "publishedAt": "1995-12-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12612,7 +12719,7 @@
       "summary": "Erledigt",
       "body": "",
       "publishedAt": "1997-04-30T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12648,7 +12755,7 @@
       "summary": "Überwiesen an den Bundesrat",
       "body": "Internationale Politik|Strafrecht|Migration",
       "publishedAt": "2023-03-08T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12693,7 +12800,7 @@
       "summary": "Erledigt",
       "body": "Umwelt",
       "publishedAt": "2019-09-25T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12738,7 +12845,7 @@
       "summary": "Berichterstattung zum Umsetzungsstand des Vorstosses liegt vor",
       "body": "Staatspolitik|Wirtschaft|Wissenschaft und Forschung|Umwelt|Landwirtschaft",
       "publishedAt": "2019-05-09T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12783,7 +12890,7 @@
       "summary": "Erledigt",
       "body": "Staatspolitik|Gesundheit",
       "publishedAt": "2019-09-25T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12828,7 +12935,7 @@
       "summary": "Erledigt",
       "body": "Internationale Politik|Europapolitik|Finanzwesen|Umwelt",
       "publishedAt": "2019-03-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12873,7 +12980,7 @@
       "summary": "Erledigt",
       "body": "Staatspolitik|Beschäftigung und Arbeit|Zivilrecht",
       "publishedAt": "2018-09-27T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12918,7 +13025,7 @@
       "summary": "Erledigt",
       "body": "Staatspolitik|Sicherheitspolitik|Wirtschaft",
       "publishedAt": "2019-03-20T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -12963,7 +13070,7 @@
       "summary": "Überwiesen an den Bundesrat",
       "body": "Umwelt|Gesundheit",
       "publishedAt": "2022-09-30T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -13008,7 +13115,7 @@
       "summary": "Erledigt",
       "body": "Umwelt|Landwirtschaft|Raumplanung und Wohnungswesen",
       "publishedAt": "2019-09-27T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -13053,7 +13160,7 @@
       "summary": "Erledigt",
       "body": "Energie|Raumplanung und Wohnungswesen",
       "publishedAt": "2019-09-26T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -13098,7 +13205,7 @@
       "summary": "Berichterstattung zum Umsetzungsstand des Vorstosses liegt vor",
       "body": "Soziale Fragen|Gesundheit",
       "publishedAt": "2019-03-21T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -13143,7 +13250,7 @@
       "summary": "Erledigt",
       "body": "Umwelt|Energie",
       "publishedAt": "2014-09-25T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -13188,7 +13295,7 @@
       "summary": "Erledigt",
       "body": "Medien und Kommunikation|Steuer|Sozialer Schutz",
       "publishedAt": "2022-03-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -13233,7 +13340,7 @@
       "summary": "Erledigt",
       "body": "Europapolitik|Wirtschaft|Medien und Kommunikation|Steuer",
       "publishedAt": "2020-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -13278,7 +13385,7 @@
       "summary": "Erledigt",
       "body": "Internationale Politik|Wirtschaft|Beschäftigung und Arbeit|Verkehr",
       "publishedAt": "2019-03-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -13323,7 +13430,7 @@
       "summary": "Erledigt",
       "body": "Wirtschaft|Medien und Kommunikation|Gesundheit",
       "publishedAt": "2019-03-22T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -13368,7 +13475,7 @@
       "summary": "Erledigt",
       "body": "Soziale Fragen|Bildung|Beschäftigung und Arbeit|Migration",
       "publishedAt": "2022-09-22T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -13413,7 +13520,7 @@
       "summary": "Erledigt",
       "body": "Sicherheitspolitik|Wirtschaft",
       "publishedAt": "2019-09-27T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -13458,7 +13565,7 @@
       "summary": "Erledigt",
       "body": "Verkehr|Umwelt",
       "publishedAt": "2019-09-27T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -13503,7 +13610,7 @@
       "summary": "Erledigt",
       "body": "Strafrecht",
       "publishedAt": "2018-06-14T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -13548,7 +13655,7 @@
       "summary": "Erledigt",
       "body": "Internationale Politik|Sicherheitspolitik|Finanzwesen|Strafrecht",
       "publishedAt": "2021-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -13593,7 +13700,7 @@
       "summary": "Erledigt",
       "body": "Sicherheitspolitik|Sozialer Schutz|Gesundheit",
       "publishedAt": "2019-09-26T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -13638,7 +13745,7 @@
       "summary": "Berichterstattung zum Umsetzungsstand des Vorstosses liegt vor",
       "body": "Finanzwesen|Medien und Kommunikation|Umwelt|Raumplanung und Wohnungswesen",
       "publishedAt": "2019-09-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
@@ -13683,7 +13790,7 @@
       "summary": "Erledigt",
       "body": "Wirtschaft|Finanzwesen|Umwelt",
       "publishedAt": "2022-03-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-15T23:16:56.574Z",
+      "fetchedAt": "2026-02-16T00:49:04.449Z",
       "language": "de",
       "languageVariants": {
         "de": {
