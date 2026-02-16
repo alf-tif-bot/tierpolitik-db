@@ -150,6 +150,7 @@ const mapStatus = (status = '', rawStatus = '', summary = '', body = '') => {
   if (textStatus.includes('zurückgezogen') || textStatus.includes('zurueckgezogen')) return 'Zurückgezogen'
   if (textStatus.includes('abgelehnt')) return 'Abgelehnt'
   if (textStatus.includes('angenommen')) return 'Angenommen'
+  if (textStatus.includes('überwiesen an den bundesrat') || textStatus.includes('ueberwiesen an den bundesrat')) return 'Überwiesen an den Bundesrat'
   if (textStatus.includes('erledigt')) return 'Erledigt'
   if (textStatus.includes('antwort des bundesrates')) return 'Erledigt'
 
@@ -316,6 +317,7 @@ const TYPE_OVERRIDES = {
   '21.044': 'Geschäft des Bundesrates',
   '23.1034': 'Anfrage',
   '24.331': 'Standesinitiative',
+  '24.3277': 'Postulat',
 }
 
 const THEME_OVERRIDES = {
@@ -360,6 +362,7 @@ const STATUS_OVERRIDES = {
   '23.3411': 'Erledigt',
   '25.3976': 'Stellungnahme zum Vorstoss liegt vor',
   '24.4696': 'Stellungnahme zum Vorstoss liegt vor',
+  '24.3277': 'Überwiesen an den Bundesrat',
   '21.8161': 'Erledigt',
   '21.3405': 'Erledigt',
   '25.4144': 'Erledigt',
@@ -387,6 +390,7 @@ const SUBMISSION_DATE_OVERRIDES = {
   '22.3633': '2022-06-15',
   '22.3210': '2022-03-17',
   '24.4696': '2024-12-20',
+  '24.3277': '2024-03-14',
   '21.3363': '2021-03-18',
   '21.3405': '2021-03-19',
   '21.044': '2021-05-19',
@@ -442,6 +446,7 @@ const SUMMARY_OVERRIDES = {
   '22.7807': 'Die Fragestunde-Frage verlangt eine Klärung, wie gerissene Nutztiere entschädigt werden, wenn Gänsegeier Kadaver vor der Begutachtung durch die Wildhut stark beschädigen.',
   '24.4695': 'Das Postulat beauftragt den Bundesrat zu prüfen und Bericht zu erstatten, welche im Ausland eingesetzten Ansätze zur Förderung tierversuchsfreier Forschungsmethoden sich für die Schweiz eignen.',
   '24.4696': 'Die Interpellation fragt den Bundesrat, wie die Förderung tierversuchsfreier Forschung strategisch gestärkt wird, insbesondere zur Rolle von 3RCC, SNF und Innosuisse sowie zu möglichen dauerhaften Strukturen im 3R-Bereich.',
+  '24.3277': 'Das Postulat beauftragt den Bundesrat, in einem Bericht die Entwicklung der Luchsbestände und deren Auswirkungen auf Wildbestände, Waldverjüngung sowie Nutztier- und Jagdregalschäden darzulegen.',
   '25.4812': 'Das Postulat beauftragt den Bundesrat zu prüfen, wie der Vollzug des Tierschutzgesetzes in den Kantonen verbessert werden kann, um Fälle wie in Ramiswil zu verhindern. Genannt werden insbesondere eine bessere Zusammenarbeit der Veterinärämter mit Tierschutzorganisationen, der Ausbau von Meldestellen und ausreichende kantonale Ressourcen.',
   '24.3296': 'Das Postulat beauftragt den Bundesrat zu prüfen, welche gesetzlichen Anpassungen für eine unabhängige Tieranwaltschaft und minimale subjektive Rechte für höher entwickelte Tiere erforderlich wären.',
   '22.3187': 'Die Interpellation fragt den Bundesrat, wie züchterische und regulatorische Massnahmen die Tierwohlprobleme bei hochgezüchteten Legehennen und Mastpoulets reduzieren können.',
@@ -759,8 +764,9 @@ const vorstoesse = items.map((item, index) => {
   const displayTitle = normalizeDisplayTitle(item, displayTitleRaw)
   const displaySummary = deVariant?.summary || item.summary
   const displayBody = deVariant?.body || item.body
+  const sourceVariant = deVariant || item
   const inferredYear = inferYearFromBusiness(displayTitle, item.externalId)
-  const computedEingereicht = toIsoDate(item.publishedAt || item.fetchedAt, inferredYear)
+  const computedEingereicht = toIsoDate(sourceVariant.publishedAt || sourceVariant.fetchedAt || item.publishedAt || item.fetchedAt, inferredYear)
   const updated = toIsoDate(item.fetchedAt || item.publishedAt)
   const inferredStatus = mapStatus(item.status, item?.meta?.rawStatus || '', displaySummary, displayBody)
   const businessNumber = formatBusinessNumber(
@@ -774,7 +780,12 @@ const vorstoesse = items.map((item, index) => {
   const status = STATUS_OVERRIDES[businessNumber] || inferredStatus
   const titleOverride = TITLE_OVERRIDES[businessNumber]
   const finalTitle = titleOverride || displayTitle
-  const inferredType = inferType(finalTitle, item.sourceId, item?.languageVariants?.de?.businessTypeName || '', item?.meta?.rawType || '')
+  const inferredType = inferType(
+    finalTitle,
+    item.sourceId,
+    sourceVariant?.businessTypeName || item?.languageVariants?.de?.businessTypeName || '',
+    sourceVariant?.meta?.rawType || item?.meta?.rawType || '',
+  )
   const typ = TYPE_OVERRIDES[businessNumber] || inferredType
   const stance = extractStance(item.reviewReason, finalTitle, displaySummary, displayBody)
   const initiativeLinks = buildInitiativeLinks({
