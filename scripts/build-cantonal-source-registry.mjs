@@ -7,6 +7,7 @@ const cantons = JSON.parse(fs.readFileSync(cantonsPath, 'utf8'))
 const PROBE_CANDIDATE_LIMIT = Math.max(3, Number(process.env.CANTON_PROBE_CANDIDATE_LIMIT || 8))
 const PROBE_CONCURRENCY = Math.max(1, Number(process.env.CANTON_PROBE_CONCURRENCY || 4))
 const PROBE_TIMEOUT_MS = Math.max(3000, Number(process.env.CANTON_PROBE_TIMEOUT_MS || 7000))
+const PROBE_RETRY_TIMEOUT_MS = Math.max(PROBE_TIMEOUT_MS, Number(process.env.CANTON_PROBE_RETRY_TIMEOUT_MS || 12000))
 
 const PARLIAMENT_URL_HINTS = [
   '/objets-parlementaires',
@@ -193,9 +194,18 @@ const classifyReadiness = ({
 
 const normalizeBase = (value) => String(value || '').replace(/\/+$/, '')
 
+const expandCandidateVariants = (url) => {
+  const raw = normalizeBase(url)
+  if (!raw) return []
+  const variants = new Set([raw])
+  if (raw.startsWith('https://www.')) variants.add(raw.replace('https://www.', 'https://'))
+  if (raw.startsWith('https://') && !raw.startsWith('https://www.')) variants.add(raw.replace('https://', 'https://www.'))
+  return [...variants]
+}
+
 const buildCandidates = (entry) => {
   const configured = Array.isArray(entry.urlCandidates)
-    ? entry.urlCandidates.map((u) => String(u || '').trim()).filter(Boolean)
+    ? entry.urlCandidates.flatMap((u) => expandCandidateVariants(String(u || '').trim())).filter(Boolean)
     : []
 
   const base = normalizeBase(entry.url)
@@ -237,11 +247,11 @@ const buildCandidates = (entry) => {
   ]
 
   const heuristics = [
-    base,
-    alternateHost,
+    ...expandCandidateVariants(base),
+    ...expandCandidateVariants(alternateHost),
     ...hostHints,
-    ...pathHints.map((hint) => `${base}/${hint}`),
-    ...pathHints.map((hint) => `${alternateHost}/${hint}`),
+    ...pathHints.flatMap((hint) => expandCandidateVariants(`${base}/${hint}`)),
+    ...pathHints.flatMap((hint) => expandCandidateVariants(`${alternateHost}/${hint}`)),
   ]
 
   return [...new Set([...configured, ...heuristics].filter(Boolean))]
@@ -253,12 +263,12 @@ const detectParliamentSignals = ({ requestUrl = '', finalUrl = '', html = '' } =
   return PARLIAMENT_URL_HINTS.some((hint) => u.includes(hint)) || PARLIAMENT_TEXT_HINTS.some((hint) => h.includes(hint))
 }
 
-const probeSource = async (url) => {
+const probeSource = async (url, timeoutMs = PROBE_TIMEOUT_MS) => {
   try {
     const response = await fetch(url, {
       redirect: 'follow',
-      headers: { 'user-agent': 'tierpolitik-crawler-registry/1.2 (+night-shift)' },
-      signal: AbortSignal.timeout(PROBE_TIMEOUT_MS),
+      headers: { 'user-agent': 'tierpolitik-crawler-registry/1.3 (+night-shift)' },
+      signal: AbortSignal.timeout(timeoutMs),
     })
     const text = await response.text()
     const platform = detectPlatform({ requestUrl: url, finalUrl: response.url, html: text })
@@ -309,6 +319,15 @@ const selectBestProbe = (probes, sinceYear = 2020) => {
 
 // intentionally probing all shortlisted candidates for better recall/precision
 
+const shouldRetryProbe = (probe) => {
+  if (!probe || probe.ok) return false
+  const status = Number(probe.httpStatus)
+  if ([408, 425, 429, 500, 502, 503, 504].includes(status)) return true
+  const err = String(probe.error || '').toLowerCase()
+  if (err.includes('timeout') || err.includes('timed out') || err.includes('etimedout')) return true
+  return false
+}
+
 const probeCandidates = async (candidates) => {
   const limited = candidates.slice(0, PROBE_CANDIDATE_LIMIT)
   const probes = new Array(limited.length)
@@ -320,12 +339,33 @@ const probeCandidates = async (candidates) => {
       nextIndex += 1
       if (current >= limited.length) return
       const candidateUrl = limited[current]
-      const probe = await probeSource(candidateUrl)
+      const probe = await probeSource(candidateUrl, PROBE_TIMEOUT_MS)
       probes[current] = { ...probe, url: candidateUrl }
     }
   }
 
   await Promise.all(Array.from({ length: Math.min(PROBE_CONCURRENCY, limited.length) }, () => worker()))
+
+  const retryIndexes = probes
+    .map((probe, index) => ({ probe, index }))
+    .filter(({ probe }) => shouldRetryProbe(probe))
+    .map(({ index }) => index)
+
+  if (retryIndexes.length) {
+    await Promise.all(retryIndexes.map(async (index) => {
+      const candidateUrl = limited[index]
+      const retryProbe = await probeSource(candidateUrl, PROBE_RETRY_TIMEOUT_MS)
+      const prev = probes[index]
+      const currentScore = probeQuality({ ...prev, url: candidateUrl })
+      const retryScore = probeQuality({ ...retryProbe, url: candidateUrl })
+      if (retryScore >= currentScore) {
+        probes[index] = { ...retryProbe, url: candidateUrl, retried: true }
+      } else {
+        probes[index] = { ...prev, url: candidateUrl, retried: true, retrySuppressed: true }
+      }
+    }))
+  }
+
   return probes.filter(Boolean)
 }
 
@@ -387,6 +427,8 @@ const sourceRows = await Promise.all(cantons.map(async (entry) => {
         hasParliamentSignals: Boolean(p.hasParliamentSignals),
         archiveSignals: hasArchiveSignals(p.finalUrl || p.url),
         yearsDetected: extractYearsFromUrl(p.finalUrl || p.url),
+        retried: Boolean(p.retried),
+        retrySuppressed: Boolean(p.retrySuppressed),
       })),
     },
   }
