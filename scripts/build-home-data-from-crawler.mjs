@@ -142,10 +142,11 @@ const mapStatus = (status = '', rawStatus = '', summary = '', body = '') => {
   if (sourceStatus.includes('abgeschrieben')) return 'Abgeschrieben'
   if (sourceStatus.includes('zurückgezogen') || sourceStatus.includes('zurueckgezogen')) return 'Zurückgezogen'
   if (sourceStatus.includes('erledigt')) return 'Erledigt'
-  if (sourceStatus.includes('eingereicht')) return 'In Beratung'
+  if (sourceStatus.includes('eingereicht')) return 'Eingereicht'
   if (sourceStatus.includes('stellungnahme zum vorstoss liegt vor') || sourceStatus.includes('stellungnahme liegt vor')) return 'Stellungnahme zum Vorstoss liegt vor'
 
   const textStatus = `${summary} ${body}`.toLowerCase()
+  if (textStatus.includes('eingereicht')) return 'Eingereicht'
   if (textStatus.includes('abgeschrieben')) return 'Abgeschrieben'
   if (textStatus.includes('zurückgezogen') || textStatus.includes('zurueckgezogen')) return 'Zurückgezogen'
   if (textStatus.includes('abgelehnt')) return 'Abgelehnt'
@@ -367,7 +368,6 @@ const STATUS_OVERRIDES = {
   '21.3405': 'Erledigt',
   '25.4144': 'Erledigt',
   '22.3187': 'Erledigt',
-  '20.2018': 'Eingereicht',
   '20.3021': 'Überwiesen an den Bundesrat',
   '20.4002': 'Abgeschrieben',
   '22.3952': 'Erledigt',
@@ -873,3 +873,4 @@ const vorstoesse = items.map((item, index) => {
 
 fs.writeFileSync(outPath, JSON.stringify(vorstoesse, null, 2))
 console.log(`Home-Daten aus Crawler/DB gebaut: ${outPath.pathname} (${vorstoesse.length} Einträge)`)
+
