@@ -1,58 +1,66 @@
 [
   {
     "id": "vp-20203021",
-    "titel": "Parlamentsgeschäft 20.3021",
+    "titel": "20.3021 - Importverbot für tierquälerisch erzeugte Stopfleber",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 20.3021 (In Beratung).",
+    "kurzbeschreibung": "Die Motion fordert ein Importverbot für Stopfleber aus tierquälerischer Produktion (Stopfmast).",
     "geschaeftsnummer": "20.3021",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2020-02-14",
+    "status": "Überwiesen an den Bundesrat",
+    "datumEingereicht": "2020-03-02",
     "datumAktualisiert": "2026-02-14",
     "themen": [
-      "Tierschutz"
+      "Tierschutz",
+      "Stopfleber",
+      "Landwirtschaft",
+      "Umwelt",
+      "Wirtschaft"
     ],
     "schlagwoerter": [
       "Tierpolitik"
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Haab Martin",
+        "rolle": "Nationalrat",
+        "partei": "Fraktion der Schweizerischen Volkspartei"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20203021",
     "resultate": [
       {
-        "datum": "2020-02-14",
-        "status": "In Beratung",
+        "datum": "2020-03-02",
+        "status": "Überwiesen an den Bundesrat",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 20.3021"
+          "de": "20.3021 - Importverbot für tierquälerisch erzeugte Stopfleber"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 20.3021 (In Beratung)."
+          "de": "Die Motion fordert ein Importverbot für Stopfleber aus tierquälerischer Produktion (Stopfmast)."
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "Tierschutz",
+            "Stopfleber",
+            "Landwirtschaft",
+            "Umwelt",
+            "Wirtschaft"
           ]
         }
       },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
+      "zuletztGeprueftVon": "Random QA 2026-02-16 (Curia Vista)"
     }
   },
   {
