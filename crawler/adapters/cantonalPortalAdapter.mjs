@@ -235,6 +235,26 @@ const hasAnimalTheme = (url = '', text = '') => {
   })
 }
 
+const mergeAbortSignals = (...signals) => {
+  const valid = signals.filter(Boolean)
+  if (!valid.length) return undefined
+  const controller = new AbortController()
+
+  const abortFrom = (source) => {
+    if (!controller.signal.aborted) controller.abort(source?.reason)
+  }
+
+  for (const signal of valid) {
+    if (signal.aborted) {
+      abortFrom(signal)
+      break
+    }
+    signal.addEventListener('abort', () => abortFrom(signal), { once: true })
+  }
+
+  return controller.signal
+}
+
 const normalizeUrl = (href, baseUrl) => {
   try {
     return new URL(href, baseUrl).toString()
@@ -398,6 +418,33 @@ const appendFallbackLinks = (canton, links) => {
     .slice(0, 10)
 }
 
+const isGenericSitzungsdienstLanding = (href = '') => {
+  const lower = String(href || '').toLowerCase()
+  if (!lower.includes('sitzungsdienst.net')) return false
+  try {
+    const parsed = new URL(href)
+    const path = String(parsed.pathname || '/').replace(/\/+$/, '') || '/'
+    return (path === '/' || path === '/index.html') && !parsed.search
+  } catch {
+    return lower.endsWith('sitzungsdienst.net') || lower.endsWith('sitzungsdienst.net/')
+  }
+}
+
+const rankCandidateUrl = (entry, href = '') => {
+  const lower = String(href || '').toLowerCase()
+  let score = 0
+  if (!lower) return score
+  if (lower === String(entry?.probe?.finalUrl || '').toLowerCase()) score += 7
+  if (lower === String(entry?.url || '').toLowerCase()) score += 5
+  if (hasBusinessToken(href, href)) score += 4
+  if (hasBusinessIdSignal(href)) score += 4
+  if (hasAnimalTheme(href, href)) score += 2
+  if (/\/20\d{2}\b/.test(lower) || /[?&](jahr|year)=20\d{2}/.test(lower)) score += 2
+  if (isGenericSitzungsdienstLanding(href)) score -= 8
+  if (/\/(kontakt|impressum|actualites|news)\b/.test(lower)) score -= 4
+  return score
+}
+
 const candidateUrlsFromRegistry = (entry) => {
   const fromProbe = Array.isArray(entry?.probe?.candidatesTried)
     ? entry.probe.candidatesTried
@@ -413,16 +460,19 @@ const candidateUrlsFromRegistry = (entry) => {
     ? entry.urlCandidates
     : []
 
-  return [...new Set([
+  const unique = [...new Set([
     entry?.probe?.finalUrl,
     entry?.url,
     ...configuredCandidates,
     ...fromProbe,
     ...explicitCandidates,
   ].filter(Boolean))]
+
+  return unique
+    .sort((a, b) => rankCandidateUrl(entry, b) - rankCandidateUrl(entry, a))
 }
 
-const fetchReachablePages = async (urls = [], limit = 3) => {
+const fetchReachablePages = async (urls = [], limit = 3, parentSignal) => {
   const pages = []
 
   for (const url of urls) {
@@ -431,7 +481,7 @@ const fetchReachablePages = async (urls = [], limit = 3) => {
       const response = await fetch(url, {
         headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
         redirect: 'follow',
-        signal: AbortSignal.timeout(12000),
+        signal: mergeAbortSignals(parentSignal, AbortSignal.timeout(12000)),
       })
       if (!response.ok) continue
       const html = await response.text()
@@ -446,7 +496,7 @@ const fetchReachablePages = async (urls = [], limit = 3) => {
 
 export function createCantonalPortalAdapter() {
   return {
-    async fetch(source) {
+    async fetch(source, { signal } = {}) {
       const fetchedAt = new Date().toISOString()
       const cantonFilter = new Set(asList(source.options?.cantons).map((c) => c.toUpperCase()))
       const rows = []
@@ -456,7 +506,7 @@ export function createCantonalPortalAdapter() {
       if (String(registryUrl).startsWith('http')) {
         const registryResponse = await fetch(registryUrl, {
           headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
-          signal: AbortSignal.timeout(15000),
+          signal: mergeAbortSignals(signal, AbortSignal.timeout(15000)),
         })
         if (!registryResponse.ok) throw new Error(`cantonal registry unavailable (${registryResponse.status})`)
         registry = await registryResponse.json()
@@ -474,7 +524,7 @@ export function createCantonalPortalAdapter() {
         const candidateUrls = candidateUrlsFromRegistry(entry)
         if (!candidateUrls.length || entry?.probe?.httpStatus === 403) continue
 
-        const fetchedPages = await fetchReachablePages(candidateUrls, 3)
+        const fetchedPages = await fetchReachablePages(candidateUrls, 3, signal)
         if (!fetchedPages.length) continue
 
         const leadPage = fetchedPages[0]

@@ -13,13 +13,18 @@ const parseIntSafe = (value, fallback) => {
 const COLLECT_TIMEOUT_MS = parseIntSafe(process.env.CRAWLER_COLLECT_TIMEOUT_MS, 45000)
 const COLLECT_CONCURRENCY = parseIntSafe(process.env.CRAWLER_COLLECT_CONCURRENCY, 4)
 
-const withTimeout = async (promise, timeoutMs) => {
+const runWithAbortTimeout = async (runner, timeoutMs) => {
+  const controller = new AbortController()
   let timer
+  const timeoutPromise = new Promise((_, reject) => {
+    timer = setTimeout(() => {
+      controller.abort(new Error(`Adapter timeout after ${timeoutMs}ms`))
+      reject(new Error(`Adapter timeout after ${timeoutMs}ms`))
+    }, timeoutMs)
+  })
+
   try {
-    const timeoutPromise = new Promise((_, reject) => {
-      timer = setTimeout(() => reject(new Error(`Adapter timeout after ${timeoutMs}ms`)), timeoutMs)
-    })
-    return await Promise.race([promise, timeoutPromise])
+    return await Promise.race([runner(controller.signal), timeoutPromise])
   } finally {
     if (timer) clearTimeout(timer)
   }
@@ -34,7 +39,7 @@ const collectOneSource = async (source) => {
 
   const startedAt = Date.now()
   try {
-    const rows = await withTimeout(adapter.fetch(source), COLLECT_TIMEOUT_MS)
+    const rows = await runWithAbortTimeout((signal) => adapter.fetch(source, { signal }), COLLECT_TIMEOUT_MS)
     return {
       sourceId: source.id,
       ok: true,
@@ -99,3 +104,6 @@ console.log('Crawler v2 Collect OK', {
   sourceStats,
   outPath,
 })
+
+// Some adapters still hold network handles after timeout; force clean CLI exit for cron reliability.
+process.exit(0)
