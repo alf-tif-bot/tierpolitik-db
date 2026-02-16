@@ -1,10 +1,14 @@
 {
-  "generatedAt": "2026-02-16T01:46:44.063Z",
+  "generatedAt": "2026-02-16T02:19:33.427Z",
   "total": 79,
   "ids": [
+    "ch-parliament-business-de:20254697-de",
     "ch-parliament-business-de:20240089-de",
-    "ch-parliament-business-fr:20210426-fr",
+    "ch-parliament-business-de:20210426-de",
+    "ch-parliament-business-de:20254487-de",
     "ch-parliament-business-de:20250404-de",
+    "ch-parliament-business-de:20253733-de",
+    "ch-parliament-business-de:20240331-de",
     "ch-parliament-business-de:20203021",
     "ch-parliament-business-de:20204002",
     "ch-parliament-business-de:20201046",
@@ -76,10 +80,6 @@
     "ch-parliament-business-de:20254812",
     "ch-parliament-business-de:20244465",
     "ch-parliament-business-fr:20210044",
-    "user-input:user-1770941941585",
-    "ch-parliament-business-de:20254697-de",
-    "ch-parliament-business-de:20254487-de",
-    "ch-parliament-business-de:20253733-de",
-    "ch-parliament-business-de:20240331-de"
+    "user-input:user-1770941941585"
   ]
 }

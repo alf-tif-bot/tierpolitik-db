@@ -169,34 +169,36 @@
   },
   {
     "id": "vp-20202018",
-    "titel": "Parlamentsgeschäft 20202018",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 20202018 (In Beratung).",
+    "titel": "20.2018 - Grundrechte für Schweine",
+    "typ": "Petition",
+    "kurzbeschreibung": "Die Petition fordert Grundrechte für Schweine und bringt damit die rechtliche Stellung von Nutztieren im schweizerischen Recht auf die politische Agenda.",
     "geschaeftsnummer": "20.2018",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2020-02-14",
+    "status": "Eingereicht",
+    "datumEingereicht": "2020-08-28",
     "datumAktualisiert": "2026-02-14",
     "themen": [
-      "Tierschutz"
+      "Tierschutz",
+      "Tierrechte",
+      "Nutztiere"
     ],
     "schlagwoerter": [
       "Tierpolitik"
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
+        "name": "Tier im Fokus",
+        "rolle": "Petitionskomitee",
         "partei": ""
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20202018",
     "resultate": [
       {
-        "datum": "2020-02-14",
-        "status": "In Beratung",
+        "datum": "2020-08-28",
+        "status": "Eingereicht",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -206,17 +208,19 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 20202018"
+          "de": "20.2018 - Grundrechte für Schweine"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 20202018 (In Beratung)."
+          "de": "Die Petition fordert Grundrechte für Schweine und bringt damit die rechtliche Stellung von Nutztieren im schweizerischen Recht auf die politische Agenda."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Petition"
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "Tierschutz",
+            "Tierrechte",
+            "Nutztiere"
           ]
         }
       },
@@ -750,10 +754,10 @@
     "datumEingereicht": "2024-12-19",
     "datumAktualisiert": "2026-02-13",
     "themen": [
-      "Tierschutz"
+      "Apiculteur"
     ],
     "schlagwoerter": [
-      "Tierpolitik"
+      "apiculteur"
     ],
     "einreichende": [
       {
@@ -789,9 +793,11 @@
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "apiculteur"
           ],
-          "fr": []
+          "fr": [
+            "apiculteur"
+          ]
         }
       },
       "zuletztGeprueftVon": "Crawler/DB Sync"
@@ -4116,15 +4122,20 @@
     "datumEingereicht": "2021-03-18",
     "datumAktualisiert": "2026-02-13",
     "themen": [
+      "Tierversuche",
       "Animal",
-      "3r",
-      "Finanzwesen",
-      "Wissenschaft und Forschung",
-      "Umwelt"
+      "Expérimentation animale",
+      "Sperimentazione animale",
+      "3r"
     ],
     "schlagwoerter": [
+      "tierversuch",
+      "tierversuche",
       "animal",
-      "3r"
+      "expérimentation animale",
+      "sperimentazione animale",
+      "3r",
+      "animale"
     ],
     "einreichende": [
       {
@@ -4144,7 +4155,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "fr",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
@@ -4163,18 +4174,27 @@
         },
         "themes": {
           "de": [
+            "tierversuch",
+            "tierversuche",
             "animal",
-            "3r",
-            "Finanzwesen",
-            "Wissenschaft und Forschung",
-            "Umwelt"
+            "expérimentation animale",
+            "sperimentazione animale",
+            "3r"
           ],
           "fr": [
+            "Expérimentation animale",
+            "Expérimentation animale",
             "animal",
+            "expérimentation animale",
+            "sperimentazione animale",
             "3r"
           ],
           "it": [
+            "Sperimentazione animale",
+            "Sperimentazione animale",
             "animal",
+            "expérimentation animale",
+            "sperimentazione animale",
             "3r"
           ]
         }
@@ -4196,10 +4216,12 @@
     "datumAktualisiert": "2026-02-13",
     "themen": [
       "Stopfleber",
+      "Foie gras",
       "Umwelt"
     ],
     "schlagwoerter": [
       "stopfleber",
+      "foie gras",
       "initiative",
       "botschaft"
     ],
@@ -4241,10 +4263,12 @@
         "themes": {
           "de": [
             "stopfleber",
+            "foie gras",
             "Umwelt"
           ],
           "fr": [
             "Foie gras",
+            "foie gras",
             "initiative",
             "botschaft"
           ]
@@ -4266,11 +4290,13 @@
     "datumEingereicht": "2025-06-19",
     "datumAktualisiert": "2026-02-13",
     "themen": [
-      "Umwelt",
-      "Landwirtschaft"
+      "Landwirtschaft",
+      "Agriculture",
+      "Umwelt"
     ],
     "schlagwoerter": [
-      "Tierpolitik"
+      "landwirtschaft",
+      "agriculture"
     ],
     "einreichende": [
       {
@@ -4306,10 +4332,14 @@
         },
         "themes": {
           "de": [
-            "Umwelt",
-            "Landwirtschaft"
+            "landwirtschaft",
+            "agriculture",
+            "Umwelt"
           ],
-          "fr": []
+          "fr": [
+            "Agriculture",
+            "agriculture"
+          ]
         }
       },
       "zuletztGeprueftVon": "Crawler/DB Sync"
@@ -4328,12 +4358,17 @@
     "datumEingereicht": "2025-12-18",
     "datumAktualisiert": "2026-02-13",
     "themen": [
+      "Biodiversität",
+      "Biodiversite",
+      "Biodiversita",
       "Staatspolitik",
       "Finanzwesen",
       "Umwelt"
     ],
     "schlagwoerter": [
-      "Tierpolitik"
+      "biodiversität",
+      "biodiversite",
+      "biodiversita"
     ],
     "einreichende": [
       {
@@ -4369,11 +4404,18 @@
         },
         "themes": {
           "de": [
+            "biodiversität",
+            "biodiversite",
+            "biodiversita",
             "Staatspolitik",
             "Finanzwesen",
             "Umwelt"
           ],
-          "fr": []
+          "fr": [
+            "biodiversität",
+            "biodiversite",
+            "biodiversita"
+          ]
         }
       },
       "zuletztGeprueftVon": "Crawler/DB Sync"
@@ -4392,12 +4434,16 @@
     "datumEingereicht": "2025-12-09",
     "datumAktualisiert": "2026-02-13",
     "themen": [
-      "Umwelt",
+      "Nutrition",
       "Landwirtschaft",
+      "Agriculture",
+      "Umwelt",
       "Gesundheit"
     ],
     "schlagwoerter": [
-      "Tierpolitik"
+      "nutrition",
+      "landwirtschaft",
+      "agriculture"
     ],
     "einreichende": [
       {
@@ -4433,11 +4479,17 @@
         },
         "themes": {
           "de": [
+            "nutrition",
+            "landwirtschaft",
+            "agriculture",
             "Umwelt",
-            "Landwirtschaft",
             "Gesundheit"
           ],
-          "fr": []
+          "fr": [
+            "nutrition",
+            "Agriculture",
+            "agriculture"
+          ]
         }
       },
       "zuletztGeprueftVon": "Crawler/DB Sync"
@@ -4457,11 +4509,13 @@
     "datumAktualisiert": "2026-02-13",
     "themen": [
       "Stopfleber",
+      "Foie gras",
       "Wirtschaft",
       "Umwelt"
     ],
     "schlagwoerter": [
       "stopfleber",
+      "foie gras",
       "initiative"
     ],
     "einreichende": [
@@ -4499,11 +4553,13 @@
         "themes": {
           "de": [
             "stopfleber",
+            "foie gras",
             "Wirtschaft",
             "Umwelt"
           ],
           "fr": [
             "Foie gras",
+            "foie gras",
             "initiative"
           ]
         }

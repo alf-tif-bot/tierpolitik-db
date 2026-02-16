@@ -263,6 +263,7 @@ const SUBMITTER_OVERRIDES = {
   '21.3363': { name: 'Munz Martina', rolle: 'Nationalrätin', partei: 'Sozialdemokratische Partei der Schweiz' },
   '21.3835': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
   '22.7807': { name: 'Friedli Esther', rolle: 'Nationalrätin', partei: 'Schweizerische Volkspartei' },
+  '20.2018': { name: 'Tier im Fokus', rolle: 'Petitionskomitee', partei: '' },
 }
 
 const TYPE_OVERRIDES = {
@@ -277,6 +278,7 @@ const TYPE_OVERRIDES = {
   '22.7807': 'Anfrage',
   '25.2027': 'Petition',
   '23.2009': 'Petition',
+  '20.2018': 'Petition',
 }
 
 const THEME_OVERRIDES = {
@@ -299,6 +301,7 @@ const THEME_OVERRIDES = {
   '22.7807': ['Finanzwesen', 'Landwirtschaft', 'Umwelt'],
   '25.4812': ['Landwirtschaft', 'Staatspolitik', 'Umwelt'],
   '21.3363': ['Umwelt', 'Wissenschaft und Forschung'],
+  '20.2018': ['Tierschutz', 'Tierrechte', 'Nutztiere'],
 }
 
 const STATUS_OVERRIDES = {
@@ -306,17 +309,20 @@ const STATUS_OVERRIDES = {
   '22.7807': 'Erledigt',
   '23.3411': 'Erledigt',
   '25.4144': 'Erledigt',
+  '20.2018': 'Eingereicht',
 }
 
 const SUBMISSION_DATE_OVERRIDES = {
   '23.3411': '2023-03-17',
   '25.4144': '2025-09-25',
+  '20.2018': '2020-08-28',
 }
 
 const TITLE_OVERRIDES = {
   '22.7807': '22.7807 - Wer bezahlt die Schäden von Nutztieren, wenn die Gänsegeier vor der Wildhut den Kadaver zerfressen?',
   '23.3411': '23.3411 - Eine langfristige Lösung für den Schweinemarkt',
   '25.4144': '25.4144 - Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet?',
+  '20.2018': '20.2018 - Grundrechte für Schweine',
 }
 
 const SUMMARY_OVERRIDES = {
@@ -345,6 +351,7 @@ const SUMMARY_OVERRIDES = {
   '24.3296': 'Das Postulat beauftragt den Bundesrat zu prüfen, welche gesetzlichen Anpassungen für eine unabhängige Tieranwaltschaft und minimale subjektive Rechte für höher entwickelte Tiere erforderlich wären.',
   '21.3363': 'Die Motion beauftragt den Bundesrat, die gesetzlichen Grundlagen so anzupassen, dass Tierversuche mit Schweregrad 3 schweizweit durch die gleiche Tierversuchskommission beurteilt werden.',
   '21.3835': 'Die Motion verlangt stichprobenhafte Kontrollen von Tierkadavern in der Fleischkontrolle und in Sammelstellen, um Tierschutzverstösse besser zu erkennen und den Ursprung zurückzuverfolgen.',
+  '20.2018': 'Die Petition fordert Grundrechte für Schweine und bringt damit die rechtliche Stellung von Nutztieren im schweizerischen Recht auf die politische Agenda.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {
