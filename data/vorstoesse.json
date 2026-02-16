@@ -1885,10 +1885,10 @@
   },
   {
     "id": "vp-20250059",
-    "titel": "Parlamentsgeschäft 25.0059",
+    "titel": "Parlamentsgeschäft 25.059",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 25.0059 (In Beratung).",
-    "geschaeftsnummer": "25.0059",
+    "kurzbeschreibung": "Parlamentsgeschäft 25.059 (In Beratung).",
+    "geschaeftsnummer": "25.059",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
@@ -1922,10 +1922,10 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 25.0059"
+          "de": "Parlamentsgeschäft 25.059"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 25.0059 (In Beratung)."
+          "de": "Parlamentsgeschäft 25.059 (In Beratung)."
         },
         "type": {
           "de": "Interpellation"
@@ -2223,10 +2223,10 @@
   },
   {
     "id": "vp-20240436",
-    "titel": "Parlamentsgeschäft 24.0436",
+    "titel": "Parlamentsgeschäft 24.436",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 24.0436 (In Beratung).",
-    "geschaeftsnummer": "24.0436",
+    "kurzbeschreibung": "Parlamentsgeschäft 24.436 (In Beratung).",
+    "geschaeftsnummer": "24.436",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
@@ -2260,10 +2260,10 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 24.0436"
+          "de": "Parlamentsgeschäft 24.436"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 24.0436 (In Beratung)."
+          "de": "Parlamentsgeschäft 24.436 (In Beratung)."
         },
         "type": {
           "de": "Interpellation"
@@ -2791,10 +2791,10 @@
   },
   {
     "id": "vp-20250078",
-    "titel": "Parlamentsgeschäft 25.0078",
+    "titel": "Parlamentsgeschäft 25.078",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 25.0078 (In Beratung).",
-    "geschaeftsnummer": "25.0078",
+    "kurzbeschreibung": "Parlamentsgeschäft 25.078 (In Beratung).",
+    "geschaeftsnummer": "25.078",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
@@ -2828,10 +2828,10 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 25.0078"
+          "de": "Parlamentsgeschäft 25.078"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 25.0078 (In Beratung)."
+          "de": "Parlamentsgeschäft 25.078 (In Beratung)."
         },
         "type": {
           "de": "Interpellation"
@@ -2903,34 +2903,35 @@
   },
   {
     "id": "vp-20210044",
-    "titel": "Parlamentsgeschäft 21.0044",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 21.0044 (In Beratung).",
-    "geschaeftsnummer": "21.0044",
+    "titel": "21.044 - Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative). Volksinitiative und direkter Gegenentwurf",
+    "typ": "Geschäft des Bundesrates",
+    "kurzbeschreibung": "Der Bundesrat beantragt die Ablehnung der Volksinitiative «Keine Massentierhaltung in der Schweiz» und legt einen direkten Gegenentwurf zum Schutz und Wohlergehen der Tiere vor.",
+    "geschaeftsnummer": "21.044",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": "Romandie",
-    "status": "In Beratung",
-    "datumEingereicht": "2021-02-13",
+    "status": "Erledigt",
+    "datumEingereicht": "2021-05-19",
     "datumAktualisiert": "2026-02-13",
     "themen": [
-      "Tierschutz"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "Tierpolitik"
     ],
     "einreichende": [
       {
-        "name": "Selon Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Bundesrat",
+        "rolle": "Regierung",
+        "partei": "Bundesrat"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20210044",
     "resultate": [
       {
-        "datum": "2021-02-13",
-        "status": "In Beratung",
+        "datum": "2021-05-19",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -2940,20 +2941,21 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 21.0044",
-          "fr": "Parlamentsgeschäft 21.0044"
+          "de": "21.044 - Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative). Volksinitiative und direkter Gegenentwurf",
+          "fr": "21.044 - Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative). Volksinitiative und direkter Gegenentwurf"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 21.0044 (In Beratung).",
-          "fr": "Parlamentsgeschäft 21.0044 (In Beratung)."
+          "de": "Der Bundesrat beantragt die Ablehnung der Volksinitiative «Keine Massentierhaltung in der Schweiz» und legt einen direkten Gegenentwurf zum Schutz und Wohlergehen der Tiere vor.",
+          "fr": "Der Bundesrat beantragt die Ablehnung der Volksinitiative «Keine Massentierhaltung in der Schweiz» und legt einen direkten Gegenentwurf zum Schutz und Wohlergehen der Tiere vor."
         },
         "type": {
-          "de": "Interpellation",
-          "fr": "Interpellation"
+          "de": "Geschäft des Bundesrates",
+          "fr": "Geschäft des Bundesrates"
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "Landwirtschaft",
+            "Umwelt"
           ],
           "fr": []
         }

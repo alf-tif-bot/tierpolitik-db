@@ -221,7 +221,9 @@ const formatBusinessNumber = (title = '', externalId = '', summary = '', body = 
   const m = num.match(/^(\d{4})(\d{4})$/)
   if (m) {
     const yy = String(Number(m[1]) % 100).padStart(2, '0')
-    return `${yy}.${m[2]}`
+    const rawSuffix = m[2]
+    const suffix = rawSuffix.startsWith('0') ? String(Number(rawSuffix)).padStart(3, '0') : rawSuffix
+    return `${yy}.${suffix}`
   }
   return String(externalId || '')
 }
@@ -288,6 +290,7 @@ const TYPE_OVERRIDES = {
   '20.4002': 'Motion',
   '22.3952': 'Motion',
   '22.3633': 'Motion',
+  '21.044': 'Geschäft des Bundesrates',
 }
 
 const THEME_OVERRIDES = {
@@ -338,9 +341,11 @@ const SUBMISSION_DATE_OVERRIDES = {
   '20.2018': '2020-08-28',
   '20.4002': '2020-09-16',
   '22.3952': '2022-09-21',
+  '21.044': '2021-05-19',
 }
 
 const TITLE_OVERRIDES = {
+  '21.044': '21.044 - Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative). Volksinitiative und direkter Gegenentwurf',
   '23.7115': '23.7115 - Bedeutung von Netto-Null für schweizerische Nutztiere',
   '22.7807': '22.7807 - Wer bezahlt die Schäden von Nutztieren, wenn die Gänsegeier vor der Wildhut den Kadaver zerfressen?',
   '23.3411': '23.3411 - Eine langfristige Lösung für den Schweinemarkt',
@@ -353,6 +358,7 @@ const TITLE_OVERRIDES = {
 }
 
 const SUMMARY_OVERRIDES = {
+  '21.044': 'Der Bundesrat beantragt die Ablehnung der Volksinitiative «Keine Massentierhaltung in der Schweiz» und legt einen direkten Gegenentwurf zum Schutz und Wohlergehen der Tiere vor.',
   '23.7115': 'Die Fragestunde-Frage thematisiert den Zusammenhang von Netto-Null-Zielen, landwirtschaftlichen Treibhausgasen und Nutztierhaltung. Der Bundesrat wird gefragt, ob Tierbestände reguliert werden sollen, welche Nutztiere zur Fleischproduktion kein CO2 verursachen und wie er entsprechende Forderungen von Umweltverbänden einordnet.',
   '21.3002': 'Die Motion verlangt, den Handlungsspielraum im Jagdgesetz per Verordnung auszuschöpfen, um die Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren zu regeln (u. a. Regulierung und Herdenschutz).',
   '25.4809': 'Der Vorstoss verlangt konkrete Massnahmen gegen Tierqual bei der Geflügelschlachtung und eine konsequent tierschutzkonforme Praxis.',
