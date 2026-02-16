@@ -84,6 +84,12 @@ const isMunicipalTopicRelevant = (item) => {
 const CANTONAL_THEME_STRONG_KEYWORDS = [
   'tier', 'tierschutz', 'tierwohl', 'tierhalteverbot', 'nutztier', 'masthuhn', 'geflügel', 'schlacht',
   'tierversuch', '3r', 'wildtier', 'jagd', 'zoo', 'tierpark', 'biodivers', 'artenschutz', 'wolf', 'fuchs',
+  'fischerei', 'fischbestand', 'haustier', 'heimtier', 'taube', 'weidetiere', 'amphib', 'fauna',
+]
+
+const CANTONAL_THEME_CONTEXT_KEYWORDS = [
+  'lebensraum', 'biotop', 'wildkorridor', 'lichtverschmutzung', 'insekten', 'schutzgebiet',
+  'renatur', 'ufernatur', 'waldrand', 'gewässerraum', 'vogel', 'biber',
 ]
 
 const isCantonalReadableRelevant = (item) => {
@@ -91,7 +97,8 @@ const isCantonalReadableRelevant = (item) => {
   if (!sid.startsWith('ch-cantonal-')) return true
   const title = String(item?.title || '').trim()
   const summary = String(item?.summary || '').trim().toLowerCase()
-  const text = `${title}\n${summary}\n${String(item?.body || '')}`.toLowerCase()
+  const sourceUrl = String(item?.meta?.sourceLink || item?.sourceUrl || '').toLowerCase()
+  const text = `${title}\n${summary}\n${String(item?.body || '')}\n${sourceUrl}`.toLowerCase()
 
   const looksUnreadable =
     /^parlamentsgesch(ä|a)ft\s+/i.test(title)
@@ -100,7 +107,10 @@ const isCantonalReadableRelevant = (item) => {
     || summary.includes('verifying your browser')
 
   if (looksUnreadable) return false
-  return CANTONAL_THEME_STRONG_KEYWORDS.some((kw) => text.includes(kw))
+
+  const strongHits = CANTONAL_THEME_STRONG_KEYWORDS.filter((kw) => text.includes(kw)).length
+  const contextHits = CANTONAL_THEME_CONTEXT_KEYWORDS.filter((kw) => text.includes(kw)).length
+  return strongHits > 0 || contextHits >= 2
 }
 
 const normalizeReviewStatus = (item) => String(item?.status || '')
