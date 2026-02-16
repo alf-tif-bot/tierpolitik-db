@@ -2963,9 +2963,9 @@
   },
   {
     "id": "vp-20223633",
-    "titel": "Parlamentsgeschäft 22.3633",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 22.3633 (In Beratung).",
+    "titel": "22.3633 - Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden?",
+    "typ": "Motion",
+    "kurzbeschreibung": "Die Motion verlangt eine Entschädigungslösung für behördlich angeordnete Betriebsschliessungen und Notschlachtungen im Zusammenhang mit der Afrikanischen Schweinepest, insbesondere für Schlacht-, Zerlege-, Verarbeitungs- und Entsorgungsbetriebe.",
     "geschaeftsnummer": "22.3633",
     "ebene": "Bund",
     "kanton": null,
@@ -2974,16 +2974,19 @@
     "datumEingereicht": "2022-02-14",
     "datumAktualisiert": "2026-02-14",
     "themen": [
-      "Tierschutz"
+      "Landwirtschaft",
+      "Gesundheit",
+      "Umwelt",
+      "Nutztiere"
     ],
     "schlagwoerter": [
       "Tierpolitik"
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Stark Jakob",
+        "rolle": "Ständerat",
+        "partei": "Schweizerische Volkspartei"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20223633",
@@ -3000,17 +3003,20 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 22.3633"
+          "de": "22.3633 - Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden?"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 22.3633 (In Beratung)."
+          "de": "Die Motion verlangt eine Entschädigungslösung für behördlich angeordnete Betriebsschliessungen und Notschlachtungen im Zusammenhang mit der Afrikanischen Schweinepest, insbesondere für Schlacht-, Zerlege-, Verarbeitungs- und Entsorgungsbetriebe."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "Landwirtschaft",
+            "Gesundheit",
+            "Umwelt",
+            "Nutztiere"
           ]
         }
       },

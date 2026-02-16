@@ -268,6 +268,7 @@ const SUBMITTER_OVERRIDES = {
   '22.7807': { name: 'Friedli Esther', rolle: 'Nationalrätin', partei: 'Schweizerische Volkspartei' },
   '20.2018': { name: 'Tier im Fokus', rolle: 'Petitionskomitee', partei: '' },
   '22.3952': { name: 'Giacometti Anna', rolle: 'Nationalrätin', partei: 'FDP.Die Liberalen' },
+  '22.3633': { name: 'Stark Jakob', rolle: 'Ständerat', partei: 'Schweizerische Volkspartei' },
 }
 
 const TYPE_OVERRIDES = {
@@ -286,6 +287,7 @@ const TYPE_OVERRIDES = {
   '20.2018': 'Petition',
   '20.4002': 'Motion',
   '22.3952': 'Motion',
+  '22.3633': 'Motion',
 }
 
 const THEME_OVERRIDES = {
@@ -313,6 +315,7 @@ const THEME_OVERRIDES = {
   '20.2018': ['Tierschutz', 'Tierrechte', 'Nutztiere'],
   '20.4002': ['Tierschutz', 'Nutztiere', 'Verkehr'],
   '22.3952': ['Tierschutz', 'Nutztiere'],
+  '22.3633': ['Landwirtschaft', 'Gesundheit', 'Umwelt', 'Nutztiere'],
 }
 
 const STATUS_OVERRIDES = {
@@ -346,6 +349,7 @@ const TITLE_OVERRIDES = {
   '20.2018': '20.2018 - Grundrechte für Schweine',
   '20.4002': '20.4002 - Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung',
   '22.3952': '22.3952 - Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen',
+  '22.3633': '22.3633 - Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden?',
 }
 
 const SUMMARY_OVERRIDES = {
@@ -379,6 +383,7 @@ const SUMMARY_OVERRIDES = {
   '20.2018': 'Die Petition fordert Grundrechte für Schweine und bringt damit die rechtliche Stellung von Nutztieren im schweizerischen Recht auf die politische Agenda.',
   '20.4002': 'Die Motion verlangt, dass Transportfahrzeuge für Nutztiere bereits bei Zulassung und periodischen Kontrollen systematisch auf die Vorgaben der Tierschutzgesetzgebung geprüft werden.',
   '22.3952': 'Die Motion verlangt, die Tierschutzverordnung so anzupassen, dass den artspezifischen Bedürfnissen von Eseln, Maultieren und Mauleseln besser Rechnung getragen wird, insbesondere beim Sozialkontakt und bei der Haltung.',
+  '22.3633': 'Die Motion verlangt eine Entschädigungslösung für behördlich angeordnete Betriebsschliessungen und Notschlachtungen im Zusammenhang mit der Afrikanischen Schweinepest, insbesondere für Schlacht-, Zerlege-, Verarbeitungs- und Entsorgungsbetriebe.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {
