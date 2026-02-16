@@ -261,6 +261,7 @@ const SUBMITTER_OVERRIDES = {
   '24.4695': { name: 'Schneider Meret', rolle: 'Nationalrätin', partei: 'GRÜNE Schweiz' },
   '25.4812': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'GRÜNE Schweiz' },
   '24.3296': { name: 'Munz Martina', rolle: 'Nationalrätin', partei: 'SP' },
+  '22.3187': { name: 'Munz Martina', rolle: 'Nationalrätin', partei: 'Sozialdemokratische Fraktion' },
   '21.3363': { name: 'Munz Martina', rolle: 'Nationalrätin', partei: 'Sozialdemokratische Partei der Schweiz' },
   '21.3835': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
   '22.7807': { name: 'Friedli Esther', rolle: 'Nationalrätin', partei: 'Schweizerische Volkspartei' },
@@ -303,6 +304,7 @@ const THEME_OVERRIDES = {
   '22.7807': ['Finanzwesen', 'Landwirtschaft', 'Umwelt'],
   '25.4812': ['Landwirtschaft', 'Staatspolitik', 'Umwelt'],
   '21.3363': ['Umwelt', 'Wissenschaft und Forschung'],
+  '22.3187': ['Landwirtschaft', 'Umwelt', 'Nutztiere'],
   '20.2018': ['Tierschutz', 'Tierrechte', 'Nutztiere'],
   '20.4002': ['Tierschutz', 'Nutztiere', 'Verkehr'],
 }
@@ -312,6 +314,7 @@ const STATUS_OVERRIDES = {
   '22.7807': 'Erledigt',
   '23.3411': 'Erledigt',
   '25.4144': 'Erledigt',
+  '22.3187': 'Erledigt',
   '20.2018': 'Eingereicht',
   '20.4002': 'Abgeschrieben',
 }
@@ -319,6 +322,7 @@ const STATUS_OVERRIDES = {
 const SUBMISSION_DATE_OVERRIDES = {
   '23.3411': '2023-03-17',
   '25.4144': '2025-09-25',
+  '22.3187': '2022-03-16',
   '20.2018': '2020-08-28',
   '20.4002': '2020-09-16',
 }
@@ -327,6 +331,7 @@ const TITLE_OVERRIDES = {
   '22.7807': '22.7807 - Wer bezahlt die Schäden von Nutztieren, wenn die Gänsegeier vor der Wildhut den Kadaver zerfressen?',
   '23.3411': '23.3411 - Eine langfristige Lösung für den Schweinemarkt',
   '25.4144': '25.4144 - Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet?',
+  '22.3187': '22.3187 - Hochgezüchtete Eier- und Geflügelfleischproduktion in Richtung Tierwohl weiterentwickeln',
   '20.2018': '20.2018 - Grundrechte für Schweine',
   '20.4002': '20.4002 - Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung',
 }
@@ -355,6 +360,7 @@ const SUMMARY_OVERRIDES = {
   '24.4695': 'Das Postulat beauftragt den Bundesrat zu prüfen und Bericht zu erstatten, welche im Ausland eingesetzten Ansätze zur Förderung tierversuchsfreier Forschungsmethoden sich für die Schweiz eignen.',
   '25.4812': 'Das Postulat beauftragt den Bundesrat zu prüfen, wie der Vollzug des Tierschutzgesetzes in den Kantonen verbessert werden kann, um Fälle wie in Ramiswil zu verhindern. Genannt werden insbesondere eine bessere Zusammenarbeit der Veterinärämter mit Tierschutzorganisationen, der Ausbau von Meldestellen und ausreichende kantonale Ressourcen.',
   '24.3296': 'Das Postulat beauftragt den Bundesrat zu prüfen, welche gesetzlichen Anpassungen für eine unabhängige Tieranwaltschaft und minimale subjektive Rechte für höher entwickelte Tiere erforderlich wären.',
+  '22.3187': 'Die Interpellation fragt den Bundesrat, wie züchterische und regulatorische Massnahmen die Tierwohlprobleme bei hochgezüchteten Legehennen und Mastpoulets reduzieren können.',
   '21.3363': 'Die Motion beauftragt den Bundesrat, die gesetzlichen Grundlagen so anzupassen, dass Tierversuche mit Schweregrad 3 schweizweit durch die gleiche Tierversuchskommission beurteilt werden.',
   '21.3835': 'Die Motion verlangt stichprobenhafte Kontrollen von Tierkadavern in der Fleischkontrolle und in Sammelstellen, um Tierschutzverstösse besser zu erkennen und den Ursprung zurückzuverfolgen.',
   '20.2018': 'Die Petition fordert Grundrechte für Schweine und bringt damit die rechtliche Stellung von Nutztieren im schweizerischen Recht auf die politische Agenda.',
@@ -426,6 +432,15 @@ const normalizeDisplayTitle = (item, title = '') => {
   let t = clean(title)
   if (!t) return t
   t = t.replace(/^(\d{2}\.\d{3,4})\s*[·•]\s*/u, '$1 - ')
+
+  const placeholderMatch = t.match(/^Parlamentsgeschäft\s+(\d{8})$/i)
+  if (placeholderMatch && String(item?.externalId || '').startsWith(placeholderMatch[1])) {
+    const normalizedBusinessNo = formatBusinessNumber('', String(item?.externalId || ''), '', '', item?.meta)
+    if (/^\d{2}\.\d{3,4}$/.test(normalizedBusinessNo)) {
+      t = `Parlamentsgeschäft ${normalizedBusinessNo}`
+    }
+  }
+
   if (String(item?.meta?.municipality || '').toLowerCase() === 'bern') {
     t = t.replace(/^Bern\s*[·:-]\s*/i, '')
   }
