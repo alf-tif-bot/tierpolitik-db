@@ -2689,34 +2689,36 @@
   },
   {
     "id": "vp-20213405",
-    "titel": "Parlamentsgeschäft 21.3405",
+    "titel": "21.3405 - Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 21.3405 (In Beratung).",
+    "kurzbeschreibung": "Die Interpellation fordert Auskunft dazu, wie tierschutzkonforme Haltungsbedingungen bei Labor- und Versuchstieren sichergestellt und weiterentwickelt werden.",
     "geschaeftsnummer": "21.3405",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2021-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2021-03-19",
     "datumAktualisiert": "2026-02-14",
     "themen": [
-      "Tierschutz"
+      "Tierversuche",
+      "Wissenschaft und Forschung",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "Tierpolitik"
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Schneider Meret",
+        "rolle": "Nationalrätin",
+        "partei": "Grüne Fraktion"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213405",
     "resultate": [
       {
-        "datum": "2021-02-14",
-        "status": "In Beratung",
+        "datum": "2021-03-19",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -2726,17 +2728,19 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 21.3405"
+          "de": "21.3405 - Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 21.3405 (In Beratung)."
+          "de": "Die Interpellation fordert Auskunft dazu, wie tierschutzkonforme Haltungsbedingungen bei Labor- und Versuchstieren sichergestellt und weiterentwickelt werden."
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "Tierversuche",
+            "Wissenschaft und Forschung",
+            "Umwelt"
           ]
         }
       },
