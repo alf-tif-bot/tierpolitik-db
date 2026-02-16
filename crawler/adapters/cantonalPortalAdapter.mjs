@@ -36,6 +36,7 @@ const ANIMAL_POLICY_LINK_KEYWORDS = [
 
 const PARLIAMENT_BUSINESS_LINK_KEYWORDS = [
   'vorstoss',
+  'vorstoesse',
   'vorstosse',
   'vorstösse',
   'objets',
@@ -47,6 +48,10 @@ const PARLIAMENT_BUSINESS_LINK_KEYWORDS = [
   'sessions',
   'ricerca',
   'atti',
+  'motion',
+  'postulat',
+  'interpellation',
+  'initiative',
 ]
 
 const LINK_NOISE_KEYWORDS = [
@@ -221,8 +226,13 @@ const scoreLink = (canton = '', url = '', text = '') => {
 }
 
 const hasAnimalTheme = (url = '', text = '') => {
+  if (looksLikePersonOrMemberPage(url, text)) return false
   const combined = `${url} ${text}`.toLowerCase()
-  return ANIMAL_POLICY_LINK_KEYWORDS.some((kw) => combined.includes(kw))
+  return ANIMAL_POLICY_LINK_KEYWORDS.some((kw) => {
+    const escaped = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    if (kw.length <= 4) return new RegExp(`\\b${escaped}\\b`, 'i').test(combined)
+    return combined.includes(kw)
+  })
 }
 
 const normalizeUrl = (href, baseUrl) => {
@@ -270,6 +280,46 @@ const isLikelyNoiseLink = (href = '', text = '') => {
 
   if (href.toLowerCase().includes('/actualites/') || href.toLowerCase().includes('/news/')) return true
   return LINK_NOISE_EXTENSIONS.some((ext) => href.toLowerCase().includes(ext))
+}
+
+const looksLikePersonOrMemberPage = (href = '', text = '') => {
+  const merged = `${href} ${text}`.toLowerCase()
+  return [
+    '/membres',
+    '/deput',
+    '/depute',
+    '/deputes',
+    '/deputees',
+    '/mitglied',
+    '/mitglieder',
+    '/person',
+    '/portrait',
+    '/biographie',
+    '/fraktionen',
+    '/fraktion',
+    '/kommissionen',
+    '/commissions',
+  ].some((token) => merged.includes(token))
+}
+
+const hasBusinessToken = (href = '', text = '') => {
+  const merged = `${href} ${text}`.toLowerCase()
+  return PARLIAMENT_BUSINESS_LINK_KEYWORDS.some((kw) => merged.includes(kw))
+}
+
+const hasBusinessIdSignal = (href = '') => {
+  const lower = String(href || '').toLowerCase()
+  return /[?&](id|geschaeftid|affairid|objektid|objectid|geschaeft)=\d+/.test(lower)
+    || /\/(geschaeft|geschäft|objets|interventions|vorstoesse|vorstosse|vorstoss|motion|postulat|interpellation)\/?\d{2,}/.test(lower)
+}
+
+const isLikelyParliamentBusinessLink = (href = '', text = '') => {
+  if (looksLikePersonOrMemberPage(href, text)) return false
+  const themed = hasAnimalTheme(href, text)
+  if (hasBusinessToken(href, text)) return true
+  if (hasBusinessIdSignal(href)) return true
+  if (themed && /\b(motion|postulat|interpellation|initiative|vorstoss|vorstösse|jagd|tierschutz|animaux|faune)\b/i.test(String(text || ''))) return true
+  return false
 }
 
 const isSameSiteOrParliamentHost = (href = '', baseUrl = '') => {
@@ -320,9 +370,11 @@ const parseLinks = (html = '', baseUrl = '', canton = '') => {
     if (!isSameSiteOrParliamentHost(href, baseUrl)) continue
     const rank = scoreLink(canton, href, text)
     const themed = hasAnimalTheme(href, text)
+    const businessLike = isLikelyParliamentBusinessLink(href, text)
+    if (!businessLike && !themed) continue
     if (rank < 2) continue
     if (!themed && rank < 3) continue
-    links.push({ href, text, rank, themed })
+    links.push({ href, text, rank, themed, businessLike })
   }
 
   return [...new Map(links

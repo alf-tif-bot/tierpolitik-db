@@ -145,6 +145,19 @@ const hasParliamentHost = (url = '') => {
   }
 }
 
+const isGenericSitzungsdienstLanding = (url = '') => {
+  const lower = String(url || '').toLowerCase()
+  if (!lower.includes('sitzungsdienst.net')) return false
+  try {
+    const parsed = new URL(url)
+    const path = String(parsed.pathname || '/').replace(/\/+$/, '') || '/'
+    const query = String(parsed.search || '')
+    return (path === '/' || path === '/index.html') && query.length === 0
+  } catch {
+    return lower.endsWith('sitzungsdienst.net') || lower.endsWith('sitzungsdienst.net/')
+  }
+}
+
 const classifyReadiness = ({
   url = '',
   platform = 'generic-site',
@@ -182,7 +195,9 @@ const classifyReadiness = ({
     return 'unreachable-needs-manual'
   }
   const likelyArchiveOnly = hasArchiveSignals(u) || isLikelyBeforeSinceYear(u, sinceYear)
+  const genericRatsinfoLanding = isGenericSitzungsdienstLanding(u) && !hasParliamentSignals
 
+  if (genericRatsinfoLanding) return 'site-discovery-needed'
   if ((platform === 'ratsinfo' || platform === 'allris/sessionnet') && !likelyArchiveOnly) return 'adapter-ready-likely'
   if (platform === 'parliament-portal' && hasSearchOrAffairPathForUrl && (hasParliamentSignals || hasParliamentHint) && !likelyArchiveOnly) return 'adapter-ready-likely'
   if (platform === 'parliament-portal' && hasParliamentSignals && (hasNonRootPath(u) || hasParliamentHost(u)) && !likelyArchiveOnly) return 'adapter-ready-likely'
@@ -310,19 +325,6 @@ const probeSource = async (url, timeoutMs = PROBE_TIMEOUT_MS) => {
       hasParliamentSignals: false,
       error: String(error?.message || error),
     }
-  }
-}
-
-const isGenericSitzungsdienstLanding = (url = '') => {
-  const lower = String(url || '').toLowerCase()
-  if (!lower.includes('sitzungsdienst.net')) return false
-  try {
-    const parsed = new URL(url)
-    const path = String(parsed.pathname || '/').replace(/\/+$/, '') || '/'
-    const query = String(parsed.search || '')
-    return (path === '/' || path === '/index.html') && query.length === 0
-  } catch {
-    return lower.endsWith('sitzungsdienst.net') || lower.endsWith('sitzungsdienst.net/')
   }
 }
 
