@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "id": "vp-20203021",
     "titel": "20.3021 - Importverbot für tierquälerisch erzeugte Stopfleber",
@@ -4101,34 +4101,35 @@
   },
   {
     "id": "vp-20254809",
-    "titel": "Parlamentsgeschäft 25.4809",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Der Vorstoss verlangt konkrete Massnahmen gegen Tierqual bei der Geflügelschlachtung und eine konsequent tierschutzkonforme Praxis.",
+    "titel": "25.4809 - Keine Tierqual bei der Geflügelschlachtung",
+    "typ": "Postulat",
+    "kurzbeschreibung": "Das Postulat beauftragt den Bundesrat zu prüfen, wie das Tierwohl bei der Schlachtung von Hausgeflügel, insbesondere beim Betäubungsvorgang, verbessert und unnötiges Leid verhindert werden kann.",
     "geschaeftsnummer": "25.4809",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2026-02-14",
+    "status": "Eingereicht",
+    "datumEingereicht": "2025-12-19",
     "datumAktualisiert": "2026-02-14",
     "themen": [
-      "Tierschutz"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "Tierpolitik"
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Schneider Meret",
+        "rolle": "Nationalrätin",
+        "partei": "GRÜNE Schweiz"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254809",
     "resultate": [
       {
-        "datum": "2026-02-14",
-        "status": "In Beratung",
+        "datum": "2025-12-19",
+        "status": "Eingereicht",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -4138,17 +4139,18 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 25.4809"
+          "de": "25.4809 - Keine Tierqual bei der Geflügelschlachtung"
         },
         "summary": {
-          "de": "Der Vorstoss verlangt konkrete Massnahmen gegen Tierqual bei der Geflügelschlachtung und eine konsequent tierschutzkonforme Praxis."
+          "de": "Das Postulat beauftragt den Bundesrat zu prüfen, wie das Tierwohl bei der Schlachtung von Hausgeflügel, insbesondere beim Betäubungsvorgang, verbessert und unnötiges Leid verhindert werden kann."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Postulat"
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "Landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -4564,3 +4566,4 @@
     }
   }
 ]
+
