@@ -28,7 +28,7 @@ export const mediaSchema = z.object({
   url: z.string().url(),
 })
 
-export const typEnum = z.enum(['Interpellation', 'Motion', 'Postulat', 'Volksinitiative', 'Parlamentarische Initiative', 'Anfrage'])
+export const typEnum = z.enum(['Interpellation', 'Motion', 'Postulat', 'Volksinitiative', 'Parlamentarische Initiative', 'Anfrage', 'Fragestunde. Frage'])
 
 export const vorstossSchema = z.object({
   id: z.string().regex(/^vp-[a-z0-9-]+$/),

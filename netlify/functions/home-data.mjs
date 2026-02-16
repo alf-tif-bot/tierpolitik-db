@@ -43,6 +43,7 @@ const inferType = (title = '', sourceId = '') => {
   const text = `${title} ${sourceId}`.toLowerCase()
   if (text.includes('postulat') || text.includes('postulato')) return 'Postulat'
   if (text.includes('motion') || text.includes('mozione')) return 'Motion'
+  if (text.includes('fragestunde') || text.includes('question time') || text.includes('heure des questions') || text.includes('ora delle domande')) return 'Fragestunde. Frage'
   if (text.includes('interpellation') || text.includes('interpellanza')) return 'Interpellation'
   if (text.includes('anfrage') || text.includes('frage') || text.includes('question') || text.includes('interrogazione')) return 'Anfrage'
   if (text.includes('parlamentarische initiative') || text.includes('initiative parlementaire') || text.includes('iniziativa parlamentare')) return 'Parlamentarische Initiative'
@@ -105,6 +106,7 @@ const typeLabels = {
   Motion: { de: 'Motion', fr: 'Motion', it: 'Mozione', en: 'Motion' },
   Postulat: { de: 'Postulat', fr: 'Postulat', it: 'Postulato', en: 'Postulate' },
   Anfrage: { de: 'Anfrage', fr: 'Question', it: 'Interrogazione', en: 'Question' },
+  'Fragestunde. Frage': { de: 'Fragestunde. Frage', fr: 'Heure des questions. Question', it: 'Ora delle domande. Domanda', en: 'Question Time. Question' },
 }
 
 const inferYearFromBusiness = (title = '', externalId = '') => {
