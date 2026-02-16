@@ -2005,13 +2005,13 @@
     "id": "vp-20253976",
     "titel": "25.3976 - Tierschutz und neue Schweiz-EU-Abkommen. Steht das Verbot ritueller Schlachtungen in der Schweiz vor dem Aus?",
     "typ": "Interpellation",
-    "kurzbeschreibung": "25.3976 - Tierschutz und neue Schweiz-EU-Abkommen. Steht das Verbot ritueller Schlachtungen in der Schweiz vor dem Aus? (In Beratung).",
+    "kurzbeschreibung": "Die Interpellation fragt den Bundesrat, ob die geplanten Schweiz-EU-Abkommen den geltenden Tierschutz beim Schlachten schwächen könnten und wie die Betäubungspflicht bei rituellen Schlachtmethoden rechtlich abgesichert bleibt.",
     "geschaeftsnummer": "25.3976",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2026-02-14",
+    "status": "Stellungnahme zum Vorstoss liegt vor",
+    "datumEingereicht": "2025-09-10",
     "datumAktualisiert": "2026-02-14",
     "themen": [
       "Europapolitik",
@@ -2024,16 +2024,16 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Kolly Nicolas",
+        "rolle": "Nationalrat",
+        "partei": "Schweizerische Volkspartei"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253976",
     "resultate": [
       {
-        "datum": "2026-02-14",
-        "status": "In Beratung",
+        "datum": "2025-09-10",
+        "status": "Stellungnahme zum Vorstoss liegt vor",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
