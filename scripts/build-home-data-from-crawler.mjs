@@ -350,7 +350,7 @@ const THEME_OVERRIDES = {
   '20.3021': ['Tierschutz', 'Stopfleber', 'Landwirtschaft', 'Umwelt', 'Wirtschaft'],
   '20.4002': ['Tierschutz', 'Nutztiere', 'Verkehr'],
   '22.3952': ['Tierschutz', 'Nutztiere'],
-  '22.3633': ['Landwirtschaft', 'Gesundheit', 'Umwelt', 'Nutztiere'],
+  '22.3633': ['Landwirtschaft', 'Gesundheit', 'Umwelt'],
   '22.3210': ['Gesundheit', 'Internationale Politik', 'Umwelt'],
   '24.4344': ['Staatspolitik', 'Umwelt'],
   '23.1034': ['Landwirtschaft', 'Umwelt'],
