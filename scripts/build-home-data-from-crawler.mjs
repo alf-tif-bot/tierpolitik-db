@@ -281,6 +281,7 @@ const SUBMITTER_OVERRIDES = {
   '20.2018': { name: 'Tier im Fokus', rolle: 'Petitionskomitee', partei: '' },
   '22.3952': { name: 'Giacometti Anna', rolle: 'Nationalrätin', partei: 'FDP.Die Liberalen' },
   '22.3633': { name: 'Stark Jakob', rolle: 'Ständerat', partei: 'Schweizerische Volkspartei' },
+  '22.3210': { name: 'Müller Leo', rolle: 'Nationalrat', partei: 'Die Mitte' },
   '24.4344': { name: 'Vara Céline', rolle: 'Ständerätin', partei: 'GRÜNE Schweiz' },
 }
 
@@ -333,6 +334,7 @@ const THEME_OVERRIDES = {
   '20.4002': ['Tierschutz', 'Nutztiere', 'Verkehr'],
   '22.3952': ['Tierschutz', 'Nutztiere'],
   '22.3633': ['Landwirtschaft', 'Gesundheit', 'Umwelt', 'Nutztiere'],
+  '22.3210': ['Gesundheit', 'Internationale Politik', 'Umwelt'],
   '24.4344': ['Staatspolitik', 'Umwelt'],
 }
 
@@ -348,6 +350,7 @@ const STATUS_OVERRIDES = {
   '20.2018': 'Eingereicht',
   '20.4002': 'Abgeschrieben',
   '22.3952': 'Erledigt',
+  '22.3210': 'Erledigt',
 }
 
 const SUBMISSION_DATE_OVERRIDES = {
@@ -360,6 +363,7 @@ const SUBMISSION_DATE_OVERRIDES = {
   '20.4002': '2020-09-16',
   '22.3952': '2022-09-21',
   '22.3633': '2022-06-15',
+  '22.3210': '2022-03-17',
   '24.4696': '2024-12-20',
   '21.3363': '2021-03-18',
   '21.044': '2021-05-19',
@@ -377,6 +381,7 @@ const TITLE_OVERRIDES = {
   '20.4002': '20.4002 - Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung',
   '22.3952': '22.3952 - Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen',
   '22.3633': '22.3633 - Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden?',
+  '22.3210': '22.3210 - Afrikanische Schweinepest nach Deutschland nun auch in Italien',
   '24.4696': '24.4696 - Sucht der Bund nach einer Strategie zur Einschränkung der Tierversuche?',
   '24.4344': '24.4344 - Tierschutzbeauftragte. Eine wirksame Unterstützung',
 }
@@ -416,6 +421,7 @@ const SUMMARY_OVERRIDES = {
   '20.4002': 'Die Motion verlangt, dass Transportfahrzeuge für Nutztiere bereits bei Zulassung und periodischen Kontrollen systematisch auf die Vorgaben der Tierschutzgesetzgebung geprüft werden.',
   '22.3952': 'Die Motion verlangt, die Tierschutzverordnung so anzupassen, dass den artspezifischen Bedürfnissen von Eseln, Maultieren und Mauleseln besser Rechnung getragen wird, insbesondere beim Sozialkontakt und bei der Haltung.',
   '22.3633': 'Die Motion verlangt eine Entschädigungslösung für behördlich angeordnete Betriebsschliessungen und Notschlachtungen im Zusammenhang mit der Afrikanischen Schweinepest, insbesondere für Schlacht-, Zerlege-, Verarbeitungs- und Entsorgungsbetriebe.',
+  '22.3210': 'Die Interpellation fragt den Bundesrat nach zusätzlichen Massnahmen gegen die Einschleppung der Afrikanischen Schweinepest in die Schweiz, insbesondere über Jagdreisen, Wildschweineimporte und Biosicherheitsvorgaben.',
   '24.4344': 'Das Postulat beauftragt den Bundesrat zu prüfen, wie die Ernennung von Tierschutzbeauftragten nach dem Modell des Kantons St. Gallen in den Kantonen gefördert und erleichtert werden kann. Ziel ist ein wirksamerer Vollzug des Tierschutzrechts durch bessere Zusammenarbeit zwischen Gemeinden und kantonalen Behörden.',
 }
 
@@ -498,6 +504,8 @@ const normalizeDisplayTitle = (item, title = '') => {
   }
   return t
 }
+
+const isPlaceholderParliamentTitle = (title = '') => /^Parlamentsgeschäft\s+(?:\d{8}|\d{2}\.\d{3,4})$/i.test(String(title || '').trim())
 
 const firstSentence = (text = '') => {
   const c = clean(text)
@@ -689,13 +697,13 @@ const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallb
   for (const [lang, variant] of Object.entries(variants || {})) {
     const l = ['de', 'fr', 'it', 'en'].includes(lang) ? lang : 'de'
     const title = clean(variant?.title || fallbackTitle)
-    const weakTitle = !title || /^parlamentsgeschäft\s+\d+$/i.test(title)
+    const weakTitle = !title || isPlaceholderParliamentTitle(title)
     const summary = clean(variant?.summary || variant?.body || fallbackSummary)
     const summaryLow = summary.toLowerCase()
     const weakSummary = !summary
       || summary.length < 24
       || summaryLow === 'erledigt'
-      || /^parlamentsgeschäft\s+\d+$/i.test(summary)
+      || isPlaceholderParliamentTitle(summary)
     const typeDe = TYPE_OVERRIDES[businessNumber] || inferType(title, item.sourceId, variant?.businessTypeName || '', item?.meta?.rawType || '')
     const matched = mapThemesFromKeywords(item.matchedKeywords || fallbackThemes || []).slice(0, 6)
     out.title[l] = weakTitle ? fallbackTitle : title

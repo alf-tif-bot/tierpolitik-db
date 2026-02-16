@@ -1773,34 +1773,36 @@
   },
   {
     "id": "vp-20223210",
-    "titel": "Parlamentsgeschäft 22.3210",
+    "titel": "22.3210 - Afrikanische Schweinepest nach Deutschland nun auch in Italien",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 22.3210 (In Beratung).",
+    "kurzbeschreibung": "Die Interpellation fragt den Bundesrat nach zusätzlichen Massnahmen gegen die Einschleppung der Afrikanischen Schweinepest in die Schweiz, insbesondere über Jagdreisen, Wildschweineimporte und Biosicherheitsvorgaben.",
     "geschaeftsnummer": "22.3210",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2022-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2022-03-17",
     "datumAktualisiert": "2026-02-14",
     "themen": [
-      "Tierschutz"
+      "Gesundheit",
+      "Internationale Politik",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "Tierpolitik"
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Müller Leo",
+        "rolle": "Nationalrat",
+        "partei": "Die Mitte"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20223210",
     "resultate": [
       {
-        "datum": "2022-02-14",
-        "status": "In Beratung",
+        "datum": "2022-03-17",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1810,17 +1812,19 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 22.3210"
+          "de": "22.3210 - Afrikanische Schweinepest nach Deutschland nun auch in Italien"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 22.3210 (In Beratung)."
+          "de": "Die Interpellation fragt den Bundesrat nach zusätzlichen Massnahmen gegen die Einschleppung der Afrikanischen Schweinepest in die Schweiz, insbesondere über Jagdreisen, Wildschweineimporte und Biosicherheitsvorgaben."
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "Gesundheit",
+            "Internationale Politik",
+            "Umwelt"
           ]
         }
       },
