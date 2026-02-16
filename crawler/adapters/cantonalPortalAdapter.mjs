@@ -34,6 +34,21 @@ const ANIMAL_POLICY_LINK_KEYWORDS = [
   'chasse',
 ]
 
+const PARLIAMENT_BUSINESS_LINK_KEYWORDS = [
+  'vorstoss',
+  'vorstosse',
+  'vorstösse',
+  'objets',
+  'interventions',
+  'geschaefte',
+  'geschäfte',
+  'traktanden',
+  'session',
+  'sessions',
+  'ricerca',
+  'atti',
+]
+
 const LINK_NOISE_KEYWORDS = [
   'kontakt',
   'contact',
@@ -44,7 +59,16 @@ const LINK_NOISE_KEYWORDS = [
   'sitemap',
   'newsletter',
   'medienmitteilung',
+  'medienmitteilungen',
+  'medien',
   'communique',
+  'actualite',
+  'actualites',
+  'news',
+  'akkreditierung',
+  'drucken',
+  'imprimer',
+  'print',
   '.ics',
   'direkt zum inhalt',
   'skiplink',
@@ -188,8 +212,12 @@ const scoreLink = (canton = '', url = '', text = '') => {
   const keywords = [...BASE_KEYWORDS, ...cantonKeywords]
   const positive = keywords.reduce((acc, kw) => (combined.includes(kw) ? acc + 1 : acc), 0)
   const animalBonus = ANIMAL_POLICY_LINK_KEYWORDS.reduce((acc, kw) => (combined.includes(kw) ? acc + 2 : acc), 0)
+  const parliamentBusinessBonus = PARLIAMENT_BUSINESS_LINK_KEYWORDS.reduce((acc, kw) => (combined.includes(kw) ? acc + 1 : acc), 0)
   const penalty = LINK_NOISE_KEYWORDS.reduce((acc, kw) => (combined.includes(kw) ? acc + 2 : acc), 0)
-  return Math.max(0, positive + animalBonus - penalty)
+
+  const utilityPenalty = /(?:^|\s)(print|imprimer|drucken)(?:\s|$)/i.test(text) ? 3 : 0
+  const baseScore = positive + animalBonus + parliamentBusinessBonus - penalty - utilityPenalty
+  return Math.max(0, baseScore)
 }
 
 const hasAnimalTheme = (url = '', text = '') => {
@@ -236,6 +264,11 @@ const pickLanguage = (canton, pageText) => {
 const isLikelyNoiseLink = (href = '', text = '') => {
   const merged = `${href} ${text}`.toLowerCase()
   if (LINK_NOISE_KEYWORDS.some((kw) => merged.includes(kw))) return true
+
+  const textLower = String(text || '').toLowerCase().trim()
+  if (['drucken', 'imprimer', 'print', 'teilen', 'share'].includes(textLower)) return true
+
+  if (href.toLowerCase().includes('/actualites/') || href.toLowerCase().includes('/news/')) return true
   return LINK_NOISE_EXTENSIONS.some((ext) => href.toLowerCase().includes(ext))
 }
 
@@ -261,6 +294,18 @@ const isSameSiteOrParliamentHost = (href = '', baseUrl = '') => {
   }
 }
 
+const canonicalizeLinkUrl = (href = '') => {
+  try {
+    const parsed = new URL(href)
+    parsed.hash = ''
+    if (parsed.pathname !== '/') parsed.pathname = parsed.pathname.replace(/\/+$/, '')
+    parsed.searchParams.sort()
+    return parsed.toString()
+  } catch {
+    return href
+  }
+}
+
 const parseLinks = (html = '', baseUrl = '', canton = '') => {
   const links = []
   const re = /<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi
@@ -282,21 +327,22 @@ const parseLinks = (html = '', baseUrl = '', canton = '') => {
 
   return [...new Map(links
     .sort((a, b) => b.rank - a.rank)
-    .map((l) => [l.href, l])).values()].slice(0, 10)
+    .map((l) => [canonicalizeLinkUrl(l.href), l])).values()].slice(0, 10)
 }
 
 const appendFallbackLinks = (canton, links) => {
   const fallback = CANTON_FALLBACK_LINKS[canton] || []
-  if (!fallback.length) return links
 
   const merged = [...links]
   for (const item of fallback) {
-    if (merged.some((entry) => entry.href === item.href)) continue
+    const fallbackKey = canonicalizeLinkUrl(item.href)
+    if (merged.some((entry) => canonicalizeLinkUrl(entry.href) === fallbackKey)) continue
     merged.push({ ...item, rank: scoreLink(canton, item.href, item.text) || 1 })
   }
 
-  return merged
+  return [...new Map(merged
     .sort((a, b) => b.rank - a.rank)
+    .map((l) => [canonicalizeLinkUrl(l.href), l])).values()]
     .slice(0, 10)
 }
 
