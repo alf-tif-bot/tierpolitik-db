@@ -1435,34 +1435,35 @@
   },
   {
     "id": "vp-20223952",
-    "titel": "Parlamentsgeschäft 22.3952",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 22.3952 (In Beratung).",
+    "titel": "22.3952 - Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen",
+    "typ": "Motion",
+    "kurzbeschreibung": "Die Motion verlangt, die Tierschutzverordnung so anzupassen, dass den artspezifischen Bedürfnissen von Eseln, Maultieren und Mauleseln besser Rechnung getragen wird, insbesondere beim Sozialkontakt und bei der Haltung.",
     "geschaeftsnummer": "22.3952",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2022-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2022-09-21",
     "datumAktualisiert": "2026-02-14",
     "themen": [
-      "Tierschutz"
+      "Tierschutz",
+      "Nutztiere"
     ],
     "schlagwoerter": [
       "Tierpolitik"
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Giacometti Anna",
+        "rolle": "Nationalrätin",
+        "partei": "FDP.Die Liberalen"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20223952",
     "resultate": [
       {
-        "datum": "2022-02-14",
-        "status": "In Beratung",
+        "datum": "2022-09-21",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1472,17 +1473,18 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 22.3952"
+          "de": "22.3952 - Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 22.3952 (In Beratung)."
+          "de": "Die Motion verlangt, die Tierschutzverordnung so anzupassen, dass den artspezifischen Bedürfnissen von Eseln, Maultieren und Mauleseln besser Rechnung getragen wird, insbesondere beim Sozialkontakt und bei der Haltung."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "Tierschutz",
+            "Nutztiere"
           ]
         }
       },

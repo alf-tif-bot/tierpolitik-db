@@ -267,6 +267,7 @@ const SUBMITTER_OVERRIDES = {
   '21.3835': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
   '22.7807': { name: 'Friedli Esther', rolle: 'Nationalrätin', partei: 'Schweizerische Volkspartei' },
   '20.2018': { name: 'Tier im Fokus', rolle: 'Petitionskomitee', partei: '' },
+  '22.3952': { name: 'Giacometti Anna', rolle: 'Nationalrätin', partei: 'FDP.Die Liberalen' },
 }
 
 const TYPE_OVERRIDES = {
@@ -284,6 +285,7 @@ const TYPE_OVERRIDES = {
   '23.2009': 'Petition',
   '20.2018': 'Petition',
   '20.4002': 'Motion',
+  '22.3952': 'Motion',
 }
 
 const THEME_OVERRIDES = {
@@ -310,6 +312,7 @@ const THEME_OVERRIDES = {
   '22.3187': ['Landwirtschaft', 'Umwelt', 'Nutztiere'],
   '20.2018': ['Tierschutz', 'Tierrechte', 'Nutztiere'],
   '20.4002': ['Tierschutz', 'Nutztiere', 'Verkehr'],
+  '22.3952': ['Tierschutz', 'Nutztiere'],
 }
 
 const STATUS_OVERRIDES = {
@@ -321,6 +324,7 @@ const STATUS_OVERRIDES = {
   '22.3187': 'Erledigt',
   '20.2018': 'Eingereicht',
   '20.4002': 'Abgeschrieben',
+  '22.3952': 'Erledigt',
 }
 
 const SUBMISSION_DATE_OVERRIDES = {
@@ -330,6 +334,7 @@ const SUBMISSION_DATE_OVERRIDES = {
   '22.3187': '2022-03-16',
   '20.2018': '2020-08-28',
   '20.4002': '2020-09-16',
+  '22.3952': '2022-09-21',
 }
 
 const TITLE_OVERRIDES = {
@@ -340,6 +345,7 @@ const TITLE_OVERRIDES = {
   '22.3187': '22.3187 - Hochgezüchtete Eier- und Geflügelfleischproduktion in Richtung Tierwohl weiterentwickeln',
   '20.2018': '20.2018 - Grundrechte für Schweine',
   '20.4002': '20.4002 - Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung',
+  '22.3952': '22.3952 - Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen',
 }
 
 const SUMMARY_OVERRIDES = {
@@ -372,6 +378,7 @@ const SUMMARY_OVERRIDES = {
   '21.3835': 'Die Motion verlangt stichprobenhafte Kontrollen von Tierkadavern in der Fleischkontrolle und in Sammelstellen, um Tierschutzverstösse besser zu erkennen und den Ursprung zurückzuverfolgen.',
   '20.2018': 'Die Petition fordert Grundrechte für Schweine und bringt damit die rechtliche Stellung von Nutztieren im schweizerischen Recht auf die politische Agenda.',
   '20.4002': 'Die Motion verlangt, dass Transportfahrzeuge für Nutztiere bereits bei Zulassung und periodischen Kontrollen systematisch auf die Vorgaben der Tierschutzgesetzgebung geprüft werden.',
+  '22.3952': 'Die Motion verlangt, die Tierschutzverordnung so anzupassen, dass den artspezifischen Bedürfnissen von Eseln, Maultieren und Mauleseln besser Rechnung getragen wird, insbesondere beim Sozialkontakt und bei der Haltung.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {
