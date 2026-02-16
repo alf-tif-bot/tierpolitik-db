@@ -4,7 +4,7 @@ const cantonsPath = new URL('../crawler/config.cantonal-sources.json', import.me
 const outPath = new URL('../data/cantonal-source-registry.json', import.meta.url)
 
 const cantons = JSON.parse(fs.readFileSync(cantonsPath, 'utf8'))
-const PROBE_CANDIDATE_LIMIT = Math.max(3, Number(process.env.CANTON_PROBE_CANDIDATE_LIMIT || 8))
+const PROBE_CANDIDATE_LIMIT = Math.max(4, Number(process.env.CANTON_PROBE_CANDIDATE_LIMIT || 12))
 const PROBE_CONCURRENCY = Math.max(1, Number(process.env.CANTON_PROBE_CONCURRENCY || 4))
 const PROBE_TIMEOUT_MS = Math.max(3000, Number(process.env.CANTON_PROBE_TIMEOUT_MS || 7000))
 const PROBE_RETRY_TIMEOUT_MS = Math.max(PROBE_TIMEOUT_MS, Number(process.env.CANTON_PROBE_RETRY_TIMEOUT_MS || 12000))
@@ -269,8 +269,8 @@ const buildCandidates = (entry) => {
     ...configuredTopLevel,
     ...expandCandidateVariants(base),
     ...expandCandidateVariants(alternateHost),
-    ...hostHints,
     ...configuredDeepLinks,
+    ...hostHints,
     ...heuristics,
   ].filter(Boolean))]
 }
