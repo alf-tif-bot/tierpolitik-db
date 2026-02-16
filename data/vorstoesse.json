@@ -2182,14 +2182,14 @@
   {
     "id": "vp-20213363",
     "titel": "21.3363 - Gemeinsame Bewilligungsbehörde für eine einheitliche Beurteilung von Tierversuchen mit Schweregrad 3",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Die Motion beauftragt den Bundesrat, die gesetzlichen Grundlagen so anzupassen, dass Tierversuche mit Schweregrad 3 schweizweit durch die gleiche Tierversuchskommission beurteilt werden.",
     "geschaeftsnummer": "21.3363",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
     "status": "Erledigt",
-    "datumEingereicht": "2021-02-14",
+    "datumEingereicht": "2021-03-18",
     "datumAktualisiert": "2026-02-14",
     "themen": [
       "Umwelt",
@@ -2208,7 +2208,7 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213363",
     "resultate": [
       {
-        "datum": "2021-02-14",
+        "datum": "2021-03-18",
         "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
@@ -2225,7 +2225,7 @@
           "de": "Die Motion beauftragt den Bundesrat, die gesetzlichen Grundlagen so anzupassen, dass Tierversuche mit Schweregrad 3 schweizweit durch die gleiche Tierversuchskommission beurteilt werden."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
