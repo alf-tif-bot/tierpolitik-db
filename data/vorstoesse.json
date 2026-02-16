@@ -879,14 +879,14 @@
   {
     "id": "vp-20212027",
     "titel": "21.2027 - Echter Tierschutz jetzt!",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "21.2027 - Echter Tierschutz jetzt! (Erledigt).",
+    "typ": "Petition",
+    "kurzbeschreibung": "Die Petition «Echter Tierschutz jetzt!» verlangt wirksamere Massnahmen gegen Tiermisshandlung und eine konsequentere Durchsetzung des Tierschutzes.",
     "geschaeftsnummer": "21.2027",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
     "status": "Erledigt",
-    "datumEingereicht": "2021-02-14",
+    "datumEingereicht": "2021-10-06",
     "datumAktualisiert": "2026-02-14",
     "themen": [
       "Tierschutz"
@@ -896,15 +896,15 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
+        "name": "Animal Rights",
+        "rolle": "Petitionskomitee",
         "partei": ""
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20212027",
     "resultate": [
       {
-        "datum": "2021-02-14",
+        "datum": "2021-10-06",
         "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
@@ -918,10 +918,10 @@
           "de": "21.2027 · Echter Tierschutz jetzt!"
         },
         "summary": {
-          "de": "21.2027 - Echter Tierschutz jetzt! (Erledigt)."
+          "de": "Die Petition «Echter Tierschutz jetzt!» verlangt wirksamere Massnahmen gegen Tiermisshandlung und eine konsequentere Durchsetzung des Tierschutzes."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Petition"
         },
         "themes": {
           "de": [
