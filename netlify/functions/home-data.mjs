@@ -46,6 +46,7 @@ const inferType = (title = '', sourceId = '') => {
   if (text.includes('fragestunde') || text.includes('question time') || text.includes('heure des questions') || text.includes('ora delle domande')) return 'Fragestunde. Frage'
   if (text.includes('interpellation') || text.includes('interpellanza')) return 'Interpellation'
   if (text.includes('anfrage') || text.includes('frage') || text.includes('question') || text.includes('interrogazione')) return 'Anfrage'
+  if (text.includes('standesinitiative') || text.includes('initiative cantonale') || text.includes('iniziativa cantonale')) return 'Standesinitiative'
   if (text.includes('parlamentarische initiative') || text.includes('initiative parlementaire') || text.includes('iniziativa parlamentare')) return 'Parlamentarische Initiative'
   if (text.includes('volksinitiative') || text.includes('initiative populaire') || text.includes('iniziativa popolare')) return 'Volksinitiative'
   if (text.includes('initiative') || text.includes('iniziativa')) return 'Volksinitiative'
@@ -102,6 +103,7 @@ const langRank = (lang = 'de') => {
 const typeLabels = {
   Volksinitiative: { de: 'Volksinitiative', fr: 'Initiative populaire', it: 'Iniziativa popolare', en: 'Popular initiative' },
   'Parlamentarische Initiative': { de: 'Parlamentarische Initiative', fr: 'Initiative parlementaire', it: 'Iniziativa parlamentare', en: 'Parliamentary initiative' },
+  Standesinitiative: { de: 'Standesinitiative', fr: 'Initiative cantonale', it: 'Iniziativa cantonale', en: 'Cantonal initiative' },
   Interpellation: { de: 'Interpellation', fr: 'Interpellation', it: 'Interpellanza', en: 'Interpellation' },
   Motion: { de: 'Motion', fr: 'Motion', it: 'Mozione', en: 'Motion' },
   Postulat: { de: 'Postulat', fr: 'Postulat', it: 'Postulato', en: 'Postulate' },
@@ -144,23 +146,30 @@ const fallbackPersonByLang = {
   it: { name: 'Secondo Curia Vista', rolle: '', partei: '' },
 }
 
+const TYPE_OVERRIDES = {
+  '24.331': 'Standesinitiative',
+}
+
 const SUBMITTER_OVERRIDES = {
   '25.4380': { name: 'Mathilde Crevoisier Crelier', rolle: 'Ständerat', partei: 'SP' },
   '24.3277': { name: 'Lorenz Hess', rolle: 'Nationalrat', partei: 'Die Mitte' },
   '25.404': { name: 'Kommission für Wissenschaft, Bildung und Kultur Nationalrat', rolle: 'Kommission', partei: '' },
   '21.3002': { name: 'Kommission für Umwelt, Raumplanung und Energie Ständerat', rolle: 'Kommission', partei: '' },
   '22.3299': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'Grüne Partei der Schweiz' },
+  '24.331': { name: 'Jura', rolle: 'Kanton', partei: '' },
 }
 
 const THEME_OVERRIDES = {
   '21.3002': ['Umwelt', 'Landwirtschaft'],
   '22.3299': ['Schweinezucht', 'Tierarzneimittel', 'Tierschutz'],
+  '24.331': ['Tierschutz', 'Bienen', 'Landwirtschaft', 'Klimafolgen', 'Subventionen'],
 }
 
 const SUMMARY_OVERRIDES = {
   '21.3002': 'Die Motion verlangt, den Handlungsspielraum im Jagdgesetz per Verordnung auszuschöpfen, um die Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren zu regeln (u. a. Regulierung und Herdenschutz).',
   '25.4809': 'Der Vorstoss verlangt konkrete Massnahmen gegen Tierqual bei der Geflügelschlachtung und eine konsequent tierschutzkonforme Praxis.',
   '22.3299': 'Die Motion verlangt ein Verbot PMSG-haltiger Tierarzneimittel in der Schweizer Schweinezucht und will verhindern, dass diese durch synthetische PMSG-Produkte ersetzt werden.',
+  '24.331': 'Die Standesinitiative des Kantons Jura verlangt finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen, insbesondere für notwendige Zuckerfütterung zur Sicherung des Überlebens von Honigbienenvölkern.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {
@@ -472,7 +481,7 @@ export const handler = async (event) => {
         : (String(r.source_url || '').startsWith('http')
           ? r.source_url
           : `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${affairId}`)
-      const typ = inferType(displayTitle || '', r.source_id || '')
+      const typ = TYPE_OVERRIDES[businessNumber] || inferType(displayTitle || '', r.source_id || '')
       const statusLabel = mapStatus(r.status)
       const initiativeLinks = buildInitiativeLinks({
         typ,
@@ -526,7 +535,7 @@ export const handler = async (event) => {
           status: variant?.status || r.status,
         })
         const vSummary = clean(vSummaryRaw || summaryText)
-        const vType = inferType(vTitle || displayTitle, variant?.source_id || r.source_id || '')
+        const vType = TYPE_OVERRIDES[businessNumber] || inferType(vTitle || displayTitle, variant?.source_id || r.source_id || '')
         if (vTitle) i18nOut.title[l] = vTitle
         if (vSummary) i18nOut.summary[l] = vSummary
         i18nOut.type[l] = typeLabels[vType]?.[l] || typeLabels[typ]?.[l] || vType

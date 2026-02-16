@@ -39,6 +39,7 @@ const inferType = (title = '', sourceId = '', businessTypeName = '', rawType = '
   if (text.includes('fragestunde') || text.includes('question time') || text.includes('heure des questions') || text.includes('ora delle domande')) return 'Fragestunde. Frage'
   if (text.includes('interpellation') || text.includes('interpellanza')) return 'Interpellation'
   if (text.includes('schriftliche anfrage') || text.includes('kleine anfrage') || text.includes('anfrage') || text.includes('frage') || text.includes('question') || text.includes('interrogazione')) return 'Anfrage'
+  if (text.includes('standesinitiative') || text.includes('initiative cantonale') || text.includes('iniziativa cantonale')) return 'Standesinitiative'
   if (text.includes('parlamentarische initiative') || text.includes('initiative parlementaire') || text.includes('iniziativa parlamentare')) return 'Parlamentarische Initiative'
   if (text.includes('volksinitiative') || text.includes('initiative populaire') || text.includes('iniziativa popolare')) return 'Volksinitiative'
   if (text.includes('initiative') || text.includes('iniziativa')) return 'Volksinitiative'
@@ -48,6 +49,7 @@ const inferType = (title = '', sourceId = '', businessTypeName = '', rawType = '
 const typeLabels = {
   Volksinitiative: { de: 'Volksinitiative', fr: 'Initiative populaire', it: 'Iniziativa popolare', en: 'Popular initiative' },
   'Parlamentarische Initiative': { de: 'Parlamentarische Initiative', fr: 'Initiative parlementaire', it: 'Iniziativa parlamentare', en: 'Parliamentary initiative' },
+  Standesinitiative: { de: 'Standesinitiative', fr: 'Initiative cantonale', it: 'Iniziativa cantonale', en: 'Cantonal initiative' },
   Interpellation: { de: 'Interpellation', fr: 'Interpellation', it: 'Interpellanza', en: 'Interpellation' },
   Motion: { de: 'Motion', fr: 'Motion', it: 'Mozione', en: 'Motion' },
   Postulat: { de: 'Postulat', fr: 'Postulat', it: 'Postulato', en: 'Postulate' },
@@ -287,6 +289,7 @@ const SUBMITTER_OVERRIDES = {
   '22.3210': { name: 'Müller Leo', rolle: 'Nationalrat', partei: 'Die Mitte' },
   '24.4344': { name: 'Vara Céline', rolle: 'Ständerätin', partei: 'GRÜNE Schweiz' },
   '23.1034': { name: 'Fivaz Fabien', rolle: 'Nationalrat', partei: 'Grüne Fraktion' },
+  '24.331': { name: 'Jura', rolle: 'Kanton', partei: '' },
 }
 
 const TYPE_OVERRIDES = {
@@ -310,6 +313,7 @@ const TYPE_OVERRIDES = {
   '21.3363': 'Motion',
   '21.044': 'Geschäft des Bundesrates',
   '23.1034': 'Anfrage',
+  '24.331': 'Standesinitiative',
 }
 
 const THEME_OVERRIDES = {
@@ -344,6 +348,7 @@ const THEME_OVERRIDES = {
   '22.3210': ['Gesundheit', 'Internationale Politik', 'Umwelt'],
   '24.4344': ['Staatspolitik', 'Umwelt'],
   '23.1034': ['Landwirtschaft', 'Umwelt'],
+  '24.331': ['Tierschutz', 'Bienen', 'Landwirtschaft', 'Klimafolgen', 'Subventionen'],
 }
 
 const STATUS_OVERRIDES = {
@@ -421,6 +426,7 @@ const SUMMARY_OVERRIDES = {
   '21.4435': 'Die Motion verlangt, Wildtierpassagen an Nationalstrassen präventiv so auszurüsten, dass Wildschweine sie nicht passieren können, um die Ausbreitung der Afrikanischen Schweinepest einzudämmen.',
   '25.4010': 'Die Motion verlangt ein gesetzlich verankertes Importverbot für chemisch (insbesondere mit Chlor) behandeltes Geflügelfleisch und begründet dies mit Konsumentenschutz, Lebensmittelstandards und handelspolitischer Verlässlichkeit.',
   '22.3299': 'Die Motion verlangt ein Verbot PMSG-haltiger Tierarzneimittel in der Schweizer Schweinezucht und will verhindern, dass diese durch synthetische PMSG-Produkte ersetzt werden.',
+  '24.331': 'Die Standesinitiative des Kantons Jura verlangt finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen, insbesondere für notwendige Zuckerfütterung zur Sicherung des Überlebens von Honigbienenvölkern.',
   '22.3808': 'Die Interpellation verlangt einen transparenteren Zugang zur Tierversuchsstatistik und fragt unter anderem nach einer besseren Verknüpfung der Datenquellen auf tv-statistik.ch sowie nach zusätzlichen Publikationen.',
   '23.3411': 'Das Postulat beauftragt den Bundesrat zu prüfen, wie gemeinsam mit der Branche eine langfristige Lösung für die Krise auf dem Schweinemarkt gefunden werden kann, inklusive Unterstützung für Betriebe bei Umstellung oder Bestandsreduktion.',
   '25.2027': 'Die Petition verlangt ein Beschwerderecht für Tierschutzverbände bei Fällen von Tiermisshandlung, damit Missstände rechtlich wirksamer verfolgt werden können.',
