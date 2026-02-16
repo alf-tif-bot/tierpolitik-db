@@ -262,6 +262,7 @@ const SUBMITTER_OVERRIDES = {
   '20.4002': { name: 'Badertscher Christine', rolle: 'Nationalrätin', partei: 'Grüne Fraktion' },
   '23.7858': { name: 'Clivaz Christophe', rolle: 'Nationalrat', partei: 'GRÜNE Schweiz' },
   '24.4695': { name: 'Schneider Meret', rolle: 'Nationalrätin', partei: 'GRÜNE Schweiz' },
+  '24.4696': { name: 'Schneider Meret', rolle: 'Nationalrätin', partei: 'GRÜNE Schweiz' },
   '25.4812': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'GRÜNE Schweiz' },
   '24.3296': { name: 'Munz Martina', rolle: 'Nationalrätin', partei: 'SP' },
   '22.3187': { name: 'Munz Martina', rolle: 'Nationalrätin', partei: 'Sozialdemokratische Fraktion' },
@@ -313,6 +314,7 @@ const THEME_OVERRIDES = {
   '23.7858': ['Landwirtschaft', 'Umwelt'],
   '22.7807': ['Finanzwesen', 'Landwirtschaft', 'Umwelt'],
   '25.4812': ['Landwirtschaft', 'Staatspolitik', 'Umwelt'],
+  '24.4696': ['Tierversuche', 'Wissenschaft und Forschung', 'Umwelt'],
   '21.3363': ['Umwelt', 'Wissenschaft und Forschung'],
   '22.3187': ['Landwirtschaft', 'Umwelt', 'Nutztiere'],
   '20.2018': ['Tierschutz', 'Tierrechte', 'Nutztiere'],
@@ -341,6 +343,7 @@ const SUBMISSION_DATE_OVERRIDES = {
   '20.2018': '2020-08-28',
   '20.4002': '2020-09-16',
   '22.3952': '2022-09-21',
+  '24.4696': '2024-12-20',
   '21.044': '2021-05-19',
 }
 
@@ -355,6 +358,7 @@ const TITLE_OVERRIDES = {
   '20.4002': '20.4002 - Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung',
   '22.3952': '22.3952 - Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen',
   '22.3633': '22.3633 - Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden?',
+  '24.4696': '24.4696 - Sucht der Bund nach einer Strategie zur Einschränkung der Tierversuche?',
 }
 
 const SUMMARY_OVERRIDES = {
@@ -381,6 +385,7 @@ const SUMMARY_OVERRIDES = {
   '23.7858': 'Die Fragestunde-Frage verlangt vom Bundesrat Angaben zur Entwicklung von Wolfsbestand und Nutztier-Schäden 2022–2023 sowie eine Begründung für den Abschuss ganzer Wolfsrudel trotz sinkender Schäden.',
   '22.7807': 'Die Fragestunde-Frage verlangt eine Klärung, wie gerissene Nutztiere entschädigt werden, wenn Gänsegeier Kadaver vor der Begutachtung durch die Wildhut stark beschädigen.',
   '24.4695': 'Das Postulat beauftragt den Bundesrat zu prüfen und Bericht zu erstatten, welche im Ausland eingesetzten Ansätze zur Förderung tierversuchsfreier Forschungsmethoden sich für die Schweiz eignen.',
+  '24.4696': 'Die Interpellation fragt den Bundesrat, wie die Förderung tierversuchsfreier Forschung strategisch gestärkt wird, insbesondere zur Rolle von 3RCC, SNF und Innosuisse sowie zu möglichen dauerhaften Strukturen im 3R-Bereich.',
   '25.4812': 'Das Postulat beauftragt den Bundesrat zu prüfen, wie der Vollzug des Tierschutzgesetzes in den Kantonen verbessert werden kann, um Fälle wie in Ramiswil zu verhindern. Genannt werden insbesondere eine bessere Zusammenarbeit der Veterinärämter mit Tierschutzorganisationen, der Ausbau von Meldestellen und ausreichende kantonale Ressourcen.',
   '24.3296': 'Das Postulat beauftragt den Bundesrat zu prüfen, welche gesetzlichen Anpassungen für eine unabhängige Tieranwaltschaft und minimale subjektive Rechte für höher entwickelte Tiere erforderlich wären.',
   '22.3187': 'Die Interpellation fragt den Bundesrat, wie züchterische und regulatorische Massnahmen die Tierwohlprobleme bei hochgezüchteten Legehennen und Mastpoulets reduzieren können.',

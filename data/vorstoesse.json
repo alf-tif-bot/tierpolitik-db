@@ -2391,33 +2391,35 @@
   },
   {
     "id": "vp-20244696",
-    "titel": "Parlamentsgeschäft 24.4696",
+    "titel": "24.4696 - Sucht der Bund nach einer Strategie zur Einschränkung der Tierversuche?",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 24.4696 (In Beratung).",
+    "kurzbeschreibung": "Die Interpellation fragt den Bundesrat, wie die Förderung tierversuchsfreier Forschung strategisch gestärkt wird, insbesondere zur Rolle von 3RCC, SNF und Innosuisse sowie zu möglichen dauerhaften Strukturen im 3R-Bereich.",
     "geschaeftsnummer": "24.4696",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
     "status": "In Beratung",
-    "datumEingereicht": "2024-02-14",
+    "datumEingereicht": "2024-12-20",
     "datumAktualisiert": "2026-02-14",
     "themen": [
-      "Tierschutz"
+      "Tierversuche",
+      "Wissenschaft und Forschung",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "Tierpolitik"
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Schneider Meret",
+        "rolle": "Nationalrätin",
+        "partei": "GRÜNE Schweiz"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20244696",
     "resultate": [
       {
-        "datum": "2024-02-14",
+        "datum": "2024-12-20",
         "status": "In Beratung",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
@@ -2428,17 +2430,19 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 24.4696"
+          "de": "24.4696 - Sucht der Bund nach einer Strategie zur Einschränkung der Tierversuche?"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 24.4696 (In Beratung)."
+          "de": "Die Interpellation fragt den Bundesrat, wie die Förderung tierversuchsfreier Forschung strategisch gestärkt wird, insbesondere zur Rolle von 3RCC, SNF und Innosuisse sowie zu möglichen dauerhaften Strukturen im 3R-Bereich."
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "Tierversuche",
+            "Wissenschaft und Forschung",
+            "Umwelt"
           ]
         }
       },
