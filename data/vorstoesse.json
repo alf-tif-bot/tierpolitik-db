@@ -320,9 +320,10 @@
     "datumEingereicht": "2020-06-19",
     "datumAktualisiert": "2026-02-14",
     "themen": [
-      "Nutztiere",
+      "Europapolitik",
       "Landwirtschaft",
-      "Umwelt"
+      "Umwelt",
+      "Wirtschaft"
     ],
     "schlagwoerter": [
       "nutztiere",
@@ -332,7 +333,7 @@
       {
         "name": "Haab Martin",
         "rolle": "Nationalrat",
-        "partei": "SVP"
+        "partei": "Schweizerische Volkspartei"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20203849",
@@ -359,9 +360,10 @@
         },
         "themes": {
           "de": [
-            "Nutztiere",
+            "Europapolitik",
             "Landwirtschaft",
-            "Umwelt"
+            "Umwelt",
+            "Wirtschaft"
           ]
         }
       },
