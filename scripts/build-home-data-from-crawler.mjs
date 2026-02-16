@@ -176,6 +176,12 @@ const cantonFromItem = (item) => {
 const regionFromItem = (item) => {
   const sourceId = String(item?.sourceId || '').toLowerCase()
   if (item?.meta?.municipality) return String(item.meta.municipality)
+
+  // Sprachvarianten von Bundesgeschäften sind keine geografische Region.
+  // Region nur dann setzen, wenn die Quelle tatsächlich subnational verortet ist.
+  const level = levelFromItem(item)
+  if (level === 'Bund') return null
+
   if (sourceId.endsWith('-fr')) return 'Romandie'
   if (sourceId.endsWith('-it')) return 'Südschweiz'
   return null
