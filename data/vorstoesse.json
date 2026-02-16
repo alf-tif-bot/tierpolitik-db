@@ -49,7 +49,7 @@
           "de": "Überwiesen an den Bundesrat"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
@@ -726,7 +726,7 @@
           "de": "Die Motion verlangt, den Handlungsspielraum im Jagdgesetz per Verordnung auszuschöpfen, um die Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren zu regeln (u. a. Regulierung und Herdenschutz)."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
@@ -788,7 +788,7 @@
           "de": "Die Motion verlangt eine Änderung der Tierschutzverordnung, damit für alle Schweinekategorien stets eingestreute Liegebereiche vorgeschrieben sind."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
@@ -1636,7 +1636,7 @@
           "de": "Stellungnahme zum Vorstoss liegt vor"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Postulat"
         },
         "themes": {
           "de": [
@@ -2549,7 +2549,7 @@
           "de": "Stellungnahme zum Vorstoss liegt vor"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Postulat"
         },
         "themes": {
           "de": [
@@ -2976,7 +2976,7 @@
           "de": "Die Motion verlangt stichprobenhafte Kontrollen von Tierkadavern in der Fleischkontrolle und in Sammelstellen, um Tierschutzverstösse besser zu erkennen und den Ursprung zurückzuverfolgen."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
@@ -3486,7 +3486,7 @@
           "de": "Die Motion verlangt, Wildtierpassagen an Nationalstrassen präventiv so auszurüsten, dass Wildschweine sie nicht passieren können, um die Ausbreitung der Afrikanischen Schweinepest einzudämmen."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
@@ -3672,7 +3672,7 @@
           "de": "Die Motion verlangt ein Verbot PMSG-haltiger Tierarzneimittel in der Schweizer Schweinezucht und will verhindern, dass diese durch synthetische PMSG-Produkte ersetzt werden."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
@@ -3816,12 +3816,12 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Stellungnahme zum Vorstoss liegt vor",
     "datumEingereicht": "2025-09-16",
     "datumAktualisiert": "2026-02-14",
     "themen": [
+      "Gesundheit",
       "Landwirtschaft",
-      "Konsumentenschutz",
       "Wirtschaft"
     ],
     "schlagwoerter": [
@@ -3840,7 +3840,7 @@
     "resultate": [
       {
         "datum": "2025-09-16",
-        "status": "In Beratung",
+        "status": "Stellungnahme zum Vorstoss liegt vor",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3856,12 +3856,12 @@
           "de": "Stellungnahme zum Vorstoss liegt vor"
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Motion"
         },
         "themes": {
           "de": [
+            "Gesundheit",
             "Landwirtschaft",
-            "Konsumentenschutz",
             "Wirtschaft"
           ]
         }
@@ -4358,7 +4358,7 @@
           "de": "Das Postulat beauftragt den Bundesrat zu prüfen, wie der Vollzug des Tierschutzgesetzes in den Kantonen verbessert werden kann, um Fälle wie in Ramiswil zu verhindern. Genannt werden insbesondere eine bessere Zusammenarbeit der Veterinärämter mit Tierschutzorganisationen, der Ausbau von Meldestellen und ausreichende kantonale Ressourcen."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Postulat"
         },
         "themes": {
           "de": [

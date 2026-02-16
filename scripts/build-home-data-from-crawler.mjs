@@ -329,7 +329,7 @@ const THEME_OVERRIDES = {
   '23.7580': ['Landwirtschaft', 'Umwelt'],
   '22.7004': ['Landwirtschaft', 'Umwelt'],
   '20.3849': ['Europapolitik', 'Landwirtschaft', 'Umwelt', 'Wirtschaft'],
-  '25.4010': ['Landwirtschaft', 'Konsumentenschutz', 'Wirtschaft'],
+  '25.4010': ['Gesundheit', 'Landwirtschaft', 'Wirtschaft'],
   '25.4144': ['Landwirtschaft', 'Nutztiere', 'Biodiversität'],
   '21.8163': ['Landwirtschaft', 'Staatspolitik', 'Umwelt', 'Beschäftigung und Arbeit'],
   '22.3299': ['Schweinezucht', 'Tierarzneimittel', 'Tierschutz'],
@@ -363,6 +363,7 @@ const STATUS_OVERRIDES = {
   '22.7807': 'Erledigt',
   '23.3411': 'Erledigt',
   '25.3976': 'Stellungnahme zum Vorstoss liegt vor',
+  '25.4010': 'Stellungnahme zum Vorstoss liegt vor',
   '24.4696': 'Stellungnahme zum Vorstoss liegt vor',
   '24.3277': 'Überwiesen an den Bundesrat',
   '21.8161': 'Erledigt',
@@ -743,11 +744,17 @@ const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallb
       || summary.length < 24
       || summaryLow === 'erledigt'
       || isPlaceholderParliamentTitle(summary)
-    const typeDe = TYPE_OVERRIDES[businessNumber] || inferType(title, item.sourceId, variant?.businessTypeName || '', item?.meta?.rawType || '')
+    const inferredVariantType = inferType(
+      title,
+      item.sourceId,
+      variant?.businessTypeName || '',
+      variant?.meta?.rawType || item?.meta?.rawType || '',
+    )
+    const canonicalType = TYPE_OVERRIDES[businessNumber] || fallbackType || inferredVariantType
     const matched = mapThemesFromKeywords(item.matchedKeywords || fallbackThemes || []).slice(0, 6)
     out.title[l] = weakTitle ? fallbackTitle : title
     out.summary[l] = weakSummary ? fallbackSummary : summary
-    out.type[l] = typeLabels[typeDe]?.[l] || typeLabels[fallbackType]?.[l] || fallbackType
+    out.type[l] = typeLabels[canonicalType]?.[l] || canonicalType
     out.themes[l] = l === 'de'
       ? fallbackThemes
       : matched.map((kw) => localizeTheme(kw, l))
