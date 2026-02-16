@@ -31,8 +31,8 @@ const toIsoDate = (v, fallbackYear) => {
   return new Date().toISOString().slice(0, 10)
 }
 
-const inferType = (title = '', sourceId = '', businessTypeName = '', rawType = '') => {
-  const text = `${title} ${sourceId} ${businessTypeName} ${rawType}`.toLowerCase()
+const inferType = (title = '', sourceId = '', businessTypeName = '', rawType = '', contextText = '') => {
+  const text = `${title} ${sourceId} ${businessTypeName} ${rawType} ${contextText}`.toLowerCase()
   if (text.includes('petition') || text.includes('pétition') || text.includes('petizione')) return 'Petition'
   if (text.includes('dringliche motion') || text.includes('motion') || text.includes('mozione')) return 'Motion'
   if (text.includes('dringliches postulat') || text.includes('postulat') || text.includes('postulato')) return 'Postulat'
@@ -344,6 +344,7 @@ const THEME_OVERRIDES = {
   '24.4696': ['Tierversuche', 'Wissenschaft und Forschung', 'Umwelt'],
   '21.3363': ['Umwelt', 'Wissenschaft und Forschung'],
   '21.3405': ['Tierversuche', 'Wissenschaft und Forschung', 'Umwelt'],
+  '21.3835': ['Tierschutz', 'Nutztiere', 'Kontrollwesen'],
   '22.3187': ['Landwirtschaft', 'Umwelt', 'Nutztiere'],
   '20.2018': ['Tierschutz', 'Tierrechte', 'Nutztiere'],
   '20.3021': ['Tierschutz', 'Stopfleber', 'Landwirtschaft', 'Umwelt', 'Wirtschaft'],
@@ -785,6 +786,7 @@ const vorstoesse = items.map((item, index) => {
     item.sourceId,
     sourceVariant?.businessTypeName || item?.languageVariants?.de?.businessTypeName || '',
     sourceVariant?.meta?.rawType || item?.meta?.rawType || '',
+    `${displaySummary} ${displayBody} ${SUMMARY_OVERRIDES[businessNumber] || ''}`,
   )
   const typ = TYPE_OVERRIDES[businessNumber] || inferredType
   const stance = extractStance(item.reviewReason, finalTitle, displaySummary, displayBody)

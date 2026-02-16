@@ -2,7 +2,7 @@
   {
     "id": "vp-20203021",
     "titel": "20.3021 - Importverbot für tierquälerisch erzeugte Stopfleber",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Die Motion fordert ein Importverbot für Stopfleber aus tierquälerischer Produktion (Stopfmast).",
     "geschaeftsnummer": "20.3021",
     "ebene": "Bund",
@@ -680,7 +680,7 @@
   {
     "id": "vp-20213002",
     "titel": "21.3002 - Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Die Motion verlangt, den Handlungsspielraum im Jagdgesetz per Verordnung auszuschöpfen, um die Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren zu regeln (u. a. Regulierung und Herdenschutz).",
     "geschaeftsnummer": "21.3002",
     "ebene": "Bund",
@@ -739,7 +739,7 @@
   {
     "id": "vp-20203648",
     "titel": "20.3648 - Schlafen im Stroh auch für Schweine",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Die Motion verlangt eine Änderung der Tierschutzverordnung, damit für alle Schweinekategorien stets eingestreute Liegebereiche vorgeschrieben sind.",
     "geschaeftsnummer": "20.3648",
     "ebene": "Bund",
@@ -1590,7 +1590,7 @@
   {
     "id": "vp-20243296",
     "titel": "24.3296 - Effizienteren Tierschutz durch Interessenvertretung",
-    "typ": "Interpellation",
+    "typ": "Postulat",
     "kurzbeschreibung": "Das Postulat beauftragt den Bundesrat zu prüfen, welche gesetzlichen Anpassungen für eine unabhängige Tieranwaltschaft und minimale subjektive Rechte für höher entwickelte Tiere erforderlich wären.",
     "geschaeftsnummer": "24.3296",
     "ebene": "Bund",
@@ -2502,7 +2502,7 @@
   {
     "id": "vp-20244695",
     "titel": "24.4695 - Alternativen zu Tierversuchen. Forschungsstandort Schweiz stärken!",
-    "typ": "Interpellation",
+    "typ": "Postulat",
     "kurzbeschreibung": "Das Postulat beauftragt den Bundesrat zu prüfen und Bericht zu erstatten, welche im Ausland eingesetzten Ansätze zur Förderung tierversuchsfreier Forschungsmethoden sich für die Schweiz eignen.",
     "geschaeftsnummer": "24.4695",
     "ebene": "Bund",
@@ -2929,7 +2929,7 @@
   {
     "id": "vp-20213835",
     "titel": "21.3835 - Tierschutzverstösse besser ahnden",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Die Motion verlangt stichprobenhafte Kontrollen von Tierkadavern in der Fleischkontrolle und in Sammelstellen, um Tierschutzverstösse besser zu erkennen und den Ursprung zurückzuverfolgen.",
     "geschaeftsnummer": "21.3835",
     "ebene": "Bund",
@@ -2940,10 +2940,8 @@
     "datumAktualisiert": "2026-02-14",
     "themen": [
       "Tierschutz",
-      "Landwirtschaft",
-      "Wirtschaft",
-      "Umwelt",
-      "Gesundheit"
+      "Nutztiere",
+      "Kontrollwesen"
     ],
     "schlagwoerter": [
       "tierschutz",
@@ -2980,11 +2978,9 @@
         },
         "themes": {
           "de": [
-            "tierschutz",
-            "landwirtschaft",
-            "Wirtschaft",
-            "Umwelt",
-            "Gesundheit"
+            "Tierschutz",
+            "Nutztiere",
+            "Kontrollwesen"
           ]
         }
       },
@@ -3442,7 +3438,7 @@
   {
     "id": "vp-20214435",
     "titel": "21.4435 - Afrikanische Schweinepest. Wildschweine vorsorglich eindämmen",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Die Motion verlangt, Wildtierpassagen an Nationalstrassen präventiv so auszurüsten, dass Wildschweine sie nicht passieren können, um die Ausbreitung der Afrikanischen Schweinepest einzudämmen.",
     "geschaeftsnummer": "21.4435",
     "ebene": "Bund",
@@ -3629,7 +3625,7 @@
   {
     "id": "vp-20223299",
     "titel": "22.3299 - Kein Einsatz von PMSG bei Schweinezüchtern",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Die Motion verlangt ein Verbot PMSG-haltiger Tierarzneimittel in der Schweizer Schweinezucht und will verhindern, dass diese durch synthetische PMSG-Produkte ersetzt werden.",
     "geschaeftsnummer": "22.3299",
     "ebene": "Bund",
@@ -3814,7 +3810,7 @@
   {
     "id": "vp-20254010",
     "titel": "25.4010 - Gesetzliches Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhuhn\")",
-    "typ": "Interpellation",
+    "typ": "Motion",
     "kurzbeschreibung": "Die Motion verlangt ein gesetzlich verankertes Importverbot für chemisch (insbesondere mit Chlor) behandeltes Geflügelfleisch und begründet dies mit Konsumentenschutz, Lebensmittelstandards und handelspolitischer Verlässlichkeit.",
     "geschaeftsnummer": "25.4010",
     "ebene": "Bund",
@@ -4317,7 +4313,7 @@
   {
     "id": "vp-20254812",
     "titel": "25.4812 - Konsequenzen aus dem Tierschutzfall Ramiswil",
-    "typ": "Interpellation",
+    "typ": "Postulat",
     "kurzbeschreibung": "Das Postulat beauftragt den Bundesrat zu prüfen, wie der Vollzug des Tierschutzgesetzes in den Kantonen verbessert werden kann, um Fälle wie in Ramiswil zu verhindern. Genannt werden insbesondere eine bessere Zusammenarbeit der Veterinärämter mit Tierschutzorganisationen, der Ausbau von Meldestellen und ausreichende kantonale Ressourcen.",
     "geschaeftsnummer": "25.4812",
     "ebene": "Bund",
