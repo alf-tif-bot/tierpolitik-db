@@ -43,13 +43,17 @@ const PARLIAMENT_TEXT_HINTS = [
   'geschäfte',
   'vorstoesse',
   'vorstösse',
+  'parlamentarische vorstösse',
   'objets parlementaires',
+  'interventions parlementaires',
+  'objets et rapports de commissions',
   'objets du conseil',
   'grand conseil',
   'kantonsrat',
   'landrat',
   'grosser rat',
   'session',
+  'sessionen',
   'parlement',
 ]
 
@@ -57,6 +61,7 @@ const detectPlatform = ({ requestUrl = '', finalUrl = '', html = '' } = {}) => {
   const u = `${String(requestUrl)} ${String(finalUrl)}`.toLowerCase()
   const h = String(html).toLowerCase()
   if (h.includes('verifying your browser') || h.includes('vérification de votre navigateur')) return 'waf-challenge'
+  if (h.includes('maintenance page') || h.includes('site en maintenance')) return 'maintenance-mode'
   if (u.includes('ratsinfo') || h.includes('ratsinfo')) return 'ratsinfo'
   if (u.includes('parlinfo') || h.includes('parlinfo') || u.includes('/grweb/')) return 'parliament-portal'
   if (u.includes('aio') || h.includes('allris') || h.includes('sessionnet')) return 'allris/sessionnet'
@@ -87,6 +92,9 @@ const hasSearchOrAffairPath = (url = '') => [
   'kantonsratmain',
   'grosserrat',
   'kantonsrat.html',
+  'objets/Pages/accueil.aspx',
+  'objets/pages/accueil.aspx',
+  'sitzung',
 ].some((hint) => String(url).toLowerCase().includes(String(hint).toLowerCase()))
 
 const extractYearsFromUrl = (url = '') => {
@@ -159,8 +167,8 @@ const classifyReadiness = ({
   ].some((hint) => u.includes(hint))
   const hasSearchOrAffairPathForUrl = hasSearchOrAffairPath(u)
 
-  if (!ok || platform === 'waf-challenge') {
-    if (platform === 'waf-challenge' && (hasParliamentSignals || hasParliamentHint)) return 'site-discovery-needed'
+  if (!ok || platform === 'waf-challenge' || platform === 'maintenance-mode') {
+    if ((platform === 'waf-challenge' || platform === 'maintenance-mode') && (hasParliamentSignals || hasParliamentHint)) return 'site-discovery-needed'
     if (httpStatus === 429 && (hasParliamentSignals || hasParliamentHint || platform === 'parliament-portal')) return 'site-discovery-needed'
     if ([404, 410, 500, 502, 503].includes(Number(httpStatus)) && (hasParliamentSignals || hasParliamentHint || platform === 'parliament-portal')) {
       return 'site-discovery-needed'

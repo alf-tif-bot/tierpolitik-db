@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-16T00:49:45.941Z",
+  "generatedAt": "2026-02-16T02:17:15.817Z",
   "targetSinceYear": 2020,
   "fixDecisionMismatches": false,
   "pruneLegacyDecisions": false,
@@ -18,7 +18,7 @@
   "duplicateReviewIdsCount": 0,
   "duplicateReviewIds": [],
   "expectedPublishedAffairs": 0,
-  "actualMotions": 82,
+  "actualMotions": 78,
   "missingInMotionsCount": 0,
   "missingInMotions": [],
   "reviewDecisionsCount": 739,

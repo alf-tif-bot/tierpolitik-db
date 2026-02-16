@@ -2669,9 +2669,7 @@
   },
   "ch-municipal-parliament-bern-zurich:municipal-bern-1c6dc829b4ba": {
     "status": "queued",
-    "decidedAt": "2026-02-15T09:05:56.246Z",
-    "syncedAt": "2026-02-16T00:47:28.107Z",
-    "syncReason": "regression-check-db-status"
+    "decidedAt": "2026-02-15T09:05:56.246Z"
   },
   "ch-parliament-business-de:20240436": {
     "status": "approved",

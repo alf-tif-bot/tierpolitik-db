@@ -138,10 +138,11 @@
     "canton": "NE",
     "parliament": "Grand Conseil Neuchâtel",
     "adapter": "cantonRegistry",
-    "url": "https://www.ne.ch/autorites/GC",
+    "url": "https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx",
     "sinceYear": 2020,
     "urlCandidates": [
-      "https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx",
+      "https://www.ne.ch/autorites/GC/objets",
+      "https://www.ne.ch/autorites/GC/Pages/accueil.aspx",
       "https://ne.ratsinfomanagement.net"
     ]
   },
@@ -183,11 +184,13 @@
     "canton": "SH",
     "parliament": "Kantonsrat Schaffhausen",
     "adapter": "cantonRegistry",
-    "url": "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html",
+    "url": "https://sh.ch/CMS/Webseite/Kanton-Schaffhausen-1756-DE.html",
     "sinceYear": 2020,
     "urlCandidates": [
-      "https://sh.ratsinfomanagement.net",
-      "https://www.sh.ch/parlament"
+      "https://www.sh.ch/parlament",
+      "https://www.sh.ch/Kantonsrat",
+      "https://www.sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Kantonsrat-2215832-DE.html",
+      "https://sh.ratsinfomanagement.net"
     ]
   },
   {
@@ -240,9 +243,11 @@
     "canton": "UR",
     "parliament": "Landrat Uri",
     "adapter": "cantonRegistry",
-    "url": "https://www.ur.ch/landrat",
+    "url": "https://www.ur.ch/sitzung",
     "sinceYear": 2020,
     "urlCandidates": [
+      "https://www.ur.ch/landrat",
+      "https://www.ur.ch/sitzung?rq=vorstoss",
       "https://ur.ratsinfomanagement.net"
     ]
   },
@@ -266,6 +271,7 @@
     "sinceYear": 2020,
     "urlCandidates": [
       "https://www.vs.ch/fr/web/gc/interventions-parlementaires",
+      "https://www.vs.ch/fr/web/gc/objets-parlementaires",
       "https://www.vs.ch/de/web/gc/parlamentarische-vorstoesse",
       "https://vs.ratsinfomanagement.net",
       "https://www.sitzungsdienst.net"
