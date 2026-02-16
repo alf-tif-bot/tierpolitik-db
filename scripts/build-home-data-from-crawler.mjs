@@ -279,6 +279,7 @@ const SUBMITTER_OVERRIDES = {
   '24.4695': { name: 'Schneider Meret', rolle: 'Nationalrätin', partei: 'GRÜNE Schweiz' },
   '24.4696': { name: 'Schneider Meret', rolle: 'Nationalrätin', partei: 'GRÜNE Schweiz' },
   '25.4812': { name: 'Schneider Meret', rolle: 'Nationalrat', partei: 'GRÜNE Schweiz' },
+  '25.4487': { name: 'Egger Mike', rolle: 'Nationalrat', partei: 'Schweizerische Volkspartei' },
   '24.3296': { name: 'Munz Martina', rolle: 'Nationalrätin', partei: 'SP' },
   '22.3187': { name: 'Munz Martina', rolle: 'Nationalrätin', partei: 'Sozialdemokratische Fraktion' },
   '21.3363': { name: 'Munz Martina', rolle: 'Nationalrätin', partei: 'Sozialdemokratische Partei der Schweiz' },
@@ -330,6 +331,7 @@ const THEME_OVERRIDES = {
   '22.7004': ['Landwirtschaft', 'Umwelt'],
   '20.3849': ['Europapolitik', 'Landwirtschaft', 'Umwelt', 'Wirtschaft'],
   '25.4010': ['Gesundheit', 'Landwirtschaft', 'Wirtschaft'],
+  '25.4487': ['Gesundheit', 'Landwirtschaft', 'Umwelt'],
   '25.4144': ['Landwirtschaft', 'Nutztiere', 'Biodiversität'],
   '21.8163': ['Landwirtschaft', 'Staatspolitik', 'Umwelt', 'Beschäftigung und Arbeit'],
   '22.3299': ['Schweinezucht', 'Tierarzneimittel', 'Tierschutz'],
@@ -492,9 +494,7 @@ const inferSubmitter = (lang, title = '', summary = '', body = '', item = null) 
   if (sourceId.startsWith('ch-parliament-') && submitterFromMeta) {
     return { name: submitterFromMeta, rolle: 'Parlament', partei: '' }
   }
-  if (text.includes('blv') || text.includes('lebensmittelsicherheit') || text.includes('veterinärwesen')) {
-    return { name: 'BLV', rolle: 'Regierung', partei: 'Bundesverwaltung' }
-  }
+  // Kein reines Keyword-Matching auf Ämter (z. B. BLV) als Einreicher: führt zu False Positives.
   if (
     text.includes('eingereicht von bundesrat')
     || text.includes('message du conseil fédéral')

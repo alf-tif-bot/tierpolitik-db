@@ -4766,11 +4766,9 @@
     "datumEingereicht": "2025-12-09",
     "datumAktualisiert": "2026-02-13",
     "themen": [
-      "Nutrition",
+      "Gesundheit",
       "Landwirtschaft",
-      "Agriculture",
-      "Umwelt",
-      "Gesundheit"
+      "Umwelt"
     ],
     "schlagwoerter": [
       "nutrition",
@@ -4779,9 +4777,9 @@
     ],
     "einreichende": [
       {
-        "name": "BLV",
-        "rolle": "Regierung",
-        "partei": "Bundesverwaltung"
+        "name": "Egger Mike",
+        "rolle": "Nationalrat",
+        "partei": "Schweizerische Volkspartei"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254487",
@@ -4811,11 +4809,9 @@
         },
         "themes": {
           "de": [
-            "nutrition",
-            "landwirtschaft",
-            "agriculture",
-            "Umwelt",
-            "Gesundheit"
+            "Gesundheit",
+            "Landwirtschaft",
+            "Umwelt"
           ],
           "fr": [
             "nutrition",
