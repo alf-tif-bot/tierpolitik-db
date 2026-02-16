@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-16T05:16:35.272Z",
+  "generatedAt": "2026-02-16T06:44:33.960Z",
   "coverage": {
     "target": "all-cantons",
     "sinceYearMin": 2020,
@@ -30,7 +30,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:25.399Z",
+        "checkedAt": "2026-02-16T06:44:28.049Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -50,7 +50,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -62,7 +62,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -74,7 +74,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -98,7 +98,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -155,7 +155,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:25.272Z",
+        "checkedAt": "2026-02-16T06:44:27.318Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -199,7 +199,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -223,7 +223,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -237,7 +237,7 @@
             "yearsDetected": [
               2018
             ],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -251,7 +251,7 @@
             "yearsDetected": [
               2018
             ],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -283,7 +283,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:24.280Z",
+        "checkedAt": "2026-02-16T06:44:26.550Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -315,7 +315,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -351,7 +351,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -410,7 +410,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:25.134Z",
+        "checkedAt": "2026-02-16T06:44:27.855Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -430,7 +430,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -442,7 +442,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -478,7 +478,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -490,7 +490,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -536,7 +536,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:24.832Z",
+        "checkedAt": "2026-02-16T06:44:28.702Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -556,7 +556,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -604,7 +604,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -616,7 +616,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -628,7 +628,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -661,7 +661,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:25.157Z",
+        "checkedAt": "2026-02-16T06:44:27.154Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -681,7 +681,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -729,7 +729,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -741,7 +741,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -787,7 +787,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:32.855Z",
+        "checkedAt": "2026-02-16T06:44:33.960Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -807,7 +807,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -824,26 +824,26 @@
           },
           {
             "url": "https://www.fr.ch/parlinfo/membres-du-grand-conseil",
-            "ok": false,
-            "httpStatus": null,
+            "ok": true,
+            "httpStatus": 200,
             "finalUrl": "https://www.fr.ch/parlinfo/membres-du-grand-conseil",
-            "platform": "unreachable",
-            "hasParliamentSignals": false,
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
             "url": "https://fr.ch/parlinfo/membres-du-grand-conseil",
-            "ok": false,
-            "httpStatus": null,
-            "finalUrl": "https://fr.ch/parlinfo/membres-du-grand-conseil",
-            "platform": "unreachable",
-            "hasParliamentSignals": false,
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.fr.ch/parlinfo/membres-du-grand-conseil",
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -855,7 +855,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -867,16 +867,16 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": false,
+            "retried": true,
             "retrySuppressed": false
           },
           {
             "url": "https://www.fr.ch/parlinfo",
-            "ok": false,
-            "httpStatus": null,
+            "ok": true,
+            "httpStatus": 200,
             "finalUrl": "https://www.fr.ch/parlinfo",
-            "platform": "unreachable",
-            "hasParliamentSignals": false,
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
             "retried": false,
@@ -884,11 +884,11 @@
           },
           {
             "url": "https://fr.ch/parlinfo",
-            "ok": false,
-            "httpStatus": null,
-            "finalUrl": "https://fr.ch/parlinfo",
-            "platform": "unreachable",
-            "hasParliamentSignals": false,
+            "ok": true,
+            "httpStatus": 200,
+            "finalUrl": "https://www.fr.ch/parlinfo",
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
             "retried": false,
@@ -913,7 +913,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:24.869Z",
+        "checkedAt": "2026-02-16T06:44:27.436Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -933,7 +933,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -945,7 +945,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -957,7 +957,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -969,7 +969,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1037,7 +1037,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:25.508Z",
+        "checkedAt": "2026-02-16T06:44:26.703Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -1057,7 +1057,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1081,7 +1081,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1093,7 +1093,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1161,7 +1161,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:25.273Z",
+        "checkedAt": "2026-02-16T06:44:27.482Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -1181,7 +1181,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1193,7 +1193,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1205,7 +1205,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1217,7 +1217,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1288,7 +1288,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:27.692Z",
+        "checkedAt": "2026-02-16T06:44:33.546Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -1308,7 +1308,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1320,7 +1320,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1332,7 +1332,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1344,7 +1344,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1380,7 +1380,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1392,7 +1392,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           }
         ]
@@ -1412,7 +1412,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:25.469Z",
+        "checkedAt": "2026-02-16T06:44:27.675Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -1432,7 +1432,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1444,7 +1444,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1456,7 +1456,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1468,7 +1468,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1538,7 +1538,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:25.829Z",
+        "checkedAt": "2026-02-16T06:44:28.165Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -1558,7 +1558,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1570,7 +1570,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1582,7 +1582,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1594,7 +1594,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1630,7 +1630,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1642,7 +1642,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           }
         ]
@@ -1663,7 +1663,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:26.271Z",
+        "checkedAt": "2026-02-16T06:44:27.750Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -1683,7 +1683,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1695,7 +1695,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1707,7 +1707,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1719,7 +1719,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1767,7 +1767,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           }
         ]
@@ -1789,7 +1789,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:25.795Z",
+        "checkedAt": "2026-02-16T06:44:28.315Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -1809,7 +1809,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1821,7 +1821,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1833,7 +1833,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1845,7 +1845,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1893,7 +1893,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           }
         ]
@@ -1914,7 +1914,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:25.191Z",
+        "checkedAt": "2026-02-16T06:44:27.003Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -1934,7 +1934,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1946,7 +1946,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1958,7 +1958,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -1970,7 +1970,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2041,7 +2041,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:25.889Z",
+        "checkedAt": "2026-02-16T06:44:28.219Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -2061,7 +2061,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2073,7 +2073,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2085,7 +2085,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2097,7 +2097,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2133,7 +2133,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2145,7 +2145,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           }
         ]
@@ -2166,7 +2166,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:24.985Z",
+        "checkedAt": "2026-02-16T06:44:27.626Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -2186,7 +2186,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2198,7 +2198,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2210,7 +2210,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2222,7 +2222,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2292,7 +2292,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:25.379Z",
+        "checkedAt": "2026-02-16T06:44:28.066Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -2307,25 +2307,25 @@
             "url": "https://www.sz.ch/parlament",
             "ok": false,
             "httpStatus": 429,
-            "finalUrl": "https://www.sz.ch/parlament",
-            "platform": "generic-site",
-            "hasParliamentSignals": false,
+            "finalUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799",
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
             "retried": true,
-            "retrySuppressed": false
+            "retrySuppressed": true
           },
           {
             "url": "https://sz.ch/parlament",
             "ok": false,
             "httpStatus": 429,
-            "finalUrl": "https://www.sz.ch/parlament",
-            "platform": "generic-site",
-            "hasParliamentSignals": false,
+            "finalUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8799",
+            "platform": "parliament-portal",
+            "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
             "retried": true,
-            "retrySuppressed": false
+            "retrySuppressed": true
           },
           {
             "url": "https://sz.ratsinfomanagement.net",
@@ -2336,7 +2336,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2348,7 +2348,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2365,14 +2365,14 @@
           },
           {
             "url": "https://www.sz.ch/behoerden/kantonsrat.html/8799",
-            "ok": true,
-            "httpStatus": 200,
-            "finalUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799",
+            "ok": false,
+            "httpStatus": 429,
+            "finalUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8799",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": false,
+            "retried": true,
             "retrySuppressed": false
           },
           {
@@ -2389,14 +2389,14 @@
           },
           {
             "url": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799",
-            "ok": true,
-            "httpStatus": 200,
+            "ok": false,
+            "httpStatus": 429,
             "finalUrl": "https://www.sz.ch/behoerden/kantonsrat.html/8756-8758-8799",
             "platform": "parliament-portal",
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": false,
+            "retried": true,
             "retrySuppressed": false
           }
         ]
@@ -2417,7 +2417,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:25.247Z",
+        "checkedAt": "2026-02-16T06:44:27.853Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -2437,7 +2437,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2449,7 +2449,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2461,7 +2461,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2473,7 +2473,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2543,7 +2543,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:26.041Z",
+        "checkedAt": "2026-02-16T06:44:27.680Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -2563,7 +2563,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2575,7 +2575,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2587,7 +2587,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2599,7 +2599,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2647,7 +2647,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           }
         ]
@@ -2669,7 +2669,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:25.933Z",
+        "checkedAt": "2026-02-16T06:44:28.536Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -2689,7 +2689,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2701,7 +2701,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2713,7 +2713,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2725,7 +2725,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2761,7 +2761,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2773,7 +2773,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           }
         ]
@@ -2795,7 +2795,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:25.428Z",
+        "checkedAt": "2026-02-16T06:44:27.712Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -2815,7 +2815,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2827,7 +2827,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2839,7 +2839,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2851,7 +2851,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2923,7 +2923,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:26.906Z",
+        "checkedAt": "2026-02-16T06:44:28.082Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -2943,7 +2943,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2955,7 +2955,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2967,7 +2967,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -2979,7 +2979,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -3048,7 +3048,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:35.271Z",
+        "checkedAt": "2026-02-16T06:44:33.569Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -3068,7 +3068,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -3080,7 +3080,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -3092,7 +3092,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -3104,7 +3104,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -3140,7 +3140,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -3152,7 +3152,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           }
         ]
@@ -3173,7 +3173,7 @@
       "readiness": "adapter-ready-likely",
       "sinceYearLikelyCovered": true,
       "probe": {
-        "checkedAt": "2026-02-16T05:16:25.627Z",
+        "checkedAt": "2026-02-16T06:44:27.895Z",
         "ok": true,
         "httpStatus": 200,
         "finalUrl": "https://www.sitzungsdienst.net/",
@@ -3193,7 +3193,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -3205,7 +3205,7 @@
             "hasParliamentSignals": true,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -3217,7 +3217,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {
@@ -3229,7 +3229,7 @@
             "hasParliamentSignals": false,
             "archiveSignals": false,
             "yearsDetected": [],
-            "retried": true,
+            "retried": false,
             "retrySuppressed": false
           },
           {

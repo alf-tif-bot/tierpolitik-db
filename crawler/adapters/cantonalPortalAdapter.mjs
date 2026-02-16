@@ -17,6 +17,23 @@ const BASE_KEYWORDS = [
   'granconsiglio',
 ]
 
+const ANIMAL_POLICY_LINK_KEYWORDS = [
+  'tier',
+  'tierschutz',
+  'tierwohl',
+  'wildtier',
+  'jagd',
+  'biodivers',
+  'wolf',
+  'fuchs',
+  'faune',
+  'animaux',
+  'animal',
+  'animali',
+  'caccia',
+  'chasse',
+]
+
 const LINK_NOISE_KEYWORDS = [
   'kontakt',
   'contact',
@@ -150,8 +167,9 @@ const scoreLink = (canton = '', url = '', text = '') => {
   const cantonKeywords = CANTON_KEYWORDS[canton] || []
   const keywords = [...BASE_KEYWORDS, ...cantonKeywords]
   const positive = keywords.reduce((acc, kw) => (combined.includes(kw) ? acc + 1 : acc), 0)
+  const animalBonus = ANIMAL_POLICY_LINK_KEYWORDS.reduce((acc, kw) => (combined.includes(kw) ? acc + 2 : acc), 0)
   const penalty = LINK_NOISE_KEYWORDS.reduce((acc, kw) => (combined.includes(kw) ? acc + 2 : acc), 0)
-  return Math.max(0, positive - penalty)
+  return Math.max(0, positive + animalBonus - penalty)
 }
 
 const normalizeUrl = (href, baseUrl) => {
@@ -279,8 +297,11 @@ const candidateUrlsFromRegistry = (entry) => {
   ].filter(Boolean))]
 }
 
-const fetchFirstReachable = async (urls = []) => {
+const fetchReachablePages = async (urls = [], limit = 3) => {
+  const pages = []
+
   for (const url of urls) {
+    if (pages.length >= limit) break
     try {
       const response = await fetch(url, {
         headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
@@ -289,12 +310,13 @@ const fetchFirstReachable = async (urls = []) => {
       })
       if (!response.ok) continue
       const html = await response.text()
-      return { response, html, usedUrl: url }
+      pages.push({ response, html, usedUrl: url })
     } catch {
       // try next candidate
     }
   }
-  return null
+
+  return pages
 }
 
 export function createCantonalPortalAdapter() {
@@ -327,17 +349,19 @@ export function createCantonalPortalAdapter() {
         const candidateUrls = candidateUrlsFromRegistry(entry)
         if (!candidateUrls.length || entry?.probe?.httpStatus === 403) continue
 
-        const fetched = await fetchFirstReachable(candidateUrls)
-        if (!fetched) continue
+        const fetchedPages = await fetchReachablePages(candidateUrls, 3)
+        if (!fetchedPages.length) continue
 
-        const { response, html, usedUrl } = fetched
+        const leadPage = fetchedPages[0]
+        const { response, html } = leadPage
 
         const title = (html.match(/<title>([\s\S]*?)<\/title>/i)?.[1] || entry.parliament || `${canton} Parlament`)
           .replace(/\s+/g, ' ')
           .trim()
-        const parsedLinks = parseLinks(html, response.url, canton)
+
+        const parsedLinks = fetchedPages.flatMap(({ html: pageHtml, response: pageResponse }) => parseLinks(pageHtml, pageResponse.url, canton))
         const links = appendFallbackLinks(canton, parsedLinks)
-        const pageText = stripTags(html).slice(0, 5000)
+        const pageText = fetchedPages.map((p) => stripTags(p.html).slice(0, 2500)).join('\n')
         const language = pickLanguage(canton, pageText)
 
         const topLink = links[0]?.text || 'Parlamentsgeschäfte'
@@ -347,15 +371,15 @@ export function createCantonalPortalAdapter() {
           sourceUrl: response.url,
           externalId: `cantonal-portal-${canton.toLowerCase()}`,
           title: `${canton} · ${entry.parliament}: ${topLink}`.slice(0, 260),
-          summary: `${title} – ${links.length} relevante Linkziele erkannt (Leitlink: ${topLink})`.slice(0, 300),
+          summary: `${title} – ${links.length} relevante Linkziele erkannt (${fetchedPages.length} Seiten gescannt, Leitlink: ${topLink})`.slice(0, 300),
           body: links.length
             ? links.map((l, idx) => `${idx + 1}. ${l.text || 'Ohne Titel'} – ${l.href}`).join('\n')
             : `Portal erreichbar (${response.url}), aber noch ohne extrahierte Vorstoss-Links.`,
           publishedAt: fetchedAt,
           fetchedAt,
           language,
-          score: Math.min(0.4 + links.length * 0.05, 0.85),
-          matchedKeywords: ['kanton', canton.toLowerCase(), ...new Set(links.flatMap((l) => [...BASE_KEYWORDS, ...(CANTON_KEYWORDS[canton] || [])].filter((kw) => `${l.href} ${l.text}`.toLowerCase().includes(kw))))].slice(0, 12),
+          score: Math.min(0.4 + links.length * 0.05 + Math.min(0.12, fetchedPages.length * 0.03), 0.9),
+          matchedKeywords: ['kanton', canton.toLowerCase(), ...new Set(links.flatMap((l) => [...BASE_KEYWORDS, ...ANIMAL_POLICY_LINK_KEYWORDS, ...(CANTON_KEYWORDS[canton] || [])].filter((kw) => `${l.href} ${l.text}`.toLowerCase().includes(kw))))].slice(0, 12),
           status: 'new',
           reviewReason: links.length ? 'cantonal-portal-links' : 'cantonal-portal-reachable',
           meta: {
@@ -366,7 +390,7 @@ export function createCantonalPortalAdapter() {
             extractedLinks: links,
             adapterHint: 'cantonalPortal',
             candidateUrlsTried: candidateUrls.slice(0, 8),
-            fetchUrl: usedUrl,
+            fetchedPages: fetchedPages.map((p) => ({ requestedUrl: p.usedUrl, finalUrl: p.response.url })).slice(0, 3),
           },
         })
       }
