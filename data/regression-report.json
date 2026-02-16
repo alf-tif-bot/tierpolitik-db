@@ -1,17 +1,15 @@
 {
-  "generatedAt": "2026-02-16T06:47:14.077Z",
+  "generatedAt": "2026-02-16T08:16:06.386Z",
   "targetSinceYear": 2020,
   "fixDecisionMismatches": false,
   "pruneLegacyDecisions": false,
   "pruneUnknownDecisions": false,
   "pruneReviewItems": false,
-  "expectedReview": 297,
+  "expectedReview": 296,
   "actualReview": 296,
-  "missingInReviewCount": 1,
+  "missingInReviewCount": 0,
   "missingInReviewParliamentCount": 0,
-  "missingInReview": [
-    "ch-municipal-parliament-bern-zurich:municipal-zuerich-0a92bddadf36"
-  ],
+  "missingInReview": [],
   "missingInReviewParliament": [],
   "extraInReviewCount": 0,
   "extraInReviewParliamentCount": 0,

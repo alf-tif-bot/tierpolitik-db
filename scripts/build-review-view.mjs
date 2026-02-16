@@ -182,12 +182,15 @@ const extractBusinessNo = (item) => {
 }
 
 const hardDuplicateKey = (item) => {
+  const sid = String(item?.sourceId || '')
+  if (!sid.startsWith('ch-parliament-')) return `id:${sid}:${item?.externalId || ''}`
+
   const businessNo = extractBusinessNo(item)
   const normalizedTitle = normalizeForKey(String(item?.title || '').replace(/\b\d{2}\.\d{2,4}\b/g, ''))
 
   if (businessNo && normalizedTitle) return `hard:${businessNo}|${normalizedTitle}`
   if (businessNo) return `hard:${businessNo}`
-  return `id:${item.sourceId}:${item.externalId}`
+  return `id:${sid}:${item?.externalId || ''}`
 }
 
 const hardGrouped = new Map()

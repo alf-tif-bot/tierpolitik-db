@@ -155,6 +155,26 @@ const CANTON_FALLBACK_LINKS = {
     { href: 'https://www.jura.ch/fr/Autorites/PLT/Documents-du-Parlement/Suivi-des-interventions/Suivi-des-interventions.html', text: 'Suivi des interventions JU' },
     { href: 'https://www.jura.ch/fr/Autorites/PLT/Interventions-parlementaires-deposees/Interventions-parlementaires-deposees.html', text: 'Interventions parlementaires JU' },
   ],
+  AI: [
+    { href: 'https://www.ai.ch/politik/grosser-rat/geschaefte', text: 'Geschäfte Grosser Rat AI' },
+    { href: 'https://www.ai.ch/politik/grosser-rat/protokolle', text: 'Protokolle Grosser Rat AI' },
+  ],
+  GL: [
+    { href: 'https://www.gl.ch/parlament/landrat/geschaefte/vorstoesse.html/248', text: 'Vorstösse Landrat GL' },
+    { href: 'https://www.gl.ch/parlament/landrat/geschaefte/aktuelle-geschaefte.html/241', text: 'Aktuelle Geschäfte Landrat GL' },
+  ],
+  NE: [
+    { href: 'https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx', text: 'Objets du Grand Conseil NE' },
+    { href: 'https://www.ne.ch/autorites/GC/objets/Pages/recherche.aspx', text: 'Recherche objets Grand Conseil NE' },
+  ],
+  ZG: [
+    { href: 'https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats', text: 'Geschäfte des Kantonsrats ZG' },
+    { href: 'https://zg.ch/de/behoerden/kantonsrat', text: 'Kantonsrat Zug' },
+  ],
+  ZH: [
+    { href: 'https://www.kantonsrat.zh.ch/geschaefte/', text: 'Geschäfte Kantonsrat Zürich' },
+    { href: 'https://www.kantonsrat.zh.ch/geschaefte/geschaeft/?id=', text: 'Geschäftssuche Kantonsrat Zürich' },
+  ],
 }
 
 const asList = (value) => String(value || '')
