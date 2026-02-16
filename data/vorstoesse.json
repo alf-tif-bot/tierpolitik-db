@@ -911,34 +911,36 @@
   },
   {
     "id": "vp-20254144",
-    "titel": "Parlamentsgeschäft 20254144",
+    "titel": "25.4144 - Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet?",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 20254144 (In Beratung).",
+    "kurzbeschreibung": "Die Interpellation fragt den Bundesrat, ob die geplante Totalrevision der Tierzuchtverordnung die Erhaltung seltener Nutztierrassen gefährdet und wie der gesetzliche Auftrag zur Sicherung tiergenetischer Ressourcen konkret umgesetzt wird.",
     "geschaeftsnummer": "25.4144",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2026-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2025-09-25",
     "datumAktualisiert": "2026-02-14",
     "themen": [
-      "Tierschutz"
+      "Landwirtschaft",
+      "Nutztiere",
+      "Biodiversität"
     ],
     "schlagwoerter": [
       "Tierpolitik"
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Graf Maya",
+        "rolle": "Ständerätin",
+        "partei": "GRÜNE Schweiz"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254144",
     "resultate": [
       {
-        "datum": "2026-02-14",
-        "status": "In Beratung",
+        "datum": "2025-09-25",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -948,17 +950,19 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 20254144"
+          "de": "25.4144 - Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet?"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 20254144 (In Beratung)."
+          "de": "Die Interpellation fragt den Bundesrat, ob die geplante Totalrevision der Tierzuchtverordnung die Erhaltung seltener Nutztierrassen gefährdet und wie der gesetzliche Auftrag zur Sicherung tiergenetischer Ressourcen konkret umgesetzt wird."
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "Landwirtschaft",
+            "Nutztiere",
+            "Biodiversität"
           ]
         }
       },

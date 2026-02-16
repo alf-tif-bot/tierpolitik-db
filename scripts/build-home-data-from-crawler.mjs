@@ -254,6 +254,7 @@ const SUBMITTER_OVERRIDES = {
   '25.2027': { name: 'Écologie et Altruisme', rolle: 'Petitionskomitee', partei: '' },
   '23.2009': { name: 'Fondation SOS Chats Noiraigue', rolle: 'Petitionskomitee', partei: '' },
   '25.4071': { name: 'Dittli Josef', rolle: 'Ständerat', partei: 'FDP.Die Liberalen' },
+  '25.4144': { name: 'Graf Maya', rolle: 'Ständerätin', partei: 'GRÜNE Schweiz' },
   '21.3703': { name: 'Badertscher Christine', rolle: 'Nationalrätin', partei: 'Grüne Fraktion' },
   '23.7858': { name: 'Clivaz Christophe', rolle: 'Nationalrat', partei: 'GRÜNE Schweiz' },
   '24.4695': { name: 'Schneider Meret', rolle: 'Nationalrätin', partei: 'GRÜNE Schweiz' },
@@ -286,6 +287,7 @@ const THEME_OVERRIDES = {
   '22.7004': ['Landwirtschaft', 'Umwelt'],
   '20.3849': ['Nutztiere', 'Landwirtschaft', 'Umwelt'],
   '25.4010': ['Landwirtschaft', 'Konsumentenschutz', 'Wirtschaft'],
+  '25.4144': ['Landwirtschaft', 'Nutztiere', 'Biodiversität'],
   '21.8163': ['Landwirtschaft', 'Staatspolitik', 'Umwelt', 'Beschäftigung und Arbeit'],
   '22.3299': ['Schweinezucht', 'Tierarzneimittel', 'Tierschutz'],
   '22.3808': ['Staatspolitik', 'Medien und Kommunikation', 'Wissenschaft und Forschung', 'Umwelt'],
@@ -303,15 +305,18 @@ const STATUS_OVERRIDES = {
   '21.044': 'Erledigt',
   '22.7807': 'Erledigt',
   '23.3411': 'Erledigt',
+  '25.4144': 'Erledigt',
 }
 
 const SUBMISSION_DATE_OVERRIDES = {
   '23.3411': '2023-03-17',
+  '25.4144': '2025-09-25',
 }
 
 const TITLE_OVERRIDES = {
   '22.7807': '22.7807 - Wer bezahlt die Schäden von Nutztieren, wenn die Gänsegeier vor der Wildhut den Kadaver zerfressen?',
   '23.3411': '23.3411 - Eine langfristige Lösung für den Schweinemarkt',
+  '25.4144': '25.4144 - Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet?',
 }
 
 const SUMMARY_OVERRIDES = {
@@ -331,6 +336,7 @@ const SUMMARY_OVERRIDES = {
   '23.3411': 'Das Postulat beauftragt den Bundesrat zu prüfen, wie gemeinsam mit der Branche eine langfristige Lösung für die Krise auf dem Schweinemarkt gefunden werden kann, inklusive Unterstützung für Betriebe bei Umstellung oder Bestandsreduktion.',
   '25.2027': 'Die Petition verlangt ein Beschwerderecht für Tierschutzverbände bei Fällen von Tiermisshandlung, damit Missstände rechtlich wirksamer verfolgt werden können.',
   '25.4071': 'Die Interpellation fragt, weshalb Equiden in der Schweiz als Heim- oder Nutztiere deklariert werden, und thematisiert die Folgen für Kreislaufwirtschaft und Food Waste bei der Verwertung verstorbener Tiere.',
+  '25.4144': 'Die Interpellation fragt den Bundesrat, ob die geplante Totalrevision der Tierzuchtverordnung die Erhaltung seltener Nutztierrassen gefährdet und wie der gesetzliche Auftrag zur Sicherung tiergenetischer Ressourcen konkret umgesetzt wird.',
   '21.3703': 'Die Interpellation verlangt Auskunft, wie die Schweiz im Indonesien-Abkommen den Tierschutz bei tierischen Produkten stärken und den Import von Qualprodukten begrenzen will.',
   '23.7858': 'Die Fragestunde-Frage verlangt vom Bundesrat Angaben zur Entwicklung von Wolfsbestand und Nutztier-Schäden 2022–2023 sowie eine Begründung für den Abschuss ganzer Wolfsrudel trotz sinkender Schäden.',
   '22.7807': 'Die Fragestunde-Frage verlangt eine Klärung, wie gerissene Nutztiere entschädigt werden, wenn Gänsegeier Kadaver vor der Begutachtung durch die Wildhut stark beschädigen.',
