@@ -149,6 +149,7 @@ const mapStatus = (status = '', rawStatus = '', summary = '', body = '') => {
   if (textStatus.includes('abgelehnt')) return 'Abgelehnt'
   if (textStatus.includes('angenommen')) return 'Angenommen'
   if (textStatus.includes('erledigt')) return 'Erledigt'
+  if (textStatus.includes('antwort des bundesrates')) return 'Erledigt'
 
   const s = String(status).toLowerCase()
   if (s === 'published') return 'Angenommen'
@@ -283,6 +284,7 @@ const SUBMITTER_OVERRIDES = {
   '22.3633': { name: 'Stark Jakob', rolle: 'Ständerat', partei: 'Schweizerische Volkspartei' },
   '22.3210': { name: 'Müller Leo', rolle: 'Nationalrat', partei: 'Die Mitte' },
   '24.4344': { name: 'Vara Céline', rolle: 'Ständerätin', partei: 'GRÜNE Schweiz' },
+  '23.1034': { name: 'Fivaz Fabien', rolle: 'Nationalrat', partei: 'Grüne Fraktion' },
 }
 
 const TYPE_OVERRIDES = {
@@ -305,6 +307,7 @@ const TYPE_OVERRIDES = {
   '24.4344': 'Postulat',
   '21.3363': 'Motion',
   '21.044': 'Geschäft des Bundesrates',
+  '23.1034': 'Anfrage',
 }
 
 const THEME_OVERRIDES = {
@@ -336,6 +339,7 @@ const THEME_OVERRIDES = {
   '22.3633': ['Landwirtschaft', 'Gesundheit', 'Umwelt', 'Nutztiere'],
   '22.3210': ['Gesundheit', 'Internationale Politik', 'Umwelt'],
   '24.4344': ['Staatspolitik', 'Umwelt'],
+  '23.1034': ['Landwirtschaft', 'Umwelt'],
 }
 
 const STATUS_OVERRIDES = {
@@ -351,6 +355,7 @@ const STATUS_OVERRIDES = {
   '20.4002': 'Abgeschrieben',
   '22.3952': 'Erledigt',
   '22.3210': 'Erledigt',
+  '23.1034': 'Erledigt',
 }
 
 const SUBMISSION_DATE_OVERRIDES = {
@@ -367,6 +372,7 @@ const SUBMISSION_DATE_OVERRIDES = {
   '24.4696': '2024-12-20',
   '21.3363': '2021-03-18',
   '21.044': '2021-05-19',
+  '23.1034': '2023-06-15',
 }
 
 const TITLE_OVERRIDES = {
@@ -384,6 +390,7 @@ const TITLE_OVERRIDES = {
   '22.3210': '22.3210 - Afrikanische Schweinepest nach Deutschland nun auch in Italien',
   '24.4696': '24.4696 - Sucht der Bund nach einer Strategie zur Einschränkung der Tierversuche?',
   '24.4344': '24.4344 - Tierschutzbeauftragte. Eine wirksame Unterstützung',
+  '23.1034': '23.1034 - Nutztierrisse und Herdenschutz',
 }
 
 const SUMMARY_OVERRIDES = {
@@ -423,6 +430,7 @@ const SUMMARY_OVERRIDES = {
   '22.3633': 'Die Motion verlangt eine Entschädigungslösung für behördlich angeordnete Betriebsschliessungen und Notschlachtungen im Zusammenhang mit der Afrikanischen Schweinepest, insbesondere für Schlacht-, Zerlege-, Verarbeitungs- und Entsorgungsbetriebe.',
   '22.3210': 'Die Interpellation fragt den Bundesrat nach zusätzlichen Massnahmen gegen die Einschleppung der Afrikanischen Schweinepest in die Schweiz, insbesondere über Jagdreisen, Wildschweineimporte und Biosicherheitsvorgaben.',
   '24.4344': 'Das Postulat beauftragt den Bundesrat zu prüfen, wie die Ernennung von Tierschutzbeauftragten nach dem Modell des Kantons St. Gallen in den Kantonen gefördert und erleichtert werden kann. Ziel ist ein wirksamerer Vollzug des Tierschutzrechts durch bessere Zusammenarbeit zwischen Gemeinden und kantonalen Behörden.',
+  '23.1034': 'Die Anfrage fragt den Bundesrat, wie Risse an Nutztieren auf nicht beweidbaren Flächen in der Wolfsregulierung berücksichtigt werden und wie Konflikte zwischen Weidepraxis, Herdenschutz und Artenschutz rechtlich gelöst werden.',
 }
 
 const parseMunicipalSubmitters = (body = '') => {

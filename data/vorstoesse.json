@@ -1147,34 +1147,35 @@
   },
   {
     "id": "vp-20231034",
-    "titel": "Parlamentsgeschäft 23.1034",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 23.1034 (In Beratung).",
+    "titel": "23.1034 - Nutztierrisse und Herdenschutz",
+    "typ": "Anfrage",
+    "kurzbeschreibung": "Die Anfrage fragt den Bundesrat, wie Risse an Nutztieren auf nicht beweidbaren Flächen in der Wolfsregulierung berücksichtigt werden und wie Konflikte zwischen Weidepraxis, Herdenschutz und Artenschutz rechtlich gelöst werden.",
     "geschaeftsnummer": "23.1034",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2023-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2023-06-15",
     "datumAktualisiert": "2026-02-14",
     "themen": [
-      "Tierschutz"
+      "Landwirtschaft",
+      "Umwelt"
     ],
     "schlagwoerter": [
       "Tierpolitik"
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Fivaz Fabien",
+        "rolle": "Nationalrat",
+        "partei": "Grüne Fraktion"
       }
     ],
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20231034",
     "resultate": [
       {
-        "datum": "2023-02-14",
-        "status": "In Beratung",
+        "datum": "2023-06-15",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1184,17 +1185,18 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "Parlamentsgeschäft 23.1034"
+          "de": "23.1034 - Nutztierrisse und Herdenschutz"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 23.1034 (In Beratung)."
+          "de": "Die Anfrage fragt den Bundesrat, wie Risse an Nutztieren auf nicht beweidbaren Flächen in der Wolfsregulierung berücksichtigt werden und wie Konflikte zwischen Weidepraxis, Herdenschutz und Artenschutz rechtlich gelöst werden."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Anfrage"
         },
         "themes": {
           "de": [
-            "Tierschutz"
+            "Landwirtschaft",
+            "Umwelt"
           ]
         }
       },
