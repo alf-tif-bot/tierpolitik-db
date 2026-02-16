@@ -311,6 +311,19 @@ const probeSource = async (url, timeoutMs = PROBE_TIMEOUT_MS) => {
   }
 }
 
+const isGenericSitzungsdienstLanding = (url = '') => {
+  const lower = String(url || '').toLowerCase()
+  if (!lower.includes('sitzungsdienst.net')) return false
+  try {
+    const parsed = new URL(url)
+    const path = String(parsed.pathname || '/').replace(/\/+$/, '') || '/'
+    const query = String(parsed.search || '')
+    return (path === '/' || path === '/index.html') && query.length === 0
+  } catch {
+    return lower.endsWith('sitzungsdienst.net') || lower.endsWith('sitzungsdienst.net/')
+  }
+}
+
 const probeQuality = (probe, sinceYear = 2020) => {
   if (!probe.ok) {
     if (probe.httpStatus === 403 || probe.httpStatus === 429) return probe.hasParliamentSignals ? 2 : 1
@@ -319,7 +332,7 @@ const probeQuality = (probe, sinceYear = 2020) => {
   let score = 5
   if (probe.platform === 'ratsinfo' || probe.platform === 'allris/sessionnet') score += 4
   if (probe.platform === 'parliament-portal') score += 2
-  if (probe.hasParliamentSignals) score += 1
+  if (probe.hasParliamentSignals) score += 2
   const targetUrl = probe.finalUrl || probe.url
   const targetLower = String(targetUrl).toLowerCase()
   if (hasSearchOrAffairPath(targetUrl)) score += 3
@@ -327,6 +340,7 @@ const probeQuality = (probe, sinceYear = 2020) => {
   if (hasArchiveSignals(targetUrl)) score -= 3
   if (isLikelyBeforeSinceYear(targetUrl, sinceYear)) score -= 4
   if (targetLower.includes('sitzungsdienst.net') && !hasSearchOrAffairPath(targetLower) && !probe.hasParliamentSignals) score -= 6
+  if (isGenericSitzungsdienstLanding(targetUrl) && !probe.hasParliamentSignals) score -= 4
   return score
 }
 

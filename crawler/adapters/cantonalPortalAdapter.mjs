@@ -192,6 +192,11 @@ const scoreLink = (canton = '', url = '', text = '') => {
   return Math.max(0, positive + animalBonus - penalty)
 }
 
+const hasAnimalTheme = (url = '', text = '') => {
+  const combined = `${url} ${text}`.toLowerCase()
+  return ANIMAL_POLICY_LINK_KEYWORDS.some((kw) => combined.includes(kw))
+}
+
 const normalizeUrl = (href, baseUrl) => {
   try {
     return new URL(href, baseUrl).toString()
@@ -269,8 +274,10 @@ const parseLinks = (html = '', baseUrl = '', canton = '') => {
     if (isLikelyNoiseLink(href, text)) continue
     if (!isSameSiteOrParliamentHost(href, baseUrl)) continue
     const rank = scoreLink(canton, href, text)
+    const themed = hasAnimalTheme(href, text)
     if (rank < 2) continue
-    links.push({ href, text, rank })
+    if (!themed && rank < 3) continue
+    links.push({ href, text, rank, themed })
   }
 
   return [...new Map(links
@@ -381,6 +388,7 @@ export function createCantonalPortalAdapter() {
 
         const parsedLinks = fetchedPages.flatMap(({ html: pageHtml, response: pageResponse }) => parseLinks(pageHtml, pageResponse.url, canton))
         const links = appendFallbackLinks(canton, parsedLinks)
+        const themedLinkCount = links.filter((link) => hasAnimalTheme(link.href, link.text)).length
         const pageText = fetchedPages.map((p) => stripTags(p.html).slice(0, 2500)).join('\n')
         const language = pickLanguage(canton, pageText)
 
@@ -391,7 +399,7 @@ export function createCantonalPortalAdapter() {
           sourceUrl: response.url,
           externalId: `cantonal-portal-${canton.toLowerCase()}`,
           title: `${canton} · ${entry.parliament}: ${topLink}`.slice(0, 260),
-          summary: `${title} – ${links.length} relevante Linkziele erkannt (${fetchedPages.length} Seiten gescannt, Leitlink: ${topLink})`.slice(0, 300),
+          summary: `${title} – ${links.length} relevante Linkziele erkannt (${themedLinkCount} thematisch, ${fetchedPages.length} Seiten gescannt, Leitlink: ${topLink})`.slice(0, 300),
           body: links.length
             ? links.map((l, idx) => `${idx + 1}. ${l.text || 'Ohne Titel'} – ${l.href}`).join('\n')
             : `Portal erreichbar (${response.url}), aber noch ohne extrahierte Vorstoss-Links.`,
@@ -407,6 +415,7 @@ export function createCantonalPortalAdapter() {
             parliament: entry.parliament,
             readiness: entry.readiness,
             extractedLinkCount: links.length,
+            themedLinkCount,
             extractedLinks: links,
             adapterHint: 'cantonalPortal',
             candidateUrlsTried: candidateUrls.slice(0, 8),
