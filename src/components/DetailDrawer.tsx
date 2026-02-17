@@ -56,7 +56,7 @@ type TimelineItem = {
   url?: string
 }
 
-export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyProfile, onSubscribe, onQuickFilter, onFeedbackSubmitted, lang, t }: Props) {
+export function DetailDrawer({ item, onClose, onOpenPersonProfile, onQuickFilter, onFeedbackSubmitted, lang, t }: Props) {
   const [feedbackOpen, setFeedbackOpen] = useState(false)
   const [feedbackType, setFeedbackType] = useState('Fehler gefunden')
   const [feedbackText, setFeedbackText] = useState('')
