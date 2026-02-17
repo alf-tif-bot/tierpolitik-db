@@ -222,17 +222,40 @@ h1 {
 
 .site-nav a {
   text-decoration: none;
-  font-weight: 520;
-  font-size: 0.95rem;
+  font-weight: 500;
+  font-size: 0.92rem;
   color: color-mix(in srgb, var(--text-0) 86%, var(--text-2) 14%);
-  border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--border-0));
-  background: color-mix(in srgb, var(--accent) 14%, var(--surface-1));
+  border: 1px solid color-mix(in srgb, var(--accent) 26%, var(--border-0));
+  background: transparent;
   border-radius: 999px;
-  padding: 0.26rem 0.58rem;
+  padding: 0.24rem 0.56rem;
 }
 
 .site-nav a:hover {
-  background: color-mix(in srgb, var(--accent) 20%, var(--surface-1));
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface-1));
+}
+
+.site-nav a:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 70%, white 30%);
+  outline-offset: 2px;
+}
+
+.site-nav a:last-child {
+  font-weight: 700;
+  font-size: 0.96rem;
+  color: var(--surface-1);
+  background: var(--accent);
+  border-color: var(--accent);
+  padding: 0.28rem 0.66rem;
+}
+
+.site-nav a:last-child:hover {
+  background: color-mix(in srgb, var(--accent) 86%, black 14%);
+  border-color: color-mix(in srgb, var(--accent) 86%, black 14%);
+}
+
+.site-nav a:last-child:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 55%, white 45%);
 }
 
 .site-support-row {
@@ -1274,8 +1297,10 @@ a { color: var(--accent); }
 
 :root[data-theme='charcoal'] .table-wrap { background: var(--surface-1); }
 :root[data-theme='charcoal'] .site-footer { background: linear-gradient(180deg, var(--footer-surface) 0%, color-mix(in srgb, var(--footer-surface) 82%, black 18%) 100%); border: none; }
-:root[data-theme='charcoal'] .site-nav a { color: var(--text-0); border-color: color-mix(in srgb, var(--accent) 30%, var(--border-0)); background: color-mix(in srgb, var(--accent) 24%, var(--surface-1)); }
-:root[data-theme='charcoal'] .site-nav a:hover { background: color-mix(in srgb, var(--accent) 32%, var(--surface-1)); }
+:root[data-theme='charcoal'] .site-nav a { color: var(--text-0); border-color: color-mix(in srgb, var(--accent) 30%, var(--border-0)); background: transparent; }
+:root[data-theme='charcoal'] .site-nav a:hover { background: color-mix(in srgb, var(--accent) 14%, var(--surface-1)); }
+:root[data-theme='charcoal'] .site-nav a:last-child { color: var(--surface-1); background: var(--accent); border-color: var(--accent); }
+:root[data-theme='charcoal'] .site-nav a:last-child:hover { background: color-mix(in srgb, var(--accent) 86%, black 14%); border-color: color-mix(in srgb, var(--accent) 86%, black 14%); }
 :root[data-theme='charcoal'] .brand-sub,
 :root[data-theme='charcoal'] .advanced-hint,
 :root[data-theme='charcoal'] .drawer-summary,
