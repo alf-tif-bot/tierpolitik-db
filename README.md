@@ -131,8 +131,10 @@ Synchronisiert zuerst die neuesten Review/Crawler-Entscheide in die DB und baut 
 
 ### Automatische Review->DB Anbindung
 
-- `review.html` sendet Approve/Reject jetzt serverseitig an `/.netlify/functions/review-decision`
-- Home lädt Live-Daten aus DB via `/.netlify/functions/home-data` (mit lokalem JSON-Fallback)
+- `review.html` sendet Approve/Reject serverseitig an `${VITE_API_BASE}/review-decision` (Base ohne trailing slash)
+- Fastlane-Tags laufen analog über `${VITE_API_BASE}/review-fastlane-tag`
+- Home lädt Live-Daten aus DB via `${VITE_API_BASE}/home-data` (mit lokalem JSON-Fallback)
+- Für die statische Review-Seite kann optional `localStorage['tierpolitik.apiBase']` gesetzt werden
 
 ### Phasenplan (pragmatisch)
 

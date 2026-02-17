@@ -477,6 +477,7 @@ const key='tierpolitik.review';
 const uiKey='tierpolitik.review.ui';
 const fastlaneTagKey='tierpolitik.review.fastlaneTags';
 const initialFastlaneTags=${JSON.stringify(fastlaneTags)};
+const API_BASE=(localStorage.getItem('tierpolitik.apiBase')||'').replace(/\/$/,'');
 const read=()=>JSON.parse(localStorage.getItem(key)||'{}');
 const write=(v)=>localStorage.setItem(key,JSON.stringify(v,null,2));
 const readFastlaneTags=()=>{
@@ -566,7 +567,7 @@ async function toggleFastlaneTag(btn,id){
   if (btn) btn.disabled = true;
 
   try {
-    const res = await fetch('/.netlify/functions/review-fastlane-tag', {
+    const res = await fetch(API_BASE + '/review-fastlane-tag', {
       method:'POST',
       headers:{'content-type':'application/json'},
       body: JSON.stringify({ id, fastlane: next, taggedAt }),
@@ -605,7 +606,7 @@ async function setDecision(btn,id,status){
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 10000);
 
-    const res = await fetch('/.netlify/functions/review-decision', {
+    const res = await fetch(API_BASE + '/review-decision', {
       method:'POST',
       headers:{'content-type':'application/json'},
       body: JSON.stringify({ id, status, decidedAt }),
