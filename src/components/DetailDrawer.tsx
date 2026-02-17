@@ -3,7 +3,7 @@ import type { I18nText, Language } from '../i18n'
 import { localizedMetaText, localizedMetaThemes, localizedMetaType, statusClassSlug, statusIcon, translateContent, translateStatus } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
-import { formatSubmitterDisplay } from '../utils/submitters'
+import { formatSubmitterDisplay, normalizePartyName } from '../utils/submitters'
 
 type QuickFilterField = 'thema' | 'typ' | 'ebene' | 'kanton' | 'region'
 
@@ -172,6 +172,21 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onQuickFilter
 
   const themesLocalized = localizedMetaThemes(item, lang)
 
+  const normalizedSubmitters = (() => {
+    const withParty = item.einreichende.filter((p) => String(p.partei || '').trim())
+    const partySet = new Set(withParty.map((p) => normalizePartyName(p.partei)).filter(Boolean))
+
+    return item.einreichende.filter((p) => {
+      const rawParty = String(p.partei || '').trim()
+      if (rawParty) return true
+
+      const nameAsParty = normalizePartyName(p.name)
+      if (!nameAsParty || nameAsParty === p.name) return true
+
+      return !partySet.has(nameAsParty)
+    })
+  })()
+
   const metaRows = [
     { label: t.type, value: localizedMetaType(item, lang), filterField: 'typ' as const, rawValue: item.typ },
     { label: t.businessNo, value: item.geschaeftsnummer },
@@ -310,7 +325,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onQuickFilter
           <div className="detail-card">
             <span className="detail-label">{t.submitters}</span>
             <div className="detail-links">
-              {item.einreichende.map((p) => (
+              {normalizedSubmitters.map((p) => (
                 <div key={`${p.name}-${p.partei || ''}`} className="detail-link-row">
                   <button className="text-link-btn" onClick={() => onOpenPersonProfile(p.name)}>{formatSubmitterDisplay(p.name, p.partei)}</button>
                 </div>
