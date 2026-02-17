@@ -2,6 +2,7 @@ import type { Language } from '../i18n'
 import { translateContent } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
+import { normalizePartyName, normalizeSubmitterName } from '../utils/submitters'
 
 type ProfileState =
   | { kind: 'person'; value: string }
@@ -23,14 +24,16 @@ export function ProfileDrawer({ profile, data, lang, onClose, onOpenDetail, onSu
   if (!profile) return null
 
   const isParty = profile.kind === 'party'
+  const normalizedProfileValue = isParty ? normalizePartyName(profile.value) : normalizeSubmitterName(profile.value)
+
   const matching = data.filter((v) =>
     isParty
-      ? v.einreichende.some((p) => p.partei === profile.value)
-      : v.einreichende.some((p) => p.name === profile.value),
+      ? v.einreichende.some((p) => normalizePartyName(p.partei) === normalizedProfileValue)
+      : v.einreichende.some((p) => normalizeSubmitterName(p.name) === normalizedProfileValue),
   )
 
-  const title = isParty ? `Partei: ${profile.value}` : `Person: ${profile.value}`
-  const subscriptionLabel = isParty ? `Partei ${profile.value}` : `Person ${profile.value}`
+  const title = isParty ? `Partei: ${normalizedProfileValue}` : `Person: ${normalizedProfileValue}`
+  const subscriptionLabel = isParty ? `Partei ${normalizedProfileValue}` : `Person ${normalizedProfileValue}`
 
   return (
     <div className="drawer-backdrop" onClick={onClose}>

@@ -702,13 +702,18 @@ a { color: var(--accent); }
   bottom: 0.75rem;
   float: right;
   z-index: 5;
-  background: #ffffff;
-  color: #0f2740;
-  border: 1px solid #cfd9e6;
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface-1));
+  color: var(--text-1);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border-0));
   border-radius: 999px;
   padding: 0.55rem 0.95rem;
   font-weight: 800;
   box-shadow: 0 6px 16px rgb(0 0 0 / 18%);
+}
+
+.bug-report-fab:hover {
+  background: color-mix(in srgb, var(--accent) 18%, var(--surface-1));
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border-0));
 }
 
 .feedback-modal {
@@ -741,9 +746,13 @@ a { color: var(--accent); }
 }
 
 :root[data-theme='dark'] .bug-report-fab {
-  background: #fff;
-  color: #102033;
-  border-color: #d9e3f0;
+  background: color-mix(in srgb, var(--accent) 16%, var(--surface-1));
+  color: var(--text-0);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border-0));
+}
+
+:root[data-theme='dark'] .bug-report-fab:hover {
+  background: color-mix(in srgb, var(--accent) 24%, var(--surface-1));
 }
 
 .btn-primary {

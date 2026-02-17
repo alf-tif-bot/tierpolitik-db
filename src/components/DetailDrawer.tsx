@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
+﻿import { useEffect, useRef, useState } from 'react'
 import type { I18nText, Language } from '../i18n'
 import { localizedMetaText, localizedMetaThemes, localizedMetaType, statusClassSlug, statusIcon, translateContent, translateStatus } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
+import { formatSubmitterDisplay } from '../utils/submitters'
 
 type QuickFilterField = 'thema' | 'typ' | 'ebene' | 'kanton' | 'region'
 
@@ -44,29 +45,6 @@ const normalizeTitle = (value: string, typ?: string) => {
   }
 
   return out
-}
-
-const formatSubmitterDisplay = (name: string, party?: string) => {
-  const rawName = String(name || '').trim()
-  const rawParty = String(party || '').trim()
-  if (!rawName) return rawParty ? `(${rawParty})` : ''
-
-  const parts = rawName.split(/\s+/).filter(Boolean)
-  const likelyParticles = new Set(['de', 'del', 'della', 'di', 'du', 'von', 'van', 'la', 'le'])
-
-  let normalizedName = rawName
-  if (parts.length >= 2) {
-    const first = parts[0]
-    const last = parts[parts.length - 1]
-    const firstIsParticle = likelyParticles.has(first.toLowerCase()) || first[0] === first[0]?.toLowerCase()
-    const lastLooksFirstname = /^[A-ZÄÖÜ][a-zäöüàâéèêîïôûùç-]+$/.test(last)
-    if (firstIsParticle && lastLooksFirstname) {
-      normalizedName = `${last} ${parts.slice(0, -1).join(' ')}`
-    }
-  }
-
-  if (!rawParty || /^unbekannt$/i.test(rawParty)) return normalizedName
-  return `${normalizedName} (${rawParty})`
 }
 
 const API_BASE = (import.meta.env.VITE_API_BASE || '/.netlify/functions').replace(/\/$/, '')
@@ -166,7 +144,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
   const timeline: TimelineItem[] = [
     ...item.resultate.map((r) => ({
       datum: r.datum,
-      label: `${statusIcon(r.status)} ${translateStatus(r.status, lang)} · ${r.bemerkung}`,
+      label: `${statusIcon(r.status)} ${translateStatus(r.status, lang)} Â· ${r.bemerkung}`,
       kind: 'result' as const,
     })),
     ...item.medien.map((m) => ({
@@ -317,10 +295,10 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
           )}
           {item.typ === 'Volksinitiative' && item.metadaten?.initiativeLinks?.resultUrl && (
             <a href={item.metadaten.initiativeLinks.resultUrl} target="_blank" rel="noopener noreferrer">
-              <button className="btn-secondary">Behörden-Resultate</button>
+              <button className="btn-secondary">BehÃ¶rden-Resultate</button>
             </a>
           )}
-          <button className="btn-secondary" onClick={() => onSubscribe(`Vorstoss ${item.geschaeftsnummer}`)}>Geschäft abonnieren</button>
+          <button className="btn-secondary" onClick={() => onSubscribe(`Vorstoss ${item.geschaeftsnummer}`)}>GeschÃ¤ft abonnieren</button>
         </div>
 
         <h3>{t.timeline}</h3>
@@ -382,14 +360,14 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
                 onClick={submitFeedback}
                 disabled={feedbackState === 'saving'}
               >
-                {feedbackState === 'saving' ? 'Sende…' : 'Senden'}
+                {feedbackState === 'saving' ? 'Sendeâ€¦' : 'Senden'}
               </button>
             </div>
             {feedbackState === 'done' && (
               <p className="muted">
                 {feedbackType === 'Beschreibung verbessern'
-                  ? 'Danke dir 💚 Beschreibung wird automatisch überarbeitet.'
-                  : 'Danke dir fürs Feedback 💚'}
+                  ? 'Danke dir ðŸ’š Beschreibung wird automatisch Ã¼berarbeitet.'
+                  : 'Danke dir fÃ¼rs Feedback ðŸ’š'}
               </p>
             )}
             {feedbackState === 'error' && <p className="muted">Feedback konnte nicht gesendet werden.</p>}
@@ -399,3 +377,4 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
     </div>
   )
 }
+

@@ -1,5 +1,6 @@
 import { canonicalStatus } from '../i18n'
 import type { Ebene, Status, Vorstoss } from '../types'
+import { formatSubmitterDisplay } from './submitters'
 
 export type Filters = {
   globalQuery: string
@@ -45,7 +46,7 @@ export function matchesGlobal(v: Vorstoss, query: string): boolean {
     v.titel,
     v.kurzbeschreibung,
     v.geschaeftsnummer,
-    ...v.einreichende.map((p) => `${p.name} ${p.partei}`),
+    ...v.einreichende.map((p) => formatSubmitterDisplay(p.name, p.partei)),
     ...v.themen,
   ].join(' ')
 
