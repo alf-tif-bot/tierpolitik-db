@@ -110,18 +110,19 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboard
     state: { sorting, pagination },
   })
 
+  const pageRows = table.getRowModel().rows
+
   useEffect(() => {
     onVisibleColumnsChange(allColumnsMeta)
   }, [allColumnsMeta, onVisibleColumnsChange])
 
   useEffect(() => {
-    const pageRows = table.getRowModel().rows
     if (!pageRows.length) {
       setHighlightedRow(0)
       return
     }
     setHighlightedRow((prev) => Math.min(prev, pageRows.length - 1))
-  }, [table.getState().pagination.pageIndex, table.getState().pagination.pageSize, sorting, data.length])
+  }, [pageRows.length, table.getState().pagination.pageIndex, table.getState().pagination.pageSize, sorting, data.length])
 
   useEffect(() => {
     if (!keyboardEnabled) return
@@ -136,7 +137,6 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboard
       if (event.metaKey || event.ctrlKey || event.altKey) return
       if (isTypingTarget(event.target)) return
 
-      const pageRows = table.getRowModel().rows
       if (!pageRows.length) return
 
       if (event.key.toLowerCase() === 'j') {
@@ -158,7 +158,7 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboard
 
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [keyboardEnabled, highlightedRow, onOpenDetail, table, data.length])
+  }, [keyboardEnabled, highlightedRow, onOpenDetail, pageRows, data.length])
 
   return (
     <section id={sectionId} className="panel">
@@ -185,7 +185,7 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboard
               ))}
             </thead>
             <tbody>
-              {table.getRowModel().rows.map((r, idx) => (
+              {pageRows.map((r, idx) => (
                 <tr
                   key={r.id}
                   data-testid="table-row"
@@ -204,6 +204,44 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboard
             </tbody>
           </table>
         </div>
+      </div>
+
+      <div className="mobile-card-list" aria-label="Vorstösse als Kartenansicht für Mobile">
+        {pageRows.map((r, idx) => {
+          const levelRaw = r.original.ebene
+          const levelLabel = levelRaw === 'Bund'
+            ? t.section.federal
+            : levelRaw === 'Kanton'
+              ? t.section.cantonal
+              : levelRaw === 'Gemeinde'
+                ? t.section.municipal
+                : levelRaw
+          const statusSlug = statusClassSlug(r.original.status)
+
+          return (
+            <article
+              key={`mobile-${r.id}`}
+              className={`mobile-card ${idx === highlightedRow ? 'row-highlight' : ''}`}
+              data-row-id={r.original.id}
+              onClick={() => {
+                setHighlightedRow(idx)
+                onOpenDetail(r.original)
+              }}
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && onOpenDetail(r.original)}
+            >
+              <h3 className="mobile-card-title">{normalizeTitle(localizedMetaText(r.original, 'title', lang, r.original.titel), r.original.typ)}</h3>
+              <div className="mobile-card-status">
+                <span className={`status-badge status-${statusSlug}`}>{statusIcon(r.original.status)} {translateStatus(r.original.status, lang)}</span>
+              </div>
+              <div className="mobile-card-meta">
+                <span>{formatDateCH(r.original.datumEingereicht)}</span>
+                <span>•</span>
+                <span>{levelLabel}</span>
+              </div>
+            </article>
+          )
+        })}
       </div>
 
       <div className="row pagination-row">
