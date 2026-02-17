@@ -24,7 +24,8 @@ export const typeLabels: Record<string, Record<Language, string>> = {
   Motion: { de: 'Motion', fr: 'Motion', it: 'Mozione', en: 'Motion' },
   Postulat: { de: 'Postulat', fr: 'Postulat', it: 'Postulato', en: 'Postulate' },
   Anfrage: { de: 'Anfrage', fr: 'Question', it: 'Interrogazione', en: 'Question' },
-  'Fragestunde. Frage': { de: 'Fragestunde. Frage', fr: 'Heure des questions. Question', it: 'Ora delle domande. Domanda', en: 'Question Time. Question' },
+  'Fragestunde. Frage': { de: 'Fragestunde (Frage)', fr: 'Heure des questions (question)', it: 'Ora delle domande (interrogazione)', en: 'Question Time (question)' },
+  'Fragestunde (Frage)': { de: 'Fragestunde (Frage)', fr: 'Heure des questions (question)', it: 'Ora delle domande (interrogazione)', en: 'Question Time (question)' },
 }
 
 export type I18nText = {
