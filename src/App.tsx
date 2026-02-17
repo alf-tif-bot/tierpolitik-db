@@ -46,6 +46,7 @@ type ProfileState =
   | null
 
 export default function App() {
+  const infoSeparationVariant: 'border' | 'gradient' = 'gradient'
   const [lang, setLang] = useState<Language>('de')
   const [theme, setTheme] = useState<'original' | 'forest' | 'charcoal' | 'sand'>(() => {
     if (typeof window === 'undefined') return 'original'
@@ -294,7 +295,7 @@ export default function App() {
   }
 
   return (
-    <main className="container">
+    <main className={`container info-sep-${infoSeparationVariant}`}>
       <div className="language-switch row" style={{ marginBottom: '0.55rem' }}>
         <div className="chips">
           {(Object.keys(languageNames) as Language[]).map((code) => (

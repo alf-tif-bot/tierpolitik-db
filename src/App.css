@@ -45,11 +45,34 @@ h1 {
 }
 
 .hero-head {
-  margin: 0.5rem 0 0.9rem;
-  padding: 0.2rem 0;
+  position: relative;
+  margin: 0.5rem 0 1rem;
+  padding: 0.2rem 0 0.85rem;
   border: none;
   box-shadow: none;
   background: transparent;
+}
+
+/* Variante A: dezente border-bottom */
+.info-sep-border .hero-head {
+  border-bottom: 1px solid color-mix(in srgb, var(--border-0) 78%, transparent 22%);
+}
+
+/* Variante B: subtile Gradient-Überblendung */
+.info-sep-gradient .hero-head::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.05rem;
+  height: 14px;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--surface-0) 0%, transparent 100%) 0%,
+    color-mix(in srgb, var(--border-0) 16%, transparent 84%) 60%,
+    color-mix(in srgb, var(--border-0) 0%, transparent 100%) 100%
+  );
 }
 
 .hero-top {
