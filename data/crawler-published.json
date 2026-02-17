@@ -619,8 +619,19 @@
       "tiere",
       "massentierhaltung",
       "massentier",
+      "animal",
+      "animaux",
+      "animali",
+      "élevage",
+      "elevage",
+      "allevamento",
+      "initiative",
       "botschaft",
-      "landwirtschaft"
+      "bien-être",
+      "bien etre",
+      "landwirtschaft",
+      "agriculture",
+      "agricoltura"
     ]
   },
   {
@@ -987,6 +998,257 @@
       "stopfleber",
       "foie gras",
       "initiative"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-fr:20250404-fr",
+    "title": "25.404 · Contre-projet indirect à l’initiative foie gras",
+    "summary": "Fin des discussions en commission du Conseil national",
+    "sourceId": "ch-parliament-business-fr",
+    "publishedAt": "2025-02-21T00:00:00.000Z",
+    "score": 0.8200000000000001,
+    "matchedKeywords": [
+      "stopfleber",
+      "foie gras",
+      "initiative"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-fr:20240089-fr",
+    "title": "24.089 · «Oui à l’interdiction d’importer du foie gras (initiative foie gras)». Initiative populaire",
+    "summary": "Message du 20 novembre 2024 concernant l’initiative populaire « Oui à l’interdiction d’importer du foie gras (initiative foie gras) »",
+    "sourceId": "ch-parliament-business-fr",
+    "publishedAt": "2024-11-14T00:00:00.000Z",
+    "score": 0.9600000000000001,
+    "matchedKeywords": [
+      "stopfleber",
+      "foie gras",
+      "initiative",
+      "botschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-it:20210426-it",
+    "title": "21.426 · Più risorse e incentivi a favore della ricerca 3R per accelerare lo sviluppo di metodi alternativi alla sperimentazione animale",
+    "summary": "Nella Commissione del Consiglio nazionale",
+    "sourceId": "ch-parliament-business-it",
+    "publishedAt": "2021-03-18T00:00:00.000Z",
+    "score": 0.98,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche",
+      "animal",
+      "expérimentation animale",
+      "sperimentazione animale",
+      "3r",
+      "animale"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20210044-de",
+    "title": "21.044 · Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative). Volksinitiative und direkter Gegenentwurf",
+    "summary": "Botschaft vom 19. Mai 2021 zur Volksinitiative «Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative)» und zum direkten Gegenentwurf (Bundesbeschluss über den Schutz und das Wohlergehen der Tiere)",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2021-05-19T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tiere",
+      "massentierhaltung",
+      "massentier",
+      "animal",
+      "animaux",
+      "animali",
+      "élevage",
+      "elevage",
+      "allevamento",
+      "initiative",
+      "botschaft",
+      "bien-être",
+      "bien etre",
+      "landwirtschaft",
+      "agriculture",
+      "agricoltura"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20204002-de",
+    "title": "20.4002 · Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2020-09-16T00:00:00.000Z",
+    "score": 0.44000000000000006,
+    "matchedKeywords": [
+      "tierschutz"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20223187-de",
+    "title": "22.3187 · Hochgezüchtete Eier- und Geflügelfleischproduktion in Richtung Tierwohl weiterentwickeln",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2022-03-16T00:00:00.000Z",
+    "score": 0.7000000000000001,
+    "matchedKeywords": [
+      "tierwohl",
+      "geflügel",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20254788-de",
+    "title": "25.4788 · Wiedereinführung zeitgemäss ausgestalteter Tierhalterbeiträge zur nachhaltigen Sicherung der Nutztierhaltung und Ernährung in der Schweiz",
+    "summary": "Eingereicht",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-12-19T00:00:00.000Z",
+    "score": 0.56,
+    "matchedKeywords": [
+      "ernährung",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20234379-de",
+    "title": "23.4379 · Anpassung des Gewässerschutzgesetzes an die praktizierte Nutztierhaltung",
+    "summary": "Überwiesen an den Bundesrat",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2023-12-18T00:00:00.000Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20223302-de",
+    "title": "22.3302 · Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2022-03-17T00:00:00.000Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20218021-de",
+    "title": "21.8021 · Wann und wie gedenkt der Bundesrat die Motion 13.3324 \"Anpassung des Gewässerschutzgesetzes an die heutige Nutztierhaltung\", die von beiden Räten angenommen wurde, umzusetzen?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2021-11-30T00:00:00.000Z",
+    "score": 0.2,
+    "matchedKeywords": [
+      "motion",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20253976-de",
+    "title": "25.3976 · Tierschutz und neue Schweiz-EU-Abkommen. Steht das Verbot ritueller Schlachtungen in der Schweiz vor dem Aus?",
+    "summary": "Stellungnahme zum Vorstoss liegt vor",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-09-10T00:00:00.000Z",
+    "score": 0.6100000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "schlacht"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20201046-de",
+    "title": "20.1046 · Schweizer Tierschutz im internationalen Vergleich",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2020-09-24T00:00:00.000Z",
+    "score": 0.5800000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "schweizer tierschutz"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20232009-de",
+    "title": "23.2009 · Für eine Änderung des Schweizer Tierschutzgesetzes (TSCHG) und für das Verbot der Euthanasie ohne triftigen Grund!",
+    "summary": "In Kommission des Ständerats",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2023-03-02T00:00:00.000Z",
+    "score": 0.5800000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "schweizer tierschutz"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20223728-de",
+    "title": "22.3728 · Afrikanische Schweinepest. Schlachtbetriebe und damit die Versorgungssicherheit gefährden?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2022-06-16T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "schwein",
+      "schweine",
+      "schlacht"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20223633-de",
+    "title": "22.3633 · Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2022-06-15T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "schwein",
+      "schweine",
+      "schlacht",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20254809-de",
+    "title": "25.4809 · Keine Tierqual bei der Geflügelschlachtung",
+    "summary": "Eingereicht",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-12-19T00:00:00.000Z",
+    "score": 0.42000000000000004,
+    "matchedKeywords": [
+      "geflügel",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20223300-de",
+    "title": "22.3300 · 3R-Kompetenz der kantonalen Tierversuchskommissionen stärken",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2022-03-17T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "tierversuch",
+      "3r"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20254144-de",
+    "title": "25.4144 · Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-09-25T00:00:00.000Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20237580-de",
+    "title": "23.7580 · Der Schutz des Menschen und der Nutztiere ist höher zu gewichten als der Wolf",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2023-09-13T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "wolf",
+      "landwirtschaft"
     ]
   }
 ]
