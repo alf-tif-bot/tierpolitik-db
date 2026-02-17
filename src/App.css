@@ -37,7 +37,7 @@ h1 {
   line-height: 1.06;
   font-weight: 900;
   letter-spacing: -0.02em;
-  color: #16345a;
+  color: var(--text-1);
   text-wrap: balance;
 }
 
@@ -76,7 +76,7 @@ h1 {
 .logo-light { display: block; }
 .language-switch {
   margin-bottom: 0;
-  color: #6a7a92;
+  color: var(--text-2);
   font-size: 0.86rem;
   justify-content: flex-end;
   width: auto;
@@ -95,20 +95,20 @@ h1 {
   border: none;
   border-radius: 0;
   background: transparent;
-  color: #6f8098;
+  color: var(--text-2);
   padding: 0.1rem 0.05rem;
   font-weight: 500;
 }
 
 .language-switch .chip:hover {
   background: transparent;
-  color: #3f618c;
+  color: var(--accent);
 }
 
 .language-switch .chip.active {
   background: transparent;
   border: none;
-  color: #274d7f;
+  color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1.5px;
@@ -116,18 +116,18 @@ h1 {
 }
 
 .hero-head h1 {
-  color: #1f4f8a;
+  color: var(--accent);
 }
 
 .brand-sub {
   margin: 0;
-  color: #5f7088;
+  color: var(--text-2);
   font-size: 1.02rem;
 }
 
 .panel {
-  background: #fff;
-  border: 1px solid #dde5f0;
+  background: var(--surface-1);
+  border: 1px solid var(--border-0);
   border-radius: 14px;
   padding: 1rem;
   margin: 0.8rem 0;
@@ -187,26 +187,26 @@ h1 {
 .site-nav a {
   text-decoration: none;
   font-weight: 600;
-  color: #e8effa;
-  border: 1px solid #3b4a62;
-  background: #22364f;
+  color: var(--text-0);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border-0));
+  background: color-mix(in srgb, var(--accent) 24%, var(--surface-1));
   border-radius: 999px;
   padding: 0.3rem 0.62rem;
 }
 
 .site-nav a:hover {
-  background: #2b4565;
+  background: color-mix(in srgb, var(--accent) 32%, var(--surface-1));
 }
 
 .site-support-row {
   margin-top: 0.9rem;
   padding-top: 0.75rem;
-  border-top: 1px solid #253247;
+  border-top: 1px solid color-mix(in srgb, var(--border-0) 70%, var(--surface-0) 30%);
   display: flex;
   align-items: center;
   gap: 0.7rem;
   flex-wrap: wrap;
-  color: #9ca3af;
+  color: var(--text-2);
 }
 
 .support-label {
@@ -223,8 +223,8 @@ h1 {
   height: 66px;
   width: 130px;
   object-fit: contain;
-  border: 1px solid #3d5678;
-  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border-0));
+  background: var(--surface-1);
   border-radius: 12px;
   padding: 0.35rem;
   opacity: 0.6;
@@ -249,29 +249,29 @@ h1 {
 input, select, button { font: inherit; }
 
 input, select {
-  border: 1px solid #ccd8e8;
+  border: 1px solid var(--border-0);
   border-radius: 10px;
   padding: 0.5rem 0.6rem;
-  background: #fff;
-  color: #102033;
+  background: var(--surface-1);
+  color: var(--text-0);
 }
 
 button {
-  border: 1px solid #3b4a62;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border-0));
   border-radius: 10px;
   padding: 0.45rem 0.7rem;
-  background: #22364f;
+  background: color-mix(in srgb, var(--accent) 28%, var(--surface-1));
   cursor: pointer;
-  color: #e8effa;
+  color: var(--text-0);
 }
 
-button:hover { background: #2b4565; }
+button:hover { background: color-mix(in srgb, var(--accent) 36%, var(--surface-1)); }
 
 .text-link-btn {
   background: transparent;
   border: none;
   padding: 0;
-  color: #446b9e;
+  color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 3px;
   font-size: 0.9rem;
@@ -282,7 +282,7 @@ button:hover { background: #2b4565; }
 
 .text-link-btn:hover {
   background: transparent;
-  color: #2d578f;
+  color: color-mix(in srgb, var(--accent) 80%, var(--text-0));
 }
 
 .status-badge {
@@ -331,7 +331,7 @@ button:hover { background: #2b4565; }
 
 .advanced-search {
   margin-top: 0.75rem;
-  border-top: 1px dashed #d6e0ee;
+  border-top: 1px dashed var(--border-0);
   padding-top: 0.75rem;
 }
 
@@ -360,7 +360,7 @@ button:hover { background: #2b4565; }
 .multi-row { display: grid; gap: 0.8rem; }
 
 fieldset {
-  border: 1px solid #e2e9f3;
+  border: 1px solid var(--border-0);
   border-radius: 12px;
   padding: 0.75rem 0.65rem 0.7rem;
   min-height: 78px;
@@ -368,7 +368,7 @@ fieldset {
 
 legend {
   padding: 0 0.25rem;
-  color: #3d5574;
+  color: var(--text-2);
   font-size: 0.9rem;
 }
 
@@ -623,9 +623,9 @@ a { color: var(--accent); }
 
 .detail-chip-btn {
   justify-self: start;
-  background: #e7f0fb;
-  border: 1px solid #bfd3ea;
-  color: #1f4f8a;
+  background: color-mix(in srgb, var(--accent) 14%, var(--surface-1));
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border-0));
+  color: var(--accent);
   font-weight: 600;
   border-radius: 999px;
   padding: 0.2rem 0.55rem;
@@ -633,8 +633,8 @@ a { color: var(--accent); }
 }
 
 .detail-chip-btn:hover {
-  background: #d9e9fb;
-  border-color: #a7c5e7;
+  background: color-mix(in srgb, var(--accent) 20%, var(--surface-1));
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border-0));
 }
 
 .detail-links {
@@ -704,23 +704,23 @@ a { color: var(--accent); }
 }
 
 .btn-primary {
-  background: #1f4f8a;
-  color: #fff;
-  border-color: #1f4f8a;
+  background: var(--accent);
+  color: var(--surface-1);
+  border-color: var(--accent);
 }
 
 .btn-primary:hover {
-  background: #1b4477;
+  background: color-mix(in srgb, var(--accent) 86%, black 14%);
 }
 
 .btn-secondary {
-  background: #eef4ff;
-  color: #17365d;
-  border-color: #b9cae3;
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface-1));
+  color: var(--text-1);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border-0));
 }
 
 .btn-secondary:hover {
-  background: #dfeafb;
+  background: color-mix(in srgb, var(--accent) 16%, var(--surface-1));
 }
 
 .shortcuts-table {
@@ -1093,10 +1093,9 @@ a { color: var(--accent); }
 }
 
 :root[data-theme='dark'] .table-wrap { background: var(--surface-1); }
-:root[data-theme='dark']
 :root[data-theme='dark'] .site-footer { background: linear-gradient(180deg, #0F172A 0%, #0B1220 100%); border: none; }
-:root[data-theme='dark'] .site-nav a { color: #e8effa; border-color: #3b4a62; background: #22364f; }
-:root[data-theme='dark'] .site-nav a:hover { background: #2b4565; }
+:root[data-theme='dark'] .site-nav a { color: var(--text-0); border-color: color-mix(in srgb, var(--accent) 30%, var(--border-0)); background: color-mix(in srgb, var(--accent) 24%, var(--surface-1)); }
+:root[data-theme='dark'] .site-nav a:hover { background: color-mix(in srgb, var(--accent) 32%, var(--surface-1)); }
 :root[data-theme='dark'] .brand-sub,
 :root[data-theme='dark'] .advanced-hint,
 :root[data-theme='dark'] .drawer-summary,
@@ -1108,11 +1107,11 @@ a { color: var(--accent); }
 :root[data-theme='dark'] tbody tr:hover td { background: color-mix(in srgb, var(--accent) 12%, var(--surface-1)); }
 :root[data-theme='dark'] tbody tr.row-highlight td { background: color-mix(in srgb, var(--accent) 18%, var(--surface-1)); }
 :root[data-theme='dark'] input,
-:root[data-theme='dark'] select { background: #242c35; color: #f5f7fa; border-color: #4a596a; }
-:root[data-theme='dark'] button { background: #2b3642; border-color: #5f7387; color: #f8fbff; }
-:root[data-theme='dark'] button:hover { background: #3a4756; }
-:root[data-theme='dark'] .text-link-btn { background: transparent; border: none; color: #eef5ff; }
-:root[data-theme='dark'] .text-link-btn:hover { background: transparent; color: #ffffff; }
+:root[data-theme='dark'] select { background: var(--surface-2); color: var(--text-0); border-color: var(--border-0); }
+:root[data-theme='dark'] button { background: color-mix(in srgb, var(--accent) 24%, var(--surface-1)); border-color: color-mix(in srgb, var(--accent) 30%, var(--border-0)); color: var(--text-0); }
+:root[data-theme='dark'] button:hover { background: color-mix(in srgb, var(--accent) 32%, var(--surface-1)); }
+:root[data-theme='dark'] .text-link-btn { background: transparent; border: none; color: var(--accent); }
+:root[data-theme='dark'] .text-link-btn:hover { background: transparent; color: color-mix(in srgb, var(--accent) 82%, white 18%); }
 :root[data-theme='dark'] .chip { color: var(--text-0); border-color: var(--border-0); background: var(--surface-2); }
 :root[data-theme='dark'] .chip.active { color: var(--text-1); background: color-mix(in srgb, var(--accent) 22%, var(--surface-1)); border-color: color-mix(in srgb, var(--accent) 45%, var(--border-0)); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 20%); }
 :root[data-theme='dark'] .language-switch .chip,
@@ -1140,7 +1139,7 @@ a { color: var(--accent); }
 }
 
 :root[data-theme='light'] .hero-head h1 {
-  color: #1f4f8a;
+  color: var(--accent);
 }
 
 :root[data-theme='light'] .brand-sub,
@@ -1164,12 +1163,12 @@ a { color: var(--accent); }
 :root[data-theme='light'] .chip.active { color: var(--text-1); background: color-mix(in srgb, var(--accent) 18%, var(--surface-1)); border-color: color-mix(in srgb, var(--accent) 45%, var(--border-0)); box-shadow: none; }
 :root[data-theme='light'] .language-switch .chip,
 :root[data-theme='light'] .language-switch .chip.active { background: transparent; border: none; }
-:root[data-theme='light'] .language-switch .chip { color: #6f8098; }
-:root[data-theme='light'] .language-switch .chip.active { color: #274d7f; }
+:root[data-theme='light'] .language-switch .chip { color: var(--text-2); }
+:root[data-theme='light'] .language-switch .chip.active { color: var(--accent); }
 :root[data-theme='light'] .logo-light { display: block; }
 :root[data-theme='light'] .logo-dark { display: none; }
-:root[data-theme='light'] .text-link-btn { color: #446b9e; }
-:root[data-theme='light'] .text-link-btn:hover { color: #2d578f; }
+:root[data-theme='light'] .text-link-btn { color: var(--accent); }
+:root[data-theme='light'] .text-link-btn:hover { color: color-mix(in srgb, var(--accent) 80%, var(--text-0)); }
 :root[data-theme='light'] tbody tr.row-highlight td {
   background: color-mix(in srgb, var(--accent) 18%, var(--surface-1)) !important;
   color: var(--text-0);
