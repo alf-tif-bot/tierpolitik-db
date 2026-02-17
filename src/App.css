@@ -524,6 +524,7 @@ th {
   top: 0;
   z-index: 4;
   background: var(--surface-2);
+  padding: 0.5rem 0.52rem;
 }
 
 thead tr:first-child th:first-child {
@@ -536,16 +537,33 @@ thead tr:first-child th:last-child {
 
 .sort-btn {
   width: 100%;
+  min-height: 34px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0.45rem;
-  border: none;
-  background: transparent;
-  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--border-1) 84%, var(--accent) 16%);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--surface-1) 88%, var(--surface-2) 12%);
+  padding: 0.28rem 0.52rem;
   color: inherit;
   font-weight: 700;
   cursor: pointer;
+  transition: background-color 170ms ease, border-color 170ms ease, transform 150ms ease;
+}
+
+.sort-btn:hover {
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface-1));
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--border-1));
+}
+
+.sort-btn:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 70%, var(--surface-1) 30%);
+  outline-offset: 1px;
+}
+
+.sort-btn:active {
+  transform: scale(0.985);
 }
 
 .sort-indicator {
@@ -555,6 +573,11 @@ thead tr:first-child th:last-child {
 
 th.is-sorted .sort-indicator {
   opacity: 1;
+}
+
+th.is-sorted .sort-btn {
+  background: color-mix(in srgb, var(--accent) 16%, var(--surface-1));
+  border-color: color-mix(in srgb, var(--accent) 42%, var(--border-1));
 }
 
 .sticky-col {
