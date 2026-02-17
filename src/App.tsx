@@ -47,9 +47,9 @@ type ProfileState =
 
 export default function App() {
   const [lang, setLang] = useState<Language>('de')
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    if (typeof window === 'undefined') return 'light'
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  const [theme, setTheme] = useState<'original' | 'forest' | 'charcoal' | 'sand'>(() => {
+    if (typeof window === 'undefined') return 'original'
+    return 'original'
   })
   const [filters, setFilters] = useState<Filters>(defaultFilters)
   const [data, setData] = useState<Vorstoss[]>(fallbackData)
@@ -113,7 +113,7 @@ export default function App() {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('tierpolitik.theme')
-    if (savedTheme === 'light' || savedTheme === 'dark') {
+    if (savedTheme === 'original' || savedTheme === 'forest' || savedTheme === 'charcoal' || savedTheme === 'sand') {
       setTheme(savedTheme)
     }
   }, [])
@@ -155,7 +155,7 @@ export default function App() {
       const key = event.key.toLowerCase()
 
       if (key === 'w') {
-        setTheme('light')
+        setTheme('original')
         event.preventDefault()
         return
       }
@@ -197,7 +197,7 @@ export default function App() {
         if (key === 'd') {
           if (darkModeTimerRef.current) window.clearTimeout(darkModeTimerRef.current)
           darkModeTimerRef.current = window.setTimeout(() => {
-            setTheme('dark')
+            setTheme('charcoal')
             comboBufferRef.current = ''
           }, 320)
           event.preventDefault()
@@ -305,8 +305,10 @@ export default function App() {
                 </button>
               ))}
               <span className="switch-sep">|</span>
-              <button className={theme === 'light' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('light')}>WHITE</button>
-              <button className={theme === 'dark' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('dark')}>DARK</button>
+              <button className={theme === 'original' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('original')}>ORIGINAL</button>
+              <button className={theme === 'forest' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('forest')}>FOREST</button>
+              <button className={theme === 'charcoal' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('charcoal')}>CHARCOAL</button>
+              <button className={theme === 'sand' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('sand')}>SAND</button>
             </div>
           </div>
         </div>
