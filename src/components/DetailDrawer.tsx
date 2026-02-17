@@ -171,6 +171,8 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onQuickFilter
       : 'Neutral / unklar'
 
   const themesLocalized = localizedMetaThemes(item, lang)
+  const summaryText = localizedMetaText(item, 'summary', lang, item.kurzbeschreibung)
+  const hideSummary = item.typ === 'Volksinitiative' && /^botschaft\s+vom\s+/i.test(String(summaryText || '').trim())
 
   const normalizedSubmitters = (() => {
     const withParty = item.einreichende.filter((p) => String(p.partei || '').trim())
@@ -284,7 +286,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onQuickFilter
           <button ref={closeButtonRef} data-testid="close-button" onClick={onClose}>{t.close}</button>
         </div>
 
-        <p className="drawer-summary">{localizedMetaText(item, 'summary', lang, item.kurzbeschreibung)}</p>
+        {!hideSummary && <p className="drawer-summary">{summaryText}</p>}
 
         <h3>Falldaten</h3>
         <div className="detail-grid">
