@@ -603,28 +603,34 @@ tbody tr:focus-visible td {
 }
 
 .drawer {
-  width: min(900px, 96vw);
-  max-height: 92vh;
+  width: min(980px, 97vw);
+  max-height: 94vh;
   overflow: auto;
   overflow-x: hidden;
   background: var(--surface-1);
   border: 1px solid var(--border-0);
   border-radius: 18px;
-  padding: 1.2rem;
+  padding: 1.45rem 1.25rem 1.2rem;
   box-shadow: 0 22px 50px rgb(7 17 35 / 35%);
 }
 
 a { color: var(--accent); }
 
 .drawer-head {
+  position: relative;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.95rem;
+  padding-right: 140px;
 }
 
 .drawer-head > button {
+  position: absolute;
+  top: -0.2rem;
+  right: 0;
   margin-left: auto;
   flex: 0 0 auto;
+  z-index: 2;
 }
 
 .drawer h2 { margin: 0; font-size: 1.4rem; }
@@ -1371,7 +1377,9 @@ a { color: var(--accent); }
   th, td { padding: 0.48rem; font-size: 0.9rem; }
   .chips { gap: 0.35rem; }
   .chip { padding: 0.3rem 0.62rem; font-size: 0.88rem; }
-  .drawer { width: 100%; padding: 0.85rem; }
+  .drawer { width: 100%; padding: 0.95rem; }
+  .drawer-head { padding-right: 0; }
+  .drawer-head > button { position: static; margin-left: auto; }
 
   .export-links {
     font-size: 0.86rem;
