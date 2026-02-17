@@ -2053,6 +2053,7 @@ async function toggleFastlaneTag(btn,id){
   const taggedAt = new Date().toISOString();
   if (btn) btn.disabled = true;
 
+  // Best effort server sync (Netlify function may be unavailable on static hosts)
   try {
     const res = await fetch('/.netlify/functions/review-fastlane-tag', {
       method:'POST',
@@ -2060,14 +2061,10 @@ async function toggleFastlaneTag(btn,id){
       body: JSON.stringify({ id, fastlane: next, taggedAt }),
     });
     if(!res.ok){
-      const txt = await res.text();
-      throw new Error(txt || 'Fastlane tag API failed');
+      console.warn('Fastlane tag API unavailable, fallback to local only');
     }
   } catch(err) {
-    alert('Konnte Fastlane-Tag nicht speichern.');
-    console.error(err);
-    if (btn) btn.disabled = false;
-    return;
+    console.warn('Fastlane tag API unavailable, fallback to local only', err);
   }
 
   tags[id] = { fastlane: next, taggedAt };
@@ -2089,6 +2086,7 @@ async function setDecision(btn,id,status){
 
   if (btn) btn.disabled = true;
 
+  // Best effort server sync (Netlify function may be unavailable on static hosts)
   try {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 10000);
@@ -2103,16 +2101,10 @@ async function setDecision(btn,id,status){
     clearTimeout(timer);
 
     if(!res.ok){
-      const txt = await res.text();
-      throw new Error(txt || 'Decision API failed');
+      console.warn('Decision API unavailable, fallback to local only');
     }
   } catch(err) {
-    const msg = String(err?.message || err || 'unbekannter Fehler').slice(0, 220)
-    if (statusEl) statusEl.textContent = 'Fehler beim Speichern: ' + msg;
-    alert('Konnte Entscheidung nicht serverseitig speichern.\n' + msg);
-    console.error(err);
-    if (btn) btn.disabled = false;
-    return;
+    console.warn('Decision API unavailable, fallback to local only', err);
   }
 
   const s=read();
@@ -2129,7 +2121,7 @@ async function setDecision(btn,id,status){
   const card = document.querySelector('.fastlane-card[data-id="' + id + '"]');
   if (card) card.style.display = 'none'
   updateStatusSummary();
-  if (statusEl) statusEl.textContent = 'Entscheidung gespeichert.';
+  if (statusEl) statusEl.textContent = 'Entscheidung lokal gespeichert.';
 }
 
 function exportDecisions(){
