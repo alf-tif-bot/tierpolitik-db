@@ -69,6 +69,12 @@ export default function App() {
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
   const visibleData = useMemo(() => data.filter((v) => !hiddenIds.has(v.id)), [data, hiddenIds])
   const filtered = useMemo(() => applyFilters(visibleData, filters), [visibleData, filters])
+  const monitorStats = useMemo(() => {
+    const total = visibleData.length
+    const cantons = new Set(visibleData.map((v) => String(v.kanton || '').trim()).filter((v) => /^[A-Z]{2}$/.test(v))).size
+    const cities = new Set(visibleData.map((v) => String(v.regionGemeinde || '').trim()).filter(Boolean)).size
+    return { total, cantons, cities }
+  }, [visibleData])
 
   useEffect(() => {
     const loadLive = async () => {
@@ -380,7 +386,7 @@ export default function App() {
               <img src="/branding/TIF_Logo_Button.png" alt="Tier im Fokus" />
               <strong>tier im fokus</strong>
             </a>
-            <p className="footer-blurb">Tier im Fokus (TIF) wurde 2025 als erste Tierrechtsorganisation der Schweiz in ein Parlament gewählt und vertritt seither die Interessen der Tiere im <a href="https://tierimfokus.ch/stadtrat" target="_blank" rel="noopener noreferrer">Berner Stadtrat</a>. Dieses Projekt soll die Tierpolitik schweizweit sichtbar machen und fördern.</p>
+            <p className="footer-blurb">Tier im Fokus (TIF) wurde 2025 als erste Tierrechtsorganisation der Schweiz in ein Parlament gewählt und vertritt seither die Interessen der Tiere im <a href="https://tierimfokus.ch/stadtrat" target="_blank" rel="noopener noreferrer">Berner Stadtrat</a>. Der Tierpolitik-Monitor Schweiz macht parlamentarische Vorstösse zu Tierschutz und Tierrechten in Bund, Kantonen und Gemeinden sichtbar. Derzeit sind {monitorStats.total} Vorstösse aus {monitorStats.cantons} Kantonen und {monitorStats.cities} Städten erfasst.</p>
           </div>
 
           <nav className="site-nav" aria-label="Tier im Fokus Links">
