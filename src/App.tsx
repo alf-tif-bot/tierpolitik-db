@@ -384,10 +384,10 @@ export default function App() {
           </div>
 
           <nav className="site-nav" aria-label="Tier im Fokus Links">
-            <a href="https://www.tierimfokus.ch/medien" target="_blank" rel="noopener noreferrer">Medien</a>
-            <a href="https://www.tierimfokus.ch/kontakt" target="_blank" rel="noopener noreferrer">Kontakt</a>
-            <a href="https://www.tierimfokus.ch/newsletter" target="_blank" rel="noopener noreferrer">Newsletter</a>
-            <a href="https://www.tierimfokus.ch/spenden" target="_blank" rel="noopener noreferrer">Spenden</a>
+            <a className="btn btn--secondary" href="https://www.tierimfokus.ch/medien" target="_blank" rel="noopener noreferrer">Medien</a>
+            <a className="btn btn--secondary" href="https://www.tierimfokus.ch/kontakt" target="_blank" rel="noopener noreferrer">Kontakt</a>
+            <a className="btn btn--secondary" href="https://www.tierimfokus.ch/newsletter" target="_blank" rel="noopener noreferrer">Newsletter</a>
+            <a className="btn btn--primary" href="https://www.tierimfokus.ch/spenden" target="_blank" rel="noopener noreferrer">Spenden</a>
           </nav>
         </div>
 
