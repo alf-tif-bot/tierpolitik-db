@@ -540,10 +540,15 @@ const clean = (text = '') => repairEncodingArtifacts(String(text))
   .replace(/\s+/g, ' ')
   .replace(/^\s+|\s+$/g, '')
 
-const normalizeDisplayTitle = (item, title = '') => {
-  let t = clean(title)
+const normalizeBusinessTitleText = (title = '') => {
+  const t = clean(title)
   if (!t) return t
-  t = t.replace(/^(\d{2}\.\d{3,4})\s*[·•]\s*/u, '$1 - ')
+  return t.replace(/^(\d{2}\.\d{3,4})\s*[·•]\s*/u, '$1 - ')
+}
+
+const normalizeDisplayTitle = (item, title = '') => {
+  let t = normalizeBusinessTitleText(title)
+  if (!t) return t
 
   const placeholderMatch = t.match(/^Parlamentsgeschäft\s+(\d{8})$/i)
   if (placeholderMatch && String(item?.externalId || '').startsWith(placeholderMatch[1])) {
@@ -751,7 +756,7 @@ const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallb
 
   for (const [lang, variant] of Object.entries(variants || {})) {
     const l = ['de', 'fr', 'it', 'en'].includes(lang) ? lang : 'de'
-    const title = clean(variant?.title || fallbackTitle)
+    const title = normalizeBusinessTitleText(variant?.title || fallbackTitle)
     const weakTitle = !title || isPlaceholderParliamentTitle(title)
     const summary = clean(variant?.summary || variant?.body || fallbackSummary)
     const summaryLow = summary.toLowerCase()
