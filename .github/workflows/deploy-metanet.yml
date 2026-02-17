@@ -25,8 +25,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
       - name: Build
+        env:
+          GITHUB_ACTIONS: ''
         run: npm run build
 
       - name: Deploy to Metanet (Plesk httpdocs)
@@ -43,3 +44,4 @@ jobs:
           exclude: |
             **/.git*
             **/.github/**
+
