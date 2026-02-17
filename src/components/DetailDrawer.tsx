@@ -340,7 +340,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onQuickFilter
               setSubscriptionState('idle')
             }}
           >
-            Status-Updates abonnieren
+            Geschäft abonnieren
           </button>
         </div>
 
