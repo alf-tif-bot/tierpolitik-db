@@ -1114,21 +1114,21 @@ a { color: var(--accent); }
 }
 
 :root[data-theme='dark'] {
-  --surface-0: #111418;
-  --surface-1: #1b2128;
-  --surface-2: #242c35;
+  --surface-0: #0F1713;
+  --surface-1: #16221C;
+  --surface-2: #1F2E26;
 
-  --text-0: #f5f7fa;
-  --text-1: #deebfb;
-  --text-2: #c7d0dc;
+  --text-0: #F2F6F4;
+  --text-1: #C9D6CF;
+  --text-2: #A8B9B0;
 
-  --border-0: #3a4552;
-  --border-1: #35404d;
+  --border-0: #2C3D34;
+  --border-1: #354A3F;
 
-  --accent: #9fcbff;
-  --success: #70d49a;
-  --warning: #f0c36a;
-  --danger: #ff9e9e;
+  --accent: #3FA36B;
+  --success: #4CAF50;
+  --warning: #D9A441;
+  --danger: #C94F4F;
 }
 
 :root[data-theme='dark'] body {
