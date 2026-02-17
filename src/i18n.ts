@@ -483,14 +483,41 @@ export function translateContent(text: string, lang: Language): string {
   return rules.reduce((acc, [rx, replacement]) => acc.replace(rx, replacement), text)
 }
 
+function translateEnBestEffort(text: string): string {
+  const phraseRules: Array<[RegExp, string]> = [
+    [/Konsequenzen aus dem Tierschutzfall/gi, 'Consequences of the animal welfare case'],
+    [/Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder/gi, 'One-sided vegetarian recipe recommendations by FSVO for children'],
+    [/Importverbot für chemisch behandeltes Geflügelfleisch/gi, 'Import ban on chemically treated poultry meat'],
+    [/gesetzlich verankern/gi, 'to be enshrined in law'],
+    [/Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung \(TZV\) gefährdet\?/gi, 'Is the conservation of rare farm animal breeds endangered by the planned full revision of the Animal Breeding Ordinance (TZV)?'],
+    [/Heim- versus Nutztier bei Equiden\. Wieso diese Sonderregelung und wieso so viel Food Waste\?/gi, 'Companion vs. farm animal status for equines. Why this special rule and why so much food waste?'],
+    [/Sucht der Bund nach einer Strategie zur Einschränkung der Tierversuche\?/gi, 'Is the federal government pursuing a strategy to reduce animal testing?'],
+    [/Alternativen zu Tierversuchen\. Forschungsstandort Schweiz stärken!/gi, 'Alternatives to animal testing. Strengthen Switzerland as a research location!'],
+    [/Tierschutz und neue Schweiz-EU-Abkommen\. Steht das Verbot ritueller Schlachtungen in der Schweiz vor dem Aus\?/gi, 'Animal welfare and new Switzerland–EU agreements. Is Switzerland’s ban on ritual slaughter at risk?'],
+    [/«Ja zur tierversuchsfreien Zukunft»/gi, '"Yes to an animal-testing-free future"'],
+    [/«Ja zum Importverbot für Stopfleber \(Stopfleber-Initiative\)»/gi, '"Yes to a foie gras import ban (Foie Gras Initiative)"'],
+    [/«Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte \(Pelzinitiative\)»/gi, '"Yes to an import ban on fur products produced with animal cruelty (Fur Initiative)"'],
+  ]
+
+  let out = text
+  for (const [rx, replacement] of phraseRules) out = out.replace(rx, replacement)
+
+  out = translateContent(out, 'en')
+  out = out
+    .replace(/\s{2,}/g, ' ')
+    .replace(/\s+([,.;!?])/g, '$1')
+    .replace(/\(\s+/g, '(')
+    .replace(/\s+\)/g, ')')
+    .trim()
+
+  return out
+}
+
 export function localizedMetaText(item: { metadaten?: any }, field: 'title' | 'summary', lang: Language, fallback: string): string {
   const fromMeta = item?.metadaten?.i18n?.[field]?.[lang]
   if (typeof fromMeta === 'string' && fromMeta.trim()) return fromMeta.trim()
 
-  // For EN there is currently no source translation in the parliamentary data.
-  // Avoid low-quality word-swap "Denglish" and keep the original text until
-  // proper per-item translations are available.
-  if (lang === 'en') return fallback
+  if (lang === 'en') return translateEnBestEffort(fallback)
 
   return translateContent(fallback, lang)
 }
