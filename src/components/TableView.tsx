@@ -10,7 +10,7 @@ import {
 } from '@tanstack/react-table'
 import { useEffect, useMemo, useState } from 'react'
 import type { I18nText, Language } from '../i18n'
-import { localizedMetaText, localizedMetaType, statusClassSlug, translateStatus } from '../i18n'
+import { localizedMetaText, localizedMetaType, statusClassSlug, statusIcon, translateStatus } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
 
@@ -81,7 +81,7 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboard
       cell: (i) => {
         const value = i.getValue<string>()
         const slug = statusClassSlug(value)
-        return <span className={`status-badge status-${slug}`}>{translateStatus(value, lang)}</span>
+        return <span className={`status-badge status-${slug}`}>{statusIcon(value)} {translateStatus(value, lang)}</span>
       },
     },
     { accessorKey: 'datumEingereicht', header: t.dateSubmitted, cell: (i) => formatDateCH(i.getValue<string>()) },

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { I18nText, Language } from '../i18n'
-import { localizedMetaText, localizedMetaThemes, localizedMetaType, statusClassSlug, translateContent, translateStatus } from '../i18n'
+import { localizedMetaText, localizedMetaThemes, localizedMetaType, statusClassSlug, statusIcon, translateContent, translateStatus } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
 
@@ -83,7 +83,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
   const timeline: TimelineItem[] = [
     ...item.resultate.map((r) => ({
       datum: r.datum,
-      label: `${translateStatus(r.status, lang)} · ${r.bemerkung}`,
+      label: `${statusIcon(r.status)} ${translateStatus(r.status, lang)} · ${r.bemerkung}`,
       kind: 'result' as const,
     })),
     ...item.medien.map((m) => ({
@@ -159,7 +159,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
           <div>
             <h2>{normalizeTitle(localizedMetaText(item, 'title', lang, item.titel), item.typ)}</h2>
             <div className="drawer-status-row">
-              <span className={`status-badge status-${statusSlug}`}>{translateStatus(item.status, lang)}</span>
+              <span className={`status-badge status-${statusSlug}`}>{statusIcon(item.status)} {translateStatus(item.status, lang)}</span>
             </div>
           </div>
           <button onClick={onClose}>{t.close}</button>

@@ -474,6 +474,17 @@ export function translateStatus(status: string, lang: Language): string {
   return statusLabels[canonical]?.[lang] ?? status
 }
 
+export function statusIcon(status: string): string {
+  const canonical = canonicalStatus(status)
+  if (canonical === 'In Beratung') return '⏳'
+  if (canonical === 'Angenommen') return '✔'
+  if (canonical === 'Abgelehnt') return '✖'
+  if (canonical === 'Abgeschrieben') return '✓'
+  if (canonical === 'Zurueckgezogen' || canonical === 'Zurückgezogen') return '↩'
+  if (canonical === 'Eingereicht') return '📝'
+  return '•'
+}
+
 export function translateType(type: string, lang: Language): string {
   return typeLabels[type]?.[lang] ?? type
 }
