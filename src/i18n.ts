@@ -444,6 +444,12 @@ export function translateContent(text: string, lang: Language): string {
 export function localizedMetaText(item: { metadaten?: any }, field: 'title' | 'summary', lang: Language, fallback: string): string {
   const fromMeta = item?.metadaten?.i18n?.[field]?.[lang]
   if (typeof fromMeta === 'string' && fromMeta.trim()) return fromMeta.trim()
+
+  // For EN there is currently no source translation in the parliamentary data.
+  // Avoid low-quality word-swap "Denglish" and keep the original text until
+  // proper per-item translations are available.
+  if (lang === 'en') return fallback
+
   return translateContent(fallback, lang)
 }
 
