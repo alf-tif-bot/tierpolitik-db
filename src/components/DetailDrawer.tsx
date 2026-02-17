@@ -345,7 +345,7 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
                     <button className="text-link-btn" onClick={() => onQuickFilter('submitter', p.name)}>{p.name}</button>
                     {party && (
                       <button className="text-link-btn" onClick={() => onQuickFilter('party', party)}>
-                        ({party})
+                        {party}
                       </button>
                     )}
                   </div>
