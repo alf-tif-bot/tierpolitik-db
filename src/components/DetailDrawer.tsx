@@ -3,7 +3,7 @@ import type { I18nText, Language } from '../i18n'
 import { localizedMetaText, localizedMetaThemes, localizedMetaType, statusClassSlug, statusIcon, translateContent, translateStatus } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
-import { normalizePartyName } from '../utils/submitters'
+import { normalizePartyName, normalizeSubmitterName } from '../utils/submitters'
 
 type QuickFilterField = 'thema' | 'typ' | 'ebene' | 'kanton' | 'region' | 'submitter' | 'party'
 
@@ -154,7 +154,7 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
   const timeline: TimelineItem[] = [
     ...item.resultate.map((r) => ({
       datum: r.datum,
-      label: `${statusIcon(r.status)} ${translateStatus(r.status, lang)} Â· ${r.bemerkung}`,
+      label: `${statusIcon(r.status)} ${translateStatus(r.status, lang)} · ${r.bemerkung}`,
       kind: 'result' as const,
     })),
     ...item.medien.map((m) => ({
@@ -332,7 +332,7 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
                 const party = String(p.partei || '').trim()
                 return (
                   <div key={`${p.name}-${party}`} className="detail-link-row">
-                    <button className="text-link-btn" onClick={() => onQuickFilter('submitter', p.name)}>{p.name}</button>
+                    <button className="text-link-btn" onClick={() => onQuickFilter('submitter', p.name)}>{normalizeSubmitterName(p.name)}</button>
                     {party && (
                       <button className="text-link-btn" onClick={() => onQuickFilter('party', party)}>
                         {party}
@@ -356,7 +356,7 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
           )}
           {item.typ === 'Volksinitiative' && item.metadaten?.initiativeLinks?.resultUrl && (
             <a href={item.metadaten.initiativeLinks.resultUrl} target="_blank" rel="noopener noreferrer">
-              <button className="btn-secondary">BehÃ¶rden-Resultate</button>
+              <button className="btn-secondary">Behörden-Resultate</button>
             </a>
           )}
           <button
@@ -461,14 +461,14 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
                 onClick={submitFeedback}
                 disabled={feedbackState === 'saving'}
               >
-                {feedbackState === 'saving' ? 'Sendeâ€¦' : 'Senden'}
+                {feedbackState === 'saving' ? 'Sende…' : 'Senden'}
               </button>
             </div>
             {feedbackState === 'done' && (
               <p className="muted">
                 {feedbackType === 'Beschreibung verbessern'
-                  ? 'Danke dir ðŸ’š Beschreibung wird automatisch Ã¼berarbeitet.'
-                  : 'Danke dir fÃ¼rs Feedback ðŸ’š'}
+                  ? 'Danke dir 💚 Beschreibung wird automatisch überarbeitet.'
+                  : 'Danke dir fürs Feedback 💚'}
               </p>
             )}
             {feedbackState === 'error' && <p className="muted">Feedback konnte nicht gesendet werden.</p>}
