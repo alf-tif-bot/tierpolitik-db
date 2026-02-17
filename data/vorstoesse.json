@@ -4902,5 +4902,257 @@
       },
       "zuletztGeprueftVon": "Crawler/DB Sync"
     }
+  },
+  {
+    "id": "vp-be-2020-rrgr-318",
+    "titel": "Fallwildzahlen beim Strassen- und Schienenverkehr reduzieren",
+    "typ": "Motion",
+    "kurzbeschreibung": "Vorstoss im Grossen Rat Bern von Casimir von Arx: Fallwildzahlen beim Strassen- und Schienenverkehr reduzieren",
+    "geschaeftsnummer": "2020.RRGR.318",
+    "ebene": "Kanton",
+    "kanton": "BE",
+    "regionGemeinde": null,
+    "status": "Abgeschlossen",
+    "datumEingereicht": "2020-01-01",
+    "datumAktualisiert": "2026-02-17",
+    "themen": [
+      "Wildtiere"
+    ],
+    "schlagwoerter": [
+      "casimir von arx",
+      "grossrat bern",
+      "wildtiere"
+    ],
+    "einreichende": [
+      {
+        "name": "Casimir von Arx",
+        "rolle": "Grossrat",
+        "partei": null
+      }
+    ],
+    "linkGeschaeft": "https://www.gr.be.ch/de/start/geschaefte/geschaeftssuche/geschaeftsdetail.html?guid=e00e8040a7ff464a818ea23685cc5617",
+    "resultate": [
+      {
+        "datum": "2026-02-17",
+        "status": "Abgeschlossen",
+        "bemerkung": "Quelle: Geschäftssuche Grosser Rat Bern (Suchfilter eingereicht von Casimir von Arx, Volltext Tier)"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "zuletztGeprueftVon": "Crawler/BE Grossrat"
+    }
+  },
+  {
+    "id": "vp-be-2020-rrgr-381",
+    "titel": "Abschaffung der Baujagd im Kanton Bern",
+    "typ": "Motion",
+    "kurzbeschreibung": "Vorstoss im Grossen Rat Bern von Casimir von Arx: Abschaffung der Baujagd im Kanton Bern",
+    "geschaeftsnummer": "2020.RRGR.381",
+    "ebene": "Kanton",
+    "kanton": "BE",
+    "regionGemeinde": null,
+    "status": "Abgeschlossen",
+    "datumEingereicht": "2020-01-01",
+    "datumAktualisiert": "2026-02-17",
+    "themen": [
+      "Jagd"
+    ],
+    "schlagwoerter": [
+      "casimir von arx",
+      "grossrat bern",
+      "jagd"
+    ],
+    "einreichende": [
+      {
+        "name": "Casimir von Arx",
+        "rolle": "Grossrat",
+        "partei": null
+      }
+    ],
+    "linkGeschaeft": "https://www.gr.be.ch/de/start/geschaefte/geschaeftssuche/geschaeftsdetail.html?guid=4ce7014a6a724feea8e175e738aa7453",
+    "resultate": [
+      {
+        "datum": "2026-02-17",
+        "status": "Abgeschlossen",
+        "bemerkung": "Quelle: Geschäftssuche Grosser Rat Bern (Suchfilter eingereicht von Casimir von Arx, Volltext Tier)"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "zuletztGeprueftVon": "Crawler/BE Grossrat"
+    }
+  },
+  {
+    "id": "vp-be-2020-rrgr-329",
+    "titel": "Fischsterben im Blausee – ein Fall auch für den Tierschutz?",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Vorstoss im Grossen Rat Bern von Casimir von Arx: Fischsterben im Blausee – ein Fall auch für den Tierschutz?",
+    "geschaeftsnummer": "2020.RRGR.329",
+    "ebene": "Kanton",
+    "kanton": "BE",
+    "regionGemeinde": null,
+    "status": "Abgeschlossen",
+    "datumEingereicht": "2020-01-01",
+    "datumAktualisiert": "2026-02-17",
+    "themen": [
+      "Wildtiere"
+    ],
+    "schlagwoerter": [
+      "casimir von arx",
+      "grossrat bern",
+      "wildtiere"
+    ],
+    "einreichende": [
+      {
+        "name": "Casimir von Arx",
+        "rolle": "Grossrat",
+        "partei": null
+      }
+    ],
+    "linkGeschaeft": "https://www.gr.be.ch/de/start/geschaefte/geschaeftssuche/geschaeftsdetail.html?guid=cf88a1f921ab4a70acc489dabd4d610e",
+    "resultate": [
+      {
+        "datum": "2026-02-17",
+        "status": "Abgeschlossen",
+        "bemerkung": "Quelle: Geschäftssuche Grosser Rat Bern (Suchfilter eingereicht von Casimir von Arx, Volltext Tier)"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "zuletztGeprueftVon": "Crawler/BE Grossrat"
+    }
+  },
+  {
+    "id": "vp-be-2025-grparl-523",
+    "titel": "Wo steht der Kanton Bern beim Ausstieg aus (belastenden) Tierversuchen?",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Vorstoss im Grossen Rat Bern von Casimir von Arx: Wo steht der Kanton Bern beim Ausstieg aus (belastenden) Tierversuchen?",
+    "geschaeftsnummer": "2025.GRPARL.523",
+    "ebene": "Kanton",
+    "kanton": "BE",
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-01-01",
+    "datumAktualisiert": "2026-02-17",
+    "themen": [
+      "Tierversuche"
+    ],
+    "schlagwoerter": [
+      "casimir von arx",
+      "grossrat bern",
+      "tierversuche"
+    ],
+    "einreichende": [
+      {
+        "name": "Casimir von Arx",
+        "rolle": "Grossrat",
+        "partei": null
+      }
+    ],
+    "linkGeschaeft": "https://www.gr.be.ch/de/start/geschaefte/geschaeftssuche/geschaeftsdetail.html?guid=73f728ccb9f54433bc3675c21faab5f9",
+    "resultate": [
+      {
+        "datum": "2026-02-17",
+        "status": "In Beratung",
+        "bemerkung": "Quelle: Geschäftssuche Grosser Rat Bern (Suchfilter eingereicht von Casimir von Arx, Volltext Tier)"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "zuletztGeprueftVon": "Crawler/BE Grossrat"
+    }
+  },
+  {
+    "id": "vp-be-2025-grparl-1519",
+    "titel": "Wie können Tierhalteverbote einfacher verhängt, effektiver durchgesetzt und Umgehungen besser unterbunden werden?",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Vorstoss im Grossen Rat Bern von Casimir von Arx: Wie können Tierhalteverbote einfacher verhängt, effektiver durchgesetzt und Umgehungen besser unterbunden werden?",
+    "geschaeftsnummer": "2025.GRPARL.1519",
+    "ebene": "Kanton",
+    "kanton": "BE",
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-01-01",
+    "datumAktualisiert": "2026-02-17",
+    "themen": [
+      "Tierhalteverbote"
+    ],
+    "schlagwoerter": [
+      "casimir von arx",
+      "grossrat bern",
+      "tierhalteverbote"
+    ],
+    "einreichende": [
+      {
+        "name": "Casimir von Arx",
+        "rolle": "Grossrat",
+        "partei": null
+      }
+    ],
+    "linkGeschaeft": "https://www.gr.be.ch/de/start/geschaefte/geschaeftssuche/geschaeftsdetail.html?guid=99bf5a6c260f47cfbf58ae1e2c404c4c",
+    "resultate": [
+      {
+        "datum": "2026-02-17",
+        "status": "In Beratung",
+        "bemerkung": "Quelle: Geschäftssuche Grosser Rat Bern (Suchfilter eingereicht von Casimir von Arx, Volltext Tier)"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "zuletztGeprueftVon": "Crawler/BE Grossrat"
+    }
+  },
+  {
+    "id": "vp-be-2021-rrgr-208",
+    "titel": "Biotope besser schützen, Moore vermehrt aufwerten – zum Wohl von Biodiversität und Klima",
+    "typ": "Motion",
+    "kurzbeschreibung": "Vorstoss im Grossen Rat Bern von Casimir von Arx: Biotope besser schützen, Moore vermehrt aufwerten – zum Wohl von Biodiversität und Klima",
+    "geschaeftsnummer": "2021.RRGR.208",
+    "ebene": "Kanton",
+    "kanton": "BE",
+    "regionGemeinde": null,
+    "status": "Abgeschlossen",
+    "datumEingereicht": "2021-01-01",
+    "datumAktualisiert": "2026-02-17",
+    "themen": [
+      "Biodiversität"
+    ],
+    "schlagwoerter": [
+      "biodiversität",
+      "casimir von arx",
+      "grossrat bern"
+    ],
+    "einreichende": [
+      {
+        "name": "Casimir von Arx",
+        "rolle": "Grossrat",
+        "partei": null
+      }
+    ],
+    "linkGeschaeft": "https://www.gr.be.ch/de/start/geschaefte/geschaeftssuche/geschaeftsdetail.html?guid=538c2a90fd1e43daaeafdf7173838cb2",
+    "resultate": [
+      {
+        "datum": "2026-02-17",
+        "status": "Abgeschlossen",
+        "bemerkung": "Quelle: Geschäftssuche Grosser Rat Bern (Suchfilter eingereicht von Casimir von Arx, Volltext Tier)"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "zuletztGeprueftVon": "Crawler/BE Grossrat"
+    }
   }
 ]
