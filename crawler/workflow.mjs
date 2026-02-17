@@ -15,6 +15,7 @@ export async function runCollect({ adapters }) {
   const rawItems = []
 
   const sourceStats = []
+  const sourceTimeoutMs = Number(process.env.CRAWLER_SOURCE_TIMEOUT_MS || 90000)
 
   for (const source of sources) {
     const adapterKey = source.adapter || source.type
@@ -23,13 +24,18 @@ export async function runCollect({ adapters }) {
       sourceStats.push({ sourceId: source.id, ok: false, reason: `Kein Adapter: ${adapterKey}` })
       continue
     }
+    const startedAt = Date.now()
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(new Error(`source timeout after ${sourceTimeoutMs}ms`)), sourceTimeoutMs)
     try {
-      const rows = await adapter.fetch(source)
+      const rows = await adapter.fetch(source, { signal: controller.signal, timeoutMs: sourceTimeoutMs })
       rawItems.push(...rows)
-      sourceStats.push({ sourceId: source.id, ok: true, fetched: rows.length })
+      sourceStats.push({ sourceId: source.id, ok: true, fetched: rows.length, ms: Date.now() - startedAt })
     } catch (error) {
-      sourceStats.push({ sourceId: source.id, ok: false, reason: error.message })
+      sourceStats.push({ sourceId: source.id, ok: false, reason: error.message, ms: Date.now() - startedAt })
       console.warn(`[collect] Quelle uebersprungen (${source.id}):`, error.message)
+    } finally {
+      clearTimeout(timeoutId)
     }
   }
 

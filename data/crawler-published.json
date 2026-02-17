@@ -950,44 +950,6 @@
     ]
   },
   {
-    "id": "ch-parliament-business-de:20253733-de",
-    "title": "25.3733 · Verhältnismässigkeit in der Direktzahlungsverordnung wahren",
-    "summary": "Beratung in Kommission des Ständerates abgeschlossen",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2025-06-19T00:00:00.000Z",
-    "score": 0.2,
-    "matchedKeywords": [
-      "landwirtschaft",
-      "agriculture"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20254697-de",
-    "title": "25.4697 · Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
-    "summary": "Stellungnahme zum Vorstoss liegt vor",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2025-12-18T00:00:00.000Z",
-    "score": 1,
-    "matchedKeywords": [
-      "biodiversität",
-      "biodiversite",
-      "biodiversita"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20254487-de",
-    "title": "25.4487 · Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder",
-    "summary": "Stellungnahme zum Vorstoss liegt vor",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2025-12-09T00:00:00.000Z",
-    "score": 0.7300000000000001,
-    "matchedKeywords": [
-      "nutrition",
-      "landwirtschaft",
-      "agriculture"
-    ]
-  },
-  {
     "id": "ch-parliament-business-de:20250404-de",
     "title": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative",
     "summary": "Beratung in Kommission des Nationalrates abgeschlossen",
@@ -1045,6 +1007,19 @@
     ]
   },
   {
+    "id": "ch-parliament-business-de:19942028-de",
+    "title": "94.2028 · Verbot der Massentierhaltung von Wachteln (mehr als 200 Tiere). Importverbot für Wachtelfleisch und Wachteleier",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "1994-01-07T00:00:00.000Z",
+    "score": 0.82,
+    "matchedKeywords": [
+      "tiere",
+      "massentierhaltung",
+      "massentier"
+    ]
+  },
+  {
     "id": "ch-parliament-business-de:20210044-de",
     "title": "21.044 · Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative). Volksinitiative und direkter Gegenentwurf",
     "summary": "Botschaft vom 19. Mai 2021 zur Volksinitiative «Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative)» und zum direkten Gegenentwurf (Bundesbeschluss über den Schutz und das Wohlergehen der Tiere)",
@@ -1071,6 +1046,37 @@
     ]
   },
   {
+    "id": "ch-parliament-business-de:19962025-de",
+    "title": "96.2025 · Im Interesse der Konsumentinnen und Konsumenten Tiere aus der Massentierhaltung entlassen",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "1996-08-27T00:00:00.000Z",
+    "score": 0.82,
+    "matchedKeywords": [
+      "tiere",
+      "massentierhaltung",
+      "massentier"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20183204-de",
+    "title": "18.3204 · Keine Massentierhaltung in der Schweiz",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2018-03-14T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "massentierhaltung",
+      "massentier",
+      "élevage",
+      "elevage",
+      "allevamento",
+      "landwirtschaft",
+      "agriculture",
+      "agricoltura"
+    ]
+  },
+  {
     "id": "ch-parliament-business-de:20204002-de",
     "title": "20.4002 · Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung",
     "summary": "Erledigt",
@@ -1079,6 +1085,59 @@
     "score": 0.44000000000000006,
     "matchedKeywords": [
       "tierschutz"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20174108-de",
+    "title": "17.4108 · Ist die Nutztierzucht tierschutzkonform?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2017-12-13T00:00:00.000Z",
+    "score": 0.5800000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20143830-de",
+    "title": "14.3830 · Jagdbanngebiete in Wildtierschutzgebiete umbenennen",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2014-09-25T00:00:00.000Z",
+    "score": 0.7000000000000001,
+    "matchedKeywords": [
+      "wildtier",
+      "jagdbann"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20143274-de",
+    "title": "14.3274 · Warum sollen Fische, Geflügel und Schweine nicht mit Insekten gefüttert werden?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2014-03-21T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "geflügel",
+      "schwein",
+      "schweine",
+      "fisch",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20144209-de",
+    "title": "14.4209 · Neue Tierhaltungsbestimmungen, insbesondere Vorschriften für Schweineställe",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2014-12-11T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tierhaltung",
+      "schwein",
+      "schweine",
+      "landwirtschaft"
     ]
   },
   {
@@ -1095,6 +1154,62 @@
     ]
   },
   {
+    "id": "ch-parliament-business-de:20123460-de",
+    "title": "12.3460 · Deklarationspflicht für importiertes Geflügelfleisch aus Tierhaltungen, die in der Schweiz verboten sind",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2012-06-11T00:00:00.000Z",
+    "score": 0.7000000000000001,
+    "matchedKeywords": [
+      "tierhaltung",
+      "geflügel",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:19940011-de",
+    "title": "94.011 · Tierschutz. Uebereinkommen",
+    "summary": "Botschaft und Beschlussesentwurf vom 26. Januar 1994 zum Protokoll der Aenderung des Europäischen Uebereinkommens zum Schutz von Tieren in landwirtschaftlichen Tierhaltung und zur Aenderung des Uebereinkommens über den internationalen Handel mit gefährdeten Arten freilebender Tiere und Pflanzen",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "1994-01-26T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tiere",
+      "tierschutz",
+      "tierhaltung",
+      "animaux",
+      "élevage",
+      "elevage",
+      "botschaft",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20180491-de",
+    "title": "18.491 · Verbot von schwerbelastenden Tierversuchen. Ergänzung des Tierschutzgesetzes",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2018-12-14T00:00:00.000Z",
+    "score": 0.86,
+    "matchedKeywords": [
+      "tierschutz",
+      "tierversuch",
+      "tierversuche"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20093310-de",
+    "title": "09.3310 · Qualität von Versuchstierhaltung und Aussagekraft von Tierversuchen",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2009-03-20T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche"
+    ]
+  },
+  {
     "id": "ch-parliament-business-de:20254788-de",
     "title": "25.4788 · Wiedereinführung zeitgemäss ausgestalteter Tierhalterbeiträge zur nachhaltigen Sicherung der Nutztierhaltung und Ernährung in der Schweiz",
     "summary": "Eingereicht",
@@ -1103,6 +1218,19 @@
     "score": 0.56,
     "matchedKeywords": [
       "ernährung",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20173675-de",
+    "title": "17.3675 · Ungenügende Kapazitäten für die praxisnahe Forschung und Entwicklung im Bereich Tierwohl der Nutztiere",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2017-09-18T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "tierwohl",
+      "nutztiere",
       "landwirtschaft"
     ]
   },
@@ -1137,117 +1265,6 @@
     "score": 0.2,
     "matchedKeywords": [
       "motion",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20253976-de",
-    "title": "25.3976 · Tierschutz und neue Schweiz-EU-Abkommen. Steht das Verbot ritueller Schlachtungen in der Schweiz vor dem Aus?",
-    "summary": "Stellungnahme zum Vorstoss liegt vor",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2025-09-10T00:00:00.000Z",
-    "score": 0.6100000000000001,
-    "matchedKeywords": [
-      "tierschutz",
-      "schlacht"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20201046-de",
-    "title": "20.1046 · Schweizer Tierschutz im internationalen Vergleich",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2020-09-24T00:00:00.000Z",
-    "score": 0.5800000000000001,
-    "matchedKeywords": [
-      "tierschutz",
-      "schweizer tierschutz"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20232009-de",
-    "title": "23.2009 · Für eine Änderung des Schweizer Tierschutzgesetzes (TSCHG) und für das Verbot der Euthanasie ohne triftigen Grund!",
-    "summary": "In Kommission des Ständerats",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2023-03-02T00:00:00.000Z",
-    "score": 0.5800000000000001,
-    "matchedKeywords": [
-      "tierschutz",
-      "schweizer tierschutz"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20223728-de",
-    "title": "22.3728 · Afrikanische Schweinepest. Schlachtbetriebe und damit die Versorgungssicherheit gefährden?",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2022-06-16T00:00:00.000Z",
-    "score": 0.8600000000000001,
-    "matchedKeywords": [
-      "schwein",
-      "schweine",
-      "schlacht"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20223633-de",
-    "title": "22.3633 · Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden?",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2022-06-15T00:00:00.000Z",
-    "score": 1,
-    "matchedKeywords": [
-      "schwein",
-      "schweine",
-      "schlacht",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20254809-de",
-    "title": "25.4809 · Keine Tierqual bei der Geflügelschlachtung",
-    "summary": "Eingereicht",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2025-12-19T00:00:00.000Z",
-    "score": 0.42000000000000004,
-    "matchedKeywords": [
-      "geflügel",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20223300-de",
-    "title": "22.3300 · 3R-Kompetenz der kantonalen Tierversuchskommissionen stärken",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2022-03-17T00:00:00.000Z",
-    "score": 0.7200000000000001,
-    "matchedKeywords": [
-      "tierversuch",
-      "3r"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20254144-de",
-    "title": "25.4144 · Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet?",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2025-09-25T00:00:00.000Z",
-    "score": 0.06000000000000001,
-    "matchedKeywords": [
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20237580-de",
-    "title": "23.7580 · Der Schutz des Menschen und der Nutztiere ist höher zu gewichten als der Wolf",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2023-09-13T00:00:00.000Z",
-    "score": 0.8600000000000001,
-    "matchedKeywords": [
-      "nutztiere",
-      "wolf",
       "landwirtschaft"
     ]
   }

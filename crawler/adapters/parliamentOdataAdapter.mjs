@@ -64,7 +64,7 @@ const parseCsvOption = (value) => String(value || '')
 
 export function createParliamentOdataAdapter() {
   return {
-    async fetch(source) {
+    async fetch(source, { signal, timeoutMs } = {}) {
       const top = source.options?.top ?? 260
       const sampleLimit = source.options?.sampleLimit ?? 120
       const thematicMinQuota = source.options?.thematicMinQuota ?? 70
@@ -78,6 +78,21 @@ export function createParliamentOdataAdapter() {
         'SubmissionDate', 'Modified', 'BusinessStatusText',
       ].join(',')
 
+      const requestTimeoutMs = Number(source.options?.requestTimeoutMs || timeoutMs || 25000)
+      const mergeSignal = (...signals) => {
+        const valid = signals.filter(Boolean)
+        if (!valid.length) return undefined
+        const controller = new AbortController()
+        for (const s of valid) {
+          if (s.aborted) {
+            controller.abort(s.reason)
+            break
+          }
+          s.addEventListener('abort', () => controller.abort(s.reason), { once: true })
+        }
+        return controller.signal
+      }
+
       const fetchRows = async (filter, topN = top) => {
         const params = new URLSearchParams({
           '$top': String(topN),
@@ -87,7 +102,10 @@ export function createParliamentOdataAdapter() {
           '$format': 'json',
         })
         const url = `${source.url}?${params.toString()}`
-        const response = await fetch(url, { headers: { accept: 'application/json' } })
+        const response = await fetch(url, {
+          headers: { accept: 'application/json' },
+          signal: mergeSignal(signal, AbortSignal.timeout(requestTimeoutMs)),
+        })
         if (!response.ok) throw new Error(`OData fetch failed (${response.status})`)
         const payload = await response.json()
         return pickRows(payload).filter((row) => row?.ID && row?.Title)
@@ -101,15 +119,15 @@ export function createParliamentOdataAdapter() {
         : ['Massentier', 'Stopfleber', 'Tierversuch', 'Nutztier', 'Tierschutz', 'Schweine', 'Schweinemast', 'Geflügel', 'Vogelgrippe', 'Fleisch', 'Proviande', 'Suisseporcs', 'Swissmilk', 'Schweizer Tierschutz']
 
       const extraRows = []
-      for (const term of extraTerms.slice(0, 8)) {
+      const termQueries = extraTerms.slice(0, Number(source.options?.maxTermQueries || 8))
+      const termSettled = await Promise.allSettled(termQueries.map(async (term) => {
         const safeTerm = String(term).replace(/'/g, "''")
         const termFilter = `Language eq '${lang}' and Modified ge datetime'${since}' and substringof('${safeTerm}',Title)`
-        try {
-          const termRows = await fetchRows(termFilter, Math.min(220, top))
-          extraRows.push(...termRows)
-        } catch {
-          // continue with base set if term query fails
-        }
+        return fetchRows(termFilter, Math.min(220, top))
+      }))
+
+      for (const result of termSettled) {
+        if (result.status === 'fulfilled') extraRows.push(...result.value)
       }
 
       const merged = [...rows, ...extraRows]
