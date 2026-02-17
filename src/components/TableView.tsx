@@ -51,7 +51,7 @@ const normalizeTitle = (value: string, typ?: string) => {
 
 export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboardEnabled = true, sectionId, lang, t }: Props) {
   const [sorting, setSorting] = useState<SortingState>([])
-  const [pagination, setPagination] = useState<PaginationState>({ pageIndex: 0, pageSize: 15 })
+  const [pagination, setPagination] = useState<PaginationState>({ pageIndex: 0, pageSize: 35 })
   const [highlightedRow, setHighlightedRow] = useState(0)
 
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])

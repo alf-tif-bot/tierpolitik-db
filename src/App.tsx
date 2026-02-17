@@ -25,7 +25,7 @@ const fallbackData = (() => {
   }
 })()
 
-const API_BASE = (import.meta.env.VITE_API_BASE || '/.netlify/functions').replace(/\/$/, '')
+const API_BASE = (import.meta.env.VITE_API_BASE || '').replace(/\/$/, '')
 
 const isSaneLivePayload = (rows: Vorstoss[]) => {
   if (!rows.length) return false
@@ -69,6 +69,7 @@ export default function App() {
 
   useEffect(() => {
     const loadLive = async () => {
+      if (!API_BASE) return
       try {
         const res = await fetch(`${API_BASE}/home-data`, { cache: 'no-store' })
         if (!res.ok) return
