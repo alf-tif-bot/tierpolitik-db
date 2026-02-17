@@ -64,6 +64,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onQuickFilter
   const [subscriptionOpen, setSubscriptionOpen] = useState(false)
   const [subscriptionEmail, setSubscriptionEmail] = useState('')
   const [subscriptionState, setSubscriptionState] = useState<'idle' | 'saving' | 'done' | 'error'>('idle')
+  const [subscriptionError, setSubscriptionError] = useState('')
   const modalRef = useRef<HTMLElement | null>(null)
   const closeButtonRef = useRef<HTMLButtonElement | null>(null)
   const titleRef = useRef<HTMLHeadingElement | null>(null)
@@ -76,6 +77,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onQuickFilter
     setSubscriptionOpen(false)
     setSubscriptionEmail('')
     setSubscriptionState('idle')
+    setSubscriptionError('')
   }, [item?.id])
 
   useEffect(() => {
@@ -201,8 +203,11 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onQuickFilter
 
   const submitSubscription = async () => {
     const email = subscriptionEmail.trim()
+    setSubscriptionError('')
+
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setSubscriptionState('error')
+      setSubscriptionError('Bitte eine gültige E-Mail eingeben.')
       return
     }
 
@@ -214,6 +219,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onQuickFilter
         title: item.titel,
         link: item.linkGeschaeft,
         category: 'Status-Abo',
+        email,
         message: `Bitte Status-Updates an ${email}`,
       }
       const res = await fetch(`${API_BASE}/feedback-submit`, {
@@ -223,8 +229,10 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onQuickFilter
       })
       if (!res.ok) throw new Error(await res.text())
       setSubscriptionState('done')
+      setSubscriptionError('')
     } catch {
       setSubscriptionState('error')
+      setSubscriptionError('Abo konnte aktuell nicht gespeichert werden. Bitte später erneut versuchen.')
     }
   }
 
@@ -381,7 +389,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onQuickFilter
               </button>
             </div>
             {subscriptionState === 'done' && <p className="muted">Abo gespeichert. Du wirst bei Statusänderungen benachrichtigt.</p>}
-            {subscriptionState === 'error' && <p className="muted">Bitte eine gültige E-Mail eingeben.</p>}
+            {subscriptionState === 'error' && <p className="muted">{subscriptionError}</p>}
           </div>
         )}
 
