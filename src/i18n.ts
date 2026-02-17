@@ -12,7 +12,7 @@ export const statusLabels: Record<string, Record<Language, string>> = {
   'In Beratung': { de: 'Beratung', fr: 'En délibération', it: 'In discussione', en: 'In review' },
   Angenommen: { de: 'Angenommen', fr: 'Accepté', it: 'Accolto', en: 'Accepted' },
   Abgelehnt: { de: 'Abgelehnt', fr: 'Rejeté', it: 'Respinto', en: 'Rejected' },
-  Abgeschrieben: { de: 'Abgeschrieben', fr: 'Classé', it: 'Archiviato', en: 'Closed' },
+  Abgeschrieben: { de: 'Abgeschlossen', fr: 'Clôturé', it: 'Chiuso', en: 'Closed' },
   Zurueckgezogen: { de: 'Zurückgezogen', fr: 'Retiré', it: 'Ritirato', en: 'Withdrawn' },
   Zurückgezogen: { de: 'Zurückgezogen', fr: 'Retiré', it: 'Ritirato', en: 'Withdrawn' },
 }
@@ -428,8 +428,50 @@ const contentDictionary: Record<Language, Array<[RegExp, string]>> = {
   ],
 }
 
+function normalizeStatusInput(status: string): string {
+  return String(status || '')
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/ä/g, 'ae')
+    .replace(/ö/g, 'oe')
+    .replace(/ü/g, 'ue')
+    .trim()
+}
+
+export function canonicalStatus(status: string): keyof typeof statusLabels {
+  const s = normalizeStatusInput(status)
+
+  if (!s) return 'In Beratung'
+  if (s.includes('zuruckgezogen') || s.includes('zurueckgezogen')) return 'Zurueckgezogen'
+  if (s.includes('abgelehnt') || s.includes('rejet')) return 'Abgelehnt'
+  if (s.includes('angenommen') || s.includes('accept')) return 'Angenommen'
+  if (s.includes('uberwiesen an den bundesrat') || s.includes('ueberwiesen an den bundesrat')) return 'Angenommen'
+  if (s.includes('eingereicht') || s.includes('depose') || s.includes('presentato') || s.includes('submitted')) return 'Eingereicht'
+  if (
+    s.includes('in beratung') ||
+    s.includes('beratung') ||
+    s.includes('stellungnahme zum vorstoss liegt vor') ||
+    s.includes('zugewiesen an die behandelnde kommission') ||
+    s.includes('in kommission') ||
+    s.includes('en deliberation') ||
+    s.includes('in discussione') ||
+    s.includes('in review')
+  ) return 'In Beratung'
+
+  if (s.includes('abgeschrieben') || s.includes('erledigt') || s.includes('classe') || s.includes('archiviato') || s.includes('closed')) return 'Abgeschrieben'
+
+  return 'In Beratung'
+}
+
+export function statusClassSlug(status: string): string {
+  const c = canonicalStatus(status)
+  return c.toLowerCase().replace(/\s+/g, '-').replace('zurückgezogen', 'zurueckgezogen')
+}
+
 export function translateStatus(status: string, lang: Language): string {
-  return statusLabels[status]?.[lang] ?? status
+  const canonical = canonicalStatus(status)
+  return statusLabels[canonical]?.[lang] ?? status
 }
 
 export function translateType(type: string, lang: Language): string {

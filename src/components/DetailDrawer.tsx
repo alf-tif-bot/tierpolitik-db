@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { I18nText, Language } from '../i18n'
-import { localizedMetaText, localizedMetaThemes, localizedMetaType, translateContent, translateStatus } from '../i18n'
+import { localizedMetaText, localizedMetaThemes, localizedMetaType, statusClassSlug, translateContent, translateStatus } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
 
@@ -95,7 +95,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
   ].sort((a, b) => a.datum.localeCompare(b.datum))
 
   const level = item.ebene === 'Bund' ? t.section.federal : item.ebene === 'Kanton' ? t.section.cantonal : item.ebene === 'Gemeinde' ? t.section.municipal : item.ebene
-  const statusSlug = item.status.toLowerCase().replace(/\s+/g, '-')
+  const statusSlug = statusClassSlug(item.status)
 
   const stanceValue = item.metadaten?.haltung === 'pro-tierschutz'
     ? 'Pro Tierschutz'
