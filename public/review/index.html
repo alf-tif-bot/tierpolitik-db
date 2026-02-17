@@ -2133,8 +2133,38 @@ function exportDecisions(){
   URL.revokeObjectURL(a.href);
 }
 
+function isLowSignalReviewTitle(title){
+  const t = String(title || '').toLowerCase();
+  return /geschäfte\s+landrat\s+uri|geschaefte\s+landrat\s+uri|kanton\s+uri\s*-\s*sitzungen/.test(t);
+}
+
+function pruneLowSignalRows(){
+  let removed = 0;
+  document.querySelectorAll('tr[data-id]').forEach((row)=>{
+    const titleCell = row.querySelector('td');
+    const title = titleCell ? titleCell.textContent || '' : '';
+    if (isLowSignalReviewTitle(title)) {
+      row.style.display = 'none';
+      row.setAttribute('data-pruned','1');
+      removed += 1;
+    }
+  });
+
+  const fastlaneCards = document.querySelectorAll('.fastlane-card[data-id]');
+  fastlaneCards.forEach((card)=>{
+    const title = card.querySelector('strong')?.textContent || '';
+    if (isLowSignalReviewTitle(title)) card.style.display = 'none';
+  });
+
+  if (removed > 0) {
+    const statusEl = document.getElementById('decision-status');
+    if (statusEl && !statusEl.textContent) statusEl.textContent = removed + ' Niedrigsignal-Eintrag automatisch ausgeblendet.';
+  }
+}
+
 for (const id of Object.keys(readFastlaneTags())) renderFastlaneTagButton(id)
 hideDecidedRows();
+pruneLowSignalRows();
 </script>
 </body>
 </html>
