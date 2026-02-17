@@ -61,6 +61,9 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
   const [feedbackType, setFeedbackType] = useState('Fehler gefunden')
   const [feedbackText, setFeedbackText] = useState('')
   const [feedbackState, setFeedbackState] = useState<'idle' | 'saving' | 'done' | 'error'>('idle')
+  const [subscriptionOpen, setSubscriptionOpen] = useState(false)
+  const [subscriptionEmail, setSubscriptionEmail] = useState('')
+  const [subscriptionState, setSubscriptionState] = useState<'idle' | 'saving' | 'done' | 'error'>('idle')
   const modalRef = useRef<HTMLElement | null>(null)
   const closeButtonRef = useRef<HTMLButtonElement | null>(null)
   const titleRef = useRef<HTMLHeadingElement | null>(null)
@@ -70,6 +73,9 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
     setFeedbackState('idle')
     setFeedbackText('')
     setFeedbackType('Fehler gefunden')
+    setSubscriptionOpen(false)
+    setSubscriptionEmail('')
+    setSubscriptionState('idle')
   }, [item?.id])
 
   useEffect(() => {
@@ -175,6 +181,35 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
     { label: t.region, value: item.regionGemeinde ?? '-', filterField: 'region' as const },
     { label: t.dateSubmitted, value: formatDateCH(item.datumEingereicht) },
   ]
+
+  const submitSubscription = async () => {
+    const email = subscriptionEmail.trim()
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setSubscriptionState('error')
+      return
+    }
+
+    try {
+      setSubscriptionState('saving')
+      const payload = {
+        id: item.id,
+        geschaeftsnummer: item.geschaeftsnummer,
+        title: item.titel,
+        link: item.linkGeschaeft,
+        category: 'Status-Abo',
+        message: `Bitte Status-Updates an ${email}`,
+      }
+      const res = await fetch(`${API_BASE}/feedback-submit`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      if (!res.ok) throw new Error(await res.text())
+      setSubscriptionState('done')
+    } catch {
+      setSubscriptionState('error')
+    }
+  }
 
   const submitFeedback = async () => {
     try {
@@ -298,8 +333,40 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
               <button className="btn-secondary">BehÃ¶rden-Resultate</button>
             </a>
           )}
-          <button className="btn-secondary" onClick={() => onSubscribe(`Vorstoss ${item.geschaeftsnummer}`)}>GeschÃ¤ft abonnieren</button>
+          <button
+            className="btn-secondary"
+            onClick={() => {
+              setSubscriptionOpen((prev) => !prev)
+              setSubscriptionState('idle')
+            }}
+          >
+            Status-Updates abonnieren
+          </button>
         </div>
+
+        {subscriptionOpen && (
+          <div className="feedback-modal" role="dialog" aria-modal="true" style={{ maxWidth: 460 }}>
+            <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+              <h3>Status-Abo</h3>
+            </div>
+            <label>
+              E-Mail
+              <input
+                type="email"
+                placeholder="name@beispiel.ch"
+                value={subscriptionEmail}
+                onChange={(e) => setSubscriptionEmail(e.target.value)}
+              />
+            </label>
+            <div className="row">
+              <button className="btn-primary" onClick={submitSubscription} disabled={subscriptionState === 'saving'}>
+                {subscriptionState === 'saving' ? 'Speichere…' : 'Abo speichern'}
+              </button>
+            </div>
+            {subscriptionState === 'done' && <p className="muted">Abo gespeichert. Du wirst bei Statusänderungen benachrichtigt.</p>}
+            {subscriptionState === 'error' && <p className="muted">Bitte eine gültige E-Mail eingeben.</p>}
+          </div>
+        )}
 
         <h3>{t.timeline}</h3>
         <ul className="timeline-list">

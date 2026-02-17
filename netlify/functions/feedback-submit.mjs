@@ -43,6 +43,7 @@ export const handler = async (event) => {
     const category = String(body.category || 'Feedback')
     const message = String(body.message || '').trim()
     const businessNo = String(body.geschaeftsnummer || '')
+    const emailFromBody = String(body.email || '').trim()
 
     if (!title || !url) {
       return { statusCode: 400, headers: corsHeaders(origin), body: JSON.stringify({ ok: false, error: 'title/link missing' }) }
@@ -53,14 +54,21 @@ export const handler = async (event) => {
     const cat = category.toLowerCase()
     const isIrrelevant = cat.includes('irrelevant')
     const isDescriptionImprove = cat.includes('beschreibung')
+    const isSubscription = cat.includes('status-abo') || cat.includes('abonn')
     const businessBase = businessNo.split('-')[0]
+    const emailFromMessage = String(message || '').match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i)?.[0] || ''
+    const subscriptionEmail = emailFromBody || emailFromMessage
+
+    if (isSubscription && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(subscriptionEmail)) {
+      return { statusCode: 400, headers: corsHeaders(origin), body: JSON.stringify({ ok: false, error: 'valid email required' }) }
+    }
 
     await withPgClient(async (client) => {
       await client.query(
         `insert into submissions (id, title, url, summary, created_at, processed, created_source, meta)
          values ($1,$2,$3,$4,now(),false,'user-feedback',$5::jsonb)
          on conflict (id) do nothing`,
-        [id, title, url, summary, JSON.stringify({ category, businessNo })],
+        [id, title, url, summary, JSON.stringify({ category, businessNo, subscriptionEmail: isSubscription ? subscriptionEmail : undefined })],
       )
 
       if (businessNo) {

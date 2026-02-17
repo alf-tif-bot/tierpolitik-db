@@ -69,6 +69,30 @@ const mapStatus = (status = '') => {
   return 'In Beratung'
 }
 
+const buildStatusTimeline = (rows = [], fallbackDate = '') => {
+  const items = (Array.isArray(rows) ? rows : [])
+    .map((row) => {
+      const status = mapStatus(row?.status || '')
+      const dateRaw = row?.published_at || row?.fetched_at || fallbackDate || new Date().toISOString()
+      const date = toIsoDate(dateRaw)
+      return { datum: date, status, bemerkung: 'Stand gemäss Parlamentsdaten' }
+    })
+    .sort((a, b) => a.datum.localeCompare(b.datum))
+
+  const deduped = []
+  for (const item of items) {
+    const prev = deduped[deduped.length - 1]
+    if (prev && prev.status === item.status) continue
+    deduped.push(item)
+  }
+
+  if (!deduped.length) {
+    return [{ datum: fallbackDate || new Date().toISOString().slice(0, 10), status: 'In Beratung', bemerkung: 'Stand gemäss Parlamentsdaten' }]
+  }
+
+  return deduped
+}
+
 const toIsoDate = (value, fallbackYear) => {
   const d = value ? new Date(value) : null
   const base = d && !Number.isNaN(d.getTime()) ? d : null
@@ -468,6 +492,9 @@ export const handler = async (event) => {
       const isParliament = isParliamentSourceId(r.source_id)
       const affairId = String(r.external_id || '').split('-')[0]
       const deVariant = isParliament ? deByAffair.get(affairId) : null
+      const relatedRows = isParliament
+        ? effectiveRows.filter((row) => String(row.external_id || '').split('-')[0] === affairId)
+        : [r]
       const displayTitleRaw = deVariant?.title || r.title
       const displayTitle = normalizeDisplayTitle(r, displayTitleRaw)
       const displaySummary = deVariant?.summary || r.summary
@@ -567,7 +594,7 @@ export const handler = async (event) => {
           ? [submitterOverride]
           : (municipalSubmitters.length ? municipalSubmitters : [inferSubmitter(sprache, displayTitle, displaySummary, displayBody)]),
         linkGeschaeft: link,
-        resultate: [{ datum: eingereicht, status: statusLabel, bemerkung: 'Stand gemäss Parlamentsdaten' }],
+        resultate: buildStatusTimeline(relatedRows, eingereicht),
         medien: [],
         metadaten: { sprache, haltung: stance, initiativeLinks, i18n: i18nOut, zuletztGeprueftVon: 'DB Live API' },
       }
