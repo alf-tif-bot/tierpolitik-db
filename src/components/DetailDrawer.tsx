@@ -362,9 +362,9 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onQuickFilter
         </div>
 
         {subscriptionOpen && (
-          <div className="feedback-modal" role="dialog" aria-modal="true" style={{ maxWidth: 460 }}>
+          <div className="subscription-inline" role="dialog" aria-modal="true">
             <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
-              <h3>Status-Abo</h3>
+              <h3>Geschäft abonnieren</h3>
             </div>
             <label>
               E-Mail
