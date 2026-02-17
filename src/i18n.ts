@@ -12,7 +12,7 @@ export const statusLabels: Record<string, Record<Language, string>> = {
   'In Beratung': { de: 'Beratung', fr: 'En délibération', it: 'In discussione', en: 'In review' },
   Angenommen: { de: 'Angenommen', fr: 'Accepté', it: 'Accolto', en: 'Accepted' },
   Abgelehnt: { de: 'Abgelehnt', fr: 'Rejeté', it: 'Respinto', en: 'Rejected' },
-  Abgeschrieben: { de: 'Abgeschlossen', fr: 'Clôturé', it: 'Chiuso', en: 'Closed' },
+  Abgeschrieben: { de: 'Erledigt', fr: 'Clôturé', it: 'Chiuso', en: 'Closed' },
   Zurueckgezogen: { de: 'Zurückgezogen', fr: 'Retiré', it: 'Ritirato', en: 'Withdrawn' },
   Zurückgezogen: { de: 'Zurückgezogen', fr: 'Retiré', it: 'Ritirato', en: 'Withdrawn' },
 }
