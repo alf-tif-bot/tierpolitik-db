@@ -147,10 +147,17 @@ h1 {
 
 .footer-blurb {
   margin: 0.95rem 0 0;
-  max-width: 840px;
+  max-width: 66ch;
   color: var(--footer-text);
-  line-height: 1.58;
+  line-height: 1.6;
   font-size: 1.02rem;
+}
+
+.footer-blurb a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
 }
 
 .site-header-top {
