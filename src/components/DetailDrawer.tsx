@@ -3,9 +3,9 @@ import type { I18nText, Language } from '../i18n'
 import { localizedMetaText, localizedMetaThemes, localizedMetaType, statusClassSlug, statusIcon, translateContent, translateStatus } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
-import { formatSubmitterDisplay, normalizePartyName } from '../utils/submitters'
+import { normalizePartyName } from '../utils/submitters'
 
-type QuickFilterField = 'thema' | 'typ' | 'ebene' | 'kanton' | 'region'
+type QuickFilterField = 'thema' | 'typ' | 'ebene' | 'kanton' | 'region' | 'submitter' | 'party'
 
 type Props = {
   item: Vorstoss | null
@@ -56,7 +56,7 @@ type TimelineItem = {
   url?: string
 }
 
-export function DetailDrawer({ item, onClose, onOpenPersonProfile, onQuickFilter, onFeedbackSubmitted, lang, t }: Props) {
+export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted, lang, t }: Props) {
   const [feedbackOpen, setFeedbackOpen] = useState(false)
   const [feedbackType, setFeedbackType] = useState('Fehler gefunden')
   const [feedbackText, setFeedbackText] = useState('')
@@ -335,11 +335,19 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onQuickFilter
           <div className="detail-card">
             <span className="detail-label">{t.submitters}</span>
             <div className="detail-links">
-              {normalizedSubmitters.map((p) => (
-                <div key={`${p.name}-${p.partei || ''}`} className="detail-link-row">
-                  <button className="text-link-btn" onClick={() => onOpenPersonProfile(p.name)}>{formatSubmitterDisplay(p.name, p.partei)}</button>
-                </div>
-              ))}
+              {normalizedSubmitters.map((p) => {
+                const party = String(p.partei || '').trim()
+                return (
+                  <div key={`${p.name}-${party}`} className="detail-link-row">
+                    <button className="text-link-btn" onClick={() => onQuickFilter('submitter', p.name)}>{p.name}</button>
+                    {party && (
+                      <button className="text-link-btn" onClick={() => onQuickFilter('party', party)}>
+                        ({party})
+                      </button>
+                    )}
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>
