@@ -176,11 +176,15 @@ h1 {
 }
 
 .footer-blurb {
-  margin: 0.95rem 0 0;
+  margin: 0.7rem 0 0;
   max-width: 66ch;
   color: var(--footer-text);
   line-height: 1.6;
   font-size: 1.02rem;
+}
+
+.footer-blurb + .footer-blurb {
+  margin-top: 0.45rem;
 }
 
 .footer-blurb a {
