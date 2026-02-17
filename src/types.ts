@@ -1,17 +1,11 @@
 import { z } from 'zod'
 
 export const ebeneEnum = z.enum(['Bund', 'Kanton', 'Gemeinde'])
-export const statusEnum = z.enum([
-  'Eingereicht',
-  'In Beratung',
-  'Angenommen',
-  'Abgelehnt',
-  'Abgeschrieben',
-])
+export const statusEnum = z.string().min(1)
 
 export const personSchema = z.object({
   name: z.string().min(1),
-  rolle: z.enum(['Nationalrat', 'Staenderat', 'Kantonsrat', 'Gemeinderat', 'Regierung', 'Partei']),
+  rolle: z.string(),
   partei: z.string().min(1),
 })
 
@@ -28,7 +22,7 @@ export const mediaSchema = z.object({
   url: z.string().url(),
 })
 
-export const typEnum = z.enum(['Interpellation', 'Motion', 'Postulat', 'Volksinitiative', 'Parlamentarische Initiative', 'Anfrage', 'Fragestunde. Frage'])
+export const typEnum = z.string().min(1)
 
 export const vorstossSchema = z.object({
   id: z.string().regex(/^vp-[a-z0-9-]+$/),
