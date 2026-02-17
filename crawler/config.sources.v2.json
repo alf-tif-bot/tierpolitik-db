@@ -11,7 +11,7 @@
       "top": 900,
       "daysBack": 9500,
       "requestTimeoutMs": 35000,
-      "businessTypeIncludes": "Motion,Postulat,Interpellation,Anfrage"
+      "businessTypeIncludes": "Motion,Postulat,Interpellation,Anfrage,Petition"
     }
   },
   {

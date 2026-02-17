@@ -5,7 +5,7 @@ const municipalSourcesPath = new URL('../config.municipal-sources.json', import.
 
 const MOTION_KEYWORDS = [
   'motion', 'postulat', 'interpellation', 'anfrage', 'antrag', 'vorstoss', 'vorstösse',
-  'schriftliche anfrage', 'dringliche motion', 'dringliches postulat', 'parlamentarische initiative',
+  'schriftliche anfrage', 'dringliche motion', 'dringliches postulat', 'parlamentarische initiative', 'petition', 'petitions',
 ]
 
 const STATUS_KEYWORDS = [
@@ -31,6 +31,7 @@ const detectTypeHint = (text = '') => {
   if (low.includes('dringliches postulat') || low.includes('postulat')) return 'Postulat'
   if (low.includes('interpellation')) return 'Interpellation'
   if (low.includes('schriftliche anfrage') || low.includes('anfrage')) return 'Anfrage'
+  if (low.includes('petition')) return 'Petition'
   if (low.includes('parlamentarische initiative') || low.includes('initiative')) return 'Volksinitiative'
   return null
 }
