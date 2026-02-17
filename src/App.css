@@ -206,43 +206,44 @@ h1 {
 }
 
 .site-support-row {
-  margin-top: 0.9rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid color-mix(in srgb, var(--border-0) 70%, var(--surface-0) 30%);
-  display: flex;
+  margin-top: 1.05rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid color-mix(in srgb, var(--border-0) 74%, var(--surface-0) 26%);
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 0.7rem;
-  flex-wrap: wrap;
+  gap: 0.65rem 0.9rem;
   color: var(--text-2);
 }
 
 .support-label {
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .support-logos {
-  display: flex;
-  gap: 0.55rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+  gap: 0.5rem;
+  align-items: stretch;
 }
 
 .support-logo-img {
-  height: 66px;
-  width: 130px;
+  height: 62px;
+  width: 100%;
   object-fit: contain;
-  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border-0));
-  background: var(--surface-1);
-  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--border-0) 82%, var(--accent) 18%);
+  background: color-mix(in srgb, var(--surface-2) 88%, var(--surface-1) 12%);
+  border-radius: 11px;
   padding: 0.35rem;
-  opacity: 0.6;
-  filter: brightness(0.88);
-  transition: opacity 180ms ease, filter 180ms ease, transform 180ms ease;
+  opacity: 0.78;
+  filter: brightness(0.94);
 }
 
 .support-logo-img:hover {
-  opacity: 1;
-  filter: brightness(1.05);
-  transform: translateY(-1px);
+  opacity: 0.95;
+  border-color: color-mix(in srgb, var(--accent) 34%, var(--border-0));
+  box-shadow: 0 2px 8px rgb(0 0 0 / 14%);
 }
 
 .row { display: flex; gap: 0.6rem; align-items: center; }
@@ -1398,9 +1399,19 @@ a { color: var(--accent); }
     padding: 0.48rem 0.78rem;
   }
 
+  .site-support-row {
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+  }
+
+  .support-logos {
+    grid-template-columns: repeat(3, minmax(88px, 1fr));
+    width: 100%;
+  }
+
   .support-logo-img {
     height: 54px;
-    width: 106px;
+    width: 100%;
   }
 
   .project-footer {
