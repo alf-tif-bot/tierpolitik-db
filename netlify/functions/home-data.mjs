@@ -41,6 +41,7 @@ if (!Array.isArray(fallbackVorstoesse) || !fallbackVorstoesse.length) {
 
 const inferType = (title = '', sourceId = '') => {
   const text = `${title} ${sourceId}`.toLowerCase()
+  if (text.includes('petition') || text.includes('pétition') || text.includes('petizione')) return 'Petition'
   if (text.includes('postulat') || text.includes('postulato')) return 'Postulat'
   if (text.includes('motion') || text.includes('mozione')) return 'Motion'
   if (text.includes('fragestunde') || text.includes('question time') || text.includes('heure des questions') || text.includes('ora delle domande')) return 'Fragestunde. Frage'
@@ -107,6 +108,7 @@ const typeLabels = {
   Interpellation: { de: 'Interpellation', fr: 'Interpellation', it: 'Interpellanza', en: 'Interpellation' },
   Motion: { de: 'Motion', fr: 'Motion', it: 'Mozione', en: 'Motion' },
   Postulat: { de: 'Postulat', fr: 'Postulat', it: 'Postulato', en: 'Postulate' },
+  Petition: { de: 'Petition', fr: 'Pétition', it: 'Petizione', en: 'Petition' },
   Anfrage: { de: 'Anfrage', fr: 'Question', it: 'Interrogazione', en: 'Question' },
   'Fragestunde. Frage': { de: 'Fragestunde. Frage', fr: 'Heure des questions. Question', it: 'Ora delle domande. Domanda', en: 'Question Time. Question' },
 }

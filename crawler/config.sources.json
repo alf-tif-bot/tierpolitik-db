@@ -77,6 +77,22 @@
     }
   },
   {
+    "id": "ch-parliament-petitions-de",
+    "label": "Parlament.ch Petitionen (DE)",
+    "type": "api",
+    "adapter": "parliamentOdata",
+    "url": "https://ws.parlament.ch/odata.svc/Business",
+    "enabled": true,
+    "options": {
+      "lang": "DE",
+      "top": 400,
+      "sampleLimit": 140,
+      "thematicMinQuota": 80,
+      "daysBack": 9500,
+      "businessTypeIncludes": "Petition"
+    }
+  },
+  {
     "id": "ch-cantonal-portal-core",
     "label": "Cantonal portals (core crawl)",
     "type": "html",
