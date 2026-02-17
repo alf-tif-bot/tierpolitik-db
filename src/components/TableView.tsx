@@ -188,6 +188,8 @@ export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboard
               {table.getRowModel().rows.map((r, idx) => (
                 <tr
                   key={r.id}
+                  data-testid="table-row"
+                  data-row-id={r.original.id}
                   className={idx === highlightedRow ? 'row-highlight' : ''}
                   onClick={() => {
                     setHighlightedRow(idx)

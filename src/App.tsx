@@ -61,6 +61,8 @@ export default function App() {
   const comboBufferRef = useRef('')
   const comboTimerRef = useRef<number | null>(null)
   const darkModeTimerRef = useRef<number | null>(null)
+  const previousFocusRef = useRef<HTMLElement | null>(null)
+  const lastSelectedIdRef = useRef<string | null>(null)
 
   const t = i18n[lang]
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
@@ -97,10 +99,16 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    const id = getHashId()
-    if (!id) return
-    const hit = data.find((v) => v.id === id)
-    if (hit) setSelected(hit)
+    const syncFromHash = () => {
+      const id = getHashId()
+      if (!id) return
+      const hit = data.find((v) => v.id === id)
+      if (hit) setSelected(hit)
+    }
+
+    syncFromHash()
+    window.addEventListener('hashchange', syncFromHash)
+    return () => window.removeEventListener('hashchange', syncFromHash)
   }, [data])
 
   useEffect(() => {
@@ -216,13 +224,31 @@ export default function App() {
   }, [selected, profile])
 
   const openDetail = (item: Vorstoss) => {
+    previousFocusRef.current = document.activeElement as HTMLElement | null
+    lastSelectedIdRef.current = item.id
     setSelected(item)
     setHashId(item.id)
   }
 
   const closeDetail = () => {
+    const previousFocus = previousFocusRef.current
+    const selectedId = lastSelectedIdRef.current
+
     setSelected(null)
     clearHashId()
+
+    window.requestAnimationFrame(() => {
+      if (previousFocus && document.contains(previousFocus)) {
+        previousFocus.focus()
+        return
+      }
+
+      if (selectedId) {
+        const escapedId = typeof CSS !== 'undefined' && CSS.escape ? CSS.escape(selectedId) : selectedId
+        const fallbackRow = document.querySelector<HTMLElement>(`[data-row-id="${escapedId}"]`)
+        fallbackRow?.focus()
+      }
+    })
   }
 
   const onVisibleColumnsChange = useCallback((cols: { key: string; label: string }[]) => {

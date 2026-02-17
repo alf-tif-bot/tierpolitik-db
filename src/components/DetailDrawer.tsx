@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { I18nText, Language } from '../i18n'
 import { localizedMetaText, localizedMetaThemes, localizedMetaType, statusClassSlug, statusIcon, translateContent, translateStatus } from '../i18n'
 import type { Vorstoss } from '../types'
@@ -83,6 +83,9 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
   const [feedbackType, setFeedbackType] = useState('Fehler gefunden')
   const [feedbackText, setFeedbackText] = useState('')
   const [feedbackState, setFeedbackState] = useState<'idle' | 'saving' | 'done' | 'error'>('idle')
+  const modalRef = useRef<HTMLElement | null>(null)
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null)
+  const titleRef = useRef<HTMLHeadingElement | null>(null)
 
   useEffect(() => {
     setFeedbackOpen(false)
@@ -105,6 +108,58 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [])
+
+  useEffect(() => {
+    if (!item) return
+
+    const focusInitial = () => {
+      if (closeButtonRef.current) {
+        closeButtonRef.current.focus()
+        return
+      }
+      titleRef.current?.focus()
+    }
+
+    focusInitial()
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (!modalRef.current) return
+
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        onClose()
+        return
+      }
+
+      if (event.key !== 'Tab') return
+
+      const focusable = Array.from(
+        modalRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((el) => !el.hasAttribute('disabled') && el.getAttribute('aria-hidden') !== 'true')
+
+      if (focusable.length === 0) {
+        event.preventDefault()
+        return
+      }
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      const active = document.activeElement as HTMLElement | null
+
+      if (!event.shiftKey && active === last) {
+        event.preventDefault()
+        first.focus()
+      } else if (event.shiftKey && (active === first || !modalRef.current.contains(active))) {
+        event.preventDefault()
+        last.focus()
+      }
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [item, onClose])
 
   if (!item) return null
 
@@ -182,15 +237,23 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
 
   return (
     <div className="drawer-backdrop" onClick={onClose}>
-      <aside className="drawer" onClick={(e) => e.stopPropagation()}>
+      <aside
+        ref={modalRef}
+        className="drawer"
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="detail-modal-title"
+        data-testid="modal"
+      >
         <div className="row drawer-head">
           <div>
-            <h2>{normalizeTitle(localizedMetaText(item, 'title', lang, item.titel), item.typ)}</h2>
+            <h2 id="detail-modal-title" ref={titleRef} tabIndex={-1}>{normalizeTitle(localizedMetaText(item, 'title', lang, item.titel), item.typ)}</h2>
             <div className="drawer-status-row">
               <span className={`status-badge status-${statusSlug}`}>{statusIcon(item.status)} {translateStatus(item.status, lang)}</span>
             </div>
           </div>
-          <button onClick={onClose}>{t.close}</button>
+          <button ref={closeButtonRef} data-testid="close-button" onClick={onClose}>{t.close}</button>
         </div>
 
         <p className="drawer-summary">{localizedMetaText(item, 'summary', lang, item.kurzbeschreibung)}</p>
