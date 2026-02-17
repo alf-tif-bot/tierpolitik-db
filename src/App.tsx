@@ -295,23 +295,22 @@ export default function App() {
 
   return (
     <main className="container">
-      <header className="hero-head">
-        <div className="hero-top row">
-          <div className="language-switch row">
-            <div className="chips">
-              {(Object.keys(languageNames) as Language[]).map((code) => (
-                <button key={code} className={lang === code ? 'chip active' : 'chip'} type="button" onClick={() => setLang(code)}>
-                  {languageNames[code]}
-                </button>
-              ))}
-              <span className="switch-sep">|</span>
-              <button className={theme === 'original' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('original')}>ORIGINAL</button>
-              <button className={theme === 'forest' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('forest')}>FOREST</button>
-              <button className={theme === 'charcoal' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('charcoal')}>CHARCOAL</button>
-              <button className={theme === 'sand' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('sand')}>SAND</button>
-            </div>
-          </div>
+      <div className="language-switch row" style={{ marginBottom: '0.55rem' }}>
+        <div className="chips">
+          {(Object.keys(languageNames) as Language[]).map((code) => (
+            <button key={code} className={lang === code ? 'chip active' : 'chip'} type="button" onClick={() => setLang(code)}>
+              {languageNames[code]}
+            </button>
+          ))}
+          <span className="switch-sep">|</span>
+          <button className={theme === 'original' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('original')}>ORIGINAL</button>
+          <button className={theme === 'forest' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('forest')}>FOREST</button>
+          <button className={theme === 'charcoal' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('charcoal')}>CHARCOAL</button>
+          <button className={theme === 'sand' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('sand')}>SAND</button>
         </div>
+      </div>
+
+      <header className="hero-head">
         <div className="title-row">
           <img className="hero-monitor-logo logo-light" src="/branding/monitor-icon-light.png" alt="Tierpolitik Monitor" />
           <img className="hero-monitor-logo logo-dark" src="/branding/monitor-icon.png" alt="Tierpolitik Monitor" />
