@@ -1446,6 +1446,40 @@ a { color: var(--accent); }
   color: var(--text-0);
 }
 
+:root[data-theme='sand'] .hero-head h1 {
+  color: var(--accent);
+}
+
+:root[data-theme='sand'] .brand-sub,
+:root[data-theme='sand'] .db-intro p,
+:root[data-theme='sand'] .advanced-hint,
+:root[data-theme='sand'] .drawer-summary {
+  color: var(--text-2);
+}
+
+:root[data-theme='sand'] .db-intro h2 {
+  color: var(--text-1);
+}
+
+:root[data-theme='sand'] th { background: var(--surface-2); color: var(--text-0); }
+:root[data-theme='sand'] td { border-bottom-color: var(--border-1); }
+:root[data-theme='sand'] tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--surface-1) 92%, var(--surface-2) 8%); }
+:root[data-theme='sand'] tbody tr:hover td { background: color-mix(in srgb, var(--accent) 10%, var(--surface-1)); }
+:root[data-theme='sand'] input,
+:root[data-theme='sand'] select { background: var(--surface-1); color: var(--text-0); border-color: var(--border-0); }
+:root[data-theme='sand'] .chip { color: var(--text-0); border-color: var(--border-0); background: var(--surface-1); }
+:root[data-theme='sand'] .chip.active { color: var(--text-1); background: color-mix(in srgb, var(--accent) 18%, var(--surface-1)); border-color: color-mix(in srgb, var(--accent) 45%, var(--border-0)); box-shadow: none; }
+:root[data-theme='sand'] .language-switch .chip,
+:root[data-theme='sand'] .language-switch .chip.active { background: transparent; border: none; }
+:root[data-theme='sand'] .language-switch .chip { color: var(--text-2); }
+:root[data-theme='sand'] .language-switch .chip.active { color: var(--accent); }
+:root[data-theme='sand'] .text-link-btn { color: var(--accent); }
+:root[data-theme='sand'] .text-link-btn:hover { color: color-mix(in srgb, var(--accent) 80%, var(--text-0)); }
+:root[data-theme='sand'] tbody tr.row-highlight td {
+  background: color-mix(in srgb, var(--accent) 18%, var(--surface-1)) !important;
+  color: var(--text-0);
+}
+
 :root[data-theme='charcoal'] tbody tr.row-highlight td {
   background: color-mix(in srgb, var(--accent) 18%, var(--surface-1)) !important;
   color: var(--text-0);
