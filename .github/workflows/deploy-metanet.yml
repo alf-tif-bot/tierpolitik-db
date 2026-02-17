@@ -30,7 +30,12 @@ jobs:
           GITHUB_ACTIONS: ''
         run: npm run build
 
-      - name: Deploy to Metanet (Plesk httpdocs)
+      - name: Prepare final index handoff
+        run: |
+          mkdir -p .deploy-index
+          cp dist/index.html .deploy-index/index.html
+
+      - name: Deploy assets first (without index.html)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.METANET_FTP_HOST }}
@@ -39,6 +44,22 @@ jobs:
           protocol: ftps
           port: 21
           local-dir: ./dist/
+          server-dir: /
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.github/**
+            index.html
+
+      - name: Flip release by uploading index.html last
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.METANET_FTP_HOST }}
+          username: ${{ secrets.METANET_FTP_USER }}
+          password: ${{ secrets.METANET_FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./.deploy-index/
           server-dir: /
           dangerous-clean-slate: false
           exclude: |
