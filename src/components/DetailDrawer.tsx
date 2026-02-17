@@ -168,12 +168,6 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
   const level = item.ebene === 'Bund' ? t.section.federal : item.ebene === 'Kanton' ? t.section.cantonal : item.ebene === 'Gemeinde' ? t.section.municipal : item.ebene
   const statusSlug = statusClassSlug(item.status)
 
-  const stanceValue = item.metadaten?.haltung === 'pro-tierschutz'
-    ? 'Pro Tierschutz'
-    : item.metadaten?.haltung === 'tierschutzkritisch'
-      ? 'Tierschutzkritisch'
-      : 'Neutral / unklar'
-
   const themesLocalized = localizedMetaThemes(item, lang)
   const summaryText = localizedMetaText(item, 'summary', lang, item.kurzbeschreibung)
   const hideSummary = item.typ === 'Volksinitiative' && /^botschaft\s+vom\s+/i.test(String(summaryText || '').trim())
@@ -332,10 +326,6 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
             </div>
           </div>
           <div className="detail-card">
-            <span className="detail-label">Tierbezug</span>
-            <span className="detail-value">{stanceValue}</span>
-          </div>
-          <div className="detail-card">
             <span className="detail-label">{t.submitters}</span>
             <div className="detail-links">
               {normalizedSubmitters.map((p) => {
@@ -488,5 +478,6 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
     </div>
   )
 }
+
 
 
