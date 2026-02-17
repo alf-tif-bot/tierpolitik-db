@@ -65,6 +65,7 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
   const [subscriptionEmail, setSubscriptionEmail] = useState('')
   const [subscriptionState, setSubscriptionState] = useState<'idle' | 'saving' | 'done' | 'error'>('idle')
   const [subscriptionError, setSubscriptionError] = useState('')
+  const [newsletterOptIn, setNewsletterOptIn] = useState(true)
   const modalRef = useRef<HTMLElement | null>(null)
   const closeButtonRef = useRef<HTMLButtonElement | null>(null)
   const titleRef = useRef<HTMLHeadingElement | null>(null)
@@ -78,6 +79,7 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
     setSubscriptionEmail('')
     setSubscriptionState('idle')
     setSubscriptionError('')
+    setNewsletterOptIn(true)
   }, [item?.id])
 
   useEffect(() => {
@@ -220,7 +222,8 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
         link: item.linkGeschaeft,
         category: 'Status-Abo',
         email,
-        message: `Bitte Status-Updates an ${email}`,
+        newsletterOptIn,
+        message: `Bitte Status-Updates an ${email}${newsletterOptIn ? ' | Newsletter: ja' : ' | Newsletter: nein'}`,
       }
       const res = await fetch(`${API_BASE}/feedback-submit`, {
         method: 'POST',
@@ -390,6 +393,14 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
                 value={subscriptionEmail}
                 onChange={(e) => setSubscriptionEmail(e.target.value)}
               />
+            </label>
+            <label className="subscription-checkbox">
+              <input
+                type="checkbox"
+                checked={newsletterOptIn}
+                onChange={(e) => setNewsletterOptIn(e.target.checked)}
+              />
+              <span>Ja, ich möchte den Newsletter abonnieren</span>
             </label>
             <div className="row">
               <button className="btn-primary" onClick={submitSubscription} disabled={subscriptionState === 'saving'}>

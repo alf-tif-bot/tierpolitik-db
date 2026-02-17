@@ -821,6 +821,20 @@ a { color: var(--accent); }
   margin-bottom: 0.55rem;
 }
 
+.subscription-checkbox {
+  display: flex !important;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0.2rem 0 0.55rem;
+  font-size: 0.94rem;
+  color: var(--text-1);
+}
+
+.subscription-checkbox input {
+  width: auto;
+  margin: 0;
+}
+
 .feedback-modal h3 {
   margin: 0 0 0.55rem;
   font-size: 1.35rem;

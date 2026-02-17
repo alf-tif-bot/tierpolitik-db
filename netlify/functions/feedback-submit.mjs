@@ -44,6 +44,7 @@ export const handler = async (event) => {
     const message = String(body.message || '').trim()
     const businessNo = String(body.geschaeftsnummer || '')
     const emailFromBody = String(body.email || '').trim()
+    const newsletterOptIn = Boolean(body.newsletterOptIn)
 
     if (!title || !url) {
       return { statusCode: 400, headers: corsHeaders(origin), body: JSON.stringify({ ok: false, error: 'title/link missing' }) }
@@ -68,7 +69,7 @@ export const handler = async (event) => {
         `insert into submissions (id, title, url, summary, created_at, processed, created_source, meta)
          values ($1,$2,$3,$4,now(),false,'user-feedback',$5::jsonb)
          on conflict (id) do nothing`,
-        [id, title, url, summary, JSON.stringify({ category, businessNo, subscriptionEmail: isSubscription ? subscriptionEmail : undefined })],
+        [id, title, url, summary, JSON.stringify({ category, businessNo, subscriptionEmail: isSubscription ? subscriptionEmail : undefined, newsletterOptIn: isSubscription ? newsletterOptIn : undefined })],
       )
 
       if (businessNo) {
