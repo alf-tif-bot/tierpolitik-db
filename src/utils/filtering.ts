@@ -31,9 +31,10 @@ export const canonicalTheme = (value: string): string => {
   const n = norm(raw)
 
   if (n === 'unsichtbare tiere' || n === 'tiere' || n === 'tier' || n === 'massentier' || n === 'tierversuchsfreie' || n === 'tierversuchsfrei' || n === 'initiative' || n === 'initiativ' || n === 'schweinezucht' || n === 'versuchstiere') return ''
+  if (n === 'staatspolitik' || n === '3r' || n === 'beschaeftigung und arbeit' || n === 'beschaeftiung und arbeit' || n === 'wissenschaft und forschung' || n === 'wissenscahft und forschung') return ''
   if (n === 'nutrition') return 'Ernährung'
   if (n === 'biodiversita' || n === 'biodiversite' || n === 'biodiversitat' || n === 'biodiversitaet') return 'Biodiversität'
-  if (n === '3r') return '3R'
+  if (n === 'schlacht') return 'Schlachtung'
 
   const lc = raw.toLowerCase()
   return lc.charAt(0).toUpperCase() + lc.slice(1)
