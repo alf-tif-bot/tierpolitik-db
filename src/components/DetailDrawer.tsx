@@ -41,6 +41,29 @@ const normalizeTitle = (value: string, typ?: string) => {
   return out
 }
 
+const formatSubmitterDisplay = (name: string, party?: string) => {
+  const rawName = String(name || '').trim()
+  const rawParty = String(party || '').trim()
+  if (!rawName) return rawParty ? `(${rawParty})` : ''
+
+  const parts = rawName.split(/\s+/).filter(Boolean)
+  const likelyParticles = new Set(['de', 'del', 'della', 'di', 'du', 'von', 'van', 'la', 'le'])
+
+  let normalizedName = rawName
+  if (parts.length >= 2) {
+    const first = parts[0]
+    const last = parts[parts.length - 1]
+    const firstIsParticle = likelyParticles.has(first.toLowerCase()) || first[0] === first[0]?.toLowerCase()
+    const lastLooksFirstname = /^[A-ZÄÖÜ][a-zäöüàâéèêîïôûùç-]+$/.test(last)
+    if (firstIsParticle && lastLooksFirstname) {
+      normalizedName = `${last} ${parts.slice(0, -1).join(' ')}`
+    }
+  }
+
+  if (!rawParty || /^unbekannt$/i.test(rawParty)) return normalizedName
+  return `${normalizedName} (${rawParty})`
+}
+
 const API_BASE = (import.meta.env.VITE_API_BASE || '/.netlify/functions').replace(/\/$/, '')
 
 type TimelineItem = {
@@ -208,10 +231,7 @@ export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyPr
             <div className="detail-links">
               {item.einreichende.map((p) => (
                 <div key={`${p.name}-${p.partei || ''}`} className="detail-link-row">
-                  <button className="text-link-btn" onClick={() => onOpenPersonProfile(p.name)}>{p.name}</button>
-                  {String(p.partei || '').trim() && !/^unbekannt$/i.test(String(p.partei || '').trim()) && (
-                    <button className="text-link-btn" onClick={() => onOpenPartyProfile(p.partei)}>{p.partei}</button>
-                  )}
+                  <button className="text-link-btn" onClick={() => onOpenPersonProfile(p.name)}>{formatSubmitterDisplay(p.name, p.partei)}</button>
                 </div>
               ))}
             </div>
