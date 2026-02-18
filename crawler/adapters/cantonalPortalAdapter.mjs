@@ -472,16 +472,16 @@ const candidateUrlsFromRegistry = (entry) => {
     .sort((a, b) => rankCandidateUrl(entry, b) - rankCandidateUrl(entry, a))
 }
 
-const fetchReachablePages = async (urls = [], limit = 3, parentSignal) => {
+const fetchReachablePages = async (urls = [], limit = 3, parentSignal, requestTimeoutMs = 12000) => {
   const pages = []
 
   for (const url of urls) {
-    if (pages.length >= limit) break
+    if (pages.length >= limit || parentSignal?.aborted) break
     try {
       const response = await fetch(url, {
         headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
         redirect: 'follow',
-        signal: mergeAbortSignals(parentSignal, AbortSignal.timeout(12000)),
+        signal: mergeAbortSignals(parentSignal, AbortSignal.timeout(requestTimeoutMs)),
       })
       if (!response.ok) continue
       const html = await response.text()
@@ -496,8 +496,9 @@ const fetchReachablePages = async (urls = [], limit = 3, parentSignal) => {
 
 export function createCantonalPortalAdapter() {
   return {
-    async fetch(source, { signal } = {}) {
+    async fetch(source, { signal, timeoutMs } = {}) {
       const fetchedAt = new Date().toISOString()
+      const requestTimeoutMs = Math.max(8000, Number(source.options?.requestTimeoutMs ?? Math.min(20000, Number(timeoutMs || 12000))))
       const cantonFilter = new Set(asList(source.options?.cantons).map((c) => c.toUpperCase()))
       const rows = []
       const registryUrl = source.options?.registryUrl || 'data/cantonal-source-registry.json'
@@ -506,7 +507,7 @@ export function createCantonalPortalAdapter() {
       if (String(registryUrl).startsWith('http')) {
         const registryResponse = await fetch(registryUrl, {
           headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
-          signal: mergeAbortSignals(signal, AbortSignal.timeout(15000)),
+          signal: mergeAbortSignals(signal, AbortSignal.timeout(requestTimeoutMs)),
         })
         if (!registryResponse.ok) throw new Error(`cantonal registry unavailable (${registryResponse.status})`)
         registry = await registryResponse.json()
@@ -516,15 +517,24 @@ export function createCantonalPortalAdapter() {
       }
 
       const entries = Array.isArray(registry?.sources) ? registry.sources : []
+      const budgetMs = Math.max(15000, Number(timeoutMs || 60000))
+      const deadline = Date.now() + budgetMs - 750
+      const maxEntriesPerRun = Math.max(1, Number(source.options?.maxEntriesPerRun || 8))
+      let processedEntries = 0
 
       for (const entry of entries) {
+        if (processedEntries >= maxEntriesPerRun) break
+        if (Date.now() >= deadline || signal?.aborted) {
+          break
+        }
         const canton = String(entry?.canton || '').toUpperCase()
         if (!canton || (cantonFilter.size && !cantonFilter.has(canton))) continue
+        processedEntries += 1
 
         const candidateUrls = candidateUrlsFromRegistry(entry)
         if (!candidateUrls.length || entry?.probe?.httpStatus === 403) continue
 
-        const fetchedPages = await fetchReachablePages(candidateUrls, 3, signal)
+        const fetchedPages = await fetchReachablePages(candidateUrls, 3, signal, requestTimeoutMs)
         if (!fetchedPages.length) continue
 
         const leadPage = fetchedPages[0]

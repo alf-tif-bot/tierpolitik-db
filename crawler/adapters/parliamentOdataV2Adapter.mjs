@@ -68,13 +68,33 @@ const pickBestVariant = (variants = {}) => {
   return Object.values(variants)[0]
 }
 
+const mergeAbortSignals = (...signals) => {
+  const valid = signals.filter(Boolean)
+  if (!valid.length) return undefined
+  const controller = new AbortController()
+  const abortFrom = (source) => {
+    if (!controller.signal.aborted) controller.abort(source?.reason)
+  }
+
+  for (const signal of valid) {
+    if (signal.aborted) {
+      abortFrom(signal)
+      break
+    }
+    signal.addEventListener('abort', () => abortFrom(signal), { once: true })
+  }
+
+  return controller.signal
+}
+
 export function createParliamentOdataV2Adapter() {
   return {
-    async fetch(source) {
+    async fetch(source, { signal, timeoutMs } = {}) {
       const languages = parseCsvOption(source.options?.langs || 'DE,FR,IT')
       const top = Number(source.options?.top ?? 900)
       const daysBack = Number(source.options?.daysBack ?? 3650)
-      const requestTimeoutMs = Math.max(8000, Number(source.options?.requestTimeoutMs ?? 30000))
+      const sourceBudgetMs = Math.max(15000, Number(timeoutMs || 0) || 0)
+      const requestTimeoutMs = Math.max(8000, Number(source.options?.requestTimeoutMs ?? Math.min(45000, sourceBudgetMs || 30000)))
       const businessTypeIncludes = parseCsvOption(source.options?.businessTypeIncludes)
       const businessTypeMatchers = buildBusinessTypeMatchers(businessTypeIncludes)
       const since = new Date(Date.now() - daysBack * 86400000).toISOString().slice(0, 19)
@@ -96,7 +116,7 @@ export function createParliamentOdataV2Adapter() {
         const url = `${source.url}?${params.toString()}`
         const response = await fetch(url, {
           headers: { accept: 'application/json' },
-          signal: AbortSignal.timeout(requestTimeoutMs),
+          signal: mergeAbortSignals(signal, AbortSignal.timeout(requestTimeoutMs)),
         })
         if (!response.ok) throw new Error(`OData fetch failed (${response.status})`)
         const payload = await response.json()

@@ -11,7 +11,10 @@
       "top": 900,
       "sampleLimit": 360,
       "thematicMinQuota": 260,
-      "daysBack": 9500
+      "daysBack": 9500,
+      "sourceTimeoutMs": 85000,
+      "retries": 2,
+      "requestTimeoutMs": 30000
     }
   },
   {
@@ -57,7 +60,10 @@
       "sampleLimit": 220,
       "thematicMinQuota": 140,
       "daysBack": 9500,
-      "businessTypeIncludes": "Motion"
+      "businessTypeIncludes": "Motion",
+      "sourceTimeoutMs": 85000,
+      "retries": 2,
+      "requestTimeoutMs": 30000
     }
   },
   {
@@ -73,7 +79,10 @@
       "sampleLimit": 180,
       "thematicMinQuota": 110,
       "daysBack": 9500,
-      "businessTypeIncludes": "Postulat"
+      "businessTypeIncludes": "Postulat",
+      "sourceTimeoutMs": 85000,
+      "retries": 2,
+      "requestTimeoutMs": 30000
     }
   },
   {
@@ -101,7 +110,11 @@
     "enabled": true,
     "options": {
       "registryUrl": "data/cantonal-source-registry.json",
-      "cantons": "AG,AI,AR,BE,BL,BS,FR,GE,GL,GR,JU,LU,NE,NW,OW,SG,SH,SO,SZ,TG,TI,UR,VD,VS,ZG,ZH"
+      "cantons": "AG,AI,AR,BE,BL,BS,FR,GE,GL,GR,JU,LU,NE,NW,OW,SG,SH,SO,SZ,TG,TI,UR,VD,VS,ZG,ZH",
+      "sourceTimeoutMs": 45000,
+      "retries": 1,
+      "requestTimeoutMs": 12000,
+      "maxEntriesPerRun": 8
     }
   },
   {
@@ -153,5 +166,3 @@
     }
   }
 ]
-
-
