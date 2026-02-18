@@ -95,10 +95,11 @@ const isCantonalReadableRelevant = (item) => {
   const isCantonalSummaryId = /^cantonal-portal-[a-z]{2}$/i.test(String(item?.externalId || ''))
   const hasConcreteBusinessRef = Boolean(
     item?.meta?.businessNumber
-    || /geschaeft(id|nummer)?=|objektid=|affairid=|\/geschaefte?\//i.test(String(item?.meta?.sourceLink || item?.sourceUrl || ''))
+    || /geschaeftid=|objektid=|affairid=|detail\.php\?gid=/i.test(String(item?.meta?.sourceLink || item?.sourceUrl || ''))
   )
 
-  if ((looksSyntheticCantonalHeadline || isCantonalSummaryId) && !hasConcreteBusinessRef) return false
+  if (isCantonalSummaryId) return false
+  if (looksSyntheticCantonalHeadline && !hasConcreteBusinessRef) return false
 
   return CANTONAL_THEME_STRONG_KEYWORDS.some((kw) => text.includes(kw))
 }
