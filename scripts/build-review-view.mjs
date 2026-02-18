@@ -23,7 +23,7 @@ const enabledSourceIds = new Set(((configuredSources.length ? configuredSources 
   .filter((s) => s.enabled !== false)
   .map((s) => s.id))
 
-const DEFAULT_TARGET_SINCE_YEAR = Math.max(2024, new Date().getUTCFullYear() - 1)
+const DEFAULT_TARGET_SINCE_YEAR = Math.max(2023, new Date().getUTCFullYear() - 2)
 const TARGET_SINCE_YEAR = Math.max(2020, Number(process.env.REVIEW_TARGET_SINCE_YEAR || DEFAULT_TARGET_SINCE_YEAR))
 const REVIEW_INCLUDE_DECIDED = String(process.env.REVIEW_INCLUDE_DECIDED || '').trim() === '1'
 const targetSinceTs = Date.UTC(TARGET_SINCE_YEAR, 0, 1, 0, 0, 0)
@@ -147,6 +147,23 @@ const isReadableReviewText = (item) => {
 
 const normalizeReviewStatus = (item) => String(item?.status || '')
 
+const hasMeaningfulAnimalRelevance = (item) => {
+  const score = Number(item?.score || 0)
+  const keywords = Array.isArray(item?.matchedKeywords) ? item.matchedKeywords.filter(Boolean) : []
+  const reason = String(item?.reviewReason || '').toLowerCase()
+  const text = `${item?.title || ''}\n${item?.summary || ''}\n${item?.body || ''}`.toLowerCase()
+
+  const strongTextHit = CANTONAL_THEME_STRONG_KEYWORDS.some((kw) => text.includes(kw))
+    || MUNICIPAL_THEME_STRONG_KEYWORDS.some((kw) => text.includes(kw))
+
+  if (score >= 0.18) return true
+  if (keywords.length > 0) return true
+  if (reason.includes('anchor+score') || reason.includes('anchor2+support') || reason.includes('whitelist+theme')) return true
+  if (strongTextHit && !reason.includes('indirekten bzw. unklaren tierbezug')) return true
+
+  return false
+}
+
 const baseReviewItems = [...db.items]
   .filter((item) => enabledSourceIds.has(item.sourceId) || String(item.sourceId || '') === 'user-input')
   .filter((item) => {
@@ -167,6 +184,7 @@ const baseReviewItems = [...db.items]
   .filter((item) => isMunicipalTopicRelevant(item))
   .filter((item) => isCantonalReadableRelevant(item))
   .filter((item) => isReadableReviewText(item))
+  .filter((item) => hasMeaningfulAnimalRelevance(item))
   .filter((item) => isInTargetHorizon(item))
 
 const affairKey = (item) => {
