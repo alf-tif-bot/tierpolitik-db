@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+﻿import fs from 'node:fs'
 
 const dbPath = new URL('../data/crawler-db.json', import.meta.url)
 const outPath = new URL('../public/review.html', import.meta.url)
@@ -52,11 +52,11 @@ const isMunicipalOverviewNoise = (item) => {
   if (!sid.startsWith('ch-municipal-')) return false
   const t = String(item?.title || '').toLowerCase()
   const url = String(item?.meta?.sourceLink || item?.sourceUrl || '').toLowerCase()
-  return t.includes('übersichtsseite')
-    || t.includes('vorstösse und grsr-revisionen')
+  return t.includes('Ã¼bersichtsseite')
+    || t.includes('vorstÃ¶sse und grsr-revisionen')
     || t.includes('antworten auf kleine anfragen')
     || t.includes('erste beratung von jugendvorst')
-    || /^parlamentsgesch(ä|a)ft\s+municipal-/.test(t)
+    || /^parlamentsgesch(Ã¤|a)ft\s+municipal-/.test(t)
     || url.includes('vorstoesse-und-grsr-revisionen')
     || url.includes('antworten-auf-kleine-anfragen')
     || url.includes('suche-curia-vista/geschaeft?affairid=municipal')
@@ -68,11 +68,11 @@ const MUNICIPAL_THEME_STRONG_KEYWORDS = [
 ]
 
 const MUNICIPAL_THEME_CONTEXT_KEYWORDS = [
-  'biodivers', 'wald', 'siedlungsgebiet', 'landwirtschaftsgebiet', 'feuerwerk', 'lärm', 'laerm',
+  'biodivers', 'wald', 'siedlungsgebiet', 'landwirtschaftsgebiet', 'feuerwerk', 'lÃ¤rm', 'laerm',
 ]
 
 const CANTONAL_THEME_STRONG_KEYWORDS = [
-  'tier', 'tierschutz', 'tierwohl', 'tierhalteverbot', 'nutztier', 'masthuhn', 'geflügel', 'schlacht',
+  'tier', 'tierschutz', 'tierwohl', 'tierhalteverbot', 'nutztier', 'masthuhn', 'geflÃ¼gel', 'schlacht',
   'tierversuch', '3r', 'wildtier', 'jagd', 'zoo', 'tierpark', 'biodivers', 'artenschutz', 'wolf', 'fuchs',
 ]
 
@@ -84,14 +84,14 @@ const isCantonalReadableRelevant = (item) => {
   const text = `${title}\n${summary}\n${String(item?.body || '')}`.toLowerCase()
 
   const looksUnreadable =
-    /^parlamentsgesch(ä|a)ft\s+/i.test(title)
+    /^parlamentsgesch(Ã¤|a)ft\s+/i.test(title)
     || title.toLowerCase().includes('quell-adapter vorbereitet')
     || summary.includes('0 relevante linkziele erkannt')
     || summary.includes('verifying your browser')
 
   if (looksUnreadable) return false
 
-  // Drop synthetic canton summary rows like "SZ · Kantonsrat Schwyz: Jagd und Wildtiere"
+  // Drop synthetic canton summary rows like "SZ Â· Kantonsrat Schwyz: Jagd und Wildtiere"
   // until we have a concrete parliamentary business attached.
   const looksSyntheticCantonalHeadline = /^[A-Z]{2}(?:\s+|\s*[^\p{L}\p{N}]\s*)Kantonsrat\b.+:\s+.+/iu.test(title)
   const isCantonalSummaryId = /^cantonal-portal-[a-z]{2}$/i.test(String(item?.externalId || ''))
@@ -127,7 +127,7 @@ const isReadableReviewText = (item) => {
   if (!title || title.length < 8) return false
 
   const junkPatterns = [
-    /\bparlamentsgesch(ä|a)ft\s+municipal-/i,
+    /\bparlamentsgesch(Ã¤|a)ft\s+municipal-/i,
     /\bno\s+items\s+found\b/i,
     /\bsource\s+candidate\b/i,
     /\bquell-adapter\b/i,
@@ -136,7 +136,7 @@ const isReadableReviewText = (item) => {
   const combined = `${title}\n${summary}`
   if (junkPatterns.some((rx) => rx.test(combined))) return false
 
-  const replacementCount = (combined.match(/�/g) || []).length
+  const replacementCount = (combined.match(/ï¿½/g) || []).length
   if (replacementCount >= 3) return false
 
   return true
@@ -213,7 +213,7 @@ const affairKey = (item) => {
 
 const isGenericParliamentTitle = (value = '') => {
   const t = clean(value)
-  return /^parlamentsgesch(ä|a)ft\s+\d{6,}$/i.test(t)
+  return /^parlamentsgesch(Ã¤|a)ft\s+\d{6,}$/i.test(t)
     || /^affaire\s+parlementaire\s+\d{6,}$/i.test(t)
     || /^affare\s+parlamentare\s+\d{6,}$/i.test(t)
 }
@@ -249,6 +249,14 @@ const findReadableParliamentTitle = (item) => {
 
 const displayTitle = (item) => {
   const current = clean(item?.title || '')
+  const sid = String(item?.sourceId || '')
+
+  // For parliament entries, always prefer the best available DE title of the same affair.
+  if (sid.startsWith('ch-parliament-')) {
+    const dePreferred = findReadableParliamentTitle(item)
+    if (dePreferred) return dePreferred
+  }
+
   if (!isGenericParliamentTitle(current)) return current
   return findReadableParliamentTitle(item) || current
 }
@@ -454,37 +462,37 @@ const resolveOriginalUrl = (item) => {
 }
 
 const normalizeBrokenGerman = (text = '') => String(text || '')
-  .replaceAll('A�', ' · ')
-  .replaceAll('Ã¼', 'ü')
-  .replaceAll('Ã¶', 'ö')
-  .replaceAll('Ã¤', 'ä')
-  .replaceAll('Ãœ', 'Ü')
-  .replaceAll('Ã–', 'Ö')
-  .replaceAll('Ã„', 'Ä')
-  .replaceAll('â€¦', '…')
-  .replaceAll('â˜†', '☆')
-  .replaceAll('â˜…', '⭐')
-  .replaceAll('âš¡', '⚡')
-  .replace(/\bParlamentsgeschAft\b/g, 'Parlamentsgeschäft')
-  .replace(/\bGeschAfte\b/g, 'Geschäfte')
-  .replace(/\bGeschAft\b/g, 'Geschäft')
-  .replace(/\bEintrAge\b/g, 'Einträge')
-  .replace(/\bkAnnen\b/g, 'können')
-  .replace(/\bstandardmAssig\b/g, 'standardmässig')
-  .replace(/\bAffnen\b/g, 'Öffnen')
-  .replace(/\bPrioritAt\b/g, 'Priorität')
-  .replace(/\bfA�r\b/g, 'für')
-  .replace(/\bBiodiversitAt\b/g, 'Biodiversität')
-  .replace(/\bLebensrAume\b/g, 'Lebensräume')
-  .replace(/\bLebensraumfArderung\b/g, 'Lebensraumförderung')
-  .replace(/\bErnAhrung\b/g, 'Ernährung')
+  .replaceAll('Aï¿½', ' Â· ')
+  .replaceAll('ÃƒÂ¼', 'Ã¼')
+  .replaceAll('ÃƒÂ¶', 'Ã¶')
+  .replaceAll('ÃƒÂ¤', 'Ã¤')
+  .replaceAll('ÃƒÅ“', 'Ãœ')
+  .replaceAll('Ãƒâ€“', 'Ã–')
+  .replaceAll('Ãƒâ€ž', 'Ã„')
+  .replaceAll('Ã¢â‚¬Â¦', 'â€¦')
+  .replaceAll('Ã¢Ëœâ€ ', 'â˜†')
+  .replaceAll('Ã¢Ëœâ€¦', 'â­')
+  .replaceAll('Ã¢Å¡Â¡', 'âš¡')
+  .replace(/\bParlamentsgeschAft\b/g, 'ParlamentsgeschÃ¤ft')
+  .replace(/\bGeschAfte\b/g, 'GeschÃ¤fte')
+  .replace(/\bGeschAft\b/g, 'GeschÃ¤ft')
+  .replace(/\bEintrAge\b/g, 'EintrÃ¤ge')
+  .replace(/\bkAnnen\b/g, 'kÃ¶nnen')
+  .replace(/\bstandardmAssig\b/g, 'standardmÃ¤ssig')
+  .replace(/\bAffnen\b/g, 'Ã–ffnen')
+  .replace(/\bPrioritAt\b/g, 'PrioritÃ¤t')
+  .replace(/\bfAï¿½r\b/g, 'fÃ¼r')
+  .replace(/\bBiodiversitAt\b/g, 'BiodiversitÃ¤t')
+  .replace(/\bLebensrAume\b/g, 'LebensrÃ¤ume')
+  .replace(/\bLebensraumfArderung\b/g, 'LebensraumfÃ¶rderung')
+  .replace(/\bErnAhrung\b/g, 'ErnÃ¤hrung')
 
 const decodeMojibakeRaw = (value = '') => {
   let out = String(value || '')
-  if (/[ÃÂâ]/.test(out)) {
+  if (/[ÃƒÃ‚Ã¢]/.test(out)) {
     try {
       const decoded = Buffer.from(out, 'latin1').toString('utf8')
-      if (decoded && /[äöüÄÖÜéèàç…–—]/.test(decoded)) out = decoded
+      if (decoded && /[Ã¤Ã¶Ã¼Ã„Ã–ÃœÃ©Ã¨Ã Ã§â€¦â€“â€”]/.test(decoded)) out = decoded
     } catch {
       // keep original
     }
@@ -493,7 +501,7 @@ const decodeMojibakeRaw = (value = '') => {
 }
 
 const repairMojibake = (value = '') => decodeMojibakeRaw(value)
-  .replaceAll('�', '')
+  .replaceAll('ï¿½', '')
   .replace(/\s+/g, ' ')
   .trim()
 
@@ -506,7 +514,7 @@ const isGenericStatusSummary = (text = '') => {
     || low.includes('beratung in kommission')
     || low.includes('erledigt')
     || low.includes('fin des discussions en commission')
-    || /^parlamentsgesch(ä|a)ft\s+\d{6,}$/i.test(low)
+    || /^parlamentsgesch(Ã¤|a)ft\s+\d{6,}$/i.test(low)
     || /^affaire\s+parlementaire\s+\d{6,}$/i.test(low)
     || /^affare\s+parlamentare\s+\d{6,}$/i.test(low)
   )
@@ -517,9 +525,9 @@ const summarizeForReview = (item) => {
   const summary = clean(item.summary)
   const reason = String(item.reviewReason || '')
 
-  const stance = (reason.match(/stance=([^·]+)/)?.[1] || 'neutral/unklar').trim()
-  const anchor = (reason.match(/anchor=([^·]+)/)?.[1] || '').trim().replaceAll('|', ', ')
-  const support = (reason.match(/support=([^·]+)/)?.[1] || '').trim().replaceAll('|', ', ')
+  const stance = (reason.match(/stance=([^Â·]+)/)?.[1] || 'neutral/unklar').trim()
+  const anchor = (reason.match(/anchor=([^Â·]+)/)?.[1] || '').trim().replaceAll('|', ', ')
+  const support = (reason.match(/support=([^Â·]+)/)?.[1] || '').trim().replaceAll('|', ', ')
 
   if (summary && !isGenericStatusSummary(summary)) return summary
 
@@ -530,7 +538,7 @@ const summarizeForReview = (item) => {
       ? 'kann aus Tierschutzsicht kritisch sein'
       : 'hat einen indirekten bzw. unklaren Tierbezug'
 
-  return `Kurzfassung: Das Geschäft behandelt ${topicHint}. Einordnung: Es ${stanceLabel}.`
+  return `Kurzfassung: Das GeschÃ¤ft behandelt ${topicHint}. Einordnung: Es ${stanceLabel}.`
 }
 
 const humanizeReason = (reason = '') => {
@@ -542,17 +550,17 @@ const humanizeReason = (reason = '') => {
 
   const rule = (text.match(/\[(.*?)\]/)?.[1] || '').trim()
   const score = (text.match(/score=([0-9.]+)/)?.[1] || '').trim()
-  const stance = (text.match(/stance=([^·]+)/)?.[1] || '').trim()
-  const anchor = (text.match(/anchor=([^·]+)/)?.[1] || '').trim()
-  const support = (text.match(/support=([^·]+)/)?.[1] || '').trim()
-  const people = (text.match(/people=([^·]+)/)?.[1] || '').trim()
-  const noise = (text.match(/noise=([^·]+)/)?.[1] || '').trim()
+  const stance = (text.match(/stance=([^Â·]+)/)?.[1] || '').trim()
+  const anchor = (text.match(/anchor=([^Â·]+)/)?.[1] || '').trim()
+  const support = (text.match(/support=([^Â·]+)/)?.[1] || '').trim()
+  const people = (text.match(/people=([^Â·]+)/)?.[1] || '').trim()
+  const noise = (text.match(/noise=([^Â·]+)/)?.[1] || '').trim()
 
   const ruleMap = {
-    'anchor+score': 'Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)',
-    'anchor2+support': 'Mehrere starke Tier-Begriffe mit zusätzlichem Kontext',
+    'anchor+score': 'Klare Tier-Relevanz (SchlÃ¼sselbegriffe + Score erfÃ¼llt)',
+    'anchor2+support': 'Mehrere starke Tier-Begriffe mit zusÃ¤tzlichem Kontext',
     'whitelist+theme': 'Thematisch relevant und von priorisiertem Parlamentsprofil',
-    'missing-anchor': 'Keine klaren Tier-Schlüsselbegriffe gefunden',
+    'missing-anchor': 'Keine klaren Tier-SchlÃ¼sselbegriffe gefunden',
     'below-threshold': 'Tierbezug vorhanden, aber Relevanz aktuell zu schwach',
   }
 
@@ -573,7 +581,7 @@ const humanizeReason = (reason = '') => {
   if (anchorList.length) parts.push(`<div><strong>Tier-Begriffe:</strong> ${esc(anchorList.join(', '))}</div>`)
   if (supportList.length) parts.push(`<div><strong>Kontext:</strong> ${esc(supportList.join(', '))}</div>`)
   if (peopleList.length) parts.push(`<div><strong>Priorisierte Profile:</strong> ${esc(peopleList.join(', '))}</div>`)
-  if (noise && noise !== '-') parts.push(`<div><strong>Störsignale:</strong> ${esc(noise.replaceAll('|', ', '))}</div>`)
+  if (noise && noise !== '-') parts.push(`<div><strong>StÃ¶rsignale:</strong> ${esc(noise.replaceAll('|', ', '))}</div>`)
   if (score) parts.push(`<div><strong>Score:</strong> ${esc(score)}</div>`)
 
   return parts.length ? parts.join('') : esc(text)
@@ -599,7 +607,7 @@ const fastLaneRows = fastLaneItems.map((item) => {
     <div class="fastlane-actions">
       <button onclick="setDecision(this,'${esc(id)}','approved')">Gutheissen</button>
       <button onclick="setDecision(this,'${esc(id)}','rejected')">Ablehnen</button>
-      <button class="tag-btn" data-tag-btn="${esc(id)}" onclick="toggleFastlaneTag(this,'${esc(id)}')">${isTaggedFastlane ? '⭐ Fastlane' : '☆ Fastlane'}</button>
+      <button class="tag-btn" data-tag-btn="${esc(id)}" onclick="toggleFastlaneTag(this,'${esc(id)}')">${isTaggedFastlane ? 'â­ Fastlane' : 'â˜† Fastlane'}</button>
       <a class="orig-link" href="${esc(resolveOriginalUrl(item) || '#')}" target="_blank" rel="noopener noreferrer">Original</a>
     </div>
   </div>`
@@ -631,8 +639,8 @@ const rows = reviewItems.map((item) => {
   const sourceUrl = resolveOriginalUrl(item)
   const isTaggedFastlane = Boolean(fastlaneTags[id]?.fastlane)
   const originalLink = sourceUrl
-    ? `<a class="orig-link" href="${esc(sourceUrl)}" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>`
-    : '<span class="muted">kein gültiger Link</span>'
+    ? `<a class="orig-link" href="${esc(sourceUrl)}" target="_blank" rel="noopener noreferrer">Original-Vorstoss Ã¶ffnen</a>`
+    : '<span class="muted">kein gÃ¼ltiger Link</span>'
 
   return `
 <tr data-id="${esc(id)}" data-status="${esc(displayStatus)}" data-fastlane-tagged="${isTaggedFastlane ? '1' : '0'}" class="${fastLane ? 'row-fastlane' : ''}">
@@ -646,14 +654,14 @@ const rows = reviewItems.map((item) => {
   <div>${sourceLabel}</div>
   <small class="muted">${esc(item.sourceId)}</small>
 </td>
-<td>${scoreValue.toFixed(2)}<br><small class="muted">Priorität: ${priorityLabel}</small>${fastLane ? '<br><small class="fast-lane">⚡ Sehr wahrscheinlich relevant</small>' : ''}${isTaggedFastlane ? '<br><small class="fast-lane">⭐ von dir als Fastlane markiert</small>' : ''}</td>
+<td>${scoreValue.toFixed(2)}<br><small class="muted">PrioritÃ¤t: ${priorityLabel}</small>${fastLane ? '<br><small class="fast-lane">âš¡ Sehr wahrscheinlich relevant</small>' : ''}${isTaggedFastlane ? '<br><small class="fast-lane">â­ von dir als Fastlane markiert</small>' : ''}</td>
 <td>${esc(keywords.join(', '))}</td>
 <td>${esc(statusLabel)} (${pendingBadge})</td>
 <td><small>${humanizeReason(item.reviewReason || '-')}</small></td>
 <td>
 <button onclick="setDecision(this,'${esc(id)}','approved')">Gutheissen</button>
 <button onclick="setDecision(this,'${esc(id)}','rejected')">Ablehnen</button>
-<button class="tag-btn" data-tag-btn="${esc(id)}" onclick="toggleFastlaneTag(this,'${esc(id)}')">${isTaggedFastlane ? '⭐ Fastlane' : '☆ Fastlane'}</button>
+<button class="tag-btn" data-tag-btn="${esc(id)}" onclick="toggleFastlaneTag(this,'${esc(id)}')">${isTaggedFastlane ? 'â­ Fastlane' : 'â˜† Fastlane'}</button>
 </td>
 </tr>`
 }).join('')
@@ -703,13 +711,13 @@ const html = `<!doctype html>
 <body>
   <main class="wrap">
     <h1>Review-Ansicht</h1>
-    <p>Es werden standardmässig nur <strong>offene</strong> relevante Einträge gezeigt (queued/new). Bereits bearbeitete Einträge bleiben ausgeblendet und können bei Bedarf über den Button eingeblendet werden. Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB übernommen.</p>
+    <p>Es werden standardmÃ¤ssig nur <strong>offene</strong> relevante EintrÃ¤ge gezeigt (queued/new). Bereits bearbeitete EintrÃ¤ge bleiben ausgeblendet und kÃ¶nnen bei Bedarf Ã¼ber den Button eingeblendet werden. Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB Ã¼bernommen.</p>
     <p class="status" id="status-summary">Status-Summen (sichtbar): offen=0, gutgeheissen=0, publiziert=0</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
     <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="toggleDecided()" id="toggle-decided">Bereits bearbeitete anzeigen</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
     ${fastLaneRows ? `<section class="fastlane-wrap">
-      <h2>⚡ Fast-Lane</h2>
+      <h2>âš¡ Fast-Lane</h2>
       <div class="fastlane-grid">${fastLaneRows}</div>
     </section>` : ''}
     <table>
@@ -725,7 +733,7 @@ const html = `<!doctype html>
           <th>Aktion</th>
         </tr>
       </thead>
-      <tbody>${rows || '<tr><td colspan="8">Keine Einträge.</td></tr>'}</tbody>
+      <tbody>${rows || '<tr><td colspan="8">Keine EintrÃ¤ge.</td></tr>'}</tbody>
     </table>
   </main>
 <script>
@@ -761,7 +769,7 @@ function updateStatusSummary(){
   const el = document.getElementById('status-summary')
   if (el) {
     el.textContent = 'Status-Summen (sichtbar): offen=' + stats.offen + ', gutgeheissen=' + stats.gutheissen + ', publiziert=' + stats.publiziert
-    if (visibleRows === 0) el.textContent += ' · keine offenen Einträge'
+    if (visibleRows === 0) el.textContent += ' Â· keine offenen EintrÃ¤ge'
   }
 }
 
@@ -814,7 +822,7 @@ function renderFastlaneTagButton(id){
   const tags = readFastlaneTags();
   const isTagged = Boolean(tags[id]?.fastlane);
   document.querySelectorAll('[data-tag-btn="' + id + '"]').forEach((btn)=>{
-    btn.textContent = isTagged ? '⭐ Fastlane' : '☆ Fastlane';
+    btn.textContent = isTagged ? 'â­ Fastlane' : 'â˜† Fastlane';
   });
 }
 
@@ -860,6 +868,7 @@ async function setDecision(btn,id,status){
 
   if (btn) btn.disabled = true;
 
+  let serverOk = false;
   try {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 10000);
@@ -877,13 +886,9 @@ async function setDecision(btn,id,status){
       const txt = await res.text();
       throw new Error(txt || 'Decision API failed');
     }
+    serverOk = true;
   } catch(err) {
-    const msg = String(err?.message || err || 'unbekannter Fehler').slice(0, 220)
-    if (statusEl) statusEl.textContent = 'Fehler beim Speichern: ' + msg;
-    alert('Konnte Entscheidung nicht serverseitig speichern.\\n' + msg);
-    console.error(err);
-    if (btn) btn.disabled = false;
-    return;
+    console.warn('Review decision API unavailable, using local fallback', err);
   }
 
   const s=read();
@@ -900,9 +905,14 @@ async function setDecision(btn,id,status){
   const card = document.querySelector('.fastlane-card[data-id="' + id + '"]');
   if (card) card.style.display = 'none'
   updateStatusSummary();
-  if (statusEl) statusEl.textContent = 'Entscheidung gespeichert.';
-}
 
+  if (statusEl) {
+    statusEl.textContent = serverOk
+      ? 'Entscheidung gespeichert.'
+      : 'Entscheidung lokal gespeichert (Server nicht erreichbar).';
+  }
+  if (btn) btn.disabled = false;
+}
 function exportDecisions(){
   const blob=new Blob([JSON.stringify(read(),null,2)],{type:'application/json'});
   const a=document.createElement('a');
@@ -929,3 +939,4 @@ fs.writeFileSync(reviewDataPath, JSON.stringify({
   ids: reviewItems.map((item) => `${item.sourceId}:${item.externalId}`),
 }, null, 2))
 console.log(`Review-Ansicht gebaut: ${outPath.pathname} + ${outPathIndex.pathname} (${reviewItems.length} Eintraege)`)
+
