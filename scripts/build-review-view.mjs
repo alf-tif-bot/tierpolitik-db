@@ -2,6 +2,7 @@ import fs from 'node:fs'
 
 const dbPath = new URL('../data/crawler-db.json', import.meta.url)
 const outPath = new URL('../public/review.html', import.meta.url)
+const outPathIndex = new URL('../public/review/index.html', import.meta.url)
 const reviewDataPath = new URL('../data/review-items.json', import.meta.url)
 const decisionsPath = new URL('../data/review-decisions.json', import.meta.url)
 const fastlaneTagsPath = new URL('../data/review-fastlane-tags.json', import.meta.url)
@@ -261,7 +262,27 @@ const resolveOriginalUrl = (item) => {
   return ''
 }
 
-const clean = (v = '') => String(v).replace(/\s+/g, ' ').trim()
+const repairMojibake = (value = '') => {
+  const raw = String(value || '')
+  let out = raw
+
+  // Häufiger Fall: UTF-8 wurde als Latin-1 interpretiert (Ã¤, Ã¶, Ã¼, â€¦ usw.)
+  if (/[ÃÂâ]/.test(out)) {
+    try {
+      const decoded = Buffer.from(out, 'latin1').toString('utf8')
+      if (decoded && /[äöüÄÖÜéèàç…–—]/.test(decoded)) out = decoded
+    } catch {
+      // keep original
+    }
+  }
+
+  return out
+    .replaceAll('�', '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+const clean = (v = '') => repairMojibake(v)
 
 const isGenericStatusSummary = (text = '') => {
   const low = clean(text).toLowerCase()
@@ -296,7 +317,7 @@ const summarizeForReview = (item) => {
 
 const humanizeReason = (reason = '') => {
   if (!reason) return '-'
-  const text = String(reason)
+  const text = clean(reason)
 
   const rule = (text.match(/\[(.*?)\]/)?.[1] || '').trim()
   const score = (text.match(/score=([0-9.]+)/)?.[1] || '').trim()
@@ -314,7 +335,7 @@ const humanizeReason = (reason = '') => {
     'below-threshold': 'Tierbezug vorhanden, aber Relevanz aktuell zu schwach',
   }
 
-  const toList = (v) => v && v !== '-' ? v.split('|').map((x) => x.trim()).filter(Boolean) : []
+  const toList = (v) => v && v !== '-' ? v.split('|').map((x) => clean(x)).filter(Boolean) : []
   const anchorList = toList(anchor)
   const supportList = toList(support).filter((x) => !anchorList.includes(x))
   const peopleList = toList(people)
@@ -348,9 +369,10 @@ const fastLaneRows = fastLaneItems.map((item) => {
   const id = `${item.sourceId}:${item.externalId}`
   const scoreValue = Number(item.score || 0)
   const isTaggedFastlane = Boolean(fastlaneTags[id]?.fastlane)
+  const title = clean(item.title)
   return `<div class="fastlane-card" data-id="${esc(id)}" data-fastlane-tagged="${isTaggedFastlane ? '1' : '0'}">
     <div class="fastlane-head">
-      <strong>${esc(item.title)}</strong>
+      <strong>${esc(title)}</strong>
       <span class="fastlane-score">${scoreValue.toFixed(2)}</span>
     </div>
     <div class="fastlane-actions">
@@ -368,9 +390,12 @@ const rows = reviewItems.map((item) => {
   const displayStatus = normalizeReviewStatus(item)
   const isPending = displayStatus === 'queued' || displayStatus === 'new'
   const pendingBadge = isPending ? '<strong class="pending">offen</strong>' : '<span class="historic">historisch</span>'
-  const sourceLabel = esc(sourceMap.get(item.sourceId) || item.sourceId)
+  const sourceLabel = esc(clean(sourceMap.get(item.sourceId) || item.sourceId))
   const entryType = item.sourceId === 'user-input' || item.sourceId === 'user-feedback' ? 'User-Feedback' : 'Crawler'
   const scoreValue = Number(item.score || 0)
+  const title = clean(item.title)
+  const summary = clean(summarizeForReview(item))
+  const keywords = (item.matchedKeywords || []).map((k) => clean(k)).filter(Boolean)
   const priorityLabel = fastLane ? 'fast-lane' : (scoreValue >= 0.8 ? 'hoch' : scoreValue >= 0.55 ? 'mittel' : 'niedriger')
   const sourceUrl = resolveOriginalUrl(item)
   const isTaggedFastlane = Boolean(fastlaneTags[id]?.fastlane)
@@ -381,8 +406,8 @@ const rows = reviewItems.map((item) => {
   return `
 <tr data-id="${esc(id)}" data-status="${esc(displayStatus)}" data-fastlane-tagged="${isTaggedFastlane ? '1' : '0'}" class="${fastLane ? 'row-fastlane' : ''}">
 <td>
-  <strong>${esc(item.title)}</strong><br>
-  <small>${esc(summarizeForReview(item))}</small><br>
+  <strong>${esc(title)}</strong><br>
+  <small>${esc(summary)}</small><br>
   ${originalLink}
 </td>
 <td>${entryType}</td>
@@ -391,7 +416,7 @@ const rows = reviewItems.map((item) => {
   <small class="muted">${esc(item.sourceId)}</small>
 </td>
 <td>${scoreValue.toFixed(2)}<br><small class="muted">Priorität: ${priorityLabel}</small>${fastLane ? '<br><small class="fast-lane">⚡ Sehr wahrscheinlich relevant</small>' : ''}${isTaggedFastlane ? '<br><small class="fast-lane">⭐ von dir als Fastlane markiert</small>' : ''}</td>
-<td>${esc((item.matchedKeywords || []).join(', '))}</td>
+<td>${esc(keywords.join(', '))}</td>
 <td>${esc(displayStatus)} (${pendingBadge})</td>
 <td><small>${humanizeReason(item.reviewReason || '-')}</small></td>
 <td>
@@ -661,9 +686,11 @@ hideDecidedRows();
 </html>`
 
 fs.writeFileSync(outPath, html)
+fs.mkdirSync(new URL('../public/review/', import.meta.url), { recursive: true })
+fs.writeFileSync(outPathIndex, html)
 fs.writeFileSync(reviewDataPath, JSON.stringify({
   generatedAt: new Date().toISOString(),
   total: reviewItems.length,
   ids: reviewItems.map((item) => `${item.sourceId}:${item.externalId}`),
 }, null, 2))
-console.log(`Review-Ansicht gebaut: ${outPath.pathname} (${reviewItems.length} Eintraege)`)
+console.log(`Review-Ansicht gebaut: ${outPath.pathname} + ${outPathIndex.pathname} (${reviewItems.length} Eintraege)`)
