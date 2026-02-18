@@ -622,7 +622,11 @@ const reviewStatusLabel = (status = '') => {
   return s || '-'
 }
 
-const rows = reviewItems.map((item) => {
+const fastLaneIdSet = new Set(fastLaneItems.map((item) => `${item.sourceId}:${item.externalId}`))
+
+const rows = reviewItems
+  .filter((item) => !fastLaneIdSet.has(`${item.sourceId}:${item.externalId}`))
+  .map((item) => {
   const fastLane = isHighConfidenceReview(item)
   const id = `${item.sourceId}:${item.externalId}`
   const displayStatus = normalizeReviewStatus(item)
