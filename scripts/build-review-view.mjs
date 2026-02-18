@@ -33,6 +33,18 @@ const isInTargetHorizon = (item) => {
   return ts >= targetSinceTs
 }
 
+const isLikelyDeadPlaceholderUrl = (value = '') => {
+  try {
+    const u = new URL(String(value || '').trim())
+    const host = u.hostname.toLowerCase()
+    if (!(u.protocol === 'http:' || u.protocol === 'https:')) return true
+    if (['example.org', 'example.com', 'example.net', 'localhost', '127.0.0.1'].includes(host)) return true
+    return false
+  } catch {
+    return true
+  }
+}
+
 const isMunicipalOverviewNoise = (item) => {
   const sid = String(item?.sourceId || '')
   if (!sid.startsWith('ch-municipal-')) return false
@@ -99,6 +111,11 @@ const baseReviewItems = [...db.items]
   .filter((item) => {
     const sid = String(item.sourceId || '')
     return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-') || sid === 'user-input'
+  })
+  .filter((item) => {
+    const sid = String(item.sourceId || '')
+    if (sid !== 'user-input' && sid !== 'user-feedback') return true
+    return !isLikelyDeadPlaceholderUrl(item?.sourceUrl)
   })
   .filter((item) => ['new', 'queued', 'approved', 'published'].includes(normalizeReviewStatus(item)))
   .filter((item) => !isMunicipalOverviewNoise(item))
@@ -250,7 +267,11 @@ const isValidHttpUrl = (value = '') => {
 }
 
 const resolveOriginalUrl = (item) => {
-  if (isValidHttpUrl(item.sourceUrl)) return item.sourceUrl
+  const direct = String(item?.sourceUrl || '')
+  const metaLink = String(item?.meta?.sourceLink || item?.meta?.url || '')
+
+  if (isValidHttpUrl(direct) && !isLikelyDeadPlaceholderUrl(direct)) return direct
+  if (isValidHttpUrl(metaLink) && !isLikelyDeadPlaceholderUrl(metaLink)) return metaLink
 
   if (item.sourceId?.startsWith('ch-parliament-business-')) {
     const affairId = String(item.externalId || '').split('-')[0]
