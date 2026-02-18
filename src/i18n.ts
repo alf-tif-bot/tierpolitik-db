@@ -449,7 +449,7 @@ export function canonicalStatus(status: string): keyof typeof statusLabels {
   if (s.includes('abgelehnt') || s.includes('rejet')) return 'Abgelehnt'
   if (s.includes('angenommen') || s.includes('accept')) return 'Angenommen'
   if (s.includes('uberwiesen an den bundesrat') || s.includes('ueberwiesen an den bundesrat')) return 'Angenommen'
-  if (s.includes('eingereicht') || s.includes('depose') || s.includes('presentato') || s.includes('submitted')) return 'Eingereicht'
+  if (s.includes('eingereicht') || s.includes('depose') || s.includes('presentato') || s.includes('submitted')) return 'In Beratung'
   if (
     s.includes('in beratung') ||
     s.includes('beratung') ||
