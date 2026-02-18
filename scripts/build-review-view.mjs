@@ -128,9 +128,6 @@ const isReadableReviewText = (item) => {
 
   const junkPatterns = [
     /\bparlamentsgesch(ä|a)ft\s+municipal-/i,
-    /^\s*parlamentsgesch(ä|a)ft\s+\d{6,}\s*$/i,
-    /^\s*affaire\s+parlementaire\s+\d{6,}\s*$/i,
-    /^\s*affare\s+parlamentare\s+\d{6,}\s*$/i,
     /\bno\s+items\s+found\b/i,
     /\bsource\s+candidate\b/i,
     /\bquell-adapter\b/i,
@@ -192,6 +189,48 @@ const affairKey = (item) => {
   const external = String(item.externalId || '')
   if (sid.startsWith('ch-parliament-')) return external.split('-')[0] || `${sid}:${external}`
   return `${sid}:${external}`
+}
+
+const isGenericParliamentTitle = (value = '') => {
+  const t = clean(value)
+  return /^parlamentsgesch(ä|a)ft\s+\d{6,}$/i.test(t)
+    || /^affaire\s+parlementaire\s+\d{6,}$/i.test(t)
+    || /^affare\s+parlamentare\s+\d{6,}$/i.test(t)
+}
+
+const relatedParliamentItems = new Map()
+for (const item of (db.items || [])) {
+  const sid = String(item?.sourceId || '')
+  if (!sid.startsWith('ch-parliament-')) continue
+  const key = String(item?.externalId || '').split('-')[0]
+  if (!key) continue
+  const list = relatedParliamentItems.get(key) || []
+  list.push(item)
+  relatedParliamentItems.set(key, list)
+}
+
+const findReadableParliamentTitle = (item) => {
+  const sid = String(item?.sourceId || '')
+  if (!sid.startsWith('ch-parliament-')) return ''
+  const key = String(item?.externalId || '').split('-')[0]
+  const related = relatedParliamentItems.get(key) || []
+
+  const candidate = related
+    .filter((x) => !isGenericParliamentTitle(x?.title || ''))
+    .sort((a, b) => {
+      const aLang = langRank(a)
+      const bLang = langRank(b)
+      if (aLang !== bLang) return aLang - bLang
+      return Number(b?.score || 0) - Number(a?.score || 0)
+    })[0]
+
+  return candidate ? clean(candidate.title) : ''
+}
+
+const displayTitle = (item) => {
+  const current = clean(item?.title || '')
+  if (!isGenericParliamentTitle(current)) return current
+  return findReadableParliamentTitle(item) || current
 }
 const entryKey = (item) => `${item.sourceId}:${item.externalId}`
 const decidedEntryKeys = new Set(Object.keys(localDecisions || {}))
@@ -447,11 +486,14 @@ const isGenericStatusSummary = (text = '') => {
     || low.includes('beratung in kommission')
     || low.includes('erledigt')
     || low.includes('fin des discussions en commission')
+    || /^parlamentsgesch(ä|a)ft\s+\d{6,}$/i.test(low)
+    || /^affaire\s+parlementaire\s+\d{6,}$/i.test(low)
+    || /^affare\s+parlamentare\s+\d{6,}$/i.test(low)
   )
 }
 
 const summarizeForReview = (item) => {
-  const title = clean(item.title)
+  const title = displayTitle(item)
   const summary = clean(item.summary)
   const reason = String(item.reviewReason || '')
 
@@ -528,7 +570,7 @@ const fastLaneRows = fastLaneItems.map((item) => {
   const id = `${item.sourceId}:${item.externalId}`
   const scoreValue = Number(item.score || 0)
   const isTaggedFastlane = Boolean(fastlaneTags[id]?.fastlane)
-  const title = clean(item.title)
+  const title = displayTitle(item)
   return `<div class="fastlane-card" data-id="${esc(id)}" data-fastlane-tagged="${isTaggedFastlane ? '1' : '0'}">
     <div class="fastlane-head">
       <strong>${esc(title)}</strong>
@@ -562,7 +604,7 @@ const rows = reviewItems.map((item) => {
   const sourceLabel = esc(clean(sourceMap.get(item.sourceId) || item.sourceId))
   const entryType = item.sourceId === 'user-input' || item.sourceId === 'user-feedback' ? 'User-Feedback' : 'Crawler'
   const scoreValue = Number(item.score || 0)
-  const title = clean(item.title)
+  const title = displayTitle(item)
   const summary = clean(summarizeForReview(item))
   const keywords = (item.matchedKeywords || []).map((k) => clean(k)).filter(Boolean)
   const priorityLabel = fastLane ? 'fast-lane' : (scoreValue >= 0.8 ? 'hoch' : scoreValue >= 0.55 ? 'mittel' : 'niedriger')
