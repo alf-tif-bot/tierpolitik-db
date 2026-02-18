@@ -70,23 +70,24 @@ export default function App() {
   const visibleData = useMemo(() => data.filter((v) => !hiddenIds.has(v.id)), [data, hiddenIds])
   const filtered = useMemo(() => applyFilters(visibleData, filters), [visibleData, filters])
   const monitorStats = useMemo(() => {
-    const total = visibleData.length
+    // Footer stats should reflect full monitor coverage, not session-local hidden rows.
+    const total = data.length
     const cantons = new Set(
-      visibleData
+      data
         .filter((v) => v.ebene === 'Kanton' || /^[A-Z]{2}$/.test(String(v.kanton || '').trim()))
         .map((v) => String(v.kanton || '').trim())
         .filter((v) => /^[A-Z]{2}$/.test(v)),
     ).size
 
     const cities = new Set(
-      visibleData
+      data
         .filter((v) => v.ebene === 'Gemeinde' || String(v.regionGemeinde || '').trim().length > 0)
         .map((v) => String(v.regionGemeinde || '').trim())
         .filter(Boolean),
     ).size
 
     return { total, cantons, cities }
-  }, [visibleData])
+  }, [data])
 
   useEffect(() => {
     const loadLive = async () => {
