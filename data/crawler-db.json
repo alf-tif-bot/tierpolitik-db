@@ -27177,7 +27177,7 @@
         "agricoltura"
       ],
       "status": "approved",
-      "reviewReason": "Review-Entscheid (approved)"
+      "reviewReason": "manual-approved-persist"
     },
     {
       "sourceId": "ch-parliament-business-de",
@@ -27347,7 +27347,7 @@
         "agricoltura"
       ],
       "status": "approved",
-      "reviewReason": "Review-Entscheid (approved)"
+      "reviewReason": "manual-approved-persist"
     },
     {
       "sourceId": "ch-parliament-business-fr",
@@ -27517,7 +27517,7 @@
         "agricoltura"
       ],
       "status": "approved",
-      "reviewReason": "Review-Entscheid (approved)"
+      "reviewReason": "manual-approved-persist"
     },
     {
       "sourceId": "ch-parliament-business-it",
