@@ -80,5 +80,5 @@ async function syncFastlaneTagsFromDb() {
 
 const synced = await syncReviewDecisionsFromDb()
 const syncedFastlaneTags = await syncFastlaneTagsFromDb()
-const result = runRelevanceFilter({ minScore: 0.18, fallbackMin: 0 })
+const result = runRelevanceFilter({ minScore: 0.16, fallbackMin: 20 })
 console.log('Relevanz-Filter OK', { ...result, syncedReviewDecisions: synced, syncedFastlaneTags })

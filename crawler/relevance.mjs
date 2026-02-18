@@ -469,16 +469,23 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
 
   const enabledItems = db.items.filter((item) => enabledSourceIds.has(item.sourceId) && !item?.meta?.scaffold)
 
-  if (relevantCount === 0 && enabledItems.length > 0) {
+  if (fallbackMin > 0 && relevantCount < fallbackMin && enabledItems.length > 0) {
+    const needed = fallbackMin - relevantCount
     const fallback = [...enabledItems]
+      .filter((item) => !isCantonalOrMunicipalPlaceholder(item))
+      .filter((item) => {
+        const decision = decisions[`${item.sourceId}:${item.externalId}`]?.status
+        return !['approved', 'published', 'rejected'].includes(String(decision || ''))
+      })
+      .filter((item) => item.status !== 'queued')
       .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
-      .slice(0, fallbackMin)
+      .slice(0, needed)
 
     for (const item of fallback) {
       item.status = 'queued'
-      item.reviewReason = `${item.reviewReason} · fallback=on`
+      item.reviewReason = `${item.reviewReason} · fallback=pool-fill`
     }
-    relevantCount = fallback.length
+    relevantCount += fallback.length
   }
 
   saveDb(db)
