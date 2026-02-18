@@ -266,12 +266,23 @@ const isValidHttpUrl = (value = '') => {
   }
 }
 
+const pickMetaExtractedUrl = (item) => {
+  const links = Array.isArray(item?.meta?.extractedLinks) ? item.meta.extractedLinks : []
+  const candidates = links
+    .map((l) => String(l?.href || '').trim())
+    .filter((u) => isValidHttpUrl(u) && !isLikelyDeadPlaceholderUrl(u))
+  if (!candidates.length) return ''
+  return candidates.find((u) => /geschaefte|geschaeft|ratsinfomanagement|sitzungsdienst|protokolle|traktanden/i.test(u)) || candidates[0]
+}
+
 const resolveOriginalUrl = (item) => {
   const direct = String(item?.sourceUrl || '')
   const metaLink = String(item?.meta?.sourceLink || item?.meta?.url || '')
+  const metaExtracted = pickMetaExtractedUrl(item)
 
   if (isValidHttpUrl(direct) && !isLikelyDeadPlaceholderUrl(direct)) return direct
   if (isValidHttpUrl(metaLink) && !isLikelyDeadPlaceholderUrl(metaLink)) return metaLink
+  if (metaExtracted) return metaExtracted
 
   if (item.sourceId?.startsWith('ch-parliament-business-')) {
     const affairId = String(item.externalId || '').split('-')[0]
@@ -283,11 +294,34 @@ const resolveOriginalUrl = (item) => {
   return ''
 }
 
-const repairMojibake = (value = '') => {
-  const raw = String(value || '')
-  let out = raw
+const normalizeBrokenGerman = (text = '') => String(text || '')
+  .replaceAll('A�', ' · ')
+  .replaceAll('Ã¼', 'ü')
+  .replaceAll('Ã¶', 'ö')
+  .replaceAll('Ã¤', 'ä')
+  .replaceAll('Ãœ', 'Ü')
+  .replaceAll('Ã–', 'Ö')
+  .replaceAll('Ã„', 'Ä')
+  .replaceAll('â€¦', '…')
+  .replaceAll('â˜†', '☆')
+  .replaceAll('â˜…', '⭐')
+  .replaceAll('âš¡', '⚡')
+  .replace(/\bParlamentsgeschAft\b/g, 'Parlamentsgeschäft')
+  .replace(/\bGeschAfte\b/g, 'Geschäfte')
+  .replace(/\bGeschAft\b/g, 'Geschäft')
+  .replace(/\bEintrAge\b/g, 'Einträge')
+  .replace(/\bkAnnen\b/g, 'können')
+  .replace(/\bstandardmAssig\b/g, 'standardmässig')
+  .replace(/\bAffnen\b/g, 'Öffnen')
+  .replace(/\bPrioritAt\b/g, 'Priorität')
+  .replace(/\bfA�r\b/g, 'für')
+  .replace(/\bBiodiversitAt\b/g, 'Biodiversität')
+  .replace(/\bLebensrAume\b/g, 'Lebensräume')
+  .replace(/\bLebensraumfArderung\b/g, 'Lebensraumförderung')
+  .replace(/\bErnAhrung\b/g, 'Ernährung')
 
-  // Häufiger Fall: UTF-8 wurde als Latin-1 interpretiert (Ã¤, Ã¶, Ã¼, â€¦ usw.)
+const decodeMojibakeRaw = (value = '') => {
+  let out = String(value || '')
   if (/[ÃÂâ]/.test(out)) {
     try {
       const decoded = Buffer.from(out, 'latin1').toString('utf8')
@@ -296,12 +330,13 @@ const repairMojibake = (value = '') => {
       // keep original
     }
   }
-
-  return out
-    .replaceAll('�', '')
-    .replace(/\s+/g, ' ')
-    .trim()
+  return normalizeBrokenGerman(out)
 }
+
+const repairMojibake = (value = '') => decodeMojibakeRaw(value)
+  .replaceAll('�', '')
+  .replace(/\s+/g, ' ')
+  .trim()
 
 const clean = (v = '') => repairMojibake(v)
 
@@ -706,9 +741,11 @@ hideDecidedRows();
 </body>
 </html>`
 
-fs.writeFileSync(outPath, html)
+const renderedHtml = decodeMojibakeRaw(normalizeBrokenGerman(html))
+
+fs.writeFileSync(outPath, renderedHtml)
 fs.mkdirSync(new URL('../public/review/', import.meta.url), { recursive: true })
-fs.writeFileSync(outPathIndex, html)
+fs.writeFileSync(outPathIndex, renderedHtml)
 fs.writeFileSync(reviewDataPath, JSON.stringify({
   generatedAt: new Date().toISOString(),
   total: reviewItems.length,

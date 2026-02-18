@@ -1,0 +1,10 @@
+# Ensure UTF-8 for all text-like responses to avoid mojibake on hosts with latin1 defaults
+AddDefaultCharset UTF-8
+
+<IfModule mod_mime.c>
+  AddCharset UTF-8 .html .htm .css .js .json .txt .xml .svg
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+</IfModule>
