@@ -4,6 +4,7 @@ const dbPath = new URL('../data/crawler-db.json', import.meta.url)
 const outPath = new URL('../public/review.html', import.meta.url)
 const outPathIndex = new URL('../public/review/index.html', import.meta.url)
 const reviewDataPath = new URL('../data/review-items.json', import.meta.url)
+const reviewCandidatesPath = new URL('../data/review-candidates.json', import.meta.url)
 const decisionsPath = new URL('../data/review-decisions.json', import.meta.url)
 const fastlaneTagsPath = new URL('../data/review-fastlane-tags.json', import.meta.url)
 const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
@@ -974,10 +975,32 @@ const renderedHtml = normalizeBrokenGerman(html)
 fs.writeFileSync(outPath, renderedHtml)
 fs.mkdirSync(new URL('../public/review/', import.meta.url), { recursive: true })
 fs.writeFileSync(outPathIndex, renderedHtml)
+const generatedAt = new Date().toISOString()
+
 fs.writeFileSync(reviewDataPath, JSON.stringify({
-  generatedAt: new Date().toISOString(),
+  generatedAt,
   total: reviewItems.length,
   ids: reviewItems.map((item) => `${item.sourceId}:${item.externalId}`),
 }, null, 2))
+
+fs.writeFileSync(reviewCandidatesPath, JSON.stringify({
+  generatedAt,
+  total: reviewItems.length,
+  items: reviewItems.map((item) => ({
+    id: `${item.sourceId}:${item.externalId}`,
+    sourceId: item.sourceId,
+    externalId: item.externalId,
+    title: displayTitle(item),
+    summary: clean(summarizeForReview(item)),
+    score: Number(item.score || 0),
+    status: normalizeReviewStatus(item),
+    sourceUrl: resolveOriginalUrl(item),
+    publishedAt: item.publishedAt || null,
+    fetchedAt: item.fetchedAt || null,
+    matchedKeywords: Array.isArray(item.matchedKeywords) ? item.matchedKeywords : [],
+    reviewReason: clean(item.reviewReason || ''),
+  })),
+}, null, 2))
+
 console.log(`Review-Ansicht gebaut: ${outPath.pathname} + ${outPathIndex.pathname} (${reviewItems.length} Eintraege)`)
 

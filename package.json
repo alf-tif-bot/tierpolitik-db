@@ -24,13 +24,14 @@
     "check:review-regressions:fix": "node scripts/check-review-regressions.mjs --fix-decisions",
     "check:review-regressions:prune-legacy": "node scripts/check-review-regressions.mjs --prune-legacy-decisions",
     "check:review-regressions:prune-unknown": "node scripts/check-review-regressions.mjs --prune-unknown-decisions",
-    "check:review-regressions:prune-review": "node scripts/check-review-regressions.mjs --prune-review-items",
-    "crawler:pipeline": "npm run crawler:collect && npm run crawler:seed-core && npm run crawler:score && npm run crawler:build-review && npm run crawler:ingest-user-input && npm run crawler:apply-review && npm run crawler:build-review && npm run crawler:export",
     "crawler:pipeline:db": "npm run crawler:pipeline && npm run db:migrate-json && npm run db:sync-json && npm run home:build-data",
     "db:init-schema": "node scripts/init-db-schema.mjs",
     "db:migrate-json": "node scripts/migrate-json-to-db.mjs",
     "db:sync-json": "node scripts/sync-db-to-json.mjs",
-    "db:refresh-site": "node scripts/db-refresh-site.mjs"
+    "db:refresh-site": "node scripts/db-refresh-site.mjs",
+    "check:crawler-contract": "node scripts/validate-crawler-contract.mjs",
+    "check:review-preflight": "node scripts/preflight-review-data.mjs",
+    "crawler:pipeline": "npm run crawler:collect && npm run check:crawler-contract && npm run crawler:seed-core && npm run crawler:score && npm run check:review-preflight && npm run crawler:build-review && npm run crawler:ingest-user-input && npm run crawler:apply-review && npm run check:review-preflight && npm run crawler:build-review && npm run crawler:export"
   },
   "dependencies": {
     "@tanstack/react-table": "^8.21.3",
