@@ -366,7 +366,7 @@ const isHighConfidenceReview = (item) => {
   return hasStrongRule && hasAnchorSignal && score >= 0.78
 }
 
-const MIN_REVIEW_ITEMS = Math.max(5, Number(process.env.REVIEW_MIN_ITEMS || 20))
+const MIN_REVIEW_ITEMS = Math.max(20, Number(process.env.REVIEW_MIN_ITEMS || 20))
 
 const sortReviewItems = (arr) => [...arr].sort((a, b) => {
   const aPending = (a.status === 'queued' || a.status === 'new') ? 1 : 0
