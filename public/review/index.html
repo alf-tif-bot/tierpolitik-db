@@ -48,7 +48,21 @@
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
     <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="toggleDecided()" id="toggle-decided">Bereits bearbeitete anzeigen</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
-    
+    <section class="fastlane-wrap">
+      <h2>⚡ Fast-Lane</h2>
+      <div class="fastlane-grid"><div class="fastlane-card" data-id="ch-parliament-business-de:20254876-de" data-fastlane-tagged="0">
+    <div class="fastlane-head">
+      <strong>25.4876 · Wie wirkt sich das Entlastungspaket 2027 auf die Biodiversität und die lokale Wirtschaft in den Randregionen aus?</strong>
+      <span class="fastlane-score">1.00</span>
+    </div>
+    <div class="fastlane-actions">
+      <button onclick="setDecision(this,'ch-parliament-business-de:20254876-de','approved')">Gutheissen</button>
+      <button onclick="setDecision(this,'ch-parliament-business-de:20254876-de','rejected')">Ablehnen</button>
+      <button class="tag-btn" data-tag-btn="ch-parliament-business-de:20254876-de" onclick="toggleFastlaneTag(this,'ch-parliament-business-de:20254876-de')">☆ Fastlane</button>
+      <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254876" target="_blank" rel="noopener noreferrer">Original</a>
+    </div>
+  </div></div>
+    </section>
     <table>
       <thead>
         <tr>
@@ -63,25 +77,67 @@
         </tr>
       </thead>
       <tbody>
-<tr data-id="ch-parliament-business-de:20243673-de" data-status="new" data-fastlane-tagged="0" class="">
+<tr data-id="ch-parliament-business-fr:20254809-fr" data-status="queued" data-fastlane-tagged="0" class="row-fastlane">
 <td>
-  <strong>24.3673 · Richtpreise repräsentieren nicht die effektiv bezahlten Preise ab Hof</strong><br>
-  <small>Bericht in Erfüllung des Vorstosses liegt vor</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20243673" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
+  <strong>25.4809 · Pas de cruauté lors de l’abattage des volailles</strong><br>
+  <small>L’avis relatif à l’intervention est disponible</small><br>
+  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254809" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
+</td>
+<td>Crawler</td>
+<td>
+  <div>Parlament.ch Curia Vista (FR)</div>
+  <small class="muted">ch-parliament-business-fr</small>
+</td>
+<td>1.00<br><small class="muted">Priorität: fast-lane</small><br><small class="fast-lane">⚡ Sehr wahrscheinlich relevant</small></td>
+<td>geflügel, animal, animali, landwirtschaft, agriculture, agricoltura</td>
+<td>offen (<strong class="pending">offen</strong>)</td>
+<td><small><div><strong>Einordnung:</strong> tierschutzkritisch</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> geflügel, animal, animali</div><div><strong>Kontext:</strong> landwirtschaft, agriculture</div><div><strong>Score:</strong> 1.00</div></small></td>
+<td>
+<button onclick="setDecision(this,'ch-parliament-business-fr:20254809-fr','approved')">Gutheissen</button>
+<button onclick="setDecision(this,'ch-parliament-business-fr:20254809-fr','rejected')">Ablehnen</button>
+<button class="tag-btn" data-tag-btn="ch-parliament-business-fr:20254809-fr" onclick="toggleFastlaneTag(this,'ch-parliament-business-fr:20254809-fr')">☆ Fastlane</button>
+</td>
+</tr>
+<tr data-id="ch-parliament-business-fr:20254812-fr" data-status="queued" data-fastlane-tagged="0" class="row-fastlane">
+<td>
+  <strong>25.4812 · Protection des animaux. Conséquences de l’affaire de Ramiswil</strong><br>
+  <small>L’avis relatif à l’intervention est disponible</small><br>
+  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254812" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
+</td>
+<td>Crawler</td>
+<td>
+  <div>Parlament.ch Curia Vista (FR)</div>
+  <small class="muted">ch-parliament-business-fr</small>
+</td>
+<td>1.00<br><small class="muted">Priorität: fast-lane</small><br><small class="fast-lane">⚡ Sehr wahrscheinlich relevant</small></td>
+<td>tierschutz, animal, animaux, animali, landwirtschaft, agriculture, agricoltura</td>
+<td>offen (<strong class="pending">offen</strong>)</td>
+<td><small><div><strong>Einordnung:</strong> pro Tierschutz</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> tierschutz, animal, animaux</div><div><strong>Kontext:</strong> animali, landwirtschaft, agriculture</div><div><strong>Score:</strong> 1.00</div></small></td>
+<td>
+<button onclick="setDecision(this,'ch-parliament-business-fr:20254812-fr','approved')">Gutheissen</button>
+<button onclick="setDecision(this,'ch-parliament-business-fr:20254812-fr','rejected')">Ablehnen</button>
+<button class="tag-btn" data-tag-btn="ch-parliament-business-fr:20254812-fr" onclick="toggleFastlaneTag(this,'ch-parliament-business-fr:20254812-fr')">☆ Fastlane</button>
+</td>
+</tr>
+<tr data-id="ch-parliament-business-de:20254876-de" data-status="queued" data-fastlane-tagged="0" class="row-fastlane">
+<td>
+  <strong>25.4876 · Wie wirkt sich das Entlastungspaket 2027 auf die Biodiversität und die lokale Wirtschaft in den Randregionen aus?</strong><br>
+  <small>Kurzfassung: Das Geschäft behandelt biodiversität, biodiversite, biodiversita. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
+  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254876" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
 </td>
 <td>Crawler</td>
 <td>
   <div>Parlament.ch Curia Vista (DE)</div>
   <small class="muted">ch-parliament-business-de</small>
 </td>
-<td>0.00<br><small class="muted">Priorität: niedriger</small></td>
-<td></td>
+<td>1.00<br><small class="muted">Priorität: fast-lane</small><br><small class="fast-lane">⚡ Sehr wahrscheinlich relevant</small></td>
+<td>biodiversität, biodiversite, biodiversita</td>
 <td>offen (<strong class="pending">offen</strong>)</td>
-<td><small>-</small></td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> feedback-recall</div><div><strong>Tier-Begriffe:</strong> biodiversität, biodiversite, biodiversita</div><div><strong>Störsignale:</strong> finanz</div><div><strong>Score:</strong> 1.00</div></small></td>
 <td>
-<button onclick="setDecision(this,'ch-parliament-business-de:20243673-de','approved')">Gutheissen</button>
-<button onclick="setDecision(this,'ch-parliament-business-de:20243673-de','rejected')">Ablehnen</button>
-<button class="tag-btn" data-tag-btn="ch-parliament-business-de:20243673-de" onclick="toggleFastlaneTag(this,'ch-parliament-business-de:20243673-de')">☆ Fastlane</button>
+<button onclick="setDecision(this,'ch-parliament-business-de:20254876-de','approved')">Gutheissen</button>
+<button onclick="setDecision(this,'ch-parliament-business-de:20254876-de','rejected')">Ablehnen</button>
+<button class="tag-btn" data-tag-btn="ch-parliament-business-de:20254876-de" onclick="toggleFastlaneTag(this,'ch-parliament-business-de:20254876-de')">☆ Fastlane</button>
 </td>
 </tr></tbody>
     </table>

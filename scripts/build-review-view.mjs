@@ -144,18 +144,38 @@ const isReadableReviewText = (item) => {
 
 const normalizeReviewStatus = (item) => String(item?.status || '')
 
+const ANIMAL_HINT_KEYWORDS = Array.from(new Set([
+  ...CANTONAL_THEME_STRONG_KEYWORDS,
+  ...MUNICIPAL_THEME_STRONG_KEYWORDS,
+  'schwein', 'rind', 'kalb', 'huhn', 'pferd', 'pelz', 'stopfleber', 'futtermittel',
+]))
+
+const escapeRegex = (value = '') => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
+const hasWordLikeHit = (text = '', keyword = '') => {
+  const kw = escapeRegex(String(keyword || '').toLowerCase())
+  if (!kw) return false
+  const rx = new RegExp(`(^|[^\\p{L}\\p{N}])${kw}([^\\p{L}\\p{N}]|$)`, 'iu')
+  return rx.test(String(text || '').toLowerCase())
+}
+
+const containsAnimalHint = (value = '') => {
+  const low = String(value || '').toLowerCase()
+  return ANIMAL_HINT_KEYWORDS.some((kw) => low.includes(kw))
+}
+
 const hasMeaningfulAnimalRelevance = (item) => {
   const score = Number(item?.score || 0)
   const keywords = Array.isArray(item?.matchedKeywords) ? item.matchedKeywords.filter(Boolean) : []
   const reason = String(item?.reviewReason || '').toLowerCase()
   const text = `${item?.title || ''}\n${item?.summary || ''}\n${item?.body || ''}`.toLowerCase()
 
-  const strongTextHit = CANTONAL_THEME_STRONG_KEYWORDS.some((kw) => text.includes(kw))
-    || MUNICIPAL_THEME_STRONG_KEYWORDS.some((kw) => text.includes(kw))
+  const strongTextHit = ANIMAL_HINT_KEYWORDS.some((kw) => hasWordLikeHit(text, kw))
+  const animalKeywordMatches = keywords.filter((kw) => containsAnimalHint(kw))
 
-  if (score >= 0.18) return true
-  if (keywords.length > 0) return true
-  if (reason.includes('anchor+score') || reason.includes('anchor2+support') || reason.includes('whitelist+theme')) return true
+  if (score >= 0.4 && strongTextHit) return true
+  if (animalKeywordMatches.length > 0) return true
+  if ((reason.includes('anchor+score') || reason.includes('anchor2+support') || reason.includes('whitelist+theme')) && strongTextHit) return true
   if (strongTextHit && !reason.includes('indirekten bzw. unklaren tierbezug')) return true
 
   return false
