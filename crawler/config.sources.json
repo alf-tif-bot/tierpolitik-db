@@ -123,7 +123,7 @@
       "sourceTimeoutMs": 45000,
       "retries": 1,
       "requestTimeoutMs": 12000,
-      "maxEntriesPerRun": 8
+      "maxEntriesPerRun": 16
     }
   },
   {
@@ -159,7 +159,7 @@
     "enabled": true,
     "options": {
       "cities": "bern,zuerich,basel,geneve,lausanne",
-      "maxItemsPerCity": 24
+      "maxItemsPerCity": 40
     }
   },
   {
