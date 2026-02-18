@@ -1,8 +1,12 @@
 {
-  "generatedAt": "2026-02-18T17:41:42.502Z",
-  "total": 2,
+  "generatedAt": "2026-02-18T17:48:10.567Z",
+  "total": 6,
   "ids": [
+    "ch-parliament-business-fr:20254788-fr",
+    "ch-parliament-business-fr:20254809-fr",
     "ch-parliament-business-fr:20254812-fr",
-    "ch-parliament-business-de:20254876-de"
+    "ch-parliament-business-de:20254876-de",
+    "ch-parliament-business-de:20254906-de",
+    "ch-parliament-business-de:20254831-de"
   ]
 }

@@ -23,7 +23,7 @@ const enabledSourceIds = new Set(((configuredSources.length ? configuredSources 
   .filter((s) => s.enabled !== false)
   .map((s) => s.id))
 
-const DEFAULT_TARGET_SINCE_YEAR = Math.max(2023, new Date().getUTCFullYear() - 2)
+const DEFAULT_TARGET_SINCE_YEAR = Math.max(2022, new Date().getUTCFullYear() - 4)
 const TARGET_SINCE_YEAR = Math.max(2020, Number(process.env.REVIEW_TARGET_SINCE_YEAR || DEFAULT_TARGET_SINCE_YEAR))
 const REVIEW_INCLUDE_DECIDED = String(process.env.REVIEW_INCLUDE_DECIDED || '').trim() === '1'
 const targetSinceTs = Date.UTC(TARGET_SINCE_YEAR, 0, 1, 0, 0, 0)
@@ -147,21 +147,24 @@ const normalizeReviewStatus = (item) => String(item?.status || '')
 const ANIMAL_HINT_KEYWORDS = Array.from(new Set([
   ...CANTONAL_THEME_STRONG_KEYWORDS,
   ...MUNICIPAL_THEME_STRONG_KEYWORDS,
-  'schwein', 'rind', 'kalb', 'huhn', 'pferd', 'pelz', 'stopfleber', 'futtermittel',
+  'schwein', 'rind', 'kalb', 'huhn', 'pferd', 'pelz', 'stopfleber',
+  'biodiversität', 'biodiversite', 'biodiversita',
 ]))
 
-const escapeRegex = (value = '') => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-
-const hasWordLikeHit = (text = '', keyword = '') => {
-  const kw = escapeRegex(String(keyword || '').toLowerCase())
-  if (!kw) return false
-  const rx = new RegExp(`(^|[^\\p{L}\\p{N}])${kw}([^\\p{L}\\p{N}]|$)`, 'iu')
-  return rx.test(String(text || '').toLowerCase())
-}
+const normalizeMatchText = (value = '') => String(value || '')
+  .replaceAll('A�', 'ü')
+  .replaceAll('Ã¼', 'ü')
+  .replaceAll('Ã¶', 'ö')
+  .replaceAll('Ã¤', 'ä')
+  .replaceAll('Ãœ', 'Ü')
+  .replaceAll('Ã–', 'Ö')
+  .replaceAll('Ã„', 'Ä')
+  .replaceAll('â€¦', '…')
+  .toLowerCase()
 
 const containsAnimalHint = (value = '') => {
-  const low = String(value || '').toLowerCase()
-  return ANIMAL_HINT_KEYWORDS.some((kw) => low.includes(kw))
+  const low = normalizeMatchText(value)
+  return ANIMAL_HINT_KEYWORDS.some((kw) => low.includes(normalizeMatchText(kw)))
 }
 
 const hasMeaningfulAnimalRelevance = (item) => {
@@ -170,13 +173,15 @@ const hasMeaningfulAnimalRelevance = (item) => {
   const reason = String(item?.reviewReason || '').toLowerCase()
   const text = `${item?.title || ''}\n${item?.summary || ''}\n${item?.body || ''}`.toLowerCase()
 
-  const strongTextHit = ANIMAL_HINT_KEYWORDS.some((kw) => hasWordLikeHit(text, kw))
   const animalKeywordMatches = keywords.filter((kw) => containsAnimalHint(kw))
+  const strongTextHit = containsAnimalHint(text)
 
-  if (score >= 0.4 && strongTextHit) return true
   if (animalKeywordMatches.length > 0) return true
-  if ((reason.includes('anchor+score') || reason.includes('anchor2+support') || reason.includes('whitelist+theme')) && strongTextHit) return true
-  if (strongTextHit && !reason.includes('indirekten bzw. unklaren tierbezug')) return true
+
+  // Broader gate to avoid starving /review while still suppressing obvious false positives.
+  if (score >= 0.18 && !reason.includes('indirekten bzw. unklaren tierbezug')) return true
+
+  if (strongTextHit && score >= 0.1) return true
 
   return false
 }
