@@ -23,7 +23,7 @@ const enabledSourceIds = new Set(((configuredSources.length ? configuredSources 
   .filter((s) => s.enabled !== false)
   .map((s) => s.id))
 
-const DEFAULT_TARGET_SINCE_YEAR = Math.max(2022, new Date().getUTCFullYear() - 4)
+const DEFAULT_TARGET_SINCE_YEAR = 2020
 const TARGET_SINCE_YEAR = Math.max(2020, Number(process.env.REVIEW_TARGET_SINCE_YEAR || DEFAULT_TARGET_SINCE_YEAR))
 const REVIEW_INCLUDE_DECIDED = String(process.env.REVIEW_INCLUDE_DECIDED || '').trim() === '1'
 const targetSinceTs = Date.UTC(TARGET_SINCE_YEAR, 0, 1, 0, 0, 0)
@@ -176,12 +176,14 @@ const hasMeaningfulAnimalRelevance = (item) => {
   const animalKeywordMatches = keywords.filter((kw) => containsAnimalHint(kw))
   const strongTextHit = containsAnimalHint(text)
 
+  // Primary: explicit animal-like keywords from scorer.
   if (animalKeywordMatches.length > 0) return true
 
-  // Broader gate to avoid starving /review while still suppressing obvious false positives.
-  if (score >= 0.18 && !reason.includes('indirekten bzw. unklaren tierbezug')) return true
+  // Secondary: score-based inclusion unless it is explicitly flagged as unclear/indirect.
+  if (score >= 0.18 && !reason.includes('unklaren tierbezug') && !reason.includes('indirekten tierbezug')) return true
 
-  if (strongTextHit && score >= 0.1) return true
+  // Fallback: textual hit in title/summary/body.
+  if (strongTextHit) return true
 
   return false
 }
@@ -190,7 +192,7 @@ const baseReviewItems = [...db.items]
   .filter((item) => enabledSourceIds.has(item.sourceId) || String(item.sourceId || '') === 'user-input')
   .filter((item) => {
     const sid = String(item.sourceId || '')
-    return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-') || sid === 'user-input'
+    return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-') || sid === 'user-input' || sid === 'bundesrat-news'
   })
   .filter((item) => {
     const sid = String(item.sourceId || '')
@@ -267,12 +269,6 @@ const displayTitle = (item) => {
 }
 const entryKey = (item) => `${item.sourceId}:${item.externalId}`
 const decidedEntryKeys = new Set(Object.keys(localDecisions || {}))
-const decidedAffairKeys = new Set(Object.keys(localDecisions || {})
-  .map((id) => {
-    const externalId = String(id).split(':')[1] || ''
-    return String(externalId).split('-')[0]
-  })
-  .filter(Boolean))
 
 const langRank = (item) => {
   const src = String(item.sourceId || '').toLowerCase()
@@ -370,23 +366,54 @@ const isHighConfidenceReview = (item) => {
   return hasStrongRule && hasAnchorSignal && score >= 0.78
 }
 
-const reviewItems = [...hardGrouped.values()]
-  .sort((a, b) => {
-    const aPending = (a.status === 'queued' || a.status === 'new') ? 1 : 0
-    const bPending = (b.status === 'queued' || b.status === 'new') ? 1 : 0
-    if (bPending !== aPending) return bPending - aPending
+const MIN_REVIEW_ITEMS = Math.max(5, Number(process.env.REVIEW_MIN_ITEMS || 20))
 
-    const aFast = isHighConfidenceReview(a) ? 1 : 0
-    const bFast = isHighConfidenceReview(b) ? 1 : 0
-    if (bFast !== aFast) return bFast - aFast
+const sortReviewItems = (arr) => [...arr].sort((a, b) => {
+  const aPending = (a.status === 'queued' || a.status === 'new') ? 1 : 0
+  const bPending = (b.status === 'queued' || b.status === 'new') ? 1 : 0
+  if (bPending !== aPending) return bPending - aPending
 
-    const scoreDelta = Number(b.score || 0) - Number(a.score || 0)
-    if (Math.abs(scoreDelta) > 0.0001) return scoreDelta
+  const aFast = isHighConfidenceReview(a) ? 1 : 0
+  const bFast = isHighConfidenceReview(b) ? 1 : 0
+  if (bFast !== aFast) return bFast - aFast
 
-    const aTs = Date.parse(String(a.publishedAt || a.fetchedAt || '')) || 0
-    const bTs = Date.parse(String(b.publishedAt || b.fetchedAt || '')) || 0
-    return bTs - aTs
-  })
+  const scoreDelta = Number(b.score || 0) - Number(a.score || 0)
+  if (Math.abs(scoreDelta) > 0.0001) return scoreDelta
+
+  const aTs = Date.parse(String(a.publishedAt || a.fetchedAt || '')) || 0
+  const bTs = Date.parse(String(b.publishedAt || b.fetchedAt || '')) || 0
+  return bTs - aTs
+})
+
+let reviewItems = sortReviewItems([...hardGrouped.values()])
+
+if (reviewItems.length < MIN_REVIEW_ITEMS) {
+  const existingKeys = new Set(reviewItems.map((item) => affairKey(item)))
+  const fallbackPool = db.items
+    .filter((item) => enabledSourceIds.has(item.sourceId) || String(item.sourceId || '') === 'user-input' || String(item.sourceId || '') === 'bundesrat-news')
+    .filter((item) => {
+      const sid = String(item.sourceId || '')
+      return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-') || sid === 'user-input' || sid === 'bundesrat-news'
+    })
+    .filter((item) => {
+      const s = normalizeReviewStatus(item)
+      return s === 'new' || s === 'queued'
+    })
+    .filter((item) => isInTargetHorizon(item))
+    .filter((item) => isReadableReviewText(item))
+    .filter((item) => Number(item?.score || 0) >= 0.18)
+
+  const fillers = []
+  for (const item of sortReviewItems(fallbackPool)) {
+    const key = affairKey(item)
+    if (existingKeys.has(key)) continue
+    existingKeys.add(key)
+    fillers.push(item)
+    if (reviewItems.length + fillers.length >= MIN_REVIEW_ITEMS) break
+  }
+
+  reviewItems = sortReviewItems([...reviewItems, ...fillers])
+}
 
 const sourceMap = new Map((db.sources || []).map((s) => [s.id, s.label]))
 
@@ -595,7 +622,6 @@ const humanizeReason = (reason = '') => {
 const fastLaneItems = reviewItems.filter((item) => {
   if (!isHighConfidenceReview(item)) return false
   if (decidedEntryKeys.has(entryKey(item))) return false
-  if (decidedAffairKeys.has(affairKey(item))) return false
   return true
 })
 

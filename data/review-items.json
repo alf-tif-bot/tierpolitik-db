@@ -1,12 +1,16 @@
 {
-  "generatedAt": "2026-02-18T17:48:10.567Z",
-  "total": 6,
+  "generatedAt": "2026-02-18T18:44:36.530Z",
+  "total": 10,
   "ids": [
-    "ch-parliament-business-fr:20254788-fr",
-    "ch-parliament-business-fr:20254809-fr",
-    "ch-parliament-business-fr:20254812-fr",
+    "ch-cantonal-portal-core:cantonal-portal-ne",
+    "ch-cantonal-portal-core:cantonal-portal-sz",
+    "ch-cantonal-portal-core:cantonal-portal-zg",
     "ch-parliament-business-de:20254876-de",
+    "bundesrat-news:br-1",
     "ch-parliament-business-de:20254906-de",
-    "ch-parliament-business-de:20254831-de"
+    "ch-parliament-business-de:20254831-de",
+    "ch-cantonal-portal-core:cantonal-portal-nw",
+    "ch-cantonal-portal-core:cantonal-portal-ur",
+    "ch-cantonal-portal-core:cantonal-portal-ti"
   ]
 }
