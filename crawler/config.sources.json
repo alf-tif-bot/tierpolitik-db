@@ -11,7 +11,7 @@
       "top": 900,
       "sampleLimit": 360,
       "thematicMinQuota": 260,
-      "daysBack": 9500,
+      "daysBack": 730,
       "sourceTimeoutMs": 95000,
       "retries": 3,
       "requestTimeoutMs": 35000
@@ -29,7 +29,7 @@
       "top": 700,
       "sampleLimit": 260,
       "thematicMinQuota": 170,
-      "daysBack": 9500,
+      "daysBack": 730,
       "sourceTimeoutMs": 95000,
       "retries": 3,
       "requestTimeoutMs": 35000
@@ -47,7 +47,7 @@
       "top": 500,
       "sampleLimit": 160,
       "thematicMinQuota": 90,
-      "daysBack": 9500,
+      "daysBack": 730,
       "sourceTimeoutMs": 95000,
       "retries": 3,
       "requestTimeoutMs": 35000
@@ -65,7 +65,7 @@
       "top": 600,
       "sampleLimit": 220,
       "thematicMinQuota": 140,
-      "daysBack": 9500,
+      "daysBack": 730,
       "businessTypeIncludes": "Motion",
       "sourceTimeoutMs": 95000,
       "retries": 3,
@@ -84,7 +84,7 @@
       "top": 500,
       "sampleLimit": 180,
       "thematicMinQuota": 110,
-      "daysBack": 9500,
+      "daysBack": 730,
       "businessTypeIncludes": "Postulat",
       "sourceTimeoutMs": 95000,
       "retries": 3,
@@ -103,7 +103,7 @@
       "top": 400,
       "sampleLimit": 140,
       "thematicMinQuota": 80,
-      "daysBack": 9500,
+      "daysBack": 730,
       "businessTypeIncludes": "Petition",
       "sourceTimeoutMs": 90000,
       "retries": 2,
@@ -158,7 +158,7 @@
     "url": "https://www.bern.ch/politik-und-verwaltung/stadtrat/geschaefte-des-stadtrats",
     "enabled": true,
     "options": {
-      "cities": "bern,zuerich",
+      "cities": "bern,zuerich,basel,geneve,lausanne",
       "maxItemsPerCity": 24
     }
   },

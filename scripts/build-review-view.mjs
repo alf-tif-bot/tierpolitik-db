@@ -23,7 +23,9 @@ const enabledSourceIds = new Set(((configuredSources.length ? configuredSources 
   .filter((s) => s.enabled !== false)
   .map((s) => s.id))
 
-const TARGET_SINCE_YEAR = Math.max(2020, Number(process.env.REVIEW_TARGET_SINCE_YEAR || 2020))
+const DEFAULT_TARGET_SINCE_YEAR = Math.max(2024, new Date().getUTCFullYear() - 1)
+const TARGET_SINCE_YEAR = Math.max(2020, Number(process.env.REVIEW_TARGET_SINCE_YEAR || DEFAULT_TARGET_SINCE_YEAR))
+const REVIEW_INCLUDE_DECIDED = String(process.env.REVIEW_INCLUDE_DECIDED || '').trim() === '1'
 const targetSinceTs = Date.UTC(TARGET_SINCE_YEAR, 0, 1, 0, 0, 0)
 const isInTargetHorizon = (item) => {
   const iso = item?.publishedAt || item?.fetchedAt
@@ -156,7 +158,11 @@ const baseReviewItems = [...db.items]
     if (sid !== 'user-input' && sid !== 'user-feedback') return true
     return !isLikelyDeadPlaceholderUrl(item?.sourceUrl)
   })
-  .filter((item) => ['new', 'queued', 'approved', 'published'].includes(normalizeReviewStatus(item)))
+  .filter((item) => {
+    const s = normalizeReviewStatus(item)
+    if (REVIEW_INCLUDE_DECIDED) return ['new', 'queued', 'approved', 'published', 'rejected'].includes(s)
+    return s === 'new' || s === 'queued'
+  })
   .filter((item) => !isMunicipalOverviewNoise(item))
   .filter((item) => isMunicipalTopicRelevant(item))
   .filter((item) => isCantonalReadableRelevant(item))
@@ -511,8 +517,8 @@ const fastLaneRows = fastLaneItems.map((item) => {
       <span class="fastlane-score">${scoreValue.toFixed(2)}</span>
     </div>
     <div class="fastlane-actions">
-      <button onclick="setDecision(this,'${esc(id)}','approved')">Approve</button>
-      <button onclick="setDecision(this,'${esc(id)}','rejected')">Reject</button>
+      <button onclick="setDecision(this,'${esc(id)}','approved')">Gutheissen</button>
+      <button onclick="setDecision(this,'${esc(id)}','rejected')">Ablehnen</button>
       <button class="tag-btn" data-tag-btn="${esc(id)}" onclick="toggleFastlaneTag(this,'${esc(id)}')">${isTaggedFastlane ? '⭐ Fastlane' : '☆ Fastlane'}</button>
       <a class="orig-link" href="${esc(resolveOriginalUrl(item) || '#')}" target="_blank" rel="noopener noreferrer">Original</a>
     </div>
@@ -565,8 +571,8 @@ const rows = reviewItems.map((item) => {
 <td>${esc(statusLabel)} (${pendingBadge})</td>
 <td><small>${humanizeReason(item.reviewReason || '-')}</small></td>
 <td>
-<button onclick="setDecision(this,'${esc(id)}','approved')">Approve</button>
-<button onclick="setDecision(this,'${esc(id)}','rejected')">Reject</button>
+<button onclick="setDecision(this,'${esc(id)}','approved')">Gutheissen</button>
+<button onclick="setDecision(this,'${esc(id)}','rejected')">Ablehnen</button>
 <button class="tag-btn" data-tag-btn="${esc(id)}" onclick="toggleFastlaneTag(this,'${esc(id)}')">${isTaggedFastlane ? '⭐ Fastlane' : '☆ Fastlane'}</button>
 </td>
 </tr>`
@@ -618,7 +624,7 @@ const html = `<!doctype html>
   <main class="wrap">
     <h1>Review-Ansicht</h1>
     <p>Es werden standardmässig nur <strong>offene</strong> relevante Einträge gezeigt (queued/new). Bereits bearbeitete Einträge bleiben ausgeblendet und können bei Bedarf über den Button eingeblendet werden. Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB übernommen.</p>
-    <p class="status" id="status-summary">Status-Summen (sichtbar): queued=0, approved=0, published=0</p>
+    <p class="status" id="status-summary">Status-Summen (sichtbar): offen=0, gutgeheissen=0, publiziert=0</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
     <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="toggleDecided()" id="toggle-decided">Bereits bearbeitete anzeigen</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
@@ -661,18 +667,20 @@ const writeUi=(v)=>localStorage.setItem(uiKey,JSON.stringify(v));
 let showDecided = false;
 
 function updateStatusSummary(){
-  const stats = { queued: 0, approved: 0, published: 0 }
+  const stats = { offen: 0, gutgeheissen: 0, publiziert: 0 }
   let visibleRows = 0
   document.querySelectorAll('tr[data-id]').forEach((row)=>{
     const hidden = row.style.display === 'none'
     if (hidden) return
     visibleRows += 1
-    const status = row.getAttribute('data-status')
-    if (status && status in stats) stats[status] += 1
+    const status = String(row.getAttribute('data-status') || '').toLowerCase()
+    if (status === 'queued' || status === 'new') stats.offen += 1
+    else if (status === 'approved') stats.gutheissen += 1
+    else if (status === 'published') stats.publiziert += 1
   })
   const el = document.getElementById('status-summary')
   if (el) {
-    el.textContent = 'Status-Summen (sichtbar): queued=' + stats.queued + ', approved=' + stats.approved + ', published=' + stats.published
+    el.textContent = 'Status-Summen (sichtbar): offen=' + stats.offen + ', gutgeheissen=' + stats.gutheissen + ', publiziert=' + stats.publiziert
     if (visibleRows === 0) el.textContent += ' · keine offenen Einträge'
   }
 }
