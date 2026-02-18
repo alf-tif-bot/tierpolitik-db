@@ -93,12 +93,14 @@ const isCantonalReadableRelevant = (item) => {
   // until we have a concrete parliamentary business attached.
   const looksSyntheticCantonalHeadline = /^[A-Z]{2}(?:\s+|\s*[^\p{L}\p{N}]\s*)Kantonsrat\b.+:\s+.+/iu.test(title)
   const isCantonalSummaryId = /^cantonal-portal-[a-z]{2}$/i.test(String(item?.externalId || ''))
+  const sourceLink = String(item?.meta?.sourceLink || '').trim()
   const hasConcreteBusinessRef = Boolean(
     item?.meta?.businessNumber
-    || /geschaeftid=|objektid=|affairid=|detail\.php\?gid=/i.test(String(item?.meta?.sourceLink || item?.sourceUrl || ''))
+    || /geschaeftid=|objektid=|affairid=|detail\.php\?gid=/i.test(sourceLink)
   )
 
   if (isCantonalSummaryId) return false
+  if (String(item?.sourceId || '') === 'ch-cantonal-portal-core' && !hasConcreteBusinessRef) return false
   if (looksSyntheticCantonalHeadline && !hasConcreteBusinessRef) return false
 
   return CANTONAL_THEME_STRONG_KEYWORDS.some((kw) => text.includes(kw))
