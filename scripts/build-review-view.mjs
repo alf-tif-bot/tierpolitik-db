@@ -88,6 +88,12 @@ const isCantonalReadableRelevant = (item) => {
     || summary.includes('verifying your browser')
 
   if (looksUnreadable) return false
+
+  // Drop synthetic canton summary rows like "SZ · Kantonsrat Schwyz: Jagd und Wildtiere"
+  // until we have a concrete parliamentary business attached.
+  const looksSyntheticCantonalHeadline = /^[A-Z]{2}\s+[·-]\s+Kantonsrat\b.+:\s+.+/i.test(title)
+  if (looksSyntheticCantonalHeadline && sid === 'ch-cantonal-portal-core') return false
+
   return CANTONAL_THEME_STRONG_KEYWORDS.some((kw) => text.includes(kw))
 }
 
@@ -102,6 +108,27 @@ const isMunicipalTopicRelevant = (item) => {
   const strongHits = MUNICIPAL_THEME_STRONG_KEYWORDS.filter((kw) => text.includes(kw)).length
   const contextHits = MUNICIPAL_THEME_CONTEXT_KEYWORDS.filter((kw) => text.includes(kw)).length
   return strongHits > 0 || contextHits >= 2
+}
+
+const isReadableReviewText = (item) => {
+  const title = String(item?.title || '').trim()
+  const summary = String(item?.summary || '').trim()
+  if (!title || title.length < 8) return false
+
+  const junkPatterns = [
+    /\bparlamentsgesch(ä|a)ft\s+municipal-/i,
+    /\bno\s+items\s+found\b/i,
+    /\bsource\s+candidate\b/i,
+    /\bquell-adapter\b/i,
+  ]
+
+  const combined = `${title}\n${summary}`
+  if (junkPatterns.some((rx) => rx.test(combined))) return false
+
+  const replacementCount = (combined.match(/�/g) || []).length
+  if (replacementCount >= 3) return false
+
+  return true
 }
 
 const normalizeReviewStatus = (item) => String(item?.status || '')
@@ -121,6 +148,7 @@ const baseReviewItems = [...db.items]
   .filter((item) => !isMunicipalOverviewNoise(item))
   .filter((item) => isMunicipalTopicRelevant(item))
   .filter((item) => isCantonalReadableRelevant(item))
+  .filter((item) => isReadableReviewText(item))
   .filter((item) => isInTargetHorizon(item))
 
 const affairKey = (item) => {
@@ -266,13 +294,44 @@ const isValidHttpUrl = (value = '') => {
   }
 }
 
+const isLikelyOverviewUrl = (value = '') => {
+  const low = String(value || '').toLowerCase()
+  return /\/($|index\.|start|home|news|aktuelles|geschaefte$|objets$|seances$)/i.test(low)
+    || low.includes('vorstoesse-und-grsr-revisionen')
+    || low.includes('antworten-auf-kleine-anfragen')
+}
+
+const scoreOriginalUrl = (value = '', sourceId = '') => {
+  const low = String(value || '').toLowerCase()
+  let score = 0
+
+  if (/affairid=\d+/.test(low)) score += 8
+  if (/detail\.php\?gid=[a-f0-9]+/i.test(low)) score += 8
+  if (/\b(geschaefte|geschaeft|objets?|traktanden|vorstoesse|ratsbetrieb|deliberation)\b/.test(low)) score += 4
+  if (/\b(id|nummer|nr|objektid|geschaeftid|affairid)=/.test(low)) score += 3
+  if (isLikelyOverviewUrl(low)) score -= 6
+
+  if (/kantonsrat\/(geschaefte|traktanden)/.test(low)) score += 5
+  if (/gemeinderat|stadtrat/.test(low) && /geschaefte|detail|objets?\//.test(low)) score += 3
+
+  // Penalize topical department pages that are not parliamentary business detail pages
+  if (/amt-fuer|verwaltung\//.test(low) && !/kantonsrat|parlament|gemeinderat|stadtrat/.test(low)) score -= 5
+
+  if (String(sourceId || '').startsWith('ch-municipal-') && /detail|objets?\//.test(low)) score += 2
+  if (String(sourceId || '').startsWith('ch-cantonal-') && /geschaefte|objets?|traktanden/.test(low)) score += 2
+
+  return score
+}
+
 const pickMetaExtractedUrl = (item) => {
   const links = Array.isArray(item?.meta?.extractedLinks) ? item.meta.extractedLinks : []
   const candidates = links
     .map((l) => String(l?.href || '').trim())
     .filter((u) => isValidHttpUrl(u) && !isLikelyDeadPlaceholderUrl(u))
   if (!candidates.length) return ''
-  return candidates.find((u) => /geschaefte|geschaeft|ratsinfomanagement|sitzungsdienst|protokolle|traktanden/i.test(u)) || candidates[0]
+
+  return [...candidates]
+    .sort((a, b) => scoreOriginalUrl(b, item?.sourceId) - scoreOriginalUrl(a, item?.sourceId))[0] || ''
 }
 
 const resolveOriginalUrl = (item) => {
@@ -280,9 +339,14 @@ const resolveOriginalUrl = (item) => {
   const metaLink = String(item?.meta?.sourceLink || item?.meta?.url || '')
   const metaExtracted = pickMetaExtractedUrl(item)
 
-  if (isValidHttpUrl(direct) && !isLikelyDeadPlaceholderUrl(direct)) return direct
-  if (isValidHttpUrl(metaLink) && !isLikelyDeadPlaceholderUrl(metaLink)) return metaLink
-  if (metaExtracted) return metaExtracted
+  const candidates = [direct, metaLink, metaExtracted]
+    .filter((u) => isValidHttpUrl(u) && !isLikelyDeadPlaceholderUrl(u))
+
+  if (candidates.length) {
+    const best = [...new Set(candidates)]
+      .sort((a, b) => scoreOriginalUrl(b, item?.sourceId) - scoreOriginalUrl(a, item?.sourceId))[0]
+    if (best) return best
+  }
 
   if (item.sourceId?.startsWith('ch-parliament-business-')) {
     const affairId = String(item.externalId || '').split('-')[0]
@@ -741,7 +805,7 @@ hideDecidedRows();
 </body>
 </html>`
 
-const renderedHtml = decodeMojibakeRaw(normalizeBrokenGerman(html))
+const renderedHtml = normalizeBrokenGerman(html)
 
 fs.writeFileSync(outPath, renderedHtml)
 fs.mkdirSync(new URL('../public/review/', import.meta.url), { recursive: true })
