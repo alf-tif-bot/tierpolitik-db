@@ -126,6 +126,9 @@ const isReadableReviewText = (item) => {
 
   const junkPatterns = [
     /\bparlamentsgesch(ä|a)ft\s+municipal-/i,
+    /^\s*parlamentsgesch(ä|a)ft\s+\d{6,}\s*$/i,
+    /^\s*affaire\s+parlementaire\s+\d{6,}\s*$/i,
+    /^\s*affare\s+parlamentare\s+\d{6,}\s*$/i,
     /\bno\s+items\s+found\b/i,
     /\bsource\s+candidate\b/i,
     /\bquell-adapter\b/i,
@@ -448,6 +451,9 @@ const humanizeReason = (reason = '') => {
   if (!reason) return '-'
   const text = clean(reason)
 
+  if (/review-entscheid\s*\(approved\)/i.test(text)) return '<div><strong>Review-Entscheid:</strong> gutgeheissen</div>'
+  if (/review-entscheid\s*\(rejected\)/i.test(text)) return '<div><strong>Review-Entscheid:</strong> abgelehnt</div>'
+
   const rule = (text.match(/\[(.*?)\]/)?.[1] || '').trim()
   const score = (text.match(/score=([0-9.]+)/)?.[1] || '').trim()
   const stance = (text.match(/stance=([^·]+)/)?.[1] || '').trim()
@@ -513,10 +519,20 @@ const fastLaneRows = fastLaneItems.map((item) => {
   </div>`
 }).join('')
 
+const reviewStatusLabel = (status = '') => {
+  const s = String(status || '').toLowerCase()
+  if (s === 'queued' || s === 'new') return 'offen'
+  if (s === 'approved') return 'gutgeheissen'
+  if (s === 'published') return 'publiziert'
+  if (s === 'rejected') return 'abgelehnt'
+  return s || '-'
+}
+
 const rows = reviewItems.map((item) => {
   const fastLane = isHighConfidenceReview(item)
   const id = `${item.sourceId}:${item.externalId}`
   const displayStatus = normalizeReviewStatus(item)
+  const statusLabel = reviewStatusLabel(displayStatus)
   const isPending = displayStatus === 'queued' || displayStatus === 'new'
   const pendingBadge = isPending ? '<strong class="pending">offen</strong>' : '<span class="historic">historisch</span>'
   const sourceLabel = esc(clean(sourceMap.get(item.sourceId) || item.sourceId))
@@ -546,7 +562,7 @@ const rows = reviewItems.map((item) => {
 </td>
 <td>${scoreValue.toFixed(2)}<br><small class="muted">Priorität: ${priorityLabel}</small>${fastLane ? '<br><small class="fast-lane">⚡ Sehr wahrscheinlich relevant</small>' : ''}${isTaggedFastlane ? '<br><small class="fast-lane">⭐ von dir als Fastlane markiert</small>' : ''}</td>
 <td>${esc(keywords.join(', '))}</td>
-<td>${esc(displayStatus)} (${pendingBadge})</td>
+<td>${esc(statusLabel)} (${pendingBadge})</td>
 <td><small>${humanizeReason(item.reviewReason || '-')}</small></td>
 <td>
 <button onclick="setDecision(this,'${esc(id)}','approved')">Approve</button>
