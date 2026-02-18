@@ -43,6 +43,7 @@ const BUSINESS_TYPE_ALIASES = {
   postulat: ['postulat', 'postulato'],
   interpellation: ['interpellation', 'interpellanza'],
   anfrage: ['anfrage', 'frage', 'question', 'questione'],
+  parlamentarischeinitiative: ['parlamentarische initiative', 'initiative parlementaire', 'iniziativa parlamentare'],
 }
 
 const buildBusinessTypeMatchers = (includes = []) => {

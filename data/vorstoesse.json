@@ -10,7 +10,7 @@
     "regionGemeinde": null,
     "status": "Überwiesen an den Bundesrat",
     "datumEingereicht": "2020-03-02",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Stopfleber",
@@ -75,7 +75,7 @@
     "regionGemeinde": null,
     "status": "Abgeschrieben",
     "datumEingereicht": "2020-09-16",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Nutztiere",
@@ -135,7 +135,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2020-09-24",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Schweizer tierschutz"
@@ -194,7 +194,7 @@
     "regionGemeinde": null,
     "status": "Eingereicht",
     "datumEingereicht": "2020-08-28",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Tierrechte",
@@ -255,7 +255,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2020-09-25",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Landwirtschaft",
@@ -318,7 +318,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2020-06-19",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Europapolitik",
       "Landwirtschaft",
@@ -381,7 +381,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2020-11-17",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Nutztiere",
       "Landwirtschaft",
@@ -442,7 +442,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2020-06-11",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Landwirtschaft",
@@ -505,7 +505,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2020-09-24",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Nutztiere",
       "Landwirtschaft",
@@ -568,7 +568,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2020-12-18",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Nutztiere",
       "Landwirtschaft",
@@ -629,7 +629,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2020-12-18",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Nutztiere",
       "Landwirtschaft",
@@ -690,7 +690,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2021-01-14",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Umwelt",
       "Landwirtschaft"
@@ -749,7 +749,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2020-06-17",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Schwein",
       "Schweine",
@@ -813,7 +813,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2024-12-19",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Bienen",
@@ -889,7 +889,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2021-10-06",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz"
     ],
@@ -914,7 +914,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "21.2027 - Echter Tierschutz jetzt!"
@@ -945,7 +945,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2021-06-15",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Internationale Politik",
@@ -1007,7 +1007,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2025-09-25",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Nutztiere",
@@ -1067,7 +1067,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2025-09-23",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Umwelt"
@@ -1125,7 +1125,7 @@
     "regionGemeinde": null,
     "status": "Überwiesen an den Bundesrat",
     "datumEingereicht": "2024-03-14",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Umwelt"
@@ -1183,7 +1183,7 @@
     "regionGemeinde": null,
     "status": "Überwiesen an den Bundesrat",
     "datumEingereicht": "2023-12-18",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Umwelt"
@@ -1241,7 +1241,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2023-06-15",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Umwelt"
@@ -1300,7 +1300,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2022-03-17",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Umwelt",
@@ -1360,7 +1360,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2021-03-17",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Umwelt"
@@ -1418,7 +1418,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2025-12-03",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Stopfleber",
       "Europapolitik",
@@ -1480,7 +1480,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2022-06-17",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Staatspolitik",
       "Medien und Kommunikation",
@@ -1542,7 +1542,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2022-09-21",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Nutztiere"
@@ -1600,7 +1600,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2024-03-15",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Staatspolitik",
@@ -1660,7 +1660,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2024-12-12",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Staatspolitik",
       "Umwelt"
@@ -1718,7 +1718,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2025-10-06",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz"
     ],
@@ -1743,7 +1743,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "25.2027 - Für ein Beschwerderecht von Tierschutzverbänden bei Misshandlung"
@@ -1774,7 +1774,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2021-09-30",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Schwein",
       "Schweine",
@@ -1837,7 +1837,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2021-11-30",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Umwelt"
@@ -1896,7 +1896,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2022-03-17",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Gesundheit",
       "Internationale Politik",
@@ -1957,7 +1957,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2023-03-02",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Schweizer tierschutz"
@@ -1984,7 +1984,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "23.2009 - Für eine Änderung des Schweizer Tierschutzgesetzes (TSCHG) und für das Verbot der Euthanasie ohne triftigen Grund!"
@@ -2016,7 +2016,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2025-05-28",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Umwelt"
@@ -2075,7 +2075,7 @@
     "regionGemeinde": null,
     "status": "Stellungnahme zum Vorstoss liegt vor",
     "datumEingereicht": "2025-09-10",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Schlacht",
@@ -2142,7 +2142,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2021-02-22",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche"
     ],
@@ -2200,7 +2200,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2021-03-18",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche",
       "Wissenschaft und Forschung",
@@ -2264,7 +2264,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2021-03-18",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Umwelt",
       "Wissenschaft und Forschung"
@@ -2323,7 +2323,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2022-03-17",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche",
       "3R",
@@ -2378,7 +2378,7 @@
   {
     "id": "vp-20240436-de",
     "titel": "24.436 - Zukunftsfähige Forschung mit einem Plan für den Ausstieg aus belastenden Tierversuchen fördern",
-    "typ": "Interpellation",
+    "typ": "Parlamentarische Initiative",
     "kurzbeschreibung": "24.436 - Zukunftsfähige Forschung mit einem Plan für den Ausstieg aus belastenden Tierversuchen fördern (Erledigt).",
     "geschaeftsnummer": "24.436",
     "ebene": "Bund",
@@ -2386,7 +2386,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2024-06-14",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche",
       "Wissenschaft und Forschung",
@@ -2423,7 +2423,7 @@
           "de": "24.436 - Zukunftsfähige Forschung mit einem Plan für den Ausstieg aus belastenden Tierversuchen fördern (Erledigt)."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Parlamentarische Initiative"
         },
         "themes": {
           "de": [
@@ -2448,7 +2448,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2024-12-19",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Nutztiere",
       "Heimtier",
@@ -2512,7 +2512,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2024-12-20",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche",
       "Wissenschaft und Forschung",
@@ -2574,7 +2574,7 @@
     "regionGemeinde": null,
     "status": "Stellungnahme zum Vorstoss liegt vor",
     "datumEingereicht": "2024-12-20",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche",
       "Wissenschaft und Forschung",
@@ -2635,7 +2635,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2025-12-10",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz"
     ],
@@ -2692,7 +2692,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2022-09-21",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Finanzwesen",
       "Landwirtschaft",
@@ -2753,7 +2753,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2023-03-01",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Energie",
       "Landwirtschaft",
@@ -2814,7 +2814,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2023-05-02",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Nutztiere",
       "Landwirtschaft",
@@ -2877,7 +2877,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2021-03-19",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche",
       "Wissenschaft und Forschung",
@@ -2939,7 +2939,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2021-06-17",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Nutztiere",
@@ -3000,7 +3000,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2025-10-08",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche",
       "Tierversuchsfreie",
@@ -3057,14 +3057,14 @@
     "id": "vp-20254788-de",
     "titel": "25.4788 - Wiedereinführung zeitgemäss ausgestalteter Tierhalterbeiträge zur nachhaltigen Sicherung der Nutztierhaltung und Ernährung in der Schweiz",
     "typ": "Motion",
-    "kurzbeschreibung": "25.4788 - Wiedereinführung zeitgemäss ausgestalteter Tierhalterbeiträge zur nachhaltigen Sicherung der Nutztierhaltung und Ernährung in der Schweiz (Eingereicht).",
+    "kurzbeschreibung": "25.4788 - Wiedereinführung zeitgemäss ausgestalteter Tierhalterbeiträge zur nachhaltigen Sicherung der Nutztierhaltung und Ernährung in der Schweiz (In Beratung).",
     "geschaeftsnummer": "25.4788",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "Eingereicht",
+    "status": "In Beratung",
     "datumEingereicht": "2025-12-19",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Ernährung",
       "Landwirtschaft",
@@ -3086,7 +3086,7 @@
     "resultate": [
       {
         "datum": "2025-12-19",
-        "status": "Eingereicht",
+        "status": "In Beratung",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3096,13 +3096,19 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "25.4788 - Wiedereinführung zeitgemäss ausgestalteter Tierhalterbeiträge zur nachhaltigen Sicherung der Nutztierhaltung und Ernährung in der Schweiz"
+          "de": "25.4788 - Wiedereinführung zeitgemäss ausgestalteter Tierhalterbeiträge zur nachhaltigen Sicherung der Nutztierhaltung und Ernährung in der Schweiz",
+          "it": "25.4788 - Reintroduzione di contributi per i detentori di animali al passo con i tempi onde garantire una detenzione di animali da reddito e un’alimentazione sostenibili in Svizzera",
+          "fr": "25.4788 - Réintroduire des contributions aux détenteurs d’animaux qui soient adaptées à notre époque pour garantir durablement la détention d’animaux de rente et l'alimentation en Suisse"
         },
         "summary": {
-          "de": "25.4788 - Wiedereinführung zeitgemäss ausgestalteter Tierhalterbeiträge zur nachhaltigen Sicherung der Nutztierhaltung und Ernährung in der Schweiz (Eingereicht)."
+          "de": "Stellungnahme zum Vorstoss liegt vor",
+          "it": "La dichiarazione sull’intervento è disponibile",
+          "fr": "L’avis relatif à l’intervention est disponible"
         },
         "type": {
-          "de": "Motion"
+          "de": "Motion",
+          "it": "Mozione",
+          "fr": "Motion"
         },
         "themes": {
           "de": [
@@ -3110,6 +3116,14 @@
             "landwirtschaft",
             "Umwelt",
             "Gesundheit"
+          ],
+          "it": [
+            "ernährung",
+            "Agricoltura"
+          ],
+          "fr": [
+            "ernährung",
+            "Agriculture"
           ]
         }
       },
@@ -3127,7 +3141,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2021-05-19",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Umwelt"
@@ -3214,7 +3228,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2022-06-15",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Gesundheit",
@@ -3277,7 +3291,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2021-12-08",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Umwelt"
@@ -3337,7 +3351,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2021-12-08",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Staatspolitik",
@@ -3401,7 +3415,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2021-12-08",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Umwelt"
@@ -3461,7 +3475,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2021-12-15",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Gesundheit",
       "Landwirtschaft",
@@ -3526,7 +3540,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2022-02-28",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Umwelt"
@@ -3586,7 +3600,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2022-03-16",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Umwelt",
@@ -3648,7 +3662,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2022-03-17",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Schweinezucht",
       "Tierarzneimittel",
@@ -3711,7 +3725,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2023-03-17",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Umwelt",
@@ -3773,7 +3787,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2023-09-13",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Umwelt"
@@ -3833,7 +3847,7 @@
     "regionGemeinde": null,
     "status": "Stellungnahme zum Vorstoss liegt vor",
     "datumEingereicht": "2025-09-16",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Gesundheit",
       "Landwirtschaft",
@@ -3895,7 +3909,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2025-09-26",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Masthühner",
       "Landwirtschaft",
@@ -3959,7 +3973,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2021-06-17",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Landwirtschaft",
@@ -4024,7 +4038,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2022-06-16",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Schwein",
       "Schweine",
@@ -4092,7 +4106,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2023-03-01",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Landwirtschaft",
@@ -4153,7 +4167,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2023-09-13",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Nutztiere",
       "Landwirtschaft",
@@ -4214,7 +4228,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2023-09-19",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Nutztiere",
       "Landwirtschaft",
@@ -4277,7 +4291,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2023-12-06",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Umwelt"
@@ -4334,9 +4348,9 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "Eingereicht",
+    "status": "In Beratung",
     "datumEingereicht": "2025-12-19",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Landwirtschaft",
       "Staatspolitik",
@@ -4357,7 +4371,7 @@
     "resultate": [
       {
         "datum": "2025-12-19",
-        "status": "Eingereicht",
+        "status": "In Beratung",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -4367,19 +4381,33 @@
       "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
-          "de": "25.4812 - Konsequenzen aus dem Tierschutzfall Ramiswil"
+          "de": "25.4812 - Konsequenzen aus dem Tierschutzfall Ramiswil",
+          "it": "25.4812 - Protezione degli animali. Conseguenze del caso Ramiswil",
+          "fr": "25.4812 - Protection des animaux. Conséquences de l’affaire de Ramiswil"
         },
         "summary": {
-          "de": "Das Postulat beauftragt den Bundesrat zu prüfen, wie der Vollzug des Tierschutzgesetzes in den Kantonen verbessert werden kann, um Fälle wie in Ramiswil zu verhindern. Genannt werden insbesondere eine bessere Zusammenarbeit der Veterinärämter mit Tierschutzorganisationen, der Ausbau von Meldestellen und ausreichende kantonale Ressourcen."
+          "de": "Stellungnahme zum Vorstoss liegt vor",
+          "it": "La dichiarazione sull’intervento è disponibile",
+          "fr": "L’avis relatif à l’intervention est disponible"
         },
         "type": {
-          "de": "Postulat"
+          "de": "Postulat",
+          "it": "Postulato",
+          "fr": "Postulat"
         },
         "themes": {
           "de": [
             "Landwirtschaft",
             "Staatspolitik",
             "Umwelt"
+          ],
+          "it": [
+            "Protezione animale",
+            "Agricoltura"
+          ],
+          "fr": [
+            "Protection animale",
+            "Agriculture"
           ]
         }
       },
@@ -4395,9 +4423,9 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "Eingereicht",
+    "status": "In Beratung",
     "datumEingereicht": "2025-12-19",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Masthühner",
       "Landwirtschaft",
@@ -4418,7 +4446,7 @@
     "resultate": [
       {
         "datum": "2025-12-19",
-        "status": "Eingereicht",
+        "status": "In Beratung",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -4428,19 +4456,33 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "25.4809 - Keine Tierqual bei der Geflügelschlachtung"
+          "de": "25.4809 - Keine Tierqual bei der Geflügelschlachtung",
+          "it": "25.4809 - Nessun maltrattamento degli animali nella macellazione del pollame",
+          "fr": "25.4809 - Pas de cruauté lors de l’abattage des volailles"
         },
         "summary": {
-          "de": "Der Vorstoss verlangt konkrete Massnahmen gegen Tierqual bei der Geflügelschlachtung und eine konsequent tierschutzkonforme Praxis."
+          "de": "Stellungnahme zum Vorstoss liegt vor",
+          "it": "La dichiarazione sull’intervento è disponibile",
+          "fr": "L’avis relatif à l’intervention est disponible"
         },
         "type": {
-          "de": "Postulat"
+          "de": "Postulat",
+          "it": "Postulato",
+          "fr": "Postulat"
         },
         "themes": {
           "de": [
             "geflügel",
             "landwirtschaft",
             "Umwelt"
+          ],
+          "it": [
+            "geflügel",
+            "Agricoltura"
+          ],
+          "fr": [
+            "geflügel",
+            "Agriculture"
           ]
         }
       },
@@ -4448,9 +4490,9 @@
     }
   },
   {
-    "id": "vp-20210426-fr",
+    "id": "vp-20210426-de",
     "titel": "21.426 - Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
-    "typ": "Interpellation",
+    "typ": "Parlamentarische Initiative",
     "kurzbeschreibung": "Dieser Vorstoss behandelt Alternativen zu Tierversuchen (3R) und die Frage, wie Forschung gezielt in tierfreie bzw. tierärmere Methoden gelenkt werden kann. Diskutiert werden typischerweise Ressourcen, Anreize und konkrete Umsetzungsmechanismen im Forschungsbereich. In Kommission des Nationalrats",
     "geschaeftsnummer": "21.426",
     "ebene": "Bund",
@@ -4458,7 +4500,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2021-03-18",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche",
       "Animal",
@@ -4477,7 +4519,7 @@
     ],
     "einreichende": [
       {
-        "name": "Selon Curia Vista",
+        "name": "Gemäss Curia Vista",
         "rolle": "",
         "partei": ""
       }
@@ -4492,8 +4534,8 @@
     ],
     "medien": [],
     "metadaten": {
-      "sprache": "fr",
-      "haltung": "neutral/unklar",
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "21.426 - Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
@@ -4506,9 +4548,9 @@
           "it": "Nella Commissione del Consiglio nazionale"
         },
         "type": {
-          "de": "Interpellation",
-          "fr": "Interpellation",
-          "it": "Interpellanza"
+          "de": "Parlamentarische Initiative",
+          "fr": "Initiative parlementaire",
+          "it": "Iniziativa parlamentare"
         },
         "themes": {
           "de": [
@@ -4551,7 +4593,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2024-11-14",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Stopfleber",
       "Foie gras",
@@ -4625,6 +4667,220 @@
     }
   },
   {
+    "id": "vp-20253733-de",
+    "titel": "25.3733 - Verhältnismässigkeit in der Direktzahlungsverordnung wahren",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "25.3733 - Verhältnismässigkeit in der Direktzahlungsverordnung wahren (In Beratung).",
+    "geschaeftsnummer": "25.3733",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-06-19",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "Landwirtschaft",
+      "Agriculture",
+      "Umwelt"
+    ],
+    "schlagwoerter": [
+      "landwirtschaft",
+      "agriculture"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20253733",
+    "resultate": [
+      {
+        "datum": "2025-06-19",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "25.3733 - Verhältnismässigkeit in der Direktzahlungsverordnung wahren",
+          "fr": "25.3733 - Respecter la proportionnalité dans l’ordonnance sur les paiements directs"
+        },
+        "summary": {
+          "de": "Beratung in Kommission des Ständerates abgeschlossen",
+          "fr": "Fin des discussions en commission du Conseil des Etats"
+        },
+        "type": {
+          "de": "Interpellation",
+          "fr": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "landwirtschaft",
+            "agriculture",
+            "Umwelt"
+          ],
+          "fr": [
+            "Agriculture",
+            "agriculture"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20254697-de",
+    "titel": "25.4697 - Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "25.4697 - Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung (In Beratung).",
+    "geschaeftsnummer": "25.4697",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-12-18",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "Biodiversität",
+      "Biodiversite",
+      "Biodiversita",
+      "Staatspolitik",
+      "Finanzwesen",
+      "Umwelt"
+    ],
+    "schlagwoerter": [
+      "biodiversität",
+      "biodiversite",
+      "biodiversita"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254697",
+    "resultate": [
+      {
+        "datum": "2025-12-18",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "25.4697 - Zusammenarbeit Bund und Kantone im Bereich Subventionen mit biodiversitätsschädigender Wirkung",
+          "fr": "25.4697 - Subventions dommageables à la biodiversité. Collaboration entre la Confédération et les cantons"
+        },
+        "summary": {
+          "de": "Stellungnahme zum Vorstoss liegt vor",
+          "fr": "L’avis relatif à l’intervention est disponible"
+        },
+        "type": {
+          "de": "Interpellation",
+          "fr": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "biodiversität",
+            "biodiversite",
+            "biodiversita",
+            "Staatspolitik",
+            "Finanzwesen",
+            "Umwelt"
+          ],
+          "fr": [
+            "biodiversität",
+            "biodiversite",
+            "biodiversita"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20254487-de",
+    "titel": "25.4487 - Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "25.4487 - Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder (In Beratung).",
+    "geschaeftsnummer": "25.4487",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-12-09",
+    "datumAktualisiert": "2026-02-13",
+    "themen": [
+      "Gesundheit",
+      "Landwirtschaft",
+      "Umwelt"
+    ],
+    "schlagwoerter": [
+      "nutrition",
+      "landwirtschaft",
+      "agriculture"
+    ],
+    "einreichende": [
+      {
+        "name": "Egger Mike",
+        "rolle": "Nationalrat",
+        "partei": "Schweizerische Volkspartei"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254487",
+    "resultate": [
+      {
+        "datum": "2025-12-09",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "25.4487 - Einseitige vegetarische Rezeptempfehlungen des BLV für Kinder",
+          "fr": "25.4487 - Recommandations nutritionnelles végétariennes pour les enfants. Parti pris de l'OSAV"
+        },
+        "summary": {
+          "de": "Stellungnahme zum Vorstoss liegt vor",
+          "fr": "L’avis relatif à l’intervention est disponible"
+        },
+        "type": {
+          "de": "Interpellation",
+          "fr": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "Gesundheit",
+            "Landwirtschaft",
+            "Umwelt"
+          ],
+          "fr": [
+            "nutrition",
+            "Agriculture",
+            "agriculture"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
     "id": "vp-20250404-de",
     "titel": "25.404 - Indirekter Gegenentwurf zur Stopfleber-Initiative",
     "typ": "Parlamentarische Initiative",
@@ -4635,7 +4891,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2025-02-21",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Stopfleber",
       "Foie gras",
@@ -4715,7 +4971,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "1994-01-07",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Massentierhaltung",
       "Massentier"
@@ -4743,7 +4999,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "94.2028 - Verbot der Massentierhaltung von Wachteln (mehr als 200 Tiere). Importverbot für Wachtelfleisch und Wachteleier"
@@ -4775,7 +5031,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "1996-08-27",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Massentierhaltung",
       "Massentier"
@@ -4835,7 +5091,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2018-03-14",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Massentierhaltung",
       "Massentier",
@@ -4930,7 +5186,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2017-12-13",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Landwirtschaft",
@@ -4958,7 +5214,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "17.4108 - Ist die Nutztierzucht tierschutzkonform?"
@@ -4991,7 +5247,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2014-09-25",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Wildtier",
       "Jagdbann"
@@ -5050,7 +5306,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2014-03-21",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Masthühner",
       "Schwein",
@@ -5118,7 +5374,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2014-12-11",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierhaltung",
       "Schwein",
@@ -5183,7 +5439,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2012-06-11",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierhaltung",
       "Masthühner",
@@ -5212,7 +5468,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "12.3460 - Deklarationspflicht für importiertes Geflügelfleisch aus Tierhaltungen, die in der Schweiz verboten sind"
@@ -5235,7 +5491,7 @@
     }
   },
   {
-    "id": "vp-19940011-fr",
+    "id": "vp-19940011-de",
     "titel": "94.011 - Tierschutz. Uebereinkommen",
     "typ": "Interpellation",
     "kurzbeschreibung": "Botschaft und Beschlussesentwurf vom 26. Januar 1994 zum Protokoll der Aenderung des Europäischen Uebereinkommens zum Schutz von Tieren in landwirtschaftlichen Tierhaltung und zur Aenderung des Uebereinkommens über den i",
@@ -5245,7 +5501,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "1994-01-26",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Tierhaltung",
@@ -5266,7 +5522,7 @@
     ],
     "einreichende": [
       {
-        "name": "Selon Curia Vista",
+        "name": "Gemäss Curia Vista",
         "rolle": "",
         "partei": ""
       }
@@ -5281,8 +5537,8 @@
     ],
     "medien": [],
     "metadaten": {
-      "sprache": "fr",
-      "haltung": "neutral/unklar",
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "94.011 - Tierschutz. Uebereinkommen",
@@ -5321,7 +5577,7 @@
   {
     "id": "vp-20180491-de",
     "titel": "18.491 - Verbot von schwerbelastenden Tierversuchen. Ergänzung des Tierschutzgesetzes",
-    "typ": "Interpellation",
+    "typ": "Parlamentarische Initiative",
     "kurzbeschreibung": "18.491 - Verbot von schwerbelastenden Tierversuchen. Ergänzung des Tierschutzgesetzes (Erledigt).",
     "geschaeftsnummer": "18.491",
     "ebene": "Bund",
@@ -5329,7 +5585,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2018-12-14",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Tierversuche",
@@ -5359,7 +5615,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "18.491 - Verbot von schwerbelastenden Tierversuchen. Ergänzung des Tierschutzgesetzes"
@@ -5368,7 +5624,7 @@
           "de": "18.491 - Verbot von schwerbelastenden Tierversuchen. Ergänzung des Tierschutzgesetzes (Erledigt)."
         },
         "type": {
-          "de": "Interpellation"
+          "de": "Parlamentarische Initiative"
         },
         "themes": {
           "de": [
@@ -5394,7 +5650,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2009-03-20",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche"
     ],
@@ -5452,7 +5708,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2017-09-18",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierwohl",
       "Nutztiere",
@@ -5483,7 +5739,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "17.3675 - Ungenügende Kapazitäten für die praxisnahe Forschung und Entwicklung im Bereich Tierwohl der Nutztiere"
@@ -5518,7 +5774,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2012-09-20",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Nutztiere",
       "Schlacht",
@@ -5580,7 +5836,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2016-04-27",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tiergesundheit",
       "Landwirtschaft",
@@ -5641,7 +5897,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2008-10-03",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Tierhaltung",
@@ -5671,7 +5927,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "08.3696 - Auswirkungen des EU-Agrarfreihandels auf das Tierschutzniveau und die bäuerliche Tierhaltung"
@@ -5705,7 +5961,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2014-09-10",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Landwirtschaft",
@@ -5733,7 +5989,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "14.3692 - Vollzug des Tierschutzes in ausserlandwirtschaftlichen Hobby- und Kleintierhaltungen"
@@ -5766,7 +6022,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2017-02-27",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Wildtier"
     ],
@@ -5791,7 +6047,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "17.5001 - Wildtierschutzgebiete. Neue Bezeichnung, höherer Schutz?"
@@ -5822,7 +6078,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2012-08-17",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche",
       "3R"
@@ -5850,7 +6106,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "12.3660 - Zukunft der Stiftung Forschung 3R und Alternativmethoden für Tierversuche"
@@ -5883,7 +6139,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2016-12-16",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche",
       "3R",
@@ -5913,7 +6169,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "16.4122 - Forschung nach Ersatzmethoden zu Tierversuchen und 3R-Forschung. Ein Stiefkind"
@@ -5948,7 +6204,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2017-06-15",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche",
       "3R",
@@ -5978,7 +6234,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "17.3545 - Handlungsbedarf bei Tierversuchen. Förderung des 3R-Prinzips durch den Schweizerischen Nationalfonds"
@@ -6013,7 +6269,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2014-12-02",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Wolf",
       "Landwirtschaft",
@@ -6074,7 +6330,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2015-12-17",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Nutztiere",
       "Fisch",
@@ -6142,7 +6398,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2017-06-06",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Nutztiere",
       "Wissenschaft und Forschung",
@@ -6202,7 +6458,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2014-06-19",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Wirtschaft",
@@ -6229,7 +6485,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "14.3502 - Tierschutzwidrige Importe von Jagdtrophäen"
@@ -6262,7 +6518,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2019-03-21",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Fisch",
@@ -6291,7 +6547,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "19.3215 - Mehr Tierschutz in der Aquakultur mit Fischen"
@@ -6325,7 +6581,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2008-09-18",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Schwein",
       "Schweine",
@@ -6387,7 +6643,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2015-12-07",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Schwein",
       "Schweine",
@@ -6454,7 +6710,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2008-12-15",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Schwein",
       "Schweine",
@@ -6516,7 +6772,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "1996-09-25",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Masthühner",
       "Schlacht"
@@ -6575,7 +6831,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2004-06-07",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz"
     ],
@@ -6601,7 +6857,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "04.039 - Für einen zeitgemässen Tierschutz (Tierschutz - Ja!). Volksinitiative"
@@ -6632,7 +6888,7 @@
     "regionGemeinde": null,
     "status": "In Beratung",
     "datumEingereicht": "2008-05-14",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierschutz",
       "Tierquälerei",
@@ -6663,7 +6919,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "08.036 - Gegen Tierquälerei und für einen besseren Rechtsschutz der Tiere (Tierschutzanwalt-Initiative). Volksinitiative"
@@ -6696,7 +6952,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2010-06-18",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche",
       "Wissenschaft und Forschung",
@@ -6758,7 +7014,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2015-06-10",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche",
       "Wissenschaft und Forschung",
@@ -6820,7 +7076,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "1992-06-19",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche"
     ],
@@ -6878,7 +7134,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2005-11-21",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche",
       "Wissenschaft und Forschung",
@@ -6940,7 +7196,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2009-03-20",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche",
       "Wissenschaft und Forschung",
@@ -6968,7 +7224,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "09.1049 - Alternativen zu Tierversuchen"
@@ -7002,7 +7258,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2000-01-27",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche"
     ],
@@ -7028,7 +7284,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "00.2000 - Verbot von Leiden und Schmerzen bei Tierversuchen (Schweregrad 3)"
@@ -7060,7 +7316,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2011-09-30",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche",
       "Wissenschaft und Forschung",
@@ -7122,7 +7378,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2013-11-17",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche",
       "Wirtschaft",
@@ -7186,7 +7442,7 @@
     "regionGemeinde": null,
     "status": "Erledigt",
     "datumEingereicht": "2015-09-24",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Tierversuche"
     ],
@@ -7244,7 +7500,7 @@
     "regionGemeinde": "Bern",
     "status": "Eingereicht",
     "datumEingereicht": "2026-02-11",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Biodiversität",
       "Wald"
@@ -7329,7 +7585,7 @@
     "regionGemeinde": "Bern",
     "status": "Eingereicht",
     "datumEingereicht": "2026-02-11",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Biodiversität",
       "Siedlungsgebiet"
@@ -7414,7 +7670,7 @@
     "regionGemeinde": "Bern",
     "status": "Eingereicht",
     "datumEingereicht": "2026-02-11",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Biodiversität",
       "Landwirtschaft"
@@ -7500,7 +7756,7 @@
     "regionGemeinde": "Bern",
     "status": "Eingereicht",
     "datumEingereicht": "2026-01-28",
-    "datumAktualisiert": "2026-02-17",
+    "datumAktualisiert": "2026-02-18",
     "themen": [
       "Zoo"
     ],
@@ -7554,6 +7810,100 @@
         "themes": {
           "de": [
             "Zoo"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20250067-fr",
+    "titel": "25.067 - «Für eine sichere Ernährung – durch Stärkung einer nachhaltigen inländischen Produktion, mehr pflanzliche Lebensmittel und sauberes Trinkwasser (Ernährungsinitiative)». Volksinitiative",
+    "typ": "Volksinitiative",
+    "kurzbeschreibung": "Botschaft vom 13. August 2025 zur Volksinitiative «Für eine sichere Ernährung – durch Stärkung einer nachhaltigen inländischen Produktion, mehr pflanzliche Lebensmittel und sauberes Trinkwasser (Ernährungsinitiative)» Botschaft vom 13. August 2025 zur Volksinitiative «Für eine sichere Ernährung – durch Stärkung einer nachhaltigen inländischen Produktion, mehr pflanzliche Lebensmittel und sauberes Trinkwasser (Ernährungsinitiative)» Wi",
+    "geschaeftsnummer": "25.067",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-08-13",
+    "datumAktualisiert": "2026-02-18",
+    "themen": [
+      "Ernährung",
+      "Alimentazione",
+      "Landwirtschaft",
+      "Agriculture",
+      "Agricoltura",
+      "Umwelt"
+    ],
+    "schlagwoerter": [
+      "ernährung",
+      "alimentazione",
+      "initiative",
+      "botschaft",
+      "landwirtschaft",
+      "agriculture",
+      "agricoltura"
+    ],
+    "einreichende": [
+      {
+        "name": "Bundesrat",
+        "rolle": "Regierung",
+        "partei": "Bundesrat"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250067",
+    "resultate": [
+      {
+        "datum": "2025-08-13",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "fr",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "25.067 - «Für eine sichere Ernährung – durch Stärkung einer nachhaltigen inländischen Produktion, mehr pflanzliche Lebensmittel und sauberes Trinkwasser (Ernährungsinitiative)». Volksinitiative",
+          "fr": "25.067 - «Pour une alimentation sûre – grâce au renforcement de la production indigène durable, à davantage de denrées alimentaires végétales et à une eau potable propre (initiative sur l’alimentation)». Initiative populaire",
+          "it": "25.067 - «Per un’alimentazione sicura – mediante il rafforzamento di una produzione nazionale sostenibile, più derrate alimentari vegetali e acqua potabile pulita (Iniziativa sull’alimentazione)». Iniziativa popolare"
+        },
+        "summary": {
+          "de": "Botschaft vom 13. August 2025 zur Volksinitiative «Für eine sichere Ernährung – durch Stärkung einer nachhaltigen inländischen Produktion, mehr pflanzliche Lebensmittel und sauberes Trinkwasser (Ernährungsinitiative)»",
+          "fr": "Message du 13 août 2025 relatif à l’initiative populaire fédérale « Pour une alimentation sûre – grâce au renforcement de la production indigène durable, à davantage de denrées alimentaires végétales et à une eau potable propre (initiative sur l’alimentation) »",
+          "it": "Messaggio del 13 agosto 2025 concernente l’iniziativa popolare «Per un’alimentazione sicura – mediante il rafforzamento di una produzione nazionale sostenibile, più derrate alimentari vegetali e acqua potabile pulita (Iniziativa sull’alimentazione)»"
+        },
+        "type": {
+          "de": "Volksinitiative",
+          "fr": "Initiative populaire",
+          "it": "Iniziativa popolare"
+        },
+        "themes": {
+          "de": [
+            "ernährung",
+            "alimentazione",
+            "landwirtschaft",
+            "agriculture",
+            "agricoltura",
+            "Umwelt"
+          ],
+          "fr": [
+            "ernährung",
+            "alimentazione",
+            "initiative",
+            "botschaft",
+            "Agriculture",
+            "agriculture"
+          ],
+          "it": [
+            "ernährung",
+            "alimentazione",
+            "initiative",
+            "botschaft",
+            "Agricoltura",
+            "agriculture"
           ]
         }
       },

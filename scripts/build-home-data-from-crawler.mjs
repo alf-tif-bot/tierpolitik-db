@@ -46,6 +46,18 @@ const inferType = (title = '', sourceId = '', businessTypeName = '', rawType = '
   return 'Interpellation'
 }
 
+const inferTypeFromBusinessNumber = (businessNumber = '') => {
+  const normalized = String(businessNumber || '').trim()
+  const m = normalized.match(/^(\d{2})\.(\d{3,4})$/)
+  if (!m) return null
+  const suffix = Number(m[2])
+  if (Number.isNaN(suffix)) return null
+
+  // Curia-Vista-Nummern im 4xx-Bereich sind parlamentarische Initiativen.
+  if (suffix >= 400 && suffix < 500) return 'Parlamentarische Initiative'
+  return null
+}
+
 const typeLabels = {
   Volksinitiative: { de: 'Volksinitiative', fr: 'Initiative populaire', it: 'Iniziativa popolare', en: 'Popular initiative' },
   'Parlamentarische Initiative': { de: 'Parlamentarische Initiative', fr: 'Initiative parlementaire', it: 'Iniziativa parlamentare', en: 'Parliamentary initiative' },
@@ -770,7 +782,7 @@ const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallb
       variant?.businessTypeName || '',
       variant?.meta?.rawType || item?.meta?.rawType || '',
     )
-    const canonicalType = TYPE_OVERRIDES[businessNumber] || fallbackType || inferredVariantType
+    const canonicalType = TYPE_OVERRIDES[businessNumber] || inferTypeFromBusinessNumber(businessNumber) || fallbackType || inferredVariantType
     const matched = mapThemesFromKeywords(item.matchedKeywords || fallbackThemes || []).slice(0, 6)
     out.title[l] = weakTitle ? fallbackTitle : title
     out.summary[l] = weakSummary ? fallbackSummary : summary
@@ -815,7 +827,8 @@ const vorstoesse = items.map((item, index) => {
     sourceVariant?.meta?.rawType || item?.meta?.rawType || '',
     `${displaySummary} ${displayBody} ${SUMMARY_OVERRIDES[businessNumber] || ''}`,
   )
-  const typ = TYPE_OVERRIDES[businessNumber] || inferredType
+  const numberBasedType = inferTypeFromBusinessNumber(businessNumber)
+  const typ = TYPE_OVERRIDES[businessNumber] || numberBasedType || inferredType
   const stance = extractStance(item.reviewReason, finalTitle, displaySummary, displayBody)
   const initiativeLinks = buildInitiativeLinks({
     typ,
