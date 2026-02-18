@@ -3,6 +3,7 @@ import { translateContent } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
 import { normalizePartyName, normalizeSubmitterName } from '../utils/submitters'
+import { toFrenchQuotes } from '../utils/text'
 
 type ProfileState =
   | { kind: 'person'; value: string }
@@ -18,7 +19,7 @@ type Props = {
   onSubscribe: (context: string) => void
 }
 
-const normalizeTitle = (value: string) => value.replace(/^Vorstoss\s+\d+\s*:\s*/i, '')
+const normalizeTitle = (value: string) => toFrenchQuotes(value.replace(/^Vorstoss\s+\d+\s*:\s*/i, ''))
 
 export function ProfileDrawer({ profile, data, lang, onClose, onOpenDetail, onSubscribe }: Props) {
   if (!profile) return null

@@ -4,6 +4,7 @@ import { localizedMetaText, localizedMetaThemes, localizedMetaType, statusClassS
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
 import { normalizePartyName, normalizeSubmitterName } from '../utils/submitters'
+import { toFrenchQuotes } from '../utils/text'
 
 type QuickFilterField = 'thema' | 'typ' | 'ebene' | 'kanton' | 'region' | 'submitter' | 'party'
 
@@ -44,7 +45,7 @@ const normalizeTitle = (value: string, typ?: string) => {
     out = out.replace(new RegExp(`(?:\\.|,)?\\s*${escaped}\\s*$`, 'i'), '').trim()
   }
 
-  return out
+  return toFrenchQuotes(out)
 }
 
 const API_BASE = (import.meta.env.VITE_API_BASE || '').replace(/\/$/, '')

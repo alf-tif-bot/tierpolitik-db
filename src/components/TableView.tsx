@@ -13,6 +13,7 @@ import type { I18nText, Language } from '../i18n'
 import { localizedMetaText, localizedMetaType, statusClassSlug, statusIcon, translateStatus } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
+import { toFrenchQuotes } from '../utils/text'
 
 export const getAllColumnsMeta = (t: I18nText) => [
   { key: 'titel', label: t.titleCol },
@@ -46,7 +47,7 @@ const normalizeTitle = (value: string, typ?: string) => {
     out = out.replace(new RegExp(`(?:\\.|,)?\\s*${escaped}\\s*$`, 'i'), '').trim()
   }
 
-  return out
+  return toFrenchQuotes(out)
 }
 
 export function TableView({ data, onOpenDetail, onVisibleColumnsChange, keyboardEnabled = true, sectionId, lang, t }: Props) {
