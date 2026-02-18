@@ -3,6 +3,11 @@ const parseIntSafe = (value, fallback) => {
   return Number.isFinite(n) && n > 0 ? n : fallback
 }
 
+const parseNonNegativeIntSafe = (value, fallback) => {
+  const n = Number.parseInt(String(value ?? ''), 10)
+  return Number.isFinite(n) && n >= 0 ? n : fallback
+}
+
 const RETRYABLE_HTTP_STATUS = new Set([408, 425, 429, 500, 502, 503, 504])
 
 const detectHttpStatus = (message = '') => {
@@ -105,53 +110,44 @@ const matchSourceId = (sourceId = '', candidates = []) => {
   return candidates.some((needle) => id.includes(needle))
 }
 
+const SOURCE_FLOOR_POLICIES = {
+  'ch-parliament-business-de': { timeoutMs: 95000, retries: 3 },
+  'ch-parliament-business-fr': { timeoutMs: 95000, retries: 3 },
+  'ch-parliament-business-it': { timeoutMs: 95000, retries: 3 },
+  'ch-parliament-motions-de': { timeoutMs: 95000, retries: 3 },
+  'ch-parliament-postulates-de': { timeoutMs: 95000, retries: 3 },
+  'ch-parliament-petitions-de': { timeoutMs: 90000, retries: 2 },
+  'ch-parliament-affairs-v2': { timeoutMs: 110000, retries: 3 },
+}
+
+const resolveFloorPolicy = ({ sourceId, adapterKey, timeoutDefault, retriesDefault }) => {
+  const direct = SOURCE_FLOOR_POLICIES[sourceId]
+  if (direct) return direct
+
+  if (adapterKey === 'parliamentOdataV2') return { timeoutMs: Math.max(timeoutDefault, 95000), retries: Math.max(retriesDefault, 2) }
+  if (adapterKey === 'parliamentOdata') return { timeoutMs: Math.max(timeoutDefault, 85000), retries: Math.max(retriesDefault, 2) }
+  if (adapterKey === 'cantonalPortal') return { timeoutMs: Math.max(timeoutDefault, 60000), retries: Math.max(retriesDefault, 2) }
+  if (matchSourceId(sourceId, ['cantonal-portal-core', 'cantonal-portal-priority'])) return { timeoutMs: Math.max(timeoutDefault, 60000), retries: Math.max(retriesDefault, 2) }
+
+  return { timeoutMs: timeoutDefault, retries: retriesDefault }
+}
+
 export const resolveSourcePolicy = (source, runtimeDefaults = {}) => {
   const sourceId = source?.id || 'unknown-source'
   const adapterKey = source?.adapter || source?.type || 'unknown-adapter'
 
   const timeoutDefault = parseIntSafe(runtimeDefaults.timeoutMs, 45000)
-  const retriesDefault = parseIntSafe(runtimeDefaults.retries, 1)
+  const retriesDefault = parseNonNegativeIntSafe(runtimeDefaults.retries, 1)
   const backoffDefault = parseIntSafe(runtimeDefaults.backoffMs, 1200)
 
-  let timeoutMs = timeoutDefault
-  let retries = retriesDefault
+  const floor = resolveFloorPolicy({ sourceId, adapterKey, timeoutDefault, retriesDefault })
 
-  if (adapterKey === 'parliamentOdata') {
-    timeoutMs = Math.max(75000, timeoutMs)
-    retries = Math.max(retries, 2)
-  }
-
-  if (adapterKey === 'parliamentOdataV2') {
-    timeoutMs = Math.max(90000, timeoutMs)
-    retries = Math.max(retries, 2)
-  }
-
-  if (adapterKey === 'cantonalPortal') {
-    timeoutMs = 60000
-    retries = Math.max(retries, 2)
-  }
-
-  if (matchSourceId(sourceId, ['business-de', 'motions-de', 'postulates-de'])) {
-    timeoutMs = Math.max(timeoutMs, 85000)
-    retries = Math.max(retries, 3)
-  }
-
-  if (matchSourceId(sourceId, ['parliament-affairs-v2'])) {
-    timeoutMs = Math.max(timeoutMs, 100000)
-    retries = Math.max(retries, 3)
-  }
-
-  if (matchSourceId(sourceId, ['cantonal-portal-core', 'cantonal-portal-priority'])) {
-    timeoutMs = 60000
-    retries = Math.max(retries, 2)
-  }
-
-  const sourceTimeoutOption = parseIntSafe(source?.options?.sourceTimeoutMs, timeoutMs)
-  const sourceRetriesOption = parseIntSafe(source?.options?.retries, retries)
+  const sourceTimeoutOption = parseIntSafe(source?.options?.sourceTimeoutMs, floor.timeoutMs)
+  const sourceRetriesOption = parseNonNegativeIntSafe(source?.options?.retries, floor.retries)
 
   return {
-    timeoutMs: sourceTimeoutOption,
-    retries: sourceRetriesOption,
+    timeoutMs: Math.max(floor.timeoutMs, sourceTimeoutOption),
+    retries: Math.max(floor.retries, sourceRetriesOption),
     backoffMs: parseIntSafe(source?.options?.retryBackoffMs, backoffDefault),
     backoffFactor: Number(source?.options?.retryBackoffFactor || runtimeDefaults.backoffFactor || 2),
     backoffMaxMs: parseIntSafe(source?.options?.retryBackoffMaxMs, runtimeDefaults.backoffMaxMs || 12000),
@@ -212,7 +208,7 @@ export const executeSourceFetch = async ({
 export const readCollectEnv = (defaults = {}) => ({
   timeoutMs: parseIntSafe(process.env.CRAWLER_COLLECT_TIMEOUT_MS || process.env.CRAWLER_SOURCE_TIMEOUT_MS, defaults.timeoutMs || 45000),
   concurrency: parseIntSafe(process.env.CRAWLER_COLLECT_CONCURRENCY, defaults.concurrency || 4),
-  retries: parseIntSafe(process.env.CRAWLER_COLLECT_RETRIES, defaults.retries || 1),
+  retries: parseNonNegativeIntSafe(process.env.CRAWLER_COLLECT_RETRIES, defaults.retries || 1),
   backoffMs: parseIntSafe(process.env.CRAWLER_COLLECT_RETRY_BACKOFF_MS, defaults.backoffMs || 1200),
   backoffMaxMs: parseIntSafe(process.env.CRAWLER_COLLECT_RETRY_BACKOFF_MAX_MS, defaults.backoffMaxMs || 12000),
   backoffFactor: Number(process.env.CRAWLER_COLLECT_RETRY_BACKOFF_FACTOR || defaults.backoffFactor || 2),

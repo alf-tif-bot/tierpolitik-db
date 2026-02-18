@@ -12,9 +12,9 @@
       "sampleLimit": 360,
       "thematicMinQuota": 260,
       "daysBack": 9500,
-      "sourceTimeoutMs": 85000,
-      "retries": 2,
-      "requestTimeoutMs": 30000
+      "sourceTimeoutMs": 95000,
+      "retries": 3,
+      "requestTimeoutMs": 35000
     }
   },
   {
@@ -29,7 +29,10 @@
       "top": 700,
       "sampleLimit": 260,
       "thematicMinQuota": 170,
-      "daysBack": 9500
+      "daysBack": 9500,
+      "sourceTimeoutMs": 95000,
+      "retries": 3,
+      "requestTimeoutMs": 35000
     }
   },
   {
@@ -44,7 +47,10 @@
       "top": 500,
       "sampleLimit": 160,
       "thematicMinQuota": 90,
-      "daysBack": 9500
+      "daysBack": 9500,
+      "sourceTimeoutMs": 95000,
+      "retries": 3,
+      "requestTimeoutMs": 35000
     }
   },
   {
@@ -61,9 +67,9 @@
       "thematicMinQuota": 140,
       "daysBack": 9500,
       "businessTypeIncludes": "Motion",
-      "sourceTimeoutMs": 85000,
-      "retries": 2,
-      "requestTimeoutMs": 30000
+      "sourceTimeoutMs": 95000,
+      "retries": 3,
+      "requestTimeoutMs": 35000
     }
   },
   {
@@ -80,9 +86,9 @@
       "thematicMinQuota": 110,
       "daysBack": 9500,
       "businessTypeIncludes": "Postulat",
-      "sourceTimeoutMs": 85000,
-      "retries": 2,
-      "requestTimeoutMs": 30000
+      "sourceTimeoutMs": 95000,
+      "retries": 3,
+      "requestTimeoutMs": 35000
     }
   },
   {
@@ -98,7 +104,10 @@
       "sampleLimit": 140,
       "thematicMinQuota": 80,
       "daysBack": 9500,
-      "businessTypeIncludes": "Petition"
+      "businessTypeIncludes": "Petition",
+      "sourceTimeoutMs": 90000,
+      "retries": 2,
+      "requestTimeoutMs": 32000
     }
   },
   {
