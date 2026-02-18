@@ -401,8 +401,14 @@ if (reviewItems.length < MIN_REVIEW_ITEMS) {
     })
     .filter((item) => isInTargetHorizon(item))
     .filter((item) => isReadableReviewText(item))
-    .filter((item) => Number(item?.score || 0) >= 0.18)
-
+    .filter((item) => {
+      const score = Number(item?.score || 0)
+      const reason = String(item?.reviewReason || '').toLowerCase()
+      if (score >= 0.12) return true
+      if (reason.includes('anchor+score') || reason.includes('anchor2+support') || reason.includes('whitelist+theme')) return true
+      if (containsAnimalHint(`${item?.title || ''} ${item?.summary || ''} ${(item?.matchedKeywords || []).join(' ')}`)) return true
+      return false
+    })
   const fillers = []
   for (const item of sortReviewItems(fallbackPool)) {
     const key = affairKey(item)
