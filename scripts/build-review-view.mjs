@@ -91,8 +91,14 @@ const isCantonalReadableRelevant = (item) => {
 
   // Drop synthetic canton summary rows like "SZ · Kantonsrat Schwyz: Jagd und Wildtiere"
   // until we have a concrete parliamentary business attached.
-  const looksSyntheticCantonalHeadline = /^[A-Z]{2}\s+[·\-]\s+Kantonsrat\b.+:\s+.+/i.test(title)
-  if (looksSyntheticCantonalHeadline) return false
+  const looksSyntheticCantonalHeadline = /^[A-Z]{2}(?:\s+|\s*[^\p{L}\p{N}]\s*)Kantonsrat\b.+:\s+.+/iu.test(title)
+  const isCantonalSummaryId = /^cantonal-portal-[a-z]{2}$/i.test(String(item?.externalId || ''))
+  const hasConcreteBusinessRef = Boolean(
+    item?.meta?.businessNumber
+    || /geschaeft(id|nummer)?=|objektid=|affairid=|\/geschaefte?\//i.test(String(item?.meta?.sourceLink || item?.sourceUrl || ''))
+  )
+
+  if ((looksSyntheticCantonalHeadline || isCantonalSummaryId) && !hasConcreteBusinessRef) return false
 
   return CANTONAL_THEME_STRONG_KEYWORDS.some((kw) => text.includes(kw))
 }
