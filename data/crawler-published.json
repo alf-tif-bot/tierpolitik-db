@@ -116,6 +116,23 @@
     ]
   },
   {
+    "id": "ch-parliament-business-de:20210426-de",
+    "title": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
+    "summary": "In Kommission des Nationalrats",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2021-03-18T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche",
+      "animal",
+      "expérimentation animale",
+      "sperimentazione animale",
+      "3r",
+      "animale"
+    ]
+  },
+  {
     "id": "ch-parliament-business-de:20223302-de",
     "title": "22.3302 · Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung",
     "summary": "Erledigt",
@@ -650,7 +667,7 @@
     "title": "NE · Grand Conseil Neuchâtel: Chasse",
     "summary": "Objets - R&eacute;publique et canton de Neuch&acirc;tel – 8 relevante Linkziele erkannt (3 thematisch, 3 Seiten gescannt, Leitlink: Chasse)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-19T16:24:44.071Z",
+    "publishedAt": "2026-02-19T17:24:47.511Z",
     "score": 1,
     "matchedKeywords": [
       "animaux",
@@ -665,9 +682,9 @@
   {
     "id": "ch-cantonal-portal-core:cantonal-portal-sz",
     "title": "SZ · Kantonsrat Schwyz: Jagd und Wildtiere",
-    "summary": "Kantonsrat – Kanton Schwyz – 3 relevante Linkziele erkannt (1 thematisch, 1 Seiten gescannt, Leitlink: Jagd und Wildtiere)",
+    "summary": "Kantonsrat – Kanton Schwyz – 3 relevante Linkziele erkannt (1 thematisch, 2 Seiten gescannt, Leitlink: Jagd und Wildtiere)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-19T16:24:44.071Z",
+    "publishedAt": "2026-02-19T17:24:47.511Z",
     "score": 1,
     "matchedKeywords": [
       "wildtier",
@@ -680,7 +697,7 @@
     "title": "ZG · Kantonsrat Zug: Arten, Lebensräume, Jagd Artenschutz, Lebensraumförderung, Naturschutzgebiete, Jagd, Hilfe für Wildtiere",
     "summary": "Geschäfte des Kantonsrats – 7 relevante Linkziele erkannt (2 thematisch, 3 Seiten gescannt, Leitlink: Arten, Lebensräume, Jagd Artenschutz, Lebensraumförderung, Naturschutzgebiete, Jagd, Hilfe für Wildtiere)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-19T16:24:44.071Z",
+    "publishedAt": "2026-02-19T17:24:47.511Z",
     "score": 1,
     "matchedKeywords": [
       "tiere",
@@ -1300,23 +1317,6 @@
       "landwirtschaft",
       "agriculture",
       "agricoltura"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20210426-de",
-    "title": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
-    "summary": "In Kommission des Nationalrats",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2021-03-18T00:00:00.000Z",
-    "score": 1,
-    "matchedKeywords": [
-      "tierversuch",
-      "tierversuche",
-      "animal",
-      "expérimentation animale",
-      "sperimentazione animale",
-      "3r",
-      "animale"
     ]
   },
   {
