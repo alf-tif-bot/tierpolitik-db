@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-02-19T20:00:55.015Z",
-  "total": 29,
+  "generatedAt": "2026-02-19T20:11:44.734Z",
+  "total": 5,
   "sourceFix": {
     "total": 2,
     "byCanton": {
@@ -30,190 +30,8 @@
   },
   "items": [
     {
-      "id": "ch-parliament-business-de:20195282-de",
+      "id": "ch-parliament-business-de:20173240-de",
       "sourceId": "ch-parliament-business-de",
-      "externalId": "20195282-de",
-      "title": "19.5282 · Ausbreitung von resistenten Keimen über die Schweinehaltung auf die Bauern und ihre Angehörigen: Welche Gefahr besteht? (2)",
-      "summary": "Kurzfassung: Das Geschäft behandelt schwein, schweine. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 1,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20195282",
-      "publishedAt": "2019-06-05T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "schwein",
-        "schweine",
-        "landwirtschaft"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=schwein|schweine · support=landwirtschaft · title=- · context=- · process=- · fb+=schwein|schweine · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=1.00"
-    },
-    {
-      "id": "ch-parliament-business-de:20195281-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20195281-de",
-      "title": "19.5281 · Wie sieht es mit der Übertragung von resistenten Schweinekeimen auf Bauern und ihre Angehörigen in der Schweiz aus? (1)",
-      "summary": "Kurzfassung: Das Geschäft behandelt schwein, schweine. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 1,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20195281",
-      "publishedAt": "2019-06-05T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "schwein",
-        "schweine",
-        "landwirtschaft"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=schwein|schweine · support=landwirtschaft · title=- · context=- · process=- · fb+=schwein|schweine · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=1.00"
-    },
-    {
-      "id": "ch-parliament-business-de:20181062-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20181062-de",
-      "title": "18.1062 · Afrikanische Schweinepest auf dem Vormarsch. Tut der Bund genug?",
-      "summary": "Kurzfassung: Das Geschäft behandelt schwein, schweine. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 1,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20181062",
-      "publishedAt": "2018-09-27T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "schwein",
-        "schweine",
-        "landwirtschaft"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=schwein|schweine · support=landwirtschaft · title=- · context=- · process=- · fb+=schwein|schweine · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=1.00"
-    },
-    {
-      "id": "ch-parliament-business-de:20173670-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20173670-de",
-      "title": "17.3670 · Unerträgliche Misshandlungen in der Schweinehaltung. Wie kann eine Verbesserung der Situation erreicht werden?",
-      "summary": "Kurzfassung: Das Geschäft behandelt schwein, schweine. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 1,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20173670",
-      "publishedAt": "2017-09-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "schwein",
-        "schweine",
-        "landwirtschaft"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=schwein|schweine · support=landwirtschaft · title=- · context=- · process=- · fb+=schwein|schweine · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=1.00"
-    },
-    {
-      "id": "ch-parliament-business-de:20170024-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20170024-de",
-      "title": "17.024 · Für die Würde der landwirtschaftlichen Nutztiere (Hornkuh-Initiative). Volksinitiative",
-      "summary": "Botschaft vom 15. Februar 2017 zur Volksinitiative «Für die Würde der landwirtschaftlichen Nutztiere (Hornkuh-Initiative)»",
-      "score": 1,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20170024",
-      "publishedAt": "2017-02-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "nutztiere",
-        "initiative",
-        "botschaft",
-        "landwirtschaft"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=nutztiere · support=initiative|botschaft|landwirtschaft · title=- · context=- · process=- · fb+=nutztiere · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=1.00"
-    },
-    {
-      "id": "ch-parliament-business-de:20164075-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20164075-de",
-      "title": "16.4075 · Massnahmen gegen die massiv steigende Anzahl an Tierversuchen und eingesetzten Tieren",
-      "summary": "Kurzfassung: Das Geschäft behandelt tiere, tierversuch, tierversuche. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 1,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20164075",
-      "publishedAt": "2016-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "tiere",
-        "tierversuch",
-        "tierversuche"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=tiere|tierversuch|tierversuche · support=- · title=- · context=- · process=- · fb+=tiere|tierversuch · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=1.00"
-    },
-    {
-      "id": "ch-parliament-business-de:20254831-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20254831-de",
-      "title": "25.4831 · Einheimische Produktionssysteme fördern anstatt Importbedingungen für mit Chlor behandeltem Hühnerfleisch lockern",
-      "summary": "Kurzfassung: Das Geschäft behandelt hühner. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.8700000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254831",
-      "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "hühner",
-        "landwirtschaft",
-        "agriculture",
-        "Landwirtschaft"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=hühner · support=landwirtschaft|agriculture|agricoltura · title=hühner · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.14 · score=0.87"
-    },
-    {
-      "id": "ch-parliament-business-de:20194548-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20194548-de",
-      "title": "19.4548 · Überprüfung der Fahrzeuge für den Transport von Nutztieren",
-      "summary": "Kurzfassung: Das Geschäft behandelt nutztiere. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.8600000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20194548",
-      "publishedAt": "2019-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "nutztiere",
-        "transport",
-        "landwirtschaft"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=nutztiere · support=transport|landwirtschaft · title=- · context=- · process=- · fb+=nutztiere · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.86"
-    },
-    {
-      "id": "ch-parliament-business-de:20194023-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20194023-de",
-      "title": "19.4023 · Nutztiere. Vollzug hinsichtlich Transportdauer und Fahrtunterbrüche",
-      "summary": "Kurzfassung: Das Geschäft behandelt nutztiere. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.8600000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20194023",
-      "publishedAt": "2019-09-12T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "nutztiere",
-        "transport",
-        "landwirtschaft"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=nutztiere · support=transport|landwirtschaft · title=- · context=- · process=- · fb+=nutztiere · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.86"
-    },
-    {
-      "id": "ch-parliament-business-de:20173646-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20173646-de",
-      "title": "17.3646 · Tierquälereifälle verhindern, Tierschutzvollzug verbessern",
-      "summary": "Kurzfassung: Das Geschäft behandelt tierschutz, tierquälerei. Einordnung: Es stellt eher einen positiven Bezug zum Tierschutz her.",
-      "score": 0.8600000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20173646",
-      "publishedAt": "2017-09-12T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "tierschutz",
-        "tierquälerei",
-        "landwirtschaft"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz|tierquälerei · support=landwirtschaft · title=- · context=- · process=- · fb+=tierschutz · fb-=- · people=- · noise=finanz · feedback=0.10 · fastlane=0.16 · titleBoost=0.00 · score=0.86"
-    },
-    {
-      "id": "ch-parliament-motions-de:20173240-de",
-      "sourceId": "ch-parliament-motions-de",
       "externalId": "20173240-de",
       "title": "17.3240 · Für einen innovativen Forschungsstandort Schweiz. Bessere Förderung von Ersatzmethoden für Tierversuche",
       "summary": "Kurzfassung: Das Geschäft behandelt tierversuch, tierversuche. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
@@ -221,7 +39,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20173240",
       "publishedAt": "2017-03-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:47.743Z",
+      "fetchedAt": "2026-02-19T20:10:21.437Z",
       "matchedKeywords": [
         "tierversuch",
         "tierversuche"
@@ -229,145 +47,8 @@
       "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=tierversuch|tierversuche · support=- · title=- · context=- · process=- · fb+=tierversuch|tierversuche · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.86"
     },
     {
-      "id": "ch-parliament-business-de:20173130-de",
+      "id": "ch-parliament-business-de:20183989-de",
       "sourceId": "ch-parliament-business-de",
-      "externalId": "20173130-de",
-      "title": "17.3130 · Internethandel mit lebenden Tieren und Tierschutz",
-      "summary": "Kurzfassung: Das Geschäft behandelt tiere, tierschutz. Einordnung: Es stellt eher einen positiven Bezug zum Tierschutz her.",
-      "score": 0.8600000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20173130",
-      "publishedAt": "2017-03-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "tiere",
-        "tierschutz"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tiere|tierschutz · support=- · title=- · context=- · process=- · fb+=tiere|tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.86"
-    },
-    {
-      "id": "ch-parliament-business-de:20164121-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20164121-de",
-      "title": "16.4121 · Alternativen zu Tierversuchen während der Ausbildung besser berücksichtigen",
-      "summary": "Kurzfassung: Das Geschäft behandelt tierversuch, tierversuche. Einordnung: Es stellt eher einen positiven Bezug zum Tierschutz her.",
-      "score": 0.8600000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20164121",
-      "publishedAt": "2016-12-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "tierversuch",
-        "tierversuche"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierversuch|tierversuche · support=- · title=- · context=- · process=- · fb+=tierversuch|tierversuche · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.86"
-    },
-    {
-      "id": "ch-parliament-business-de:20185448-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20185448-de",
-      "title": "18.5448 · Landwirtschafts-Initiativen und Import von Stopfleber",
-      "summary": "Kurzfassung: Das Geschäft behandelt stopfleber. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.8200000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20185448",
-      "publishedAt": "2018-09-12T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "stopfleber",
-        "initiative",
-        "landwirtschaft"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=stopfleber · support=initiative|landwirtschaft · title=- · context=- · process=- · fb+=stopfleber · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.12 · titleBoost=0.00 · score=0.82"
-    },
-    {
-      "id": "ch-parliament-business-de:20194017-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20194017-de",
-      "title": "19.4017 · Tierversuche. Für eine bessere Koordination auf nationaler Ebene und eine effizientere Verwendung der öffentlichen Gelder",
-      "summary": "Kurzfassung: Das Geschäft behandelt tierversuch, tierversuche. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.7600000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20194017",
-      "publishedAt": "2019-09-12T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "tierversuch",
-        "tierversuche"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=tierversuch|tierversuche · support=- · title=- · context=- · process=- · fb+=tierversuch|tierversuche · fb-=- · people=- · noise=finanz · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.76"
-    },
-    {
-      "id": "ch-parliament-business-de:20183047-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20183047-de",
-      "title": "18.3047 · Wie steht es um die Empfehlungen der EFK zum Bewilligungsprozess, zu den Kosten und zur Finanzierung von Tierversuchen?",
-      "summary": "Kurzfassung: Das Geschäft behandelt tierversuch, tierversuche. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.7600000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20183047",
-      "publishedAt": "2018-02-28T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "tierversuch",
-        "tierversuche"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=tierversuch|tierversuche · support=- · title=- · context=- · process=- · fb+=tierversuch|tierversuche · fb-=- · people=- · noise=finanz · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.76"
-    },
-    {
-      "id": "ch-parliament-business-de:20161030-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20161030-de",
-      "title": "16.1030 · Sponsoring von Lehrstühlen an Hochschulen für Tierversuche und Ersatzmethoden",
-      "summary": "Kurzfassung: Das Geschäft behandelt tierversuch, tierversuche. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.7600000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20161030",
-      "publishedAt": "2016-06-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "tierversuch",
-        "tierversuche"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=tierversuch|tierversuche · support=- · title=- · context=- · process=- · fb+=tierversuch|tierversuche · fb-=- · people=- · noise=hochschule · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.76"
-    },
-    {
-      "id": "ch-parliament-business-de:20194253-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20194253-de",
-      "title": "19.4253 · Tierschutzwidrige Zustände auf dem Gitzi- und Lämmermarkt",
-      "summary": "Kurzfassung: Das Geschäft behandelt tierschutz. Einordnung: Es stellt eher einen positiven Bezug zum Tierschutz her.",
-      "score": 0.7200000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20194253",
-      "publishedAt": "2019-09-26T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "tierschutz",
-        "landwirtschaft"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=landwirtschaft · title=- · context=- · process=- · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.72"
-    },
-    {
-      "id": "ch-parliament-business-de:20193635-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20193635-de",
-      "title": "19.3635 · Institutionelles Rahmenabkommen. Ist es auch dem Tierschutz in der Schweiz abträglich?",
-      "summary": "Kurzfassung: Das Geschäft behandelt tierschutz. Einordnung: Es stellt eher einen positiven Bezug zum Tierschutz her.",
-      "score": 0.7200000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20193635",
-      "publishedAt": "2019-06-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "tierschutz",
-        "landwirtschaft"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=landwirtschaft · title=- · context=- · process=- · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.72"
-    },
-    {
-      "id": "ch-parliament-postulates-de:20183989-de",
-      "sourceId": "ch-parliament-postulates-de",
       "externalId": "20183989-de",
       "title": "18.3989 · Tierschutzkonformität bei grossen Tierbeständen in der Schweiz",
       "summary": "Kurzfassung: Das Geschäft behandelt tierschutz. Einordnung: Es stellt eher einen positiven Bezug zum Tierschutz her.",
@@ -375,7 +56,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20183989",
       "publishedAt": "2018-09-27T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:50.054Z",
+      "fetchedAt": "2026-02-19T20:10:21.437Z",
       "matchedKeywords": [
         "tierschutz",
         "landwirtschaft"
@@ -383,24 +64,25 @@
       "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=landwirtschaft · title=- · context=- · process=- · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.72"
     },
     {
-      "id": "ch-parliament-business-de:20194456-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20194456-de",
-      "title": "19.4456 · Mehr Tierschutz in der privaten Aquaristik",
-      "summary": "Kurzfassung: Das Geschäft behandelt tierschutz. Einordnung: Es stellt eher einen positiven Bezug zum Tierschutz her.",
-      "score": 0.5800000000000001,
+      "id": "ch-parliament-postulates-de:20254831-de",
+      "sourceId": "ch-parliament-postulates-de",
+      "externalId": "20254831-de",
+      "title": "25.4831 · Einheimische Produktionssysteme fördern anstatt Importbedingungen für mit Chlor behandeltem Hühnerfleisch lockern",
+      "summary": "Kurzfassung: Das Geschäft behandelt hühner. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
+      "score": 0.5900000000000001,
       "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20194456",
-      "publishedAt": "2019-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
+      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254831",
+      "publishedAt": "2025-12-19T00:00:00.000Z",
+      "fetchedAt": "2026-02-19T20:10:26.496Z",
       "matchedKeywords": [
-        "tierschutz"
+        "hühner",
+        "landwirtschaft"
       ],
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=- · title=- · context=- · process=- · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.58"
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=hühner · support=landwirtschaft · title=hühner · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.14 · score=0.59"
     },
     {
-      "id": "ch-parliament-motions-de:20184052-de",
-      "sourceId": "ch-parliament-motions-de",
+      "id": "ch-parliament-business-de:20184052-de",
+      "sourceId": "ch-parliament-business-de",
       "externalId": "20184052-de",
       "title": "18.4052 · Effiziente Vertretung von Tierschutzanliegen in Strafverfahren ermöglichen",
       "summary": "Kurzfassung: Das Geschäft behandelt tierschutz. Einordnung: Es stellt eher einen positiven Bezug zum Tierschutz her.",
@@ -408,107 +90,11 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20184052",
       "publishedAt": "2018-09-28T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:47.743Z",
+      "fetchedAt": "2026-02-19T20:10:21.437Z",
       "matchedKeywords": [
         "tierschutz"
       ],
       "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=- · title=- · context=- · process=- · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.58"
-    },
-    {
-      "id": "ch-parliament-business-de:20185382-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20185382-de",
-      "title": "18.5382 · Exzesse von Tierschutz-Aktivismus bekämpfen",
-      "summary": "Kurzfassung: Das Geschäft behandelt tierschutz. Einordnung: Es stellt eher einen positiven Bezug zum Tierschutz her.",
-      "score": 0.5800000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20185382",
-      "publishedAt": "2018-06-06T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "tierschutz"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=- · title=- · context=- · process=- · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.58"
-    },
-    {
-      "id": "ch-parliament-business-de:20173143-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20173143-de",
-      "title": "17.3143 · Tierschutzmassnahmen im Pferdesport",
-      "summary": "Kurzfassung: Das Geschäft behandelt tierschutz. Einordnung: Es stellt eher einen positiven Bezug zum Tierschutz her.",
-      "score": 0.5800000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20173143",
-      "publishedAt": "2017-03-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "tierschutz"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=- · title=- · context=- · process=- · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.58"
-    },
-    {
-      "id": "ch-parliament-business-de:20173105-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20173105-de",
-      "title": "17.3105 · Sind lange Taubenwettflüge mit der Tierschutzgesetzgebung vereinbar?",
-      "summary": "Kurzfassung: Das Geschäft behandelt tierschutz. Einordnung: Es stellt eher einen positiven Bezug zum Tierschutz her.",
-      "score": 0.5800000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20173105",
-      "publishedAt": "2017-03-14T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "tierschutz"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=- · title=- · context=- · process=- · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.58"
-    },
-    {
-      "id": "ch-parliament-business-de:20175122-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20175122-de",
-      "title": "17.5122 · Die Tierschutzverordnung besser durchsetzen",
-      "summary": "Kurzfassung: Das Geschäft behandelt tierschutz. Einordnung: Es stellt eher einen positiven Bezug zum Tierschutz her.",
-      "score": 0.5800000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20175122",
-      "publishedAt": "2017-03-06T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "tierschutz"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=- · title=- · context=- · process=- · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.58"
-    },
-    {
-      "id": "ch-parliament-business-de:20163420-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20163420-de",
-      "title": "16.3420 · Nutzen und Zukunft der kantonalen Tierversuchskommissionen",
-      "summary": "Kurzfassung: Das Geschäft behandelt tierversuch. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.5800000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20163420",
-      "publishedAt": "2016-06-09T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "tierversuch"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=tierversuch · support=- · title=- · context=- · process=- · fb+=tierversuch · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.58"
-    },
-    {
-      "id": "ch-parliament-business-de:20163839-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20163839-de",
-      "title": "16.3839 · Steigende Tierversuchszahlen an den Hochschulen. Wo bleibt die Güterabwägung?",
-      "summary": "Kurzfassung: Das Geschäft behandelt tierversuch. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.4800000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20163839",
-      "publishedAt": "2016-09-30T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:39.164Z",
-      "matchedKeywords": [
-        "tierversuch"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=tierversuch · support=- · title=- · context=- · process=- · fb+=tierversuch · fb-=- · people=- · noise=hochschule · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.48"
     },
     {
       "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9",
@@ -520,7 +106,7 @@
       "status": "queued",
       "sourceUrl": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=d0f7b26541424c43aab28a91744f6ba9",
       "publishedAt": "2025-11-19T23:00:00.000Z",
-      "fetchedAt": "2026-02-19T19:24:50.059Z",
+      "fetchedAt": "2026-02-19T20:10:26.498Z",
       "matchedKeywords": [
         "motion"
       ],

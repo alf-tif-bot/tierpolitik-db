@@ -893,6 +893,15 @@ const DEFAULT_API_BASE = (location.hostname === 'monitor.tierimfokus.ch')
   ? 'https://tierpolitik.netlify.app/.netlify/functions'
   : '';
 const API_BASE=(lsGet('tierpolitik.apiBase')||DEFAULT_API_BASE).replace(/\\/$/,'');
+const DEBUG_REVIEW = /(?:\?|&)debug=1(?:&|$)/.test(location.search);
+const dbg = (...args) => { if (DEBUG_REVIEW) console.log('[review-debug]', ...args); };
+window.__reviewDebug = {
+  hostname: location.hostname,
+  storedApiBase: lsGet('tierpolitik.apiBase'),
+  defaultApiBase: DEFAULT_API_BASE,
+  effectiveApiBase: API_BASE,
+};
+dbg('boot', window.__reviewDebug);
 const safeJsonParse=(raw, fallback={})=>{
   try { return JSON.parse(raw || JSON.stringify(fallback)); }
   catch { return fallback; }
@@ -1061,15 +1070,22 @@ window.toggleFastlaneTag = async function toggleFastlaneTag(btn,id){
     try {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 5000);
-      const res = await fetch(API_BASE + '/review-fastlane-tag', {
+      const url = API_BASE + '/review-fastlane-tag';
+      dbg('fastlane:request', { id, next, url });
+      const res = await fetch(url, {
         method:'POST',
         headers:{'content-type':'application/json'},
         body: JSON.stringify({ id, fastlane: next, taggedAt }),
         signal: controller.signal,
       });
       clearTimeout(timer);
+      dbg('fastlane:response', { id, next, code: res.status, ok: res.ok });
       if (res.ok) serverOk = true;
-    } catch {}
+    } catch (err) {
+      dbg('fastlane:error', { id, next, message: String(err?.message || err) });
+    }
+  } else {
+    dbg('fastlane:skip-no-api-base', { id, next });
   }
 
   tags[id] = { fastlane: next, taggedAt };
@@ -1119,8 +1135,10 @@ window.setDecision = async function setDecision(btn,id,status){
     try {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 5000);
+      const url = API_BASE + '/review-decision';
+      dbg('setDecision:request', { id, status, url });
 
-      const res = await fetch(API_BASE + '/review-decision', {
+      const res = await fetch(url, {
         method:'POST',
         headers:{'content-type':'application/json'},
         body: JSON.stringify({ id, status, decidedAt }),
@@ -1128,8 +1146,13 @@ window.setDecision = async function setDecision(btn,id,status){
       });
 
       clearTimeout(timer);
+      dbg('setDecision:response', { id, status, code: res.status, ok: res.ok });
       if (res.ok) serverOk = true;
-    } catch {}
+    } catch (err) {
+      dbg('setDecision:error', { id, status, message: String(err?.message || err) });
+    }
+  } else {
+    dbg('setDecision:skip-no-api-base', { id, status });
   }
 
   try {
