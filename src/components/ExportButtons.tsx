@@ -13,19 +13,21 @@ type Props = {
 
 export function ExportButtons({ filtered, visibleColumns, t, showExports = true, showShortcutsLink = true }: Props) {
   const [showShortcuts, setShowShortcuts] = useState(false)
+  const [showRoadmap, setShowRoadmap] = useState(false)
 
   useEffect(() => {
-    if (!showShortcuts) return
+    if (!showShortcuts && !showRoadmap) return
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setShowShortcuts(false)
+        setShowRoadmap(false)
       }
     }
 
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [showShortcuts])
+  }, [showShortcuts, showRoadmap])
 
   const exportCsv = () => {
     const csv = buildCsv(filtered, visibleColumns)
@@ -82,6 +84,17 @@ export function ExportButtons({ filtered, visibleColumns, t, showExports = true,
               >
                 Tastaturbefehle
               </a>
+              <span className="export-sep">·</span>
+              <a
+                href="#"
+                className="export-link"
+                onClick={(e) => {
+                  e.preventDefault()
+                  setShowRoadmap(true)
+                }}
+              >
+                Roadmap
+              </a>
             </>
           )}
         </div>
@@ -105,6 +118,45 @@ export function ExportButtons({ filtered, visibleColumns, t, showExports = true,
                 <tr><td><strong>de / fr / it / en</strong></td><td>Sprache wechseln</td></tr>
               </tbody>
             </table>
+          </aside>
+        </div>
+      )}
+
+      {showRoadmap && (
+        <div className="drawer-backdrop" onClick={() => setShowRoadmap(false)}>
+          <aside className="drawer" onClick={(e) => e.stopPropagation()}>
+            <div className="row drawer-head">
+              <h2>Roadmap</h2>
+              <button onClick={() => setShowRoadmap(false)}>Schliessen</button>
+            </div>
+
+            <section>
+              <h3 style={{ marginTop: 0 }}>Zielbild</h3>
+              <p style={{ marginTop: 0 }}>
+                Der Tierpolitik-Monitor ist täglich verlässlich nutzbar: stabile Endpunkte, laufend gepflegte und
+                verifizierte Vorstösse aus Bund/Kantonen/Städten sowie klare Feedback- und Review-Prozesse.
+              </p>
+            </section>
+
+            <section>
+              <h3>Weg dorthin</h3>
+              <ol>
+                <li><strong>Stabilisieren</strong> – Endpunkte (<code>/home-data</code>, <code>/feedback-submit</code>) und Deploy-Checks absichern.</li>
+                <li><strong>Qualität im Betrieb</strong> – tägliche QA-Pässe, Review-Queue aktiv halten, nur verifizierbare Einträge freigeben.</li>
+                <li><strong>Abdeckung ausbauen</strong> – kommunale Quellen über Bern/Zürich hinaus erweitern (z. B. Basel, Genf, Lausanne).</li>
+                <li><strong>Team-Fluss verbessern</strong> – Review-/Ops-Schritte weiter automatisieren und Blocker (z. B. Discord-Slash) schliessen.</li>
+              </ol>
+            </section>
+
+            <section>
+              <h3>Milestones</h3>
+              <ul>
+                <li><strong>M1 (heute):</strong> Endpunkte stabil + erster Freigabe-Block erledigt + Live-Check grün.</li>
+                <li><strong>M2 (diese Woche):</strong> tägliche QA-Routine (Mittag/Nachmittag) ohne trockene Queue etabliert.</li>
+                <li><strong>M3 (nächste 1–2 Wochen):</strong> mindestens 3 zusätzliche Stadtquellen mit verifizierten Detail-URLs produktiv.</li>
+                <li><strong>M4 (nächste 2–4 Wochen):</strong> nachhaltiger Betriebsmodus mit weniger manuellen Eingriffen und klaren SLOs.</li>
+              </ul>
+            </section>
           </aside>
         </div>
       )}
