@@ -111,8 +111,7 @@ const renderDebug = () => {
   const pre = document.getElementById('review-debug-log');
   if (!box || !pre) return;
   box.style.display = DEBUG_REVIEW ? '' : 'none';
-  pre.textContent = debugState.lines.slice(-30).join('
-');
+  pre.textContent = debugState.lines.slice(-30).join('\n');
 };
 const dbg = (...args) => {
   const line = args.map((a) => {

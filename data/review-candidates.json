@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-19T20:17:44.958Z",
+  "generatedAt": "2026-02-19T20:24:38.798Z",
   "total": 1,
   "sourceFix": {
     "total": 2,
@@ -38,7 +38,7 @@
       "status": "queued",
       "sourceUrl": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=d0f7b26541424c43aab28a91744f6ba9",
       "publishedAt": "2025-11-19T23:00:00.000Z",
-      "fetchedAt": "2026-02-19T20:10:26.498Z",
+      "fetchedAt": "2026-02-19T20:17:17.987Z",
       "matchedKeywords": [
         "motion"
       ],
