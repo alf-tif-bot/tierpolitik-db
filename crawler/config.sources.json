@@ -123,7 +123,7 @@
       "sourceTimeoutMs": 45000,
       "retries": 1,
       "requestTimeoutMs": 12000,
-      "maxEntriesPerRun": 80
+      "maxEntriesPerRun": 120
     }
   },
   {

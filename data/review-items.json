@@ -1,7 +1,17 @@
 {
-  "generatedAt": "2026-02-19T21:38:32.705Z",
-  "total": 1,
+  "generatedAt": "2026-02-19T22:48:54.964Z",
+  "total": 11,
   "ids": [
+    "ch-cantonal-portal-core:cantonal-portal-zg-1214",
+    "ch-cantonal-portal-core:cantonal-portal-zg-3045",
+    "ch-cantonal-portal-core:cantonal-portal-zg-716",
+    "ch-cantonal-portal-core:cantonal-portal-zg-2745",
+    "ch-cantonal-portal-core:cantonal-portal-zg-66",
+    "ch-cantonal-portal-core:cantonal-portal-zg-3054",
+    "ch-cantonal-portal-core:cantonal-portal-zg-2890",
+    "ch-cantonal-portal-core:cantonal-portal-zg-2931",
+    "ch-cantonal-portal-core:cantonal-portal-zg-2762",
+    "ch-cantonal-portal-core:cantonal-portal-zg-2621",
     "ch-municipal-parliament-bern-zurich:municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9"
   ],
   "sourceFix": {

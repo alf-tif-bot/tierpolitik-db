@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-02-19T21:38:32.705Z",
-  "total": 1,
+  "generatedAt": "2026-02-19T22:48:54.964Z",
+  "total": 11,
   "sourceFix": {
     "total": 2,
     "byCanton": {
@@ -30,6 +30,174 @@
   },
   "items": [
     {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-1214",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-zg-1214",
+      "title": "ZG · 1648 - Interpellation von Franz Hürlimann betreffend kosteneffizienter Reorganisation beim kantonalen Amt für Fischerei und Jagd",
+      "summary": "Kantonsrat Zug (quick_search): Treffer für Jagd.",
+      "score": 1,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/1214",
+      "publishedAt": "2026-02-19T22:24:17.743Z",
+      "fetchedAt": "2026-02-19T22:24:17.743Z",
+      "matchedKeywords": [
+        "jagd",
+        "fischerei",
+        "fisch"
+      ],
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=jagd|fischerei · support=fisch|jagd · title=fisch|fische · context=- · process=interpellation|kantonsrat · fb+=fisch · fb-=- · people=- · noise=- · feedback=0.07 · fastlane=0.00 · titleBoost=0.22 · score=1.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-3045",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-zg-3045",
+      "title": "ZG · 4032 - Petition zur Prüfung der wissenschaftlichen Notwendigkeit zur Fuchsjagd",
+      "summary": "Kantonsrat Zug (quick_search): Treffer für Jagd.",
+      "score": 0.7300000000000001,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3045",
+      "publishedAt": "2026-02-19T22:24:17.743Z",
+      "fetchedAt": "2026-02-19T22:24:17.743Z",
+      "matchedKeywords": [
+        "fuchs",
+        "jagd"
+      ],
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=fuchs|jagd · support=jagd · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.73"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-716",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-zg-716",
+      "title": "ZG · 1112 - Kantonsratsbeschluss betreffend Investitionsbeitrag an den Tierschutzverein des Kantons Zug für die Quarantänestation im Tierheim Allenwinden",
+      "summary": "Kantonsrat Zug (quick_search): Treffer für Tierschutz.",
+      "score": 0.6100000000000001,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/716",
+      "publishedAt": "2026-02-19T22:24:17.743Z",
+      "fetchedAt": "2026-02-19T22:24:17.743Z",
+      "matchedKeywords": [
+        "tierschutz"
+      ],
+      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=- · title=- · context=- · process=kantonsrat · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.61"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2745",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-zg-2745",
+      "title": "ZG · 3751 - Postulat der Fraktion Alternative – die Grünen betreffend Beitritt des Kantons Zug zur «Charta Kreislauforientiertes Bauen» (Umwandlung Motion in ein Postulat)",
+      "summary": "Kantonsrat Zug (quick_search): Treffer für Tier.",
+      "score": 0.5900000000000001,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2745",
+      "publishedAt": "2026-02-19T22:24:17.743Z",
+      "fetchedAt": "2026-02-19T22:24:17.743Z",
+      "matchedKeywords": [
+        "tier",
+        "motion",
+        "postulat"
+      ],
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=tier · support=motion|postulat · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.59"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-66",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-zg-66",
+      "title": "ZG · 1778 - Postulat von Franz Hürlimann und Thiemo Hächler betreffend Senkung der Jagdgebühren im Kanton Zug",
+      "summary": "Kantonsrat Zug (quick_search): Treffer für Jagd.",
+      "score": 0.5900000000000001,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/66",
+      "publishedAt": "2026-02-19T22:24:17.743Z",
+      "fetchedAt": "2026-02-19T22:24:17.743Z",
+      "matchedKeywords": [
+        "jagd",
+        "postulat"
+      ],
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=jagd · support=postulat|jagd · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.59"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-3054",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-zg-3054",
+      "title": "ZG · 4041 - Postulat von Joëlle Gautier und Kurt Balmer betreffend zeitgemässe und kundenfreundliche Website",
+      "summary": "Kantonsrat Zug (quick_search): Treffer für Tier.",
+      "score": 0.45000000000000007,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3054",
+      "publishedAt": "2026-02-19T22:24:17.743Z",
+      "fetchedAt": "2026-02-19T22:24:17.743Z",
+      "matchedKeywords": [
+        "tier",
+        "postulat"
+      ],
+      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=postulat · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.45 · zg-rampup=buffer"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2890",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-zg-2890",
+      "title": "ZG · 3896 - Postulat von Joëlle Gautier, Jill Nussbaumer, Etienne Schumpf, Alexander Haslimann und Michael Felber betreffend Schaffung von Grundlagen für die erfolgreiche Anwendung von KI-Modellen im öffentlichen Sektor",
+      "summary": "Kantonsrat Zug (quick_search): Treffer für Tier.",
+      "score": 0.45000000000000007,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2890",
+      "publishedAt": "2026-02-19T22:24:17.743Z",
+      "fetchedAt": "2026-02-19T22:24:17.743Z",
+      "matchedKeywords": [
+        "tier",
+        "postulat"
+      ],
+      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=postulat · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.45 · zg-rampup=buffer"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2931",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-zg-2931",
+      "title": "ZG · 3937 - Kleine Anfrage von Patrick Röösli, Corina Kremmel und Joëlle Gautier betreffend die Subventionsvereinbarung zwischen dem Kanton Zug und der Zuger Kunstgesellschaft",
+      "summary": "Kantonsrat Zug (quick_search): Treffer für Tier.",
+      "score": 0.34,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2931",
+      "publishedAt": "2026-02-19T22:24:17.743Z",
+      "fetchedAt": "2026-02-19T22:24:17.743Z",
+      "matchedKeywords": [
+        "tier"
+      ],
+      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=- · title=- · context=- · process=anfrage|kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.34 · zg-rampup=buffer"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2762",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-zg-2762",
+      "title": "ZG · 3768 - Kleine Anfrage von Barbara Gysel und Joëlle Gautier betreffend E-Voting – warum macht der Kanton nicht mit?",
+      "summary": "Kantonsrat Zug (quick_search): Treffer für Tier.",
+      "score": 0.34,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2762",
+      "publishedAt": "2026-02-19T22:24:17.743Z",
+      "fetchedAt": "2026-02-19T22:24:17.743Z",
+      "matchedKeywords": [
+        "tier"
+      ],
+      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=- · title=- · context=- · process=anfrage|kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.34 · zg-rampup=buffer"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2621",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-zg-2621",
+      "title": "ZG · 3627 - Kleine Anfrage von Joëlle Gautier betreffend was macht der Kanton im Bereich eMediplan?",
+      "summary": "Kantonsrat Zug (quick_search): Treffer für Tier.",
+      "score": 0.34,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2621",
+      "publishedAt": "2026-02-19T22:24:17.743Z",
+      "fetchedAt": "2026-02-19T22:24:17.743Z",
+      "matchedKeywords": [
+        "tier"
+      ],
+      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=- · title=- · context=- · process=anfrage|kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.34 · zg-rampup=buffer"
+    },
+    {
       "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9",
       "sourceId": "ch-municipal-parliament-bern-zurich",
       "externalId": "municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9",
@@ -39,7 +207,7 @@
       "status": "queued",
       "sourceUrl": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=d0f7b26541424c43aab28a91744f6ba9",
       "publishedAt": "2025-11-19T23:00:00.000Z",
-      "fetchedAt": "2026-02-19T21:33:58.586Z",
+      "fetchedAt": "2026-02-19T22:32:15.479Z",
       "matchedKeywords": [
         "motion"
       ],

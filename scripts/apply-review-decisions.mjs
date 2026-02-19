@@ -21,35 +21,40 @@ const langFromSourceId = (sourceId = '') => {
   return m?.[1]?.toLowerCase() || ''
 }
 
-const resolveDecisionId = (id) => {
-  if (index.has(id)) return id
-  const [sourceId, externalId = ''] = String(id).split(':')
-  if (!sourceId || !externalId) return null
+const stripLangSuffix = (value = '') => String(value).replace(/-(de|fr|it)$/i, '')
 
-  const hasLangSuffix = /-[a-z]{2}$/i.test(externalId)
+const resolveDecisionId = (id) => {
+  if (index.has(id)) return { resolvedId: id, confidence: 'exact' }
+  const [sourceId, externalId = ''] = String(id).split(':')
+  if (!sourceId || !externalId) return { resolvedId: null, confidence: 'none' }
+
+  const hasLangSuffix = /-(de|fr|it)$/i.test(externalId)
   const lang = langFromSourceId(sourceId)
 
   if (!hasLangSuffix && lang) {
     const suffixed = `${sourceId}:${externalId}-${lang}`
-    if (index.has(suffixed)) return suffixed
+    if (index.has(suffixed)) return { resolvedId: suffixed, confidence: 'lang-suffix' }
   }
 
-  const affairId = externalId.replace(/-[a-z]{2}$/i, '').split('-')[0]
-  if (affairId) {
+  // High-confidence fallback only for parliament sources where affair IDs are stable
+  // across language variants (e.g. 2504812-de/fr/it).
+  if (sourceId.startsWith('ch-parliament-')) {
+    const decisionCore = stripLangSuffix(externalId)
     const candidates = [...index.keys()].filter((k) => {
       const [sid, eid = ''] = k.split(':')
-      return sid === sourceId && String(eid).split('-')[0] === affairId
+      return sid === sourceId && stripLangSuffix(eid) === decisionCore
     })
-    if (candidates.length) return candidates[0]
+    if (candidates.length === 1) return { resolvedId: candidates[0], confidence: 'parliament-core' }
   }
 
-  return null
+  return { resolvedId: null, confidence: 'none' }
 }
 
 let applied = 0
 let remapped = 0
 let unresolved = 0
 let propagated = 0
+let lowConfidenceSkipped = 0
 
 const normalizedRaw = Array.isArray(raw) ? null : { ...raw }
 
@@ -57,8 +62,14 @@ for (const decision of records) {
   if (!decision?.id || !decision?.status) continue
   if (decision.status !== 'approved' && decision.status !== 'rejected') continue
 
-  const resolvedId = resolveDecisionId(decision.id)
+  const { resolvedId, confidence } = resolveDecisionId(decision.id)
   if (!resolvedId) {
+    unresolved += 1
+    continue
+  }
+
+  if (confidence === 'none') {
+    lowConfidenceSkipped += 1
     unresolved += 1
     continue
   }
@@ -99,4 +110,11 @@ if (normalizedRaw) {
 }
 
 saveDb(db)
-console.log('Review-Entscheidungen angewendet', { applied, propagated, totalDecisions: records.length, remapped, unresolved })
+console.log('Review-Entscheidungen angewendet', {
+  applied,
+  propagated,
+  totalDecisions: records.length,
+  remapped,
+  unresolved,
+  lowConfidenceSkipped,
+})

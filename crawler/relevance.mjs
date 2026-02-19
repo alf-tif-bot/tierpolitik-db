@@ -157,6 +157,10 @@ const normalize = (value = '') => String(value)
 const reviewDecisionsPath = path.resolve(process.cwd(), 'data/review-decisions.json')
 const fastlaneTagsPath = path.resolve(process.cwd(), 'data/review-fastlane-tags.json')
 const feedbackOutPath = path.resolve(process.cwd(), 'data/relevance-feedback.json')
+const zgMetricsOutPath = path.resolve(process.cwd(), 'data/zg-open-metrics.json')
+
+const ZG_SOURCE_ID = 'ch-cantonal-portal-core'
+const ZG_CANTON = 'ZG'
 
 const FEEDBACK_IGNORE_KEYWORDS = new Set([
   'motion', 'initiative', 'postulat', 'gesetz', 'botschaft', 'kontrolle', 'transport', 'protection',
@@ -357,6 +361,17 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
   let touched = 0
   let relevantCount = 0
 
+  const zgStats = {
+    raw: 0,
+    open: 0,
+    dropped: 0,
+    dropReasons: {},
+    decisionLocked: 0,
+    rampupPromoted: 0,
+  }
+  const zgRampupCandidates = []
+  const zgBufferTarget = Math.max(0, Number(process.env.ZG_REVIEW_BUFFER_TARGET || 14))
+
   for (const item of db.items) {
     if (!enabledSourceIds.has(item.sourceId)) continue
     if (item?.meta?.scaffold) continue
@@ -441,6 +456,10 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     const feedbackIrrelevantLocked = String(item.reviewReason || '').toLowerCase().includes('user-feedback=irrelevant')
     const isManualLocked = ['approved', 'published'].includes(prevStatus) || normalizedDecision !== null || feedbackIrrelevantLocked
 
+    const isZgExportItem = String(item?.sourceId || '') === ZG_SOURCE_ID
+      && String(item?.meta?.canton || '').toUpperCase() === ZG_CANTON
+      && /^cantonal-portal-zg-\d+$/i.test(String(item?.externalId || ''))
+
     if (normalizedDecision) {
       item.status = normalizedDecision === 'published' ? 'published' : normalizedDecision
     } else if (feedbackIrrelevantLocked) {
@@ -474,8 +493,55 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
 
     item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · stance=${stance} · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · title=${titleAnimalHits.slice(0, 2).join('|') || '-'} · context=${contextualHits.slice(0, 2).join('|') || '-'} · process=${processHits.slice(0, 2).join('|') || '-'} · fb+=${strongPositiveHits.slice(0, 2).join('|') || '-'} · fb-=${strongNegativeHits.slice(0, 2).join('|') || '-'} · people=${whitelistedPeople.slice(0, 2).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · feedback=${feedbackBoost.toFixed(2)} · fastlane=${fastlaneBoost.toFixed(2)} · titleBoost=${titleAnimalBoost.toFixed(2)} · score=${adjustedScore.toFixed(2)}`
 
+    if (isZgExportItem) {
+      zgStats.raw += 1
+      if (isManualLocked) zgStats.decisionLocked += 1
+
+      const openNow = ['queued', 'new'].includes(String(item.status || '').toLowerCase())
+      if (openNow) {
+        zgStats.open += 1
+      } else {
+        zgStats.dropped += 1
+        zgStats.dropReasons[rule] = (zgStats.dropReasons[rule] || 0) + 1
+      }
+
+      const eligibleForRampup = !openNow
+        && !isManualLocked
+        && !placeholderNoise
+        && !noisyWithoutAnchor
+        && !negativeFeedbackOnly
+        && !weakAnchorNoisy
+        && adjustedScore >= 0.12
+        && (
+          hasAnchor
+          || (hasSupport && !supportIsProcessOnly)
+          || hasContextual
+          || titleAnimalHits.length > 0
+        )
+
+      if (eligibleForRampup) {
+        zgRampupCandidates.push({ item, adjustedScore, rule })
+      }
+    }
+
     if (isRelevant) relevantCount += 1
     touched += 1
+  }
+
+  if (zgBufferTarget > 0 && zgStats.open < zgBufferTarget && zgRampupCandidates.length > 0) {
+    const needed = zgBufferTarget - zgStats.open
+    const promote = [...zgRampupCandidates]
+      .sort((a, b) => b.adjustedScore - a.adjustedScore)
+      .slice(0, needed)
+
+    for (const candidate of promote) {
+      candidate.item.status = 'queued'
+      candidate.item.reviewReason = `${candidate.item.reviewReason} · zg-rampup=buffer`
+      zgStats.rampupPromoted += 1
+      zgStats.open += 1
+      zgStats.dropped = Math.max(0, zgStats.dropped - 1)
+      zgStats.dropReasons[candidate.rule] = Math.max(0, Number(zgStats.dropReasons[candidate.rule] || 0) - 1)
+    }
   }
 
   const enabledItems = db.items.filter((item) => enabledSourceIds.has(item.sourceId) && !item?.meta?.scaffold)
@@ -499,6 +565,29 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     relevantCount += fallback.length
   }
 
+  const zgDropReasons = Object.fromEntries(
+    Object.entries(zgStats.dropReasons)
+      .filter(([, count]) => Number(count) > 0)
+      .sort((a, b) => Number(b[1]) - Number(a[1])),
+  )
+
+  try {
+    fs.writeFileSync(zgMetricsOutPath, JSON.stringify({
+      generatedAt: new Date().toISOString(),
+      minScore,
+      zg: {
+        raw: zgStats.raw,
+        open: zgStats.open,
+        dropped: zgStats.dropped,
+        decisionLocked: zgStats.decisionLocked,
+        rampupPromoted: zgStats.rampupPromoted,
+        dropReasons: zgDropReasons,
+      },
+    }, null, 2))
+  } catch {
+    // non-fatal
+  }
+
   saveDb(db)
-  return { touched, minScore, relevantCount }
+  return { touched, minScore, relevantCount, zg: { ...zgStats, dropReasons: zgDropReasons, bufferTarget: zgBufferTarget } }
 }

@@ -9,6 +9,7 @@ const reviewDataPath = new URL('../data/review-items.json', import.meta.url)
 const reviewCandidatesPath = new URL('../data/review-candidates.json', import.meta.url)
 const decisionsPath = new URL('../data/review-decisions.json', import.meta.url)
 const fastlaneTagsPath = new URL('../data/review-fastlane-tags.json', import.meta.url)
+const zgMetricsPath = new URL('../data/zg-open-metrics.json', import.meta.url)
 const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
 const localDecisions = fs.existsSync(decisionsPath)
   ? JSON.parse(fs.readFileSync(decisionsPath, 'utf8'))
@@ -16,6 +17,9 @@ const localDecisions = fs.existsSync(decisionsPath)
 const fastlaneTags = fs.existsSync(fastlaneTagsPath)
   ? JSON.parse(fs.readFileSync(fastlaneTagsPath, 'utf8'))
   : {}
+const zgOpenMetrics = fs.existsSync(zgMetricsPath)
+  ? JSON.parse(fs.readFileSync(zgMetricsPath, 'utf8'))
+  : null
 
 const sourcesConfigPath = new URL('../crawler/config.sources.json', import.meta.url)
 const configuredSources = fs.existsSync(sourcesConfigPath)
@@ -1377,6 +1381,7 @@ const zgDebugPayload = {
   seed_discovery: zgSeedDiscovery,
   export_attempts: zgExportAttempts,
   export_drop_reasons: zgExportDropReasons,
+  raw_to_open_metrics: zgOpenMetrics?.zg || null,
   discovered_links: zgDiscoveredLinks,
   extracted_candidates: zgExtractedCandidates,
   normalized_items: zgNormalizedItems,
