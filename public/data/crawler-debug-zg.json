@@ -1,15 +1,19 @@
 {
-  "generatedAt": "2026-02-19T21:34:52.808Z",
+  "generatedAt": "2026-02-19T22:26:35.151Z",
   "counts": {
     "discovered_links": 10,
-    "extracted_candidates": 1,
-    "normalized_items": 0,
-    "filtered_out": 1,
-    "raw": 1,
+    "extracted_candidates": 14,
+    "normalized_items": 5,
+    "filtered_out": 9,
+    "raw": 14,
     "source_fix": 0,
-    "open": 0,
+    "open": 5,
     "seed_urls": 10,
-    "seed_discovered_total": 52
+    "seed_discovered_total": 52,
+    "quick_search_terms": 5,
+    "quick_search_terms_ok": 5,
+    "quick_search_fetched_total": 14,
+    "quick_search_matched_items": 14
   },
   "seed_discovery": [
     {
@@ -19,7 +23,7 @@
       "httpStatus": 200,
       "finalUrl": "https://kr-geschaefte.zug.ch/sitemap.xml",
       "discoveredLinks": 32,
-      "durationMs": 1045,
+      "durationMs": 2112,
       "error": null
     },
     {
@@ -29,7 +33,7 @@
       "httpStatus": 200,
       "finalUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte",
       "discoveredLinks": 20,
-      "durationMs": 121,
+      "durationMs": 200,
       "error": null
     },
     {
@@ -39,7 +43,7 @@
       "httpStatus": null,
       "finalUrl": null,
       "discoveredLinks": 0,
-      "durationMs": 71,
+      "durationMs": 63,
       "error": "fetch failed"
     },
     {
@@ -49,7 +53,7 @@
       "httpStatus": 404,
       "finalUrl": "https://kr-geschaefte.zug.ch/sitemap_index.xml",
       "discoveredLinks": 0,
-      "durationMs": 21,
+      "durationMs": 26,
       "error": "http-404"
     },
     {
@@ -59,7 +63,7 @@
       "httpStatus": null,
       "finalUrl": null,
       "discoveredLinks": 0,
-      "durationMs": 3,
+      "durationMs": 1,
       "error": "fetch failed"
     },
     {
@@ -69,7 +73,7 @@
       "httpStatus": null,
       "finalUrl": null,
       "discoveredLinks": 0,
-      "durationMs": 2,
+      "durationMs": 1,
       "error": "fetch failed"
     },
     {
@@ -79,7 +83,7 @@
       "httpStatus": 200,
       "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats",
       "discoveredLinks": 0,
-      "durationMs": 99,
+      "durationMs": 126,
       "error": null
     },
     {
@@ -89,7 +93,7 @@
       "httpStatus": 200,
       "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats",
       "discoveredLinks": 0,
-      "durationMs": 180,
+      "durationMs": 227,
       "error": null
     },
     {
@@ -99,7 +103,7 @@
       "httpStatus": 200,
       "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/protokolle",
       "discoveredLinks": 0,
-      "durationMs": 108,
+      "durationMs": 136,
       "error": null
     },
     {
@@ -109,7 +113,54 @@
       "httpStatus": 200,
       "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/protokolle",
       "discoveredLinks": 0,
-      "durationMs": 132,
+      "durationMs": 144,
+      "error": null
+    }
+  ],
+  "quick_search_terms": [
+    {
+      "term": "Tier",
+      "url": "https://kr-geschaefte.zug.ch/quick_search.json?term=Tier",
+      "attempts": 1,
+      "ok": true,
+      "httpStatus": 200,
+      "fetched": 10,
+      "error": null
+    },
+    {
+      "term": "Tierschutz",
+      "url": "https://kr-geschaefte.zug.ch/quick_search.json?term=Tierschutz",
+      "attempts": 1,
+      "ok": true,
+      "httpStatus": 200,
+      "fetched": 1,
+      "error": null
+    },
+    {
+      "term": "Schlachtung",
+      "url": "https://kr-geschaefte.zug.ch/quick_search.json?term=Schlachtung",
+      "attempts": 1,
+      "ok": true,
+      "httpStatus": 200,
+      "fetched": 0,
+      "error": null
+    },
+    {
+      "term": "Jagd",
+      "url": "https://kr-geschaefte.zug.ch/quick_search.json?term=Jagd",
+      "attempts": 1,
+      "ok": true,
+      "httpStatus": 200,
+      "fetched": 3,
+      "error": null
+    },
+    {
+      "term": "Nutztier",
+      "url": "https://kr-geschaefte.zug.ch/quick_search.json?term=Nutztier",
+      "attempts": 1,
+      "ok": true,
+      "httpStatus": 200,
+      "fetched": 0,
       "error": null
     }
   ],
@@ -167,34 +218,361 @@
   ],
   "extracted_candidates": [
     {
-      "id": "ch-cantonal-portal-core:cantonal-portal-zg",
-      "title": "ZG · Kantonsrat Zug: Geschäftsdetail Kantonsrat Zug #1",
-      "score": 0,
-      "status": "approved",
-      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/1",
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-3054",
+      "title": "ZG · 4041 - Postulat von Joëlle Gautier und Kurt Balmer betreffend zeitgemässe und kundenfreundliche Website",
+      "score": 0.45000000000000007,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3054",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-3050",
+      "title": "ZG · 4037 - Postulat von Beni Wattenhofer, Alex Haslimann, Joëlle Gautier, Urs Andermatt und Beat Iten betreffend den Aufbau eines KI-Assistenten für öffentliche Dokumente",
+      "score": 0.45000000000000007,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3050",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2931",
+      "title": "ZG · 3937 - Kleine Anfrage von Patrick Röösli, Corina Kremmel und Joëlle Gautier betreffend die Subventionsvereinbarung zwischen dem Kanton Zug und der Zuger Kunstgesellschaft",
+      "score": 0.34,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2931",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2890",
+      "title": "ZG · 3896 - Postulat von Joëlle Gautier, Jill Nussbaumer, Etienne Schumpf, Alexander Haslimann und Michael Felber betreffend Schaffung von Grundlagen für die erfolgreiche Anwendung von KI-Modellen im öffentlichen Sektor",
+      "score": 0.45000000000000007,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2890",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2836",
+      "title": "ZG · 3842 - Motion der Stadtzuger Kantonsrätinnen und Kantonsräte (Bruhin Gregor, Brunner Philip C., Estermann Tabea, Felber Michael, Gautier Joëlle, Gysel Barbara, Hegglin Christian, Kremmel Corina, Leemann Rainer, Moos Adrian, Risi Adrian, Röösli Patrick, Sc",
+      "score": 0.3500000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2836",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2772",
+      "title": "ZG · 3778 - Motion von Carina Brüngger und sechs Mitunterzeichnenden betreffend «ins Lebensende investieren» - finanzielle Entlastung der Zuger Palliativ-Patientinnen und -Patienten",
+      "score": 0.3500000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2772",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2762",
+      "title": "ZG · 3768 - Kleine Anfrage von Barbara Gysel und Joëlle Gautier betreffend E-Voting – warum macht der Kanton nicht mit?",
+      "score": 0.34,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2762",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2745",
+      "title": "ZG · 3751 - Postulat der Fraktion Alternative – die Grünen betreffend Beitritt des Kantons Zug zur «Charta Kreislauforientiertes Bauen» (Umwandlung Motion in ein Postulat)",
+      "score": 0.5900000000000001,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2745",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2656",
+      "title": "ZG · 3662 - Motion von Adrian Moos, Michael Felber, Luzian Franzini, Martin Zimmermann und Barbara Gysel betreffend ein unlimitiertes Vorkaufsrecht der Gemeinden zugunsten des gemeinnützigen Wohnungsbaus",
+      "score": 0.25000000000000006,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2656",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2621",
+      "title": "ZG · 3627 - Kleine Anfrage von Joëlle Gautier betreffend was macht der Kanton im Bereich eMediplan?",
+      "score": 0.34,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2621",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-716",
+      "title": "ZG · 1112 - Kantonsratsbeschluss betreffend Investitionsbeitrag an den Tierschutzverein des Kantons Zug für die Quarantänestation im Tierheim Allenwinden",
+      "score": 0.6100000000000001,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/716",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-3045",
+      "title": "ZG · 4032 - Petition zur Prüfung der wissenschaftlichen Notwendigkeit zur Fuchsjagd",
+      "score": 0.7300000000000001,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3045",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-66",
+      "title": "ZG · 1778 - Postulat von Franz Hürlimann und Thiemo Hächler betreffend Senkung der Jagdgebühren im Kanton Zug",
+      "score": 0.5900000000000001,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/66",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-1214",
+      "title": "ZG · 1648 - Interpellation von Franz Hürlimann betreffend kosteneffizienter Reorganisation beim kantonalen Amt für Fischerei und Jagd",
+      "score": 1,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/1214",
       "concreteDetailUrl": true
     }
   ],
-  "normalized_items": [],
+  "normalized_items": [
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-1214",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-zg-1214",
+      "title": "ZG · 1648 - Interpellation von Franz Hürlimann betreffend kosteneffizienter Reorganisation beim kantonalen Amt für Fischerei und Jagd",
+      "summary": "Kantonsrat Zug (quick_search): Treffer für Jagd.",
+      "score": 1,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/1214",
+      "publishedAt": "2026-02-19T22:24:17.743Z",
+      "fetchedAt": "2026-02-19T22:24:17.743Z",
+      "matchedKeywords": [
+        "jagd",
+        "fischerei",
+        "fisch"
+      ],
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=jagd|fischerei · support=fisch|jagd · title=fisch|fische · context=- · process=interpellation|kantonsrat · fb+=fisch · fb-=- · people=- · noise=- · feedback=0.07 · fastlane=0.00 · titleBoost=0.22 · score=1.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-3045",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-zg-3045",
+      "title": "ZG · 4032 - Petition zur Prüfung der wissenschaftlichen Notwendigkeit zur Fuchsjagd",
+      "summary": "Kantonsrat Zug (quick_search): Treffer für Jagd.",
+      "score": 0.7300000000000001,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3045",
+      "publishedAt": "2026-02-19T22:24:17.743Z",
+      "fetchedAt": "2026-02-19T22:24:17.743Z",
+      "matchedKeywords": [
+        "fuchs",
+        "jagd"
+      ],
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=fuchs|jagd · support=jagd · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.73"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-716",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-zg-716",
+      "title": "ZG · 1112 - Kantonsratsbeschluss betreffend Investitionsbeitrag an den Tierschutzverein des Kantons Zug für die Quarantänestation im Tierheim Allenwinden",
+      "summary": "Kantonsrat Zug (quick_search): Treffer für Tierschutz.",
+      "score": 0.6100000000000001,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/716",
+      "publishedAt": "2026-02-19T22:24:17.743Z",
+      "fetchedAt": "2026-02-19T22:24:17.743Z",
+      "matchedKeywords": [
+        "tierschutz"
+      ],
+      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=- · title=- · context=- · process=kantonsrat · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.61"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2745",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-zg-2745",
+      "title": "ZG · 3751 - Postulat der Fraktion Alternative – die Grünen betreffend Beitritt des Kantons Zug zur «Charta Kreislauforientiertes Bauen» (Umwandlung Motion in ein Postulat)",
+      "summary": "Kantonsrat Zug (quick_search): Treffer für Tier.",
+      "score": 0.5900000000000001,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2745",
+      "publishedAt": "2026-02-19T22:24:17.743Z",
+      "fetchedAt": "2026-02-19T22:24:17.743Z",
+      "matchedKeywords": [
+        "tier",
+        "motion",
+        "postulat"
+      ],
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=tier · support=motion|postulat · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.59"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-66",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-zg-66",
+      "title": "ZG · 1778 - Postulat von Franz Hürlimann und Thiemo Hächler betreffend Senkung der Jagdgebühren im Kanton Zug",
+      "summary": "Kantonsrat Zug (quick_search): Treffer für Jagd.",
+      "score": 0.5900000000000001,
+      "status": "queued",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/66",
+      "publishedAt": "2026-02-19T22:24:17.743Z",
+      "fetchedAt": "2026-02-19T22:24:17.743Z",
+      "matchedKeywords": [
+        "jagd",
+        "postulat"
+      ],
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=jagd · support=postulat|jagd · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.59"
+    }
+  ],
   "filtered_out": [
     {
-      "id": "ch-cantonal-portal-core:cantonal-portal-zg",
-      "title": "ZG · Kantonsrat Zug: Geschäftsdetail Kantonsrat Zug #1",
-      "score": 0,
-      "status": "approved",
-      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/1",
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-3054",
+      "title": "ZG · 4041 - Postulat von Joëlle Gautier und Kurt Balmer betreffend zeitgemässe und kundenfreundliche Website",
+      "score": 0.45000000000000007,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3054",
       "reason": "status-not-open",
-      "reviewReason": "Review-Entscheid (approved)"
+      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=postulat · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.45"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-3050",
+      "title": "ZG · 4037 - Postulat von Beni Wattenhofer, Alex Haslimann, Joëlle Gautier, Urs Andermatt und Beat Iten betreffend den Aufbau eines KI-Assistenten für öffentliche Dokumente",
+      "score": 0.45000000000000007,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3050",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=postulat · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.45"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2931",
+      "title": "ZG · 3937 - Kleine Anfrage von Patrick Röösli, Corina Kremmel und Joëlle Gautier betreffend die Subventionsvereinbarung zwischen dem Kanton Zug und der Zuger Kunstgesellschaft",
+      "score": 0.34,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2931",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=- · title=- · context=- · process=anfrage|kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.34"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2890",
+      "title": "ZG · 3896 - Postulat von Joëlle Gautier, Jill Nussbaumer, Etienne Schumpf, Alexander Haslimann und Michael Felber betreffend Schaffung von Grundlagen für die erfolgreiche Anwendung von KI-Modellen im öffentlichen Sektor",
+      "score": 0.45000000000000007,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2890",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=postulat · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.45"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2836",
+      "title": "ZG · 3842 - Motion der Stadtzuger Kantonsrätinnen und Kantonsräte (Bruhin Gregor, Brunner Philip C., Estermann Tabea, Felber Michael, Gautier Joëlle, Gysel Barbara, Hegglin Christian, Kremmel Corina, Leemann Rainer, Moos Adrian, Risi Adrian, Röösli Patrick, Sc",
+      "score": 0.3500000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2836",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=motion · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=finanz · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.35"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2772",
+      "title": "ZG · 3778 - Motion von Carina Brüngger und sechs Mitunterzeichnenden betreffend «ins Lebensende investieren» - finanzielle Entlastung der Zuger Palliativ-Patientinnen und -Patienten",
+      "score": 0.3500000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2772",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=motion · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=finanz · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.35"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2762",
+      "title": "ZG · 3768 - Kleine Anfrage von Barbara Gysel und Joëlle Gautier betreffend E-Voting – warum macht der Kanton nicht mit?",
+      "score": 0.34,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2762",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=- · title=- · context=- · process=anfrage|kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.34"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2656",
+      "title": "ZG · 3662 - Motion von Adrian Moos, Michael Felber, Luzian Franzini, Martin Zimmermann und Barbara Gysel betreffend ein unlimitiertes Vorkaufsrecht der Gemeinden zugunsten des gemeinnützigen Wohnungsbaus",
+      "score": 0.25000000000000006,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2656",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=motion · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=wohnung|wohnungsbau · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.25"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2621",
+      "title": "ZG · 3627 - Kleine Anfrage von Joëlle Gautier betreffend was macht der Kanton im Bereich eMediplan?",
+      "score": 0.34,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2621",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=- · title=- · context=- · process=anfrage|kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.34"
     }
   ],
   "top_dropped_examples": [
     {
-      "id": "ch-cantonal-portal-core:cantonal-portal-zg",
-      "title": "ZG · Kantonsrat Zug: Geschäftsdetail Kantonsrat Zug #1",
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-3054",
+      "title": "ZG · 4041 - Postulat von Joëlle Gautier und Kurt Balmer betreffend zeitgemässe und kundenfreundliche Website",
       "reason": "status-not-open",
-      "score": 0,
-      "status": "approved",
-      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/1"
+      "score": 0.45000000000000007,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3054"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-3050",
+      "title": "ZG · 4037 - Postulat von Beni Wattenhofer, Alex Haslimann, Joëlle Gautier, Urs Andermatt und Beat Iten betreffend den Aufbau eines KI-Assistenten für öffentliche Dokumente",
+      "reason": "status-not-open",
+      "score": 0.45000000000000007,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3050"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2931",
+      "title": "ZG · 3937 - Kleine Anfrage von Patrick Röösli, Corina Kremmel und Joëlle Gautier betreffend die Subventionsvereinbarung zwischen dem Kanton Zug und der Zuger Kunstgesellschaft",
+      "reason": "status-not-open",
+      "score": 0.34,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2931"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2890",
+      "title": "ZG · 3896 - Postulat von Joëlle Gautier, Jill Nussbaumer, Etienne Schumpf, Alexander Haslimann und Michael Felber betreffend Schaffung von Grundlagen für die erfolgreiche Anwendung von KI-Modellen im öffentlichen Sektor",
+      "reason": "status-not-open",
+      "score": 0.45000000000000007,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2890"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2836",
+      "title": "ZG · 3842 - Motion der Stadtzuger Kantonsrätinnen und Kantonsräte (Bruhin Gregor, Brunner Philip C., Estermann Tabea, Felber Michael, Gautier Joëlle, Gysel Barbara, Hegglin Christian, Kremmel Corina, Leemann Rainer, Moos Adrian, Risi Adrian, Röösli Patrick, Sc",
+      "reason": "status-not-open",
+      "score": 0.3500000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2836"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2772",
+      "title": "ZG · 3778 - Motion von Carina Brüngger und sechs Mitunterzeichnenden betreffend «ins Lebensende investieren» - finanzielle Entlastung der Zuger Palliativ-Patientinnen und -Patienten",
+      "reason": "status-not-open",
+      "score": 0.3500000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2772"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2762",
+      "title": "ZG · 3768 - Kleine Anfrage von Barbara Gysel und Joëlle Gautier betreffend E-Voting – warum macht der Kanton nicht mit?",
+      "reason": "status-not-open",
+      "score": 0.34,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2762"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2656",
+      "title": "ZG · 3662 - Motion von Adrian Moos, Michael Felber, Luzian Franzini, Martin Zimmermann und Barbara Gysel betreffend ein unlimitiertes Vorkaufsrecht der Gemeinden zugunsten des gemeinnützigen Wohnungsbaus",
+      "reason": "status-not-open",
+      "score": 0.25000000000000006,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2656"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-2621",
+      "title": "ZG · 3627 - Kleine Anfrage von Joëlle Gautier betreffend was macht der Kanton im Bereich eMediplan?",
+      "reason": "status-not-open",
+      "score": 0.34,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2621"
     }
   ]
 }

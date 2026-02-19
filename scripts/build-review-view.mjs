@@ -1342,6 +1342,17 @@ const zgSeedDiscovery = [...new Map(zgRawItems
   .filter(([seedUrl]) => Boolean(seedUrl))).values()]
   .sort((a, b) => Number(b.discoveredLinks || 0) - Number(a.discoveredLinks || 0))
 
+const zgQuickSearchTelemetry = zgRawItems
+  .flatMap((item) => Array.isArray(item?.meta?.zgQuickSearchTelemetry) ? item.meta.zgQuickSearchTelemetry : [])
+
+const zgQuickSearchByTerm = [...new Map(zgQuickSearchTelemetry
+  .map((row) => [String(row?.term || ''), row])
+  .filter(([term]) => Boolean(term))).values()]
+
+const zgQuickSearchTotalFetched = zgQuickSearchByTerm.reduce((acc, row) => acc + Number(row?.fetched || 0), 0)
+const zgQuickSearchSuccessfulTerms = zgQuickSearchByTerm.filter((row) => row?.ok).length
+const zgQuickSearchMatchedItems = zgRawItems.filter((item) => item?.meta?.zgQuickSearch).length
+
 const zgDebugPayload = {
   generatedAt,
   counts: {
@@ -1354,8 +1365,13 @@ const zgDebugPayload = {
     open: zgNormalizedItems.filter((item) => ['new', 'queued'].includes(String(item?.status || '').toLowerCase())).length,
     seed_urls: zgSeedDiscovery.length,
     seed_discovered_total: zgSeedDiscovery.reduce((acc, seed) => acc + Number(seed?.discoveredLinks || 0), 0),
+    quick_search_terms: zgQuickSearchByTerm.length,
+    quick_search_terms_ok: zgQuickSearchSuccessfulTerms,
+    quick_search_fetched_total: zgQuickSearchTotalFetched,
+    quick_search_matched_items: zgQuickSearchMatchedItems,
   },
   seed_discovery: zgSeedDiscovery,
+  quick_search_terms: zgQuickSearchByTerm,
   discovered_links: zgDiscoveredLinks,
   extracted_candidates: zgExtractedCandidates,
   normalized_items: zgNormalizedItems,
