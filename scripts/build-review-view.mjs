@@ -763,7 +763,7 @@ const rows = reviewItems
 </td>
 <td>${scoreValue.toFixed(2)}<br><small class="muted">PrioritÃ¤t: ${priorityLabel}</small>${fastLane ? '<br><small class="fast-lane">âš¡ Sehr wahrscheinlich relevant</small>' : ''}${isTaggedFastlane ? '<br><small class="fast-lane">â­ von dir als Fastlane markiert</small>' : ''}</td>
 <td>${esc(keywords.join(', '))}</td>
-<td>${esc(statusLabel)} (${pendingBadge})</td>
+<td><span data-status-label>${esc(statusLabel)}</span> (<span data-status-badge>${pendingBadge}</span>)</td>
 <td><small>${humanizeReason(item.reviewReason || '-')}</small></td>
 <td>
 <button onclick="setDecision(this,'${esc(id)}','approved')">Gutheissen</button>
@@ -907,8 +907,11 @@ function hideDecidedRows(){
   rows.forEach((row)=>{
     const id = row.getAttribute('data-id');
     if (!id) return
-    const status = row.getAttribute('data-status') || ''
-    const serverDecided = status !== 'queued' && status !== 'new'
+    const rowStatus = String(row.getAttribute('data-status') || '').toLowerCase()
+    const localStatus = String(decisions[id]?.status || '').toLowerCase()
+    const effectiveStatus = localStatus || rowStatus
+
+    const serverDecided = rowStatus !== 'queued' && rowStatus !== 'new'
     const localDecided = Boolean(decisions[id])
     const isParliamentEntry = String(id).startsWith('ch-parliament-')
     const affairId = isParliamentEntry ? (String(id).split(':')[1] || '').split('-')[0] : ''
@@ -916,10 +919,21 @@ function hideDecidedRows(){
     const decided = serverDecided || localDecided || localAffairHit
     decidedById[id] = decided
 
+    if (localStatus) {
+      row.setAttribute('data-status', localStatus)
+    }
+
+    const statusLabelEl = row.querySelector('[data-status-label]')
+    const statusBadgeEl = row.querySelector('[data-status-badge]')
+    if (statusLabelEl) statusLabelEl.textContent = reviewStatusLabel(effectiveStatus)
+    if (statusBadgeEl) {
+      statusBadgeEl.innerHTML = (effectiveStatus === 'queued' || effectiveStatus === 'new')
+        ? '<strong class="pending">offen</strong>'
+        : '<span class="historic">historisch</span>'
+    }
+
     if (showRejectedOnly) {
-      const localStatus = String(decisions[id]?.status || '').toLowerCase()
-      const rowStatus = String(status).toLowerCase()
-      const isRejected = localStatus === 'rejected' || rowStatus === 'rejected'
+      const isRejected = effectiveStatus === 'rejected'
       row.style.display = isRejected ? '' : 'none'
     } else {
       row.style.display = (!showDecided && decided) ? 'none' : ''
