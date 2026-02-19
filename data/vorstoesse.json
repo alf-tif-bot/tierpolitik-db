@@ -1,187 +1,5 @@
 [
   {
-    "id": "vp-20213364-de",
-    "titel": "21.3364 - Impfstoffentwicklung mit neuen Methoden ohne Tierversuche",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "21.3364 - Impfstoffentwicklung mit neuen Methoden ohne Tierversuche (Erledigt).",
-    "geschaeftsnummer": "21.3364",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2021-03-18",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Tierversuche",
-      "Wissenschaft und Forschung",
-      "Umwelt",
-      "Gesundheit"
-    ],
-    "schlagwoerter": [
-      "tierversuch",
-      "tierversuche"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213364",
-    "resultate": [
-      {
-        "datum": "2021-03-18",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "21.3364 - Impfstoffentwicklung mit neuen Methoden ohne Tierversuche"
-        },
-        "summary": {
-          "de": "21.3364 - Impfstoffentwicklung mit neuen Methoden ohne Tierversuche (Erledigt)."
-        },
-        "type": {
-          "de": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "tierversuch",
-            "tierversuche",
-            "Wissenschaft und Forschung",
-            "Umwelt",
-            "Gesundheit"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20212027-de",
-    "titel": "21.2027 - Echter Tierschutz jetzt!",
-    "typ": "Petition",
-    "kurzbeschreibung": "Die Petition «Echter Tierschutz jetzt!» verlangt eine stärkere gesetzliche und behördliche Umsetzung des Tierschutzes in der Schweiz.",
-    "geschaeftsnummer": "21.2027",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2021-10-06",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Tierschutz"
-    ],
-    "schlagwoerter": [
-      "tierschutz"
-    ],
-    "einreichende": [
-      {
-        "name": "Animal Rights",
-        "rolle": "Petitionskomitee",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20212027",
-    "resultate": [
-      {
-        "datum": "2021-10-06",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "21.2027 - Echter Tierschutz jetzt!"
-        },
-        "summary": {
-          "de": "Die Petition «Echter Tierschutz jetzt!» verlangt eine stärkere gesetzliche und behördliche Umsetzung des Tierschutzes in der Schweiz."
-        },
-        "type": {
-          "de": "Petition"
-        },
-        "themes": {
-          "de": [
-            "tierschutz"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20213703-de",
-    "titel": "21.3703 - Tierschutz im Indonesien-Abkommen",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Die Interpellation verlangt Auskunft, wie die Schweiz im Indonesien-Abkommen den Tierschutz bei tierischen Produkten stärken und den Import von Qualprodukten begrenzen will.",
-    "geschaeftsnummer": "21.3703",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2021-06-15",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Tierschutz",
-      "Internationale Politik",
-      "Wirtschaft",
-      "Umwelt"
-    ],
-    "schlagwoerter": [
-      "tierschutz"
-    ],
-    "einreichende": [
-      {
-        "name": "Badertscher Christine",
-        "rolle": "Nationalrätin",
-        "partei": "Grüne Fraktion"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213703",
-    "resultate": [
-      {
-        "datum": "2021-06-15",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "21.3703 - Tierschutz im Indonesien-Abkommen"
-        },
-        "summary": {
-          "de": "Die Interpellation verlangt Auskunft, wie die Schweiz im Indonesien-Abkommen den Tierschutz bei tierischen Produkten stärken und den Import von Qualprodukten begrenzen will."
-        },
-        "type": {
-          "de": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "tierschutz",
-            "Internationale Politik",
-            "Wirtschaft",
-            "Umwelt"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
     "id": "vp-20223299-de",
     "titel": "22.3299 - Kein Einsatz von PMSG bei Schweinezüchtern",
     "typ": "Motion",
@@ -4617,146 +4435,6 @@
     }
   },
   {
-    "id": "vp-20203648-de",
-    "titel": "20.3648 - Schlafen im Stroh auch für Schweine",
-    "typ": "Motion",
-    "kurzbeschreibung": "Die Motion verlangt eine Änderung der Tierschutzverordnung, damit für alle Schweinekategorien stets eingestreute Liegebereiche vorgeschrieben sind.",
-    "geschaeftsnummer": "20.3648",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2020-06-17",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Schwein",
-      "Schweine",
-      "Landwirtschaft",
-      "Umwelt"
-    ],
-    "schlagwoerter": [
-      "schwein",
-      "schweine",
-      "landwirtschaft"
-    ],
-    "einreichende": [
-      {
-        "name": "Schneider Meret",
-        "rolle": "Nationalrat",
-        "partei": "Grüne Partei der Schweiz"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20203648",
-    "resultate": [
-      {
-        "datum": "2020-06-17",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "20.3648 - Schlafen im Stroh auch für Schweine"
-        },
-        "summary": {
-          "de": "Die Motion verlangt eine Änderung der Tierschutzverordnung, damit für alle Schweinekategorien stets eingestreute Liegebereiche vorgeschrieben sind."
-        },
-        "type": {
-          "de": "Motion"
-        },
-        "themes": {
-          "de": [
-            "schwein",
-            "schweine",
-            "landwirtschaft",
-            "Umwelt"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20240331-fr",
-    "titel": "24.331 - Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen",
-    "typ": "Standesinitiative",
-    "kurzbeschreibung": "Die Standesinitiative des Kantons Jura verlangt finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen, insbesondere für notwendige Zuckerfütterung zur Sicherung des Überlebens von Honigbienenvölkern.",
-    "geschaeftsnummer": "24.331",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2024-12-19",
-    "datumAktualisiert": "2026-02-18",
-    "themen": [
-      "Tierschutz",
-      "Bienen",
-      "Landwirtschaft",
-      "Klimafolgen",
-      "Subventionen"
-    ],
-    "schlagwoerter": [
-      "apiculteur"
-    ],
-    "einreichende": [
-      {
-        "name": "Jura",
-        "rolle": "Kanton",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20240331",
-    "resultate": [
-      {
-        "datum": "2024-12-19",
-        "status": "In Beratung",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "fr",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "24.331 - Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen",
-          "fr": "24.331 - Soutien financier direct aux apiculteurs et apicultrices lors de situations géoclimatiques exceptionnelles",
-          "it": "24.331 - Sostegno finanziario diretto agli apicoltori in situazioni geoclimatiche eccezionali"
-        },
-        "summary": {
-          "de": "Beratung in Kommission des Ständerates abgeschlossen",
-          "fr": "Fin des discussions en commission du Conseil des Etats",
-          "it": "Fine delle discussioni della Commissione del degli Stati"
-        },
-        "type": {
-          "de": "Standesinitiative",
-          "fr": "Initiative cantonale",
-          "it": "Iniziativa cantonale"
-        },
-        "themes": {
-          "de": [
-            "Tierschutz",
-            "Bienen",
-            "Landwirtschaft",
-            "Klimafolgen",
-            "Subventionen"
-          ],
-          "fr": [
-            "apiculteur"
-          ],
-          "it": [
-            "apiculteur"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
     "id": "vp-20244344-de",
     "titel": "24.4344 - Tierschutzbeauftragte. Eine wirksame Unterstützung",
     "typ": "Postulat",
@@ -5130,6 +4808,70 @@
     }
   },
   {
+    "id": "vp-20213364-de",
+    "titel": "21.3364 - Impfstoffentwicklung mit neuen Methoden ohne Tierversuche",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "21.3364 - Impfstoffentwicklung mit neuen Methoden ohne Tierversuche (Erledigt).",
+    "geschaeftsnummer": "21.3364",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2021-03-18",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Tierversuche",
+      "Wissenschaft und Forschung",
+      "Umwelt",
+      "Gesundheit"
+    ],
+    "schlagwoerter": [
+      "tierversuch",
+      "tierversuche"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213364",
+    "resultate": [
+      {
+        "datum": "2021-03-18",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "21.3364 - Impfstoffentwicklung mit neuen Methoden ohne Tierversuche"
+        },
+        "summary": {
+          "de": "21.3364 - Impfstoffentwicklung mit neuen Methoden ohne Tierversuche (Erledigt)."
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "tierversuch",
+            "tierversuche",
+            "Wissenschaft und Forschung",
+            "Umwelt",
+            "Gesundheit"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
     "id": "vp-20218162-de",
     "titel": "21.8162 - Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (2)",
     "typ": "Fragestunde. Frage",
@@ -5307,6 +5049,82 @@
           "de": [
             "Landwirtschaft",
             "Umwelt"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20240331-it",
+    "titel": "24.331 - Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen",
+    "typ": "Standesinitiative",
+    "kurzbeschreibung": "Die Standesinitiative des Kantons Jura verlangt finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen, insbesondere für notwendige Zuckerfütterung zur Sicherung des Überlebens von Honigbienenvölkern.",
+    "geschaeftsnummer": "24.331",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2024-12-19",
+    "datumAktualisiert": "2026-02-17",
+    "themen": [
+      "Tierschutz",
+      "Bienen",
+      "Landwirtschaft",
+      "Klimafolgen",
+      "Subventionen"
+    ],
+    "schlagwoerter": [
+      "apiculteur"
+    ],
+    "einreichende": [
+      {
+        "name": "Jura",
+        "rolle": "Kanton",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20240331",
+    "resultate": [
+      {
+        "datum": "2024-12-19",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "it",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "24.331 - Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen",
+          "fr": "24.331 - Soutien financier direct aux apiculteurs et apicultrices lors de situations géoclimatiques exceptionnelles",
+          "it": "24.331 - Sostegno finanziario diretto agli apicoltori in situazioni geoclimatiche eccezionali"
+        },
+        "summary": {
+          "de": "Beratung in Kommission des Ständerates abgeschlossen",
+          "fr": "Fin des discussions en commission du Conseil des Etats",
+          "it": "Fine delle discussioni della Commissione del degli Stati"
+        },
+        "type": {
+          "de": "Standesinitiative",
+          "fr": "Initiative cantonale",
+          "it": "Iniziativa cantonale"
+        },
+        "themes": {
+          "de": [
+            "Tierschutz",
+            "Bienen",
+            "Landwirtschaft",
+            "Klimafolgen",
+            "Subventionen"
+          ],
+          "fr": [
+            "apiculteur"
+          ],
+          "it": [
+            "apiculteur"
           ]
         }
       },
@@ -5622,6 +5440,124 @@
     }
   },
   {
+    "id": "vp-20212027-de",
+    "titel": "21.2027 - Echter Tierschutz jetzt!",
+    "typ": "Petition",
+    "kurzbeschreibung": "Die Petition «Echter Tierschutz jetzt!» verlangt eine stärkere gesetzliche und behördliche Umsetzung des Tierschutzes in der Schweiz.",
+    "geschaeftsnummer": "21.2027",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2021-10-06",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Tierschutz"
+    ],
+    "schlagwoerter": [
+      "tierschutz"
+    ],
+    "einreichende": [
+      {
+        "name": "Animal Rights",
+        "rolle": "Petitionskomitee",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20212027",
+    "resultate": [
+      {
+        "datum": "2021-10-06",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "21.2027 - Echter Tierschutz jetzt!"
+        },
+        "summary": {
+          "de": "Die Petition «Echter Tierschutz jetzt!» verlangt eine stärkere gesetzliche und behördliche Umsetzung des Tierschutzes in der Schweiz."
+        },
+        "type": {
+          "de": "Petition"
+        },
+        "themes": {
+          "de": [
+            "tierschutz"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20213703-de",
+    "titel": "21.3703 - Tierschutz im Indonesien-Abkommen",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Die Interpellation verlangt Auskunft, wie die Schweiz im Indonesien-Abkommen den Tierschutz bei tierischen Produkten stärken und den Import von Qualprodukten begrenzen will.",
+    "geschaeftsnummer": "21.3703",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2021-06-15",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Tierschutz",
+      "Internationale Politik",
+      "Wirtschaft",
+      "Umwelt"
+    ],
+    "schlagwoerter": [
+      "tierschutz"
+    ],
+    "einreichende": [
+      {
+        "name": "Badertscher Christine",
+        "rolle": "Nationalrätin",
+        "partei": "Grüne Fraktion"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213703",
+    "resultate": [
+      {
+        "datum": "2021-06-15",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "21.3703 - Tierschutz im Indonesien-Abkommen"
+        },
+        "summary": {
+          "de": "Die Interpellation verlangt Auskunft, wie die Schweiz im Indonesien-Abkommen den Tierschutz bei tierischen Produkten stärken und den Import von Qualprodukten begrenzen will."
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "tierschutz",
+            "Internationale Politik",
+            "Wirtschaft",
+            "Umwelt"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
     "id": "vp-20223808-de",
     "titel": "22.3808 - Aussagekräftige und transparente Tierversuchsstatistik",
     "typ": "Interpellation",
@@ -5676,130 +5612,6 @@
             "Staatspolitik",
             "Medien und Kommunikation",
             "Wissenschaft und Forschung",
-            "Umwelt"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20203849-de",
-    "titel": "20.3849 - Erschwerte Exportvorschriften der EU für Nutztiere aus der Schweiz",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Die Interpellation thematisiert neue EU-Tiergesundheitsvorschriften, die den Export bestimmter Nutztiere aus der Schweiz erschweren. Der Bundesrat wird zu Kenntnisstand, Unterstützung betroffener Betriebe und möglichen Verhandlungsspielräumen mit der EU befragt.",
-    "geschaeftsnummer": "20.3849",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2020-06-19",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Europapolitik",
-      "Landwirtschaft",
-      "Umwelt",
-      "Wirtschaft"
-    ],
-    "schlagwoerter": [
-      "nutztiere",
-      "landwirtschaft"
-    ],
-    "einreichende": [
-      {
-        "name": "Haab Martin",
-        "rolle": "Nationalrat",
-        "partei": "Schweizerische Volkspartei"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20203849",
-    "resultate": [
-      {
-        "datum": "2020-06-19",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "20.3849 - Erschwerte Exportvorschriften der EU für Nutztiere aus der Schweiz"
-        },
-        "summary": {
-          "de": "Die Interpellation thematisiert neue EU-Tiergesundheitsvorschriften, die den Export bestimmter Nutztiere aus der Schweiz erschweren. Der Bundesrat wird zu Kenntnisstand, Unterstützung betroffener Betriebe und möglichen Verhandlungsspielräumen mit der EU befragt."
-        },
-        "type": {
-          "de": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "Europapolitik",
-            "Landwirtschaft",
-            "Umwelt",
-            "Wirtschaft"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20204340-de",
-    "titel": "20.4340 - Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren",
-    "typ": "Motion",
-    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
-    "geschaeftsnummer": "20.4340",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2020-11-17",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Nutztiere",
-      "Landwirtschaft",
-      "Umwelt"
-    ],
-    "schlagwoerter": [
-      "nutztiere",
-      "landwirtschaft"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20204340",
-    "resultate": [
-      {
-        "datum": "2020-11-17",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "20.4340 - Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren"
-        },
-        "summary": {
-          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten."
-        },
-        "type": {
-          "de": "Motion"
-        },
-        "themes": {
-          "de": [
-            "nutztiere",
-            "landwirtschaft",
             "Umwelt"
           ]
         }
@@ -6892,6 +6704,67 @@
     }
   },
   {
+    "id": "vp-20204340-de",
+    "titel": "20.4340 - Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren",
+    "typ": "Motion",
+    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
+    "geschaeftsnummer": "20.4340",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2020-11-17",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Nutztiere",
+      "Landwirtschaft",
+      "Umwelt"
+    ],
+    "schlagwoerter": [
+      "nutztiere",
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20204340",
+    "resultate": [
+      {
+        "datum": "2020-11-17",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "20.4340 - Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten."
+        },
+        "type": {
+          "de": "Motion"
+        },
+        "themes": {
+          "de": [
+            "nutztiere",
+            "landwirtschaft",
+            "Umwelt"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
     "id": "vp-20213405-de",
     "titel": "21.3405 - Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere",
     "typ": "Motion",
@@ -7022,6 +6895,133 @@
           "fr": [
             "Protection animale",
             "Agriculture"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20203648-de",
+    "titel": "20.3648 - Schlafen im Stroh auch für Schweine",
+    "typ": "Motion",
+    "kurzbeschreibung": "Die Motion verlangt eine Änderung der Tierschutzverordnung, damit für alle Schweinekategorien stets eingestreute Liegebereiche vorgeschrieben sind.",
+    "geschaeftsnummer": "20.3648",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2020-06-17",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Schwein",
+      "Schweine",
+      "Landwirtschaft",
+      "Umwelt"
+    ],
+    "schlagwoerter": [
+      "schwein",
+      "schweine",
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Schneider Meret",
+        "rolle": "Nationalrat",
+        "partei": "Grüne Partei der Schweiz"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20203648",
+    "resultate": [
+      {
+        "datum": "2020-06-17",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "20.3648 - Schlafen im Stroh auch für Schweine"
+        },
+        "summary": {
+          "de": "Die Motion verlangt eine Änderung der Tierschutzverordnung, damit für alle Schweinekategorien stets eingestreute Liegebereiche vorgeschrieben sind."
+        },
+        "type": {
+          "de": "Motion"
+        },
+        "themes": {
+          "de": [
+            "schwein",
+            "schweine",
+            "landwirtschaft",
+            "Umwelt"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20203849-de",
+    "titel": "20.3849 - Erschwerte Exportvorschriften der EU für Nutztiere aus der Schweiz",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Die Interpellation thematisiert neue EU-Tiergesundheitsvorschriften, die den Export bestimmter Nutztiere aus der Schweiz erschweren. Der Bundesrat wird zu Kenntnisstand, Unterstützung betroffener Betriebe und möglichen Verhandlungsspielräumen mit der EU befragt.",
+    "geschaeftsnummer": "20.3849",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2020-06-19",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Europapolitik",
+      "Landwirtschaft",
+      "Umwelt",
+      "Wirtschaft"
+    ],
+    "schlagwoerter": [
+      "nutztiere",
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Haab Martin",
+        "rolle": "Nationalrat",
+        "partei": "Schweizerische Volkspartei"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20203849",
+    "resultate": [
+      {
+        "datum": "2020-06-19",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "20.3849 - Erschwerte Exportvorschriften der EU für Nutztiere aus der Schweiz"
+        },
+        "summary": {
+          "de": "Die Interpellation thematisiert neue EU-Tiergesundheitsvorschriften, die den Export bestimmter Nutztiere aus der Schweiz erschweren. Der Bundesrat wird zu Kenntnisstand, Unterstützung betroffener Betriebe und möglichen Verhandlungsspielräumen mit der EU befragt."
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "Europapolitik",
+            "Landwirtschaft",
+            "Umwelt",
+            "Wirtschaft"
           ]
         }
       },
@@ -7402,7 +7402,7 @@
         "partei": "PdA"
       }
     ],
-    "linkGeschaeft": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
+    "linkGeschaeft": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=c6c65c8ce8a84435af97428996dadc64",
     "resultate": [
       {
         "datum": "2026-02-11",
@@ -7487,7 +7487,7 @@
         "partei": "GB"
       }
     ],
-    "linkGeschaeft": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
+    "linkGeschaeft": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=b7e265b3766d43119b5279f5ea795e91",
     "resultate": [
       {
         "datum": "2026-02-11",
@@ -7573,7 +7573,7 @@
         "partei": "PdA"
       }
     ],
-    "linkGeschaeft": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
+    "linkGeschaeft": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=58a0ae87cf6f44e1a4030952a06a85bb",
     "resultate": [
       {
         "datum": "2026-02-11",
@@ -7645,7 +7645,7 @@
         "partei": "AL"
       }
     ],
-    "linkGeschaeft": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
+    "linkGeschaeft": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=13284d70bb124c23a1bbba427e8a7c5c",
     "resultate": [
       {
         "datum": "2026-01-28",

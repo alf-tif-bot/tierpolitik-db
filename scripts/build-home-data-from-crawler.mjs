@@ -795,6 +795,23 @@ const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallb
   return out
 }
 
+const resolveBusinessLink = (item) => {
+  const sourceId = String(item?.sourceId || '')
+  const externalId = String(item?.externalId || '')
+  const municipalSourceLink = String(item?.meta?.sourceLink || '').trim()
+
+  if (sourceId === 'ch-municipal-parliament-bern-zurich' && externalId.startsWith('municipal-bern-api-')) {
+    const gid = externalId.replace('municipal-bern-api-', '').trim()
+    if (/^[a-f0-9]{24,}$/i.test(gid)) {
+      return `https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=${gid}`
+    }
+  }
+
+  if (municipalSourceLink.startsWith('http')) return municipalSourceLink
+  if (String(item?.sourceUrl || '').startsWith('http')) return String(item.sourceUrl)
+  return `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${String(item?.externalId || '').split('-')[0]}`
+}
+
 const vorstoesse = items.map((item, index) => {
   const sprache = langFromSource(item.sourceId)
   const isParliament = isParliamentSourceId(item.sourceId)
@@ -837,12 +854,7 @@ const vorstoesse = items.map((item, index) => {
     status,
   })
   const idSafe = String(item.externalId || `${Date.now()}-${index}`).replace(/[^a-zA-Z0-9-]/g, '-')
-  const municipalSourceLink = String(item?.meta?.sourceLink || '').trim()
-  const link = municipalSourceLink.startsWith('http')
-    ? municipalSourceLink
-    : (item.sourceUrl && item.sourceUrl.startsWith('http')
-      ? item.sourceUrl
-      : `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${String(item.externalId || '').split('-')[0]}`)
+  const link = resolveBusinessLink(item)
   const rawSummaryText = SUMMARY_OVERRIDES[businessNumber] || summarizeVorstoss({
     title: finalTitle,
     summary: displaySummary,
