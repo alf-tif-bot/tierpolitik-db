@@ -1,26 +1,6 @@
 {
-  "updatedAt": "2026-02-19T19:05:05.860Z",
+  "updatedAt": "2026-02-19T21:23:29.287Z",
   "learned": [
-    {
-      "keyword": "geflügel",
-      "weight": 1
-    },
-    {
-      "keyword": "schwein",
-      "weight": 1
-    },
-    {
-      "keyword": "schweine",
-      "weight": 1
-    },
-    {
-      "keyword": "élevage",
-      "weight": 1
-    },
-    {
-      "keyword": "elevage",
-      "weight": 1
-    },
     {
       "keyword": "tierschutz",
       "weight": 1
@@ -38,11 +18,11 @@
       "weight": 1
     },
     {
-      "keyword": "fisch",
+      "keyword": "schwein",
       "weight": 1
     },
     {
-      "keyword": "tierversuch",
+      "keyword": "schweine",
       "weight": 1
     },
     {
@@ -50,11 +30,15 @@
       "weight": 1
     },
     {
-      "keyword": "stopfleber",
+      "keyword": "fisch",
       "weight": 1
     },
     {
-      "keyword": "tierversuche",
+      "keyword": "geflügel",
+      "weight": 1
+    },
+    {
+      "keyword": "stopfleber",
       "weight": 1
     },
     {
@@ -67,6 +51,18 @@
     },
     {
       "keyword": "tiere",
+      "weight": 1
+    },
+    {
+      "keyword": "tierquälerei",
+      "weight": 1
+    },
+    {
+      "keyword": "élevage",
+      "weight": 1
+    },
+    {
+      "keyword": "elevage",
       "weight": 1
     },
     {
@@ -96,6 +92,14 @@
     {
       "keyword": "foie gras",
       "weight": 1
+    },
+    {
+      "keyword": "tierversuch",
+      "weight": 0.951
+    },
+    {
+      "keyword": "tierversuche",
+      "weight": 0.943
     },
     {
       "keyword": "animaux",
