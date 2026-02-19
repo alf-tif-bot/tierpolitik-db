@@ -20,6 +20,11 @@
 <body>
   <h1>crawler-debug</h1>
   <div class="muted">Direktlink: <code>/crawler</code> · Fokus: Warum fallen kantonale Items raus?</div>
+  <p class="export view-controls" style="margin:10px 0 14px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+    <button id="copy-report">Debug-Report kopieren</button>
+    <span class="muted">→ kann 1:1 in den Chat eingefügt werden</span>
+  </p>
+  <div class="card" id="report-box" style="margin-bottom:14px"><div class="muted">Report wird geladen…</div></div>
 
   <div class="grid" id="kpis"></div>
 
@@ -116,6 +121,34 @@
         const uHtml = u ? `<a href="${u}" target="_blank" rel="noopener">open</a>` : '<span class="bad">no-url</span>';
         return `<tr><td>${i._status}</td><td><code>${r}</code></td><td>${score}</td><td>${t}</td><td>${uHtml}</td></tr>`;
       }).join('');
+
+      const report = [
+        `crawler-debug report`,
+        `open_review=${open.length}`,
+        `open_kantonal=${openCantonal.length}`,
+        `source_fix_kantonal=${sourceFix.length}`,
+        `sichtbare_kantone=${cants.join(',') || '-'}`,
+        `zg_open=${zgOpen.length}`,
+        `zg_source_fix=${zgFix.length}`,
+        `zg_no_detail_url=${reasons['no-detail-url'] || 0}`,
+        `zg_score_too_low=${reasons['score-too-low'] || 0}`,
+      ].join('\n');
+
+      const box = document.getElementById('report-box');
+      if (box) box.innerHTML = `<pre style="margin:0;white-space:pre-wrap">${report}</pre>`;
+
+      const copyBtn = document.getElementById('copy-report');
+      if (copyBtn) {
+        copyBtn.onclick = async () => {
+          try {
+            await navigator.clipboard.writeText(report);
+            copyBtn.textContent = 'Kopiert ✅';
+            setTimeout(() => copyBtn.textContent = 'Debug-Report kopieren', 1400);
+          } catch {
+            copyBtn.textContent = 'Kopieren fehlgeschlagen';
+          }
+        }
+      }
     }
     boot().catch(err => {
       document.body.insertAdjacentHTML('beforeend', `<p class="bad">Fehler beim Laden: ${String(err)}</p>`)
