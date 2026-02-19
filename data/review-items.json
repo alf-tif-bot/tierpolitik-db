@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-19T19:09:27.448Z",
+  "generatedAt": "2026-02-19T20:00:55.015Z",
   "total": 29,
   "ids": [
     "ch-parliament-business-de:20195282-de",
@@ -35,7 +35,8 @@
   "sourceFix": {
     "total": 2,
     "byCanton": {
-      "??": 2
+      "NW": 1,
+      "UR": 1
     },
     "ids": [
       "ch-cantonal-portal-core:cantonal-portal-nw",

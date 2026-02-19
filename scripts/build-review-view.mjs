@@ -889,7 +889,10 @@ const fastlaneTagKey='tierpolitik.review.fastlaneTags';
 const initialFastlaneTags=${JSON.stringify(fastlaneTags)};
 const lsGet=(k)=>{ try { return localStorage.getItem(k); } catch { return null; } };
 const lsSet=(k,v)=>{ try { localStorage.setItem(k,v); } catch {} };
-const API_BASE=(lsGet('tierpolitik.apiBase')||'').replace(/\\/$/,'');
+const DEFAULT_API_BASE = (location.hostname === 'monitor.tierimfokus.ch')
+  ? 'https://tierpolitik.netlify.app/.netlify/functions'
+  : '';
+const API_BASE=(lsGet('tierpolitik.apiBase')||DEFAULT_API_BASE).replace(/\\/$/,'');
 const safeJsonParse=(raw, fallback={})=>{
   try { return JSON.parse(raw || JSON.stringify(fallback)); }
   catch { return fallback; }
