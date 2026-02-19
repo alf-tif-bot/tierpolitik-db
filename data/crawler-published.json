@@ -1,5 +1,16 @@
 [
   {
+    "id": "ch-parliament-motions-de:20213229-de",
+    "title": "21.3229 · Erhaltung einheimischer Nutztierrassen",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2021-03-17T00:00:00.000Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
+    ]
+  },
+  {
     "id": "ch-parliament-motions-de:20204002-de",
     "title": "20.4002 · Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung",
     "summary": "Erledigt",
@@ -271,17 +282,6 @@
     ]
   },
   {
-    "id": "ch-parliament-motions-de:20213229-de",
-    "title": "21.3229 · Erhaltung einheimischer Nutztierrassen",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2021-03-17T00:00:00.000Z",
-    "score": 0.06000000000000001,
-    "matchedKeywords": [
-      "landwirtschaft"
-    ]
-  },
-  {
     "id": "ch-parliament-motions-de:20204731-de",
     "title": "20.4731 · Kein Experimentieren bei Ohrmarken für Nutztiere",
     "summary": "Erledigt",
@@ -501,7 +501,7 @@
     "title": "NE · Grand Conseil Neuchâtel: Motions Grand Conseil NE",
     "summary": "Objets - R&eacute;publique et canton de Neuch&acirc;tel – 10 relevante Linkziele erkannt (2 thematisch, 3 Seiten gescannt, Leitlink: Motions Grand Conseil NE)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-19T21:22:40.814Z",
+    "publishedAt": "2026-02-19T21:26:46.060Z",
     "score": 1,
     "matchedKeywords": [
       "animaux",
@@ -516,7 +516,7 @@
     "title": "SZ · Kantonsrat Schwyz: Jagd und Wildtiere",
     "summary": "Kantonsrat – Kanton Schwyz – 3 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Jagd und Wildtiere)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-19T21:22:40.814Z",
+    "publishedAt": "2026-02-19T21:26:46.060Z",
     "score": 1,
     "matchedKeywords": [
       "wildtier",
@@ -529,7 +529,7 @@
     "title": "ZG · Kantonsrat Zug: Geschäftsdetail Kantonsrat Zug #1",
     "summary": "Geschäfte des Kantonsrats – 10 relevante Linkziele erkannt (0 thematisch, 3 Seiten gescannt, Leitlink: Geschäftsdetail Kantonsrat Zug #1)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-19T21:22:40.814Z",
+    "publishedAt": "2026-02-19T21:26:46.060Z",
     "score": 0,
     "matchedKeywords": []
   },
@@ -804,6 +804,24 @@
     "matchedKeywords": [
       "tierversuch",
       "tierversuche"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-fr:20183204-fr",
+    "title": "18.3204 · Pas d'élevage intensif en Suisse",
+    "summary": "Liquidé",
+    "sourceId": "ch-parliament-business-fr",
+    "publishedAt": "2018-03-14T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "massentierhaltung",
+      "massentier",
+      "élevage",
+      "elevage",
+      "allevamento",
+      "landwirtschaft",
+      "agriculture",
+      "agricoltura"
     ]
   },
   {
@@ -1274,18 +1292,6 @@
       "landwirtschaft",
       "agriculture",
       "agricoltura"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20213363-de",
-    "title": "21.3363 · Gemeinsame Bewilligungsbehörde für eine einheitliche Beurteilung von Tierversuchen mit Schweregrad 3",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2021-03-18T00:00:00.000Z",
-    "score": 0.8600000000000001,
-    "matchedKeywords": [
-      "tierversuch",
-      "tierversuche"
     ]
   }
 ]
