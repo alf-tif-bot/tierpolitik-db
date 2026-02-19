@@ -1,18 +1,35 @@
 {
-  "generatedAt": "2026-02-19T12:04:57.912Z",
-  "total": 2,
+  "generatedAt": "2026-02-19T12:08:40.331Z",
+  "total": 5,
   "items": [
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-nw",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-nw",
+      "title": "NW · Landrat Nidwalden: Tierschutz in der Landwirtschaft",
+      "summary": "Landrat | Kanton Nidwalden Online – 3 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Tierschutz in der Landwirtschaft)",
+      "score": 0.7500000000000001,
+      "status": "queued",
+      "sourceUrl": "https://www.nw.ch/landratmain",
+      "publishedAt": "2026-02-19T12:04:56.334Z",
+      "fetchedAt": "2026-02-19T12:04:56.334Z",
+      "matchedKeywords": [
+        "tierschutz",
+        "landwirtschaft"
+      ],
+      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=landwirtschaft · context=- · process=landrat · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · score=0.75"
+    },
     {
       "id": "ch-parliament-business-de:20254831-de",
       "sourceId": "ch-parliament-business-de",
       "externalId": "20254831-de",
       "title": "25.4831 · Einheimische Produktionssysteme fördern anstatt Importbedingungen für mit Chlor behandeltem Hühnerfleisch lockern",
       "summary": "Kurzfassung: Das Geschäft behandelt hühner. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.73,
+      "score": 0.7300000000000001,
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254831",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T11:59:00.952Z",
+      "fetchedAt": "2026-02-19T12:04:53.067Z",
       "matchedKeywords": [
         "hühner",
         "landwirtschaft",
@@ -22,6 +39,38 @@
       "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=hühner · support=landwirtschaft|agriculture|agricoltura · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.73"
     },
     {
+      "id": "ch-cantonal-portal-core:cantonal-portal-ur",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-ur",
+      "title": "UR · Landrat Uri: Geschäfte Landrat Uri",
+      "summary": "Kanton Uri - Sessionen – 4 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Geschäfte Landrat Uri)",
+      "score": 0.5166666666666667,
+      "status": "queued",
+      "sourceUrl": "https://www.ur.ch/sitzung",
+      "publishedAt": "2026-02-19T12:04:56.334Z",
+      "fetchedAt": "2026-02-19T12:04:56.334Z",
+      "matchedKeywords": [
+        "jagd"
+      ],
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=jagd · support=jagd · context=- · process=landrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.07 · fastlane=0.00 · score=0.52"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-ti",
+      "sourceId": "ch-cantonal-portal-core",
+      "externalId": "cantonal-portal-ti",
+      "title": "TI · Gran Consiglio Ticino: Ricerca messaggi e atti",
+      "summary": "Risultati - GC (POTERI) - Repubblica e Cantone Ticino – 3 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Ricerca messaggi e atti)",
+      "score": 0.31000000000000005,
+      "status": "queued",
+      "sourceUrl": "https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati",
+      "publishedAt": "2026-02-19T12:04:56.334Z",
+      "fetchedAt": "2026-02-19T12:04:56.334Z",
+      "matchedKeywords": [
+        "caccia"
+      ],
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=caccia · support=- · context=- · process=gran consiglio · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.31"
+    },
+    {
       "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9",
       "sourceId": "ch-municipal-parliament-bern-zurich",
       "externalId": "municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9",
@@ -29,9 +78,9 @@
       "summary": "Gemeinde Bern (Stadtrat Bern) · 2025.SR.0388 · Eingereicht",
       "score": 0.18,
       "status": "queued",
-      "sourceUrl": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
+      "sourceUrl": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=d0f7b26541424c43aab28a91744f6ba9",
       "publishedAt": "2025-11-19T23:00:00.000Z",
-      "fetchedAt": "2026-02-19T11:59:08.037Z",
+      "fetchedAt": "2026-02-19T12:04:56.920Z",
       "matchedKeywords": [
         "motion"
       ],

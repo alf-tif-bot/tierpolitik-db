@@ -667,23 +667,8 @@ const humanizeReason = (reason = '') => {
   return parts.length ? parts.join('') : esc(text)
 }
 
-const isConcreteCantonalBusinessUrl = (url = '') => {
-  const low = String(url || '').toLowerCase()
-  if (!low) return false
-
-  const hasConcreteId = /affairid=\d+|geschaeftid=|objektid=|detail\.php\?gid=[a-f0-9]+|[?&](id|nr|nummer)=\d+/i.test(low)
-  const looksOverview = /\/sitzung$|\/landratmain$|\/landrat$|\/geschaefte$|\/objets\/pages\/(accueil|recherche)\.aspx|\/ricerca\/risultati$|\/kantonsrat(\.html|\/)?$|\/objets\/motions\/pages\/accueil\.aspx|\/objets\/postulats\/pages\/accueil\.aspx|\/objets\/interpellations\/pages\/accueil\.aspx/i.test(low)
-
-  if (looksOverview) return false
-  return hasConcreteId
-}
-
-reviewItems = reviewItems.filter((item) => {
-  const sid = String(item?.sourceId || '')
-  if (sid !== 'ch-cantonal-portal-core') return true
-  const sourceUrl = resolveOriginalUrl(item)
-  return isConcreteCantonalBusinessUrl(sourceUrl)
-})
+// Keep cantonal entries visible for active correction work; do not hard-hide them.
+// We improve link resolution iteratively instead of shrinking the review surface.
 
 const fastLaneItems = reviewItems.filter((item) => {
   if (!isHighConfidenceReview(item)) return false
@@ -704,7 +689,7 @@ const fastLaneRows = fastLaneItems.map((item) => {
     <div class="fastlane-actions">
       <button onclick="setDecision(this,'${esc(id)}','approved')">Gutheissen</button>
       <button onclick="setDecision(this,'${esc(id)}','rejected')">Ablehnen</button>
-      <button class="tag-btn" data-tag-btn="${esc(id)}" onclick="toggleFastlaneTag(this,'${esc(id)}')">${isTaggedFastlane ? 'â­ Fastlane' : 'â˜† Fastlane'}</button>
+      <button class="tag-btn" data-tag-btn="${esc(id)}" onclick="toggleFastlaneTag(this,'${esc(id)}')">${isTaggedFastlane ? 'Fastlane markiert' : 'Fastlane markieren'}</button>
       <a class="orig-link" href="${esc(resolveOriginalUrl(item) || '#')}" target="_blank" rel="noopener noreferrer">Original</a>
     </div>
   </div>`
@@ -762,7 +747,7 @@ const rows = reviewItems
 <td>
 <button onclick="setDecision(this,'${esc(id)}','approved')">Gutheissen</button>
 <button onclick="setDecision(this,'${esc(id)}','rejected')">Ablehnen</button>
-<button class="tag-btn" data-tag-btn="${esc(id)}" onclick="toggleFastlaneTag(this,'${esc(id)}')">${isTaggedFastlane ? 'â­ Fastlane' : 'â˜† Fastlane'}</button>
+<button class="tag-btn" data-tag-btn="${esc(id)}" onclick="toggleFastlaneTag(this,'${esc(id)}')">${isTaggedFastlane ? 'Fastlane markiert' : 'Fastlane markieren'}</button>
 </td>
 </tr>`
 }).join('')
@@ -927,7 +912,7 @@ function renderFastlaneTagButton(id){
   const tags = readFastlaneTags();
   const isTagged = Boolean(tags[id]?.fastlane);
   document.querySelectorAll('[data-tag-btn="' + id + '"]').forEach((btn)=>{
-    btn.textContent = isTagged ? 'â­ Fastlane' : 'â˜† Fastlane';
+    btn.textContent = isTagged ? 'Fastlane markiert' : 'Fastlane markieren';
   });
 }
 
@@ -937,31 +922,43 @@ async function toggleFastlaneTag(btn,id){
   const taggedAt = new Date().toISOString();
   if (btn) btn.disabled = true;
 
+  let serverOk = false;
   try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 5000);
     const res = await fetch(API_BASE + '/review-fastlane-tag', {
       method:'POST',
       headers:{'content-type':'application/json'},
       body: JSON.stringify({ id, fastlane: next, taggedAt }),
+      signal: controller.signal,
     });
+    clearTimeout(timer);
     if(!res.ok){
       const txt = await res.text();
       throw new Error(txt || 'Fastlane tag API failed');
     }
+    serverOk = true;
   } catch(err) {
-    alert('Konnte Fastlane-Tag nicht speichern.');
-    console.error(err);
-    if (btn) btn.disabled = false;
-    return;
+    console.warn('Fastlane tag API unavailable, using local fallback', err);
   }
 
   tags[id] = { fastlane: next, taggedAt };
   writeFastlaneTags(tags);
   renderFastlaneTagButton(id);
 
-  const row = document.querySelector('tr[data-id="' + id + '"]');
-  if (row) row.setAttribute('data-fastlane-tagged', next ? '1' : '0');
-  const card = document.querySelector('.fastlane-card[data-id="' + id + '"]');
-  if (card) card.setAttribute('data-fastlane-tagged', next ? '1' : '0');
+  document.querySelectorAll('tr[data-id="' + id + '"]').forEach((row)=>{
+    row.setAttribute('data-fastlane-tagged', next ? '1' : '0');
+  })
+  document.querySelectorAll('.fastlane-card[data-id="' + id + '"]').forEach((card)=>{
+    card.setAttribute('data-fastlane-tagged', next ? '1' : '0');
+  })
+
+  const statusEl = document.getElementById('decision-status');
+  if (statusEl) {
+    statusEl.textContent = serverOk
+      ? 'Fastlane-Markierung gespeichert.'
+      : 'Fastlane lokal markiert (Server nicht erreichbar).';
+  }
 
   if (btn) btn.disabled = false;
 }
