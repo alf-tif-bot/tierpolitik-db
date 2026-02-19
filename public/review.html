@@ -48,65 +48,7 @@
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
     <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="toggleDecided()" id="toggle-decided">Bereits bearbeitete anzeigen</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
-    <section class="fastlane-wrap">
-      <h2>âš¡ Fast-Lane</h2>
-      <div class="fastlane-grid"><div class="fastlane-card" data-id="ch-cantonal-portal-core:cantonal-portal-ne" data-fastlane-tagged="0">
-    <div class="fastlane-head">
-      <strong>NE · Grand Conseil Neuchâtel: Chasse</strong>
-      <span class="fastlane-score">1.00</span>
-    </div>
-    <div class="fastlane-actions">
-      <button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-ne','approved')">Gutheissen</button>
-      <button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-ne','rejected')">Ablehnen</button>
-      <button class="tag-btn" data-tag-btn="ch-cantonal-portal-core:cantonal-portal-ne" onclick="toggleFastlaneTag(this,'ch-cantonal-portal-core:cantonal-portal-ne')">â˜† Fastlane</button>
-      <a class="orig-link" href="https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx" target="_blank" rel="noopener noreferrer">Original</a>
-    </div>
-  </div><div class="fastlane-card" data-id="ch-cantonal-portal-core:cantonal-portal-sz" data-fastlane-tagged="0">
-    <div class="fastlane-head">
-      <strong>SZ · Kantonsrat Schwyz: Jagd und Wildtiere</strong>
-      <span class="fastlane-score">1.00</span>
-    </div>
-    <div class="fastlane-actions">
-      <button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-sz','approved')">Gutheissen</button>
-      <button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-sz','rejected')">Ablehnen</button>
-      <button class="tag-btn" data-tag-btn="ch-cantonal-portal-core:cantonal-portal-sz" onclick="toggleFastlaneTag(this,'ch-cantonal-portal-core:cantonal-portal-sz')">â˜† Fastlane</button>
-      <a class="orig-link" href="https://www.sz.ch/behoerden/kantonsrat/geschaefte.html/8756-8758-8799-9210" target="_blank" rel="noopener noreferrer">Original</a>
-    </div>
-  </div><div class="fastlane-card" data-id="ch-cantonal-portal-core:cantonal-portal-zg" data-fastlane-tagged="0">
-    <div class="fastlane-head">
-      <strong>ZG · Kantonsrat Zug: Arten, Lebensräume, Jagd Artenschutz, Lebensraumförderung, Naturschutzgebiete, Jagd, Hilfe für Wildtiere</strong>
-      <span class="fastlane-score">1.00</span>
-    </div>
-    <div class="fastlane-actions">
-      <button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-zg','approved')">Gutheissen</button>
-      <button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-zg','rejected')">Ablehnen</button>
-      <button class="tag-btn" data-tag-btn="ch-cantonal-portal-core:cantonal-portal-zg" onclick="toggleFastlaneTag(this,'ch-cantonal-portal-core:cantonal-portal-zg')">â˜† Fastlane</button>
-      <a class="orig-link" href="https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats" target="_blank" rel="noopener noreferrer">Original</a>
-    </div>
-  </div><div class="fastlane-card" data-id="ch-parliament-business-de:20254876-de" data-fastlane-tagged="0">
-    <div class="fastlane-head">
-      <strong>25.4876 · Wie wirkt sich das Entlastungspaket 2027 auf die Biodiversität und die lokale Wirtschaft in den Randregionen aus?</strong>
-      <span class="fastlane-score">1.00</span>
-    </div>
-    <div class="fastlane-actions">
-      <button onclick="setDecision(this,'ch-parliament-business-de:20254876-de','approved')">Gutheissen</button>
-      <button onclick="setDecision(this,'ch-parliament-business-de:20254876-de','rejected')">Ablehnen</button>
-      <button class="tag-btn" data-tag-btn="ch-parliament-business-de:20254876-de" onclick="toggleFastlaneTag(this,'ch-parliament-business-de:20254876-de')">â˜† Fastlane</button>
-      <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254876" target="_blank" rel="noopener noreferrer">Original</a>
-    </div>
-  </div><div class="fastlane-card" data-id="ch-parliament-business-de:20254547-de" data-fastlane-tagged="0">
-    <div class="fastlane-head">
-      <strong>25.4547 · Verhindert neues Tool für Geruchsabstände Tierwohl und Landschaftsschutz?</strong>
-      <span class="fastlane-score">1.00</span>
-    </div>
-    <div class="fastlane-actions">
-      <button onclick="setDecision(this,'ch-parliament-business-de:20254547-de','approved')">Gutheissen</button>
-      <button onclick="setDecision(this,'ch-parliament-business-de:20254547-de','rejected')">Ablehnen</button>
-      <button class="tag-btn" data-tag-btn="ch-parliament-business-de:20254547-de" onclick="toggleFastlaneTag(this,'ch-parliament-business-de:20254547-de')">â˜† Fastlane</button>
-      <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254547" target="_blank" rel="noopener noreferrer">Original</a>
-    </div>
-  </div></div>
-    </section>
+    
     <table>
       <thead>
         <tr>
@@ -121,6 +63,111 @@
         </tr>
       </thead>
       <tbody>
+<tr data-id="ch-cantonal-portal-core:cantonal-portal-ne" data-status="queued" data-fastlane-tagged="0" class="row-fastlane">
+<td>
+  <strong>NE · Grand Conseil Neuchâtel: Chasse</strong><br>
+  <small>Objets - R&amp;eacute;publique et canton de Neuch&amp;acirc;tel – 8 relevante Linkziele erkannt (3 thematisch, 3 Seiten gescannt, Leitlink: Chasse)</small><br>
+  <a class="orig-link" href="https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx" target="_blank" rel="noopener noreferrer">Original-Vorstoss Ã¶ffnen</a>
+</td>
+<td>Crawler</td>
+<td>
+  <div>Cantonal portals (core crawl)</div>
+  <small class="muted">ch-cantonal-portal-core</small>
+</td>
+<td>1.00<br><small class="muted">PrioritÃ¤t: fast-lane</small><br><small class="fast-lane">âš¡ Sehr wahrscheinlich relevant</small></td>
+<td>animaux, chasse, pêche, peche, motion, postulat, faune</td>
+<td>offen (<strong class="pending">offen</strong>)</td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (SchlÃ¼sselbegriffe + Score erfÃ¼llt)</div><div><strong>Tier-Begriffe:</strong> animaux, chasse, pêche</div><div><strong>Kontext:</strong> motion, postulat, faune</div><div><strong>Score:</strong> 1.00</div></small></td>
+<td>
+<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-ne','approved')">Gutheissen</button>
+<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-ne','rejected')">Ablehnen</button>
+<button class="tag-btn" data-tag-btn="ch-cantonal-portal-core:cantonal-portal-ne" onclick="toggleFastlaneTag(this,'ch-cantonal-portal-core:cantonal-portal-ne')">â˜† Fastlane</button>
+</td>
+</tr>
+<tr data-id="ch-cantonal-portal-core:cantonal-portal-sz" data-status="queued" data-fastlane-tagged="0" class="row-fastlane">
+<td>
+  <strong>SZ · Kantonsrat Schwyz: Jagd und Wildtiere</strong><br>
+  <small>Kantonsrat – Kanton Schwyz – 3 relevante Linkziele erkannt (1 thematisch, 2 Seiten gescannt, Leitlink: Jagd und Wildtiere)</small><br>
+  <a class="orig-link" href="https://www.sz.ch/behoerden/kantonsrat/geschaefte.html/8756-8758-8799-9210" target="_blank" rel="noopener noreferrer">Original-Vorstoss Ã¶ffnen</a>
+</td>
+<td>Crawler</td>
+<td>
+  <div>Cantonal portals (core crawl)</div>
+  <small class="muted">ch-cantonal-portal-core</small>
+</td>
+<td>1.00<br><small class="muted">PrioritÃ¤t: fast-lane</small><br><small class="fast-lane">âš¡ Sehr wahrscheinlich relevant</small></td>
+<td>wildtier, wildtiere, jagd</td>
+<td>offen (<strong class="pending">offen</strong>)</td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (SchlÃ¼sselbegriffe + Score erfÃ¼llt)</div><div><strong>Tier-Begriffe:</strong> wildtier, wildtiere, jagd</div><div><strong>Score:</strong> 1.00</div></small></td>
+<td>
+<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-sz','approved')">Gutheissen</button>
+<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-sz','rejected')">Ablehnen</button>
+<button class="tag-btn" data-tag-btn="ch-cantonal-portal-core:cantonal-portal-sz" onclick="toggleFastlaneTag(this,'ch-cantonal-portal-core:cantonal-portal-sz')">â˜† Fastlane</button>
+</td>
+</tr>
+<tr data-id="ch-cantonal-portal-core:cantonal-portal-zg" data-status="queued" data-fastlane-tagged="0" class="row-fastlane">
+<td>
+  <strong>ZG · Kantonsrat Zug: Arten, Lebensräume, Jagd Artenschutz, Lebensraumförderung, Naturschutzgebiete, Jagd, Hilfe für Wildtiere</strong><br>
+  <small>Geschäfte des Kantonsrats – 7 relevante Linkziele erkannt (2 thematisch, 3 Seiten gescannt, Leitlink: Arten, Lebensräume, Jagd Artenschutz, Lebensraumförderung, Naturschutzgebiete, Jagd, Hilfe für Wildtiere)</small><br>
+  <a class="orig-link" href="https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats" target="_blank" rel="noopener noreferrer">Original-Vorstoss Ã¶ffnen</a>
+</td>
+<td>Crawler</td>
+<td>
+  <div>Cantonal portals (core crawl)</div>
+  <small class="muted">ch-cantonal-portal-core</small>
+</td>
+<td>1.00<br><small class="muted">PrioritÃ¤t: fast-lane</small><br><small class="fast-lane">âš¡ Sehr wahrscheinlich relevant</small></td>
+<td>tiere, wildtier, wildtiere, biodiversität, biodiversita, jagd</td>
+<td>offen (<strong class="pending">offen</strong>)</td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> feedback-recall</div><div><strong>Tier-Begriffe:</strong> tiere, wildtier, wildtiere</div><div><strong>Kontext:</strong> jagd, biodiversität</div><div><strong>Score:</strong> 1.00</div></small></td>
+<td>
+<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-zg','approved')">Gutheissen</button>
+<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-zg','rejected')">Ablehnen</button>
+<button class="tag-btn" data-tag-btn="ch-cantonal-portal-core:cantonal-portal-zg" onclick="toggleFastlaneTag(this,'ch-cantonal-portal-core:cantonal-portal-zg')">â˜† Fastlane</button>
+</td>
+</tr>
+<tr data-id="ch-parliament-business-de:20254876-de" data-status="queued" data-fastlane-tagged="0" class="row-fastlane">
+<td>
+  <strong>25.4876 · Wie wirkt sich das Entlastungspaket 2027 auf die Biodiversität und die lokale Wirtschaft in den Randregionen aus?</strong><br>
+  <small>Kurzfassung: Das GeschÃ¤ft behandelt biodiversität, biodiversite, biodiversita. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
+  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254876" target="_blank" rel="noopener noreferrer">Original-Vorstoss Ã¶ffnen</a>
+</td>
+<td>Crawler</td>
+<td>
+  <div>Parlament.ch Curia Vista (DE)</div>
+  <small class="muted">ch-parliament-business-de</small>
+</td>
+<td>1.00<br><small class="muted">PrioritÃ¤t: fast-lane</small><br><small class="fast-lane">âš¡ Sehr wahrscheinlich relevant</small></td>
+<td>biodiversität, biodiversite, biodiversita</td>
+<td>offen (<strong class="pending">offen</strong>)</td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (SchlÃ¼sselbegriffe + Score erfÃ¼llt)</div><div><strong>Tier-Begriffe:</strong> biodiversität, biodiversite, biodiversita</div><div><strong>StÃ¶rsignale:</strong> finanz</div><div><strong>Score:</strong> 1.00</div></small></td>
+<td>
+<button onclick="setDecision(this,'ch-parliament-business-de:20254876-de','approved')">Gutheissen</button>
+<button onclick="setDecision(this,'ch-parliament-business-de:20254876-de','rejected')">Ablehnen</button>
+<button class="tag-btn" data-tag-btn="ch-parliament-business-de:20254876-de" onclick="toggleFastlaneTag(this,'ch-parliament-business-de:20254876-de')">â˜† Fastlane</button>
+</td>
+</tr>
+<tr data-id="ch-parliament-business-de:20254547-de" data-status="queued" data-fastlane-tagged="0" class="row-fastlane">
+<td>
+  <strong>25.4547 · Verhindert neues Tool für Geruchsabstände Tierwohl und Landschaftsschutz?</strong><br>
+  <small>Kurzfassung: Das GeschÃ¤ft behandelt tierwohl, animal, animaux. Einordnung: Es stellt eher einen positiven Bezug zum Tierschutz her.</small><br>
+  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254547" target="_blank" rel="noopener noreferrer">Original-Vorstoss Ã¶ffnen</a>
+</td>
+<td>Crawler</td>
+<td>
+  <div>Parlament.ch Curia Vista (DE)</div>
+  <small class="muted">ch-parliament-business-de</small>
+</td>
+<td>1.00<br><small class="muted">PrioritÃ¤t: fast-lane</small><br><small class="fast-lane">âš¡ Sehr wahrscheinlich relevant</small></td>
+<td>tierwohl, animal, animaux, animali, bien-être, bien etre, landwirtschaft, agriculture, agricoltura</td>
+<td>offen (<strong class="pending">offen</strong>)</td>
+<td><small><div><strong>Einordnung:</strong> pro Tierschutz</div><div><strong>Bewertung:</strong> feedback-recall</div><div><strong>Tier-Begriffe:</strong> tierwohl, animal, animaux</div><div><strong>Kontext:</strong> bien-être, bien etre, animali</div><div><strong>StÃ¶rsignale:</strong> wohnung</div><div><strong>Score:</strong> 1.00</div></small></td>
+<td>
+<button onclick="setDecision(this,'ch-parliament-business-de:20254547-de','approved')">Gutheissen</button>
+<button onclick="setDecision(this,'ch-parliament-business-de:20254547-de','rejected')">Ablehnen</button>
+<button class="tag-btn" data-tag-btn="ch-parliament-business-de:20254547-de" onclick="toggleFastlaneTag(this,'ch-parliament-business-de:20254547-de')">â˜† Fastlane</button>
+</td>
+</tr>
 <tr data-id="bundesrat-news:br-1" data-status="queued" data-fastlane-tagged="0" class="row-fastlane">
 <td>
   <strong>Bundesrat eroertert Verordnung gegen tierschutzwidrige Praktiken</strong><br>
@@ -142,7 +189,7 @@
 <button class="tag-btn" data-tag-btn="bundesrat-news:br-1" onclick="toggleFastlaneTag(this,'bundesrat-news:br-1')">â˜† Fastlane</button>
 </td>
 </tr>
-<tr data-id="ch-parliament-business-de:20254906-de" data-status="queued" data-fastlane-tagged="0" class="">
+<tr data-id="ch-parliament-business-de:20254906-de" data-status="queued" data-fastlane-tagged="0" class="row-fastlane">
 <td>
   <strong>25.4906 · Schweizer Land- und Ernährungswirtschaft an der Linderung von weltweiten Hungersnöten beteiligen</strong><br>
   <small>Kurzfassung: Das GeschÃ¤ft behandelt ernährung. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
@@ -153,14 +200,35 @@
   <div>Parlament.ch Curia Vista (DE)</div>
   <small class="muted">ch-parliament-business-de</small>
 </td>
-<td>0.76<br><small class="muted">PrioritÃ¤t: mittel</small></td>
+<td>0.90<br><small class="muted">PrioritÃ¤t: fast-lane</small><br><small class="fast-lane">âš¡ Sehr wahrscheinlich relevant</small></td>
 <td>ernährung, landwirtschaft, agriculture, agricoltura</td>
 <td>offen (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (SchlÃ¼sselbegriffe + Score erfÃ¼llt)</div><div><strong>Tier-Begriffe:</strong> ernährung</div><div><strong>Kontext:</strong> landwirtschaft, agriculture, agricoltura</div><div><strong>Score:</strong> 0.76</div></small></td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (SchlÃ¼sselbegriffe + Score erfÃ¼llt)</div><div><strong>Tier-Begriffe:</strong> ernährung</div><div><strong>Kontext:</strong> landwirtschaft, agriculture, agricoltura</div><div><strong>Score:</strong> 0.90</div></small></td>
 <td>
 <button onclick="setDecision(this,'ch-parliament-business-de:20254906-de','approved')">Gutheissen</button>
 <button onclick="setDecision(this,'ch-parliament-business-de:20254906-de','rejected')">Ablehnen</button>
 <button class="tag-btn" data-tag-btn="ch-parliament-business-de:20254906-de" onclick="toggleFastlaneTag(this,'ch-parliament-business-de:20254906-de')">â˜† Fastlane</button>
+</td>
+</tr>
+<tr data-id="ch-cantonal-portal-core:cantonal-portal-nw" data-status="queued" data-fastlane-tagged="0" class="">
+<td>
+  <strong>NW · Landrat Nidwalden: Tierschutz in der Landwirtschaft</strong><br>
+  <small>Landrat | Kanton Nidwalden Online – 3 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Tierschutz in der Landwirtschaft)</small><br>
+  <a class="orig-link" href="https://www.nw.ch/landratmain" target="_blank" rel="noopener noreferrer">Original-Vorstoss Ã¶ffnen</a>
+</td>
+<td>Crawler</td>
+<td>
+  <div>Cantonal portals (core crawl)</div>
+  <small class="muted">ch-cantonal-portal-core</small>
+</td>
+<td>0.75<br><small class="muted">PrioritÃ¤t: mittel</small></td>
+<td>tierschutz, landwirtschaft</td>
+<td>offen (<strong class="pending">offen</strong>)</td>
+<td><small><div><strong>Einordnung:</strong> pro Tierschutz</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (SchlÃ¼sselbegriffe + Score erfÃ¼llt)</div><div><strong>Tier-Begriffe:</strong> tierschutz</div><div><strong>Kontext:</strong> landwirtschaft</div><div><strong>Score:</strong> 0.75</div></small></td>
+<td>
+<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-nw','approved')">Gutheissen</button>
+<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-nw','rejected')">Ablehnen</button>
+<button class="tag-btn" data-tag-btn="ch-cantonal-portal-core:cantonal-portal-nw" onclick="toggleFastlaneTag(this,'ch-cantonal-portal-core:cantonal-portal-nw')">â˜† Fastlane</button>
 </td>
 </tr>
 <tr data-id="ch-parliament-business-de:20254831-de" data-status="queued" data-fastlane-tagged="0" class="">
@@ -182,27 +250,6 @@
 <button onclick="setDecision(this,'ch-parliament-business-de:20254831-de','approved')">Gutheissen</button>
 <button onclick="setDecision(this,'ch-parliament-business-de:20254831-de','rejected')">Ablehnen</button>
 <button class="tag-btn" data-tag-btn="ch-parliament-business-de:20254831-de" onclick="toggleFastlaneTag(this,'ch-parliament-business-de:20254831-de')">â˜† Fastlane</button>
-</td>
-</tr>
-<tr data-id="ch-cantonal-portal-core:cantonal-portal-nw" data-status="queued" data-fastlane-tagged="0" class="">
-<td>
-  <strong>NW · Landrat Nidwalden: Tierschutz in der Landwirtschaft</strong><br>
-  <small>Landrat | Kanton Nidwalden Online – 3 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Tierschutz in der Landwirtschaft)</small><br>
-  <a class="orig-link" href="https://www.nw.ch/landratmain" target="_blank" rel="noopener noreferrer">Original-Vorstoss Ã¶ffnen</a>
-</td>
-<td>Crawler</td>
-<td>
-  <div>Cantonal portals (core crawl)</div>
-  <small class="muted">ch-cantonal-portal-core</small>
-</td>
-<td>0.61<br><small class="muted">PrioritÃ¤t: mittel</small></td>
-<td>tierschutz, landwirtschaft</td>
-<td>offen (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> pro Tierschutz</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (SchlÃ¼sselbegriffe + Score erfÃ¼llt)</div><div><strong>Tier-Begriffe:</strong> tierschutz</div><div><strong>Kontext:</strong> landwirtschaft</div><div><strong>Score:</strong> 0.61</div></small></td>
-<td>
-<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-nw','approved')">Gutheissen</button>
-<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-nw','rejected')">Ablehnen</button>
-<button class="tag-btn" data-tag-btn="ch-cantonal-portal-core:cantonal-portal-nw" onclick="toggleFastlaneTag(this,'ch-cantonal-portal-core:cantonal-portal-nw')">â˜† Fastlane</button>
 </td>
 </tr>
 <tr data-id="ch-cantonal-portal-core:cantonal-portal-ur" data-status="queued" data-fastlane-tagged="0" class="">
