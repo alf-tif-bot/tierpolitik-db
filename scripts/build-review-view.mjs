@@ -454,10 +454,13 @@ const scoreOriginalUrl = (value = '', sourceId = '') => {
   if (isLikelyOverviewUrl(low)) score -= 6
 
   if (/kantonsrat\/(geschaefte|traktanden)/.test(low)) score += 5
+  if (/landrat\/geschaefte/.test(low)) score += 6
+  if (/\/landratmain\b/.test(low)) score -= 4
+  if (/\/landrat\b/.test(low) && !/\/landratmain\b/.test(low)) score += 2
   if (/gemeinderat|stadtrat/.test(low) && /geschaefte|detail|objets?\//.test(low)) score += 3
 
   // Penalize topical department pages that are not parliamentary business detail pages
-  if (/amt-fuer|verwaltung\//.test(low) && !/kantonsrat|parlament|gemeinderat|stadtrat/.test(low)) score -= 5
+  if (/amt-fuer|verwaltung\//.test(low) && !/kantonsrat|parlament|gemeinderat|stadtrat|landrat/.test(low)) score -= 5
 
   if (String(sourceId || '').startsWith('ch-municipal-') && /detail|objets?\//.test(low)) score += 2
   if (String(sourceId || '').startsWith('ch-cantonal-') && /geschaefte|objets?|traktanden/.test(low)) score += 2
@@ -476,18 +479,45 @@ const pickMetaExtractedUrl = (item) => {
     .sort((a, b) => scoreOriginalUrl(b, item?.sourceId) - scoreOriginalUrl(a, item?.sourceId))[0] || ''
 }
 
+const extractBodyUrlCandidates = (item) => {
+  const body = String(item?.body || '')
+  if (!body) return []
+
+  const out = []
+  for (const line of body.split(/\r?\n/)) {
+    const m = line.match(/^(?:\d+\.\s*)?(.*?)\s+[–-]\s+(https?:\/\/\S+)$/u)
+    if (!m) continue
+    const label = clean(m[1] || '').toLowerCase()
+    const url = String(m[2] || '').trim().replace(/[),.;]+$/, '')
+    if (!isValidHttpUrl(url) || isLikelyDeadPlaceholderUrl(url)) continue
+
+    let bonus = 0
+    if (/geschaeft|geschäfte|objets?|traktanden|landrat.*geschaeft|ricerca.*atti|ratsbetrieb|parlament/i.test(label)) bonus += 5
+    if (/motion|postulat|interpellation/i.test(label)) bonus += 4
+    if (/jagd|chasse|wildtier|faune|animaux de compagnie|peche/i.test(label)) bonus -= 4
+
+    out.push({ url, bonus })
+  }
+  return out
+}
+
 const resolveOriginalUrl = (item) => {
   const direct = String(item?.sourceUrl || '')
   const metaLink = String(item?.meta?.sourceLink || item?.meta?.url || '')
   const metaExtracted = pickMetaExtractedUrl(item)
+  const bodyUrls = extractBodyUrlCandidates(item)
 
-  const candidates = [direct, metaLink, metaExtracted]
-    .filter((u) => isValidHttpUrl(u) && !isLikelyDeadPlaceholderUrl(u))
+  const candidates = [
+    { url: direct, bonus: 0 },
+    { url: metaLink, bonus: 0 },
+    { url: metaExtracted, bonus: 0 },
+    ...bodyUrls,
+  ].filter((c) => isValidHttpUrl(c.url) && !isLikelyDeadPlaceholderUrl(c.url))
 
   if (candidates.length) {
-    const best = [...new Set(candidates)]
-      .sort((a, b) => scoreOriginalUrl(b, item?.sourceId) - scoreOriginalUrl(a, item?.sourceId))[0]
-    if (best) return best
+    const best = [...new Map(candidates.map((c) => [c.url, c])).values()]
+      .sort((a, b) => (scoreOriginalUrl(b.url, item?.sourceId) + b.bonus) - (scoreOriginalUrl(a.url, item?.sourceId) + a.bonus))[0]
+    if (best?.url) return best.url
   }
 
   if (item.sourceId?.startsWith('ch-parliament-business-')) {
