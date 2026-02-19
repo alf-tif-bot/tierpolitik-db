@@ -26,6 +26,19 @@ const fallbackData = (() => {
 })()
 
 const API_BASE = (import.meta.env.VITE_API_BASE || '').replace(/\/$/, '')
+const apiUrl = (path: string) => `${API_BASE || ''}${path}`
+
+const migrateLegacyApiBase = () => {
+  if (typeof window === 'undefined') return
+  try {
+    const legacy = window.localStorage.getItem('tierpolitik.apiBase') || ''
+    if (/netlify\.app\/\.netlify\/functions/i.test(legacy)) {
+      window.localStorage.removeItem('tierpolitik.apiBase')
+    }
+  } catch {
+    // ignore storage access issues
+  }
+}
 
 const isSaneLivePayload = (rows: Vorstoss[]) => {
   if (!rows.length) return false
@@ -90,10 +103,10 @@ export default function App() {
   }, [data])
 
   useEffect(() => {
+    migrateLegacyApiBase()
     const loadLive = async () => {
-      if (!API_BASE) return
       try {
-        const res = await fetch(`${API_BASE}/home-data`, { cache: 'no-store' })
+        const res = await fetch(apiUrl('/home-data'), { cache: 'no-store' })
         if (!res.ok) return
         const payload = await res.json()
         let parsed: Vorstoss[] = []

@@ -49,6 +49,7 @@ const normalizeTitle = (value: string, typ?: string) => {
 }
 
 const API_BASE = (import.meta.env.VITE_API_BASE || '').replace(/\/$/, '')
+const apiUrl = (path: string) => `${API_BASE || ''}${path}`
 
 type TimelineItem = {
   datum: string
@@ -220,7 +221,7 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
         newsletterOptIn,
         message: `Bitte Status-Updates an ${email}${newsletterOptIn ? ' | Newsletter: ja' : ' | Newsletter: nein'}`,
       }
-      const res = await fetch(`${API_BASE}/feedback-submit`, {
+      const res = await fetch(apiUrl('/feedback-submit'), {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(payload),
@@ -245,7 +246,7 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
         category: feedbackType,
         message: feedbackText,
       }
-      const res = await fetch(`${API_BASE}/feedback-submit`, {
+      const res = await fetch(apiUrl('/feedback-submit'), {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(payload),
@@ -479,6 +480,7 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
     </div>
   )
 }
+
 
 
 

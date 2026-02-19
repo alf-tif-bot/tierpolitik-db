@@ -862,7 +862,7 @@ const html = `<!doctype html>
     <h1>Review-Ansicht</h1>
     <p>Es werden standardmÃ¤ssig nur <strong>offene</strong> relevante EintrÃ¤ge gezeigt (queued/new). Bereits bearbeitete EintrÃ¤ge bleiben ausgeblendet und kÃ¶nnen bei Bedarf Ã¼ber den Button eingeblendet werden. Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB Ã¼bernommen.</p>
     <p class="status" id="status-summary">Status-Summen (sichtbar): offen=0, gutgeheissen=0, publiziert=0</p>
-    <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
+    <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a><a href="/status.html">API-Status</a></nav>
     <p class="export view-controls"><span class="view-label">Ansicht</span><button class="view-btn" onclick="setViewMode('open')" id="view-open">Offen</button> <button class="view-btn" onclick="setViewMode('rejected')" id="view-rejected">Abgelehnt (neu → alt)</button> <button class="view-btn" onclick="clearLocalReviewState()" id="view-reset">Lokale Entscheide löschen</button> <button class="view-btn" onclick="toggleDebugPanel()" id="view-debug">Debug an/aus</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
     <div id="review-debug-box" class="debug-box" style="display:none"><pre id="review-debug-log"></pre></div>
@@ -893,10 +893,14 @@ const fastlaneTagKey='tierpolitik.review.fastlaneTags';
 const initialFastlaneTags=${JSON.stringify(fastlaneTags)};
 const lsGet=(k)=>{ try { return localStorage.getItem(k); } catch { return null; } };
 const lsSet=(k,v)=>{ try { localStorage.setItem(k,v); } catch {} };
-const DEFAULT_API_BASE = (location.hostname === 'monitor.tierimfokus.ch')
-  ? 'https://tierpolitik.netlify.app/.netlify/functions'
-  : '';
-const API_BASE=(lsGet('tierpolitik.apiBase')||DEFAULT_API_BASE).replace(/\\/$/,'');
+const LEGACY_API_BASE_KEY='tierpolitik.apiBase';
+const LEGACY_NETLIFY_RE=/netlify\.app\/\.netlify\/functions/i;
+const storedApiBaseRaw = lsGet(LEGACY_API_BASE_KEY) || '';
+if (LEGACY_NETLIFY_RE.test(storedApiBaseRaw)) {
+  try { localStorage.removeItem(LEGACY_API_BASE_KEY); } catch {}
+}
+const API_BASE='';
+const apiUrl=(path)=> (API_BASE ? API_BASE : '') + path;
 let DEBUG_REVIEW = /(?:\\?|&)debug=1(?:&|$)/.test(location.search) || lsGet('tierpolitik.review.debug') === '1';
 const debugState = { lines: [] };
 const renderDebug = () => {
@@ -923,9 +927,9 @@ window.toggleDebugPanel = function toggleDebugPanel(){
 }
 window.__reviewDebug = {
   hostname: location.hostname,
-  storedApiBase: lsGet('tierpolitik.apiBase'),
-  defaultApiBase: DEFAULT_API_BASE,
-  effectiveApiBase: API_BASE,
+  storedApiBaseRaw,
+  legacyApiBaseRemoved: LEGACY_NETLIFY_RE.test(storedApiBaseRaw),
+  effectiveApiBase: API_BASE || '(same-origin)',
 };
 dbg('boot', window.__reviewDebug);
 const safeJsonParse=(raw, fallback={})=>{
@@ -1092,26 +1096,22 @@ window.toggleFastlaneTag = async function toggleFastlaneTag(btn,id){
   if (btn) btn.disabled = true;
 
   let serverOk = false;
-  if (API_BASE) {
-    try {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 5000);
-      const url = API_BASE + '/review-fastlane-tag';
-      dbg('fastlane:request', { id, next, url });
-      const res = await fetch(url, {
-        method:'POST',
-        headers:{'content-type':'application/json'},
-        body: JSON.stringify({ id, fastlane: next, taggedAt }),
-        signal: controller.signal,
-      });
-      clearTimeout(timer);
-      dbg('fastlane:response', { id, next, code: res.status, ok: res.ok });
-      if (res.ok) serverOk = true;
-    } catch (err) {
-      dbg('fastlane:error', { id, next, message: String(err?.message || err) });
-    }
-  } else {
-    dbg('fastlane:skip-no-api-base', { id, next });
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 5000);
+    const url = apiUrl('/review-fastlane-tag');
+    dbg('fastlane:request', { id, next, url });
+    const res = await fetch(url, {
+      method:'POST',
+      headers:{'content-type':'application/json'},
+      body: JSON.stringify({ id, fastlane: next, taggedAt }),
+      signal: controller.signal,
+    });
+    clearTimeout(timer);
+    dbg('fastlane:response', { id, next, code: res.status, ok: res.ok });
+    if (res.ok) serverOk = true;
+  } catch (err) {
+    dbg('fastlane:error', { id, next, message: String(err?.message || err) });
   }
 
   tags[id] = { fastlane: next, taggedAt };
@@ -1157,28 +1157,24 @@ window.setDecision = async function setDecision(btn,id,status){
   })
 
   let serverOk = false;
-  if (API_BASE) {
-    try {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 5000);
-      const url = API_BASE + '/review-decision';
-      dbg('setDecision:request', { id, status, url });
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 5000);
+    const url = apiUrl('/review-decision');
+    dbg('setDecision:request', { id, status, url });
 
-      const res = await fetch(url, {
-        method:'POST',
-        headers:{'content-type':'application/json'},
-        body: JSON.stringify({ id, status, decidedAt }),
-        signal: controller.signal,
-      });
+    const res = await fetch(url, {
+      method:'POST',
+      headers:{'content-type':'application/json'},
+      body: JSON.stringify({ id, status, decidedAt }),
+      signal: controller.signal,
+    });
 
-      clearTimeout(timer);
-      dbg('setDecision:response', { id, status, code: res.status, ok: res.ok });
-      if (res.ok) serverOk = true;
-    } catch (err) {
-      dbg('setDecision:error', { id, status, message: String(err?.message || err) });
-    }
-  } else {
-    dbg('setDecision:skip-no-api-base', { id, status });
+    clearTimeout(timer);
+    dbg('setDecision:response', { id, status, code: res.status, ok: res.ok });
+    if (res.ok) serverOk = true;
+  } catch (err) {
+    dbg('setDecision:error', { id, status, message: String(err?.message || err) });
   }
 
   try {

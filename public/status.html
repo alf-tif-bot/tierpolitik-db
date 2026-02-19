@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Monitor API Status</title>
+  <style>body{font-family:Arial,sans-serif;max-width:900px;margin:30px auto;padding:0 16px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ddd;padding:8px}th{background:#f4f4f4}.ok{color:#0a7d20}.bad{color:#b00020}</style>
+</head>
+<body>
+  <h1>monitor.tierimfokus.ch Endpoint-Status</h1>
+  <p>Prüft die nativen monitor-Endpunkte ohne Netlify-Fallback.</p>
+  <button id="run">Neu prüfen</button>
+  <table>
+    <thead><tr><th>Endpoint</th><th>Method</th><th>Status</th><th>Detail</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+<script>
+const tests = [
+  { path:'/home-data', method:'GET' },
+  { path:'/feedback-submit', method:'POST', body:{ title:'status-probe', link:'https://monitor.tierimfokus.ch/status.html', category:'Status Probe', message:'diagnostic probe' } },
+  { path:'/review-decision', method:'POST', body:{ id:'probe:status', status:'queued', decidedAt:new Date().toISOString() } },
+  { path:'/review-fastlane-tag', method:'POST', body:{ id:'probe:status', fastlane:true, taggedAt:new Date().toISOString() } },
+]
+
+async function run(){
+  const tbody=document.getElementById('rows');
+  tbody.innerHTML='';
+  for (const t of tests){
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${t.path}</td><td>${t.method}</td><td>…</td><td></td>`;
+    tbody.appendChild(tr);
+    try {
+      const res=await fetch(t.path,{method:t.method,headers:{'content-type':'application/json'},body:t.body?JSON.stringify(t.body):undefined});
+      const text=await res.text();
+      tr.children[2].textContent=String(res.status);
+      tr.children[2].className=res.ok?'ok':'bad';
+      tr.children[3].textContent=text.slice(0,220);
+    } catch (e){
+      tr.children[2].textContent='ERR';
+      tr.children[2].className='bad';
+      tr.children[3].textContent=String(e && e.message || e);
+    }
+  }
+}
+
+document.getElementById('run').addEventListener('click', run);
+run();
+</script>
+</body>
+</html>
