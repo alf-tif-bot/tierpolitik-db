@@ -877,6 +877,8 @@ const statusLabelFor = (status = '') => {
   if (s === 'rejected') return 'abgelehnt'
   return s || '-'
 }
+// Backward-compat alias for older handlers that may still call this name.
+const reviewStatusLabel = statusLabelFor
 
 let viewMode = 'open';
 
