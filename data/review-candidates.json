@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-19T09:59:10.786Z",
+  "generatedAt": "2026-02-19T10:38:40.188Z",
   "total": 5,
   "items": [
     {
@@ -8,11 +8,11 @@
       "externalId": "cantonal-portal-nw",
       "title": "NW · Landrat Nidwalden: Tierschutz in der Landwirtschaft",
       "summary": "Landrat | Kanton Nidwalden Online – 3 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Tierschutz in der Landwirtschaft)",
-      "score": 0.75,
+      "score": 0.7500000000000001,
       "status": "queued",
-      "sourceUrl": "https://www.nw.ch/landrat",
-      "publishedAt": "2026-02-19T09:48:45.861Z",
-      "fetchedAt": "2026-02-19T09:48:45.861Z",
+      "sourceUrl": "https://www.nw.ch/landratmain",
+      "publishedAt": "2026-02-19T10:24:47.046Z",
+      "fetchedAt": "2026-02-19T10:24:47.046Z",
       "matchedKeywords": [
         "tierschutz",
         "landwirtschaft"
@@ -25,11 +25,11 @@
       "externalId": "20254831-de",
       "title": "25.4831 · Einheimische Produktionssysteme fördern anstatt Importbedingungen für mit Chlor behandeltem Hühnerfleisch lockern",
       "summary": "Kurzfassung: Das Geschäft behandelt hühner. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.73,
+      "score": 0.7300000000000001,
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254831",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T09:48:41.627Z",
+      "fetchedAt": "2026-02-19T10:24:41.459Z",
       "matchedKeywords": [
         "hühner",
         "landwirtschaft",
@@ -44,11 +44,11 @@
       "externalId": "cantonal-portal-ur",
       "title": "UR · Landrat Uri: Geschäfte Landrat Uri",
       "summary": "Kanton Uri - Sessionen – 4 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Geschäfte Landrat Uri)",
-      "score": 0.5167,
+      "score": 0.5166666666666667,
       "status": "queued",
       "sourceUrl": "https://www.ur.ch/landrat/geschaefte",
-      "publishedAt": "2026-02-19T09:48:45.861Z",
-      "fetchedAt": "2026-02-19T09:48:45.861Z",
+      "publishedAt": "2026-02-19T10:24:47.046Z",
+      "fetchedAt": "2026-02-19T10:24:47.046Z",
       "matchedKeywords": [
         "jagd"
       ],
@@ -60,11 +60,11 @@
       "externalId": "cantonal-portal-ti",
       "title": "TI · Gran Consiglio Ticino: Ricerca messaggi e atti",
       "summary": "Risultati - GC (POTERI) - Repubblica e Cantone Ticino – 3 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Ricerca messaggi e atti)",
-      "score": 0.31,
+      "score": 0.31000000000000005,
       "status": "queued",
       "sourceUrl": "https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati",
-      "publishedAt": "2026-02-19T09:48:45.861Z",
-      "fetchedAt": "2026-02-19T09:48:45.861Z",
+      "publishedAt": "2026-02-19T10:24:47.046Z",
+      "fetchedAt": "2026-02-19T10:24:47.046Z",
       "matchedKeywords": [
         "caccia"
       ],
@@ -78,9 +78,9 @@
       "summary": "Gemeinde Bern (Stadtrat Bern) · 2025.SR.0388 · Eingereicht",
       "score": 0.18,
       "status": "queued",
-      "sourceUrl": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
+      "sourceUrl": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=d0f7b26541424c43aab28a91744f6ba9",
       "publishedAt": "2025-11-19T23:00:00.000Z",
-      "fetchedAt": "2026-02-19T09:48:46.151Z",
+      "fetchedAt": "2026-02-19T10:24:48.529Z",
       "matchedKeywords": [
         "motion"
       ],

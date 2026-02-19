@@ -455,8 +455,8 @@ const scoreOriginalUrl = (value = '', sourceId = '') => {
 
   if (/kantonsrat\/(geschaefte|traktanden)/.test(low)) score += 5
   if (/landrat\/geschaefte/.test(low)) score += 6
-  if (/\/landratmain\b/.test(low)) score -= 4
-  if (/\/landrat\b/.test(low) && !/\/landratmain\b/.test(low)) score += 2
+  if (/\/landratmain\b/.test(low)) score += 4
+  if (/\/landrat\b/.test(low) && !/\/landratmain\b/.test(low)) score -= 6
   if (/gemeinderat|stadtrat/.test(low) && /geschaefte|detail|objets?\//.test(low)) score += 3
 
   // Penalize topical department pages that are not parliamentary business detail pages
