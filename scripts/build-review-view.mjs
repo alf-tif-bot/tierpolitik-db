@@ -821,7 +821,7 @@ const html = `<!doctype html>
     <p>Es werden standardmÃ¤ssig nur <strong>offene</strong> relevante EintrÃ¤ge gezeigt (queued/new). Bereits bearbeitete EintrÃ¤ge bleiben ausgeblendet und kÃ¶nnen bei Bedarf Ã¼ber den Button eingeblendet werden. Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB Ã¼bernommen.</p>
     <p class="status" id="status-summary">Status-Summen (sichtbar): offen=0, gutgeheissen=0, publiziert=0</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
-    <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="toggleDecided()" id="toggle-decided">Bereits bearbeitete anzeigen</button> <button onclick="toggleRejectedOnly()" id="toggle-rejected">Abgelehnte anzeigen (neu → alt)</button></p>
+    <p class="export"><button onclick="toggleRejectedOnly()" id="toggle-rejected">Abgelehnte anzeigen (neu → alt)</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
     ${fastLaneRows ? `<section class="fastlane-wrap">
       <h2>âš¡ Fast-Lane</h2>
@@ -989,7 +989,7 @@ window.toggleDecided = function toggleDecided(){
 
 window.toggleRejectedOnly = function toggleRejectedOnly(){
   showRejectedOnly = !showRejectedOnly
-  if (showRejectedOnly) showDecided = true
+  showDecided = false
   hideDecidedRows()
 }
 
