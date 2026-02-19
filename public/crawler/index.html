@@ -163,10 +163,15 @@
         `zg_source_fix=${zgFix.length}`,
         `zg_no_detail_url=${reasons['no-detail-url'] || 0}`,
         `zg_score_too_low=${reasons['score-too-low'] || 0}`,
-      ].join('\\n');
+      ].join('\n');
 
       const box = document.getElementById('report-box');
-      if (box) box.innerHTML = `<pre style="margin:0;white-space:pre-wrap">${report}</pre>`;
+      if (box) {
+        const alarm = (zgDebug.counts?.discovered_links || 0) === 0
+          ? '<div class="bad" style="margin-bottom:6px">⚠️ ZG-Collector liefert 0 Discovery-Links (harter Hinweis auf Source/Collector-Problem)</div>'
+          : '';
+        box.innerHTML = `${alarm}<pre style="margin:0;white-space:pre-wrap">${report}</pre>`;
+      }
 
       const copyBtn = document.getElementById('copy-report');
       if (copyBtn) {
