@@ -3,6 +3,7 @@
 const dbPath = new URL('../data/crawler-db.json', import.meta.url)
 const outPath = new URL('../public/review.html', import.meta.url)
 const outPathIndex = new URL('../public/review/index.html', import.meta.url)
+const publicReviewCandidatesPath = new URL('../public/data/review-candidates.json', import.meta.url)
 const reviewDataPath = new URL('../data/review-items.json', import.meta.url)
 const reviewCandidatesPath = new URL('../data/review-candidates.json', import.meta.url)
 const decisionsPath = new URL('../data/review-decisions.json', import.meta.url)
@@ -1233,7 +1234,7 @@ fs.writeFileSync(reviewDataPath, JSON.stringify({
   },
 }, null, 2))
 
-fs.writeFileSync(reviewCandidatesPath, JSON.stringify({
+const reviewCandidatesPayload = {
   generatedAt,
   total: reviewItems.length,
   sourceFix: {
@@ -1263,7 +1264,11 @@ fs.writeFileSync(reviewCandidatesPath, JSON.stringify({
     matchedKeywords: Array.isArray(item.matchedKeywords) ? item.matchedKeywords.map((k) => germanizeText(k)) : [],
     reviewReason: clean(item.reviewReason || ''),
   })),
-}, null, 2))
+}
+
+fs.writeFileSync(reviewCandidatesPath, JSON.stringify(reviewCandidatesPayload, null, 2))
+fs.mkdirSync(new URL('../public/data/', import.meta.url), { recursive: true })
+fs.writeFileSync(publicReviewCandidatesPath, JSON.stringify(reviewCandidatesPayload, null, 2))
 
 console.log(`Review-Ansicht gebaut: ${outPath.pathname} + ${outPathIndex.pathname} (${reviewItems.length} Eintraege)`)
 

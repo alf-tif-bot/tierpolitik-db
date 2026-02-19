@@ -36,28 +36,32 @@
     const scoreBy = (arr, fn) => arr.reduce((m, x) => { const k = fn(x); m[k] = Math.max(m[k]||0, Number(x.score||0)); return m; }, {});
 
     async function boot(){
-      const [candRes, dbRes] = await Promise.all([
-        fetch('/data/review-candidates.json', {cache:'no-store'}),
-        fetch('/data/crawler-db.json', {cache:'no-store'})
-      ]);
+      const candRes = await fetch('/data/review-candidates.json', {cache:'no-store'});
       const cand = await candRes.json();
-      const db = await dbRes.json();
       const items = cand.items || [];
       const open = items.filter(i => ['queued','new'].includes(String(i.status||'').toLowerCase()));
       const sourceFix = (cand.sourceFix && cand.sourceFix.items) ? cand.sourceFix.items : [];
-      const cantonalDb = (db.items||[]).filter(i => i.sourceId === 'ch-cantonal-portal-core');
 
       const kpis = [
         ['Open review', open.length],
         ['Open kantonal', open.filter(i=>i.sourceId==='ch-cantonal-portal-core').length],
         ['Source-fix kantonal', sourceFix.length],
-        ['Cantonal raw items', cantonalDb.length],
+        ['Kantone total sichtbar', new Set([...open.map(i=>(i.externalId||'').split('-').pop()?.toUpperCase()).filter(Boolean), ...sourceFix.map(i=>i.canton).filter(Boolean)]).size],
       ];
       document.getElementById('kpis').innerHTML = kpis.map(([k,v]) => `<div class="card"><div class="muted">${k}</div><div style="font-size:22px;font-weight:700">${v}</div></div>`).join('');
 
-      const openByCant = by(open.filter(i=>i.sourceId==='ch-cantonal-portal-core'), i => (i.externalId||'').split('-').pop()?.toUpperCase() || '??');
+      const openCantonal = open.filter(i=>i.sourceId==='ch-cantonal-portal-core');
+      const openByCant = by(openCantonal, i => (i.externalId||'').split('-').pop()?.toUpperCase() || '??');
       const fixByCant = by(sourceFix, i => i.canton || '??');
-      const topScore = scoreBy(cantonalDb, i => (i.meta?.canton || '??'));
+      const topScore = {};
+      for (const i of openCantonal) {
+        const c = (i.externalId||'').split('-').pop()?.toUpperCase() || '??';
+        topScore[c] = Math.max(topScore[c] || 0, Number(i.score || 0));
+      }
+      for (const i of sourceFix) {
+        const c = i.canton || '??';
+        topScore[c] = Math.max(topScore[c] || 0, Number((i.reviewReason||'').match(/score=([0-9.]+)/)?.[1] || 0));
+      }
       const cants = [...new Set([...Object.keys(topScore), ...Object.keys(openByCant), ...Object.keys(fixByCant)])].sort();
 
       document.getElementById('rows').innerHTML = cants.map(c => {

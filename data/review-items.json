@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-19T20:24:38.798Z",
+  "generatedAt": "2026-02-19T20:40:13.167Z",
   "total": 1,
   "ids": [
     "ch-municipal-parliament-bern-zurich:municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9"
@@ -7,7 +7,8 @@
   "sourceFix": {
     "total": 2,
     "byCanton": {
-      "??": 2
+      "NW": 1,
+      "UR": 1
     },
     "ids": [
       "ch-cantonal-portal-core:cantonal-portal-nw",
