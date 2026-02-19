@@ -836,7 +836,10 @@ const vorstoesse = items.map((item, index) => {
   const eingereicht = SUBMISSION_DATE_OVERRIDES[businessNumber] || computedEingereicht
   const status = STATUS_OVERRIDES[businessNumber] || inferredStatus
   const titleOverride = TITLE_OVERRIDES[businessNumber]
-  const finalTitle = titleOverride || displayTitle
+  const rawFinalTitle = titleOverride || displayTitle
+  const finalTitle = String(item?.sourceId || '') === 'ch-municipal-parliament-bern-zurich'
+    ? String(rawFinalTitle).replace(/^Bern\s*[·\-–:]\s*/i, '').trim()
+    : rawFinalTitle
   const inferredType = inferType(
     finalTitle,
     item.sourceId,
