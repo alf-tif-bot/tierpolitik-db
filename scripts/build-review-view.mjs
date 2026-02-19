@@ -821,7 +821,7 @@ const html = `<!doctype html>
     <p>Es werden standardmÃ¤ssig nur <strong>offene</strong> relevante EintrÃ¤ge gezeigt (queued/new). Bereits bearbeitete EintrÃ¤ge bleiben ausgeblendet und kÃ¶nnen bei Bedarf Ã¼ber den Button eingeblendet werden. Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB Ã¼bernommen.</p>
     <p class="status" id="status-summary">Status-Summen (sichtbar): offen=0, gutgeheissen=0, publiziert=0</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
-    <p class="export"><button onclick="toggleRejectedOnly()" id="toggle-rejected">Abgelehnte anzeigen (neu → alt)</button></p>
+    <p class="export"><button onclick="setViewMode('open')" id="view-open">Offene anzeigen</button> <button onclick="setViewMode('rejected')" id="view-rejected">Abgelehnte anzeigen (neu → alt)</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
     ${fastLaneRows ? `<section class="fastlane-wrap">
       <h2>âš¡ Fast-Lane</h2>
@@ -865,8 +865,7 @@ const writeFastlaneTags=(v)=>lsSet(fastlaneTagKey,JSON.stringify(v));
 const readUi=()=>safeJsonParse(lsGet(uiKey),{});
 const writeUi=(v)=>lsSet(uiKey,JSON.stringify(v));
 
-let showDecided = false;
-let showRejectedOnly = false;
+let viewMode = 'open';
 
 document.querySelectorAll('tr[data-id]').forEach((row, idx) => {
   row.setAttribute('data-base-order', String(idx))
@@ -932,17 +931,18 @@ function hideDecidedRows(){
         : '<span class="historic">historisch</span>'
     }
 
-    if (showRejectedOnly) {
+    if (viewMode === 'rejected') {
       const isRejected = effectiveStatus === 'rejected'
       row.style.display = isRejected ? '' : 'none'
     } else {
-      row.style.display = (!showDecided && decided) ? 'none' : ''
+      const isOpen = effectiveStatus === 'queued' || effectiveStatus === 'new'
+      row.style.display = isOpen ? '' : 'none'
     }
   });
 
-  if (showRejectedOnly) {
-    const tbody = rows[0]?.parentElement
-    if (tbody) {
+  const tbody = rows[0]?.parentElement
+  if (tbody) {
+    if (viewMode === 'rejected') {
       rows
         .filter((row) => row.style.display !== 'none')
         .sort((a, b) => {
@@ -954,10 +954,7 @@ function hideDecidedRows(){
           return Number(a.getAttribute('data-base-order') || 0) - Number(b.getAttribute('data-base-order') || 0)
         })
         .forEach((row) => tbody.appendChild(row))
-    }
-  } else {
-    const tbody = rows[0]?.parentElement
-    if (tbody) {
+    } else {
       rows
         .sort((a, b) => Number(a.getAttribute('data-base-order') || 0) - Number(b.getAttribute('data-base-order') || 0))
         .forEach((row) => tbody.appendChild(row))
@@ -968,28 +965,19 @@ function hideDecidedRows(){
     const id = card.getAttribute('data-id')
     if (!id) return
     const decided = Boolean(decidedById[id]) || Boolean(decisions[id])
-    card.style.display = (showRejectedOnly || decided) ? 'none' : ''
+    card.style.display = (viewMode === 'rejected' || decided) ? 'none' : ''
   })
 
-  const btn = document.getElementById('toggle-decided')
-  if (btn) btn.textContent = showDecided ? 'Bearbeitete ausblenden' : 'Bereits bearbeitete anzeigen'
-
-  const rejBtn = document.getElementById('toggle-rejected')
-  if (rejBtn) rejBtn.textContent = showRejectedOnly ? 'Alle anzeigen' : 'Abgelehnte anzeigen (neu → alt)'
+  const openBtn = document.getElementById('view-open')
+  const rejectedBtn = document.getElementById('view-rejected')
+  if (openBtn) openBtn.style.opacity = viewMode === 'open' ? '1' : '0.75'
+  if (rejectedBtn) rejectedBtn.style.opacity = viewMode === 'rejected' ? '1' : '0.75'
 
   updateStatusSummary();
 }
 
-window.toggleDecided = function toggleDecided(){
-  showDecided = !showDecided
-  if (showDecided) showRejectedOnly = false
-  writeUi({ showDecided })
-  hideDecidedRows()
-}
-
-window.toggleRejectedOnly = function toggleRejectedOnly(){
-  showRejectedOnly = !showRejectedOnly
-  showDecided = false
+window.setViewMode = function setViewMode(mode){
+  viewMode = mode === 'rejected' ? 'rejected' : 'open'
   hideDecidedRows()
 }
 
