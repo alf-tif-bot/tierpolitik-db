@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import { read as readXlsx, utils as xlsxUtils } from 'xlsx'
 
 const BASE_KEYWORDS = [
   'vorstoss',
@@ -581,6 +582,178 @@ const parseZgGeschaeftId = (url = '') => {
   return id || ''
 }
 
+const ZG_EXPORT_ENDPOINTS = [
+  { format: 'xlsx', url: 'https://kr-geschaefte.zug.ch/gast/geschaefte?format=xlsx' },
+  { format: 'csv', url: 'https://kr-geschaefte.zug.ch/gast/geschaefte?format=csv' },
+  { format: 'pdf', url: 'https://kr-geschaefte.zug.ch/gast/geschaefte?format=pdf' },
+]
+
+const normalizeHeader = (value = '') => String(value || '')
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .toLowerCase()
+  .replace(/[^a-z0-9]+/g, '_')
+  .replace(/^_+|_+$/g, '')
+
+const toIsoDate = (value = '') => {
+  const raw = String(value || '').trim()
+  if (!raw) return ''
+  if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw
+  const dmy = raw.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/)
+  if (dmy) {
+    const [, d, m, y] = dmy
+    return `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`
+  }
+  return raw
+}
+
+const parseZgXlsxRows = (buffer) => {
+  const wb = readXlsx(buffer, { type: 'buffer' })
+  const firstSheetName = wb.SheetNames?.[0]
+  if (!firstSheetName) return []
+  const sheet = wb.Sheets[firstSheetName]
+  const rows = xlsxUtils.sheet_to_json(sheet, { header: 1, blankrows: false, raw: false, defval: '' })
+  if (!rows.length) return []
+  const headerRow = rows[0].map((h) => normalizeHeader(h))
+
+  const idx = {
+    geschaeftNr: headerRow.findIndex((h) => ['geschaft_nr', 'geschaeft_nr', 'geschaftnr', 'geschaeftnr'].includes(h)),
+    titel: headerRow.findIndex((h) => h === 'titel' || h === 'geschaft' || h === 'geschaeft'),
+    status: headerRow.findIndex((h) => h === 'status'),
+    geschaeftstyp: headerRow.findIndex((h) => h === 'geschaftsart' || h === 'geschaeftsart' || h === 'art'),
+    zustaendig: headerRow.findIndex((h) => h === 'zustandig' || h === 'zustaendig'),
+    verfahrensstand: headerRow.findIndex((h) => h === 'verfahrensstand'),
+    verfahrensstandDatum: headerRow.findIndex((h) => h === 'verfahrensstand_datum'),
+    eingereichtAm: headerRow.findIndex((h) => h === 'eingereicht_am'),
+    abgeschlossenAm: headerRow.findIndex((h) => h === 'abgeschlossen_am'),
+  }
+
+  return rows.slice(1).map((row) => {
+    const get = (i) => (i >= 0 ? String(row[i] || '').trim() : '')
+    return {
+      geschaeft_nr: get(idx.geschaeftNr).replace(/\s+/g, ''),
+      titel: get(idx.titel),
+      status: get(idx.status),
+      geschaeftstyp: get(idx.geschaeftstyp),
+      zustaendig: get(idx.zustaendig),
+      verfahrensstand: get(idx.verfahrensstand),
+      verfahrensstand_datum: toIsoDate(get(idx.verfahrensstandDatum)),
+      eingereicht_am: toIsoDate(get(idx.eingereichtAm)),
+      abgeschlossen_am: toIsoDate(get(idx.abgeschlossenAm)),
+    }
+  })
+}
+
+const parseZgCsvRows = (text = '') => {
+  const lines = String(text || '').split(/\r?\n/).filter(Boolean)
+  if (!lines.length) return []
+
+  const splitCsv = (line) => {
+    const out = []
+    let cur = ''
+    let quoted = false
+    for (let i = 0; i < line.length; i += 1) {
+      const ch = line[i]
+      if (ch === '"') {
+        if (quoted && line[i + 1] === '"') {
+          cur += '"'
+          i += 1
+        } else {
+          quoted = !quoted
+        }
+      } else if (ch === ';' && !quoted) {
+        out.push(cur)
+        cur = ''
+      } else {
+        cur += ch
+      }
+    }
+    out.push(cur)
+    return out.map((v) => String(v || '').trim())
+  }
+
+  const header = splitCsv(lines[0]).map((h) => normalizeHeader(h))
+  const pick = (row, ...keys) => {
+    const idx = header.findIndex((h) => keys.includes(h))
+    return idx >= 0 ? String(row[idx] || '').trim() : ''
+  }
+
+  return lines.slice(1).map((line) => {
+    const row = splitCsv(line)
+    return {
+      geschaeft_nr: pick(row, 'geschaft_nr', 'geschaeft_nr', 'geschaftnr', 'geschaeftnr').replace(/\s+/g, ''),
+      titel: pick(row, 'titel', 'geschaft', 'geschaeft'),
+      status: pick(row, 'status'),
+      geschaeftstyp: pick(row, 'geschaftsart', 'geschaeftsart', 'art'),
+      zustaendig: pick(row, 'zustandig', 'zustaendig'),
+      verfahrensstand: pick(row, 'verfahrensstand'),
+      verfahrensstand_datum: toIsoDate(pick(row, 'verfahrensstand_datum')),
+      eingereicht_am: toIsoDate(pick(row, 'eingereicht_am')),
+      abgeschlossen_am: toIsoDate(pick(row, 'abgeschlossen_am')),
+    }
+  })
+}
+
+const parseZgHtmlDetailMap = (html = '', baseUrl = 'https://kr-geschaefte.zug.ch/gast/geschaefte') => {
+  const map = new Map()
+  for (const m of String(html || '').matchAll(/<a[^>]+href=["']([^"']*\/gast\/geschaefte\/(\d+))[^"']*["'][^>]*>(.*?)<\/a>/gis)) {
+    const href = normalizeUrl(m[1], baseUrl)
+    const detailId = String(m[2] || '')
+    const text = stripTags(m[3] || '').trim().replace(/\s+/g, '')
+    if (!href || !detailId || !/^\d+$/.test(text)) continue
+    if (!map.has(text)) map.set(text, { detailUrl: href, detailId })
+  }
+  return map
+}
+
+const fetchZgExportRows = async ({ parentSignal, requestTimeoutMs }) => {
+  const telemetry = []
+  let parsedRows = []
+  let usedFormat = ''
+
+  for (const endpoint of ZG_EXPORT_ENDPOINTS) {
+    if (parentSignal?.aborted) break
+    const startedAt = Date.now()
+    let ok = false
+    let status = null
+    let error = ''
+    let rowCount = 0
+
+    try {
+      const response = await fetch(endpoint.url, {
+        headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
+        redirect: 'follow',
+        signal: mergeAbortSignals(parentSignal, AbortSignal.timeout(requestTimeoutMs)),
+      })
+      status = response.status
+      if (!response.ok) throw new Error(`http-${response.status}`)
+
+      if (endpoint.format === 'xlsx') {
+        const arrayBuffer = await response.arrayBuffer()
+        parsedRows = parseZgXlsxRows(Buffer.from(arrayBuffer))
+      } else if (endpoint.format === 'csv') {
+        parsedRows = parseZgCsvRows(await response.text())
+      } else {
+        parsedRows = []
+      }
+
+      rowCount = parsedRows.length
+      ok = rowCount > 0
+      if (ok) {
+        usedFormat = endpoint.format
+        telemetry.push({ format: endpoint.format, url: endpoint.url, ok, httpStatus: status, rowCount, durationMs: Date.now() - startedAt })
+        break
+      }
+    } catch (err) {
+      error = String(err?.message || err || 'fetch-failed').slice(0, 140)
+    }
+
+    telemetry.push({ format: endpoint.format, url: endpoint.url, ok, httpStatus: status, rowCount, durationMs: Date.now() - startedAt, error: error || undefined })
+  }
+
+  return { rows: parsedRows, format: usedFormat, telemetry }
+}
+
 const fetchZgQuickSearchForTerm = async ({ term, parentSignal, requestTimeoutMs, retries = 2, minDelayMs = 300 }) => {
   const telemetry = {
     term,
@@ -879,7 +1052,23 @@ export function createCantonalPortalAdapter() {
         const language = pickLanguage(canton, pageText)
 
         if (canton === 'ZG' && zgExportRows.length) {
-          const detailMap = parseZgHtmlDetailMap(fetchedPages[0]?.html || '', fetchedPages[0]?.response?.url || 'https://kr-geschaefte.zug.ch/gast/geschaefte')
+          let zgListHtml = fetchedPages[0]?.html || ''
+          let zgListUrl = fetchedPages[0]?.response?.url || 'https://kr-geschaefte.zug.ch/gast/geschaefte'
+          try {
+            const listResponse = await fetch('https://kr-geschaefte.zug.ch/gast/geschaefte', {
+              headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
+              redirect: 'follow',
+              signal: mergeAbortSignals(signal, AbortSignal.timeout(requestTimeoutMs)),
+            })
+            if (listResponse.ok) {
+              zgListUrl = listResponse.url || zgListUrl
+              zgListHtml = await listResponse.text()
+            }
+          } catch {
+            // keep best-effort fetched page HTML
+          }
+
+          const detailMap = parseZgHtmlDetailMap(zgListHtml, zgListUrl)
           const dropReasons = {}
           let parsedCount = 0
           let emittedCount = 0
@@ -910,7 +1099,7 @@ export function createCantonalPortalAdapter() {
             }
 
             const dateBits = [row?.eingereicht_am, row?.verfahrensstand_datum, row?.abgeschlossen_am].filter(Boolean)
-            const publishedAt = dateBits[0] || fetchedAt
+            const publishedAt = dateBits[0] ? `${dateBits[0]}T00:00:00Z` : fetchedAt
             const summaryParts = [
               row?.geschaeftstyp ? `Typ: ${row.geschaeftstyp}` : null,
               row?.status ? `Status: ${row.status}` : null,

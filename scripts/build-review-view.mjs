@@ -1342,16 +1342,20 @@ const zgSeedDiscovery = [...new Map(zgRawItems
   .filter(([seedUrl]) => Boolean(seedUrl))).values()]
   .sort((a, b) => Number(b.discoveredLinks || 0) - Number(a.discoveredLinks || 0))
 
-const zgQuickSearchTelemetry = zgRawItems
-  .flatMap((item) => Array.isArray(item?.meta?.zgQuickSearchTelemetry) ? item.meta.zgQuickSearchTelemetry : [])
+const zgExportTelemetry = zgRawItems
+  .flatMap((item) => Array.isArray(item?.meta?.zgExportTelemetry) ? item.meta.zgExportTelemetry : [])
 
-const zgQuickSearchByTerm = [...new Map(zgQuickSearchTelemetry
-  .map((row) => [String(row?.term || ''), row])
-  .filter(([term]) => Boolean(term))).values()]
+const zgExportAttempts = [...new Map(zgExportTelemetry
+  .map((row) => [`${String(row?.format || '')}:${String(row?.url || '')}`, row])
+  .filter(([key]) => Boolean(key))).values()]
 
-const zgQuickSearchTotalFetched = zgQuickSearchByTerm.reduce((acc, row) => acc + Number(row?.fetched || 0), 0)
-const zgQuickSearchSuccessfulTerms = zgQuickSearchByTerm.filter((row) => row?.ok).length
-const zgQuickSearchMatchedItems = zgRawItems.filter((item) => item?.meta?.zgQuickSearch).length
+const zgExportRowsParsed = zgRawItems.reduce((acc, item) => Math.max(acc, Number(item?.meta?.zgExportMetrics?.rowsParsed || 0)), 0)
+const zgExportRowsDropped = zgRawItems.reduce((acc, item) => Math.max(acc, Number(item?.meta?.zgExportMetrics?.rowsDropped || 0)), 0)
+const zgExportDropReasons = zgRawItems.reduce((acc, item) => {
+  const reasons = item?.meta?.zgExportMetrics?.dropReasons || {}
+  for (const [key, val] of Object.entries(reasons)) acc[key] = Math.max(Number(acc[key] || 0), Number(val || 0))
+  return acc
+}, {})
 
 const zgDebugPayload = {
   generatedAt,
@@ -1365,13 +1369,14 @@ const zgDebugPayload = {
     open: zgNormalizedItems.filter((item) => ['new', 'queued'].includes(String(item?.status || '').toLowerCase())).length,
     seed_urls: zgSeedDiscovery.length,
     seed_discovered_total: zgSeedDiscovery.reduce((acc, seed) => acc + Number(seed?.discoveredLinks || 0), 0),
-    quick_search_terms: zgQuickSearchByTerm.length,
-    quick_search_terms_ok: zgQuickSearchSuccessfulTerms,
-    quick_search_fetched_total: zgQuickSearchTotalFetched,
-    quick_search_matched_items: zgQuickSearchMatchedItems,
+    export_attempts: zgExportAttempts.length,
+    export_attempts_ok: zgExportAttempts.filter((row) => row?.ok).length,
+    export_rows_parsed: zgExportRowsParsed,
+    export_rows_dropped: zgExportRowsDropped,
   },
   seed_discovery: zgSeedDiscovery,
-  quick_search_terms: zgQuickSearchByTerm,
+  export_attempts: zgExportAttempts,
+  export_drop_reasons: zgExportDropReasons,
   discovered_links: zgDiscoveredLinks,
   extracted_candidates: zgExtractedCandidates,
   normalized_items: zgNormalizedItems,

@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-02-19T22:26:35.151Z",
+  "generatedAt": "2026-02-19T22:34:06.149Z",
   "counts": {
     "discovered_links": 10,
-    "extracted_candidates": 14,
+    "extracted_candidates": 65,
     "normalized_items": 5,
-    "filtered_out": 9,
-    "raw": 14,
+    "filtered_out": 60,
+    "raw": 65,
     "source_fix": 0,
     "open": 5,
     "seed_urls": 10,
     "seed_discovered_total": 52,
-    "quick_search_terms": 5,
-    "quick_search_terms_ok": 5,
-    "quick_search_fetched_total": 14,
-    "quick_search_matched_items": 14
+    "export_attempts": 3,
+    "export_attempts_ok": 1,
+    "export_rows_parsed": 50,
+    "export_rows_dropped": 0
   },
   "seed_discovery": [
     {
@@ -23,7 +23,7 @@
       "httpStatus": 200,
       "finalUrl": "https://kr-geschaefte.zug.ch/sitemap.xml",
       "discoveredLinks": 32,
-      "durationMs": 2112,
+      "durationMs": 2027,
       "error": null
     },
     {
@@ -33,7 +33,7 @@
       "httpStatus": 200,
       "finalUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte",
       "discoveredLinks": 20,
-      "durationMs": 200,
+      "durationMs": 145,
       "error": null
     },
     {
@@ -43,7 +43,7 @@
       "httpStatus": null,
       "finalUrl": null,
       "discoveredLinks": 0,
-      "durationMs": 63,
+      "durationMs": 82,
       "error": "fetch failed"
     },
     {
@@ -53,7 +53,7 @@
       "httpStatus": 404,
       "finalUrl": "https://kr-geschaefte.zug.ch/sitemap_index.xml",
       "discoveredLinks": 0,
-      "durationMs": 26,
+      "durationMs": 34,
       "error": "http-404"
     },
     {
@@ -63,7 +63,7 @@
       "httpStatus": null,
       "finalUrl": null,
       "discoveredLinks": 0,
-      "durationMs": 1,
+      "durationMs": 2,
       "error": "fetch failed"
     },
     {
@@ -73,7 +73,7 @@
       "httpStatus": null,
       "finalUrl": null,
       "discoveredLinks": 0,
-      "durationMs": 1,
+      "durationMs": 2,
       "error": "fetch failed"
     },
     {
@@ -83,7 +83,7 @@
       "httpStatus": 200,
       "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats",
       "discoveredLinks": 0,
-      "durationMs": 126,
+      "durationMs": 139,
       "error": null
     },
     {
@@ -93,7 +93,7 @@
       "httpStatus": 200,
       "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats",
       "discoveredLinks": 0,
-      "durationMs": 227,
+      "durationMs": 216,
       "error": null
     },
     {
@@ -103,7 +103,7 @@
       "httpStatus": 200,
       "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/protokolle",
       "discoveredLinks": 0,
-      "durationMs": 136,
+      "durationMs": 94,
       "error": null
     },
     {
@@ -113,57 +113,40 @@
       "httpStatus": 200,
       "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/protokolle",
       "discoveredLinks": 0,
-      "durationMs": 144,
+      "durationMs": 121,
       "error": null
     }
   ],
-  "quick_search_terms": [
+  "export_attempts": [
     {
-      "term": "Tier",
-      "url": "https://kr-geschaefte.zug.ch/quick_search.json?term=Tier",
-      "attempts": 1,
+      "format": "xlsx",
+      "url": "https://kr-geschaefte.zug.ch/gast/geschaefte?format=xlsx",
       "ok": true,
       "httpStatus": 200,
-      "fetched": 10,
-      "error": null
+      "rowCount": 236,
+      "durationMs": 326
     },
     {
-      "term": "Tierschutz",
-      "url": "https://kr-geschaefte.zug.ch/quick_search.json?term=Tierschutz",
-      "attempts": 1,
-      "ok": true,
-      "httpStatus": 200,
-      "fetched": 1,
-      "error": null
+      "format": "csv",
+      "url": "https://kr-geschaefte.zug.ch/gast/geschaefte?format=csv",
+      "ok": false,
+      "httpStatus": 406,
+      "rowCount": 0,
+      "durationMs": 179,
+      "error": "http-406"
     },
     {
-      "term": "Schlachtung",
-      "url": "https://kr-geschaefte.zug.ch/quick_search.json?term=Schlachtung",
-      "attempts": 1,
-      "ok": true,
+      "format": "pdf",
+      "url": "https://kr-geschaefte.zug.ch/gast/geschaefte?format=pdf",
+      "ok": false,
       "httpStatus": 200,
-      "fetched": 0,
-      "error": null
-    },
-    {
-      "term": "Jagd",
-      "url": "https://kr-geschaefte.zug.ch/quick_search.json?term=Jagd",
-      "attempts": 1,
-      "ok": true,
-      "httpStatus": 200,
-      "fetched": 3,
-      "error": null
-    },
-    {
-      "term": "Nutztier",
-      "url": "https://kr-geschaefte.zug.ch/quick_search.json?term=Nutztier",
-      "attempts": 1,
-      "ok": true,
-      "httpStatus": 200,
-      "fetched": 0,
-      "error": null
+      "rowCount": 0,
+      "durationMs": 920
     }
   ],
+  "export_drop_reasons": {
+    "no_detail_url_match": 186
+  },
   "discovered_links": [
     {
       "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/1",
@@ -218,6 +201,14 @@
   ],
   "extracted_candidates": [
     {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg",
+      "title": "ZG · Kantonsrat Zug: Geschäftsdetail Kantonsrat Zug #1",
+      "score": 0,
+      "status": "approved",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/1",
+      "concreteDetailUrl": true
+    },
+    {
       "id": "ch-cantonal-portal-core:cantonal-portal-zg-3054",
       "title": "ZG · 4041 - Postulat von Joëlle Gautier und Kurt Balmer betreffend zeitgemässe und kundenfreundliche Website",
       "score": 0.45000000000000007,
@@ -228,7 +219,7 @@
     {
       "id": "ch-cantonal-portal-core:cantonal-portal-zg-3050",
       "title": "ZG · 4037 - Postulat von Beni Wattenhofer, Alex Haslimann, Joëlle Gautier, Urs Andermatt und Beat Iten betreffend den Aufbau eines KI-Assistenten für öffentliche Dokumente",
-      "score": 0.45000000000000007,
+      "score": 0.3500000000000001,
       "status": "rejected",
       "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3050",
       "concreteDetailUrl": true
@@ -327,6 +318,406 @@
       "score": 1,
       "status": "queued",
       "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/1214",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4063",
+      "title": "ZG · 4063: Kleine Anfrage der ALG-Fraktion betreffend Absage Nachtreffen Jugendpolittag",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3076",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4062",
+      "title": "ZG · 4062: Interpellation der SP-Fraktion betreffend Hertizentrum 2-5",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3075",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4061",
+      "title": "ZG · 4061: Berichts-Motion der Fraktion Die Mitte betreffend Regelung für den Heimfall von Energiekraftwerken an den Kanton Zug – Umsetzung der Eigenversorgung gemäss Energiegesetz",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3074",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4060",
+      "title": "ZG · 4060: Motion von Alexander Haslimann betreffend befristete Überbrückungsmassnahmen des Kantons Zug bei bundesbedingten Verzögerungen der Auszahlung von Arbeitslosengeldern",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3073",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4059",
+      "title": "ZG · 4059: Interpellation der SP-Fraktion betreffend Auswirkungen bei einer allfälligen Annahme der SVP-Initiative «Keine 10-Millionen-Schweiz! (Nachhaltigkeits-Initiative)» auf den Kanton Zug",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3072",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4058",
+      "title": "ZG · 4058: Kleine Anfrage von Anne Hänel, Erich Grob, Fabienne Michel, Jill Nussbaumer, Michèle Schmid und Hans Jörg Villiger betreffend Umsetzung Autoarmes Zentrum Cham (AAZ)",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3071",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4057",
+      "title": "ZG · 4057: Interpellation von Philip C. Brunner und Oliver Wandfluh betreffend «Stopp dem Vorstoss-Wildwuchs» - Mehr Übersicht, Klarheit und Effizienz in der Zuger Wohn- und Baupolitik!",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3070",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4056",
+      "title": "ZG · 4056: Kleine Anfrage von Michael Arnold betreffend Umsetzung Gesetz über Standortentwicklung",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3069",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4055",
+      "title": "ZG · 4055: Interpellation von Philip C. Brunner und neun Mitunterzeichnenden betreffend Sicherheit statt Unterwerfung – zieht der Kanton Zug beim «Tessiner Modell» zur Überprüfung straffälliger Zuwanderer nach?",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3068",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4054",
+      "title": "ZG · 4054: Motion der SVP-Fraktion betreffend Zug soll sicherster Kanton der Schweiz werden",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3067",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4053",
+      "title": "ZG · 4053: Kleine Anfrage von Gregor Bruhin und Alessandro Ehrbar betreffend Einsatz des neuen Lehrmittels «Wie sicher sind wir?» zur Vermittlung von Armee- und Sicherheitswissen an Schulen im Kanton Zug",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3066",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4052",
+      "title": "ZG · 4052: Interpellation der SP-Fraktion betreffend die Frage: Ist die Pensionskasse Zug eine soziale Vermieterin?",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3065",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4051",
+      "title": "ZG · 4051: Motion von Mirjam Arnold, Thomas Gwerder, Hans Küng, Michael Riboni, Adrian Rogger, Barbara Schmid-Häseli und Oliver Wandfluh betreffend Kostenübernahme für medizinische Notfälle für Personen ohne Wohnsitz in der Schweiz",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3064",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4050",
+      "title": "ZG · 4050: Motion der SVP-Fraktion betreffend gemeinnützige Arbeitseinsätze für Asylsuchende und vorläufig Aufgenommene im Kanton Zug",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3063",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4049",
+      "title": "ZG · 4049: Kleine Anfrage der ALG-Fraktion betreffend Auswirkungen der kantonalen Übernahme von 99 % der stationären Spitalkosten auf Notfallbehandlungen im Ausland",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3062",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4048",
+      "title": "ZG · 4048: Interpellation der ALG-Fraktion betreffend Anpassung des Unterrichtsbeginns für Jugendliche",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3061",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4047",
+      "title": "ZG · 4047: Postulat der FDP-Fraktion betreffend Sicherung des Gewerbestandorts durch zeitgemässe Regelungen für betriebseigenen Wohnraum in Arbeitszonen",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3060",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4046",
+      "title": "ZG · 4046: Interpellation der ALG-Fraktion betreffend Zuger Immobiliengesellschaften und problematische Mietverhältnisse ausserhalb des Kantons",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3059",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4045",
+      "title": "ZG · 4045: Postulat von Jill Nussbaumer und Tabea Estermann betreffend schneller, näher, digital: Online-Polizeiposten der Zuger Kantonspolizei mit Videokonferenz",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3058",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4044",
+      "title": "ZG · 4044: Motion der Fraktion Die Mitte betreffend mehr Wohnungsraum für einheimische Zugerinnen und Zuger",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3057",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4043",
+      "title": "ZG · 4043: Interpellation der SP-Fraktion betreffend psychische Gesundheit und Prävention im Asylbereich des Kantons Zug",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3056",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4042",
+      "title": "ZG · 4042: Postulat von Jost Arnold, Michael Arnold, Rainer Leemann, Karl Bürgler und Tom Magnusson betreffend «Jede Wohnung zählt»",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3055",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4041",
+      "title": "ZG · 4041: Postulat von Joëlle Gautier und Kurt Balmer betreffend zeitgemässe und kundenfreundliche Website",
+      "score": 0.45000000000000007,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3054",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4039",
+      "title": "ZG · 4039: Postulat der FDP-Fraktion betreffend Erschliessung von Raumreserven über Gleisfeldern als Massnahme gegen den Wohnungsmangel",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3052",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4038",
+      "title": "ZG · 4038: Interpellation der ALG-Fraktion betreffend Kinder und Jugendliche im Asylbereich",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3051",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4037",
+      "title": "ZG · 4037: Postulat von Beni Wattenhofer, Alex Haslimann, Joëlle Gautier, Urs Andermatt und Beat Iten betreffend den Aufbau eines KI-Assistenten für öffentliche Dokumente",
+      "score": 0.3500000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3050",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4036",
+      "title": "ZG · 4036: Interpellation der SVP-Fraktion betreffend Auswirkungen einer Ablehnung der Nachhaltigkeits-Initiative (Keine 10-Millionen-Schweiz!) auf den Kanton Zug",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3049",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4035",
+      "title": "ZG · 4035: Interpellation von Alexander Haslimann betreffend Strukturen, Prozesse und Sanktionspraxis des RAV Zug – Transparenz über die juristische Organisation und deren Einfluss auf Stellensuchende",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3048",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4034",
+      "title": "ZG · 4034: Kantonsratsbeschluss über die Voraussetzungen eines Steuerrabatts",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3047",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4033",
+      "title": "ZG · 4033: Postulat von Jean Luc Mösch betreffend Reduktion der Patentkosten für Freizeitangler sowie gesonderte Regelung für Berufsfischer infolge der PFAS-Belastung im Zugersee",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3046",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4030",
+      "title": "ZG · 4030: Motion der SVP-Fraktion betreffend Vereinfachung des digitalen Zugangs für den Kantonsrat",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3043",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4029",
+      "title": "ZG · 4029: Interpellation der GLP-Fraktion betreffend Abhängigkeit der Spitäler und Betreuungseinrichtungen im Kanton Zug von Fachkräften und Produkten aus dem EU-Raum",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3042",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4028",
+      "title": "ZG · 4028: Postulat der GLP-Fraktion betreffend unnötige Baueinsprachen vermeiden",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3040",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4027",
+      "title": "ZG · 4027: Interpellation der GLP-Fraktion betreffend Verbesserung der Wiederverwertbarkeit bei der ZEBA",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3041",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4026",
+      "title": "ZG · 4026: Interpellation der ALG-Fraktion betreffend Verhältnis von Wohnraum zu Büroflächen im Kanton Zug",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3039",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4025",
+      "title": "ZG · 4025: Interpellation der GLP-Fraktion betreffend die Frage: Wie digital und zukunftsfähig sind die Zuger Notariate?",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3038",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4023",
+      "title": "ZG · 4023: Interpellation der ALG-Fraktion betreffend Wohnungs- und Obdachlosigkeit im Kanton Zug",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3036",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4022",
+      "title": "ZG · 4022: Interpellation der ALG-Fraktion betreffend Lieferungen von Zuger Elektronikkomponenten für russische Drohnen und Raketen",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3035",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4021",
+      "title": "ZG · 4021: Motion von Tabea Zimmermann, Jean Luc Mösch, Luzian Franzini und Adrian Rogger betreffend PFAS-Aktionsplan",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3034",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4020",
+      "title": "ZG · 4020: Postulat der FDP-Fraktion betreffend Lärmschutz und Geschwindigkeitsregime",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3033",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4019",
+      "title": "ZG · 4019: Interpellation von Simon Leuenberger betreffend Erklärvideos des Kantons bei kantonalen Urnengängen (Wahlen und Abstimmungen)",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3032",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4018",
+      "title": "ZG · 4018: Interpellation von Luzian Franzini, Anne Hänel und Martin Affentranger bezüglich Förderung des Bauens im Bestand",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3031",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4016",
+      "title": "ZG · 4016: Postulat von Jean Luc Mösch, Erich Grob, Patrick Iten, Martin Hausheer, Heinz Achermann und Thomas Meierhans betreffend Fahrverbot für Velos, Mofas und gleichgestellte Fahrzeuge auf Kantonsstrassen mit parallel verlaufenden, ausgebauten Radwegen",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3029",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4015",
+      "title": "ZG · 4015: Motion von Jean Luc Mösch, Erich Grob und Manuela Käch betreffend Anpassung der kantonalen und kommunalen Strassenplanung an die unterschiedlichen Nutzerbedürfnisse und Sicherstellung normgerechter und situativer Fahr- und Gehwegbreiten",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3028",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4014",
+      "title": "ZG · 4014: Kantonsratsbeschluss betreffend Freigabe eines Objektkredits für den Bau und den Landerwerb für das Projekt «Reussdammsanierung, Reusshalde-Sinserbrücke, Gemeinde Hünenberg»",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3027",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4013",
+      "title": "ZG · 4013: Interpellation der SP-Fraktion betreffend ME/CFS und Long Covid: Was macht der Kanton Zug?",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3025",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4012",
+      "title": "ZG · 4012: Kantonsratsbeschluss betreffend Freigabe eines Objektkredits für das Projekt «KS J, Lorze-Steinhauserstrasse, Gemeinde Baar/Zug»",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3026",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4011",
+      "title": "ZG · 4011: Postulat von Konradin Franzini, Andreas Lustenberger, Andreas Iten, Julia Küng, Tabea Zimmermann Gibson, Luzian Franzini, Anna Bieri, Heinz Achermann, Michael Felber, Patrick Iten, Barbara Schmid-Häseli, Mirjam Arnold und Manuela Käch betreffend Bet",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3024",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4010",
+      "title": "ZG · 4010: Interpellation der SVP-Fraktion betreffend ausländische Immobilienspekulation und Mindestaufenthaltspflicht für Wohneigentümer",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3023",
+      "concreteDetailUrl": true
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4008",
+      "title": "ZG · 4008: Postulat der GLP-Fraktion betreffend Studie zur Veloinfrastruktur",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3021",
       "concreteDetailUrl": true
     }
   ],
@@ -420,6 +811,15 @@
   ],
   "filtered_out": [
     {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg",
+      "title": "ZG · Kantonsrat Zug: Geschäftsdetail Kantonsrat Zug #1",
+      "score": 0,
+      "status": "approved",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/1",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [cantonal/municipal-placeholder-noise] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
       "id": "ch-cantonal-portal-core:cantonal-portal-zg-3054",
       "title": "ZG · 4041 - Postulat von Joëlle Gautier und Kurt Balmer betreffend zeitgemässe und kundenfreundliche Website",
       "score": 0.45000000000000007,
@@ -431,11 +831,11 @@
     {
       "id": "ch-cantonal-portal-core:cantonal-portal-zg-3050",
       "title": "ZG · 4037 - Postulat von Beni Wattenhofer, Alex Haslimann, Joëlle Gautier, Urs Andermatt und Beat Iten betreffend den Aufbau eines KI-Assistenten für öffentliche Dokumente",
-      "score": 0.45000000000000007,
+      "score": 0.3500000000000001,
       "status": "rejected",
       "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3050",
       "reason": "status-not-open",
-      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=postulat · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.45"
+      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=postulat · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=finanz · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.35"
     },
     {
       "id": "ch-cantonal-portal-core:cantonal-portal-zg-2931",
@@ -499,9 +899,467 @@
       "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/2621",
       "reason": "status-not-open",
       "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=- · title=- · context=- · process=anfrage|kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.34"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4063",
+      "title": "ZG · 4063: Kleine Anfrage der ALG-Fraktion betreffend Absage Nachtreffen Jugendpolittag",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3076",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=anfrage · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4062",
+      "title": "ZG · 4062: Interpellation der SP-Fraktion betreffend Hertizentrum 2-5",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3075",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=finanz · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4061",
+      "title": "ZG · 4061: Berichts-Motion der Fraktion Die Mitte betreffend Regelung für den Heimfall von Energiekraftwerken an den Kanton Zug – Umsetzung der Eigenversorgung gemäss Energiegesetz",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3074",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=energie · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4060",
+      "title": "ZG · 4060: Motion von Alexander Haslimann betreffend befristete Überbrückungsmassnahmen des Kantons Zug bei bundesbedingten Verzögerungen der Auszahlung von Arbeitslosengeldern",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3073",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4059",
+      "title": "ZG · 4059: Interpellation der SP-Fraktion betreffend Auswirkungen bei einer allfälligen Annahme der SVP-Initiative «Keine 10-Millionen-Schweiz! (Nachhaltigkeits-Initiative)» auf den Kanton Zug",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3072",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=initiative · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4058",
+      "title": "ZG · 4058: Kleine Anfrage von Anne Hänel, Erich Grob, Fabienne Michel, Jill Nussbaumer, Michèle Schmid und Hans Jörg Villiger betreffend Umsetzung Autoarmes Zentrum Cham (AAZ)",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3071",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=anfrage · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4057",
+      "title": "ZG · 4057: Interpellation von Philip C. Brunner und Oliver Wandfluh betreffend «Stopp dem Vorstoss-Wildwuchs» - Mehr Übersicht, Klarheit und Effizienz in der Zuger Wohn- und Baupolitik!",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3070",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation|vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4056",
+      "title": "ZG · 4056: Kleine Anfrage von Michael Arnold betreffend Umsetzung Gesetz über Standortentwicklung",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3069",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=gesetz · title=- · context=- · process=anfrage · fb+=- · fb-=- · people=- · noise=finanz · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4055",
+      "title": "ZG · 4055: Interpellation von Philip C. Brunner und neun Mitunterzeichnenden betreffend Sicherheit statt Unterwerfung – zieht der Kanton Zug beim «Tessiner Modell» zur Überprüfung straffälliger Zuwanderer nach?",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3068",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4054",
+      "title": "ZG · 4054: Motion der SVP-Fraktion betreffend Zug soll sicherster Kanton der Schweiz werden",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3067",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4053",
+      "title": "ZG · 4053: Kleine Anfrage von Gregor Bruhin und Alessandro Ehrbar betreffend Einsatz des neuen Lehrmittels «Wie sicher sind wir?» zur Vermittlung von Armee- und Sicherheitswissen an Schulen im Kanton Zug",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3066",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [noise-without-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=anfrage · fb+=- · fb-=- · people=- · noise=armee|schule · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4052",
+      "title": "ZG · 4052: Interpellation der SP-Fraktion betreffend die Frage: Ist die Pensionskasse Zug eine soziale Vermieterin?",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3065",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=finanz · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4051",
+      "title": "ZG · 4051: Motion von Mirjam Arnold, Thomas Gwerder, Hans Küng, Michael Riboni, Adrian Rogger, Barbara Schmid-Häseli und Oliver Wandfluh betreffend Kostenübernahme für medizinische Notfälle für Personen ohne Wohnsitz in der Schweiz",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3064",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4050",
+      "title": "ZG · 4050: Motion der SVP-Fraktion betreffend gemeinnützige Arbeitseinsätze für Asylsuchende und vorläufig Aufgenommene im Kanton Zug",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3063",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4049",
+      "title": "ZG · 4049: Kleine Anfrage der ALG-Fraktion betreffend Auswirkungen der kantonalen Übernahme von 99 % der stationären Spitalkosten auf Notfallbehandlungen im Ausland",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3062",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=anfrage · fb+=- · fb-=- · people=- · noise=spital · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4048",
+      "title": "ZG · 4048: Interpellation der ALG-Fraktion betreffend Anpassung des Unterrichtsbeginns für Jugendliche",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3061",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4047",
+      "title": "ZG · 4047: Postulat der FDP-Fraktion betreffend Sicherung des Gewerbestandorts durch zeitgemässe Regelungen für betriebseigenen Wohnraum in Arbeitszonen",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3060",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=postulat · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4046",
+      "title": "ZG · 4046: Interpellation der ALG-Fraktion betreffend Zuger Immobiliengesellschaften und problematische Mietverhältnisse ausserhalb des Kantons",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3059",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4045",
+      "title": "ZG · 4045: Postulat von Jill Nussbaumer und Tabea Estermann betreffend schneller, näher, digital: Online-Polizeiposten der Zuger Kantonspolizei mit Videokonferenz",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3058",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=postulat · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4044",
+      "title": "ZG · 4044: Motion der Fraktion Die Mitte betreffend mehr Wohnungsraum für einheimische Zugerinnen und Zuger",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3057",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=wohnung · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4043",
+      "title": "ZG · 4043: Interpellation der SP-Fraktion betreffend psychische Gesundheit und Prävention im Asylbereich des Kantons Zug",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3056",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4042",
+      "title": "ZG · 4042: Postulat von Jost Arnold, Michael Arnold, Rainer Leemann, Karl Bürgler und Tom Magnusson betreffend «Jede Wohnung zählt»",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3055",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=postulat · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=wohnung · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4041",
+      "title": "ZG · 4041: Postulat von Joëlle Gautier und Kurt Balmer betreffend zeitgemässe und kundenfreundliche Website",
+      "score": 0.45000000000000007,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3054",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=postulat · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.45"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4039",
+      "title": "ZG · 4039: Postulat der FDP-Fraktion betreffend Erschliessung von Raumreserven über Gleisfeldern als Massnahme gegen den Wohnungsmangel",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3052",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=postulat · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=wohnung · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4038",
+      "title": "ZG · 4038: Interpellation der ALG-Fraktion betreffend Kinder und Jugendliche im Asylbereich",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3051",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4037",
+      "title": "ZG · 4037: Postulat von Beni Wattenhofer, Alex Haslimann, Joëlle Gautier, Urs Andermatt und Beat Iten betreffend den Aufbau eines KI-Assistenten für öffentliche Dokumente",
+      "score": 0.3500000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3050",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [weak-anchor-without-context] · stance=neutral/unklar · anchor=tier · support=postulat · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=finanz · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.35"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4036",
+      "title": "ZG · 4036: Interpellation der SVP-Fraktion betreffend Auswirkungen einer Ablehnung der Nachhaltigkeits-Initiative (Keine 10-Millionen-Schweiz!) auf den Kanton Zug",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3049",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=initiative · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4035",
+      "title": "ZG · 4035: Interpellation von Alexander Haslimann betreffend Strukturen, Prozesse und Sanktionspraxis des RAV Zug – Transparenz über die juristische Organisation und deren Einfluss auf Stellensuchende",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3048",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=sanktion · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4034",
+      "title": "ZG · 4034: Kantonsratsbeschluss über die Voraussetzungen eines Steuerrabatts",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3047",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=finanz · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4033",
+      "title": "ZG · 4033: Postulat von Jean Luc Mösch betreffend Reduktion der Patentkosten für Freizeitangler sowie gesonderte Regelung für Berufsfischer infolge der PFAS-Belastung im Zugersee",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3046",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=postulat · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4030",
+      "title": "ZG · 4030: Motion der SVP-Fraktion betreffend Vereinfachung des digitalen Zugangs für den Kantonsrat",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3043",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4029",
+      "title": "ZG · 4029: Interpellation der GLP-Fraktion betreffend Abhängigkeit der Spitäler und Betreuungseinrichtungen im Kanton Zug von Fachkräften und Produkten aus dem EU-Raum",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3042",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=spital · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4028",
+      "title": "ZG · 4028: Postulat der GLP-Fraktion betreffend unnötige Baueinsprachen vermeiden",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3040",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=postulat · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4027",
+      "title": "ZG · 4027: Interpellation der GLP-Fraktion betreffend Verbesserung der Wiederverwertbarkeit bei der ZEBA",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3041",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4026",
+      "title": "ZG · 4026: Interpellation der ALG-Fraktion betreffend Verhältnis von Wohnraum zu Büroflächen im Kanton Zug",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3039",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4025",
+      "title": "ZG · 4025: Interpellation der GLP-Fraktion betreffend die Frage: Wie digital und zukunftsfähig sind die Zuger Notariate?",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3038",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4023",
+      "title": "ZG · 4023: Interpellation der ALG-Fraktion betreffend Wohnungs- und Obdachlosigkeit im Kanton Zug",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3036",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=wohnung · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4022",
+      "title": "ZG · 4022: Interpellation der ALG-Fraktion betreffend Lieferungen von Zuger Elektronikkomponenten für russische Drohnen und Raketen",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3035",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4021",
+      "title": "ZG · 4021: Motion von Tabea Zimmermann, Jean Luc Mösch, Luzian Franzini und Adrian Rogger betreffend PFAS-Aktionsplan",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3034",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4020",
+      "title": "ZG · 4020: Postulat der FDP-Fraktion betreffend Lärmschutz und Geschwindigkeitsregime",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3033",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=postulat · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4019",
+      "title": "ZG · 4019: Interpellation von Simon Leuenberger betreffend Erklärvideos des Kantons bei kantonalen Urnengängen (Wahlen und Abstimmungen)",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3032",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4018",
+      "title": "ZG · 4018: Interpellation von Luzian Franzini, Anne Hänel und Martin Affentranger bezüglich Förderung des Bauens im Bestand",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3031",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4016",
+      "title": "ZG · 4016: Postulat von Jean Luc Mösch, Erich Grob, Patrick Iten, Martin Hausheer, Heinz Achermann und Thomas Meierhans betreffend Fahrverbot für Velos, Mofas und gleichgestellte Fahrzeuge auf Kantonsstrassen mit parallel verlaufenden, ausgebauten Radwegen",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3029",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=postulat · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4015",
+      "title": "ZG · 4015: Motion von Jean Luc Mösch, Erich Grob und Manuela Käch betreffend Anpassung der kantonalen und kommunalen Strassenplanung an die unterschiedlichen Nutzerbedürfnisse und Sicherstellung normgerechter und situativer Fahr- und Gehwegbreiten",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3028",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=motion · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4014",
+      "title": "ZG · 4014: Kantonsratsbeschluss betreffend Freigabe eines Objektkredits für den Bau und den Landerwerb für das Projekt «Reussdammsanierung, Reusshalde-Sinserbrücke, Gemeinde Hünenberg»",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3027",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4013",
+      "title": "ZG · 4013: Interpellation der SP-Fraktion betreffend ME/CFS und Long Covid: Was macht der Kanton Zug?",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3025",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4012",
+      "title": "ZG · 4012: Kantonsratsbeschluss betreffend Freigabe eines Objektkredits für das Projekt «KS J, Lorze-Steinhauserstrasse, Gemeinde Baar/Zug»",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3026",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4011",
+      "title": "ZG · 4011: Postulat von Konradin Franzini, Andreas Lustenberger, Andreas Iten, Julia Küng, Tabea Zimmermann Gibson, Luzian Franzini, Anna Bieri, Heinz Achermann, Michael Felber, Patrick Iten, Barbara Schmid-Häseli, Mirjam Arnold und Manuela Käch betreffend Bet",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3024",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=postulat · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4010",
+      "title": "ZG · 4010: Interpellation der SVP-Fraktion betreffend ausländische Immobilienspekulation und Mindestaufenthaltspflicht für Wohneigentümer",
+      "score": 0,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3023",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=- · title=- · context=- · process=interpellation · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.00"
+    },
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg-export-4008",
+      "title": "ZG · 4008: Postulat der GLP-Fraktion betreffend Studie zur Veloinfrastruktur",
+      "score": 0.06000000000000001,
+      "status": "rejected",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3021",
+      "reason": "status-not-open",
+      "reviewReason": "Ausgeschlossen [missing-anchor] · stance=neutral/unklar · anchor=- · support=postulat · title=- · context=- · process=- · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.06"
     }
   ],
   "top_dropped_examples": [
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg",
+      "title": "ZG · Kantonsrat Zug: Geschäftsdetail Kantonsrat Zug #1",
+      "reason": "status-not-open",
+      "score": 0,
+      "status": "approved",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/1"
+    },
     {
       "id": "ch-cantonal-portal-core:cantonal-portal-zg-3054",
       "title": "ZG · 4041 - Postulat von Joëlle Gautier und Kurt Balmer betreffend zeitgemässe und kundenfreundliche Website",
@@ -514,7 +1372,7 @@
       "id": "ch-cantonal-portal-core:cantonal-portal-zg-3050",
       "title": "ZG · 4037 - Postulat von Beni Wattenhofer, Alex Haslimann, Joëlle Gautier, Urs Andermatt und Beat Iten betreffend den Aufbau eines KI-Assistenten für öffentliche Dokumente",
       "reason": "status-not-open",
-      "score": 0.45000000000000007,
+      "score": 0.3500000000000001,
       "status": "rejected",
       "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3050"
     },
