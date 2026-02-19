@@ -4,3 +4,23 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/home-data"
+  to = "/.netlify/functions/home-data"
+  status = 200
+
+[[redirects]]
+  from = "/feedback-submit"
+  to = "/.netlify/functions/feedback-submit"
+  status = 200
+
+[[redirects]]
+  from = "/review-decision"
+  to = "/.netlify/functions/review-decision"
+  status = 200
+
+[[redirects]]
+  from = "/review-fastlane-tag"
+  to = "/.netlify/functions/review-fastlane-tag"
+  status = 200

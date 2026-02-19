@@ -1,124 +1,23 @@
 {
-  "generatedAt": "2026-02-18T22:14:13.244Z",
-  "total": 10,
+  "generatedAt": "2026-02-19T09:32:23.298Z",
+  "total": 5,
   "items": [
     {
-      "id": "ch-cantonal-portal-core:cantonal-portal-ne",
+      "id": "ch-cantonal-portal-core:cantonal-portal-nw",
       "sourceId": "ch-cantonal-portal-core",
-      "externalId": "cantonal-portal-ne",
-      "title": "NE · Grand Conseil Neuchâtel: Chasse",
-      "summary": "Objets - R&eacute;publique et canton de Neuch&acirc;tel – 8 relevante Linkziele erkannt (3 thematisch, 3 Seiten gescannt, Leitlink: Chasse)",
-      "score": 1,
+      "externalId": "cantonal-portal-nw",
+      "title": "NW · Landrat Nidwalden: Tierschutz in der Landwirtschaft",
+      "summary": "Landrat | Kanton Nidwalden Online – 3 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Tierschutz in der Landwirtschaft)",
+      "score": 0.75,
       "status": "queued",
-      "sourceUrl": "https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx",
-      "publishedAt": "2026-02-18T18:24:54.863Z",
-      "fetchedAt": "2026-02-18T18:24:54.863Z",
+      "sourceUrl": "https://www.nw.ch/landratmain",
+      "publishedAt": "2026-02-19T09:24:42.399Z",
+      "fetchedAt": "2026-02-19T09:24:42.399Z",
       "matchedKeywords": [
-        "animaux",
-        "chasse",
-        "pêche",
-        "peche",
-        "motion",
-        "postulat",
-        "faune"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=animaux|chasse|pêche · support=motion|postulat|faune · context=- · process=interpellation|grand conseil · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=1.00"
-    },
-    {
-      "id": "ch-cantonal-portal-core:cantonal-portal-sz",
-      "sourceId": "ch-cantonal-portal-core",
-      "externalId": "cantonal-portal-sz",
-      "title": "SZ · Kantonsrat Schwyz: Jagd und Wildtiere",
-      "summary": "Kantonsrat – Kanton Schwyz – 3 relevante Linkziele erkannt (1 thematisch, 2 Seiten gescannt, Leitlink: Jagd und Wildtiere)",
-      "score": 1,
-      "status": "queued",
-      "sourceUrl": "https://www.sz.ch/behoerden/kantonsrat/geschaefte.html/8756-8758-8799-9210",
-      "publishedAt": "2026-02-17T22:51:13.172Z",
-      "fetchedAt": "2026-02-17T22:51:13.172Z",
-      "matchedKeywords": [
-        "wildtier",
-        "wildtiere",
-        "jagd"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=wildtier|wildtiere|jagd · support=jagd|wildtier · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=1.00"
-    },
-    {
-      "id": "ch-cantonal-portal-core:cantonal-portal-zg",
-      "sourceId": "ch-cantonal-portal-core",
-      "externalId": "cantonal-portal-zg",
-      "title": "ZG · Kantonsrat Zug: Arten, Lebensräume, Jagd Artenschutz, Lebensraumförderung, Naturschutzgebiete, Jagd, Hilfe für Wildtiere",
-      "summary": "Geschäfte des Kantonsrats – 7 relevante Linkziele erkannt (2 thematisch, 3 Seiten gescannt, Leitlink: Arten, Lebensräume, Jagd Artenschutz, Lebensraumförderung, Naturschutzgebiete, Jagd, Hilfe für Wildtiere)",
-      "score": 1,
-      "status": "queued",
-      "sourceUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats",
-      "publishedAt": "2026-02-17T22:51:13.172Z",
-      "fetchedAt": "2026-02-17T22:51:13.172Z",
-      "matchedKeywords": [
-        "tiere",
-        "wildtier",
-        "wildtiere",
-        "biodiversität",
-        "biodiversita",
-        "jagd"
-      ],
-      "reviewReason": "Relevant [feedback-recall] · stance=neutral/unklar · anchor=tiere|wildtier|wildtiere · support=jagd|wildtier|biodiversität · context=- · process=kantonsrat · fb+=biodiversität|biodiversita · fb-=- · people=- · noise=- · feedback=0.06 · fastlane=0.16 · score=1.00"
-    },
-    {
-      "id": "ch-parliament-business-de:20254876-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20254876-de",
-      "title": "25.4876 · Wie wirkt sich das Entlastungspaket 2027 auf die Biodiversität und die lokale Wirtschaft in den Randregionen aus?",
-      "summary": "Kurzfassung: Das GeschÃ¤ft behandelt biodiversität, biodiversite, biodiversita. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 1,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254876",
-      "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-18T18:24:47.918Z",
-      "matchedKeywords": [
-        "biodiversität",
-        "biodiversite",
-        "biodiversita"
-      ],
-      "reviewReason": "Relevant [feedback-recall] · stance=neutral/unklar · anchor=biodiversität|biodiversite|biodiversita · support=biodiversität|biodiversite · context=- · process=vorstoss · fb+=biodiversität|biodiversita · fb-=- · people=- · noise=finanz · feedback=0.08 · fastlane=0.16 · score=1.00"
-    },
-    {
-      "id": "bundesrat-news:br-1",
-      "sourceId": "bundesrat-news",
-      "externalId": "br-1",
-      "title": "Bundesrat eroertert Verordnung gegen tierschutzwidrige Praktiken",
-      "summary": "Anpassung bei Kontrollen und Sanktionspraxis.",
-      "score": 0.98,
-      "status": "queued",
-      "sourceUrl": "",
-      "publishedAt": "2026-02-10T07:30:00.000Z",
-      "fetchedAt": "2026-02-13T09:35:31.430Z",
-      "matchedKeywords": [
-        "tier",
         "tierschutz",
-        "kontrolle",
-        "verordnung",
-        "sanktion"
+        "landwirtschaft"
       ],
-      "reviewReason": "Relevant [anchor+score] · anchor=tier|tierschutz · support=kontrolle|verordnung|sanktion · noise=- · score=0.98"
-    },
-    {
-      "id": "ch-parliament-business-de:20254906-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20254906-de",
-      "title": "25.4906 · Schweizer Land- und Ernährungswirtschaft an der Linderung von weltweiten Hungersnöten beteiligen",
-      "summary": "Kurzfassung: Das GeschÃ¤ft behandelt ernährung. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.76,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254906",
-      "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-18T18:24:47.918Z",
-      "matchedKeywords": [
-        "ernährung",
-        "landwirtschaft",
-        "agriculture",
-        "agricoltura"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=ernährung · support=landwirtschaft|agriculture|agricoltura · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.76"
+      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=landwirtschaft · context=- · process=landrat · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · score=0.75"
     },
     {
       "id": "ch-parliament-business-de:20254831-de",
@@ -126,11 +25,11 @@
       "externalId": "20254831-de",
       "title": "25.4831 · Einheimische Produktionssysteme fördern anstatt Importbedingungen für mit Chlor behandeltem Hühnerfleisch lockern",
       "summary": "Kurzfassung: Das GeschÃ¤ft behandelt hühner. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.7300000000000001,
+      "score": 0.73,
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254831",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-18T18:24:47.918Z",
+      "fetchedAt": "2026-02-19T09:24:38.751Z",
       "matchedKeywords": [
         "hühner",
         "landwirtschaft",
@@ -140,33 +39,16 @@
       "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=hühner · support=landwirtschaft|agriculture|agricoltura · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.73"
     },
     {
-      "id": "ch-cantonal-portal-core:cantonal-portal-nw",
-      "sourceId": "ch-cantonal-portal-core",
-      "externalId": "cantonal-portal-nw",
-      "title": "NW · Landrat Nidwalden: Tierschutz in der Landwirtschaft",
-      "summary": "Landrat | Kanton Nidwalden Online – 3 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Tierschutz in der Landwirtschaft)",
-      "score": 0.6100000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.nw.ch/landratmain",
-      "publishedAt": "2026-02-18T18:24:54.863Z",
-      "fetchedAt": "2026-02-18T18:24:54.863Z",
-      "matchedKeywords": [
-        "tierschutz",
-        "landwirtschaft"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=landwirtschaft · context=- · process=landrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.16 · score=0.61"
-    },
-    {
       "id": "ch-cantonal-portal-core:cantonal-portal-ur",
       "sourceId": "ch-cantonal-portal-core",
       "externalId": "cantonal-portal-ur",
       "title": "UR · Landrat Uri: Geschäfte Landrat Uri",
       "summary": "Kanton Uri - Sessionen – 4 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Geschäfte Landrat Uri)",
-      "score": 0.45000000000000007,
+      "score": 0.45,
       "status": "queued",
       "sourceUrl": "https://www.ur.ch/sitzung",
-      "publishedAt": "2026-02-17T22:51:13.172Z",
-      "fetchedAt": "2026-02-17T22:51:13.172Z",
+      "publishedAt": "2026-02-19T09:24:42.399Z",
+      "fetchedAt": "2026-02-19T09:24:42.399Z",
       "matchedKeywords": [
         "jagd"
       ],
@@ -178,15 +60,31 @@
       "externalId": "cantonal-portal-ti",
       "title": "TI · Gran Consiglio Ticino: Ricerca messaggi e atti",
       "summary": "Risultati - GC (POTERI) - Repubblica e Cantone Ticino – 3 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Ricerca messaggi e atti)",
-      "score": 0.31000000000000005,
+      "score": 0.31,
       "status": "queued",
       "sourceUrl": "https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati",
-      "publishedAt": "2026-02-17T22:51:13.172Z",
-      "fetchedAt": "2026-02-17T22:51:13.172Z",
+      "publishedAt": "2026-02-19T09:24:42.399Z",
+      "fetchedAt": "2026-02-19T09:24:42.399Z",
       "matchedKeywords": [
         "caccia"
       ],
       "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=caccia · support=- · context=- · process=gran consiglio · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.31"
+    },
+    {
+      "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9",
+      "sourceId": "ch-municipal-parliament-bern-zurich",
+      "externalId": "municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9",
+      "title": "Bern · Nachtfahrverbot für Mähroboter - für Igel und andere Kleintiere",
+      "summary": "Gemeinde Bern (Stadtrat Bern) · 2025.SR.0388 · Eingereicht",
+      "score": 0.18,
+      "status": "queued",
+      "sourceUrl": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
+      "publishedAt": "2025-11-19T23:00:00.000Z",
+      "fetchedAt": "2026-02-19T09:24:45.457Z",
+      "matchedKeywords": [
+        "motion"
+      ],
+      "reviewReason": "Relevant [whitelist+theme] · stance=neutral/unklar · anchor=- · support=motion · context=- · process=- · fb+=- · fb-=- · people=tobias sennhauser · noise=- · feedback=0.00 · fastlane=0.00 · score=0.18"
     }
   ]
 }
