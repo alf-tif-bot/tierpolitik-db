@@ -506,6 +506,16 @@ const extractBodyUrlCandidates = (item) => {
 }
 
 const resolveOriginalUrl = (item) => {
+  const sid = String(item?.sourceId || '')
+  const externalId = String(item?.externalId || '')
+
+  if (sid === 'ch-municipal-parliament-bern-zurich' && externalId.startsWith('municipal-bern-api-')) {
+    const gid = externalId.replace('municipal-bern-api-', '').trim()
+    if (/^[a-f0-9]{24,}$/i.test(gid)) {
+      return `https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=${gid}`
+    }
+  }
+
   const direct = String(item?.sourceUrl || '')
   const metaLink = String(item?.meta?.sourceLink || item?.meta?.url || '')
   const metaExtracted = pickMetaExtractedUrl(item)
@@ -689,7 +699,7 @@ const fastLaneRows = fastLaneItems.map((item) => {
     <div class="fastlane-actions">
       <button onclick="setDecision(this,'${esc(id)}','approved')">Gutheissen</button>
       <button onclick="setDecision(this,'${esc(id)}','rejected')">Ablehnen</button>
-      <button class="tag-btn" data-tag-btn="${esc(id)}" onclick="toggleFastlaneTag(this,'${esc(id)}')">${isTaggedFastlane ? 'Fastlane markiert' : 'Fastlane markieren'}</button>
+      <button class="tag-btn" data-tag-btn="${esc(id)}" onclick="toggleFastlaneTag(this,'${esc(id)}')">${isTaggedFastlane ? 'Fastlane: AN' : 'Fastlane: AUS'}</button>
       <a class="orig-link" href="${esc(resolveOriginalUrl(item) || '#')}" target="_blank" rel="noopener noreferrer">Original</a>
     </div>
   </div>`
@@ -747,7 +757,7 @@ const rows = reviewItems
 <td>
 <button onclick="setDecision(this,'${esc(id)}','approved')">Gutheissen</button>
 <button onclick="setDecision(this,'${esc(id)}','rejected')">Ablehnen</button>
-<button class="tag-btn" data-tag-btn="${esc(id)}" onclick="toggleFastlaneTag(this,'${esc(id)}')">${isTaggedFastlane ? 'Fastlane markiert' : 'Fastlane markieren'}</button>
+<button class="tag-btn" data-tag-btn="${esc(id)}" onclick="toggleFastlaneTag(this,'${esc(id)}')">${isTaggedFastlane ? 'Fastlane: AN' : 'Fastlane: AUS'}</button>
 </td>
 </tr>`
 }).join('')
@@ -912,7 +922,7 @@ function renderFastlaneTagButton(id){
   const tags = readFastlaneTags();
   const isTagged = Boolean(tags[id]?.fastlane);
   document.querySelectorAll('[data-tag-btn="' + id + '"]').forEach((btn)=>{
-    btn.textContent = isTagged ? 'Fastlane markiert' : 'Fastlane markieren';
+    btn.textContent = isTagged ? 'Fastlane: AN' : 'Fastlane: AUS';
   });
 }
 

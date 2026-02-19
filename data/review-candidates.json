@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-19T12:08:40.331Z",
+  "generatedAt": "2026-02-19T12:10:43.615Z",
   "total": 5,
   "items": [
     {
@@ -8,7 +8,7 @@
       "externalId": "cantonal-portal-nw",
       "title": "NW · Landrat Nidwalden: Tierschutz in der Landwirtschaft",
       "summary": "Landrat | Kanton Nidwalden Online – 3 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Tierschutz in der Landwirtschaft)",
-      "score": 0.7500000000000001,
+      "score": 0.75,
       "status": "queued",
       "sourceUrl": "https://www.nw.ch/landratmain",
       "publishedAt": "2026-02-19T12:04:56.334Z",
@@ -25,7 +25,7 @@
       "externalId": "20254831-de",
       "title": "25.4831 · Einheimische Produktionssysteme fördern anstatt Importbedingungen für mit Chlor behandeltem Hühnerfleisch lockern",
       "summary": "Kurzfassung: Das Geschäft behandelt hühner. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.7300000000000001,
+      "score": 0.73,
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254831",
       "publishedAt": "2025-12-19T00:00:00.000Z",
@@ -44,7 +44,7 @@
       "externalId": "cantonal-portal-ur",
       "title": "UR · Landrat Uri: Geschäfte Landrat Uri",
       "summary": "Kanton Uri - Sessionen – 4 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Geschäfte Landrat Uri)",
-      "score": 0.5166666666666667,
+      "score": 0.5167,
       "status": "queued",
       "sourceUrl": "https://www.ur.ch/sitzung",
       "publishedAt": "2026-02-19T12:04:56.334Z",
@@ -60,7 +60,7 @@
       "externalId": "cantonal-portal-ti",
       "title": "TI · Gran Consiglio Ticino: Ricerca messaggi e atti",
       "summary": "Risultati - GC (POTERI) - Repubblica e Cantone Ticino – 3 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Ricerca messaggi e atti)",
-      "score": 0.31000000000000005,
+      "score": 0.31,
       "status": "queued",
       "sourceUrl": "https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati",
       "publishedAt": "2026-02-19T12:04:56.334Z",
