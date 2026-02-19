@@ -201,6 +201,18 @@
     ]
   },
   {
+    "id": "ch-parliament-business-de:20232009",
+    "title": "Parlamentsgeschäft 20232009",
+    "summary": "Parlamentsgeschäft 20232009",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2026-02-14T10:46:33.981Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "schweizer tierschutz"
+    ]
+  },
+  {
     "id": "ch-parliament-business-de:20250404-de",
     "title": "25.404 · Indirekter Gegenentwurf zur Stopfleber-Initiative",
     "summary": "Beratung in Kommission des Nationalrates abgeschlossen",
@@ -1263,18 +1275,6 @@
     "sourceId": "ch-parliament-business-de",
     "publishedAt": "2024-12-20T00:00:00.000Z",
     "score": 0.8900000000000001,
-    "matchedKeywords": [
-      "tierversuch",
-      "tierversuche"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20052015-de",
-    "title": "05.2015 · Für das Recht zur Verweigerung von Tierversuchen aus Gewissensgründen",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2005-11-21T00:00:00.000Z",
-    "score": 0.8600000000000001,
     "matchedKeywords": [
       "tierversuch",
       "tierversuche"
