@@ -114,6 +114,13 @@ const PROCESS_ONLY_SUPPORT_KEYWORDS = new Set([
   'sanktion',
 ])
 
+const TITLE_ANIMAL_KEYWORDS = [
+  'igel', 'hedgehog', 'herisson', 'riccio',
+  'huhn', 'hühner', 'huehner', 'geflügel', 'gefluegel',
+  'hund', 'hunde', 'katze', 'katzen',
+  'wildtier', 'wildtiere', 'amphibien', 'fisch', 'fische',
+]
+
 const PRO_STANCE_KEYWORDS = [
   'tierschutz', 'tierwohl', 'schutz', 'verbot', 'alternativen zu tierversuchen', '3r',
   'protection animale', 'bien-être animal', 'sperimentazione animale',
@@ -360,6 +367,10 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
     const text = `${item.title}\n${item.summary}\n${item.body}\n${variantText}\n${affairTextMap.get(affairId) || ''}`
     const { score, matched, anchorMatches, supportMatches, contextualHits, processHits, noiseMatches, whitelistedPeople, normalizedText } = scoreText(text, keywords)
 
+    const normalizedTitle = normalize(item.title || '')
+    const titleAnimalHits = TITLE_ANIMAL_KEYWORDS.filter((kw) => hasKeyword(normalizedTitle, kw))
+    const titleAnimalBoost = Math.min(0.22, titleAnimalHits.length * 0.14)
+
     const matchedSignals = [...new Set([...anchorMatches, ...supportMatches])]
       .filter((kw) => !FEEDBACK_IGNORE_KEYWORDS.has(kw))
 
@@ -378,7 +389,7 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
       .slice(0, 3)
     const fastlaneBoost = Math.min(0.16, fastlaneSignal.reduce((a, b) => a + b, 0))
 
-    const adjustedScore = Math.max(0, Math.min(1, score + feedbackBoost + fastlaneBoost))
+    const adjustedScore = Math.max(0, Math.min(1, score + feedbackBoost + fastlaneBoost + titleAnimalBoost))
 
     const hasAnchor = anchorMatches.length > 0
     const hasSupport = supportMatches.length > 0
@@ -461,7 +472,7 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
               : (weakAnchorNoisy ? 'weak-anchor+noise' : (!hasAnchor ? 'missing-anchor' : 'below-threshold'))))))
     const stance = classifyStance(normalizedText)
 
-    item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · stance=${stance} · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · context=${contextualHits.slice(0, 2).join('|') || '-'} · process=${processHits.slice(0, 2).join('|') || '-'} · fb+=${strongPositiveHits.slice(0, 2).join('|') || '-'} · fb-=${strongNegativeHits.slice(0, 2).join('|') || '-'} · people=${whitelistedPeople.slice(0, 2).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · feedback=${feedbackBoost.toFixed(2)} · fastlane=${fastlaneBoost.toFixed(2)} · score=${adjustedScore.toFixed(2)}`
+    item.reviewReason = `${isRelevant ? 'Relevant' : 'Ausgeschlossen'} [${rule}] · stance=${stance} · anchor=${anchorMatches.slice(0, 3).join('|') || '-'} · support=${supportMatches.slice(0, 3).join('|') || '-'} · title=${titleAnimalHits.slice(0, 2).join('|') || '-'} · context=${contextualHits.slice(0, 2).join('|') || '-'} · process=${processHits.slice(0, 2).join('|') || '-'} · fb+=${strongPositiveHits.slice(0, 2).join('|') || '-'} · fb-=${strongNegativeHits.slice(0, 2).join('|') || '-'} · people=${whitelistedPeople.slice(0, 2).join('|') || '-'} · noise=${noiseMatches.slice(0, 2).join('|') || '-'} · feedback=${feedbackBoost.toFixed(2)} · fastlane=${fastlaneBoost.toFixed(2)} · titleBoost=${titleAnimalBoost.toFixed(2)} · score=${adjustedScore.toFixed(2)}`
 
     if (isRelevant) relevantCount += 1
     touched += 1

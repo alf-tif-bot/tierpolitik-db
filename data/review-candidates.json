@@ -1,7 +1,26 @@
 {
-  "generatedAt": "2026-02-19T12:41:51.947Z",
+  "generatedAt": "2026-02-19T12:48:47.518Z",
   "total": 5,
   "items": [
+    {
+      "id": "ch-parliament-business-de:20254831-de",
+      "sourceId": "ch-parliament-business-de",
+      "externalId": "20254831-de",
+      "title": "25.4831 · Einheimische Produktionssysteme fördern anstatt Importbedingungen für mit Chlor behandeltem Hühnerfleisch lockern",
+      "summary": "Kurzfassung: Das Geschäft behandelt hühner. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
+      "score": 0.8700000000000001,
+      "status": "queued",
+      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254831",
+      "publishedAt": "2025-12-19T00:00:00.000Z",
+      "fetchedAt": "2026-02-19T12:24:43.090Z",
+      "matchedKeywords": [
+        "hühner",
+        "landwirtschaft",
+        "agriculture",
+        "agricoltura"
+      ],
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=hühner · support=landwirtschaft|agriculture|agricoltura · title=hühner · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.14 · score=0.87"
+    },
     {
       "id": "ch-cantonal-portal-core:cantonal-portal-nw",
       "sourceId": "ch-cantonal-portal-core",
@@ -17,26 +36,7 @@
         "tierschutz",
         "landwirtschaft"
       ],
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=landwirtschaft · context=- · process=landrat · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · score=0.75"
-    },
-    {
-      "id": "ch-parliament-business-de:20254831-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20254831-de",
-      "title": "25.4831 · Einheimische Produktionssysteme fördern anstatt Importbedingungen für mit Chlor behandeltem Hühnerfleisch lockern",
-      "summary": "Kurzfassung: Das Geschäft behandelt hühner. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.7300000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254831",
-      "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T12:24:43.090Z",
-      "matchedKeywords": [
-        "hühner",
-        "landwirtschaft",
-        "agriculture",
-        "agricoltura"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=hühner · support=landwirtschaft|agriculture|agricoltura · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.73"
+      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=landwirtschaft · title=- · context=- · process=landrat · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.75"
     },
     {
       "id": "ch-cantonal-portal-core:cantonal-portal-ur",
@@ -52,7 +52,23 @@
       "matchedKeywords": [
         "jagd"
       ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=jagd · support=jagd · context=- · process=landrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.07 · fastlane=0.00 · score=0.52"
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=jagd · support=jagd · title=- · context=- · process=landrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.07 · fastlane=0.00 · titleBoost=0.00 · score=0.52"
+    },
+    {
+      "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9",
+      "sourceId": "ch-municipal-parliament-bern-zurich",
+      "externalId": "municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9",
+      "title": "Bern · Nachtfahrverbot für Mähroboter - für Igel und andere Kleintiere",
+      "summary": "Gemeinde Bern (Stadtrat Bern) · 2025.SR.0388 · Eingereicht",
+      "score": 0.32,
+      "status": "queued",
+      "sourceUrl": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=d0f7b26541424c43aab28a91744f6ba9",
+      "publishedAt": "2025-11-19T23:00:00.000Z",
+      "fetchedAt": "2026-02-19T12:24:45.014Z",
+      "matchedKeywords": [
+        "motion"
+      ],
+      "reviewReason": "Relevant [whitelist+theme] · stance=neutral/unklar · anchor=- · support=motion · title=igel · context=- · process=- · fb+=- · fb-=- · people=tobias sennhauser · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.14 · score=0.32"
     },
     {
       "id": "ch-cantonal-portal-core:cantonal-portal-ti",
@@ -68,23 +84,7 @@
       "matchedKeywords": [
         "caccia"
       ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=caccia · support=- · context=- · process=gran consiglio · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · score=0.31"
-    },
-    {
-      "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9",
-      "sourceId": "ch-municipal-parliament-bern-zurich",
-      "externalId": "municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9",
-      "title": "Bern · Nachtfahrverbot für Mähroboter - für Igel und andere Kleintiere",
-      "summary": "Gemeinde Bern (Stadtrat Bern) · 2025.SR.0388 · Eingereicht",
-      "score": 0.18,
-      "status": "queued",
-      "sourceUrl": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=d0f7b26541424c43aab28a91744f6ba9",
-      "publishedAt": "2025-11-19T23:00:00.000Z",
-      "fetchedAt": "2026-02-19T12:24:45.014Z",
-      "matchedKeywords": [
-        "motion"
-      ],
-      "reviewReason": "Relevant [whitelist+theme] · stance=neutral/unklar · anchor=- · support=motion · context=- · process=- · fb+=- · fb-=- · people=tobias sennhauser · noise=- · feedback=0.00 · fastlane=0.00 · score=0.18"
+      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=caccia · support=- · title=- · context=- · process=gran consiglio · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.31"
     }
   ]
 }
