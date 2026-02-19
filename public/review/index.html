@@ -244,12 +244,18 @@ async function setDecision(btn,id,status){
   if (btn) btn.disabled = true;
 
   // Optimistic UI: hide immediately, even if API is slow/unreachable.
-  const row = document.querySelector('tr[data-id="' + id + '"]');
-  if (row) {
+  const clickedRow = btn ? btn.closest('tr[data-id]') : null;
+  if (clickedRow) {
+    clickedRow.setAttribute('data-status', status)
+    clickedRow.style.opacity = '0.72'
+    clickedRow.style.display='none'
+  }
+
+  document.querySelectorAll('tr[data-id="' + id + '"]').forEach((row)=>{
     row.setAttribute('data-status', status)
     row.style.opacity = '0.72'
     row.style.display='none'
-  }
+  })
 
   let serverOk = false;
   try {
@@ -282,8 +288,9 @@ async function setDecision(btn,id,status){
     console.warn('Local decision persist failed', err)
   }
 
-  const card = document.querySelector('.fastlane-card[data-id="' + id + '"]');
-  if (card) card.style.display = 'none'
+  document.querySelectorAll('.fastlane-card[data-id="' + id + '"]').forEach((card)=>{
+    card.style.display = 'none'
+  })
   updateStatusSummary();
 
   if (statusEl) {
