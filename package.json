@@ -8,6 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "monitor-api:start": "node api/server/monitor-api-server.mjs",
+    "smoke:monitor-api": "node scripts/monitor-endpoint-smoke.mjs",
     "test:e2e": "playwright test",
     "crawler:collect": "node scripts/crawler-collect.mjs",
     "crawler:collect:v2": "node scripts/crawler-collect-v2.mjs",
