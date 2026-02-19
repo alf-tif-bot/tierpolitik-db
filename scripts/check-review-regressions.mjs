@@ -90,6 +90,9 @@ const CANTONAL_THEME_STRONG_KEYWORDS = [
 const CANTONAL_THEME_CONTEXT_KEYWORDS = [
   'lebensraum', 'biotop', 'wildkorridor', 'lichtverschmutzung', 'insekten', 'schutzgebiet',
   'renatur', 'ufernatur', 'waldrand', 'gewässerraum', 'vogel', 'biber',
+  // FR/IT terms for better cantonal recall since 2020
+  'habitat', 'corridor faunistique', 'zone protégée', 'biodiversité', 'faune',
+  'habitat naturale', 'corridoio faunistico', 'zona protetta', 'biodiversità',
 ]
 
 const isCantonalReadableRelevant = (item) => {

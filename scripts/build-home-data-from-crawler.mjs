@@ -647,16 +647,22 @@ const isWeakSummarySentence = (text = '') => {
 
 const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '', sourceId = '' }) => {
   const t = clean(title)
+  const normalizedStatus = clean(status) || 'In Beratung'
   if (String(sourceId || '').startsWith('ch-municipal-')) {
-    const state = status === 'published' ? 'abgeschlossen' : 'in Beratung'
+    const state = /erledigt|abgeschrieben|abgelehnt|zurückgezogen/i.test(normalizedStatus)
+      ? 'abgeschlossen'
+      : 'in Beratung'
     return `${t} (Gemeinde, ${state}).`
   }
   const summaryClean = clean(summary).replace(/eingereicht von:[^\n]*/ig, '').trim()
   const bodyClean = clean(body).replace(/eingereicht von:[^\n]*/ig, '').trim()
+  const summaryLooksStatusOnly = /^(erledigt|in beratung|abgeschrieben|abgelehnt|zurückgezogen|eingereicht|stellungnahme zum vorstoss liegt vor)$/i.test(summaryClean)
+  if (summaryLooksStatusOnly && (!bodyClean || bodyClean.length < 8)) {
+    return `${t || 'Parlamentsgeschäft'} (${normalizedStatus}).`
+  }
   const s = firstSentence(summaryClean)
   const b = firstSentence(bodyClean)
   const low = `${t} ${summary} ${body}`.toLowerCase()
-  const statusLabel = status === 'published' ? 'abgeschlossen' : 'in Beratung'
 
   const sentences = []
 
@@ -686,9 +692,12 @@ const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '', s
     unique.push(line)
   }
 
-  return unique
+  const merged = unique
     .slice(0, 3)
     .join(' ')
+
+  if (merged.length >= 10) return merged
+  return `${t || 'Parlamentsgeschäft'} (${normalizedStatus}).`
 }
 
 const isParliamentSourceId = (sourceId = '') => String(sourceId || '').startsWith('ch-parliament-')
@@ -871,7 +880,7 @@ const vorstoesse = items.map((item, index) => {
     title: finalTitle,
     summary: displaySummary,
     body: displayBody,
-    status: item.status,
+    status,
     sourceId: item.sourceId,
   })
   const normalizedSummary = clean(rawSummaryText)
