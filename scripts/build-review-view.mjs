@@ -896,7 +896,7 @@ const DEFAULT_API_BASE = (location.hostname === 'monitor.tierimfokus.ch')
   ? 'https://tierpolitik.netlify.app/.netlify/functions'
   : '';
 const API_BASE=(lsGet('tierpolitik.apiBase')||DEFAULT_API_BASE).replace(/\\/$/,'');
-let DEBUG_REVIEW = /(?:\?|&)debug=1(?:&|$)/.test(location.search) || lsGet('tierpolitik.review.debug') === '1';
+let DEBUG_REVIEW = /(?:\\?|&)debug=1(?:&|$)/.test(location.search) || lsGet('tierpolitik.review.debug') === '1';
 const debugState = { lines: [] };
 const renderDebug = () => {
   const box = document.getElementById('review-debug-box');

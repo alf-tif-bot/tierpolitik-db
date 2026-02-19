@@ -1,18 +1,17 @@
 {
-  "generatedAt": "2026-02-19T20:15:33.003Z",
+  "generatedAt": "2026-02-19T20:17:44.958Z",
   "total": 1,
   "sourceFix": {
     "total": 2,
     "byCanton": {
-      "NW": 1,
-      "UR": 1
+      "??": 2
     },
     "items": [
       {
         "id": "ch-cantonal-portal-core:cantonal-portal-nw",
         "sourceId": "ch-cantonal-portal-core",
         "externalId": "cantonal-portal-nw",
-        "canton": "NW",
+        "canton": null,
         "title": "NW · Landrat Nidwalden: Tierschutz in der Landwirtschaft",
         "sourceUrl": "https://www.nw.ch/landratmain",
         "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=landwirtschaft · title=- · context=- · process=landrat · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.75"
@@ -21,7 +20,7 @@
         "id": "ch-cantonal-portal-core:cantonal-portal-ur",
         "sourceId": "ch-cantonal-portal-core",
         "externalId": "cantonal-portal-ur",
-        "canton": "UR",
+        "canton": null,
         "title": "UR · Landrat Uri: Geschäfte Landrat Uri",
         "sourceUrl": "https://www.ur.ch/sitzung",
         "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=jagd · support=jagd · title=- · context=- · process=landrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.45"
