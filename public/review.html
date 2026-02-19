@@ -738,6 +738,15 @@ const writeFastlaneTags=(v)=>lsSet(fastlaneTagKey,JSON.stringify(v));
 const readUi=()=>safeJsonParse(lsGet(uiKey),{});
 const writeUi=(v)=>lsSet(uiKey,JSON.stringify(v));
 
+const statusLabelFor = (status = '') => {
+  const s = String(status || '').toLowerCase()
+  if (s === 'queued' || s === 'new') return 'offen'
+  if (s === 'approved') return 'gutgeheissen'
+  if (s === 'published') return 'publiziert'
+  if (s === 'rejected') return 'abgelehnt'
+  return s || '-'
+}
+
 let viewMode = 'open';
 
 document.querySelectorAll('tr[data-id]').forEach((row, idx) => {
@@ -797,7 +806,7 @@ function hideDecidedRows(){
 
     const statusLabelEl = row.querySelector('[data-status-label]')
     const statusBadgeEl = row.querySelector('[data-status-badge]')
-    if (statusLabelEl) statusLabelEl.textContent = reviewStatusLabel(effectiveStatus)
+    if (statusLabelEl) statusLabelEl.textContent = statusLabelFor(effectiveStatus)
     if (statusBadgeEl) {
       statusBadgeEl.innerHTML = (effectiveStatus === 'queued' || effectiveStatus === 'new')
         ? '<strong class="pending">offen</strong>'
