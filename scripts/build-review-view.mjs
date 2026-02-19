@@ -456,6 +456,8 @@ const scoreOriginalUrl = (value = '', sourceId = '') => {
 
   if (/affairid=\d+/.test(low)) score += 8
   if (/detail\.php\?gid=[a-f0-9]+/i.test(low)) score += 8
+  if (/\/gast\/geschaefte\/\d+/.test(low)) score += 10
+  if (/dettaglio\?[^\s]*attid%5d=\d+/.test(low)) score += 10
   if (/\b(geschaefte|geschaeft|objets?|traktanden|vorstoesse|ratsbetrieb|deliberation)\b/.test(low)) score += 4
   if (/\b(id|nummer|nr|objektid|geschaeftid|affairid)=/.test(low)) score += 3
   if (isLikelyOverviewUrl(low)) score -= 6
@@ -549,6 +551,22 @@ const resolveOriginalUrl = (item) => {
   }
 
   return ''
+}
+
+const isConcreteCantonalDetailUrl = (url = '') => {
+  const low = String(url || '').toLowerCase()
+  return /[?&](affairid|geschaeftid|objektid|objectid|id)=\d+/.test(low)
+    || /detail\.php\?gid=[a-f0-9]+/.test(low)
+    || /\/gast\/geschaefte\/\d+/.test(low)
+    || /dettaglio\?[^\s]*attid%5d=\d+/.test(low)
+}
+
+const needsCantonalSourceFix = (item) => {
+  const sid = String(item?.sourceId || '')
+  if (!sid.startsWith('ch-cantonal-')) return false
+  if (item?.meta?.needsSourceFix === true) return true
+  const resolved = resolveOriginalUrl(item)
+  return !isConcreteCantonalDetailUrl(resolved)
 }
 
 const normalizeBrokenGerman = (text = '') => String(text || '')
@@ -698,6 +716,15 @@ const humanizeReason = (reason = '') => {
 
 // Keep cantonal entries visible for active correction work; do not hard-hide them.
 // We improve link resolution iteratively instead of shrinking the review surface.
+
+const cantonalSourceFixItems = reviewItems.filter((item) => needsCantonalSourceFix(item))
+reviewItems = reviewItems.filter((item) => !needsCantonalSourceFix(item))
+
+const sourceFixByCanton = cantonalSourceFixItems.reduce((acc, item) => {
+  const canton = String(item?.meta?.canton || '').toUpperCase() || '??'
+  acc[canton] = (acc[canton] || 0) + 1
+  return acc
+}, {})
 
 const fastLaneItems = reviewItems.filter((item) => {
   if (!isHighConfidenceReview(item)) return false
@@ -1148,11 +1175,29 @@ fs.writeFileSync(reviewDataPath, JSON.stringify({
   generatedAt,
   total: reviewItems.length,
   ids: reviewItems.map((item) => `${item.sourceId}:${item.externalId}`),
+  sourceFix: {
+    total: cantonalSourceFixItems.length,
+    byCanton: sourceFixByCanton,
+    ids: cantonalSourceFixItems.map((item) => `${item.sourceId}:${item.externalId}`),
+  },
 }, null, 2))
 
 fs.writeFileSync(reviewCandidatesPath, JSON.stringify({
   generatedAt,
   total: reviewItems.length,
+  sourceFix: {
+    total: cantonalSourceFixItems.length,
+    byCanton: sourceFixByCanton,
+    items: cantonalSourceFixItems.map((item) => ({
+      id: `${item.sourceId}:${item.externalId}`,
+      sourceId: item.sourceId,
+      externalId: item.externalId,
+      canton: item?.meta?.canton || null,
+      title: displayTitle(item),
+      sourceUrl: resolveOriginalUrl(item),
+      reviewReason: clean(item.reviewReason || ''),
+    })),
+  },
   items: reviewItems.map((item) => ({
     id: `${item.sourceId}:${item.externalId}`,
     sourceId: item.sourceId,

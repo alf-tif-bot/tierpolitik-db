@@ -664,10 +664,10 @@
   },
   {
     "id": "ch-cantonal-portal-core:cantonal-portal-ne",
-    "title": "NE · Grand Conseil Neuchâtel: Chasse",
-    "summary": "Objets - R&eacute;publique et canton de Neuch&acirc;tel – 8 relevante Linkziele erkannt (3 thematisch, 3 Seiten gescannt, Leitlink: Chasse)",
+    "title": "NE · Grand Conseil Neuchâtel: Motions Grand Conseil NE",
+    "summary": "Objets - R&eacute;publique et canton de Neuch&acirc;tel – 10 relevante Linkziele erkannt (3 thematisch, 3 Seiten gescannt, Leitlink: Motions Grand Conseil NE)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-19T17:24:47.511Z",
+    "publishedAt": "2026-02-19T17:58:08.136Z",
     "score": 1,
     "matchedKeywords": [
       "animaux",
@@ -684,7 +684,7 @@
     "title": "SZ · Kantonsrat Schwyz: Jagd und Wildtiere",
     "summary": "Kantonsrat – Kanton Schwyz – 3 relevante Linkziele erkannt (1 thematisch, 2 Seiten gescannt, Leitlink: Jagd und Wildtiere)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-19T17:24:47.511Z",
+    "publishedAt": "2026-02-19T17:58:08.136Z",
     "score": 1,
     "matchedKeywords": [
       "wildtier",
@@ -694,19 +694,12 @@
   },
   {
     "id": "ch-cantonal-portal-core:cantonal-portal-zg",
-    "title": "ZG · Kantonsrat Zug: Arten, Lebensräume, Jagd Artenschutz, Lebensraumförderung, Naturschutzgebiete, Jagd, Hilfe für Wildtiere",
-    "summary": "Geschäfte des Kantonsrats – 7 relevante Linkziele erkannt (2 thematisch, 3 Seiten gescannt, Leitlink: Arten, Lebensräume, Jagd Artenschutz, Lebensraumförderung, Naturschutzgebiete, Jagd, Hilfe für Wildtiere)",
+    "title": "ZG · Kantonsrat Zug: Geschäftsdetail Kantonsrat Zug",
+    "summary": "Geschäfte des Kantonsrats – 10 relevante Linkziele erkannt (0 thematisch, 3 Seiten gescannt, Leitlink: Geschäftsdetail Kantonsrat Zug)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-19T17:24:47.511Z",
-    "score": 1,
-    "matchedKeywords": [
-      "tiere",
-      "wildtier",
-      "wildtiere",
-      "biodiversität",
-      "biodiversita",
-      "jagd"
-    ]
+    "publishedAt": "2026-02-19T17:58:08.136Z",
+    "score": 0,
+    "matchedKeywords": []
   },
   {
     "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-c6c65c8ce8a84435af97428996dadc64",

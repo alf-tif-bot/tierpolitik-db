@@ -402,6 +402,43 @@ const parseLinks = (html = '', baseUrl = '', canton = '') => {
     .map((l) => [canonicalizeLinkUrl(l.href), l])).values()].slice(0, 10)
 }
 
+const extractSpecializedDetailLinks = (html = '', baseUrl = '', canton = '') => {
+  const out = []
+  const push = (href, text, rank = 10) => {
+    const normalized = normalizeUrl(href, baseUrl)
+    if (!normalized || !normalized.startsWith('http')) return
+    out.push({ href: normalized, text, rank, themed: true, businessLike: true })
+  }
+
+  if (canton === 'ZG') {
+    for (const m of html.matchAll(/href=["']([^"']*\/gast\/geschaefte\/\d+)["']/gi)) {
+      push(m[1], 'Geschäftsdetail Kantonsrat Zug', 14)
+    }
+  }
+
+  if (canton === 'TI') {
+    for (const m of html.matchAll(/href=["']([^"']*dettaglio\?[^"']*attid%5D=\d+[^"']*)["']/gi)) {
+      push(m[1], 'Dettaglio atto parlamentare TI', 14)
+    }
+  }
+
+  if (canton === 'NE') {
+    for (const m of html.matchAll(/href=["']([^"']*\/autorites\/GC\/objets\/motions\/Pages\/Motions-[^"']+\.aspx)["']/gi)) {
+      push(m[1], 'Motions Grand Conseil NE', 9)
+    }
+  }
+
+  return [...new Map(out.map((l) => [canonicalizeLinkUrl(l.href), l])).values()].slice(0, 20)
+}
+
+const hasConcreteCantonalDetailUrl = (href = '') => {
+  const low = String(href || '').toLowerCase()
+  return /[?&](affairid|geschaeftid|objektid|objectid|id)=\d+/.test(low)
+    || /detail\.php\?gid=[a-f0-9]+/.test(low)
+    || /\/gast\/geschaefte\/\d+/.test(low)
+    || /dettaglio\?[^\s]*attid%5d=\d+/.test(low)
+}
+
 const appendFallbackLinks = (canton, links) => {
   const fallback = CANTON_FALLBACK_LINKS[canton] || []
 
@@ -545,12 +582,33 @@ export function createCantonalPortalAdapter() {
           .trim()
 
         const parsedLinks = fetchedPages.flatMap(({ html: pageHtml, response: pageResponse }) => parseLinks(pageHtml, pageResponse.url, canton))
-        const links = appendFallbackLinks(canton, parsedLinks)
+        const listTargets = parsedLinks
+          .map((l) => l.href)
+          .filter((href) => {
+            const low = String(href || '').toLowerCase()
+            if (canton === 'ZG') return low.includes('kr-geschaefte.zug.ch/gast/geschaefte')
+            if (canton === 'TI') return low.includes('/ricerca-messaggi-e-atti/ricerca/risultati')
+            if (canton === 'NE') return low.includes('/autorites/gc/objets/motions/') || low.includes('/autorites/gc/objets/postulats/') || low.includes('/autorites/gc/objets/interpellations/')
+            if (canton === 'SZ') return low.includes('/kantonsrat/geschaefte')
+            return false
+          })
+          .slice(0, 2)
+
+        const fetchedListPages = await fetchReachablePages(listTargets, 2, signal, requestTimeoutMs)
+        const specializedLinks = [
+          ...fetchedPages.flatMap(({ html: pageHtml, response: pageResponse }) => extractSpecializedDetailLinks(pageHtml, pageResponse.url, canton)),
+          ...fetchedListPages.flatMap(({ html: pageHtml, response: pageResponse }) => extractSpecializedDetailLinks(pageHtml, pageResponse.url, canton)),
+        ]
+
+        const links = appendFallbackLinks(canton, [...specializedLinks, ...parsedLinks])
         const themedLinkCount = links.filter((link) => hasAnimalTheme(link.href, link.text)).length
+        const concreteDetailLinks = links.filter((link) => hasConcreteCantonalDetailUrl(link.href))
+        const concreteDetailLinkCount = concreteDetailLinks.length
         const pageText = fetchedPages.map((p) => stripTags(p.html).slice(0, 2500)).join('\n')
         const language = pickLanguage(canton, pageText)
 
         const topLink = links[0]?.text || 'Parlamentsgeschäfte'
+        const needsSourceFix = ['NW', 'UR'].includes(canton) && concreteDetailLinkCount === 0
 
         rows.push({
           sourceId: source.id,
@@ -567,14 +625,19 @@ export function createCantonalPortalAdapter() {
           score: Math.min(0.4 + links.length * 0.05 + Math.min(0.12, fetchedPages.length * 0.03), 0.9),
           matchedKeywords: ['kanton', canton.toLowerCase(), ...new Set(links.flatMap((l) => [...BASE_KEYWORDS, ...ANIMAL_POLICY_LINK_KEYWORDS, ...(CANTON_KEYWORDS[canton] || [])].filter((kw) => `${l.href} ${l.text}`.toLowerCase().includes(kw))))].slice(0, 12),
           status: 'new',
-          reviewReason: links.length ? 'cantonal-portal-links' : 'cantonal-portal-reachable',
+          reviewReason: needsSourceFix
+            ? 'needs-source-fix:cantonal-no-concrete-detail-url'
+            : (links.length ? 'cantonal-portal-links' : 'cantonal-portal-reachable'),
           meta: {
             canton,
             parliament: entry.parliament,
             readiness: entry.readiness,
             extractedLinkCount: links.length,
             themedLinkCount,
+            concreteDetailLinkCount,
             extractedLinks: links,
+            needsSourceFix,
+            sourceFixReason: needsSourceFix ? 'overview-links-only' : undefined,
             adapterHint: 'cantonalPortal',
             candidateUrlsTried: candidateUrls.slice(0, 8),
             fetchedPages: fetchedPages.map((p) => ({ requestedUrl: p.usedUrl, finalUrl: p.response.url })).slice(0, 3),
