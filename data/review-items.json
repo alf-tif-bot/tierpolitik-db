@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-19T17:59:03.859Z",
+  "generatedAt": "2026-02-19T19:09:27.448Z",
   "total": 29,
   "ids": [
     "ch-parliament-business-de:20195282-de",
@@ -12,7 +12,7 @@
     "ch-parliament-business-de:20194548-de",
     "ch-parliament-business-de:20194023-de",
     "ch-parliament-business-de:20173646-de",
-    "ch-parliament-business-de:20173240-de",
+    "ch-parliament-motions-de:20173240-de",
     "ch-parliament-business-de:20173130-de",
     "ch-parliament-business-de:20164121-de",
     "ch-parliament-business-de:20185448-de",
@@ -35,8 +35,7 @@
   "sourceFix": {
     "total": 2,
     "byCanton": {
-      "NW": 1,
-      "UR": 1
+      "??": 2
     },
     "ids": [
       "ch-cantonal-portal-core:cantonal-portal-nw",

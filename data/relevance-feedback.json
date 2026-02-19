@@ -1,36 +1,16 @@
 {
-  "updatedAt": "2026-02-19T17:58:50.644Z",
+  "updatedAt": "2026-02-19T19:05:05.860Z",
   "learned": [
+    {
+      "keyword": "geflügel",
+      "weight": 1
+    },
     {
       "keyword": "schwein",
       "weight": 1
     },
     {
       "keyword": "schweine",
-      "weight": 1
-    },
-    {
-      "keyword": "tierhaltung",
-      "weight": 1
-    },
-    {
-      "keyword": "nutztiere",
-      "weight": 1
-    },
-    {
-      "keyword": "tierversuch",
-      "weight": 1
-    },
-    {
-      "keyword": "tierversuche",
-      "weight": 1
-    },
-    {
-      "keyword": "3r",
-      "weight": 1
-    },
-    {
-      "keyword": "geflügel",
       "weight": 1
     },
     {
@@ -50,6 +30,10 @@
       "weight": 1
     },
     {
+      "keyword": "nutztiere",
+      "weight": 1
+    },
+    {
       "keyword": "schlacht",
       "weight": 1
     },
@@ -58,11 +42,27 @@
       "weight": 1
     },
     {
+      "keyword": "tierversuch",
+      "weight": 1
+    },
+    {
+      "keyword": "3r",
+      "weight": 1
+    },
+    {
       "keyword": "stopfleber",
       "weight": 1
     },
     {
+      "keyword": "tierversuche",
+      "weight": 1
+    },
+    {
       "keyword": "tierwohl",
+      "weight": 1
+    },
+    {
+      "keyword": "tierhaltung",
       "weight": 1
     },
     {
