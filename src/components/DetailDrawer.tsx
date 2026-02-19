@@ -48,7 +48,7 @@ const normalizeTitle = (value: string, typ?: string) => {
   return toFrenchQuotes(out)
 }
 
-const API_BASE = (import.meta.env.VITE_API_BASE || '/.netlify/functions').replace(/\/$/, '')
+const API_BASE = (import.meta.env.VITE_API_BASE || '').replace(/\/$/, '')
 
 type TimelineItem = {
   datum: string

@@ -25,7 +25,7 @@ const fallbackData = (() => {
   }
 })()
 
-const API_BASE = (import.meta.env.VITE_API_BASE || '/.netlify/functions').replace(/\/$/, '')
+const API_BASE = (import.meta.env.VITE_API_BASE || '').replace(/\/$/, '')
 
 const isSaneLivePayload = (rows: Vorstoss[]) => {
   if (!rows.length) return false
