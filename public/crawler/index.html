@@ -31,9 +31,32 @@
     <tbody id="rows"></tbody>
   </table>
 
+  <h3 style="margin-top:20px">ZG Fokus (minutiös)</h3>
+  <div class="grid" id="zg-kpis"></div>
+  <table>
+    <thead>
+      <tr><th>Status</th><th>Drop-Grund</th><th>Score</th><th>Titel</th><th>URL</th></tr>
+    </thead>
+    <tbody id="zg-rows"></tbody>
+  </table>
+
   <script>
     const by = (arr, fn) => arr.reduce((m, x) => { const k = fn(x); m[k] = (m[k]||0)+1; return m; }, {});
-    const scoreBy = (arr, fn) => arr.reduce((m, x) => { const k = fn(x); m[k] = Math.max(m[k]||0, Number(x.score||0)); return m; }, {});
+
+    const cantonFrom = (item) => {
+      const fromExt = (item.externalId || '').split('-').pop()?.toUpperCase();
+      return item.canton || fromExt || '??';
+    };
+
+    const detailLike = (url = '') => /\/geschaefte\/\d+|[?&]attid%5D=|[?&]attid=|affairid=\d+/i.test(String(url || ''));
+
+    const dropReason = (item) => {
+      const score = Number(item.score || Number((item.reviewReason||'').match(/score=([0-9.]+)/)?.[1] || 0));
+      if (!item.sourceUrl || !detailLike(item.sourceUrl)) return 'no-detail-url';
+      if (score < 0.4) return 'score-too-low';
+      if ((item.reviewReason || '').toLowerCase().includes('duplicate')) return 'duplicate';
+      return 'reviewable';
+    };
 
     async function boot(){
       const candRes = await fetch('/data/review-candidates.json', {cache:'no-store'});
@@ -46,20 +69,20 @@
         ['Open review', open.length],
         ['Open kantonal', open.filter(i=>i.sourceId==='ch-cantonal-portal-core').length],
         ['Source-fix kantonal', sourceFix.length],
-        ['Kantone total sichtbar', new Set([...open.map(i=>(i.externalId||'').split('-').pop()?.toUpperCase()).filter(Boolean), ...sourceFix.map(i=>i.canton).filter(Boolean)]).size],
+        ['Kantone total sichtbar', new Set([...open.map(cantonFrom), ...sourceFix.map(cantonFrom)].filter(Boolean)).size],
       ];
       document.getElementById('kpis').innerHTML = kpis.map(([k,v]) => `<div class="card"><div class="muted">${k}</div><div style="font-size:22px;font-weight:700">${v}</div></div>`).join('');
 
       const openCantonal = open.filter(i=>i.sourceId==='ch-cantonal-portal-core');
-      const openByCant = by(openCantonal, i => (i.externalId||'').split('-').pop()?.toUpperCase() || '??');
-      const fixByCant = by(sourceFix, i => i.canton || '??');
+      const openByCant = by(openCantonal, cantonFrom);
+      const fixByCant = by(sourceFix, cantonFrom);
       const topScore = {};
       for (const i of openCantonal) {
-        const c = (i.externalId||'').split('-').pop()?.toUpperCase() || '??';
+        const c = cantonFrom(i);
         topScore[c] = Math.max(topScore[c] || 0, Number(i.score || 0));
       }
       for (const i of sourceFix) {
-        const c = i.canton || '??';
+        const c = cantonFrom(i);
         topScore[c] = Math.max(topScore[c] || 0, Number((i.reviewReason||'').match(/score=([0-9.]+)/)?.[1] || 0));
       }
       const cants = [...new Set([...Object.keys(topScore), ...Object.keys(openByCant), ...Object.keys(fixByCant)])].sort();
@@ -70,6 +93,28 @@
         const s = (topScore[c] ?? 0).toFixed(2);
         const hint = o>0 ? '<span class="ok">reviewbar</span>' : (f>0 ? '<span class="warn">nur source-fix</span>' : '<span class="bad">kein Treffer</span>');
         return `<tr><td><strong>${c}</strong></td><td>${o}</td><td>${f}</td><td>${s}</td><td>${hint}</td></tr>`;
+      }).join('');
+
+      const zgOpen = openCantonal.filter(i => cantonFrom(i) === 'ZG').map(i => ({ ...i, _status: 'open' }));
+      const zgFix = sourceFix.filter(i => cantonFrom(i) === 'ZG').map(i => ({ ...i, _status: 'source-fix' }));
+      const zgAll = [...zgOpen, ...zgFix].sort((a,b) => Number(b.score||0) - Number(a.score||0));
+
+      const reasons = by(zgAll, dropReason);
+      const zgKpis = [
+        ['ZG open', zgOpen.length],
+        ['ZG source-fix', zgFix.length],
+        ['ZG no-detail-url', reasons['no-detail-url'] || 0],
+        ['ZG score-too-low', reasons['score-too-low'] || 0],
+      ];
+      document.getElementById('zg-kpis').innerHTML = zgKpis.map(([k,v]) => `<div class="card"><div class="muted">${k}</div><div style="font-size:22px;font-weight:700">${v}</div></div>`).join('');
+
+      document.getElementById('zg-rows').innerHTML = zgAll.map(i => {
+        const r = dropReason(i);
+        const score = Number(i.score || Number((i.reviewReason||'').match(/score=([0-9.]+)/)?.[1] || 0)).toFixed(2);
+        const t = (i.title || '').replace(/</g,'&lt;');
+        const u = String(i.sourceUrl || '');
+        const uHtml = u ? `<a href="${u}" target="_blank" rel="noopener">open</a>` : '<span class="bad">no-url</span>';
+        return `<tr><td>${i._status}</td><td><code>${r}</code></td><td>${score}</td><td>${t}</td><td>${uHtml}</td></tr>`;
       }).join('');
     }
     boot().catch(err => {
