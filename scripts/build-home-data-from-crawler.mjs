@@ -587,6 +587,34 @@ const normalizeDisplayTitle = (item, title = '') => {
 
 const isPlaceholderParliamentTitle = (title = '') => /^Parlamentsgeschäft\s+(?:\d{8}|\d{2}\.\d{3,4})$/i.test(String(title || '').trim())
 
+const toFrenchPlaceholderTitle = (title = '') => {
+  const normalized = String(title || '').trim()
+  const m = normalized.match(/^Parlamentsgeschäft\s+(.+)$/i)
+  if (!m?.[1]) return normalized
+  return `Objet parlementaire ${clean(m[1])}`
+}
+
+const statusToFrench = (status = '') => {
+  const s = String(status || '').trim().toLowerCase()
+  if (!s) return 'en traitement'
+  if (s.includes('in beratung')) return 'en traitement'
+  if (s.includes('eingereicht')) return 'déposé'
+  if (s.includes('angenommen')) return 'accepté'
+  if (s.includes('abgelehnt')) return 'rejeté'
+  if (s.includes('abgeschrieben')) return 'classé'
+  if (s.includes('zurückgezogen') || s.includes('zurueckgezogen')) return 'retiré'
+  if (s.includes('erledigt')) return 'traité'
+  if (s.includes('überwiesen') || s.includes('ueberwiesen')) return 'transmis au Conseil fédéral'
+  if (s.includes('stellungnahme')) return 'prise de position disponible'
+  return 'en traitement'
+}
+
+const frenchSummaryFallback = ({ title = '', status = '' } = {}) => {
+  const frTitle = toFrenchPlaceholderTitle(title) || 'Objet parlementaire'
+  const statusFr = statusToFrench(status)
+  return `${frTitle} : objet fédéral actuellement ${statusFr}. Résumé détaillé non disponible dans les données sources.`
+}
+
 const firstSentence = (text = '') => {
   const c = clean(text)
   if (!c) return ''
@@ -776,7 +804,7 @@ const buildInitiativeLinks = ({ typ, externalId }) => {
   }
 }
 
-const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallbackType, fallbackThemes, businessNumber = '') => {
+const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallbackType, fallbackThemes, businessNumber = '', status = '') => {
   const out = {
     title: { de: fallbackTitle },
     summary: { de: fallbackSummary },
@@ -784,8 +812,9 @@ const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallb
     themes: { de: fallbackThemes },
   }
 
-  for (const [lang, variant] of Object.entries(variants || {})) {
-    const l = ['de', 'fr', 'it', 'en'].includes(lang) ? lang : 'de'
+  for (const lang of ['de', 'fr', 'it', 'en']) {
+    const variant = variants?.[lang] || null
+    const l = lang
     const title = normalizeBusinessTitleText(variant?.title || fallbackTitle)
     const weakTitle = !title || isPlaceholderParliamentTitle(title)
     const summary = clean(variant?.summary || variant?.body || fallbackSummary)
@@ -802,8 +831,24 @@ const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallb
     )
     const canonicalType = TYPE_OVERRIDES[businessNumber] || inferTypeFromBusinessNumber(businessNumber) || fallbackType || inferredVariantType
     const matched = mapThemesFromKeywords(item.matchedKeywords || fallbackThemes || []).slice(0, 6)
-    out.title[l] = weakTitle ? fallbackTitle : title
-    out.summary[l] = weakSummary ? fallbackSummary : summary
+
+    if (l === 'fr') {
+      const frTitle = weakTitle
+        ? (isPlaceholderParliamentTitle(fallbackTitle) ? toFrenchPlaceholderTitle(fallbackTitle) : fallbackTitle)
+        : title
+      const frSummaryNeedsFallback = weakSummary || isWeakSummarySentence(summary)
+      const frSummary = frSummaryNeedsFallback
+        ? (isPlaceholderParliamentTitle(fallbackTitle)
+          ? frenchSummaryFallback({ title: frTitle || fallbackTitle, status })
+          : fallbackSummary)
+        : summary
+      out.title[l] = frTitle
+      out.summary[l] = frSummary
+    } else {
+      out.title[l] = weakTitle ? fallbackTitle : title
+      out.summary[l] = weakSummary ? fallbackSummary : summary
+    }
+
     out.type[l] = typeLabels[canonicalType]?.[l] || canonicalType
     out.themes[l] = l === 'de'
       ? fallbackThemes
@@ -903,7 +948,7 @@ const vorstoesse = items.map((item, index) => {
       ? municipalThemesFromTitle(finalTitle)
       : (normalizedThemes.length ? normalizedThemes : ['Tierschutz']).slice(0, 6))
   const i18nVariants = isParliament ? (variantsByAffair.get(affairId) || {}) : {}
-  const i18nMeta = buildI18nFromItem(i18nVariants, item, finalTitle || `Vorstoss ${index + 1}`, summaryText, typ, baseThemes, businessNumber)
+  const i18nMeta = buildI18nFromItem(i18nVariants, item, finalTitle || `Vorstoss ${index + 1}`, summaryText, typ, baseThemes, businessNumber, status)
 
   const municipalSubmitters = String(item?.sourceId || '').startsWith('ch-municipal-')
     ? parseMunicipalSubmitters(displayBody)
