@@ -199,6 +199,8 @@ const CANTON_FALLBACK_LINKS = {
   ZG: [
     { href: 'https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats', text: 'Geschäfte des Kantonsrats ZG' },
     { href: 'https://zg.ch/de/behoerden/kantonsrat', text: 'Kantonsrat Zug' },
+    { href: 'https://kr-geschaefte.zug.ch/gast/geschaefte', text: 'Geschäftsverzeichnis Kantonsrat Zug' },
+    { href: 'https://kr-geschaefte.zug.ch/sitemap.xml', text: 'Sitemap Geschäftsdetailseiten Zug' },
   ],
   ZH: [
     { href: 'https://www.kantonsrat.zh.ch/geschaefte/', text: 'Geschäfte Kantonsrat Zürich' },
@@ -431,6 +433,26 @@ const extractSpecializedDetailLinks = (html = '', baseUrl = '', canton = '') => 
   return [...new Map(out.map((l) => [canonicalizeLinkUrl(l.href), l])).values()].slice(0, 20)
 }
 
+const ZG_SITEMAP_URL = 'https://kr-geschaefte.zug.ch/sitemap.xml'
+const ZG_DETAIL_URL_RX = /https:\/\/kr-geschaefte\.zug\.ch\/gast\/geschaefte\/(\d+)/gi
+
+const extractZgLinksFromSitemap = (xml = '') => {
+  const extracted = []
+  for (const m of String(xml || '').matchAll(ZG_DETAIL_URL_RX)) {
+    extracted.push({
+      href: `https://kr-geschaefte.zug.ch/gast/geschaefte/${m[1]}`,
+      text: `Geschäftsdetail Kantonsrat Zug #${m[1]}`,
+      rank: 16,
+      themed: true,
+      businessLike: true,
+    })
+    if (extracted.length >= 120) break
+  }
+
+  return [...new Map(extracted
+    .map((l) => [canonicalizeLinkUrl(l.href), l])).values()]
+}
+
 const hasConcreteCantonalDetailUrl = (href = '') => {
   const low = String(href || '').toLowerCase()
   return /[?&](affairid|geschaeftid|objektid|objectid|id)=\d+/.test(low)
@@ -600,7 +622,24 @@ export function createCantonalPortalAdapter() {
           ...fetchedListPages.flatMap(({ html: pageHtml, response: pageResponse }) => extractSpecializedDetailLinks(pageHtml, pageResponse.url, canton)),
         ]
 
-        const links = appendFallbackLinks(canton, [...specializedLinks, ...parsedLinks])
+        let zgSitemapLinks = []
+        if (canton === 'ZG') {
+          try {
+            const sitemapResponse = await fetch(ZG_SITEMAP_URL, {
+              headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
+              redirect: 'follow',
+              signal: mergeAbortSignals(signal, AbortSignal.timeout(requestTimeoutMs)),
+            })
+            if (sitemapResponse.ok) {
+              const sitemapXml = await sitemapResponse.text()
+              zgSitemapLinks = extractZgLinksFromSitemap(sitemapXml)
+            }
+          } catch {
+            // best-effort fallback only
+          }
+        }
+
+        const links = appendFallbackLinks(canton, [...zgSitemapLinks, ...specializedLinks, ...parsedLinks])
         const themedLinkCount = links.filter((link) => hasAnimalTheme(link.href, link.text)).length
         const concreteDetailLinks = links.filter((link) => hasConcreteCantonalDetailUrl(link.href))
         const concreteDetailLinkCount = concreteDetailLinks.length
@@ -641,6 +680,8 @@ export function createCantonalPortalAdapter() {
             adapterHint: 'cantonalPortal',
             candidateUrlsTried: candidateUrls.slice(0, 8),
             fetchedPages: fetchedPages.map((p) => ({ requestedUrl: p.usedUrl, finalUrl: p.response.url })).slice(0, 3),
+            zgSitemapLinkCount: zgSitemapLinks.length || undefined,
+            zgFallbackUsed: canton === 'ZG' ? zgSitemapLinks.length > 0 : undefined,
           },
         })
       }

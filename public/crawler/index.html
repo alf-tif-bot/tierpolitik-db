@@ -45,6 +45,14 @@
     <tbody id="zg-rows"></tbody>
   </table>
 
+  <h3 style="margin-top:20px">ZG Top 10 Drops (reason codes)</h3>
+  <table>
+    <thead>
+      <tr><th>ID</th><th>Reason</th><th>Score</th><th>Status</th><th>Titel</th></tr>
+    </thead>
+    <tbody id="zg-drops"></tbody>
+  </table>
+
   <script>
     const by = (arr, fn) => arr.reduce((m, x) => { const k = fn(x); m[k] = (m[k]||0)+1; return m; }, {});
 
@@ -64,8 +72,12 @@
     };
 
     async function boot(){
-      const candRes = await fetch('/data/review-candidates.json', {cache:'no-store'});
+      const [candRes, zgRes] = await Promise.all([
+        fetch('/data/review-candidates.json', {cache:'no-store'}),
+        fetch('/data/crawler-debug-zg.json', {cache:'no-store'}).catch(() => null),
+      ]);
       const cand = await candRes.json();
+      const zgDebug = zgRes && zgRes.ok ? await zgRes.json() : { counts: { raw: 0, open: 0, sourceFix: 0 }, raw: [] };
       const items = cand.items || [];
       const open = items.filter(i => ['queued','new'].includes(String(i.status||'').toLowerCase()));
       const sourceFix = (cand.sourceFix && cand.sourceFix.items) ? cand.sourceFix.items : [];
@@ -102,10 +114,19 @@
 
       const zgOpen = openCantonal.filter(i => cantonFrom(i) === 'ZG').map(i => ({ ...i, _status: 'open' }));
       const zgFix = sourceFix.filter(i => cantonFrom(i) === 'ZG').map(i => ({ ...i, _status: 'source-fix' }));
-      const zgAll = [...zgOpen, ...zgFix].sort((a,b) => Number(b.score||0) - Number(a.score||0));
+      const zgRawOnly = (zgDebug.raw || []).map(i => ({ ...i, _status: 'raw-only' }));
+      const zgMap = new Map();
+      [...zgRawOnly, ...zgFix, ...zgOpen].forEach(i => zgMap.set(i.id || `${i._status}:${i.externalId || i.title}`, i));
+      const zgAll = [...zgMap.values()].sort((a,b) => Number(b.score||0) - Number(a.score||0));
 
       const reasons = by(zgAll, dropReason);
+      const stageCounts = zgDebug.counts || {};
       const zgKpis = [
+        ['ZG discovered_links', stageCounts.discovered_links || 0],
+        ['ZG extracted_candidates', stageCounts.extracted_candidates || 0],
+        ['ZG normalized_items', stageCounts.normalized_items || 0],
+        ['ZG filtered_out', stageCounts.filtered_out || 0],
+        ['ZG raw', stageCounts.raw || 0],
         ['ZG open', zgOpen.length],
         ['ZG source-fix', zgFix.length],
         ['ZG no-detail-url', reasons['no-detail-url'] || 0],
@@ -122,17 +143,27 @@
         return `<tr><td>${i._status}</td><td><code>${r}</code></td><td>${score}</td><td>${t}</td><td>${uHtml}</td></tr>`;
       }).join('');
 
+      const dropped = Array.isArray(zgDebug.top_dropped_examples) ? zgDebug.top_dropped_examples : [];
+      document.getElementById('zg-drops').innerHTML = dropped.length
+        ? dropped.map((d) => `<tr><td><code>${String(d.id || '')}</code></td><td><code>${String(d.reason || '')}</code></td><td>${Number(d.score || 0).toFixed(2)}</td><td>${String(d.status || '')}</td><td>${String(d.title || '').replace(/</g,'&lt;')}</td></tr>`).join('')
+        : '<tr><td colspan="5" class="muted">Keine Drops im aktuellen Lauf</td></tr>';
+
       const report = [
         `crawler-debug report`,
         `open_review=${open.length}`,
         `open_kantonal=${openCantonal.length}`,
         `source_fix_kantonal=${sourceFix.length}`,
         `sichtbare_kantone=${cants.join(',') || '-'}`,
+        `zg_discovered_links=${stageCounts.discovered_links || 0}`,
+        `zg_extracted_candidates=${stageCounts.extracted_candidates || 0}`,
+        `zg_normalized_items=${stageCounts.normalized_items || 0}`,
+        `zg_filtered_out=${stageCounts.filtered_out || 0}`,
+        `zg_raw=${zgDebug.counts?.raw || 0}`,
         `zg_open=${zgOpen.length}`,
         `zg_source_fix=${zgFix.length}`,
         `zg_no_detail_url=${reasons['no-detail-url'] || 0}`,
         `zg_score_too_low=${reasons['score-too-low'] || 0}`,
-      ].join('\n');
+      ].join('\\n');
 
       const box = document.getElementById('report-box');
       if (box) box.innerHTML = `<pre style="margin:0;white-space:pre-wrap">${report}</pre>`;

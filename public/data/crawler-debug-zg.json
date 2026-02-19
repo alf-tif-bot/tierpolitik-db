@@ -1,0 +1,96 @@
+{
+  "generatedAt": "2026-02-19T21:23:42.325Z",
+  "counts": {
+    "discovered_links": 10,
+    "extracted_candidates": 1,
+    "normalized_items": 0,
+    "filtered_out": 1,
+    "raw": 1,
+    "source_fix": 0,
+    "open": 0
+  },
+  "discovered_links": [
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/1",
+      "text": "Geschäftsdetail Kantonsrat Zug #1",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/2",
+      "text": "Geschäftsdetail Kantonsrat Zug #2",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/3",
+      "text": "Geschäftsdetail Kantonsrat Zug #3",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/4",
+      "text": "Geschäftsdetail Kantonsrat Zug #4",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/5",
+      "text": "Geschäftsdetail Kantonsrat Zug #5",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/6",
+      "text": "Geschäftsdetail Kantonsrat Zug #6",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/7",
+      "text": "Geschäftsdetail Kantonsrat Zug #7",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/8",
+      "text": "Geschäftsdetail Kantonsrat Zug #8",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/9",
+      "text": "Geschäftsdetail Kantonsrat Zug #9",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/10",
+      "text": "Geschäftsdetail Kantonsrat Zug #10",
+      "rank": 16
+    }
+  ],
+  "extracted_candidates": [
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg",
+      "title": "ZG · Kantonsrat Zug: Geschäftsdetail Kantonsrat Zug #1",
+      "score": 0,
+      "status": "approved",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/1",
+      "concreteDetailUrl": true
+    }
+  ],
+  "normalized_items": [],
+  "filtered_out": [
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg",
+      "title": "ZG · Kantonsrat Zug: Geschäftsdetail Kantonsrat Zug #1",
+      "score": 0,
+      "status": "approved",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/1",
+      "reason": "status-not-open",
+      "reviewReason": "Review-Entscheid (approved)"
+    }
+  ],
+  "top_dropped_examples": [
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg",
+      "title": "ZG · Kantonsrat Zug: Geschäftsdetail Kantonsrat Zug #1",
+      "reason": "status-not-open",
+      "score": 0,
+      "status": "approved",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/1"
+    }
+  ]
+}

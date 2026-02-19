@@ -4,6 +4,7 @@ const dbPath = new URL('../data/crawler-db.json', import.meta.url)
 const outPath = new URL('../public/review.html', import.meta.url)
 const outPathIndex = new URL('../public/review/index.html', import.meta.url)
 const publicReviewCandidatesPath = new URL('../public/data/review-candidates.json', import.meta.url)
+const publicZgDebugPath = new URL('../public/data/crawler-debug-zg.json', import.meta.url)
 const reviewDataPath = new URL('../data/review-items.json', import.meta.url)
 const reviewCandidatesPath = new URL('../data/review-candidates.json', import.meta.url)
 const decisionsPath = new URL('../data/review-decisions.json', import.meta.url)
@@ -1262,9 +1263,83 @@ const reviewCandidatesPayload = {
   })),
 }
 
+const zgRawItems = (db.items || []).filter((item) => {
+  const sid = String(item?.sourceId || '')
+  const canton = String(item?.meta?.canton || '').toUpperCase()
+  return sid === 'ch-cantonal-portal-core' && canton === 'ZG'
+})
+
+const zgDiscoveredLinks = [...new Map(zgRawItems
+  .flatMap((item) => Array.isArray(item?.meta?.extractedLinks) ? item.meta.extractedLinks : [])
+  .map((link) => {
+    const href = String(link?.href || '').trim()
+    return [href, { href, text: String(link?.text || '').trim(), rank: Number(link?.rank || 0) }]
+  })
+  .filter(([href]) => Boolean(href))).values()]
+  .sort((a, b) => Number(b.rank || 0) - Number(a.rank || 0))
+
+const zgExtractedCandidates = zgRawItems.map((item) => {
+  const sourceUrl = resolveOriginalUrl(item)
+  const score = Number(item?.score || Number((String(item?.reviewReason || '').match(/score=([0-9.]+)/)?.[1] || 0)))
+  return {
+    id: `${item.sourceId}:${item.externalId}`,
+    title: displayTitle(item),
+    score,
+    status: normalizeReviewStatus(item),
+    sourceUrl,
+    concreteDetailUrl: isConcreteCantonalDetailUrl(sourceUrl),
+  }
+})
+
+const zgNormalizedItems = reviewCandidatesPayload.items.filter((item) => String(item?.sourceId || '') === 'ch-cantonal-portal-core' && /cantonal-portal-zg/i.test(String(item?.externalId || '')))
+const zgSourceFixItems = (reviewCandidatesPayload.sourceFix?.items || []).filter((item) => String(item?.sourceId || '') === 'ch-cantonal-portal-core' && String(item?.canton || '').toUpperCase() === 'ZG')
+
+const zgReasonForFilter = (item) => {
+  const sid = String(item?.sourceId || '')
+  if (!enabledSourceIds.has(sid) && sid !== 'user-input') return 'source-disabled'
+  if (!(sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-') || sid === 'user-input' || sid === 'bundesrat-news')) return 'source-type-excluded'
+  if (!(normalizeReviewStatus(item) === 'new' || normalizeReviewStatus(item) === 'queued')) return 'status-not-open'
+  if (!isReadableReviewText(item)) return 'unreadable-text'
+  if (!isCantonalReadableRelevant(item)) return 'cantonal-unreadable'
+  if (!hasMeaningfulAnimalRelevance(item)) return 'animal-relevance-too-weak'
+  if (!isInTargetHorizon(item)) return 'outside-time-horizon'
+  return 'kept'
+}
+
+const zgFilteredOut = zgRawItems
+  .map((item) => ({
+    id: `${item.sourceId}:${item.externalId}`,
+    title: displayTitle(item),
+    score: Number(item?.score || 0),
+    status: normalizeReviewStatus(item),
+    sourceUrl: resolveOriginalUrl(item),
+    reason: zgReasonForFilter(item),
+    reviewReason: clean(item?.reviewReason || ''),
+  }))
+  .filter((item) => item.reason !== 'kept')
+
+const zgDebugPayload = {
+  generatedAt,
+  counts: {
+    discovered_links: zgDiscoveredLinks.length,
+    extracted_candidates: zgExtractedCandidates.length,
+    normalized_items: zgNormalizedItems.length,
+    filtered_out: zgFilteredOut.length,
+    raw: zgRawItems.length,
+    source_fix: zgSourceFixItems.length,
+    open: zgNormalizedItems.filter((item) => ['new', 'queued'].includes(String(item?.status || '').toLowerCase())).length,
+  },
+  discovered_links: zgDiscoveredLinks,
+  extracted_candidates: zgExtractedCandidates,
+  normalized_items: zgNormalizedItems,
+  filtered_out: zgFilteredOut,
+  top_dropped_examples: zgFilteredOut.slice(0, 10).map(({ id, title, reason, score, status, sourceUrl }) => ({ id, title, reason, score, status, sourceUrl })),
+}
+
 fs.writeFileSync(reviewCandidatesPath, JSON.stringify(reviewCandidatesPayload, null, 2))
 fs.mkdirSync(new URL('../public/data/', import.meta.url), { recursive: true })
 fs.writeFileSync(publicReviewCandidatesPath, JSON.stringify(reviewCandidatesPayload, null, 2))
+fs.writeFileSync(publicZgDebugPath, JSON.stringify(zgDebugPayload, null, 2))
 
 console.log(`Review-Ansicht gebaut: ${outPath.pathname} + ${outPathIndex.pathname} (${reviewItems.length} Eintraege)`)
 
