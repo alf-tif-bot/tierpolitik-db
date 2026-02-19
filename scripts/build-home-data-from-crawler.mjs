@@ -194,7 +194,16 @@ const cantonFromItem = (item) => {
 
 const regionFromItem = (item) => {
   const sourceId = String(item?.sourceId || '').toLowerCase()
+  const externalId = String(item?.externalId || '').toLowerCase()
   if (item?.meta?.municipality) return String(item.meta.municipality)
+
+  if (sourceId.includes('municipal')) {
+    if (externalId.startsWith('municipal-bern-')) return 'Bern'
+    if (externalId.startsWith('municipal-zuerich-') || externalId.startsWith('municipal-zurich-')) return 'Zürich'
+    if (externalId.startsWith('municipal-basel-')) return 'Basel'
+    if (externalId.startsWith('municipal-geneve-')) return 'Genf'
+    if (externalId.startsWith('municipal-lausanne-')) return 'Lausanne'
+  }
 
   // Sprachvarianten von Bundesgeschäften sind keine geografische Region.
   // Region nur dann setzen, wenn die Quelle tatsächlich subnational verortet ist.
