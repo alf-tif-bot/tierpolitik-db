@@ -43,7 +43,7 @@
 <body>
   <main class="wrap">
     <h1>Review-Ansicht</h1>
-    <p>Es werden standardmÃ¤ssig nur <strong>offene</strong> relevante EintrÃ¤ge gezeigt (queued/new). Bereits bearbeitete EintrÃ¤ge bleiben ausgeblendet und kÃ¶nnen bei Bedarf Ã¼ber den Button eingeblendet werden. Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB Ã¼bernommen.</p>
+    <p>Es werden standardmässig nur <strong>offene</strong> relevante Einträge gezeigt (queued/new). Bereits bearbeitete Einträge bleiben ausgeblendet und können bei Bedarf über den Button eingeblendet werden. Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB übernommen.</p>
     <p class="status" id="status-summary">Status-Summen (sichtbar): offen=0, gutgeheissen=0, publiziert=0</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
     <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="toggleDecided()" id="toggle-decided">Bereits bearbeitete anzeigen</button></p>
@@ -67,17 +67,17 @@
 <td>
   <strong>NW · Landrat Nidwalden: Tierschutz in der Landwirtschaft</strong><br>
   <small>Landrat | Kanton Nidwalden Online – 3 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Tierschutz in der Landwirtschaft)</small><br>
-  <a class="orig-link" href="https://www.nw.ch/landratmain" target="_blank" rel="noopener noreferrer">Original-Vorstoss Ã¶ffnen</a>
+  <a class="orig-link" href="https://www.nw.ch/landratmain" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
 </td>
 <td>Crawler</td>
 <td>
   <div>Cantonal portals (core crawl)</div>
   <small class="muted">ch-cantonal-portal-core</small>
 </td>
-<td>0.75<br><small class="muted">PrioritÃ¤t: mittel</small></td>
+<td>0.75<br><small class="muted">Priorität: mittel</small></td>
 <td>tierschutz, landwirtschaft</td>
 <td>offen (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> pro Tierschutz</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (SchlÃ¼sselbegriffe + Score erfÃ¼llt)</div><div><strong>Tier-Begriffe:</strong> tierschutz</div><div><strong>Kontext:</strong> landwirtschaft</div><div><strong>Score:</strong> 0.75</div></small></td>
+<td><small><div><strong>Einordnung:</strong> pro Tierschutz</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> tierschutz</div><div><strong>Kontext:</strong> landwirtschaft</div><div><strong>Score:</strong> 0.75</div></small></td>
 <td>
 <button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-nw','approved')">Gutheissen</button>
 <button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-nw','rejected')">Ablehnen</button>
@@ -87,18 +87,18 @@
 <tr data-id="ch-parliament-business-de:20254831-de" data-status="queued" data-fastlane-tagged="0" class="">
 <td>
   <strong>25.4831 · Einheimische Produktionssysteme fördern anstatt Importbedingungen für mit Chlor behandeltem Hühnerfleisch lockern</strong><br>
-  <small>Kurzfassung: Das GeschÃ¤ft behandelt hühner. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
-  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254831" target="_blank" rel="noopener noreferrer">Original-Vorstoss Ã¶ffnen</a>
+  <small>Kurzfassung: Das Geschäft behandelt hühner. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
+  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254831" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
 </td>
 <td>Crawler</td>
 <td>
   <div>Parlament.ch Curia Vista (DE)</div>
   <small class="muted">ch-parliament-business-de</small>
 </td>
-<td>0.73<br><small class="muted">PrioritÃ¤t: mittel</small></td>
+<td>0.73<br><small class="muted">Priorität: mittel</small></td>
 <td>hühner, landwirtschaft, agriculture, agricoltura</td>
 <td>offen (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (SchlÃ¼sselbegriffe + Score erfÃ¼llt)</div><div><strong>Tier-Begriffe:</strong> hühner</div><div><strong>Kontext:</strong> landwirtschaft, agriculture, agricoltura</div><div><strong>Score:</strong> 0.73</div></small></td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> hühner</div><div><strong>Kontext:</strong> landwirtschaft, agriculture, agricoltura</div><div><strong>Score:</strong> 0.73</div></small></td>
 <td>
 <button onclick="setDecision(this,'ch-parliament-business-de:20254831-de','approved')">Gutheissen</button>
 <button onclick="setDecision(this,'ch-parliament-business-de:20254831-de','rejected')">Ablehnen</button>
@@ -109,17 +109,17 @@
 <td>
   <strong>UR · Landrat Uri: Geschäfte Landrat Uri</strong><br>
   <small>Kanton Uri - Sessionen – 4 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Geschäfte Landrat Uri)</small><br>
-  <a class="orig-link" href="https://www.ur.ch/sitzung" target="_blank" rel="noopener noreferrer">Original-Vorstoss Ã¶ffnen</a>
+  <a class="orig-link" href="https://www.ur.ch/sitzung" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
 </td>
 <td>Crawler</td>
 <td>
   <div>Cantonal portals (core crawl)</div>
   <small class="muted">ch-cantonal-portal-core</small>
 </td>
-<td>0.45<br><small class="muted">PrioritÃ¤t: niedriger</small></td>
+<td>0.52<br><small class="muted">Priorität: niedriger</small></td>
 <td>jagd</td>
 <td>offen (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (SchlÃ¼sselbegriffe + Score erfÃ¼llt)</div><div><strong>Tier-Begriffe:</strong> jagd</div><div><strong>Score:</strong> 0.45</div></small></td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> jagd</div><div><strong>Score:</strong> 0.52</div></small></td>
 <td>
 <button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-ur','approved')">Gutheissen</button>
 <button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-ur','rejected')">Ablehnen</button>
@@ -130,17 +130,17 @@
 <td>
   <strong>TI · Gran Consiglio Ticino: Ricerca messaggi e atti</strong><br>
   <small>Risultati - GC (POTERI) - Repubblica e Cantone Ticino – 3 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Ricerca messaggi e atti)</small><br>
-  <a class="orig-link" href="https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati" target="_blank" rel="noopener noreferrer">Original-Vorstoss Ã¶ffnen</a>
+  <a class="orig-link" href="https://www4.ti.ch/poteri/gc/ricerca-messaggi-e-atti/ricerca/risultati" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
 </td>
 <td>Crawler</td>
 <td>
   <div>Cantonal portals (core crawl)</div>
   <small class="muted">ch-cantonal-portal-core</small>
 </td>
-<td>0.31<br><small class="muted">PrioritÃ¤t: niedriger</small></td>
+<td>0.31<br><small class="muted">Priorität: niedriger</small></td>
 <td>caccia</td>
 <td>offen (<strong class="pending">offen</strong>)</td>
-<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (SchlÃ¼sselbegriffe + Score erfÃ¼llt)</div><div><strong>Tier-Begriffe:</strong> caccia</div><div><strong>Score:</strong> 0.31</div></small></td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> caccia</div><div><strong>Score:</strong> 0.31</div></small></td>
 <td>
 <button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-ti','approved')">Gutheissen</button>
 <button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-ti','rejected')">Ablehnen</button>
@@ -151,14 +151,14 @@
 <td>
   <strong>Bern · Nachtfahrverbot für Mähroboter - für Igel und andere Kleintiere</strong><br>
   <small>Gemeinde Bern (Stadtrat Bern) · 2025.SR.0388 · Eingereicht</small><br>
-  <a class="orig-link" href="https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php" target="_blank" rel="noopener noreferrer">Original-Vorstoss Ã¶ffnen</a>
+  <a class="orig-link" href="https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
 </td>
 <td>Crawler</td>
 <td>
-  <div>Municipal parliaments (Bern, ZÃ¼rich)</div>
+  <div>Municipal parliaments (Bern, Zürich)</div>
   <small class="muted">ch-municipal-parliament-bern-zurich</small>
 </td>
-<td>0.18<br><small class="muted">PrioritÃ¤t: niedriger</small></td>
+<td>0.18<br><small class="muted">Priorität: niedriger</small></td>
 <td>motion</td>
 <td>offen (<strong class="pending">offen</strong>)</td>
 <td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Thematisch relevant und von priorisiertem Parlamentsprofil</div><div><strong>Kontext:</strong> motion</div><div><strong>Priorisierte Profile:</strong> tobias sennhauser</div><div><strong>Score:</strong> 0.18</div></small></td>
@@ -176,14 +176,18 @@ const uiKey='tierpolitik.review.ui';
 const fastlaneTagKey='tierpolitik.review.fastlaneTags';
 const initialFastlaneTags={"ch-parliament-business-de:20223210-de":{"fastlane":true,"taggedAt":"2026-02-14T10:46:37.937Z"},"ch-parliament-business-de:20250078-de":{"fastlane":true,"taggedAt":"2026-02-14T08:25:12.936Z"},"ch-parliament-business-de:20213835-de":{"fastlane":true,"taggedAt":"2026-02-14T08:25:24.389Z"},"ch-parliament-business-de:20213405-de":{"fastlane":true,"taggedAt":"2026-02-14T08:25:32.546Z"},"ch-parliament-business-de:20233515-de":{"fastlane":true,"taggedAt":"2026-02-14T08:25:44.286Z"},"ch-parliament-business-de:20237115-de":{"fastlane":true,"taggedAt":"2026-02-14T08:25:54.185Z"},"ch-parliament-business-de:20227807-de":{"fastlane":true,"taggedAt":"2026-02-14T08:26:08.828Z"},"ch-parliament-business-de:20258205-de":{"fastlane":true,"taggedAt":"2026-02-14T08:26:27.637Z"},"ch-parliament-business-de:20244696-de":{"fastlane":true,"taggedAt":"2026-02-14T08:28:00.545Z"},"ch-parliament-business-de:20244695-de":{"fastlane":true,"taggedAt":"2026-02-14T08:28:13.450Z"},"ch-parliament-business-de:20244465-de":{"fastlane":true,"taggedAt":"2026-02-14T10:34:56.969Z"},"ch-parliament-business-de:20240436-de":{"fastlane":true,"taggedAt":"2026-02-14T10:44:57.766Z"},"ch-parliament-business-de:20223300-de":{"fastlane":true,"taggedAt":"2026-02-14T10:45:09.382Z"},"ch-parliament-business-de:20213363-de":{"fastlane":true,"taggedAt":"2026-02-14T10:45:19.848Z"},"ch-parliament-business-de:20213364-de":{"fastlane":true,"taggedAt":"2026-02-14T10:45:28.520Z"},"ch-parliament-business-de:20212004-de":{"fastlane":true,"taggedAt":"2026-02-14T10:45:41.919Z"},"ch-parliament-business-de:20253976-de":{"fastlane":true,"taggedAt":"2026-02-14T10:46:04.703Z"},"ch-parliament-business-de:20250059-de":{"fastlane":true,"taggedAt":"2026-02-14T10:46:16.584Z"},"ch-parliament-business-de:20232009-de":{"fastlane":true,"taggedAt":"2026-02-14T10:46:29.666Z"},"ch-parliament-business-de:20214167-de":{"fastlane":true,"taggedAt":"2026-02-14T10:47:07.633Z"},"ch-parliament-business-de:20252027-de":{"fastlane":true,"taggedAt":"2026-02-14T10:47:24.017Z"},"ch-parliament-business-de:20244344-de":{"fastlane":true,"taggedAt":"2026-02-14T10:47:42.196Z"},"ch-parliament-business-de:20243296-de":{"fastlane":true,"taggedAt":"2026-02-14T10:47:57.369Z"},"ch-parliament-business-de:20223952-de":{"fastlane":true,"taggedAt":"2026-02-14T10:48:16.353Z"},"ch-parliament-business-de:20223808-de":{"fastlane":true,"taggedAt":"2026-02-14T10:48:30.730Z"},"ch-parliament-business-de:20258063-de":{"fastlane":true,"taggedAt":"2026-02-14T10:48:46.707Z"},"ch-parliament-business-de:20213229-de":{"fastlane":true,"taggedAt":"2026-02-14T10:50:13.054Z"},"ch-parliament-business-de:20223302-de":{"fastlane":true,"taggedAt":"2026-02-14T10:50:31.269Z"},"ch-parliament-business-de:20231034-de":{"fastlane":true,"taggedAt":"2026-02-14T10:50:39.327Z"},"ch-parliament-business-de:20243277-de":{"fastlane":true,"taggedAt":"2026-02-14T10:51:01.036Z"},"ch-parliament-business-de:20254144-de":{"fastlane":true,"taggedAt":"2026-02-14T10:51:22.151Z"},"ch-parliament-business-de:20213703-de":{"fastlane":true,"taggedAt":"2026-02-14T10:51:32.388Z"},"ch-parliament-business-de:20212027-de":{"fastlane":true,"taggedAt":"2026-02-14T10:51:44.244Z"},"ch-municipal-parliament-bern-zurich:municipal-bern-api-c6c65c8ce8a84435af97428996dadc64":{"fastlane":true,"taggedAt":"2026-02-14T18:37:06.036Z"},"ch-municipal-parliament-bern-zurich:municipal-bern-api-13284d70bb124c23a1bbba427e8a7c5c":{"fastlane":true,"taggedAt":"2026-02-14T18:37:25.611Z"},"user-input:user-bern-2026sr0019-tierpark-alternativen-toetung":{"fastlane":true,"taggedAt":"2026-02-14T18:43:35.637Z"},"ch-municipal-parliament-bern-zurich:municipal-bern-api-b7e265b3766d43119b5279f5ea795e91":{"fastlane":true,"taggedAt":"2026-02-14T18:44:17.747Z"},"user-input:user-bern-2026sr0056-biodiversitaet":{"fastlane":true,"taggedAt":"2026-02-14T22:33:21.861Z"},"ch-parliament-business-de:20203021-de":{"fastlane":true,"taggedAt":"2026-02-14T22:33:43.182Z"},"ch-cantonal-be-rss:www-gr-be-ch-de-start-geschaefte-geschaeftssuche-geschaeftsdetail-html-guid-57c34c78ddf541f098b29f4c2be2cbfa":{"fastlane":true,"taggedAt":"2026-02-15T09:51:04.074Z"}};
 const API_BASE=(localStorage.getItem('tierpolitik.apiBase')||'').replace(//$/,'');
-const read=()=>JSON.parse(localStorage.getItem(key)||'{}');
+const safeJsonParse=(raw, fallback={})=>{
+  try { return JSON.parse(raw || JSON.stringify(fallback)); }
+  catch { return fallback; }
+};
+const read=()=>safeJsonParse(localStorage.getItem(key),{});
 const write=(v)=>localStorage.setItem(key,JSON.stringify(v,null,2));
 const readFastlaneTags=()=>{
-  const local = JSON.parse(localStorage.getItem(fastlaneTagKey)||'{}');
+  const local = safeJsonParse(localStorage.getItem(fastlaneTagKey),{});
   return { ...initialFastlaneTags, ...local };
 };
 const writeFastlaneTags=(v)=>localStorage.setItem(fastlaneTagKey,JSON.stringify(v));
-const readUi=()=>JSON.parse(localStorage.getItem(uiKey)||'{}');
+const readUi=()=>safeJsonParse(localStorage.getItem(uiKey),{});
 const writeUi=(v)=>localStorage.setItem(uiKey,JSON.stringify(v));
 
 let showDecided = false;
@@ -203,7 +207,7 @@ function updateStatusSummary(){
   const el = document.getElementById('status-summary')
   if (el) {
     el.textContent = 'Status-Summen (sichtbar): offen=' + stats.offen + ', gutgeheissen=' + stats.gutheissen + ', publiziert=' + stats.publiziert
-    if (visibleRows === 0) el.textContent += ' Â· keine offenen EintrÃ¤ge'
+    if (visibleRows === 0) el.textContent += ' · keine offenen Einträge'
   }
 }
 
@@ -325,15 +329,19 @@ async function setDecision(btn,id,status){
     console.warn('Review decision API unavailable, using local fallback', err);
   }
 
-  const s=read();
-  s[id]={status,decidedAt};
-  write(s);
-
   const row = document.querySelector('tr[data-id="' + id + '"]');
   if (row) {
     row.setAttribute('data-status', status)
     row.style.opacity = '0.72'
     if (!showDecided) row.style.display='none'
+  }
+
+  try {
+    const s=read();
+    s[id]={status,decidedAt};
+    write(s);
+  } catch(err) {
+    console.warn('Local decision persist failed', err)
   }
 
   const card = document.querySelector('.fastlane-card[data-id="' + id + '"]');

@@ -501,30 +501,37 @@ const resolveOriginalUrl = (item) => {
 }
 
 const normalizeBrokenGerman = (text = '') => String(text || '')
-  .replaceAll('Aï¿½', ' Â· ')
-  .replaceAll('ÃƒÂ¼', 'Ã¼')
-  .replaceAll('ÃƒÂ¶', 'Ã¶')
-  .replaceAll('ÃƒÂ¤', 'Ã¤')
-  .replaceAll('ÃƒÅ“', 'Ãœ')
-  .replaceAll('Ãƒâ€“', 'Ã–')
-  .replaceAll('Ãƒâ€ž', 'Ã„')
-  .replaceAll('Ã¢â‚¬Â¦', 'â€¦')
-  .replaceAll('Ã¢Ëœâ€ ', 'â˜†')
-  .replaceAll('Ã¢Ëœâ€¦', 'â­')
-  .replaceAll('Ã¢Å¡Â¡', 'âš¡')
-  .replace(/\bParlamentsgeschAft\b/g, 'ParlamentsgeschÃ¤ft')
-  .replace(/\bGeschAfte\b/g, 'GeschÃ¤fte')
-  .replace(/\bGeschAft\b/g, 'GeschÃ¤ft')
-  .replace(/\bEintrAge\b/g, 'EintrÃ¤ge')
-  .replace(/\bkAnnen\b/g, 'kÃ¶nnen')
-  .replace(/\bstandardmAssig\b/g, 'standardmÃ¤ssig')
-  .replace(/\bAffnen\b/g, 'Ã–ffnen')
-  .replace(/\bPrioritAt\b/g, 'PrioritÃ¤t')
-  .replace(/\bfAï¿½r\b/g, 'fÃ¼r')
-  .replace(/\bBiodiversitAt\b/g, 'BiodiversitÃ¤t')
-  .replace(/\bLebensrAume\b/g, 'LebensrÃ¤ume')
-  .replace(/\bLebensraumfArderung\b/g, 'LebensraumfÃ¶rderung')
-  .replace(/\bErnAhrung\b/g, 'ErnÃ¤hrung')
+  .replaceAll('Aï¿½', ' · ')
+  .replaceAll('Â·', '·')
+  .replaceAll('ÃƒÂ¼', 'ü')
+  .replaceAll('ÃƒÂ¶', 'ö')
+  .replaceAll('ÃƒÂ¤', 'ä')
+  .replaceAll('ÃƒÅ“', 'Ü')
+  .replaceAll('Ãƒâ€“', 'Ö')
+  .replaceAll('Ãƒâ€ž', 'Ä')
+  .replaceAll('Ã¢â‚¬Â¦', '…')
+  .replaceAll('Ã¢Ëœâ€ ', '☆')
+  .replaceAll('Ã¢Ëœâ€¦', '⭐')
+  .replaceAll('Ã¢Å¡Â¡', '⚡')
+  .replaceAll('Ã¼', 'ü')
+  .replaceAll('Ã¶', 'ö')
+  .replaceAll('Ã¤', 'ä')
+  .replaceAll('Ãœ', 'Ü')
+  .replaceAll('Ã–', 'Ö')
+  .replaceAll('Ã„', 'Ä')
+  .replace(/\bParlamentsgeschAft\b/g, 'Parlamentsgeschäft')
+  .replace(/\bGeschAfte\b/g, 'Geschäfte')
+  .replace(/\bGeschAft\b/g, 'Geschäft')
+  .replace(/\bEintrAge\b/g, 'Einträge')
+  .replace(/\bkAnnen\b/g, 'können')
+  .replace(/\bstandardmAssig\b/g, 'standardmässig')
+  .replace(/\bAffnen\b/g, 'Öffnen')
+  .replace(/\bPrioritAt\b/g, 'Priorität')
+  .replace(/\bfAï¿½r\b/g, 'für')
+  .replace(/\bBiodiversitAt\b/g, 'Biodiversität')
+  .replace(/\bLebensrAume\b/g, 'Lebensräume')
+  .replace(/\bLebensraumfArderung\b/g, 'Lebensraumförderung')
+  .replace(/\bErnAhrung\b/g, 'Ernährung')
 
 const decodeMojibakeRaw = (value = '') => {
   let out = String(value || '')
@@ -784,14 +791,18 @@ const uiKey='tierpolitik.review.ui';
 const fastlaneTagKey='tierpolitik.review.fastlaneTags';
 const initialFastlaneTags=${JSON.stringify(fastlaneTags)};
 const API_BASE=(localStorage.getItem('tierpolitik.apiBase')||'').replace(/\/$/,'');
-const read=()=>JSON.parse(localStorage.getItem(key)||'{}');
+const safeJsonParse=(raw, fallback={})=>{
+  try { return JSON.parse(raw || JSON.stringify(fallback)); }
+  catch { return fallback; }
+};
+const read=()=>safeJsonParse(localStorage.getItem(key),{});
 const write=(v)=>localStorage.setItem(key,JSON.stringify(v,null,2));
 const readFastlaneTags=()=>{
-  const local = JSON.parse(localStorage.getItem(fastlaneTagKey)||'{}');
+  const local = safeJsonParse(localStorage.getItem(fastlaneTagKey),{});
   return { ...initialFastlaneTags, ...local };
 };
 const writeFastlaneTags=(v)=>localStorage.setItem(fastlaneTagKey,JSON.stringify(v));
-const readUi=()=>JSON.parse(localStorage.getItem(uiKey)||'{}');
+const readUi=()=>safeJsonParse(localStorage.getItem(uiKey),{});
 const writeUi=(v)=>localStorage.setItem(uiKey,JSON.stringify(v));
 
 let showDecided = false;
@@ -933,15 +944,19 @@ async function setDecision(btn,id,status){
     console.warn('Review decision API unavailable, using local fallback', err);
   }
 
-  const s=read();
-  s[id]={status,decidedAt};
-  write(s);
-
   const row = document.querySelector('tr[data-id="' + id + '"]');
   if (row) {
     row.setAttribute('data-status', status)
     row.style.opacity = '0.72'
     if (!showDecided) row.style.display='none'
+  }
+
+  try {
+    const s=read();
+    s[id]={status,decidedAt};
+    write(s);
+  } catch(err) {
+    console.warn('Local decision persist failed', err)
   }
 
   const card = document.querySelector('.fastlane-card[data-id="' + id + '"]');
