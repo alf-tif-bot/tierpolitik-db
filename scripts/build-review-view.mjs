@@ -833,7 +833,7 @@ const html = `<!doctype html>
     <p>Es werden standardmÃ¤ssig nur <strong>offene</strong> relevante EintrÃ¤ge gezeigt (queued/new). Bereits bearbeitete EintrÃ¤ge bleiben ausgeblendet und kÃ¶nnen bei Bedarf Ã¼ber den Button eingeblendet werden. Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB Ã¼bernommen.</p>
     <p class="status" id="status-summary">Status-Summen (sichtbar): offen=0, gutgeheissen=0, publiziert=0</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
-    <p class="export view-controls"><span class="view-label">Ansicht</span><button class="view-btn" onclick="setViewMode('open')" id="view-open">Offen</button> <button class="view-btn" onclick="setViewMode('rejected')" id="view-rejected">Abgelehnt (neu → alt)</button></p>
+    <p class="export view-controls"><span class="view-label">Ansicht</span><button class="view-btn" onclick="setViewMode('open')" id="view-open">Offen</button> <button class="view-btn" onclick="setViewMode('rejected')" id="view-rejected">Abgelehnt (neu → alt)</button> <button class="view-btn" onclick="clearLocalReviewState()" id="view-reset">Lokale Entscheide löschen</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
     ${fastLaneRows ? `<section class="fastlane-wrap">
       <h2>âš¡ Fast-Lane</h2>
@@ -1001,6 +1001,14 @@ function hideDecidedRows(){
 
 window.setViewMode = function setViewMode(mode){
   viewMode = mode === 'rejected' ? 'rejected' : 'open'
+  hideDecidedRows()
+}
+
+window.clearLocalReviewState = function clearLocalReviewState(){
+  lsSet(key, JSON.stringify({}))
+  viewMode = 'open'
+  const statusEl = document.getElementById('decision-status')
+  if (statusEl) statusEl.textContent = 'Lokale Entscheidungen gelöscht.'
   hideDecidedRows()
 }
 

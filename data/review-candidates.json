@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-19T13:35:59.252Z",
+  "generatedAt": "2026-02-19T14:24:01.081Z",
   "total": 31,
   "items": [
     {
@@ -12,7 +12,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20195282",
       "publishedAt": "2019-06-05T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "schwein",
         "schweine",
@@ -30,7 +30,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20195281",
       "publishedAt": "2019-06-05T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "schwein",
         "schweine",
@@ -48,7 +48,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20181062",
       "publishedAt": "2018-09-27T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "schwein",
         "schweine",
@@ -66,7 +66,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20173670",
       "publishedAt": "2017-09-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "schwein",
         "schweine",
@@ -84,7 +84,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20170024",
       "publishedAt": "2017-02-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "nutztiere",
         "initiative",
@@ -103,7 +103,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20164075",
       "publishedAt": "2016-12-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "tiere",
         "tierversuch",
@@ -121,7 +121,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254831",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "hühner",
         "landwirtschaft",
@@ -140,7 +140,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20194548",
       "publishedAt": "2019-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "nutztiere",
         "transport",
@@ -158,7 +158,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20194023",
       "publishedAt": "2019-09-12T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "nutztiere",
         "transport",
@@ -176,7 +176,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20173646",
       "publishedAt": "2017-09-12T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "tierschutz",
         "tierquälerei",
@@ -194,7 +194,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20173240",
       "publishedAt": "2017-03-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "tierversuch",
         "tierversuche"
@@ -211,7 +211,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20173130",
       "publishedAt": "2017-03-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "tiere",
         "tierschutz"
@@ -228,7 +228,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20164121",
       "publishedAt": "2016-12-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "tierversuch",
         "tierversuche"
@@ -245,7 +245,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20185448",
       "publishedAt": "2018-09-12T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "stopfleber",
         "initiative",
@@ -263,7 +263,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20194017",
       "publishedAt": "2019-09-12T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "tierversuch",
         "tierversuche"
@@ -280,7 +280,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20183047",
       "publishedAt": "2018-02-28T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "tierversuch",
         "tierversuche"
@@ -297,7 +297,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20161030",
       "publishedAt": "2016-06-16T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "tierversuch",
         "tierversuche"
@@ -313,8 +313,8 @@
       "score": 0.75,
       "status": "queued",
       "sourceUrl": "https://www.nw.ch/landratmain",
-      "publishedAt": "2026-02-19T13:29:34.343Z",
-      "fetchedAt": "2026-02-19T13:29:34.343Z",
+      "publishedAt": "2026-02-19T14:03:42.775Z",
+      "fetchedAt": "2026-02-19T14:03:42.775Z",
       "matchedKeywords": [
         "tierschutz",
         "landwirtschaft"
@@ -331,7 +331,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20194253",
       "publishedAt": "2019-09-26T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "tierschutz",
         "landwirtschaft"
@@ -348,7 +348,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20193635",
       "publishedAt": "2019-06-18T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "tierschutz",
         "landwirtschaft"
@@ -365,7 +365,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20183989",
       "publishedAt": "2018-09-27T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:35.145Z",
+      "fetchedAt": "2026-02-19T14:03:43.730Z",
       "matchedKeywords": [
         "tierschutz",
         "landwirtschaft"
@@ -382,7 +382,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20194456",
       "publishedAt": "2019-12-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "tierschutz"
       ],
@@ -398,7 +398,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20184052",
       "publishedAt": "2018-09-28T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:34.338Z",
+      "fetchedAt": "2026-02-19T14:03:42.769Z",
       "matchedKeywords": [
         "tierschutz"
       ],
@@ -414,7 +414,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20185382",
       "publishedAt": "2018-06-06T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "tierschutz"
       ],
@@ -430,7 +430,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20173143",
       "publishedAt": "2017-03-15T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "tierschutz"
       ],
@@ -446,7 +446,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20173105",
       "publishedAt": "2017-03-14T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "tierschutz"
       ],
@@ -462,7 +462,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20175122",
       "publishedAt": "2017-03-06T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "tierschutz"
       ],
@@ -478,7 +478,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20163420",
       "publishedAt": "2016-06-09T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "tierversuch"
       ],
@@ -493,8 +493,8 @@
       "score": 0.5167,
       "status": "queued",
       "sourceUrl": "https://www.ur.ch/sitzung",
-      "publishedAt": "2026-02-19T13:29:34.343Z",
-      "fetchedAt": "2026-02-19T13:29:34.343Z",
+      "publishedAt": "2026-02-19T14:03:42.775Z",
+      "fetchedAt": "2026-02-19T14:03:42.775Z",
       "matchedKeywords": [
         "jagd"
       ],
@@ -510,7 +510,7 @@
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20163839",
       "publishedAt": "2016-09-30T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:30.040Z",
+      "fetchedAt": "2026-02-19T14:03:37.863Z",
       "matchedKeywords": [
         "tierversuch"
       ],
@@ -526,7 +526,7 @@
       "status": "queued",
       "sourceUrl": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=d0f7b26541424c43aab28a91744f6ba9",
       "publishedAt": "2025-11-19T23:00:00.000Z",
-      "fetchedAt": "2026-02-19T13:29:35.150Z",
+      "fetchedAt": "2026-02-19T14:03:43.731Z",
       "matchedKeywords": [
         "motion"
       ],
