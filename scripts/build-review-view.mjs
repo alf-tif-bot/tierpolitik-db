@@ -837,20 +837,22 @@ const key='tierpolitik.review';
 const uiKey='tierpolitik.review.ui';
 const fastlaneTagKey='tierpolitik.review.fastlaneTags';
 const initialFastlaneTags=${JSON.stringify(fastlaneTags)};
-const API_BASE=(localStorage.getItem('tierpolitik.apiBase')||'').replace(/\\/$/,'');
+const lsGet=(k)=>{ try { return localStorage.getItem(k); } catch { return null; } };
+const lsSet=(k,v)=>{ try { localStorage.setItem(k,v); } catch {} };
+const API_BASE=(lsGet('tierpolitik.apiBase')||'').replace(/\\/$/,'');
 const safeJsonParse=(raw, fallback={})=>{
   try { return JSON.parse(raw || JSON.stringify(fallback)); }
   catch { return fallback; }
 };
-const read=()=>safeJsonParse(localStorage.getItem(key),{});
-const write=(v)=>localStorage.setItem(key,JSON.stringify(v,null,2));
+const read=()=>safeJsonParse(lsGet(key),{});
+const write=(v)=>lsSet(key,JSON.stringify(v,null,2));
 const readFastlaneTags=()=>{
-  const local = safeJsonParse(localStorage.getItem(fastlaneTagKey),{});
+  const local = safeJsonParse(lsGet(fastlaneTagKey),{});
   return { ...initialFastlaneTags, ...local };
 };
-const writeFastlaneTags=(v)=>localStorage.setItem(fastlaneTagKey,JSON.stringify(v));
-const readUi=()=>safeJsonParse(localStorage.getItem(uiKey),{});
-const writeUi=(v)=>localStorage.setItem(uiKey,JSON.stringify(v));
+const writeFastlaneTags=(v)=>lsSet(fastlaneTagKey,JSON.stringify(v));
+const readUi=()=>safeJsonParse(lsGet(uiKey),{});
+const writeUi=(v)=>lsSet(uiKey,JSON.stringify(v));
 
 let showDecided = false;
 
