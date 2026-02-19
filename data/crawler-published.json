@@ -1,255 +1,5 @@
 [
   {
-    "id": "ch-parliament-business-de:20212027",
-    "title": "Parlamentsgeschäft 20212027",
-    "summary": "Parlamentsgeschäft 20212027",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:51:48.645Z",
-    "score": 0.5800000000000001,
-    "matchedKeywords": [
-      "tierschutz"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20213703",
-    "title": "Parlamentsgeschäft 20213703",
-    "summary": "Parlamentsgeschäft 20213703",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:51:36.681Z",
-    "score": 0.5800000000000001,
-    "matchedKeywords": [
-      "tierschutz"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20254144",
-    "title": "Parlamentsgeschäft 20254144",
-    "summary": "Parlamentsgeschäft 20254144",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:51:26.249Z",
-    "score": 0.06000000000000001,
-    "matchedKeywords": [
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20254071",
-    "title": "Parlamentsgeschäft 20254071",
-    "summary": "Parlamentsgeschäft 20254071",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:51:14.234Z",
-    "score": 0.06000000000000001,
-    "matchedKeywords": [
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20243277",
-    "title": "Parlamentsgeschäft 20243277",
-    "summary": "Parlamentsgeschäft 20243277",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:51:05.436Z",
-    "score": 0.06000000000000001,
-    "matchedKeywords": [
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20234379",
-    "title": "Parlamentsgeschäft 20234379",
-    "summary": "Parlamentsgeschäft 20234379",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:50:55.284Z",
-    "score": 0.06000000000000001,
-    "matchedKeywords": [
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20231034",
-    "title": "Parlamentsgeschäft 20231034",
-    "summary": "Parlamentsgeschäft 20231034",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:50:44.062Z",
-    "score": 0.42000000000000004,
-    "matchedKeywords": [
-      "herdenschutz",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20223302",
-    "title": "Parlamentsgeschäft 20223302",
-    "summary": "Parlamentsgeschäft 20223302",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:50:35.730Z",
-    "score": 0.06000000000000001,
-    "matchedKeywords": [
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20213229",
-    "title": "Parlamentsgeschäft 20213229",
-    "summary": "Parlamentsgeschäft 20213229",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:50:18.748Z",
-    "score": 0.06000000000000001,
-    "matchedKeywords": [
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20258063",
-    "title": "Parlamentsgeschäft 20258063",
-    "summary": "Parlamentsgeschäft 20258063",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:48:51.037Z",
-    "score": 0.54,
-    "matchedKeywords": [
-      "stopfleber"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20223808",
-    "title": "Parlamentsgeschäft 20223808",
-    "summary": "Parlamentsgeschäft 20223808",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:48:35.254Z",
-    "score": 0.5800000000000001,
-    "matchedKeywords": [
-      "tierversuch"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20223952",
-    "title": "Parlamentsgeschäft 20223952",
-    "summary": "Parlamentsgeschäft 20223952",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:48:21.245Z",
-    "score": 0.5800000000000001,
-    "matchedKeywords": [
-      "tierschutz"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20243296",
-    "title": "Parlamentsgeschäft 20243296",
-    "summary": "Parlamentsgeschäft 20243296",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:48:01.801Z",
-    "score": 0.6100000000000001,
-    "matchedKeywords": [
-      "tierschutz"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20244344",
-    "title": "Parlamentsgeschäft 20244344",
-    "summary": "Parlamentsgeschäft 20244344",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:47:46.650Z",
-    "score": 0.5800000000000001,
-    "matchedKeywords": [
-      "tierschutz"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20252027",
-    "title": "Parlamentsgeschäft 20252027",
-    "summary": "Parlamentsgeschäft 20252027",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:47:31.527Z",
-    "score": 0.5800000000000001,
-    "matchedKeywords": [
-      "tierschutz"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20214167",
-    "title": "Parlamentsgeschäft 20214167",
-    "summary": "Parlamentsgeschäft 20214167",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:47:12.077Z",
-    "score": 0.8600000000000001,
-    "matchedKeywords": [
-      "schwein",
-      "schweine"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20218021",
-    "title": "Parlamentsgeschäft 20218021",
-    "summary": "Parlamentsgeschäft 20218021",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:47:04.273Z",
-    "score": 0.2,
-    "matchedKeywords": [
-      "motion",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20223210",
-    "title": "Parlamentsgeschäft 20223210",
-    "summary": "Parlamentsgeschäft 20223210",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:35:12.465Z",
-    "score": 0.8600000000000001,
-    "matchedKeywords": [
-      "schwein",
-      "schweine"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20232009",
-    "title": "Parlamentsgeschäft 20232009",
-    "summary": "Parlamentsgeschäft 20232009",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:46:33.981Z",
-    "score": 0.7200000000000001,
-    "matchedKeywords": [
-      "tierschutz",
-      "schweizer tierschutz"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20250059",
-    "title": "Parlamentsgeschäft 20250059",
-    "summary": "Parlamentsgeschäft 20250059",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:46:21.071Z",
-    "score": 0.7200000000000001,
-    "matchedKeywords": [
-      "tierschutz",
-      "botschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20253976",
-    "title": "Parlamentsgeschäft 20253976",
-    "summary": "Parlamentsgeschäft 20253976",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:46:09.081Z",
-    "score": 0.7500000000000001,
-    "matchedKeywords": [
-      "tierschutz",
-      "schlacht"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20212004",
-    "title": "Parlamentsgeschäft 20212004",
-    "summary": "Parlamentsgeschäft 20212004",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:45:46.775Z",
-    "score": 0.8600000000000001,
-    "matchedKeywords": [
-      "tierversuch",
-      "tierversuche"
-    ]
-  },
-  {
     "id": "ch-parliament-business-de:20213364",
     "title": "Parlamentsgeschäft 20213364",
     "summary": "Parlamentsgeschäft 20213364",
@@ -786,6 +536,50 @@
     ]
   },
   {
+    "id": "ch-parliament-business-de:20212027",
+    "title": "Parlamentsgeschäft 20212027",
+    "summary": "Parlamentsgeschäft 20212027",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2026-02-14T10:51:48.645Z",
+    "score": 0.5800000000000001,
+    "matchedKeywords": [
+      "tierschutz"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20213703",
+    "title": "Parlamentsgeschäft 20213703",
+    "summary": "Parlamentsgeschäft 20213703",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2026-02-14T10:51:36.681Z",
+    "score": 0.5800000000000001,
+    "matchedKeywords": [
+      "tierschutz"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20254144",
+    "title": "Parlamentsgeschäft 20254144",
+    "summary": "Parlamentsgeschäft 20254144",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2026-02-14T10:51:26.249Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20254071",
+    "title": "Parlamentsgeschäft 20254071",
+    "summary": "Parlamentsgeschäft 20254071",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2026-02-14T10:51:14.234Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
+    ]
+  },
+  {
     "id": "ch-parliament-business-fr:20250404-fr",
     "title": "25.404 · Contre-projet indirect à l’initiative foie gras",
     "summary": "Fin des discussions en commission du Conseil national",
@@ -830,6 +624,17 @@
     ]
   },
   {
+    "id": "ch-parliament-business-de:20243277",
+    "title": "Parlamentsgeschäft 20243277",
+    "summary": "Parlamentsgeschäft 20243277",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2026-02-14T10:51:05.436Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
+    ]
+  },
+  {
     "id": "ch-parliament-business-de:20203021",
     "title": "Parlamentsgeschäft 20203021",
     "summary": "Parlamentsgeschäft 20203021",
@@ -842,14 +647,14 @@
     ]
   },
   {
-    "id": "ch-parliament-business-de:20204002",
-    "title": "Parlamentsgeschäft 20204002",
-    "summary": "Parlamentsgeschäft 20204002",
+    "id": "ch-parliament-business-de:20234379",
+    "title": "Parlamentsgeschäft 20234379",
+    "summary": "Parlamentsgeschäft 20234379",
     "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T22:33:10.537Z",
-    "score": 0.5800000000000001,
+    "publishedAt": "2026-02-14T10:50:55.284Z",
+    "score": 0.06000000000000001,
     "matchedKeywords": [
-      "tierschutz"
+      "landwirtschaft"
     ]
   },
   {
@@ -862,6 +667,29 @@
     "matchedKeywords": [
       "tierschutz",
       "schweizer tierschutz"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20231034",
+    "title": "Parlamentsgeschäft 20231034",
+    "summary": "Parlamentsgeschäft 20231034",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2026-02-14T10:50:44.062Z",
+    "score": 0.42000000000000004,
+    "matchedKeywords": [
+      "herdenschutz",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20223302",
+    "title": "Parlamentsgeschäft 20223302",
+    "summary": "Parlamentsgeschäft 20223302",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2026-02-14T10:50:35.730Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
     ]
   },
   {
@@ -1133,6 +961,17 @@
     ]
   },
   {
+    "id": "ch-parliament-business-de:20213229",
+    "title": "Parlamentsgeschäft 20213229",
+    "summary": "Parlamentsgeschäft 20213229",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2026-02-14T10:50:18.748Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
+    ]
+  },
+  {
     "id": "ch-parliament-business-de:20202018",
     "title": "Parlamentsgeschäft 20202018",
     "summary": "Parlamentsgeschäft 20202018",
@@ -1294,6 +1133,177 @@
     "matchedKeywords": [
       "tierversuch",
       "3r"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20173545-de",
+    "title": "17.3545 · Handlungsbedarf bei Tierversuchen. Förderung des 3R-Prinzips durch den Schweizerischen Nationalfonds",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2017-06-15T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche",
+      "3r"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20254144-de",
+    "title": "25.4144 · Ist die Erhaltung seltener Nutztierrassen durch die geplante Totalrevision der Tierzuchtverordnung (TZV) gefährdet?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-09-25T00:00:00.000Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20237580-de",
+    "title": "23.7580 · Der Schutz des Menschen und der Nutztiere ist höher zu gewichten als der Wolf",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2023-09-13T00:00:00.000Z",
+    "score": 0.9600000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "wolf",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20237608-de",
+    "title": "23.7608 · Warum sollten Wolfsrudel unabhängig vom Risiko von Schäden an Nutztieren abgeschossen werden?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2023-09-13T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20237858-de",
+    "title": "23.7858 · Abschuss von Wolfsrudeln trotz immer weniger Schäden an Nutztieren?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2023-12-06T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20213002-de",
+    "title": "21.3002 · Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2021-01-14T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20145609-de",
+    "title": "14.5609 · Ein Nebeneinander von Nutztier und Wolf gestalten",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2014-12-02T00:00:00.000Z",
+    "score": 0.42000000000000004,
+    "matchedKeywords": [
+      "wolf",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20154176-de",
+    "title": "15.4176 · Fische aus Aquakultur als landwirtschaftliche Nutztiere",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2015-12-17T00:00:00.000Z",
+    "score": 0.7600000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "fisch",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20143502-de",
+    "title": "14.3502 · Tierschutzwidrige Importe von Jagdtrophäen",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2014-06-19T00:00:00.000Z",
+    "score": 0.5800000000000001,
+    "matchedKeywords": [
+      "tierschutz"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20204214",
+    "title": "Parlamentsgeschäft 20204214",
+    "summary": "Parlamentsgeschäft 20204214",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2026-02-14T22:32:17.375Z",
+    "score": 0.6200000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20258063",
+    "title": "Parlamentsgeschäft 20258063",
+    "summary": "Parlamentsgeschäft 20258063",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2026-02-14T10:48:51.037Z",
+    "score": 0.54,
+    "matchedKeywords": [
+      "stopfleber"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20193215-de",
+    "title": "19.3215 · Mehr Tierschutz in der Aquakultur mit Fischen",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2019-03-21T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "fisch"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20081079-de",
+    "title": "08.1079 · Trichinellenuntersuchung in der Schweizer Schweinefleischproduktion",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2008-09-18T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "schwein",
+      "schweine",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20154105-de",
+    "title": "15.4105 · Tierquälerei. Stutenblut für die Schweineproduktion",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2015-12-07T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "schwein",
+      "schweine",
+      "tierquälerei",
+      "landwirtschaft"
     ]
   }
 ]
