@@ -1,236 +1,5 @@
 [
   {
-    "id": "ch-parliament-motions-de:20213229-de",
-    "title": "21.3229 · Erhaltung einheimischer Nutztierrassen",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2021-03-17T00:00:00.000Z",
-    "score": 0.06000000000000001,
-    "matchedKeywords": [
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20204002-de",
-    "title": "20.4002 · Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2020-09-16T00:00:00.000Z",
-    "score": 0.5800000000000001,
-    "matchedKeywords": [
-      "tierschutz"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20143830-de",
-    "title": "14.3830 · Jagdbanngebiete in Wildtierschutzgebiete umbenennen",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2014-09-25T00:00:00.000Z",
-    "score": 0.9400000000000001,
-    "matchedKeywords": [
-      "wildtier",
-      "jagdbann"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20234379-de",
-    "title": "23.4379 · Anpassung des Gewässerschutzgesetzes an die praktizierte Nutztierhaltung",
-    "summary": "Überwiesen an den Bundesrat",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2023-12-18T00:00:00.000Z",
-    "score": 0.06000000000000001,
-    "matchedKeywords": [
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20223302-de",
-    "title": "22.3302 · Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2022-03-17T00:00:00.000Z",
-    "score": 0.06000000000000001,
-    "matchedKeywords": [
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20123754-de",
-    "title": "12.3754 · Wiederzulassung von tierischen Schlachtnebenprodukten für die Fütterung von Nutztieren",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2012-09-20T00:00:00.000Z",
-    "score": 0.8600000000000001,
-    "matchedKeywords": [
-      "nutztiere",
-      "schlacht",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20223728-de",
-    "title": "22.3728 · Afrikanische Schweinepest. Schlachtbetriebe und damit die Versorgungssicherheit gefährden?",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2022-06-16T00:00:00.000Z",
-    "score": 1,
-    "matchedKeywords": [
-      "schwein",
-      "schweine",
-      "schlacht"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20223633-de",
-    "title": "22.3633 · Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden?",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2022-06-15T00:00:00.000Z",
-    "score": 1,
-    "matchedKeywords": [
-      "schwein",
-      "schweine",
-      "schlacht",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20223300-de",
-    "title": "22.3300 · 3R-Kompetenz der kantonalen Tierversuchskommissionen stärken",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2022-03-17T00:00:00.000Z",
-    "score": 0.8600000000000001,
-    "matchedKeywords": [
-      "tierversuch",
-      "3r"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20204340-de",
-    "title": "20.4340 · Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2020-11-17T00:00:00.000Z",
-    "score": 0.7200000000000001,
-    "matchedKeywords": [
-      "nutztiere",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20154176-de",
-    "title": "15.4176 · Fische aus Aquakultur als landwirtschaftliche Nutztiere",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2015-12-17T00:00:00.000Z",
-    "score": 0.9800000000000001,
-    "matchedKeywords": [
-      "nutztiere",
-      "fisch",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20254380-de",
-    "title": "25.4380 · Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhühner\") gesetzlich verankern",
-    "summary": "Zugewiesen an die behandelnde Kommission",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2025-09-26T00:00:00.000Z",
-    "score": 0.8400000000000001,
-    "matchedKeywords": [
-      "geflügel",
-      "gesetz",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20203021-de",
-    "title": "20.3021 · Importverbot für tierquälerisch erzeugte Stopfleber",
-    "summary": "Überwiesen an den Bundesrat",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2020-03-02T00:00:00.000Z",
-    "score": 0.68,
-    "matchedKeywords": [
-      "stopfleber",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20213363-de",
-    "title": "21.3363 · Gemeinsame Bewilligungsbehörde für eine einheitliche Beurteilung von Tierversuchen mit Schweregrad 3",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2021-03-18T00:00:00.000Z",
-    "score": 0.8600000000000001,
-    "matchedKeywords": [
-      "tierversuch",
-      "tierversuche"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20173240-de",
-    "title": "17.3240 · Für einen innovativen Forschungsstandort Schweiz. Bessere Förderung von Ersatzmethoden für Tierversuche",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2017-03-17T00:00:00.000Z",
-    "score": 0.8600000000000001,
-    "matchedKeywords": [
-      "tierversuch",
-      "tierversuche"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20213829-de",
-    "title": "21.3829 · Regelungskompetenz im Tierschutz. Auch bei den Kantonen",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2021-06-17T00:00:00.000Z",
-    "score": 0.7200000000000001,
-    "matchedKeywords": [
-      "tierschutz",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20204214-de",
-    "title": "20.4214 · Amtliche Tierschutzkontrollen nachhaltig aus dem Landwirtschaftsbudget mitfinanzieren und transparent machen",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2020-09-25T00:00:00.000Z",
-    "score": 0.6200000000000001,
-    "matchedKeywords": [
-      "tierschutz",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20213405-de",
-    "title": "21.3405 · Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2021-03-19T00:00:00.000Z",
-    "score": 0.9266666666666667,
-    "matchedKeywords": [
-      "tierschutz",
-      "versuchstiere",
-      "haltung"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20213835-de",
-    "title": "21.3835 · Tierschutzverstösse besser ahnden",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2021-06-17T00:00:00.000Z",
-    "score": 0.7200000000000001,
-    "matchedKeywords": [
-      "tierschutz",
-      "landwirtschaft"
-    ]
-  },
-  {
     "id": "ch-parliament-motions-de:20184052-de",
     "title": "18.4052 · Effiziente Vertretung von Tierschutzanliegen in Strafverfahren ermöglichen",
     "summary": "Erledigt",
@@ -282,16 +51,13 @@
     ]
   },
   {
-    "id": "ch-parliament-motions-de:20204731-de",
-    "title": "20.4731 · Kein Experimentieren bei Ohrmarken für Nutztiere",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2020-12-18T00:00:00.000Z",
-    "score": 0.7200000000000001,
-    "matchedKeywords": [
-      "nutztiere",
-      "landwirtschaft"
-    ]
+    "id": "user-input:user-1770941941585",
+    "title": "Hinweis: Taubenschutz in Gemeinde X",
+    "summary": "Eingereicht durch User-Input-Kanal",
+    "sourceId": "user-input",
+    "publishedAt": "2026-02-13T00:19:01.585Z",
+    "score": 0,
+    "matchedKeywords": []
   },
   {
     "id": "ch-parliament-business-de:20123460-de",
@@ -326,6 +92,17 @@
     "score": 0.5800000000000001,
     "matchedKeywords": [
       "tierschutz"
+    ]
+  },
+  {
+    "id": "ch-parliament-motions-de:20213229-de",
+    "title": "21.3229 · Erhaltung einheimischer Nutztierrassen",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2021-03-17T00:00:00.000Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
     ]
   },
   {
@@ -501,7 +278,7 @@
     "title": "NE · Grand Conseil Neuchâtel: Motions Grand Conseil NE",
     "summary": "Objets - R&eacute;publique et canton de Neuch&acirc;tel – 10 relevante Linkziele erkannt (2 thematisch, 3 Seiten gescannt, Leitlink: Motions Grand Conseil NE)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-19T21:33:51.532Z",
+    "publishedAt": "2026-02-19T22:24:47.832Z",
     "score": 1,
     "matchedKeywords": [
       "animaux",
@@ -516,7 +293,7 @@
     "title": "SZ · Kantonsrat Schwyz: Jagd und Wildtiere",
     "summary": "Kantonsrat – Kanton Schwyz – 3 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Jagd und Wildtiere)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-19T21:33:51.532Z",
+    "publishedAt": "2026-02-19T22:24:47.832Z",
     "score": 1,
     "matchedKeywords": [
       "wildtier",
@@ -529,7 +306,7 @@
     "title": "ZG · Kantonsrat Zug: Geschäftsdetail Kantonsrat Zug #1",
     "summary": "Geschäfte des Kantonsrats – 10 relevante Linkziele erkannt (0 thematisch, 3 Seiten gescannt, Leitlink: Geschäftsdetail Kantonsrat Zug #1)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-19T21:33:51.532Z",
+    "publishedAt": "2026-02-19T22:09:45.193Z",
     "score": 0,
     "matchedKeywords": []
   },
@@ -733,6 +510,17 @@
     ]
   },
   {
+    "id": "ch-parliament-motions-de:20204002-de",
+    "title": "20.4002 · Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2020-09-16T00:00:00.000Z",
+    "score": 0.5800000000000001,
+    "matchedKeywords": [
+      "tierschutz"
+    ]
+  },
+  {
     "id": "ch-parliament-business-de:20223300",
     "title": "Parlamentsgeschäft 20223300",
     "summary": "Parlamentsgeschäft 20223300",
@@ -742,6 +530,18 @@
     "matchedKeywords": [
       "tierversuch",
       "3r"
+    ]
+  },
+  {
+    "id": "ch-parliament-motions-de:20143830-de",
+    "title": "14.3830 · Jagdbanngebiete in Wildtierschutzgebiete umbenennen",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2014-09-25T00:00:00.000Z",
+    "score": 0.9400000000000001,
+    "matchedKeywords": [
+      "wildtier",
+      "jagdbann"
     ]
   },
   {
@@ -874,6 +674,17 @@
     ]
   },
   {
+    "id": "ch-parliament-motions-de:20234379-de",
+    "title": "23.4379 · Anpassung des Gewässerschutzgesetzes an die praktizierte Nutztierhaltung",
+    "summary": "Überwiesen an den Bundesrat",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2023-12-18T00:00:00.000Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
+    ]
+  },
+  {
     "id": "ch-parliament-business-it:20254906-it",
     "title": "25.4906 · Coinvolgere la filiera agroalimentare svizzera negli sforzi tesi a ridurre la fame nel mondo",
     "summary": "La dichiarazione sull’intervento è disponibile",
@@ -885,6 +696,17 @@
       "landwirtschaft",
       "agriculture",
       "agricoltura"
+    ]
+  },
+  {
+    "id": "ch-parliament-motions-de:20223302-de",
+    "title": "22.3302 · Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2022-03-17T00:00:00.000Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
     ]
   },
   {
@@ -934,6 +756,19 @@
       "landwirtschaft",
       "agriculture",
       "agricoltura"
+    ]
+  },
+  {
+    "id": "ch-parliament-motions-de:20123754-de",
+    "title": "12.3754 · Wiederzulassung von tierischen Schlachtnebenprodukten für die Fütterung von Nutztieren",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2012-09-20T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "schlacht",
+      "landwirtschaft"
     ]
   },
   {
@@ -1002,6 +837,33 @@
     "matchedKeywords": [
       "schwein",
       "schweine",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-motions-de:20223728-de",
+    "title": "22.3728 · Afrikanische Schweinepest. Schlachtbetriebe und damit die Versorgungssicherheit gefährden?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2022-06-16T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "schwein",
+      "schweine",
+      "schlacht"
+    ]
+  },
+  {
+    "id": "ch-parliament-motions-de:20223633-de",
+    "title": "22.3633 · Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2022-06-15T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "schwein",
+      "schweine",
+      "schlacht",
       "landwirtschaft"
     ]
   },
@@ -1110,6 +972,43 @@
     ]
   },
   {
+    "id": "ch-parliament-motions-de:20223300-de",
+    "title": "22.3300 · 3R-Kompetenz der kantonalen Tierversuchskommissionen stärken",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2022-03-17T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "tierversuch",
+      "3r"
+    ]
+  },
+  {
+    "id": "ch-parliament-motions-de:20204340-de",
+    "title": "20.4340 · Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2020-11-17T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-motions-de:20154176-de",
+    "title": "15.4176 · Fische aus Aquakultur als landwirtschaftliche Nutztiere",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2015-12-17T00:00:00.000Z",
+    "score": 0.9800000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "fisch",
+      "landwirtschaft"
+    ]
+  },
+  {
     "id": "ch-parliament-business-de:20254010",
     "title": "Parlamentsgeschäft 20254010",
     "summary": "Parlamentsgeschäft 20254010",
@@ -1120,42 +1019,6 @@
       "geflügel",
       "gesetz",
       "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-fr:20254788-fr",
-    "title": "25.4788 · Réintroduire des contributions aux détenteurs d’animaux qui soient adaptées à notre époque pour garantir durablement la détention d’animaux de rente et l'alimentation en Suisse",
-    "summary": "L’avis relatif à l’intervention est disponible",
-    "sourceId": "ch-parliament-business-fr",
-    "publishedAt": "2025-12-19T00:00:00.000Z",
-    "score": 1,
-    "matchedKeywords": [
-      "ernährung",
-      "alimentazione",
-      "animal",
-      "animaux",
-      "animali",
-      "detenzione di animali",
-      "landwirtschaft",
-      "agriculture",
-      "agricoltura"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-fr:20254812-fr",
-    "title": "25.4812 · Protection des animaux. Conséquences de l’affaire de Ramiswil",
-    "summary": "L’avis relatif à l’intervention est disponible",
-    "sourceId": "ch-parliament-business-fr",
-    "publishedAt": "2025-12-19T00:00:00.000Z",
-    "score": 1,
-    "matchedKeywords": [
-      "tierschutz",
-      "animal",
-      "animaux",
-      "animali",
-      "landwirtschaft",
-      "agriculture",
-      "agricoltura"
     ]
   },
   {
@@ -1215,6 +1078,19 @@
     "matchedKeywords": [
       "nutztiere",
       "fisch",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-motions-de:20254380-de",
+    "title": "25.4380 · Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhühner\") gesetzlich verankern",
+    "summary": "Zugewiesen an die behandelnde Kommission",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2025-09-26T00:00:00.000Z",
+    "score": 0.8400000000000001,
+    "matchedKeywords": [
+      "geflügel",
+      "gesetz",
       "landwirtschaft"
     ]
   },
@@ -1292,6 +1168,126 @@
       "landwirtschaft",
       "agriculture",
       "agricoltura"
+    ]
+  },
+  {
+    "id": "ch-parliament-motions-de:20203021-de",
+    "title": "20.3021 · Importverbot für tierquälerisch erzeugte Stopfleber",
+    "summary": "Überwiesen an den Bundesrat",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2020-03-02T00:00:00.000Z",
+    "score": 0.68,
+    "matchedKeywords": [
+      "stopfleber",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-motions-de:20213363-de",
+    "title": "21.3363 · Gemeinsame Bewilligungsbehörde für eine einheitliche Beurteilung von Tierversuchen mit Schweregrad 3",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2021-03-18T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20213363-de",
+    "title": "21.3363 · Gemeinsame Bewilligungsbehörde für eine einheitliche Beurteilung von Tierversuchen mit Schweregrad 3",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2021-03-18T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20223808-de",
+    "title": "22.3808 · Aussagekräftige und transparente Tierversuchsstatistik",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2022-06-17T00:00:00.000Z",
+    "score": 0.5800000000000001,
+    "matchedKeywords": [
+      "tierversuch"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20210426-de",
+    "title": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
+    "summary": "In Kommission des Nationalrats",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2021-03-18T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche",
+      "animal",
+      "expérimentation animale",
+      "sperimentazione animale",
+      "3r",
+      "animale"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20254831-de",
+    "title": "25.4831 · Einheimische Produktionssysteme fördern anstatt Importbedingungen für mit Chlor behandeltem Hühnerfleisch lockern",
+    "summary": "Stellungnahme zum Vorstoss liegt vor",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-12-19T00:00:00.000Z",
+    "score": 0.8700000000000001,
+    "matchedKeywords": [
+      "hühner",
+      "landwirtschaft",
+      "agriculture",
+      "agricoltura"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-fr:19940011-fr",
+    "title": "94.011 · Protection des animaux. Convention",
+    "summary": "Message et projet d'arrêté du 26 janvier 1994 concernant le protocole d'amendement à la Convention européenne sur la protection des animaux dans les élevages et concernant un protocole d'amendement à la Convention européenne sur la protection des animaux dans les élevages.",
+    "sourceId": "ch-parliament-business-fr",
+    "publishedAt": "1994-01-26T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tiere",
+      "tierschutz",
+      "tierhaltung",
+      "animaux",
+      "élevage",
+      "elevage",
+      "botschaft",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20233515",
+    "title": "Parlamentsgeschäft 20233515",
+    "summary": "Parlamentsgeschäft 20233515",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2026-02-14T08:25:47.876Z",
+    "score": 0.6200000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-petitions-de:20052015-de",
+    "title": "05.2015 · Für das Recht zur Verweigerung von Tierversuchen aus Gewissensgründen",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-petitions-de",
+    "publishedAt": "2005-11-21T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche"
     ]
   }
 ]
