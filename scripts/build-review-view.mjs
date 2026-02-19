@@ -667,6 +667,24 @@ const humanizeReason = (reason = '') => {
   return parts.length ? parts.join('') : esc(text)
 }
 
+const isConcreteCantonalBusinessUrl = (url = '') => {
+  const low = String(url || '').toLowerCase()
+  if (!low) return false
+
+  const hasConcreteId = /affairid=\d+|geschaeftid=|objektid=|detail\.php\?gid=[a-f0-9]+|[?&](id|nr|nummer)=\d+/i.test(low)
+  const looksOverview = /\/sitzung$|\/landratmain$|\/landrat$|\/geschaefte$|\/objets\/pages\/(accueil|recherche)\.aspx|\/ricerca\/risultati$|\/kantonsrat(\.html|\/)?$|\/objets\/motions\/pages\/accueil\.aspx|\/objets\/postulats\/pages\/accueil\.aspx|\/objets\/interpellations\/pages\/accueil\.aspx/i.test(low)
+
+  if (looksOverview) return false
+  return hasConcreteId
+}
+
+reviewItems = reviewItems.filter((item) => {
+  const sid = String(item?.sourceId || '')
+  if (sid !== 'ch-cantonal-portal-core') return true
+  const sourceUrl = resolveOriginalUrl(item)
+  return isConcreteCantonalBusinessUrl(sourceUrl)
+})
+
 const fastLaneItems = reviewItems.filter((item) => {
   if (!isHighConfidenceReview(item)) return false
   if (decidedEntryKeys.has(entryKey(item))) return false

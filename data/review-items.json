@@ -1,11 +1,8 @@
 {
-  "generatedAt": "2026-02-19T10:40:49.052Z",
-  "total": 5,
+  "generatedAt": "2026-02-19T10:42:40.878Z",
+  "total": 2,
   "ids": [
-    "ch-cantonal-portal-core:cantonal-portal-nw",
     "ch-parliament-business-de:20254831-de",
-    "ch-cantonal-portal-core:cantonal-portal-ur",
-    "ch-cantonal-portal-core:cantonal-portal-ti",
     "ch-municipal-parliament-bern-zurich:municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9"
   ]
 }
