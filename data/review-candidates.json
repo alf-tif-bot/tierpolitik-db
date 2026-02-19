@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-02-19T20:11:44.734Z",
-  "total": 5,
+  "generatedAt": "2026-02-19T20:15:33.003Z",
+  "total": 1,
   "sourceFix": {
     "total": 2,
     "byCanton": {
@@ -29,73 +29,6 @@
     ]
   },
   "items": [
-    {
-      "id": "ch-parliament-business-de:20173240-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20173240-de",
-      "title": "17.3240 · Für einen innovativen Forschungsstandort Schweiz. Bessere Förderung von Ersatzmethoden für Tierversuche",
-      "summary": "Kurzfassung: Das Geschäft behandelt tierversuch, tierversuche. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.8600000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20173240",
-      "publishedAt": "2017-03-17T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T20:10:21.437Z",
-      "matchedKeywords": [
-        "tierversuch",
-        "tierversuche"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=tierversuch|tierversuche · support=- · title=- · context=- · process=- · fb+=tierversuch|tierversuche · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.86"
-    },
-    {
-      "id": "ch-parliament-business-de:20183989-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20183989-de",
-      "title": "18.3989 · Tierschutzkonformität bei grossen Tierbeständen in der Schweiz",
-      "summary": "Kurzfassung: Das Geschäft behandelt tierschutz. Einordnung: Es stellt eher einen positiven Bezug zum Tierschutz her.",
-      "score": 0.7200000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20183989",
-      "publishedAt": "2018-09-27T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T20:10:21.437Z",
-      "matchedKeywords": [
-        "tierschutz",
-        "landwirtschaft"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=landwirtschaft · title=- · context=- · process=- · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.72"
-    },
-    {
-      "id": "ch-parliament-postulates-de:20254831-de",
-      "sourceId": "ch-parliament-postulates-de",
-      "externalId": "20254831-de",
-      "title": "25.4831 · Einheimische Produktionssysteme fördern anstatt Importbedingungen für mit Chlor behandeltem Hühnerfleisch lockern",
-      "summary": "Kurzfassung: Das Geschäft behandelt hühner. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.5900000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254831",
-      "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T20:10:26.496Z",
-      "matchedKeywords": [
-        "hühner",
-        "landwirtschaft"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=hühner · support=landwirtschaft · title=hühner · context=- · process=vorstoss · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.14 · score=0.59"
-    },
-    {
-      "id": "ch-parliament-business-de:20184052-de",
-      "sourceId": "ch-parliament-business-de",
-      "externalId": "20184052-de",
-      "title": "18.4052 · Effiziente Vertretung von Tierschutzanliegen in Strafverfahren ermöglichen",
-      "summary": "Kurzfassung: Das Geschäft behandelt tierschutz. Einordnung: Es stellt eher einen positiven Bezug zum Tierschutz her.",
-      "score": 0.5800000000000001,
-      "status": "queued",
-      "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20184052",
-      "publishedAt": "2018-09-28T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T20:10:21.437Z",
-      "matchedKeywords": [
-        "tierschutz"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=- · title=- · context=- · process=- · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.58"
-    },
     {
       "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9",
       "sourceId": "ch-municipal-parliament-bern-zurich",

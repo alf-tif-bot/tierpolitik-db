@@ -830,6 +830,8 @@ const html = `<!doctype html>
   .view-label{font-size:12px;color:#94a3b8;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
   .view-btn{opacity:.78}
   .view-btn.active{opacity:1;border-color:#93c5fd;background:#2b4565;box-shadow:0 0 0 1px rgba(147,197,253,.25) inset}
+  .debug-box{margin:10px 0;padding:8px 10px;border:1px solid #334155;border-radius:8px;background:#0b1220;color:#cbd5e1;font:12px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .debug-box pre{margin:0;white-space:pre-wrap;word-break:break-word;max-height:180px;overflow:auto}
   table{width:100%;border-collapse:collapse;background:#111827;border:1px solid #334155;border-radius:12px;overflow:hidden}
   td,th{border-bottom:1px solid #1f2937;padding:10px;vertical-align:top;text-align:left}
   th{background:#1b2433;color:#dbeafe;font-weight:700;position:sticky;top:0}
@@ -860,8 +862,9 @@ const html = `<!doctype html>
     <p>Es werden standardmÃ¤ssig nur <strong>offene</strong> relevante EintrÃ¤ge gezeigt (queued/new). Bereits bearbeitete EintrÃ¤ge bleiben ausgeblendet und kÃ¶nnen bei Bedarf Ã¼ber den Button eingeblendet werden. Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB Ã¼bernommen.</p>
     <p class="status" id="status-summary">Status-Summen (sichtbar): offen=0, gutgeheissen=0, publiziert=0</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
-    <p class="export view-controls"><span class="view-label">Ansicht</span><button class="view-btn" onclick="setViewMode('open')" id="view-open">Offen</button> <button class="view-btn" onclick="setViewMode('rejected')" id="view-rejected">Abgelehnt (neu → alt)</button> <button class="view-btn" onclick="clearLocalReviewState()" id="view-reset">Lokale Entscheide löschen</button></p>
+    <p class="export view-controls"><span class="view-label">Ansicht</span><button class="view-btn" onclick="setViewMode('open')" id="view-open">Offen</button> <button class="view-btn" onclick="setViewMode('rejected')" id="view-rejected">Abgelehnt (neu → alt)</button> <button class="view-btn" onclick="clearLocalReviewState()" id="view-reset">Lokale Entscheide löschen</button> <button class="view-btn" onclick="toggleDebugPanel()" id="view-debug">Debug an/aus</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
+    <div id="review-debug-box" class="debug-box" style="display:none"><pre id="review-debug-log"></pre></div>
     ${fastLaneRows ? `<section class="fastlane-wrap">
       <h2>âš¡ Fast-Lane</h2>
       <div class="fastlane-grid">${fastLaneRows}</div>
@@ -893,8 +896,30 @@ const DEFAULT_API_BASE = (location.hostname === 'monitor.tierimfokus.ch')
   ? 'https://tierpolitik.netlify.app/.netlify/functions'
   : '';
 const API_BASE=(lsGet('tierpolitik.apiBase')||DEFAULT_API_BASE).replace(/\\/$/,'');
-const DEBUG_REVIEW = /(?:\?|&)debug=1(?:&|$)/.test(location.search);
-const dbg = (...args) => { if (DEBUG_REVIEW) console.log('[review-debug]', ...args); };
+let DEBUG_REVIEW = /(?:\?|&)debug=1(?:&|$)/.test(location.search) || lsGet('tierpolitik.review.debug') === '1';
+const debugState = { lines: [] };
+const renderDebug = () => {
+  const box = document.getElementById('review-debug-box');
+  const pre = document.getElementById('review-debug-log');
+  if (!box || !pre) return;
+  box.style.display = DEBUG_REVIEW ? '' : 'none';
+  pre.textContent = debugState.lines.slice(-30).join('\n');
+};
+const dbg = (...args) => {
+  const line = args.map((a) => {
+    if (typeof a === 'string') return a;
+    try { return JSON.stringify(a); } catch { return String(a); }
+  }).join(' ');
+  debugState.lines.push(line);
+  if (DEBUG_REVIEW) console.log('[review-debug]', ...args);
+  renderDebug();
+};
+window.toggleDebugPanel = function toggleDebugPanel(){
+  DEBUG_REVIEW = !DEBUG_REVIEW;
+  lsSet('tierpolitik.review.debug', DEBUG_REVIEW ? '1' : '0');
+  dbg('debug-panel', { enabled: DEBUG_REVIEW });
+  renderDebug();
+}
 window.__reviewDebug = {
   hostname: location.hostname,
   storedApiBase: lsGet('tierpolitik.apiBase'),

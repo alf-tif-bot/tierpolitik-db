@@ -1,11 +1,7 @@
 {
-  "generatedAt": "2026-02-19T20:11:44.734Z",
-  "total": 5,
+  "generatedAt": "2026-02-19T20:15:33.003Z",
+  "total": 1,
   "ids": [
-    "ch-parliament-business-de:20173240-de",
-    "ch-parliament-business-de:20183989-de",
-    "ch-parliament-postulates-de:20254831-de",
-    "ch-parliament-business-de:20184052-de",
     "ch-municipal-parliament-bern-zurich:municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9"
   ],
   "sourceFix": {
