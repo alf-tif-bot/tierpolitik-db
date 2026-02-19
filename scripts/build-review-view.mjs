@@ -837,7 +837,7 @@ const key='tierpolitik.review';
 const uiKey='tierpolitik.review.ui';
 const fastlaneTagKey='tierpolitik.review.fastlaneTags';
 const initialFastlaneTags=${JSON.stringify(fastlaneTags)};
-const API_BASE=(localStorage.getItem('tierpolitik.apiBase')||'').replace(/\/$/,'');
+const API_BASE=(localStorage.getItem('tierpolitik.apiBase')||'').replace(/\\/$/,'');
 const safeJsonParse=(raw, fallback={})=>{
   try { return JSON.parse(raw || JSON.stringify(fallback)); }
   catch { return fallback; }
@@ -912,7 +912,7 @@ function hideDecidedRows(){
   updateStatusSummary();
 }
 
-function toggleDecided(){
+window.toggleDecided = function toggleDecided(){
   showDecided = !showDecided
   writeUi({ showDecided })
   hideDecidedRows()
@@ -926,7 +926,7 @@ function renderFastlaneTagButton(id){
   });
 }
 
-async function toggleFastlaneTag(btn,id){
+window.toggleFastlaneTag = async function toggleFastlaneTag(btn,id){
   const tags = readFastlaneTags();
   const next = !Boolean(tags[id]?.fastlane);
   const taggedAt = new Date().toISOString();
@@ -973,7 +973,7 @@ async function toggleFastlaneTag(btn,id){
   if (btn) btn.disabled = false;
 }
 
-async function setDecision(btn,id,status){
+window.setDecision = async function setDecision(btn,id,status){
   const decidedAt = new Date().toISOString();
   const statusEl = document.getElementById('decision-status');
   if (statusEl) statusEl.textContent = 'Speichere Entscheidung…';
@@ -1037,7 +1037,7 @@ async function setDecision(btn,id,status){
   }
   if (btn) btn.disabled = false;
 }
-function exportDecisions(){
+window.exportDecisions = function exportDecisions(){
   const blob=new Blob([JSON.stringify(read(),null,2)],{type:'application/json'});
   const a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
