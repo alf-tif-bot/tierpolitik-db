@@ -884,23 +884,19 @@ window.toggleFastlaneTag = async function toggleFastlaneTag(btn,id){
   if (btn) btn.disabled = true;
 
   let serverOk = false;
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 5000);
-    const res = await fetch(API_BASE + '/review-fastlane-tag', {
-      method:'POST',
-      headers:{'content-type':'application/json'},
-      body: JSON.stringify({ id, fastlane: next, taggedAt }),
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-    if(!res.ok){
-      const txt = await res.text();
-      throw new Error(txt || 'Fastlane tag API failed');
-    }
-    serverOk = true;
-  } catch(err) {
-    console.warn('Fastlane tag API unavailable, using local fallback', err);
+  if (API_BASE) {
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 5000);
+      const res = await fetch(API_BASE + '/review-fastlane-tag', {
+        method:'POST',
+        headers:{'content-type':'application/json'},
+        body: JSON.stringify({ id, fastlane: next, taggedAt }),
+        signal: controller.signal,
+      });
+      clearTimeout(timer);
+      if (res.ok) serverOk = true;
+    } catch {}
   }
 
   tags[id] = { fastlane: next, taggedAt };
@@ -946,26 +942,21 @@ window.setDecision = async function setDecision(btn,id,status){
   })
 
   let serverOk = false;
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 5000);
+  if (API_BASE) {
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 5000);
 
-    const res = await fetch(API_BASE + '/review-decision', {
-      method:'POST',
-      headers:{'content-type':'application/json'},
-      body: JSON.stringify({ id, status, decidedAt }),
-      signal: controller.signal,
-    });
+      const res = await fetch(API_BASE + '/review-decision', {
+        method:'POST',
+        headers:{'content-type':'application/json'},
+        body: JSON.stringify({ id, status, decidedAt }),
+        signal: controller.signal,
+      });
 
-    clearTimeout(timer);
-
-    if(!res.ok){
-      const txt = await res.text();
-      throw new Error(txt || 'Decision API failed');
-    }
-    serverOk = true;
-  } catch(err) {
-    console.warn('Review decision API unavailable, using local fallback', err);
+      clearTimeout(timer);
+      if (res.ok) serverOk = true;
+    } catch {}
   }
 
   try {
