@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crawler Debug</title>
+  <style>
+    body{font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;background:#0b1220;color:#e2e8f0;margin:0;padding:20px}
+    h1{margin:0 0 8px}
+    .muted{color:#94a3b8}
+    .grid{display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:10px;margin:14px 0}
+    .card{background:#111b30;border:1px solid #233252;border-radius:10px;padding:10px}
+    table{width:100%;border-collapse:collapse;background:#111b30;border:1px solid #233252;border-radius:10px;overflow:hidden}
+    th,td{padding:8px;border-bottom:1px solid #1f2c46;text-align:left;font-size:13px}
+    th{background:#0f1a2f;color:#cbd5e1}
+    .ok{color:#22c55e}.warn{color:#f59e0b}.bad{color:#ef4444}
+    code{color:#93c5fd}
+  </style>
+</head>
+<body>
+  <h1>crawler-debug</h1>
+  <div class="muted">Direktlink: <code>/crawler</code> · Fokus: Warum fallen kantonale Items raus?</div>
+
+  <div class="grid" id="kpis"></div>
+
+  <h3>Kanton-Status (Review + Source-Fix)</h3>
+  <table>
+    <thead>
+      <tr><th>Kanton</th><th>Open review</th><th>Source-fix</th><th>Top score</th><th>Hinweis</th></tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+
+  <script>
+    const by = (arr, fn) => arr.reduce((m, x) => { const k = fn(x); m[k] = (m[k]||0)+1; return m; }, {});
+    const scoreBy = (arr, fn) => arr.reduce((m, x) => { const k = fn(x); m[k] = Math.max(m[k]||0, Number(x.score||0)); return m; }, {});
+
+    async function boot(){
+      const [candRes, dbRes] = await Promise.all([
+        fetch('/data/review-candidates.json', {cache:'no-store'}),
+        fetch('/data/crawler-db.json', {cache:'no-store'})
+      ]);
+      const cand = await candRes.json();
+      const db = await dbRes.json();
+      const items = cand.items || [];
+      const open = items.filter(i => ['queued','new'].includes(String(i.status||'').toLowerCase()));
+      const sourceFix = (cand.sourceFix && cand.sourceFix.items) ? cand.sourceFix.items : [];
+      const cantonalDb = (db.items||[]).filter(i => i.sourceId === 'ch-cantonal-portal-core');
+
+      const kpis = [
+        ['Open review', open.length],
+        ['Open kantonal', open.filter(i=>i.sourceId==='ch-cantonal-portal-core').length],
+        ['Source-fix kantonal', sourceFix.length],
+        ['Cantonal raw items', cantonalDb.length],
+      ];
+      document.getElementById('kpis').innerHTML = kpis.map(([k,v]) => `<div class="card"><div class="muted">${k}</div><div style="font-size:22px;font-weight:700">${v}</div></div>`).join('');
+
+      const openByCant = by(open.filter(i=>i.sourceId==='ch-cantonal-portal-core'), i => (i.externalId||'').split('-').pop()?.toUpperCase() || '??');
+      const fixByCant = by(sourceFix, i => i.canton || '??');
+      const topScore = scoreBy(cantonalDb, i => (i.meta?.canton || '??'));
+      const cants = [...new Set([...Object.keys(topScore), ...Object.keys(openByCant), ...Object.keys(fixByCant)])].sort();
+
+      document.getElementById('rows').innerHTML = cants.map(c => {
+        const o = openByCant[c] || 0;
+        const f = fixByCant[c] || 0;
+        const s = (topScore[c] ?? 0).toFixed(2);
+        const hint = o>0 ? '<span class="ok">reviewbar</span>' : (f>0 ? '<span class="warn">nur source-fix</span>' : '<span class="bad">kein Treffer</span>');
+        return `<tr><td><strong>${c}</strong></td><td>${o}</td><td>${f}</td><td>${s}</td><td>${hint}</td></tr>`;
+      }).join('');
+    }
+    boot().catch(err => {
+      document.body.insertAdjacentHTML('beforeend', `<p class="bad">Fehler beim Laden: ${String(err)}</p>`)
+    });
+  </script>
+</body>
+</html>
