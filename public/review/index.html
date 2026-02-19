@@ -132,6 +132,7 @@ window.toggleDebugPanel = function toggleDebugPanel(){
   dbg('debug-panel', { enabled: DEBUG_REVIEW });
   renderDebug();
 }
+window.functions.toggleDebugPanel = window.toggleDebugPanel
 window.__reviewDebug = {
   hostname: location.hostname,
   storedApiBaseRaw,
@@ -414,6 +415,11 @@ window.exportDecisions = function exportDecisions(){
 }
 
 for (const id of Object.keys(readFastlaneTags())) renderFastlaneTagButton(id)
+window.functions.setDecision = (...args) => window.setDecision(...args)
+window.functions.toggleFastlaneTag = (...args) => window.toggleFastlaneTag(...args)
+window.functions.setViewMode = (...args) => window.setViewMode(...args)
+window.functions.clearLocalReviewState = (...args) => window.clearLocalReviewState(...args)
+
 hideDecidedRows();
 </script>
 </body>

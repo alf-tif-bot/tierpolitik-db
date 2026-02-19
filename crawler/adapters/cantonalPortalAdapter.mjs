@@ -435,6 +435,19 @@ const extractSpecializedDetailLinks = (html = '', baseUrl = '', canton = '') => 
 
 const ZG_SITEMAP_URL = 'https://kr-geschaefte.zug.ch/sitemap.xml'
 const ZG_DETAIL_URL_RX = /https:\/\/kr-geschaefte\.zug\.ch\/gast\/geschaefte\/(\d+)/gi
+const ZG_SITEMAP_INDEX_RX = /<sitemap>\s*<loc>([^<]+)<\/loc>/gi
+const ZG_SEED_SOURCES = [
+  { kind: 'sitemap', url: 'https://kr-geschaefte.zug.ch/sitemap.xml' },
+  { kind: 'sitemap', url: 'https://www.kr-geschaefte.zug.ch/sitemap.xml' },
+  { kind: 'sitemap', url: 'https://kr-geschaefte.zug.ch/sitemap_index.xml' },
+  { kind: 'sitemap', url: 'https://www.kr-geschaefte.zug.ch/sitemap_index.xml' },
+  { kind: 'list', url: 'https://kr-geschaefte.zug.ch/gast/geschaefte' },
+  { kind: 'list', url: 'https://www.kr-geschaefte.zug.ch/gast/geschaefte' },
+  { kind: 'list', url: 'https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats' },
+  { kind: 'list', url: 'https://www.zg.ch/de/staat-politik/geschaefte-des-kantonsrats' },
+  { kind: 'archive', url: 'https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/protokolle' },
+  { kind: 'archive', url: 'https://www.zg.ch/de/staat-politik/geschaefte-des-kantonsrats/protokolle' },
+]
 
 const extractZgLinksFromSitemap = (xml = '') => {
   const extracted = []
@@ -451,6 +464,98 @@ const extractZgLinksFromSitemap = (xml = '') => {
 
   return [...new Map(extracted
     .map((l) => [canonicalizeLinkUrl(l.href), l])).values()]
+}
+
+const extractZgSitemapChildren = (xml = '') => {
+  const children = []
+  for (const m of String(xml || '').matchAll(ZG_SITEMAP_INDEX_RX)) {
+    const child = normalizeUrl(String(m[1] || '').trim(), ZG_SITEMAP_URL)
+    if (!child || !child.includes('kr-geschaefte.zug.ch')) continue
+    children.push(child)
+    if (children.length >= 20) break
+  }
+  return [...new Set(children)]
+}
+
+const fetchZgSeedPages = async ({ parentSignal, requestTimeoutMs }) => {
+  const seedTelemetry = []
+  const collected = []
+
+  for (const seed of ZG_SEED_SOURCES) {
+    if (parentSignal?.aborted) break
+
+    const startedAt = Date.now()
+    let ok = false
+    let status = null
+    let finalUrl = ''
+    let discovered = 0
+    let error = ''
+
+    try {
+      const response = await fetch(seed.url, {
+        headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
+        redirect: 'follow',
+        signal: mergeAbortSignals(parentSignal, AbortSignal.timeout(requestTimeoutMs)),
+      })
+      status = response.status
+      finalUrl = response.url
+      if (!response.ok) throw new Error(`http-${response.status}`)
+      const text = await response.text()
+      ok = true
+
+      const baseLinks = extractZgLinksFromSitemap(text)
+      discovered += baseLinks.length
+      if (baseLinks.length) {
+        collected.push(...baseLinks)
+      }
+
+      const childSitemaps = extractZgSitemapChildren(text)
+      for (const childUrl of childSitemaps) {
+        if (parentSignal?.aborted) break
+        try {
+          const childResponse = await fetch(childUrl, {
+            headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
+            redirect: 'follow',
+            signal: mergeAbortSignals(parentSignal, AbortSignal.timeout(requestTimeoutMs)),
+          })
+          if (!childResponse.ok) continue
+          const childText = await childResponse.text()
+          const childLinks = extractZgLinksFromSitemap(childText)
+          if (childLinks.length) {
+            discovered += childLinks.length
+            collected.push(...childLinks)
+          }
+        } catch {
+          // best effort child sitemap fetch
+        }
+      }
+
+      const htmlLinks = extractSpecializedDetailLinks(text, finalUrl || seed.url, 'ZG')
+      if (htmlLinks.length) {
+        discovered += htmlLinks.length
+        collected.push(...htmlLinks)
+      }
+    } catch (err) {
+      error = String(err?.message || err || 'fetch-failed').slice(0, 140)
+    }
+
+    seedTelemetry.push({
+      seedUrl: seed.url,
+      kind: seed.kind,
+      ok,
+      httpStatus: status,
+      finalUrl: finalUrl || undefined,
+      discoveredLinks: discovered,
+      durationMs: Date.now() - startedAt,
+      error: error || undefined,
+    })
+  }
+
+  const links = [...new Map(collected
+    .map((l) => [canonicalizeLinkUrl(l.href), l])).values()]
+    .slice(0, 140)
+
+  return { links, seedTelemetry }
 }
 
 const hasConcreteCantonalDetailUrl = (href = '') => {
@@ -623,20 +728,14 @@ export function createCantonalPortalAdapter() {
         ]
 
         let zgSitemapLinks = []
+        let zgSeedTelemetry = []
         if (canton === 'ZG') {
-          try {
-            const sitemapResponse = await fetch(ZG_SITEMAP_URL, {
-              headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
-              redirect: 'follow',
-              signal: mergeAbortSignals(signal, AbortSignal.timeout(requestTimeoutMs)),
-            })
-            if (sitemapResponse.ok) {
-              const sitemapXml = await sitemapResponse.text()
-              zgSitemapLinks = extractZgLinksFromSitemap(sitemapXml)
-            }
-          } catch {
-            // best-effort fallback only
-          }
+          const zgSeedResult = await fetchZgSeedPages({
+            parentSignal: signal,
+            requestTimeoutMs,
+          })
+          zgSitemapLinks = zgSeedResult.links
+          zgSeedTelemetry = zgSeedResult.seedTelemetry
         }
 
         const links = appendFallbackLinks(canton, [...zgSitemapLinks, ...specializedLinks, ...parsedLinks])
@@ -682,6 +781,10 @@ export function createCantonalPortalAdapter() {
             fetchedPages: fetchedPages.map((p) => ({ requestedUrl: p.usedUrl, finalUrl: p.response.url })).slice(0, 3),
             zgSitemapLinkCount: zgSitemapLinks.length || undefined,
             zgFallbackUsed: canton === 'ZG' ? zgSitemapLinks.length > 0 : undefined,
+            zgSeedDiscovery: canton === 'ZG' ? zgSeedTelemetry : undefined,
+            zgSeedDiscoveryTotal: canton === 'ZG'
+              ? zgSeedTelemetry.reduce((acc, seed) => acc + Number(seed?.discoveredLinks || 0), 0)
+              : undefined,
           },
         })
       }

@@ -1,17 +1,200 @@
 {
-  "generatedAt": "2026-02-19T21:25:46.867Z",
+  "generatedAt": "2026-02-19T21:34:52.808Z",
   "counts": {
-    "discovered_links": 0,
-    "extracted_candidates": 0,
+    "discovered_links": 10,
+    "extracted_candidates": 1,
     "normalized_items": 0,
-    "filtered_out": 0,
-    "raw": 0,
+    "filtered_out": 1,
+    "raw": 1,
     "source_fix": 0,
-    "open": 0
+    "open": 0,
+    "seed_urls": 10,
+    "seed_discovered_total": 52
   },
-  "discovered_links": [],
-  "extracted_candidates": [],
+  "seed_discovery": [
+    {
+      "seedUrl": "https://kr-geschaefte.zug.ch/sitemap.xml",
+      "kind": "sitemap",
+      "ok": true,
+      "httpStatus": 200,
+      "finalUrl": "https://kr-geschaefte.zug.ch/sitemap.xml",
+      "discoveredLinks": 32,
+      "durationMs": 1045,
+      "error": null
+    },
+    {
+      "seedUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte",
+      "kind": "list",
+      "ok": true,
+      "httpStatus": 200,
+      "finalUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte",
+      "discoveredLinks": 20,
+      "durationMs": 121,
+      "error": null
+    },
+    {
+      "seedUrl": "https://www.kr-geschaefte.zug.ch/sitemap.xml",
+      "kind": "sitemap",
+      "ok": false,
+      "httpStatus": null,
+      "finalUrl": null,
+      "discoveredLinks": 0,
+      "durationMs": 71,
+      "error": "fetch failed"
+    },
+    {
+      "seedUrl": "https://kr-geschaefte.zug.ch/sitemap_index.xml",
+      "kind": "sitemap",
+      "ok": false,
+      "httpStatus": 404,
+      "finalUrl": "https://kr-geschaefte.zug.ch/sitemap_index.xml",
+      "discoveredLinks": 0,
+      "durationMs": 21,
+      "error": "http-404"
+    },
+    {
+      "seedUrl": "https://www.kr-geschaefte.zug.ch/sitemap_index.xml",
+      "kind": "sitemap",
+      "ok": false,
+      "httpStatus": null,
+      "finalUrl": null,
+      "discoveredLinks": 0,
+      "durationMs": 3,
+      "error": "fetch failed"
+    },
+    {
+      "seedUrl": "https://www.kr-geschaefte.zug.ch/gast/geschaefte",
+      "kind": "list",
+      "ok": false,
+      "httpStatus": null,
+      "finalUrl": null,
+      "discoveredLinks": 0,
+      "durationMs": 2,
+      "error": "fetch failed"
+    },
+    {
+      "seedUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats",
+      "kind": "list",
+      "ok": true,
+      "httpStatus": 200,
+      "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats",
+      "discoveredLinks": 0,
+      "durationMs": 99,
+      "error": null
+    },
+    {
+      "seedUrl": "https://www.zg.ch/de/staat-politik/geschaefte-des-kantonsrats",
+      "kind": "list",
+      "ok": true,
+      "httpStatus": 200,
+      "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats",
+      "discoveredLinks": 0,
+      "durationMs": 180,
+      "error": null
+    },
+    {
+      "seedUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/protokolle",
+      "kind": "archive",
+      "ok": true,
+      "httpStatus": 200,
+      "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/protokolle",
+      "discoveredLinks": 0,
+      "durationMs": 108,
+      "error": null
+    },
+    {
+      "seedUrl": "https://www.zg.ch/de/staat-politik/geschaefte-des-kantonsrats/protokolle",
+      "kind": "archive",
+      "ok": true,
+      "httpStatus": 200,
+      "finalUrl": "https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/protokolle",
+      "discoveredLinks": 0,
+      "durationMs": 132,
+      "error": null
+    }
+  ],
+  "discovered_links": [
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/1",
+      "text": "Geschäftsdetail Kantonsrat Zug #1",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/2",
+      "text": "Geschäftsdetail Kantonsrat Zug #2",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/3",
+      "text": "Geschäftsdetail Kantonsrat Zug #3",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/4",
+      "text": "Geschäftsdetail Kantonsrat Zug #4",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/5",
+      "text": "Geschäftsdetail Kantonsrat Zug #5",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/6",
+      "text": "Geschäftsdetail Kantonsrat Zug #6",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/7",
+      "text": "Geschäftsdetail Kantonsrat Zug #7",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/8",
+      "text": "Geschäftsdetail Kantonsrat Zug #8",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/9",
+      "text": "Geschäftsdetail Kantonsrat Zug #9",
+      "rank": 16
+    },
+    {
+      "href": "https://kr-geschaefte.zug.ch/gast/geschaefte/10",
+      "text": "Geschäftsdetail Kantonsrat Zug #10",
+      "rank": 16
+    }
+  ],
+  "extracted_candidates": [
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg",
+      "title": "ZG · Kantonsrat Zug: Geschäftsdetail Kantonsrat Zug #1",
+      "score": 0,
+      "status": "approved",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/1",
+      "concreteDetailUrl": true
+    }
+  ],
   "normalized_items": [],
-  "filtered_out": [],
-  "top_dropped_examples": []
+  "filtered_out": [
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg",
+      "title": "ZG · Kantonsrat Zug: Geschäftsdetail Kantonsrat Zug #1",
+      "score": 0,
+      "status": "approved",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/1",
+      "reason": "status-not-open",
+      "reviewReason": "Review-Entscheid (approved)"
+    }
+  ],
+  "top_dropped_examples": [
+    {
+      "id": "ch-cantonal-portal-core:cantonal-portal-zg",
+      "title": "ZG · Kantonsrat Zug: Geschäftsdetail Kantonsrat Zug #1",
+      "reason": "status-not-open",
+      "score": 0,
+      "status": "approved",
+      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/1"
+    }
+  ]
 }

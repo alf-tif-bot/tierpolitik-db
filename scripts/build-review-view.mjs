@@ -926,6 +926,7 @@ window.toggleDebugPanel = function toggleDebugPanel(){
   dbg('debug-panel', { enabled: DEBUG_REVIEW });
   renderDebug();
 }
+window.functions.toggleDebugPanel = window.toggleDebugPanel
 window.__reviewDebug = {
   hostname: location.hostname,
   storedApiBaseRaw,
@@ -1208,6 +1209,11 @@ window.exportDecisions = function exportDecisions(){
 }
 
 for (const id of Object.keys(readFastlaneTags())) renderFastlaneTagButton(id)
+window.functions.setDecision = (...args) => window.setDecision(...args)
+window.functions.toggleFastlaneTag = (...args) => window.toggleFastlaneTag(...args)
+window.functions.setViewMode = (...args) => window.setViewMode(...args)
+window.functions.clearLocalReviewState = (...args) => window.clearLocalReviewState(...args)
+
 hideDecidedRows();
 </script>
 </body>
@@ -1318,6 +1324,24 @@ const zgFilteredOut = zgRawItems
   }))
   .filter((item) => item.reason !== 'kept')
 
+const zgSeedDiscovery = [...new Map(zgRawItems
+  .flatMap((item) => Array.isArray(item?.meta?.zgSeedDiscovery) ? item.meta.zgSeedDiscovery : [])
+  .map((seed) => {
+    const seedUrl = String(seed?.seedUrl || '').trim()
+    return [seedUrl, {
+      seedUrl,
+      kind: String(seed?.kind || ''),
+      ok: Boolean(seed?.ok),
+      httpStatus: Number(seed?.httpStatus || 0) || null,
+      finalUrl: String(seed?.finalUrl || '').trim() || null,
+      discoveredLinks: Number(seed?.discoveredLinks || 0),
+      durationMs: Number(seed?.durationMs || 0),
+      error: seed?.error ? String(seed.error) : null,
+    }]
+  })
+  .filter(([seedUrl]) => Boolean(seedUrl))).values()]
+  .sort((a, b) => Number(b.discoveredLinks || 0) - Number(a.discoveredLinks || 0))
+
 const zgDebugPayload = {
   generatedAt,
   counts: {
@@ -1328,7 +1352,10 @@ const zgDebugPayload = {
     raw: zgRawItems.length,
     source_fix: zgSourceFixItems.length,
     open: zgNormalizedItems.filter((item) => ['new', 'queued'].includes(String(item?.status || '').toLowerCase())).length,
+    seed_urls: zgSeedDiscovery.length,
+    seed_discovered_total: zgSeedDiscovery.reduce((acc, seed) => acc + Number(seed?.discoveredLinks || 0), 0),
   },
+  seed_discovery: zgSeedDiscovery,
   discovered_links: zgDiscoveredLinks,
   extracted_candidates: zgExtractedCandidates,
   normalized_items: zgNormalizedItems,
