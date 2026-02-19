@@ -306,10 +306,18 @@ async function setDecision(btn,id,status){
 
   if (btn) btn.disabled = true;
 
+  // Optimistic UI: hide immediately, even if API is slow/unreachable.
+  const row = document.querySelector('tr[data-id="' + id + '"]');
+  if (row) {
+    row.setAttribute('data-status', status)
+    row.style.opacity = '0.72'
+    row.style.display='none'
+  }
+
   let serverOk = false;
   try {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 10000);
+    const timer = setTimeout(() => controller.abort(), 5000);
 
     const res = await fetch(API_BASE + '/review-decision', {
       method:'POST',
@@ -327,13 +335,6 @@ async function setDecision(btn,id,status){
     serverOk = true;
   } catch(err) {
     console.warn('Review decision API unavailable, using local fallback', err);
-  }
-
-  const row = document.querySelector('tr[data-id="' + id + '"]');
-  if (row) {
-    row.setAttribute('data-status', status)
-    row.style.opacity = '0.72'
-    if (!showDecided) row.style.display='none'
   }
 
   try {
