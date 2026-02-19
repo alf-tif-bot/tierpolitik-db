@@ -3131,62 +3131,6 @@
     }
   },
   {
-    "id": "vp-20175001-de",
-    "titel": "17.5001 - Wildtierschutzgebiete. Neue Bezeichnung, höherer Schutz?",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten. Umwelt",
-    "geschaeftsnummer": "17.5001",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2017-02-27",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Wildtier"
-    ],
-    "schlagwoerter": [
-      "wildtier"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20175001",
-    "resultate": [
-      {
-        "datum": "2017-02-27",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "17.5001 - Wildtierschutzgebiete. Neue Bezeichnung, höherer Schutz?"
-        },
-        "summary": {
-          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten. Umwelt"
-        },
-        "type": {
-          "de": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "wildtier"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
     "id": "vp-20223633-de",
     "titel": "22.3633 - Afrikanische Schweinepest. Schlachtbetriebe und die Versorgungssicherheit gefährden?",
     "typ": "Motion",
@@ -3444,574 +3388,6 @@
             "3r",
             "Wissenschaft und Forschung",
             "Umwelt"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20213002-de",
-    "titel": "21.3002 - Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren",
-    "typ": "Motion",
-    "kurzbeschreibung": "Die Motion verlangt, den Handlungsspielraum im Jagdgesetz per Verordnung auszuschöpfen, um die Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren zu regeln (u. a. Regulierung und Herdenschutz).",
-    "geschaeftsnummer": "21.3002",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2021-01-14",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Umwelt",
-      "Landwirtschaft"
-    ],
-    "schlagwoerter": [
-      "nutztiere",
-      "landwirtschaft"
-    ],
-    "einreichende": [
-      {
-        "name": "Kommission für Umwelt, Raumplanung und Energie Ständerat",
-        "rolle": "Kommission",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213002",
-    "resultate": [
-      {
-        "datum": "2021-01-14",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "21.3002 - Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren"
-        },
-        "summary": {
-          "de": "Die Motion verlangt, den Handlungsspielraum im Jagdgesetz per Verordnung auszuschöpfen, um die Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren zu regeln (u. a. Regulierung und Herdenschutz)."
-        },
-        "type": {
-          "de": "Motion"
-        },
-        "themes": {
-          "de": [
-            "Umwelt",
-            "Landwirtschaft"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20145609-de",
-    "titel": "14.5609 - Ein Nebeneinander von Nutztier und Wolf gestalten",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
-    "geschaeftsnummer": "14.5609",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2014-12-02",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Wolf",
-      "Landwirtschaft",
-      "Umwelt"
-    ],
-    "schlagwoerter": [
-      "wolf",
-      "landwirtschaft"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20145609",
-    "resultate": [
-      {
-        "datum": "2014-12-02",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "14.5609 - Ein Nebeneinander von Nutztier und Wolf gestalten"
-        },
-        "summary": {
-          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten."
-        },
-        "type": {
-          "de": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "wolf",
-            "landwirtschaft",
-            "Umwelt"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20154176-de",
-    "titel": "15.4176 - Fische aus Aquakultur als landwirtschaftliche Nutztiere",
-    "typ": "Motion",
-    "kurzbeschreibung": "15.4176 - Fische aus Aquakultur als landwirtschaftliche Nutztiere (Erledigt).",
-    "geschaeftsnummer": "15.4176",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2015-12-17",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Nutztiere",
-      "Fisch",
-      "Landwirtschaft",
-      "Umwelt",
-      "Gesundheit",
-      "Raumplanung und Wohnungswesen"
-    ],
-    "schlagwoerter": [
-      "nutztiere",
-      "fisch",
-      "landwirtschaft"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20154176",
-    "resultate": [
-      {
-        "datum": "2015-12-17",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "15.4176 - Fische aus Aquakultur als landwirtschaftliche Nutztiere"
-        },
-        "summary": {
-          "de": "15.4176 - Fische aus Aquakultur als landwirtschaftliche Nutztiere (Erledigt)."
-        },
-        "type": {
-          "de": "Motion"
-        },
-        "themes": {
-          "de": [
-            "nutztiere",
-            "fisch",
-            "landwirtschaft",
-            "Umwelt",
-            "Gesundheit",
-            "Raumplanung und Wohnungswesen"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20204214-de",
-    "titel": "20.4214 - Amtliche Tierschutzkontrollen nachhaltig aus dem Landwirtschaftsbudget mitfinanzieren und transparent machen",
-    "typ": "Motion",
-    "kurzbeschreibung": "20.4214 - Amtliche Tierschutzkontrollen nachhaltig aus dem Landwirtschaftsbudget mitfinanzieren und transparent machen (Erledigt).",
-    "geschaeftsnummer": "20.4214",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2020-09-25",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Tierschutz",
-      "Landwirtschaft",
-      "Finanzwesen",
-      "Umwelt"
-    ],
-    "schlagwoerter": [
-      "tierschutz",
-      "landwirtschaft"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20204214",
-    "resultate": [
-      {
-        "datum": "2020-09-25",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "20.4214 - Amtliche Tierschutzkontrollen nachhaltig aus dem Landwirtschaftsbudget mitfinanzieren und transparent machen"
-        },
-        "summary": {
-          "de": "20.4214 - Amtliche Tierschutzkontrollen nachhaltig aus dem Landwirtschaftsbudget mitfinanzieren und transparent machen (Erledigt)."
-        },
-        "type": {
-          "de": "Motion"
-        },
-        "themes": {
-          "de": [
-            "tierschutz",
-            "landwirtschaft",
-            "Finanzwesen",
-            "Umwelt"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20258063-de",
-    "titel": "25.8063 - Wenn in der Schweiz der Verkauf von Stopfleber verboten ist, hat dann das Schweizer Recht oder das europäische Recht Vorrang?",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines indirekten Gegenentwurfs mit stufenweisen Importbeschränkungen. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll.",
-    "geschaeftsnummer": "25.8063",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2025-12-03",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Stopfleber",
-      "Europapolitik",
-      "Wirtschaft",
-      "Umwelt"
-    ],
-    "schlagwoerter": [
-      "stopfleber"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258063",
-    "resultate": [
-      {
-        "datum": "2025-12-03",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "pro-tierschutz",
-      "i18n": {
-        "title": {
-          "de": "25.8063 - Wenn in der Schweiz der Verkauf von Stopfleber verboten ist, hat dann das Schweizer Recht oder das europäische Recht Vorrang?"
-        },
-        "summary": {
-          "de": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines indirekten Gegenentwurfs mit stufenweisen Importbeschränkungen. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll."
-        },
-        "type": {
-          "de": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "stopfleber",
-            "Europapolitik",
-            "Wirtschaft",
-            "Umwelt"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20193215-de",
-    "titel": "19.3215 - Mehr Tierschutz in der Aquakultur mit Fischen",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "19.3215 - Mehr Tierschutz in der Aquakultur mit Fischen (Erledigt).",
-    "geschaeftsnummer": "19.3215",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2019-03-21",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Tierschutz",
-      "Fisch",
-      "Wirtschaft",
-      "Umwelt"
-    ],
-    "schlagwoerter": [
-      "tierschutz",
-      "fisch"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20193215",
-    "resultate": [
-      {
-        "datum": "2019-03-21",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "19.3215 - Mehr Tierschutz in der Aquakultur mit Fischen"
-        },
-        "summary": {
-          "de": "19.3215 - Mehr Tierschutz in der Aquakultur mit Fischen (Erledigt)."
-        },
-        "type": {
-          "de": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "tierschutz",
-            "fisch",
-            "Wirtschaft",
-            "Umwelt"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20081079-de",
-    "titel": "08.1079 - Trichinellenuntersuchung in der Schweizer Schweinefleischproduktion",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Landwirtschaft",
-    "geschaeftsnummer": "08.1079",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2008-09-18",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Schwein",
-      "Schweine",
-      "Landwirtschaft"
-    ],
-    "schlagwoerter": [
-      "schwein",
-      "schweine",
-      "landwirtschaft"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20081079",
-    "resultate": [
-      {
-        "datum": "2008-09-18",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "08.1079 - Trichinellenuntersuchung in der Schweizer Schweinefleischproduktion"
-        },
-        "summary": {
-          "de": "Landwirtschaft"
-        },
-        "type": {
-          "de": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "schwein",
-            "schweine",
-            "landwirtschaft"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20154105-de",
-    "titel": "15.4105 - Tierquälerei. Stutenblut für die Schweineproduktion",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "15.4105 - Tierquälerei. Stutenblut für die Schweineproduktion (Erledigt).",
-    "geschaeftsnummer": "15.4105",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2015-12-07",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Schwein",
-      "Schweine",
-      "Tierquälerei",
-      "Landwirtschaft",
-      "Umwelt"
-    ],
-    "schlagwoerter": [
-      "schwein",
-      "schweine",
-      "tierquälerei",
-      "landwirtschaft"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20154105",
-    "resultate": [
-      {
-        "datum": "2015-12-07",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "15.4105 - Tierquälerei. Stutenblut für die Schweineproduktion"
-        },
-        "summary": {
-          "de": "15.4105 - Tierquälerei. Stutenblut für die Schweineproduktion (Erledigt)."
-        },
-        "type": {
-          "de": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "schwein",
-            "schweine",
-            "tierquälerei",
-            "landwirtschaft",
-            "Umwelt"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20233515-de",
-    "titel": "23.3515 - Fotovoltaik- oder Windkraftanlagen. Gefahr für die landwirtschaftlichen Nutztiere",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "23.3515 - Fotovoltaik- oder Windkraftanlagen. Gefahr für die landwirtschaftlichen Nutztiere (Erledigt).",
-    "geschaeftsnummer": "23.3515",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2023-05-02",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Nutztiere",
-      "Landwirtschaft",
-      "Umwelt",
-      "Energie"
-    ],
-    "schlagwoerter": [
-      "nutztiere",
-      "landwirtschaft"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20233515",
-    "resultate": [
-      {
-        "datum": "2023-05-02",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "23.3515 - Fotovoltaik- oder Windkraftanlagen. Gefahr für die landwirtschaftlichen Nutztiere"
-        },
-        "summary": {
-          "de": "23.3515 - Fotovoltaik- oder Windkraftanlagen. Gefahr für die landwirtschaftlichen Nutztiere (Erledigt)."
-        },
-        "type": {
-          "de": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "nutztiere",
-            "landwirtschaft",
-            "Umwelt",
-            "Energie"
           ]
         }
       },
@@ -4811,37 +4187,38 @@
     }
   },
   {
-    "id": "vp-20223808-de",
-    "titel": "Parlamentsgeschäft 22.3808",
+    "id": "vp-20233515-de",
+    "titel": "Parlamentsgeschäft 23.3515",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Die Interpellation verlangt einen transparenteren Zugang zur Tierversuchsstatistik und fragt unter anderem nach einer besseren Verknüpfung der Datenquellen auf tv-statistik.ch sowie nach zusätzlichen Publikationen.",
-    "geschaeftsnummer": "22.3808",
+    "kurzbeschreibung": "Parlamentsgeschäft 23.3515 (In Beratung).",
+    "geschaeftsnummer": "23.3515",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
     "status": "In Beratung",
-    "datumEingereicht": "2022-02-14",
+    "datumEingereicht": "2023-02-14",
     "datumAktualisiert": "2026-02-19",
     "themen": [
-      "Staatspolitik",
-      "Medien und Kommunikation",
-      "Wissenschaft und Forschung",
-      "Umwelt"
+      "Nutztiere",
+      "Landwirtschaft",
+      "Umwelt",
+      "Energie"
     ],
     "schlagwoerter": [
-      "tierversuch"
+      "nutztiere",
+      "landwirtschaft"
     ],
     "einreichende": [
       {
-        "name": "Schneider Meret",
-        "rolle": "Nationalrätin",
-        "partei": "Grüne Partei der Schweiz"
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
       }
     ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20223808",
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20233515",
     "resultate": [
       {
-        "datum": "2022-02-14",
+        "datum": "2023-02-14",
         "status": "In Beratung",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
@@ -4852,157 +4229,20 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "22.3808 - Aussagekräftige und transparente Tierversuchsstatistik"
+          "de": "23.3515 - Fotovoltaik- oder Windkraftanlagen. Gefahr für die landwirtschaftlichen Nutztiere"
         },
         "summary": {
-          "de": "Die Interpellation verlangt einen transparenteren Zugang zur Tierversuchsstatistik und fragt unter anderem nach einer besseren Verknüpfung der Datenquellen auf tv-statistik.ch sowie nach zusätzlichen Publikationen."
+          "de": "Parlamentsgeschäft 23.3515 (In Beratung)."
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "Staatspolitik",
-            "Medien und Kommunikation",
-            "Wissenschaft und Forschung",
-            "Umwelt"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20213405-de",
-    "titel": "21.3405 - Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere",
-    "typ": "Motion",
-    "kurzbeschreibung": "Die Interpellation fordert Auskunft dazu, wie tierschutzkonforme Haltungsbedingungen bei Labor- und Versuchstieren sichergestellt und weiterentwickelt werden.",
-    "geschaeftsnummer": "21.3405",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2021-03-19",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Tierversuche",
-      "Wissenschaft und Forschung",
-      "Umwelt"
-    ],
-    "schlagwoerter": [
-      "tierschutz",
-      "versuchstiere",
-      "haltung"
-    ],
-    "einreichende": [
-      {
-        "name": "Schneider Meret",
-        "rolle": "Nationalrätin",
-        "partei": "Grüne Fraktion"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213405",
-    "resultate": [
-      {
-        "datum": "2021-03-19",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "21.3405 - Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere"
-        },
-        "summary": {
-          "de": "Die Interpellation fordert Auskunft dazu, wie tierschutzkonforme Haltungsbedingungen bei Labor- und Versuchstieren sichergestellt und weiterentwickelt werden."
-        },
-        "type": {
-          "de": "Motion"
-        },
-        "themes": {
-          "de": [
-            "Tierversuche",
-            "Wissenschaft und Forschung",
-            "Umwelt"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20254812-de",
-    "titel": "25.4812 - Konsequenzen aus dem Tierschutzfall Ramiswil",
-    "typ": "Postulat",
-    "kurzbeschreibung": "Das Postulat beauftragt den Bundesrat zu prüfen, wie der Vollzug des Tierschutzgesetzes in den Kantonen verbessert werden kann, um Fälle wie in Ramiswil zu verhindern. Genannt werden insbesondere eine bessere Zusammenarbeit der Veterinärämter mit Tierschutzorganisationen, der Ausbau von Meldestellen und ausreichende kantonale Ressourcen.",
-    "geschaeftsnummer": "25.4812",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2025-12-19",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Landwirtschaft",
-      "Staatspolitik",
-      "Umwelt"
-    ],
-    "schlagwoerter": [
-      "tierschutz",
-      "landwirtschaft"
-    ],
-    "einreichende": [
-      {
-        "name": "Schneider Meret",
-        "rolle": "Nationalrat",
-        "partei": "GRÜNE Schweiz"
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254812",
-    "resultate": [
-      {
-        "datum": "2025-12-19",
-        "status": "In Beratung",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "25.4812 - Konsequenzen aus dem Tierschutzfall Ramiswil",
-          "it": "25.4812 - Protezione degli animali. Conseguenze del caso Ramiswil",
-          "fr": "25.4812 - Protection des animaux. Conséquences de l’affaire de Ramiswil"
-        },
-        "summary": {
-          "de": "Stellungnahme zum Vorstoss liegt vor",
-          "it": "La dichiarazione sull’intervento è disponibile",
-          "fr": "L’avis relatif à l’intervention est disponible"
-        },
-        "type": {
-          "de": "Postulat",
-          "it": "Postulato",
-          "fr": "Postulat"
-        },
-        "themes": {
-          "de": [
-            "Landwirtschaft",
-            "Staatspolitik",
-            "Umwelt"
-          ],
-          "it": [
-            "Protezione animale",
-            "Agricoltura"
-          ],
-          "fr": [
-            "Protection animale",
-            "Agriculture"
+            "nutztiere",
+            "landwirtschaft",
+            "Umwelt",
+            "Energie"
           ]
         }
       },
@@ -5311,6 +4551,65 @@
             "nutztiere",
             "landwirtschaft",
             "Umwelt"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20213002-de",
+    "titel": "21.3002 - Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren",
+    "typ": "Motion",
+    "kurzbeschreibung": "Die Motion verlangt, den Handlungsspielraum im Jagdgesetz per Verordnung auszuschöpfen, um die Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren zu regeln (u. a. Regulierung und Herdenschutz).",
+    "geschaeftsnummer": "21.3002",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2021-01-14",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Umwelt",
+      "Landwirtschaft"
+    ],
+    "schlagwoerter": [
+      "nutztiere",
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Kommission für Umwelt, Raumplanung und Energie Ständerat",
+        "rolle": "Kommission",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213002",
+    "resultate": [
+      {
+        "datum": "2021-01-14",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "21.3002 - Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren"
+        },
+        "summary": {
+          "de": "Die Motion verlangt, den Handlungsspielraum im Jagdgesetz per Verordnung auszuschöpfen, um die Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren zu regeln (u. a. Regulierung und Herdenschutz)."
+        },
+        "type": {
+          "de": "Motion"
+        },
+        "themes": {
+          "de": [
+            "Umwelt",
+            "Landwirtschaft"
           ]
         }
       },
@@ -5831,71 +5130,6 @@
     }
   },
   {
-    "id": "vp-20144209-de",
-    "titel": "14.4209 - Neue Tierhaltungsbestimmungen, insbesondere Vorschriften für Schweineställe",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Landwirtschaft",
-    "geschaeftsnummer": "14.4209",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2014-12-11",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Tierhaltung",
-      "Schwein",
-      "Schweine",
-      "Landwirtschaft"
-    ],
-    "schlagwoerter": [
-      "tierhaltung",
-      "schwein",
-      "schweine",
-      "landwirtschaft"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20144209",
-    "resultate": [
-      {
-        "datum": "2014-12-11",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "14.4209 - Neue Tierhaltungsbestimmungen, insbesondere Vorschriften für Schweineställe"
-        },
-        "summary": {
-          "de": "Landwirtschaft"
-        },
-        "type": {
-          "de": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "tierhaltung",
-            "schwein",
-            "schweine",
-            "landwirtschaft"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
     "id": "vp-20218162-de",
     "titel": "21.8162 - Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (2)",
     "typ": "Fragestunde. Frage",
@@ -6267,127 +5501,6 @@
     }
   },
   {
-    "id": "vp-20204340-de",
-    "titel": "20.4340 - Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren",
-    "typ": "Motion",
-    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
-    "geschaeftsnummer": "20.4340",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2020-11-17",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Nutztiere",
-      "Landwirtschaft",
-      "Umwelt"
-    ],
-    "schlagwoerter": [
-      "nutztiere",
-      "landwirtschaft"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20204340",
-    "resultate": [
-      {
-        "datum": "2020-11-17",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "20.4340 - Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren"
-        },
-        "summary": {
-          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten."
-        },
-        "type": {
-          "de": "Motion"
-        },
-        "themes": {
-          "de": [
-            "nutztiere",
-            "landwirtschaft",
-            "Umwelt"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-20173389-de",
-    "titel": "17.3389 - Welche Tierzucht für Heim- und Nutztiere?",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "17.3389 - Welche Tierzucht für Heim- und Nutztiere? (Erledigt).",
-    "geschaeftsnummer": "17.3389",
-    "ebene": "Bund",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "Erledigt",
-    "datumEingereicht": "2017-06-06",
-    "datumAktualisiert": "2026-02-19",
-    "themen": [
-      "Nutztiere",
-      "Wissenschaft und Forschung",
-      "Umwelt"
-    ],
-    "schlagwoerter": [
-      "nutztiere"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20173389",
-    "resultate": [
-      {
-        "datum": "2017-06-06",
-        "status": "Erledigt",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "17.3389 - Welche Tierzucht für Heim- und Nutztiere?"
-        },
-        "summary": {
-          "de": "17.3389 - Welche Tierzucht für Heim- und Nutztiere? (Erledigt)."
-        },
-        "type": {
-          "de": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "nutztiere",
-            "Wissenschaft und Forschung",
-            "Umwelt"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
     "id": "vp-20233411-de",
     "titel": "23.3411 - Eine langfristige Lösung für den Schweinemarkt",
     "typ": "Postulat",
@@ -6509,36 +5622,37 @@
     }
   },
   {
-    "id": "vp-20143502-de",
-    "titel": "14.3502 - Tierschutzwidrige Importe von Jagdtrophäen",
+    "id": "vp-20223808-de",
+    "titel": "22.3808 - Aussagekräftige und transparente Tierversuchsstatistik",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
-    "geschaeftsnummer": "14.3502",
+    "kurzbeschreibung": "Die Interpellation verlangt einen transparenteren Zugang zur Tierversuchsstatistik und fragt unter anderem nach einer besseren Verknüpfung der Datenquellen auf tv-statistik.ch sowie nach zusätzlichen Publikationen.",
+    "geschaeftsnummer": "22.3808",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
     "status": "Erledigt",
-    "datumEingereicht": "2014-06-19",
+    "datumEingereicht": "2022-06-17",
     "datumAktualisiert": "2026-02-19",
     "themen": [
-      "Tierschutz",
-      "Wirtschaft",
+      "Staatspolitik",
+      "Medien und Kommunikation",
+      "Wissenschaft und Forschung",
       "Umwelt"
     ],
     "schlagwoerter": [
-      "tierschutz"
+      "tierversuch"
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
+        "name": "Schneider Meret",
+        "rolle": "Nationalrätin",
+        "partei": "Grüne Partei der Schweiz"
       }
     ],
-    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20143502",
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20223808",
     "resultate": [
       {
-        "datum": "2014-06-19",
+        "datum": "2022-06-17",
         "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
@@ -6549,18 +5663,19 @@
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
-          "de": "14.3502 - Tierschutzwidrige Importe von Jagdtrophäen"
+          "de": "22.3808 - Aussagekräftige und transparente Tierversuchsstatistik"
         },
         "summary": {
-          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten."
+          "de": "Die Interpellation verlangt einen transparenteren Zugang zur Tierversuchsstatistik und fragt unter anderem nach einer besseren Verknüpfung der Datenquellen auf tv-statistik.ch sowie nach zusätzlichen Publikationen."
         },
         "type": {
           "de": "Interpellation"
         },
         "themes": {
           "de": [
-            "tierschutz",
-            "Wirtschaft",
+            "Staatspolitik",
+            "Medien und Kommunikation",
+            "Wissenschaft und Forschung",
             "Umwelt"
           ]
         }
@@ -6625,6 +5740,67 @@
             "Landwirtschaft",
             "Umwelt",
             "Wirtschaft"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20204340-de",
+    "titel": "20.4340 - Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren",
+    "typ": "Motion",
+    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
+    "geschaeftsnummer": "20.4340",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2020-11-17",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Nutztiere",
+      "Landwirtschaft",
+      "Umwelt"
+    ],
+    "schlagwoerter": [
+      "nutztiere",
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20204340",
+    "resultate": [
+      {
+        "datum": "2020-11-17",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "20.4340 - Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten."
+        },
+        "type": {
+          "de": "Motion"
+        },
+        "themes": {
+          "de": [
+            "nutztiere",
+            "landwirtschaft",
+            "Umwelt"
           ]
         }
       },
@@ -7141,6 +6317,830 @@
           "de": [
             "Nutztiere",
             "Landwirtschaft",
+            "Umwelt"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20175001-de",
+    "titel": "17.5001 - Wildtierschutzgebiete. Neue Bezeichnung, höherer Schutz?",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten. Umwelt",
+    "geschaeftsnummer": "17.5001",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2017-02-27",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Wildtier"
+    ],
+    "schlagwoerter": [
+      "wildtier"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20175001",
+    "resultate": [
+      {
+        "datum": "2017-02-27",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "17.5001 - Wildtierschutzgebiete. Neue Bezeichnung, höherer Schutz?"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten. Umwelt"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "wildtier"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20145609-de",
+    "titel": "14.5609 - Ein Nebeneinander von Nutztier und Wolf gestalten",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
+    "geschaeftsnummer": "14.5609",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2014-12-02",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Wolf",
+      "Landwirtschaft",
+      "Umwelt"
+    ],
+    "schlagwoerter": [
+      "wolf",
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20145609",
+    "resultate": [
+      {
+        "datum": "2014-12-02",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "14.5609 - Ein Nebeneinander von Nutztier und Wolf gestalten"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten."
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "wolf",
+            "landwirtschaft",
+            "Umwelt"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20154176-de",
+    "titel": "15.4176 - Fische aus Aquakultur als landwirtschaftliche Nutztiere",
+    "typ": "Motion",
+    "kurzbeschreibung": "15.4176 - Fische aus Aquakultur als landwirtschaftliche Nutztiere (Erledigt).",
+    "geschaeftsnummer": "15.4176",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2015-12-17",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Nutztiere",
+      "Fisch",
+      "Landwirtschaft",
+      "Umwelt",
+      "Gesundheit",
+      "Raumplanung und Wohnungswesen"
+    ],
+    "schlagwoerter": [
+      "nutztiere",
+      "fisch",
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20154176",
+    "resultate": [
+      {
+        "datum": "2015-12-17",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "15.4176 - Fische aus Aquakultur als landwirtschaftliche Nutztiere"
+        },
+        "summary": {
+          "de": "15.4176 - Fische aus Aquakultur als landwirtschaftliche Nutztiere (Erledigt)."
+        },
+        "type": {
+          "de": "Motion"
+        },
+        "themes": {
+          "de": [
+            "nutztiere",
+            "fisch",
+            "landwirtschaft",
+            "Umwelt",
+            "Gesundheit",
+            "Raumplanung und Wohnungswesen"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20204214-de",
+    "titel": "20.4214 - Amtliche Tierschutzkontrollen nachhaltig aus dem Landwirtschaftsbudget mitfinanzieren und transparent machen",
+    "typ": "Motion",
+    "kurzbeschreibung": "20.4214 - Amtliche Tierschutzkontrollen nachhaltig aus dem Landwirtschaftsbudget mitfinanzieren und transparent machen (Erledigt).",
+    "geschaeftsnummer": "20.4214",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2020-09-25",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Tierschutz",
+      "Landwirtschaft",
+      "Finanzwesen",
+      "Umwelt"
+    ],
+    "schlagwoerter": [
+      "tierschutz",
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20204214",
+    "resultate": [
+      {
+        "datum": "2020-09-25",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "20.4214 - Amtliche Tierschutzkontrollen nachhaltig aus dem Landwirtschaftsbudget mitfinanzieren und transparent machen"
+        },
+        "summary": {
+          "de": "20.4214 - Amtliche Tierschutzkontrollen nachhaltig aus dem Landwirtschaftsbudget mitfinanzieren und transparent machen (Erledigt)."
+        },
+        "type": {
+          "de": "Motion"
+        },
+        "themes": {
+          "de": [
+            "tierschutz",
+            "landwirtschaft",
+            "Finanzwesen",
+            "Umwelt"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20258063-de",
+    "titel": "25.8063 - Wenn in der Schweiz der Verkauf von Stopfleber verboten ist, hat dann das Schweizer Recht oder das europäische Recht Vorrang?",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines indirekten Gegenentwurfs mit stufenweisen Importbeschränkungen. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll.",
+    "geschaeftsnummer": "25.8063",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2025-12-03",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Stopfleber",
+      "Europapolitik",
+      "Wirtschaft",
+      "Umwelt"
+    ],
+    "schlagwoerter": [
+      "stopfleber"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20258063",
+    "resultate": [
+      {
+        "datum": "2025-12-03",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "pro-tierschutz",
+      "i18n": {
+        "title": {
+          "de": "25.8063 - Wenn in der Schweiz der Verkauf von Stopfleber verboten ist, hat dann das Schweizer Recht oder das europäische Recht Vorrang?"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss betrifft die Stopfleber-Thematik (Foie gras) und die politische Umsetzung eines indirekten Gegenentwurfs mit stufenweisen Importbeschränkungen. Im Zentrum steht, wie streng der Schutz von Tieren in der Produktions- und Importkette rechtlich ausgestaltet werden soll."
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "stopfleber",
+            "Europapolitik",
+            "Wirtschaft",
+            "Umwelt"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20193215-de",
+    "titel": "19.3215 - Mehr Tierschutz in der Aquakultur mit Fischen",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "19.3215 - Mehr Tierschutz in der Aquakultur mit Fischen (Erledigt).",
+    "geschaeftsnummer": "19.3215",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2019-03-21",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Tierschutz",
+      "Fisch",
+      "Wirtschaft",
+      "Umwelt"
+    ],
+    "schlagwoerter": [
+      "tierschutz",
+      "fisch"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20193215",
+    "resultate": [
+      {
+        "datum": "2019-03-21",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "19.3215 - Mehr Tierschutz in der Aquakultur mit Fischen"
+        },
+        "summary": {
+          "de": "19.3215 - Mehr Tierschutz in der Aquakultur mit Fischen (Erledigt)."
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "tierschutz",
+            "fisch",
+            "Wirtschaft",
+            "Umwelt"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20081079-de",
+    "titel": "08.1079 - Trichinellenuntersuchung in der Schweizer Schweinefleischproduktion",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Landwirtschaft",
+    "geschaeftsnummer": "08.1079",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2008-09-18",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Schwein",
+      "Schweine",
+      "Landwirtschaft"
+    ],
+    "schlagwoerter": [
+      "schwein",
+      "schweine",
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20081079",
+    "resultate": [
+      {
+        "datum": "2008-09-18",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "08.1079 - Trichinellenuntersuchung in der Schweizer Schweinefleischproduktion"
+        },
+        "summary": {
+          "de": "Landwirtschaft"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "schwein",
+            "schweine",
+            "landwirtschaft"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20154105-de",
+    "titel": "15.4105 - Tierquälerei. Stutenblut für die Schweineproduktion",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "15.4105 - Tierquälerei. Stutenblut für die Schweineproduktion (Erledigt).",
+    "geschaeftsnummer": "15.4105",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2015-12-07",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Schwein",
+      "Schweine",
+      "Tierquälerei",
+      "Landwirtschaft",
+      "Umwelt"
+    ],
+    "schlagwoerter": [
+      "schwein",
+      "schweine",
+      "tierquälerei",
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20154105",
+    "resultate": [
+      {
+        "datum": "2015-12-07",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "15.4105 - Tierquälerei. Stutenblut für die Schweineproduktion"
+        },
+        "summary": {
+          "de": "15.4105 - Tierquälerei. Stutenblut für die Schweineproduktion (Erledigt)."
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "schwein",
+            "schweine",
+            "tierquälerei",
+            "landwirtschaft",
+            "Umwelt"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20144209-de",
+    "titel": "14.4209 - Neue Tierhaltungsbestimmungen, insbesondere Vorschriften für Schweineställe",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Landwirtschaft",
+    "geschaeftsnummer": "14.4209",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2014-12-11",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Tierhaltung",
+      "Schwein",
+      "Schweine",
+      "Landwirtschaft"
+    ],
+    "schlagwoerter": [
+      "tierhaltung",
+      "schwein",
+      "schweine",
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20144209",
+    "resultate": [
+      {
+        "datum": "2014-12-11",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "14.4209 - Neue Tierhaltungsbestimmungen, insbesondere Vorschriften für Schweineställe"
+        },
+        "summary": {
+          "de": "Landwirtschaft"
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "tierhaltung",
+            "schwein",
+            "schweine",
+            "landwirtschaft"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20213405-de",
+    "titel": "21.3405 - Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere",
+    "typ": "Motion",
+    "kurzbeschreibung": "Die Interpellation fordert Auskunft dazu, wie tierschutzkonforme Haltungsbedingungen bei Labor- und Versuchstieren sichergestellt und weiterentwickelt werden.",
+    "geschaeftsnummer": "21.3405",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2021-03-19",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Tierversuche",
+      "Wissenschaft und Forschung",
+      "Umwelt"
+    ],
+    "schlagwoerter": [
+      "tierschutz",
+      "versuchstiere",
+      "haltung"
+    ],
+    "einreichende": [
+      {
+        "name": "Schneider Meret",
+        "rolle": "Nationalrätin",
+        "partei": "Grüne Fraktion"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213405",
+    "resultate": [
+      {
+        "datum": "2021-03-19",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "21.3405 - Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere"
+        },
+        "summary": {
+          "de": "Die Interpellation fordert Auskunft dazu, wie tierschutzkonforme Haltungsbedingungen bei Labor- und Versuchstieren sichergestellt und weiterentwickelt werden."
+        },
+        "type": {
+          "de": "Motion"
+        },
+        "themes": {
+          "de": [
+            "Tierversuche",
+            "Wissenschaft und Forschung",
+            "Umwelt"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20254812-de",
+    "titel": "25.4812 - Konsequenzen aus dem Tierschutzfall Ramiswil",
+    "typ": "Postulat",
+    "kurzbeschreibung": "Das Postulat beauftragt den Bundesrat zu prüfen, wie der Vollzug des Tierschutzgesetzes in den Kantonen verbessert werden kann, um Fälle wie in Ramiswil zu verhindern. Genannt werden insbesondere eine bessere Zusammenarbeit der Veterinärämter mit Tierschutzorganisationen, der Ausbau von Meldestellen und ausreichende kantonale Ressourcen.",
+    "geschaeftsnummer": "25.4812",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "In Beratung",
+    "datumEingereicht": "2025-12-19",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Landwirtschaft",
+      "Staatspolitik",
+      "Umwelt"
+    ],
+    "schlagwoerter": [
+      "tierschutz",
+      "landwirtschaft"
+    ],
+    "einreichende": [
+      {
+        "name": "Schneider Meret",
+        "rolle": "Nationalrat",
+        "partei": "GRÜNE Schweiz"
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254812",
+    "resultate": [
+      {
+        "datum": "2025-12-19",
+        "status": "In Beratung",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "25.4812 - Konsequenzen aus dem Tierschutzfall Ramiswil",
+          "it": "25.4812 - Protezione degli animali. Conseguenze del caso Ramiswil",
+          "fr": "25.4812 - Protection des animaux. Conséquences de l’affaire de Ramiswil"
+        },
+        "summary": {
+          "de": "Stellungnahme zum Vorstoss liegt vor",
+          "it": "La dichiarazione sull’intervento è disponibile",
+          "fr": "L’avis relatif à l’intervention est disponible"
+        },
+        "type": {
+          "de": "Postulat",
+          "it": "Postulato",
+          "fr": "Postulat"
+        },
+        "themes": {
+          "de": [
+            "Landwirtschaft",
+            "Staatspolitik",
+            "Umwelt"
+          ],
+          "it": [
+            "Protezione animale",
+            "Agricoltura"
+          ],
+          "fr": [
+            "Protection animale",
+            "Agriculture"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20143502-de",
+    "titel": "14.3502 - Tierschutzwidrige Importe von Jagdtrophäen",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
+    "geschaeftsnummer": "14.3502",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2014-06-19",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Tierschutz",
+      "Wirtschaft",
+      "Umwelt"
+    ],
+    "schlagwoerter": [
+      "tierschutz"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20143502",
+    "resultate": [
+      {
+        "datum": "2014-06-19",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "14.3502 - Tierschutzwidrige Importe von Jagdtrophäen"
+        },
+        "summary": {
+          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten."
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "tierschutz",
+            "Wirtschaft",
+            "Umwelt"
+          ]
+        }
+      },
+      "zuletztGeprueftVon": "Crawler/DB Sync"
+    }
+  },
+  {
+    "id": "vp-20173389-de",
+    "titel": "17.3389 - Welche Tierzucht für Heim- und Nutztiere?",
+    "typ": "Interpellation",
+    "kurzbeschreibung": "17.3389 - Welche Tierzucht für Heim- und Nutztiere? (Erledigt).",
+    "geschaeftsnummer": "17.3389",
+    "ebene": "Bund",
+    "kanton": null,
+    "regionGemeinde": null,
+    "status": "Erledigt",
+    "datumEingereicht": "2017-06-06",
+    "datumAktualisiert": "2026-02-19",
+    "themen": [
+      "Nutztiere",
+      "Wissenschaft und Forschung",
+      "Umwelt"
+    ],
+    "schlagwoerter": [
+      "nutztiere"
+    ],
+    "einreichende": [
+      {
+        "name": "Gemäss Curia Vista",
+        "rolle": "",
+        "partei": ""
+      }
+    ],
+    "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20173389",
+    "resultate": [
+      {
+        "datum": "2017-06-06",
+        "status": "Erledigt",
+        "bemerkung": "Stand gemäss Parlamentsdaten"
+      }
+    ],
+    "medien": [],
+    "metadaten": {
+      "sprache": "de",
+      "haltung": "neutral/unklar",
+      "i18n": {
+        "title": {
+          "de": "17.3389 - Welche Tierzucht für Heim- und Nutztiere?"
+        },
+        "summary": {
+          "de": "17.3389 - Welche Tierzucht für Heim- und Nutztiere? (Erledigt)."
+        },
+        "type": {
+          "de": "Interpellation"
+        },
+        "themes": {
+          "de": [
+            "nutztiere",
+            "Wissenschaft und Forschung",
             "Umwelt"
           ]
         }

@@ -141,20 +141,31 @@ export function ExportButtons({ filtered, visibleColumns, t, showExports = true,
             <section>
               <h3>Weg dorthin</h3>
               <ol>
-                <li><strong>Stabilisieren</strong> – Endpunkte (<code>/home-data</code>, <code>/feedback-submit</code>) und Deploy-Checks absichern.</li>
-                <li><strong>Qualität im Betrieb</strong> – tägliche QA-Pässe, Review-Queue aktiv halten, nur verifizierbare Einträge freigeben.</li>
-                <li><strong>Abdeckung ausbauen</strong> – kommunale Quellen über Bern/Zürich hinaus erweitern (z. B. Basel, Genf, Lausanne).</li>
-                <li><strong>Team-Fluss verbessern</strong> – Review-/Ops-Schritte weiter automatisieren und Blocker (z. B. Discord-Slash) schliessen.</li>
+                <li><strong>Review auf Deutsch + stabile UX</strong> – alle Review-Texte/Labels deutsch darstellen, Mobile-Buttons robust halten.</li>
+                <li><strong>Kantone systematisch korrigieren</strong> – zuerst <strong>NW, UR, TI, NE, SZ, ZG</strong>; pro Kanton echte Geschäfts-Detailseiten erzwingen (keine Übersichtsseiten).</li>
+                <li><strong>Städte gezielt erweitern</strong> – nach Bern/Zürich: <strong>Basel, Genf, Lausanne</strong> mit verifizierten Ratsgeschäft-Links.</li>
+                <li><strong>Bund historisch vertiefen</strong> – Suchhorizont schrittweise von heute bis <strong>2000</strong> ausdehnen, mit Qualitäts-Gates pro Schritt.</li>
               </ol>
             </section>
 
             <section>
               <h3>Milestones</h3>
               <ul>
-                <li><strong>M1 (heute):</strong> Endpunkte stabil + erster Freigabe-Block erledigt + Live-Check grün.</li>
-                <li><strong>M2 (diese Woche):</strong> tägliche QA-Routine (Mittag/Nachmittag) ohne trockene Queue etabliert.</li>
-                <li><strong>M3 (nächste 1–2 Wochen):</strong> mindestens 3 zusätzliche Stadtquellen mit verifizierten Detail-URLs produktiv.</li>
-                <li><strong>M4 (nächste 2–4 Wochen):</strong> nachhaltiger Betriebsmodus mit weniger manuellen Eingriffen und klaren SLOs.</li>
+                <li><strong>M1 (heute):</strong> Review stabil klickbar, Deutschdarstellung verbessert, offene Queue wieder verbreitert.</li>
+                <li><strong>M2 (diese Woche):</strong> NW/UR/TI auf konkrete Detail-Links umgestellt; Hindernisse dokumentiert (Login, JS-Rendering, fehlende IDs).</li>
+                <li><strong>M3 (nächste 1–2 Wochen):</strong> NE/SZ/ZG + Basel/Genf/Lausanne produktiv mit verifizierten Detail-URLs.</li>
+                <li><strong>M4 (nächste 2–3 Wochen):</strong> Bund-Horizont auf 2010 erweitert, dann in Etappen 2005 → 2000 (nur mit Qualitätsschwelle je Etappe).</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>Nächste Crawl-Strategie (Priorität)</h3>
+              <ul>
+                <li><strong>NW:</strong> Landrat-Übersicht ersetzt durch konkrete Traktanden-/Geschäfts-URLs (Hindernis: viele allgemeine Landingpages).</li>
+                <li><strong>UR:</strong> Session-Seiten auf einzelne Geschäftsdetailseiten herunterbrechen (Hindernis: Session-Listen ohne stabile IDs).</li>
+                <li><strong>TI:</strong> Ricerca-Resultate bis auf einzelne Atti/Interpellanze verlinken (Hindernis: mehrsprachige Struktur + Cookie/JS).</li>
+                <li><strong>NE/SZ/ZG:</strong> pro Quelle Link-Ranking mit Detail-ID-Pflicht aktivieren (Hindernis: Portale liefern zuerst Rubrikseiten).</li>
+                <li><strong>Städte:</strong> Basel/Genf/Lausanne erst freischalten, wenn mindestens 1 verifizierbare Detail-URL pro Lauf gefunden wird.</li>
               </ul>
             </section>
           </aside>

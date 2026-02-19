@@ -24,8 +24,8 @@ const enabledSourceIds = new Set(((configuredSources.length ? configuredSources 
   .filter((s) => s.enabled !== false)
   .map((s) => s.id))
 
-const DEFAULT_TARGET_SINCE_YEAR = 2020
-const TARGET_SINCE_YEAR = Math.max(2020, Number(process.env.REVIEW_TARGET_SINCE_YEAR || DEFAULT_TARGET_SINCE_YEAR))
+const DEFAULT_TARGET_SINCE_YEAR = 2016
+const TARGET_SINCE_YEAR = Math.max(2000, Number(process.env.REVIEW_TARGET_SINCE_YEAR || DEFAULT_TARGET_SINCE_YEAR))
 const REVIEW_INCLUDE_DECIDED = String(process.env.REVIEW_INCLUDE_DECIDED || '').trim() === '1'
 const targetSinceTs = Date.UTC(TARGET_SINCE_YEAR, 0, 1, 0, 0, 0)
 const isInTargetHorizon = (item) => {
@@ -102,9 +102,8 @@ const isCantonalReadableRelevant = (item) => {
     || /geschaeftid=|objektid=|affairid=|detail\.php\?gid=/i.test(sourceLink)
   )
 
-  if (isCantonalSummaryId) return false
-  if (String(item?.sourceId || '') === 'ch-cantonal-portal-core' && !hasConcreteBusinessRef) return false
-  if (looksSyntheticCantonalHeadline && !hasConcreteBusinessRef) return false
+  // Keep cantonal summary rows visible during source-fix phase so they can be reviewed and corrected.
+  if (looksSyntheticCantonalHeadline && !hasConcreteBusinessRef) return true
 
   return CANTONAL_THEME_STRONG_KEYWORDS.some((kw) => text.includes(kw))
 }
@@ -262,11 +261,11 @@ const displayTitle = (item) => {
   // For parliament entries, always prefer the best available DE title of the same affair.
   if (sid.startsWith('ch-parliament-')) {
     const dePreferred = findReadableParliamentTitle(item)
-    if (dePreferred) return dePreferred
+    if (dePreferred) return germanizeText(dePreferred)
   }
 
-  if (!isGenericParliamentTitle(current)) return current
-  return findReadableParliamentTitle(item) || current
+  if (!isGenericParliamentTitle(current)) return germanizeText(current)
+  return germanizeText(findReadableParliamentTitle(item) || current)
 }
 const entryKey = (item) => `${item.sourceId}:${item.externalId}`
 const decidedEntryKeys = new Set(Object.keys(localDecisions || {}))
@@ -597,6 +596,18 @@ const repairMojibake = (value = '') => decodeMojibakeRaw(value)
 
 const clean = (v = '') => repairMojibake(v)
 
+const germanizeText = (v = '') => {
+  const out = clean(v)
+  return out
+    .replace(/\bGran Consiglio\b/gi, 'Grosser Rat')
+    .replace(/\bRicerca messaggi e atti\b/gi, 'Suche Mitteilungen und Akten')
+    .replace(/\bRisultati\b/gi, 'Ergebnisse')
+    .replace(/\bInterpellanza\b/gi, 'Interpellation')
+    .replace(/\bInterrogazione\b/gi, 'Anfrage')
+    .replace(/\bcaccia\b/gi, 'Jagd')
+    .replace(/\bagricoltura\b/gi, 'Landwirtschaft')
+}
+
 const isGenericStatusSummary = (text = '') => {
   const low = clean(text).toLowerCase()
   return (
@@ -729,8 +740,8 @@ const rows = reviewItems
   const entryType = item.sourceId === 'user-input' || item.sourceId === 'user-feedback' ? 'User-Feedback' : 'Crawler'
   const scoreValue = Number(item.score || 0)
   const title = displayTitle(item)
-  const summary = clean(summarizeForReview(item))
-  const keywords = (item.matchedKeywords || []).map((k) => clean(k)).filter(Boolean)
+  const summary = germanizeText(summarizeForReview(item))
+  const keywords = (item.matchedKeywords || []).map((k) => germanizeText(k)).filter(Boolean)
   const priorityLabel = fastLane ? 'fast-lane' : (scoreValue >= 0.8 ? 'hoch' : scoreValue >= 0.55 ? 'mittel' : 'niedriger')
   const sourceUrl = resolveOriginalUrl(item)
   const isTaggedFastlane = Boolean(fastlaneTags[id]?.fastlane)
@@ -1075,13 +1086,13 @@ fs.writeFileSync(reviewCandidatesPath, JSON.stringify({
     sourceId: item.sourceId,
     externalId: item.externalId,
     title: displayTitle(item),
-    summary: clean(summarizeForReview(item)),
+    summary: germanizeText(summarizeForReview(item)),
     score: Number(item.score || 0),
     status: normalizeReviewStatus(item),
     sourceUrl: resolveOriginalUrl(item),
     publishedAt: item.publishedAt || null,
     fetchedAt: item.fetchedAt || null,
-    matchedKeywords: Array.isArray(item.matchedKeywords) ? item.matchedKeywords : [],
+    matchedKeywords: Array.isArray(item.matchedKeywords) ? item.matchedKeywords.map((k) => germanizeText(k)) : [],
     reviewReason: clean(item.reviewReason || ''),
   })),
 }, null, 2))
