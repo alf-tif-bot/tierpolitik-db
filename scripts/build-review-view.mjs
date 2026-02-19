@@ -264,8 +264,16 @@ const displayTitle = (item) => {
     if (dePreferred) return germanizeText(dePreferred)
   }
 
-  if (!isGenericParliamentTitle(current)) return germanizeText(current)
-  return germanizeText(findReadableParliamentTitle(item) || current)
+  const base = !isGenericParliamentTitle(current)
+    ? germanizeText(current)
+    : germanizeText(findReadableParliamentTitle(item) || current)
+
+  // Municipal Bern entries often include a redundant city prefix in title.
+  if (sid === 'ch-municipal-parliament-bern-zurich') {
+    return base.replace(/^Bern\s*[·\-–:]\s*/i, '')
+  }
+
+  return base
 }
 const entryKey = (item) => `${item.sourceId}:${item.externalId}`
 const decidedEntryKeys = new Set(Object.keys(localDecisions || {}))
