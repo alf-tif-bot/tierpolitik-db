@@ -13,6 +13,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,12 +26,35 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
       - name: Build
         env:
           GITHUB_ACTIONS: ''
         run: npm run build
 
-      - name: Deploy to Metanet (Plesk httpdocs)
+      - name: Deploy to Metanet (attempt 1)
+        id: deploy_attempt_1
+        continue-on-error: true
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.METANET_FTP_HOST }}
+          username: ${{ secrets.METANET_FTP_USER }}
+          password: ${{ secrets.METANET_FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./dist/
+          server-dir: /
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.github/**
+
+      - name: Retry delay
+        if: steps.deploy_attempt_1.outcome == 'failure'
+        run: sleep 25
+
+      - name: Deploy to Metanet (attempt 2)
+        if: steps.deploy_attempt_1.outcome == 'failure'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.METANET_FTP_HOST }}
