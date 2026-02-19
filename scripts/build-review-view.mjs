@@ -457,6 +457,10 @@ const scoreOriginalUrl = (value = '', sourceId = '') => {
   if (/landrat\/geschaefte/.test(low)) score += 6
   if (/\/landratmain\b/.test(low)) score += 4
   if (/\/landrat\b/.test(low) && !/\/landratmain\b/.test(low)) score -= 6
+
+  // Uri currently serves Landrat content via /sitzung; /landrat/geschaefte is invalid.
+  if (/ur\.ch\/landrat\/geschaefte/.test(low)) score -= 12
+  if (/ur\.ch\/sitzung/.test(low)) score += 8
   if (/gemeinderat|stadtrat/.test(low) && /geschaefte|detail|objets?\//.test(low)) score += 3
 
   // Penalize topical department pages that are not parliamentary business detail pages

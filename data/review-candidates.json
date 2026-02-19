@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-19T10:39:48.006Z",
+  "generatedAt": "2026-02-19T10:40:49.052Z",
   "total": 5,
   "items": [
     {
@@ -46,7 +46,7 @@
       "summary": "Kanton Uri - Sessionen – 4 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Geschäfte Landrat Uri)",
       "score": 0.5166666666666667,
       "status": "queued",
-      "sourceUrl": "https://www.ur.ch/landrat/geschaefte",
+      "sourceUrl": "https://www.ur.ch/sitzung",
       "publishedAt": "2026-02-19T10:24:47.046Z",
       "fetchedAt": "2026-02-19T10:24:47.046Z",
       "matchedKeywords": [
