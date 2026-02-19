@@ -46,7 +46,7 @@
     <p>Es werden standardmässig nur <strong>offene</strong> relevante Einträge gezeigt (queued/new). Bereits bearbeitete Einträge bleiben ausgeblendet und können bei Bedarf über den Button eingeblendet werden. Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB übernommen.</p>
     <p class="status" id="status-summary">Status-Summen (sichtbar): offen=0, gutgeheissen=0, publiziert=0</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
-    <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="toggleDecided()" id="toggle-decided">Bereits bearbeitete anzeigen</button></p>
+    <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="toggleDecided()" id="toggle-decided">Bereits bearbeitete anzeigen</button> <button onclick="toggleRejectedOnly()" id="toggle-rejected">Abgelehnte anzeigen (neu → alt)</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
     
     <table>
@@ -739,6 +739,11 @@ const readUi=()=>safeJsonParse(lsGet(uiKey),{});
 const writeUi=(v)=>lsSet(uiKey,JSON.stringify(v));
 
 let showDecided = false;
+let showRejectedOnly = false;
+
+document.querySelectorAll('tr[data-id]').forEach((row, idx) => {
+  row.setAttribute('data-base-order', String(idx))
+});
 
 function updateStatusSummary(){
   const stats = { offen: 0, gutgeheissen: 0, publiziert: 0 }
@@ -749,12 +754,12 @@ function updateStatusSummary(){
     visibleRows += 1
     const status = String(row.getAttribute('data-status') || '').toLowerCase()
     if (status === 'queued' || status === 'new') stats.offen += 1
-    else if (status === 'approved') stats.gutheissen += 1
+    else if (status === 'approved') stats.gutgeheissen += 1
     else if (status === 'published') stats.publiziert += 1
   })
   const el = document.getElementById('status-summary')
   if (el) {
-    el.textContent = 'Status-Summen (sichtbar): offen=' + stats.offen + ', gutgeheissen=' + stats.gutheissen + ', publiziert=' + stats.publiziert
+    el.textContent = 'Status-Summen (sichtbar): offen=' + stats.offen + ', gutgeheissen=' + stats.gutgeheissen + ', publiziert=' + stats.publiziert
     if (visibleRows === 0) el.textContent += ' · keine offenen Einträge'
   }
 }
@@ -783,24 +788,67 @@ function hideDecidedRows(){
     const localAffairHit = Boolean(affairId) && localAffairDecided.has(affairId)
     const decided = serverDecided || localDecided || localAffairHit
     decidedById[id] = decided
-    row.style.display = (!showDecided && decided) ? 'none' : ''
+
+    if (showRejectedOnly) {
+      const localStatus = String(decisions[id]?.status || '').toLowerCase()
+      const rowStatus = String(status).toLowerCase()
+      const isRejected = localStatus === 'rejected' || rowStatus === 'rejected'
+      row.style.display = isRejected ? '' : 'none'
+    } else {
+      row.style.display = (!showDecided && decided) ? 'none' : ''
+    }
   });
+
+  if (showRejectedOnly) {
+    const tbody = rows[0]?.parentElement
+    if (tbody) {
+      rows
+        .filter((row) => row.style.display !== 'none')
+        .sort((a, b) => {
+          const aId = a.getAttribute('data-id') || ''
+          const bId = b.getAttribute('data-id') || ''
+          const aTs = Date.parse(String(decisions[aId]?.decidedAt || '')) || 0
+          const bTs = Date.parse(String(decisions[bId]?.decidedAt || '')) || 0
+          if (bTs !== aTs) return bTs - aTs
+          return Number(a.getAttribute('data-base-order') || 0) - Number(b.getAttribute('data-base-order') || 0)
+        })
+        .forEach((row) => tbody.appendChild(row))
+    }
+  } else {
+    const tbody = rows[0]?.parentElement
+    if (tbody) {
+      rows
+        .sort((a, b) => Number(a.getAttribute('data-base-order') || 0) - Number(b.getAttribute('data-base-order') || 0))
+        .forEach((row) => tbody.appendChild(row))
+    }
+  }
 
   document.querySelectorAll('.fastlane-card[data-id]').forEach((card)=>{
     const id = card.getAttribute('data-id')
     if (!id) return
     const decided = Boolean(decidedById[id]) || Boolean(decisions[id])
-    card.style.display = decided ? 'none' : ''
+    card.style.display = (showRejectedOnly || decided) ? 'none' : ''
   })
 
   const btn = document.getElementById('toggle-decided')
   if (btn) btn.textContent = showDecided ? 'Bearbeitete ausblenden' : 'Bereits bearbeitete anzeigen'
+
+  const rejBtn = document.getElementById('toggle-rejected')
+  if (rejBtn) rejBtn.textContent = showRejectedOnly ? 'Alle anzeigen' : 'Abgelehnte anzeigen (neu → alt)'
+
   updateStatusSummary();
 }
 
 window.toggleDecided = function toggleDecided(){
   showDecided = !showDecided
+  if (showDecided) showRejectedOnly = false
   writeUi({ showDecided })
+  hideDecidedRows()
+}
+
+window.toggleRejectedOnly = function toggleRejectedOnly(){
+  showRejectedOnly = !showRejectedOnly
+  if (showRejectedOnly) showDecided = true
   hideDecidedRows()
 }
 
