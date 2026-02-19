@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-19T10:42:40.878Z",
+  "generatedAt": "2026-02-19T10:58:03.034Z",
   "total": 2,
   "items": [
     {
@@ -8,11 +8,11 @@
       "externalId": "20254831-de",
       "title": "25.4831 · Einheimische Produktionssysteme fördern anstatt Importbedingungen für mit Chlor behandeltem Hühnerfleisch lockern",
       "summary": "Kurzfassung: Das Geschäft behandelt hühner. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.",
-      "score": 0.7300000000000001,
+      "score": 0.73,
       "status": "queued",
       "sourceUrl": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254831",
       "publishedAt": "2025-12-19T00:00:00.000Z",
-      "fetchedAt": "2026-02-19T10:24:41.459Z",
+      "fetchedAt": "2026-02-19T10:52:30.474Z",
       "matchedKeywords": [
         "hühner",
         "landwirtschaft",
@@ -29,9 +29,9 @@
       "summary": "Gemeinde Bern (Stadtrat Bern) · 2025.SR.0388 · Eingereicht",
       "score": 0.18,
       "status": "queued",
-      "sourceUrl": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=d0f7b26541424c43aab28a91744f6ba9",
+      "sourceUrl": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php",
       "publishedAt": "2025-11-19T23:00:00.000Z",
-      "fetchedAt": "2026-02-19T10:24:48.529Z",
+      "fetchedAt": "2026-02-19T10:52:41.990Z",
       "matchedKeywords": [
         "motion"
       ],
