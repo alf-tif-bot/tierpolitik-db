@@ -1,113 +1,5 @@
 [
   {
-    "id": "ch-parliament-postulates-de:20183989-de",
-    "title": "18.3989 · Tierschutzkonformität bei grossen Tierbeständen in der Schweiz",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-postulates-de",
-    "publishedAt": "2018-09-27T00:00:00.000Z",
-    "score": 0.7200000000000001,
-    "matchedKeywords": [
-      "tierschutz",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20254380-de",
-    "title": "25.4380 · Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhühner\") gesetzlich verankern",
-    "summary": "Zugewiesen an die behandelnde Kommission",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2025-09-26T00:00:00.000Z",
-    "score": 0.8400000000000001,
-    "matchedKeywords": [
-      "geflügel",
-      "gesetz",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-postulates-de:20243277-de",
-    "title": "24.3277 · Luchsbestände in der Schweiz sind bezüglich Nutztier- und Jagdregalschäden zu untersuchen",
-    "summary": "Überwiesen an den Bundesrat",
-    "sourceId": "ch-parliament-postulates-de",
-    "publishedAt": "2024-03-14T00:00:00.000Z",
-    "score": 0.06000000000000001,
-    "matchedKeywords": [
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20213363",
-    "title": "Parlamentsgeschäft 20213363",
-    "summary": "Parlamentsgeschäft 20213363",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:45:24.288Z",
-    "score": 0.8600000000000001,
-    "matchedKeywords": [
-      "tierversuch",
-      "tierversuche"
-    ]
-  },
-  {
-    "id": "ch-cantonal-portal-core:cantonal-portal-ne",
-    "title": "NE · Grand Conseil Neuchâtel: Motions Grand Conseil NE",
-    "summary": "Objets - R&eacute;publique et canton de Neuch&acirc;tel – 10 relevante Linkziele erkannt (2 thematisch, 3 Seiten gescannt, Leitlink: Motions Grand Conseil NE)",
-    "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-20T01:26:15.177Z",
-    "score": 1,
-    "matchedKeywords": [
-      "animaux",
-      "chasse",
-      "motion",
-      "postulat",
-      "faune"
-    ]
-  },
-  {
-    "id": "ch-cantonal-portal-core:cantonal-portal-sz",
-    "title": "SZ · Kantonsrat Schwyz: Parlamentsgeschäfte",
-    "summary": "STERNBERG Software: Mit uns besser Beraten! – 0 relevante Linkziele erkannt (0 thematisch, 2 Seiten gescannt, Leitlink: Parlamentsgeschäfte)",
-    "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-20T01:26:15.177Z",
-    "score": 0,
-    "matchedKeywords": []
-  },
-  {
-    "id": "ch-cantonal-portal-core:cantonal-portal-zg",
-    "title": "ZG · Kantonsrat Zug: Geschäftsdetail Kantonsrat Zug #1",
-    "summary": "Geschäfte des Kantonsrats – 10 relevante Linkziele erkannt (0 thematisch, 3 Seiten gescannt, Leitlink: Geschäftsdetail Kantonsrat Zug #1)",
-    "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-19T22:29:18.787Z",
-    "score": 0,
-    "matchedKeywords": []
-  },
-  {
-    "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-b7e265b3766d43119b5279f5ea795e91",
-    "title": "Bern · Biodiversität im Siedlungsgebiet fördern",
-    "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0055 · Eingereicht",
-    "sourceId": "ch-municipal-parliament-bern-zurich",
-    "publishedAt": "2026-02-11T23:00:00.000Z",
-    "score": 1,
-    "matchedKeywords": [
-      "biodiversität",
-      "biodiversita",
-      "motion"
-    ]
-  },
-  {
-    "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-58a0ae87cf6f44e1a4030952a06a85bb",
-    "title": "Bern · Biodiversität im Landwirtschaftsgebiet fördern",
-    "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0054 · Eingereicht",
-    "sourceId": "ch-municipal-parliament-bern-zurich",
-    "publishedAt": "2026-02-11T23:00:00.000Z",
-    "score": 1,
-    "matchedKeywords": [
-      "biodiversität",
-      "biodiversita",
-      "motion",
-      "landwirtschaft"
-    ]
-  },
-  {
     "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-13284d70bb124c23a1bbba427e8a7c5c",
     "title": "Bern · Tierpark Bern: Welche Alternativen zur Tötung überzähliger Tiere gibt es?",
     "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0019 · Eingereicht",
@@ -143,19 +35,6 @@
     ]
   },
   {
-    "id": "ch-parliament-business-de:20194023-de",
-    "title": "19.4023 · Nutztiere. Vollzug hinsichtlich Transportdauer und Fahrtunterbrüche",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2019-09-12T00:00:00.000Z",
-    "score": 0.8600000000000001,
-    "matchedKeywords": [
-      "nutztiere",
-      "transport",
-      "landwirtschaft"
-    ]
-  },
-  {
     "id": "ch-parliament-business-de:20154105-de",
     "title": "15.4105 · Tierquälerei. Stutenblut für die Schweineproduktion",
     "summary": "Erledigt",
@@ -168,6 +47,15 @@
       "tierquälerei",
       "landwirtschaft"
     ]
+  },
+  {
+    "id": "ch-cantonal-portal-core:cantonal-portal-sz",
+    "title": "SZ · Kantonsrat Schwyz: Parlamentsgeschäfte",
+    "summary": "STERNBERG Software: Mit uns besser Beraten! – 0 relevante Linkziele erkannt (0 thematisch, 2 Seiten gescannt, Leitlink: Parlamentsgeschäfte)",
+    "sourceId": "ch-cantonal-portal-core",
+    "publishedAt": "2026-02-20T02:24:46.065Z",
+    "score": 0,
+    "matchedKeywords": []
   },
   {
     "id": "ch-parliament-business-fr:20250067-fr",
@@ -298,6 +186,18 @@
     ]
   },
   {
+    "id": "ch-parliament-postulates-de:20183989-de",
+    "title": "18.3989 · Tierschutzkonformität bei grossen Tierbeständen in der Schweiz",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-postulates-de",
+    "publishedAt": "2018-09-27T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "landwirtschaft"
+    ]
+  },
+  {
     "id": "ch-parliament-motions-de:20143830-de",
     "title": "14.3830 · Jagdbanngebiete in Wildtierschutzgebiete umbenennen",
     "summary": "Erledigt",
@@ -320,19 +220,6 @@
       "schwein",
       "schweine",
       "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-petitions-de:19942028-de",
-    "title": "94.2028 · Verbot der Massentierhaltung von Wachteln (mehr als 200 Tiere). Importverbot für Wachtelfleisch und Wachteleier",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-petitions-de",
-    "publishedAt": "1994-01-07T00:00:00.000Z",
-    "score": 0.96,
-    "matchedKeywords": [
-      "tiere",
-      "massentierhaltung",
-      "massentier"
     ]
   },
   {
@@ -1014,18 +901,6 @@
     ]
   },
   {
-    "id": "ch-parliament-petitions-de:20052015-de",
-    "title": "05.2015 · Für das Recht zur Verweigerung von Tierversuchen aus Gewissensgründen",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-petitions-de",
-    "publishedAt": "2005-11-21T00:00:00.000Z",
-    "score": 0.8600000000000001,
-    "matchedKeywords": [
-      "tierversuch",
-      "tierversuche"
-    ]
-  },
-  {
     "id": "ch-parliament-business-it:20254788-it",
     "title": "25.4788 · Reintroduzione di contributi per i detentori di animali al passo con i tempi onde garantire una detenzione di animali da reddito e un’alimentazione sostenibili in Svizzera",
     "summary": "La dichiarazione sull’intervento è disponibile",
@@ -1162,18 +1037,6 @@
     ]
   },
   {
-    "id": "ch-parliament-petitions-de:20202018-de",
-    "title": "20.2018 · Grundrechte für Schweine",
-    "summary": "Eingereicht",
-    "sourceId": "ch-parliament-petitions-de",
-    "publishedAt": "2020-08-28T00:00:00.000Z",
-    "score": 0.8600000000000001,
-    "matchedKeywords": [
-      "schwein",
-      "schweine"
-    ]
-  },
-  {
     "id": "ch-parliament-business-de:20237608-de",
     "title": "23.7608 · Warum sollten Wolfsrudel unabhängig vom Risiko von Schäden an Nutztieren abgeschossen werden?",
     "summary": "Erledigt",
@@ -1302,6 +1165,149 @@
     "score": 0.6100000000000001,
     "matchedKeywords": [
       "tierschutz"
+    ]
+  },
+  {
+    "id": "ch-parliament-postulates-de:20254809-de",
+    "title": "25.4809 · Keine Tierqual bei der Geflügelschlachtung",
+    "summary": "Stellungnahme zum Vorstoss liegt vor",
+    "sourceId": "ch-parliament-postulates-de",
+    "publishedAt": "2025-12-19T00:00:00.000Z",
+    "score": 0.7300000000000001,
+    "matchedKeywords": [
+      "geflügel",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-it:20250067-it",
+    "title": "25.067 · «Per un’alimentazione sicura – mediante il rafforzamento di una produzione nazionale sostenibile, più derrate alimentari vegetali e acqua potabile pulita (Iniziativa sull’alimentazione)». Iniziativa popolare",
+    "summary": "Messaggio del 13 agosto 2025 concernente l’iniziativa popolare «Per un’alimentazione sicura – mediante il rafforzamento di una produzione nazionale sostenibile, più derrate alimentari vegetali e acqua potabile pulita (Iniziativa sull’alimentazione)»",
+    "sourceId": "ch-parliament-business-it",
+    "publishedAt": "2025-08-13T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "ernährung",
+      "alimentazione",
+      "initiative",
+      "botschaft",
+      "landwirtschaft",
+      "agriculture",
+      "agricoltura"
+    ]
+  },
+  {
+    "id": "ch-parliament-postulates-de:20083696-de",
+    "title": "08.3696 · Auswirkungen des EU-Agrarfreihandels auf das Tierschutzniveau und die bäuerliche Tierhaltung",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-postulates-de",
+    "publishedAt": "2008-10-03T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tierschutz",
+      "tierhaltung",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-postulates-de:20123660-de",
+    "title": "12.3660 · Zukunft der Stiftung Forschung 3R und Alternativmethoden für Tierversuche",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-postulates-de",
+    "publishedAt": "2012-08-17T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche",
+      "3r"
+    ]
+  },
+  {
+    "id": "ch-parliament-postulates-de:20244695-de",
+    "title": "24.4695 · Alternativen zu Tierversuchen. Forschungsstandort Schweiz stärken!",
+    "summary": "Stellungnahme zum Vorstoss liegt vor",
+    "sourceId": "ch-parliament-postulates-de",
+    "publishedAt": "2024-12-20T00:00:00.000Z",
+    "score": 0.8900000000000001,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20254380-de",
+    "title": "25.4380 · Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhühner\") gesetzlich verankern",
+    "summary": "Zugewiesen an die behandelnde Kommission",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-09-26T00:00:00.000Z",
+    "score": 0.8400000000000001,
+    "matchedKeywords": [
+      "geflügel",
+      "gesetz",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20203849",
+    "title": "Parlamentsgeschäft 20203849",
+    "summary": "Parlamentsgeschäft 20203849",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2026-02-14T22:31:39.532Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20213363-de",
+    "title": "21.3363 · Gemeinsame Bewilligungsbehörde für eine einheitliche Beurteilung von Tierversuchen mit Schweregrad 3",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2021-03-18T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20223808-de",
+    "title": "22.3808 · Aussagekräftige und transparente Tierversuchsstatistik",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2022-06-17T00:00:00.000Z",
+    "score": 0.5800000000000001,
+    "matchedKeywords": [
+      "tierversuch"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20210426-de",
+    "title": "21.426 · Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
+    "summary": "In Kommission des Nationalrats",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2021-03-18T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche",
+      "animal",
+      "expérimentation animale",
+      "sperimentazione animale",
+      "3r",
+      "animale"
+    ]
+  },
+  {
+    "id": "ch-parliament-postulates-de:20243277-de",
+    "title": "24.3277 · Luchsbestände in der Schweiz sind bezüglich Nutztier- und Jagdregalschäden zu untersuchen",
+    "summary": "Überwiesen an den Bundesrat",
+    "sourceId": "ch-parliament-postulates-de",
+    "publishedAt": "2024-03-14T00:00:00.000Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
     ]
   }
 ]
