@@ -1,26 +1,6 @@
 {
-  "updatedAt": "2026-02-20T01:04:34.869Z",
+  "updatedAt": "2026-02-20T21:26:10.152Z",
   "learned": [
-    {
-      "keyword": "tierschutz",
-      "weight": 1
-    },
-    {
-      "keyword": "nutztiere",
-      "weight": 1
-    },
-    {
-      "keyword": "tierhaltung",
-      "weight": 1
-    },
-    {
-      "keyword": "3r",
-      "weight": 1
-    },
-    {
-      "keyword": "geflügel",
-      "weight": 1
-    },
     {
       "keyword": "tiere",
       "weight": 1
@@ -35,6 +15,10 @@
     },
     {
       "keyword": "tierquälerei",
+      "weight": 1
+    },
+    {
+      "keyword": "tierschutz",
       "weight": 1
     },
     {
@@ -58,15 +42,15 @@
       "weight": 1
     },
     {
-      "keyword": "massentierhaltung",
-      "weight": 1
-    },
-    {
-      "keyword": "massentier",
-      "weight": 1
-    },
-    {
       "keyword": "schweizer tierschutz",
+      "weight": 1
+    },
+    {
+      "keyword": "tierhaltung",
+      "weight": 1
+    },
+    {
+      "keyword": "nutztiere",
       "weight": 1
     },
     {
@@ -82,11 +66,27 @@
       "weight": 1
     },
     {
+      "keyword": "geflügel",
+      "weight": 1
+    },
+    {
+      "keyword": "3r",
+      "weight": 1
+    },
+    {
       "keyword": "fisch",
       "weight": 1
     },
     {
       "keyword": "stopfleber",
+      "weight": 1
+    },
+    {
+      "keyword": "massentierhaltung",
+      "weight": 1
+    },
+    {
+      "keyword": "massentier",
       "weight": 1
     },
     {

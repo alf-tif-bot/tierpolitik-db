@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-02-20T01:04:37.570Z",
+  "generatedAt": "2026-02-20T21:26:14.205Z",
   "minScore": 0.16,
   "zg": {
     "raw": 236,
     "open": 0,
     "dropped": 236,
-    "decisionLocked": 50,
+    "decisionLocked": 236,
     "rampupPromoted": 0,
     "dropReasons": {
       "missing-anchor": 230,

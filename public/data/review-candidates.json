@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-02-20T01:04:48.432Z",
-  "total": 5,
+  "generatedAt": "2026-02-20T21:26:14.778Z",
+  "total": 0,
   "sourceFix": {
     "total": 2,
     "byCanton": {
@@ -28,90 +28,5 @@
       }
     ]
   },
-  "items": [
-    {
-      "id": "ch-cantonal-portal-core:cantonal-portal-zg-1214",
-      "sourceId": "ch-cantonal-portal-core",
-      "externalId": "cantonal-portal-zg-1214",
-      "title": "ZG · 1648 - Interpellation von Franz Hürlimann betreffend kosteneffizienter Reorganisation beim kantonalen Amt für Fischerei und Jagd",
-      "summary": "Kantonsrat Zug (quick_search): Treffer für Jagd.",
-      "score": 1,
-      "status": "queued",
-      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/1214",
-      "publishedAt": "2026-02-19T22:24:17.743Z",
-      "fetchedAt": "2026-02-19T22:24:17.743Z",
-      "matchedKeywords": [
-        "jagd",
-        "fischerei",
-        "fisch"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=jagd|fischerei · support=fisch|jagd · title=fisch|fische · context=- · process=interpellation|kantonsrat · fb+=fisch · fb-=- · people=- · noise=- · feedback=0.07 · fastlane=0.00 · titleBoost=0.22 · score=1.00"
-    },
-    {
-      "id": "ch-cantonal-portal-core:cantonal-portal-zg-3045",
-      "sourceId": "ch-cantonal-portal-core",
-      "externalId": "cantonal-portal-zg-3045",
-      "title": "ZG · 4032 - Petition zur Prüfung der wissenschaftlichen Notwendigkeit zur Fuchsjagd",
-      "summary": "Kantonsrat Zug (quick_search): Treffer für Jagd.",
-      "score": 0.7300000000000001,
-      "status": "queued",
-      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/3045",
-      "publishedAt": "2026-02-19T22:24:17.743Z",
-      "fetchedAt": "2026-02-19T22:24:17.743Z",
-      "matchedKeywords": [
-        "fuchs",
-        "jagd"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=fuchs|jagd · support=jagd · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.73"
-    },
-    {
-      "id": "ch-cantonal-portal-core:cantonal-portal-zg-716",
-      "sourceId": "ch-cantonal-portal-core",
-      "externalId": "cantonal-portal-zg-716",
-      "title": "ZG · 1112 - Kantonsratsbeschluss betreffend Investitionsbeitrag an den Tierschutzverein des Kantons Zug für die Quarantänestation im Tierheim Allenwinden",
-      "summary": "Kantonsrat Zug (quick_search): Treffer für Tierschutz.",
-      "score": 0.6100000000000001,
-      "status": "queued",
-      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/716",
-      "publishedAt": "2026-02-19T22:24:17.743Z",
-      "fetchedAt": "2026-02-19T22:24:17.743Z",
-      "matchedKeywords": [
-        "tierschutz"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=pro-tierschutz · anchor=tierschutz · support=- · title=- · context=- · process=kantonsrat · fb+=tierschutz · fb-=- · people=- · noise=- · feedback=0.14 · fastlane=0.16 · titleBoost=0.00 · score=0.61"
-    },
-    {
-      "id": "ch-cantonal-portal-core:cantonal-portal-zg-66",
-      "sourceId": "ch-cantonal-portal-core",
-      "externalId": "cantonal-portal-zg-66",
-      "title": "ZG · 1778 - Postulat von Franz Hürlimann und Thiemo Hächler betreffend Senkung der Jagdgebühren im Kanton Zug",
-      "summary": "Kantonsrat Zug (quick_search): Treffer für Jagd.",
-      "score": 0.5900000000000001,
-      "status": "queued",
-      "sourceUrl": "https://kr-geschaefte.zug.ch/gast/geschaefte/66",
-      "publishedAt": "2026-02-19T22:24:17.743Z",
-      "fetchedAt": "2026-02-19T22:24:17.743Z",
-      "matchedKeywords": [
-        "jagd",
-        "postulat"
-      ],
-      "reviewReason": "Relevant [anchor+score] · stance=neutral/unklar · anchor=jagd · support=postulat|jagd · title=- · context=- · process=kantonsrat · fb+=- · fb-=- · people=- · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.00 · score=0.59"
-    },
-    {
-      "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9",
-      "sourceId": "ch-municipal-parliament-bern-zurich",
-      "externalId": "municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9",
-      "title": "Nachtfahrverbot für Mähroboter - für Igel und andere Kleintiere",
-      "summary": "Gemeinde Bern (Stadtrat Bern) · 2025.SR.0388 · Eingereicht",
-      "score": 0.32,
-      "status": "queued",
-      "sourceUrl": "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=d0f7b26541424c43aab28a91744f6ba9",
-      "publishedAt": "2025-11-19T23:00:00.000Z",
-      "fetchedAt": "2026-02-20T01:02:03.079Z",
-      "matchedKeywords": [
-        "motion"
-      ],
-      "reviewReason": "Relevant [whitelist+theme] · stance=neutral/unklar · anchor=- · support=motion · title=igel · context=- · process=- · fb+=- · fb-=- · people=tobias sennhauser · noise=- · feedback=0.00 · fastlane=0.00 · titleBoost=0.14 · score=0.32"
-    }
-  ]
+  "items": []
 }
