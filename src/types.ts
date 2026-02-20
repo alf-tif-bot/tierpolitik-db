@@ -6,7 +6,7 @@ export const statusEnum = z.string().min(1)
 export const personSchema = z.object({
   name: z.string().min(1),
   rolle: z.string(),
-  partei: z.string().min(1),
+  partei: z.string().default(''),
 })
 
 export const resultSchema = z.object({
