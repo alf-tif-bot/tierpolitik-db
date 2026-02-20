@@ -50,16 +50,12 @@
   },
   {
     "id": "ch-cantonal-portal-core:cantonal-portal-sz",
-    "title": "SZ · Kantonsrat Schwyz: Jagd und Wildtiere",
-    "summary": "Kantonsrat – Kanton Schwyz – 3 relevante Linkziele erkannt (1 thematisch, 3 Seiten gescannt, Leitlink: Jagd und Wildtiere)",
+    "title": "SZ · Kantonsrat Schwyz: Parlamentsgeschäfte",
+    "summary": "STERNBERG Software: Mit uns besser Beraten! – 0 relevante Linkziele erkannt (0 thematisch, 2 Seiten gescannt, Leitlink: Parlamentsgeschäfte)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-20T06:24:46.151Z",
-    "score": 1,
-    "matchedKeywords": [
-      "wildtier",
-      "wildtiere",
-      "jagd"
-    ]
+    "publishedAt": "2026-02-20T07:24:45.685Z",
+    "score": 0,
+    "matchedKeywords": []
   },
   {
     "id": "ch-parliament-business-fr:20250067-fr",
