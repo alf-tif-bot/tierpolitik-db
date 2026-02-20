@@ -899,7 +899,7 @@ const initialFastlaneTags=${JSON.stringify(fastlaneTags)};
 const lsGet=(k)=>{ try { return localStorage.getItem(k); } catch { return null; } };
 const lsSet=(k,v)=>{ try { localStorage.setItem(k,v); } catch {} };
 const LEGACY_API_BASE_KEY='tierpolitik.apiBase';
-const LEGACY_NETLIFY_RE=/netlify\.app\/\.netlify\/functions/i;
+const LEGACY_NETLIFY_RE=/netlify\\.app\\/\\.netlify\\/functions/i;
 const storedApiBaseRaw = lsGet(LEGACY_API_BASE_KEY) || '';
 if (LEGACY_NETLIFY_RE.test(storedApiBaseRaw)) {
   try { localStorage.removeItem(LEGACY_API_BASE_KEY); } catch {}

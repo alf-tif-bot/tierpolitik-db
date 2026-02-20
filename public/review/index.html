@@ -55,7 +55,21 @@
     <p class="export view-controls"><span class="view-label">Ansicht</span><button class="view-btn" onclick="setViewMode('open')" id="view-open">Offen</button> <button class="view-btn" onclick="setViewMode('rejected')" id="view-rejected">Abgelehnt (neu → alt)</button> <button class="view-btn" onclick="clearLocalReviewState()" id="view-reset">Lokale Entscheide löschen</button> <button class="view-btn" onclick="toggleDebugPanel()" id="view-debug">Debug an/aus</button></p>
     <p id="decision-status" class="muted" aria-live="polite"></p>
     <div id="review-debug-box" class="debug-box" style="display:none"><pre id="review-debug-log"></pre></div>
-    
+    <section class="fastlane-wrap">
+      <h2>âš¡ Fast-Lane</h2>
+      <div class="fastlane-grid"><div class="fastlane-card" data-id="ch-parliament-petitions-de:20232024-de" data-fastlane-tagged="0">
+    <div class="fastlane-head">
+      <strong>23.2024 · Biodiversitätskrise: Jetzt handeln statt zuwarten!</strong>
+      <span class="fastlane-score">0.94</span>
+    </div>
+    <div class="fastlane-actions">
+      <button onclick="setDecision(this,'ch-parliament-petitions-de:20232024-de','approved')">Gutheissen</button>
+      <button onclick="setDecision(this,'ch-parliament-petitions-de:20232024-de','rejected')">Ablehnen</button>
+      <button class="tag-btn" data-tag-btn="ch-parliament-petitions-de:20232024-de" onclick="toggleFastlaneTag(this,'ch-parliament-petitions-de:20232024-de')">Fastlane: AUS</button>
+      <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20232024" target="_blank" rel="noopener noreferrer">Original</a>
+    </div>
+  </div></div>
+    </section>
     <table>
       <thead>
         <tr>
@@ -185,7 +199,7 @@ const initialFastlaneTags={"ch-parliament-business-de:20223210-de":{"fastlane":t
 const lsGet=(k)=>{ try { return localStorage.getItem(k); } catch { return null; } };
 const lsSet=(k,v)=>{ try { localStorage.setItem(k,v); } catch {} };
 const LEGACY_API_BASE_KEY='tierpolitik.apiBase';
-const LEGACY_NETLIFY_RE=/netlify.app/.netlify/functions/i;
+const LEGACY_NETLIFY_RE=/netlify\.app\/\.netlify\/functions/i;
 const storedApiBaseRaw = lsGet(LEGACY_API_BASE_KEY) || '';
 if (LEGACY_NETLIFY_RE.test(storedApiBaseRaw)) {
   try { localStorage.removeItem(LEGACY_API_BASE_KEY); } catch {}
