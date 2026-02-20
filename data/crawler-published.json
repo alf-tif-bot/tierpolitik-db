@@ -1,146 +1,5 @@
 [
   {
-    "id": "ch-parliament-motions-de:20184052-de",
-    "title": "18.4052 · Effiziente Vertretung von Tierschutzanliegen in Strafverfahren ermöglichen",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2018-09-28T00:00:00.000Z",
-    "score": 0.5800000000000001,
-    "matchedKeywords": [
-      "tierschutz"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20223952",
-    "title": "Parlamentsgeschäft 20223952",
-    "summary": "Parlamentsgeschäft 20223952",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:48:21.245Z",
-    "score": 0.5800000000000001,
-    "matchedKeywords": [
-      "tierschutz"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20213229-de",
-    "title": "21.3229 · Erhaltung einheimischer Nutztierrassen",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2021-03-17T00:00:00.000Z",
-    "score": 0.06000000000000001,
-    "matchedKeywords": [
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20213002-de",
-    "title": "21.3002 · Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2021-01-14T00:00:00.000Z",
-    "score": 0.7200000000000001,
-    "matchedKeywords": [
-      "nutztiere",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-postulates-de:20163340-de",
-    "title": "16.3340 · Nachhaltige Förderung der Tiergesundheit in der Nutztierhaltung bzw. in der landwirtschaftlichen Produktion",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-postulates-de",
-    "publishedAt": "2016-04-27T00:00:00.000Z",
-    "score": 0.42000000000000004,
-    "matchedKeywords": [
-      "tiergesundheit",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-postulates-de:20083696-de",
-    "title": "08.3696 · Auswirkungen des EU-Agrarfreihandels auf das Tierschutzniveau und die bäuerliche Tierhaltung",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-postulates-de",
-    "publishedAt": "2008-10-03T00:00:00.000Z",
-    "score": 1,
-    "matchedKeywords": [
-      "tierschutz",
-      "tierhaltung",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-postulates-de:20123660-de",
-    "title": "12.3660 · Zukunft der Stiftung Forschung 3R und Alternativmethoden für Tierversuche",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-postulates-de",
-    "publishedAt": "2012-08-17T00:00:00.000Z",
-    "score": 1,
-    "matchedKeywords": [
-      "tierversuch",
-      "tierversuche",
-      "3r"
-    ]
-  },
-  {
-    "id": "ch-parliament-postulates-de:20244695-de",
-    "title": "24.4695 · Alternativen zu Tierversuchen. Forschungsstandort Schweiz stärken!",
-    "summary": "Stellungnahme zum Vorstoss liegt vor",
-    "sourceId": "ch-parliament-postulates-de",
-    "publishedAt": "2024-12-20T00:00:00.000Z",
-    "score": 0.8900000000000001,
-    "matchedKeywords": [
-      "tierversuch",
-      "tierversuche"
-    ]
-  },
-  {
-    "id": "ch-parliament-postulates-de:20254812-de",
-    "title": "25.4812 · Konsequenzen aus dem Tierschutzfall Ramiswil",
-    "summary": "Stellungnahme zum Vorstoss liegt vor",
-    "sourceId": "ch-parliament-postulates-de",
-    "publishedAt": "2025-12-19T00:00:00.000Z",
-    "score": 0.7500000000000001,
-    "matchedKeywords": [
-      "tierschutz",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-postulates-de:20243296-de",
-    "title": "24.3296 · Effizienteren Tierschutz durch Interessenvertretung",
-    "summary": "Stellungnahme zum Vorstoss liegt vor",
-    "sourceId": "ch-parliament-postulates-de",
-    "publishedAt": "2024-03-15T00:00:00.000Z",
-    "score": 0.6100000000000001,
-    "matchedKeywords": [
-      "tierschutz"
-    ]
-  },
-  {
-    "id": "ch-parliament-postulates-de:20244344-de",
-    "title": "24.4344 · Tierschutzbeauftragte. Eine wirksame Unterstützung",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-postulates-de",
-    "publishedAt": "2024-12-12T00:00:00.000Z",
-    "score": 0.5800000000000001,
-    "matchedKeywords": [
-      "tierschutz"
-    ]
-  },
-  {
-    "id": "ch-parliament-postulates-de:20203591-de",
-    "title": "20.3591 · Griffige Instrumente für die Oberaufsicht im Tierschutzrecht",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-postulates-de",
-    "publishedAt": "2020-06-11T00:00:00.000Z",
-    "score": 0.7200000000000001,
-    "matchedKeywords": [
-      "tierschutz",
-      "landwirtschaft"
-    ]
-  },
-  {
     "id": "ch-parliament-postulates-de:20183989-de",
     "title": "18.3989 · Tierschutzkonformität bei grossen Tierbeständen in der Schweiz",
     "summary": "Erledigt",
@@ -193,7 +52,7 @@
     "title": "NE · Grand Conseil Neuchâtel: Motions Grand Conseil NE",
     "summary": "Objets - R&eacute;publique et canton de Neuch&acirc;tel – 10 relevante Linkziele erkannt (2 thematisch, 3 Seiten gescannt, Leitlink: Motions Grand Conseil NE)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-20T01:03:33.879Z",
+    "publishedAt": "2026-02-20T01:26:15.177Z",
     "score": 1,
     "matchedKeywords": [
       "animaux",
@@ -208,7 +67,7 @@
     "title": "SZ · Kantonsrat Schwyz: Parlamentsgeschäfte",
     "summary": "STERNBERG Software: Mit uns besser Beraten! – 0 relevante Linkziele erkannt (0 thematisch, 2 Seiten gescannt, Leitlink: Parlamentsgeschäfte)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-20T01:03:33.879Z",
+    "publishedAt": "2026-02-20T01:26:15.177Z",
     "score": 0,
     "matchedKeywords": []
   },
@@ -352,6 +211,17 @@
     ]
   },
   {
+    "id": "ch-parliament-motions-de:20184052-de",
+    "title": "18.4052 · Effiziente Vertretung von Tierschutzanliegen in Strafverfahren ermöglichen",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2018-09-28T00:00:00.000Z",
+    "score": 0.5800000000000001,
+    "matchedKeywords": [
+      "tierschutz"
+    ]
+  },
+  {
     "id": "ch-parliament-business-fr:20210044-fr",
     "title": "21.044 · Non à l’élevage intensif en Suisse (initiative sur l’élevage intensif). Initiative populaire et contre-projet direct",
     "summary": "Message du 19 mai 2021 relatif à l’initiative populaire « Non à l’élevage intensif en Suisse (initiative sur l’élevage intensif) » et au contre-projet direct (arrêté fédéral concernant la protection et le bien-être des animaux)",
@@ -425,18 +295,6 @@
       "schwein",
       "schweine",
       "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20223300",
-    "title": "Parlamentsgeschäft 20223300",
-    "summary": "Parlamentsgeschäft 20223300",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T10:45:13.985Z",
-    "score": 0.8600000000000001,
-    "matchedKeywords": [
-      "tierversuch",
-      "3r"
     ]
   },
   {
@@ -629,18 +487,6 @@
     ]
   },
   {
-    "id": "ch-parliament-business-de:20183047-de",
-    "title": "18.3047 · Wie steht es um die Empfehlungen der EFK zum Bewilligungsprozess, zu den Kosten und zur Finanzierung von Tierversuchen?",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2018-02-28T00:00:00.000Z",
-    "score": 0.7600000000000001,
-    "matchedKeywords": [
-      "tierversuch",
-      "tierversuche"
-    ]
-  },
-  {
     "id": "ch-parliament-business-de:20204002",
     "title": "Parlamentsgeschäft 20204002",
     "summary": "Parlamentsgeschäft 20204002",
@@ -777,6 +623,17 @@
     ]
   },
   {
+    "id": "ch-parliament-business-de:20223952",
+    "title": "Parlamentsgeschäft 20223952",
+    "summary": "Parlamentsgeschäft 20223952",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2026-02-14T10:48:21.245Z",
+    "score": 0.5800000000000001,
+    "matchedKeywords": [
+      "tierschutz"
+    ]
+  },
+  {
     "id": "ch-parliament-business-de:20093310-de",
     "title": "09.3310 · Qualität von Versuchstierhaltung und Aussagekraft von Tierversuchen",
     "summary": "Erledigt",
@@ -830,19 +687,6 @@
       "tierwohl",
       "geflügel",
       "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20164122-de",
-    "title": "16.4122 · Forschung nach Ersatzmethoden zu Tierversuchen und 3R-Forschung. Ein Stiefkind",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2016-12-16T00:00:00.000Z",
-    "score": 1,
-    "matchedKeywords": [
-      "tierversuch",
-      "tierversuche",
-      "3r"
     ]
   },
   {
@@ -1040,6 +884,29 @@
     ]
   },
   {
+    "id": "ch-parliament-motions-de:20213229-de",
+    "title": "21.3229 · Erhaltung einheimischer Nutztierrassen",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2021-03-17T00:00:00.000Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-motions-de:20213002-de",
+    "title": "21.3002 · Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2021-01-14T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "landwirtschaft"
+    ]
+  },
+  {
     "id": "ch-parliament-business-de:20203648",
     "title": "Parlamentsgeschäft 20203648",
     "summary": "Parlamentsgeschäft 20203648",
@@ -1114,20 +981,6 @@
     "matchedKeywords": [
       "tierversuch",
       "tierversuche"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20254831-de",
-    "title": "25.4831 · Einheimische Produktionssysteme fördern anstatt Importbedingungen für mit Chlor behandeltem Hühnerfleisch lockern",
-    "summary": "Stellungnahme zum Vorstoss liegt vor",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2025-12-19T00:00:00.000Z",
-    "score": 0.8700000000000001,
-    "matchedKeywords": [
-      "hühner",
-      "landwirtschaft",
-      "agriculture",
-      "agricoltura"
     ]
   },
   {
@@ -1292,6 +1145,161 @@
     "sourceId": "ch-parliament-motions-de",
     "publishedAt": "2022-09-21T00:00:00.000Z",
     "score": 0.5800000000000001,
+    "matchedKeywords": [
+      "tierschutz"
+    ]
+  },
+  {
+    "id": "ch-parliament-motions-de:20213829-de",
+    "title": "21.3829 · Regelungskompetenz im Tierschutz. Auch bei den Kantonen",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2021-06-17T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-petitions-de:20202018-de",
+    "title": "20.2018 · Grundrechte für Schweine",
+    "summary": "Eingereicht",
+    "sourceId": "ch-parliament-petitions-de",
+    "publishedAt": "2020-08-28T00:00:00.000Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "schwein",
+      "schweine"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20237608-de",
+    "title": "23.7608 · Warum sollten Wolfsrudel unabhängig vom Risiko von Schäden an Nutztieren abgeschossen werden?",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2023-09-13T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "nutztiere",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-motions-de:20204214-de",
+    "title": "20.4214 · Amtliche Tierschutzkontrollen nachhaltig aus dem Landwirtschaftsbudget mitfinanzieren und transparent machen",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2020-09-25T00:00:00.000Z",
+    "score": 0.6200000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-motions-de:20213405-de",
+    "title": "21.3405 · Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2021-03-19T00:00:00.000Z",
+    "score": 0.9266666666666667,
+    "matchedKeywords": [
+      "tierschutz",
+      "versuchstiere",
+      "haltung"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-it:20254876-it",
+    "title": "25.4876 · Che impatto ha il pacchetto di sgravio 2027 sulla biodiversità e sull'economia locale nelle regioni periferiche?",
+    "summary": "La dichiarazione sull’intervento è disponibile",
+    "sourceId": "ch-parliament-business-it",
+    "publishedAt": "2025-12-19T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "biodiversität",
+      "biodiversite",
+      "biodiversita"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20254812",
+    "title": "Parlamentsgeschäft 20254812",
+    "summary": "Parlamentsgeschäft 20254812",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2026-02-14T07:47:00.200Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tierschutz",
+      "animal",
+      "animaux",
+      "animali",
+      "landwirtschaft",
+      "agriculture",
+      "agricoltura"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-fr:20254812-fr",
+    "title": "25.4812 · Protection des animaux. Conséquences de l’affaire de Ramiswil",
+    "summary": "L’avis relatif à l’intervention est disponible",
+    "sourceId": "ch-parliament-business-fr",
+    "publishedAt": "2025-12-19T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tierschutz",
+      "animal",
+      "animaux",
+      "animali",
+      "landwirtschaft",
+      "agriculture",
+      "agricoltura"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20123460-de",
+    "title": "12.3460 · Deklarationspflicht für importiertes Geflügelfleisch aus Tierhaltungen, die in der Schweiz verboten sind",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2012-06-11T00:00:00.000Z",
+    "score": 0.9800000000000001,
+    "matchedKeywords": [
+      "tierhaltung",
+      "geflügel",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-postulates-de:20163340-de",
+    "title": "16.3340 · Nachhaltige Förderung der Tiergesundheit in der Nutztierhaltung bzw. in der landwirtschaftlichen Produktion",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-postulates-de",
+    "publishedAt": "2016-04-27T00:00:00.000Z",
+    "score": 0.42000000000000004,
+    "matchedKeywords": [
+      "tiergesundheit",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20223302-de",
+    "title": "22.3302 · Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2022-03-17T00:00:00.000Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20243296-de",
+    "title": "24.3296 · Effizienteren Tierschutz durch Interessenvertretung",
+    "summary": "Stellungnahme zum Vorstoss liegt vor",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2024-03-15T00:00:00.000Z",
+    "score": 0.6100000000000001,
     "matchedKeywords": [
       "tierschutz"
     ]
