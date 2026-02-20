@@ -724,7 +724,6 @@ const humanizeReason = (reason = '') => {
 // We improve link resolution iteratively instead of shrinking the review surface.
 
 const cantonalSourceFixItems = reviewItems.filter((item) => needsCantonalSourceFix(item))
-reviewItems = reviewItems.filter((item) => !needsCantonalSourceFix(item))
 
 const sourceFixByCanton = cantonalSourceFixItems.reduce((acc, item) => {
   const canton = String(item?.meta?.canton || '').toUpperCase() || '??'

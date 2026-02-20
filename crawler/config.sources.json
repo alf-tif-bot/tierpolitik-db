@@ -11,7 +11,7 @@
       "top": 900,
       "sampleLimit": 520,
       "thematicMinQuota": 260,
-      "daysBack": 3650,
+      "daysBack": 7300,
       "sourceTimeoutMs": 95000,
       "retries": 3,
       "requestTimeoutMs": 35000
@@ -29,7 +29,7 @@
       "top": 700,
       "sampleLimit": 420,
       "thematicMinQuota": 170,
-      "daysBack": 3650,
+      "daysBack": 7300,
       "sourceTimeoutMs": 95000,
       "retries": 3,
       "requestTimeoutMs": 35000
@@ -47,7 +47,7 @@
       "top": 500,
       "sampleLimit": 260,
       "thematicMinQuota": 90,
-      "daysBack": 3650,
+      "daysBack": 7300,
       "sourceTimeoutMs": 95000,
       "retries": 3,
       "requestTimeoutMs": 35000
@@ -65,7 +65,7 @@
       "top": 600,
       "sampleLimit": 320,
       "thematicMinQuota": 140,
-      "daysBack": 3650,
+      "daysBack": 7300,
       "businessTypeIncludes": "Motion",
       "sourceTimeoutMs": 95000,
       "retries": 3,
@@ -84,7 +84,7 @@
       "top": 500,
       "sampleLimit": 260,
       "thematicMinQuota": 110,
-      "daysBack": 3650,
+      "daysBack": 7300,
       "businessTypeIncludes": "Postulat",
       "sourceTimeoutMs": 95000,
       "retries": 3,
@@ -103,7 +103,7 @@
       "top": 400,
       "sampleLimit": 220,
       "thematicMinQuota": 80,
-      "daysBack": 3650,
+      "daysBack": 7300,
       "businessTypeIncludes": "Petition",
       "sourceTimeoutMs": 90000,
       "retries": 2,
@@ -171,7 +171,8 @@
     "enabled": true,
     "options": {
       "canton": "BE",
-      "sinceYear": 2020
+      "sinceYear": 2010
     }
   }
 ]
+
