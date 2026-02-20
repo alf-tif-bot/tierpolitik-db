@@ -968,15 +968,15 @@
   },
   {
     "id": "vp-20203648-de",
-    "titel": "Parlamentsgeschäft 20.3648",
+    "titel": "20.3648 - Schlafen im Stroh auch für Schweine",
     "typ": "Motion",
     "kurzbeschreibung": "Die Motion verlangt eine Änderung der Tierschutzverordnung, damit für alle Schweinekategorien stets eingestreute Liegebereiche vorgeschrieben sind.",
     "geschaeftsnummer": "20.3648",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2020-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2020-06-17",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Schwein",
@@ -999,8 +999,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20203648",
     "resultate": [
       {
-        "datum": "2020-02-14",
-        "status": "In Beratung",
+        "datum": "2020-06-17",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1304,15 +1304,15 @@
   },
   {
     "id": "vp-20232009-de",
-    "titel": "Parlamentsgeschäft 23.2009",
+    "titel": "23.2009 - Für eine Änderung des Schweizer Tierschutzgesetzes (TSCHG) und für das Verbot der Euthanasie ohne triftigen Grund!",
     "typ": "Petition",
-    "kurzbeschreibung": "Parlamentsgeschäft 23.2009 (In Beratung).",
+    "kurzbeschreibung": "In Kommission des Ständerats",
     "geschaeftsnummer": "23.2009",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
     "status": "In Beratung",
-    "datumEingereicht": "2023-02-14",
+    "datumEingereicht": "2023-03-02",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Tierschutz",
@@ -1332,7 +1332,7 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20232009",
     "resultate": [
       {
-        "datum": "2023-02-14",
+        "datum": "2023-03-02",
         "status": "In Beratung",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
@@ -1350,9 +1350,9 @@
         },
         "summary": {
           "de": "In Kommission des Ständerats",
-          "fr": "Parlamentsgeschäft 23.2009 (In Beratung).",
-          "it": "Parlamentsgeschäft 23.2009 (In Beratung).",
-          "en": "Parlamentsgeschäft 23.2009 (In Beratung)."
+          "fr": "In Kommission des Ständerats",
+          "it": "In Kommission des Ständerats",
+          "en": "In Kommission des Ständerats"
         },
         "type": {
           "de": "Petition",
@@ -1578,8 +1578,8 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
+        "name": "Kälin Irène",
+        "rolle": "Parlament",
         "partei": ""
       }
     ],
@@ -1654,14 +1654,14 @@
   },
   {
     "id": "vp-20212027-de",
-    "titel": "Parlamentsgeschäft 21.2027",
+    "titel": "21.2027 - Echter Tierschutz jetzt!",
     "typ": "Petition",
     "kurzbeschreibung": "Die Petition «Echter Tierschutz jetzt!» verlangt eine stärkere gesetzliche und behördliche Umsetzung des Tierschutzes in der Schweiz.",
     "geschaeftsnummer": "21.2027",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-10-06",
     "datumAktualisiert": "2026-02-20",
     "themen": [
@@ -1681,7 +1681,7 @@
     "resultate": [
       {
         "datum": "2021-10-06",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1903,15 +1903,15 @@
   },
   {
     "id": "vp-20204340-de",
-    "titel": "Parlamentsgeschäft 20.4340",
+    "titel": "20.4340 - Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren",
     "typ": "Motion",
-    "kurzbeschreibung": "Parlamentsgeschäft 20.4340 (In Beratung).",
+    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
     "geschaeftsnummer": "20.4340",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2020-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2020-11-17",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Nutztiere",
@@ -1932,8 +1932,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20204340",
     "resultate": [
       {
-        "datum": "2020-02-14",
-        "status": "In Beratung",
+        "datum": "2020-11-17",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -1949,10 +1949,10 @@
           "en": "20.4340 - Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 20.4340 (In Beratung).",
-          "fr": "Parlamentsgeschäft 20.4340 (In Beratung).",
-          "it": "Parlamentsgeschäft 20.4340 (In Beratung).",
-          "en": "Parlamentsgeschäft 20.4340 (In Beratung)."
+          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
+          "fr": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
+          "it": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
+          "en": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten."
         },
         "type": {
           "de": "Motion",
@@ -2145,15 +2145,15 @@
   },
   {
     "id": "vp-20223302-de",
-    "titel": "Parlamentsgeschäft 22.3302",
+    "titel": "22.3302 - Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung",
     "typ": "Motion",
-    "kurzbeschreibung": "Parlamentsgeschäft 22.3302 (In Beratung).",
+    "kurzbeschreibung": "22.3302 - Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung (Erledigt).",
     "geschaeftsnummer": "22.3302",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2022-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2022-03-17",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Landwirtschaft",
@@ -2173,8 +2173,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20223302",
     "resultate": [
       {
-        "datum": "2022-02-14",
-        "status": "In Beratung",
+        "datum": "2022-03-17",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -2190,10 +2190,10 @@
           "en": "22.3302 - Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 22.3302 (In Beratung).",
-          "fr": "Parlamentsgeschäft 22.3302 (In Beratung).",
-          "it": "Parlamentsgeschäft 22.3302 (In Beratung).",
-          "en": "Parlamentsgeschäft 22.3302 (In Beratung)."
+          "de": "22.3302 - Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung (Erledigt).",
+          "fr": "22.3302 - Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung (Erledigt).",
+          "it": "22.3302 - Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung (Erledigt).",
+          "en": "22.3302 - Klare Datenlage beim Antibiotikaeinsatz in der Nutztierhaltung (Erledigt)."
         },
         "type": {
           "de": "Motion",
@@ -2588,15 +2588,15 @@
   },
   {
     "id": "vp-20203849-de",
-    "titel": "Parlamentsgeschäft 20.3849",
+    "titel": "20.3849 - Erschwerte Exportvorschriften der EU für Nutztiere aus der Schweiz",
     "typ": "Interpellation",
     "kurzbeschreibung": "Die Interpellation thematisiert neue EU-Tiergesundheitsvorschriften, die den Export bestimmter Nutztiere aus der Schweiz erschweren. Der Bundesrat wird zu Kenntnisstand, Unterstützung betroffener Betriebe und möglichen Verhandlungsspielräumen mit der EU befragt.",
     "geschaeftsnummer": "20.3849",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2020-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2020-06-19",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Europapolitik",
@@ -2618,8 +2618,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20203849",
     "resultate": [
       {
-        "datum": "2020-02-14",
-        "status": "In Beratung",
+        "datum": "2020-06-19",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -2771,7 +2771,7 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2022-06-15",
     "datumAktualisiert": "2026-02-20",
     "themen": [
@@ -2796,7 +2796,7 @@
     "resultate": [
       {
         "datum": "2022-06-15",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3016,7 +3016,7 @@
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Eingereicht",
     "datumEingereicht": "2020-08-28",
     "datumAktualisiert": "2026-02-20",
     "themen": [
@@ -3039,7 +3039,7 @@
     "resultate": [
       {
         "datum": "2020-08-28",
-        "status": "In Beratung",
+        "status": "Eingereicht",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3261,15 +3261,15 @@
   },
   {
     "id": "vp-20204108-de",
-    "titel": "Parlamentsgeschäft 20.4108",
+    "titel": "20.4108 - Enthornung von Nutztieren",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 20.4108 (In Beratung).",
+    "kurzbeschreibung": "20.4108 - Enthornung von Nutztieren (Erledigt).",
     "geschaeftsnummer": "20.4108",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2020-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2020-09-24",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Nutztiere",
@@ -3291,8 +3291,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20204108",
     "resultate": [
       {
-        "datum": "2020-02-14",
-        "status": "In Beratung",
+        "datum": "2020-09-24",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3308,10 +3308,10 @@
           "en": "20.4108 - Enthornung von Nutztieren"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 20.4108 (In Beratung).",
-          "fr": "Parlamentsgeschäft 20.4108 (In Beratung).",
-          "it": "Parlamentsgeschäft 20.4108 (In Beratung).",
-          "en": "Parlamentsgeschäft 20.4108 (In Beratung)."
+          "de": "20.4108 - Enthornung von Nutztieren (Erledigt).",
+          "fr": "20.4108 - Enthornung von Nutztieren (Erledigt).",
+          "it": "20.4108 - Enthornung von Nutztieren (Erledigt).",
+          "en": "20.4108 - Enthornung von Nutztieren (Erledigt)."
         },
         "type": {
           "de": "Interpellation",
@@ -3847,15 +3847,15 @@
   },
   {
     "id": "vp-20237858-de",
-    "titel": "Parlamentsgeschäft 23.7858",
+    "titel": "23.7858 - Abschuss von Wolfsrudeln trotz immer weniger Schäden an Nutztieren?",
     "typ": "Fragestunde. Frage",
     "kurzbeschreibung": "Die Fragestunde-Frage verlangt vom Bundesrat Angaben zur Entwicklung von Wolfsbestand und Nutztier-Schäden 2022–2023 sowie eine Begründung für den Abschuss ganzer Wolfsrudel trotz sinkender Schäden.",
     "geschaeftsnummer": "23.7858",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2023-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2023-12-06",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Landwirtschaft",
@@ -3875,8 +3875,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20237858",
     "resultate": [
       {
-        "datum": "2023-02-14",
-        "status": "In Beratung",
+        "datum": "2023-12-06",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -3927,15 +3927,15 @@
   },
   {
     "id": "vp-20213002-de",
-    "titel": "Parlamentsgeschäft 21.3002",
+    "titel": "21.3002 - Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren",
     "typ": "Motion",
     "kurzbeschreibung": "Die Motion verlangt, den Handlungsspielraum im Jagdgesetz per Verordnung auszuschöpfen, um die Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren zu regeln (u. a. Regulierung und Herdenschutz).",
     "geschaeftsnummer": "21.3002",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2021-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2021-01-14",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Umwelt",
@@ -3955,8 +3955,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213002",
     "resultate": [
       {
-        "datum": "2021-02-14",
-        "status": "In Beratung",
+        "datum": "2021-01-14",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -4089,15 +4089,15 @@
   },
   {
     "id": "vp-20254380-de",
-    "titel": "Parlamentsgeschäft 25.4380",
+    "titel": "25.4380 - Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhühner\") gesetzlich verankern",
     "typ": "Motion",
-    "kurzbeschreibung": "Parlamentsgeschäft 25.4380 (In Beratung).",
+    "kurzbeschreibung": "Der Vorstoss verlangt ein klares Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhühner\") und die Verankerung im Gesetz. Im Fokus steht, ob Tierschutz- und Konsumentenschutzstandards im Import konsequent abgesichert werden.",
     "geschaeftsnummer": "25.4380",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
     "status": "In Beratung",
-    "datumEingereicht": "2026-02-14",
+    "datumEingereicht": "2025-09-26",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Masthühner",
@@ -4120,7 +4120,7 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254380",
     "resultate": [
       {
-        "datum": "2026-02-14",
+        "datum": "2025-09-26",
         "status": "In Beratung",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
@@ -4138,9 +4138,9 @@
         },
         "summary": {
           "de": "Zugewiesen an die behandelnde Kommission",
-          "fr": "Parlamentsgeschäft 25.4380 (In Beratung).",
-          "it": "Parlamentsgeschäft 25.4380 (In Beratung).",
-          "en": "Parlamentsgeschäft 25.4380 (In Beratung)."
+          "fr": "Der Vorstoss verlangt ein klares Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhühner\") und die Verankerung im Gesetz. Im Fokus steht, ob Tierschutz- und Konsumentenschutzstandards im Import konsequent abgesichert werden.",
+          "it": "Der Vorstoss verlangt ein klares Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhühner\") und die Verankerung im Gesetz. Im Fokus steht, ob Tierschutz- und Konsumentenschutzstandards im Import konsequent abgesichert werden.",
+          "en": "Der Vorstoss verlangt ein klares Importverbot für chemisch behandeltes Geflügelfleisch (\"Chlorhühner\") und die Verankerung im Gesetz. Im Fokus steht, ob Tierschutz- und Konsumentenschutzstandards im Import konsequent abgesichert werden."
         },
         "type": {
           "de": "Motion",
@@ -4417,15 +4417,15 @@
   },
   {
     "id": "vp-20218163-de",
-    "titel": "Parlamentsgeschäft 21.8163",
+    "titel": "21.8163 - Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (3)",
     "typ": "Fragestunde. Frage",
     "kurzbeschreibung": "Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und deren Folgen für Forstbetriebe, Personal und Lernende; zudem werden Kompensationsmassnahmen des Bundes nachgefragt.",
     "geschaeftsnummer": "21.8163",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2021-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2021-12-08",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Landwirtschaft",
@@ -4448,8 +4448,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20218163",
     "resultate": [
       {
-        "datum": "2021-02-14",
-        "status": "In Beratung",
+        "datum": "2021-12-08",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -4681,14 +4681,14 @@
   },
   {
     "id": "vp-20213363-de",
-    "titel": "Parlamentsgeschäft 21.3363",
+    "titel": "21.3363 - Gemeinsame Bewilligungsbehörde für eine einheitliche Beurteilung von Tierversuchen mit Schweregrad 3",
     "typ": "Motion",
     "kurzbeschreibung": "Die Motion beauftragt den Bundesrat, die gesetzlichen Grundlagen so anzupassen, dass Tierversuche mit Schweregrad 3 schweizweit durch die gleiche Tierversuchskommission beurteilt werden.",
     "geschaeftsnummer": "21.3363",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
+    "status": "Erledigt",
     "datumEingereicht": "2021-03-18",
     "datumAktualisiert": "2026-02-20",
     "themen": [
@@ -4710,7 +4710,7 @@
     "resultate": [
       {
         "datum": "2021-03-18",
-        "status": "In Beratung",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -4845,7 +4845,7 @@
   },
   {
     "id": "vp-20254809-de",
-    "titel": "Parlamentsgeschäft 25.4809",
+    "titel": "25.4809 - Keine Tierqual bei der Geflügelschlachtung",
     "typ": "Postulat",
     "kurzbeschreibung": "Der Vorstoss verlangt konkrete Massnahmen gegen Tierqual bei der Geflügelschlachtung und eine konsequent tierschutzkonforme Praxis.",
     "geschaeftsnummer": "25.4809",
@@ -4853,7 +4853,7 @@
     "kanton": null,
     "regionGemeinde": null,
     "status": "In Beratung",
-    "datumEingereicht": "2026-02-14",
+    "datumEingereicht": "2025-12-19",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Masthühner",
@@ -4874,7 +4874,7 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254809",
     "resultate": [
       {
-        "datum": "2026-02-14",
+        "datum": "2025-12-19",
         "status": "In Beratung",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
@@ -5364,15 +5364,15 @@
   },
   {
     "id": "vp-20237608-de",
-    "titel": "Parlamentsgeschäft 23.7608",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 23.7608 (In Beratung).",
+    "titel": "23.7608 - Warum sollten Wolfsrudel unabhängig vom Risiko von Schäden an Nutztieren abgeschossen werden?",
+    "typ": "Fragestunde. Frage",
+    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
     "geschaeftsnummer": "23.7608",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2023-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2023-09-13",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Nutztiere",
@@ -5393,8 +5393,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20237608",
     "resultate": [
       {
-        "datum": "2023-02-14",
-        "status": "In Beratung",
+        "datum": "2023-09-13",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -5410,16 +5410,16 @@
           "en": "23.7608 - Warum sollten Wolfsrudel unabhängig vom Risiko von Schäden an Nutztieren abgeschossen werden?"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 23.7608 (In Beratung).",
-          "fr": "Parlamentsgeschäft 23.7608 (In Beratung).",
-          "it": "Parlamentsgeschäft 23.7608 (In Beratung).",
-          "en": "Parlamentsgeschäft 23.7608 (In Beratung)."
+          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
+          "fr": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
+          "it": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten.",
+          "en": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten."
         },
         "type": {
-          "de": "Interpellation",
-          "fr": "Interpellation",
-          "it": "Interpellanza",
-          "en": "Interpellation"
+          "de": "Fragestunde. Frage",
+          "fr": "Heure des questions. Question",
+          "it": "Ora delle domande. Domanda",
+          "en": "Question Time. Question"
         },
         "themes": {
           "de": [
@@ -5792,7 +5792,7 @@
   },
   {
     "id": "vp-20243296-de",
-    "titel": "Parlamentsgeschäft 24.3296",
+    "titel": "24.3296 - Effizienteren Tierschutz durch Interessenvertretung",
     "typ": "Postulat",
     "kurzbeschreibung": "Das Postulat beauftragt den Bundesrat zu prüfen, welche gesetzlichen Anpassungen für eine unabhängige Tieranwaltschaft und minimale subjektive Rechte für höher entwickelte Tiere erforderlich wären.",
     "geschaeftsnummer": "24.3296",
@@ -5800,7 +5800,7 @@
     "kanton": null,
     "regionGemeinde": null,
     "status": "In Beratung",
-    "datumEingereicht": "2024-02-14",
+    "datumEingereicht": "2024-03-15",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Tierschutz",
@@ -5820,7 +5820,7 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20243296",
     "resultate": [
       {
-        "datum": "2024-02-14",
+        "datum": "2024-03-15",
         "status": "In Beratung",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
@@ -6126,15 +6126,15 @@
   },
   {
     "id": "vp-20223808-de",
-    "titel": "Parlamentsgeschäft 22.3808",
+    "titel": "22.3808 - Aussagekräftige und transparente Tierversuchsstatistik",
     "typ": "Interpellation",
     "kurzbeschreibung": "Die Interpellation verlangt einen transparenteren Zugang zur Tierversuchsstatistik und fragt unter anderem nach einer besseren Verknüpfung der Datenquellen auf tv-statistik.ch sowie nach zusätzlichen Publikationen.",
     "geschaeftsnummer": "22.3808",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2022-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2022-06-17",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Staatspolitik",
@@ -6155,8 +6155,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20223808",
     "resultate": [
       {
-        "datum": "2022-02-14",
-        "status": "In Beratung",
+        "datum": "2022-06-17",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -6737,7 +6737,7 @@
   {
     "id": "vp-20254831-de",
     "titel": "25.4831 - Einheimische Produktionssysteme fördern anstatt Importbedingungen für mit Chlor behandeltem Hühnerfleisch lockern",
-    "typ": "Postulat",
+    "typ": "Interpellation",
     "kurzbeschreibung": "25.4831 - Einheimische Produktionssysteme fördern anstatt Importbedingungen für mit Chlor behandeltem Hühnerfleisch lockern (In Beratung).",
     "geschaeftsnummer": "25.4831",
     "ebene": "Bund",
@@ -6749,13 +6749,16 @@
     "themen": [
       "Hühner",
       "Landwirtschaft",
+      "Agriculture",
+      "Agricoltura",
       "Wirtschaft",
-      "Umwelt",
-      "Gesundheit"
+      "Umwelt"
     ],
     "schlagwoerter": [
       "hühner",
-      "landwirtschaft"
+      "landwirtschaft",
+      "agriculture",
+      "agricoltura"
     ],
     "einreichende": [
       {
@@ -6790,30 +6793,37 @@
           "en": "25.4831 - Einheimische Produktionssysteme fördern anstatt Importbedingungen für mit Chlor behandeltem Hühnerfleisch lockern (In Beratung)."
         },
         "type": {
-          "de": "Postulat",
-          "fr": "Postulat",
-          "it": "Postulato",
-          "en": "Postulate"
+          "de": "Interpellation",
+          "fr": "Interpellation",
+          "it": "Interpellanza",
+          "en": "Interpellation"
         },
         "themes": {
           "de": [
             "hühner",
             "landwirtschaft",
+            "agriculture",
+            "agricoltura",
             "Wirtschaft",
-            "Umwelt",
-            "Gesundheit"
+            "Umwelt"
           ],
           "fr": [
             "hühner",
-            "Agriculture"
+            "Agriculture",
+            "agriculture",
+            "agricoltura"
           ],
           "it": [
             "hühner",
-            "Agricoltura"
+            "Agricoltura",
+            "agriculture",
+            "agricoltura"
           ],
           "en": [
             "hühner",
-            "Agriculture"
+            "Agriculture",
+            "agriculture",
+            "agricoltura"
           ]
         }
       },
@@ -7527,15 +7537,15 @@
   },
   {
     "id": "vp-20227004-de",
-    "titel": "Parlamentsgeschäft 22.7004",
+    "titel": "22.7004 - Absurde Auslegung der Tierschutzverordnung - täglicher Auslauf für Bauernhof Hunde?",
     "typ": "Fragestunde. Frage",
     "kurzbeschreibung": "Die Fragestunde-Frage kritisiert eine aus Sicht des Einreichers realitätsferne Auslegung der Tierschutzverordnung für Hofhunde und verlangt eine Klärung durch den Bundesrat.",
     "geschaeftsnummer": "22.7004",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2022-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2022-02-28",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Landwirtschaft",
@@ -7556,8 +7566,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20227004",
     "resultate": [
       {
-        "datum": "2022-02-14",
-        "status": "In Beratung",
+        "datum": "2022-02-28",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -7787,15 +7797,15 @@
   },
   {
     "id": "vp-20244465-de",
-    "titel": "Parlamentsgeschäft 24.4465",
+    "titel": "24.4465 - Nutztiere, die von Tierheimen, Auffangstationen und Privatpersonen adoptiert werden. Status \"Heimtier\" zulassen, sofern sie nicht mehr der Lebensmittelproduktion dienen",
     "typ": "Motion",
-    "kurzbeschreibung": "Parlamentsgeschäft 24.4465 (In Beratung).",
+    "kurzbeschreibung": "24.4465 - Nutztiere, die von Tierheimen, Auffangstationen und Privatpersonen adoptiert werden. Status \"Heimtier\" zulassen, sofern sie nicht mehr der Lebensmittelproduktion dienen (In Beratung).",
     "geschaeftsnummer": "24.4465",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
     "status": "In Beratung",
-    "datumEingereicht": "2024-02-14",
+    "datumEingereicht": "2024-12-19",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Nutztiere",
@@ -7818,7 +7828,7 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20244465",
     "resultate": [
       {
-        "datum": "2024-02-14",
+        "datum": "2024-12-19",
         "status": "In Beratung",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
@@ -7836,9 +7846,9 @@
         },
         "summary": {
           "de": "Zugewiesen an die behandelnde Kommission",
-          "fr": "Parlamentsgeschäft 24.4465 (In Beratung).",
-          "it": "Parlamentsgeschäft 24.4465 (In Beratung).",
-          "en": "Parlamentsgeschäft 24.4465 (In Beratung)."
+          "fr": "24.4465 - Nutztiere, die von Tierheimen, Auffangstationen und Privatpersonen adoptiert werden. Status \"Heimtier\" zulassen, sofern sie nicht mehr der Lebensmittelproduktion dienen (In Beratung).",
+          "it": "24.4465 - Nutztiere, die von Tierheimen, Auffangstationen und Privatpersonen adoptiert werden. Status \"Heimtier\" zulassen, sofern sie nicht mehr der Lebensmittelproduktion dienen (In Beratung).",
+          "en": "24.4465 - Nutztiere, die von Tierheimen, Auffangstationen und Privatpersonen adoptiert werden. Status \"Heimtier\" zulassen, sofern sie nicht mehr der Lebensmittelproduktion dienen (In Beratung)."
         },
         "type": {
           "de": "Motion",
@@ -7965,15 +7975,15 @@
   },
   {
     "id": "vp-20213703-de",
-    "titel": "Parlamentsgeschäft 21.3703",
+    "titel": "21.3703 - Tierschutz im Indonesien-Abkommen",
     "typ": "Interpellation",
     "kurzbeschreibung": "Die Interpellation verlangt Auskunft, wie die Schweiz im Indonesien-Abkommen den Tierschutz bei tierischen Produkten stärken und den Import von Qualprodukten begrenzen will.",
     "geschaeftsnummer": "21.3703",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2021-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2021-06-15",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Tierschutz",
@@ -7994,8 +8004,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213703",
     "resultate": [
       {
-        "datum": "2021-02-14",
-        "status": "In Beratung",
+        "datum": "2021-06-15",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -8211,15 +8221,15 @@
   },
   {
     "id": "vp-20212004-de",
-    "titel": "Parlamentsgeschäft 21.2004",
+    "titel": "21.2004 - Jetzt umsteigen! Bessere Forschung ohne Tierversuche fördern",
     "typ": "Petition",
-    "kurzbeschreibung": "Parlamentsgeschäft 21.2004 (In Beratung).",
+    "kurzbeschreibung": "21.2004 - Jetzt umsteigen! Bessere Forschung ohne Tierversuche fördern (Erledigt).",
     "geschaeftsnummer": "21.2004",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2021-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2021-02-22",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Tierversuche"
@@ -8238,8 +8248,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20212004",
     "resultate": [
       {
-        "datum": "2021-02-14",
-        "status": "In Beratung",
+        "datum": "2021-02-22",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -8255,10 +8265,10 @@
           "en": "21.2004 - Jetzt umsteigen! Bessere Forschung ohne Tierversuche fördern"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 21.2004 (In Beratung).",
-          "fr": "Parlamentsgeschäft 21.2004 (In Beratung).",
-          "it": "Parlamentsgeschäft 21.2004 (In Beratung).",
-          "en": "Parlamentsgeschäft 21.2004 (In Beratung)."
+          "de": "21.2004 - Jetzt umsteigen! Bessere Forschung ohne Tierversuche fördern (Erledigt).",
+          "fr": "21.2004 - Jetzt umsteigen! Bessere Forschung ohne Tierversuche fördern (Erledigt).",
+          "it": "21.2004 - Jetzt umsteigen! Bessere Forschung ohne Tierversuche fördern (Erledigt).",
+          "en": "21.2004 - Jetzt umsteigen! Bessere Forschung ohne Tierversuche fördern (Erledigt)."
         },
         "type": {
           "de": "Petition",
@@ -8778,15 +8788,15 @@
   },
   {
     "id": "vp-20237657-de",
-    "titel": "Parlamentsgeschäft 23.7657",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 23.7657 (In Beratung).",
+    "titel": "23.7657 - Gerissene Nutztiere traumatisieren",
+    "typ": "Fragestunde. Frage",
+    "kurzbeschreibung": "23.7657 - Gerissene Nutztiere traumatisieren (Erledigt).",
     "geschaeftsnummer": "23.7657",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2023-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2023-09-19",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Nutztiere",
@@ -8808,8 +8818,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20237657",
     "resultate": [
       {
-        "datum": "2023-02-14",
-        "status": "In Beratung",
+        "datum": "2023-09-19",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -8825,16 +8835,16 @@
           "en": "23.7657 - Gerissene Nutztiere traumatisieren"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 23.7657 (In Beratung).",
-          "fr": "Parlamentsgeschäft 23.7657 (In Beratung).",
-          "it": "Parlamentsgeschäft 23.7657 (In Beratung).",
-          "en": "Parlamentsgeschäft 23.7657 (In Beratung)."
+          "de": "23.7657 - Gerissene Nutztiere traumatisieren (Erledigt).",
+          "fr": "23.7657 - Gerissene Nutztiere traumatisieren (Erledigt).",
+          "it": "23.7657 - Gerissene Nutztiere traumatisieren (Erledigt).",
+          "en": "23.7657 - Gerissene Nutztiere traumatisieren (Erledigt)."
         },
         "type": {
-          "de": "Interpellation",
-          "fr": "Interpellation",
-          "it": "Interpellanza",
-          "en": "Interpellation"
+          "de": "Fragestunde. Frage",
+          "fr": "Heure des questions. Question",
+          "it": "Ora delle domande. Domanda",
+          "en": "Question Time. Question"
         },
         "themes": {
           "de": [
@@ -9030,15 +9040,15 @@
   },
   {
     "id": "vp-20204730-de",
-    "titel": "Parlamentsgeschäft 20.4730",
+    "titel": "20.4730 - Tierfreundliche Kennzeichnung von Nutztieren",
     "typ": "Postulat",
-    "kurzbeschreibung": "Parlamentsgeschäft 20.4730 (In Beratung).",
+    "kurzbeschreibung": "20.4730 - Tierfreundliche Kennzeichnung von Nutztieren (Erledigt).",
     "geschaeftsnummer": "20.4730",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2020-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2020-12-18",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Nutztiere",
@@ -9059,8 +9069,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20204730",
     "resultate": [
       {
-        "datum": "2020-02-14",
-        "status": "In Beratung",
+        "datum": "2020-12-18",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -9076,10 +9086,10 @@
           "en": "20.4730 - Tierfreundliche Kennzeichnung von Nutztieren"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 20.4730 (In Beratung).",
-          "fr": "Parlamentsgeschäft 20.4730 (In Beratung).",
-          "it": "Parlamentsgeschäft 20.4730 (In Beratung).",
-          "en": "Parlamentsgeschäft 20.4730 (In Beratung)."
+          "de": "20.4730 - Tierfreundliche Kennzeichnung von Nutztieren (Erledigt).",
+          "fr": "20.4730 - Tierfreundliche Kennzeichnung von Nutztieren (Erledigt).",
+          "it": "20.4730 - Tierfreundliche Kennzeichnung von Nutztieren (Erledigt).",
+          "en": "20.4730 - Tierfreundliche Kennzeichnung von Nutztieren (Erledigt)."
         },
         "type": {
           "de": "Postulat",
@@ -9112,15 +9122,15 @@
   },
   {
     "id": "vp-20254071-de",
-    "titel": "Parlamentsgeschäft 25.4071",
+    "titel": "25.4071 - Heim- versus Nutztier bei Equiden. Wieso diese Sonderregelung und wieso so viel Food Waste?",
     "typ": "Interpellation",
     "kurzbeschreibung": "Die Interpellation fragt, weshalb Equiden in der Schweiz als Heim- oder Nutztiere deklariert werden, und thematisiert die Folgen für Kreislaufwirtschaft und Food Waste bei der Verwertung verstorbener Tiere.",
     "geschaeftsnummer": "25.4071",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2026-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2025-09-23",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Landwirtschaft",
@@ -9139,8 +9149,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254071",
     "resultate": [
       {
-        "datum": "2026-02-14",
-        "status": "In Beratung",
+        "datum": "2025-09-23",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -10081,15 +10091,15 @@
   },
   {
     "id": "vp-20218021-de",
-    "titel": "Parlamentsgeschäft 21.8021",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 21.8021 (In Beratung).",
+    "titel": "21.8021 - Wann und wie gedenkt der Bundesrat die Motion 13.3324 \"Anpassung des Gewässerschutzgesetzes an die heutige Nutztierhaltung\", die von beiden Räten angenommen wurde, umzusetzen?",
+    "typ": "Motion",
+    "kurzbeschreibung": "21.8021 - Wann und wie gedenkt der Bundesrat die Motion 13.3324 \"Anpassung des Gewässerschutzgesetzes an die heutige Nutztierhaltung\", die von beiden Räten angenommen wurde, umzusetzen? (Erledigt).",
     "geschaeftsnummer": "21.8021",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2021-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2021-11-30",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Landwirtschaft",
@@ -10109,8 +10119,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20218021",
     "resultate": [
       {
-        "datum": "2021-02-14",
-        "status": "In Beratung",
+        "datum": "2021-11-30",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -10126,16 +10136,16 @@
           "en": "21.8021 - Wann und wie gedenkt der Bundesrat die Motion 13.3324 \"Anpassung des Gewässerschutzgesetzes an die heutige Nutztierhaltung\", die von beiden Räten angenommen wurde, umzusetzen?"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 21.8021 (In Beratung).",
-          "fr": "Parlamentsgeschäft 21.8021 (In Beratung).",
-          "it": "Parlamentsgeschäft 21.8021 (In Beratung).",
-          "en": "Parlamentsgeschäft 21.8021 (In Beratung)."
+          "de": "21.8021 - Wann und wie gedenkt der Bundesrat die Motion 13.3324 \"Anpassung des Gewässerschutzgesetzes an die heutige Nutztierhaltung\", die von beiden Räten angenommen wurde, umzusetzen? (Erledigt).",
+          "fr": "21.8021 - Wann und wie gedenkt der Bundesrat die Motion 13.3324 \"Anpassung des Gewässerschutzgesetzes an die heutige Nutztierhaltung\", die von beiden Räten angenommen wurde, umzusetzen? (Erledigt).",
+          "it": "21.8021 - Wann und wie gedenkt der Bundesrat die Motion 13.3324 \"Anpassung des Gewässerschutzgesetzes an die heutige Nutztierhaltung\", die von beiden Räten angenommen wurde, umzusetzen? (Erledigt).",
+          "en": "21.8021 - Wann und wie gedenkt der Bundesrat die Motion 13.3324 \"Anpassung des Gewässerschutzgesetzes an die heutige Nutztierhaltung\", die von beiden Räten angenommen wurde, umzusetzen? (Erledigt)."
         },
         "type": {
-          "de": "Interpellation",
-          "fr": "Interpellation",
-          "it": "Interpellanza",
-          "en": "Interpellation"
+          "de": "Motion",
+          "fr": "Motion",
+          "it": "Mozione",
+          "en": "Motion"
         },
         "themes": {
           "de": [
@@ -10660,15 +10670,15 @@
   },
   {
     "id": "vp-20250078-de",
-    "titel": "Parlamentsgeschäft 25.078",
+    "titel": "25.078 - «Ja zur tierversuchsfreien Zukunft». Volksinitiative",
     "typ": "Volksinitiative",
-    "kurzbeschreibung": "Parlamentsgeschäft 25.078 (In Beratung).",
+    "kurzbeschreibung": "Botschaft vom 8. Oktober 2025 zur Volksinitiative «Ja zur tierversuchsfreien Zukunft»",
     "geschaeftsnummer": "25.078",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
     "status": "In Beratung",
-    "datumEingereicht": "2026-02-14",
+    "datumEingereicht": "2025-10-08",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Tierversuche",
@@ -10691,7 +10701,7 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20250078",
     "resultate": [
       {
-        "datum": "2026-02-14",
+        "datum": "2025-10-08",
         "status": "In Beratung",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
@@ -10709,9 +10719,9 @@
         },
         "summary": {
           "de": "Botschaft vom 8. Oktober 2025 zur Volksinitiative «Ja zur tierversuchsfreien Zukunft»",
-          "fr": "Parlamentsgeschäft 25.078 (In Beratung).",
-          "it": "Parlamentsgeschäft 25.078 (In Beratung).",
-          "en": "Parlamentsgeschäft 25.078 (In Beratung)."
+          "fr": "Botschaft vom 8. Oktober 2025 zur Volksinitiative «Ja zur tierversuchsfreien Zukunft»",
+          "it": "Botschaft vom 8. Oktober 2025 zur Volksinitiative «Ja zur tierversuchsfreien Zukunft»",
+          "en": "Botschaft vom 8. Oktober 2025 zur Volksinitiative «Ja zur tierversuchsfreien Zukunft»"
         },
         "type": {
           "de": "Volksinitiative",
@@ -11522,15 +11532,15 @@
   },
   {
     "id": "vp-20218162-de",
-    "titel": "Parlamentsgeschäft 21.8162",
+    "titel": "21.8162 - Waldsperrungen bei Ausbruch der afrikanischen Schweinepest (2)",
     "typ": "Fragestunde. Frage",
     "kurzbeschreibung": "Die Fragestunde-Frage thematisiert mögliche Waldsperrungen bei einem Ausbruch der Afrikanischen Schweinepest und fragt, wie die Schweizer Holznachfrage bei grossflächigen und länger dauernden Sperrungen gedeckt werden soll.",
     "geschaeftsnummer": "21.8162",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2021-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2021-12-08",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Landwirtschaft",
@@ -11551,8 +11561,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20218162",
     "resultate": [
       {
-        "datum": "2021-02-14",
-        "status": "In Beratung",
+        "datum": "2021-12-08",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -12296,15 +12306,15 @@
   },
   {
     "id": "vp-20237131-de",
-    "titel": "Parlamentsgeschäft 23.7131",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 23.7131 (In Beratung).",
+    "titel": "23.7131 - Ziegen 1200 Tage pausenlos melken - vereinbar mit Tierschutzbestimmungen?",
+    "typ": "Fragestunde. Frage",
+    "kurzbeschreibung": "23.7131 - Ziegen 1200 Tage pausenlos melken - vereinbar mit Tierschutzbestimmungen? (Erledigt).",
     "geschaeftsnummer": "23.7131",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2023-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2023-03-01",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Tierschutz",
@@ -12325,8 +12335,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20237131",
     "resultate": [
       {
-        "datum": "2023-02-14",
-        "status": "In Beratung",
+        "datum": "2023-03-01",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -12342,16 +12352,16 @@
           "en": "23.7131 - Ziegen 1200 Tage pausenlos melken - vereinbar mit Tierschutzbestimmungen?"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 23.7131 (In Beratung).",
-          "fr": "Parlamentsgeschäft 23.7131 (In Beratung).",
-          "it": "Parlamentsgeschäft 23.7131 (In Beratung).",
-          "en": "Parlamentsgeschäft 23.7131 (In Beratung)."
+          "de": "23.7131 - Ziegen 1200 Tage pausenlos melken - vereinbar mit Tierschutzbestimmungen? (Erledigt).",
+          "fr": "23.7131 - Ziegen 1200 Tage pausenlos melken - vereinbar mit Tierschutzbestimmungen? (Erledigt).",
+          "it": "23.7131 - Ziegen 1200 Tage pausenlos melken - vereinbar mit Tierschutzbestimmungen? (Erledigt).",
+          "en": "23.7131 - Ziegen 1200 Tage pausenlos melken - vereinbar mit Tierschutzbestimmungen? (Erledigt)."
         },
         "type": {
-          "de": "Interpellation",
-          "fr": "Interpellation",
-          "it": "Interpellanza",
-          "en": "Interpellation"
+          "de": "Fragestunde. Frage",
+          "fr": "Heure des questions. Question",
+          "it": "Ora delle domande. Domanda",
+          "en": "Question Time. Question"
         },
         "themes": {
           "de": [
@@ -12378,15 +12388,15 @@
   },
   {
     "id": "vp-20214167-de",
-    "titel": "Parlamentsgeschäft 21.4167",
+    "titel": "21.4167 - Afrikanische Schweinepest ernst nehmen",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 21.4167 (In Beratung).",
+    "kurzbeschreibung": "21.4167 - Afrikanische Schweinepest ernst nehmen (Erledigt).",
     "geschaeftsnummer": "21.4167",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2021-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2021-09-30",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Schwein",
@@ -12408,8 +12418,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20214167",
     "resultate": [
       {
-        "datum": "2021-02-14",
-        "status": "In Beratung",
+        "datum": "2021-09-30",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -12425,10 +12435,10 @@
           "en": "21.4167 - Afrikanische Schweinepest ernst nehmen"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 21.4167 (In Beratung).",
-          "fr": "Parlamentsgeschäft 21.4167 (In Beratung).",
-          "it": "Parlamentsgeschäft 21.4167 (In Beratung).",
-          "en": "Parlamentsgeschäft 21.4167 (In Beratung)."
+          "de": "21.4167 - Afrikanische Schweinepest ernst nehmen (Erledigt).",
+          "fr": "21.4167 - Afrikanische Schweinepest ernst nehmen (Erledigt).",
+          "it": "21.4167 - Afrikanische Schweinepest ernst nehmen (Erledigt).",
+          "en": "21.4167 - Afrikanische Schweinepest ernst nehmen (Erledigt)."
         },
         "type": {
           "de": "Interpellation",
@@ -12462,15 +12472,15 @@
   },
   {
     "id": "vp-20213364-de",
-    "titel": "Parlamentsgeschäft 21.3364",
+    "titel": "21.3364 - Impfstoffentwicklung mit neuen Methoden ohne Tierversuche",
     "typ": "Interpellation",
-    "kurzbeschreibung": "Parlamentsgeschäft 21.3364 (In Beratung).",
+    "kurzbeschreibung": "21.3364 - Impfstoffentwicklung mit neuen Methoden ohne Tierversuche (Erledigt).",
     "geschaeftsnummer": "21.3364",
     "ebene": "Bund",
     "kanton": null,
     "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2021-02-14",
+    "status": "Erledigt",
+    "datumEingereicht": "2021-03-18",
     "datumAktualisiert": "2026-02-20",
     "themen": [
       "Tierversuche",
@@ -12492,8 +12502,8 @@
     "linkGeschaeft": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20213364",
     "resultate": [
       {
-        "datum": "2021-02-14",
-        "status": "In Beratung",
+        "datum": "2021-03-18",
+        "status": "Erledigt",
         "bemerkung": "Stand gemäss Parlamentsdaten"
       }
     ],
@@ -12509,10 +12519,10 @@
           "en": "21.3364 - Impfstoffentwicklung mit neuen Methoden ohne Tierversuche"
         },
         "summary": {
-          "de": "Parlamentsgeschäft 21.3364 (In Beratung).",
-          "fr": "Parlamentsgeschäft 21.3364 (In Beratung).",
-          "it": "Parlamentsgeschäft 21.3364 (In Beratung).",
-          "en": "Parlamentsgeschäft 21.3364 (In Beratung)."
+          "de": "21.3364 - Impfstoffentwicklung mit neuen Methoden ohne Tierversuche (Erledigt).",
+          "fr": "21.3364 - Impfstoffentwicklung mit neuen Methoden ohne Tierversuche (Erledigt).",
+          "it": "21.3364 - Impfstoffentwicklung mit neuen Methoden ohne Tierversuche (Erledigt).",
+          "en": "21.3364 - Impfstoffentwicklung mit neuen Methoden ohne Tierversuche (Erledigt)."
         },
         "type": {
           "de": "Interpellation",

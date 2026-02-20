@@ -36,7 +36,7 @@ const inferType = (title = '', sourceId = '', businessTypeName = '', rawType = '
   if (text.includes('petition') || text.includes('pétition') || text.includes('petizione')) return 'Petition'
   if (text.includes('dringliche motion') || text.includes('motion') || text.includes('mozione')) return 'Motion'
   if (text.includes('dringliches postulat') || text.includes('postulat') || text.includes('postulato')) return 'Postulat'
-  if (text.includes('fragestunde') || text.includes('question time') || text.includes('heure des questions') || text.includes('ora delle domande')) return 'Fragestunde. Frage'
+  if (text.includes('fragestunde') || text.includes('fragestunde-frage') || text.includes('frage für die fragestunde') || text.includes('frage fuer die fragestunde') || text.includes('question time') || text.includes('question pour l\'heure des questions') || text.includes('heure des questions') || text.includes('ora delle domande')) return 'Fragestunde. Frage'
   if (text.includes('interpellation') || text.includes('interpellanza')) return 'Interpellation'
   if (text.includes('schriftliche anfrage') || text.includes('kleine anfrage') || text.includes('anfrage') || text.includes('frage') || text.includes('question') || text.includes('interrogazione')) return 'Anfrage'
   if (text.includes('standesinitiative') || text.includes('initiative cantonale') || text.includes('iniziativa cantonale')) return 'Standesinitiative'
@@ -55,6 +55,8 @@ const inferTypeFromBusinessNumber = (businessNumber = '') => {
 
   // Curia-Vista-Nummern im 4xx-Bereich sind parlamentarische Initiativen.
   if (suffix >= 400 && suffix < 500) return 'Parlamentarische Initiative'
+  // 7xxx-Geschäfte sind in der Regel Fragestunde. Frage (Nationalrat).
+  if (suffix >= 7000 && suffix < 8000) return 'Fragestunde. Frage'
   return null
 }
 
@@ -736,6 +738,28 @@ const effectiveStatusFor = (item) => {
   return String(item?.status || '').toLowerCase()
 }
 
+const isGenericOrPlaceholderTitle = (title = '') => {
+  const t = String(title || '').trim()
+  return /^parlamentsgesch(ä|a)ft\s+(?:\d{8}|\d{2}\.\d{3,4})$/i.test(t)
+    || /^objet parlementaire\s+(?:\d{8}|\d{2}\.\d{3,4})$/i.test(t)
+}
+
+const hasStrongSummary = (item) => {
+  const text = clean(item?.summary || item?.body || '')
+  if (!text || text.length < 24) return false
+  const low = text.toLowerCase()
+  return !['erledigt', 'in beratung', 'eingereicht', 'abgelehnt', 'abgeschrieben', 'zurückgezogen', 'zurueckgezogen'].includes(low)
+    && !isGenericOrPlaceholderTitle(text)
+}
+
+const qualityScore = (item) => {
+  let score = 0
+  if (!isGenericOrPlaceholderTitle(item?.title || '')) score += 2
+  if (hasStrongSummary(item)) score += 1
+  if (String(item?.businessTypeName || item?.meta?.rawType || '').trim()) score += 1
+  return score
+}
+
 const baseItems = (db.items || [])
   .filter((item) => !item?.meta?.scaffold)
   .filter((item) => isPublicSourceId(item?.sourceId))
@@ -755,17 +779,28 @@ for (const item of baseItems) {
   }
   const prevLang = langFromSource(prev.sourceId)
   const betterLang = langRank(lang) < langRank(prevLang)
+  const qualityDelta = qualityScore(item) - qualityScore(prev)
   const newer = new Date(item.fetchedAt || item.publishedAt || 0).getTime() > new Date(prev.fetchedAt || prev.publishedAt || 0).getTime()
-  if (betterLang || (!betterLang && newer)) groupedByAffair.set(affairKey, item)
+  if (qualityDelta > 0 || (qualityDelta === 0 && (betterLang || (!betterLang && newer)))) groupedByAffair.set(affairKey, item)
 }
 
 const items = [...groupedByAffair.values()].slice(0, 1200)
 
-const deByAffair = new Map(
-  (db.items || [])
-    .filter((x) => String(x.sourceId || '').startsWith('ch-parliament-') && String(x.sourceId || '').endsWith('-de'))
-    .map((x) => [String(x.externalId || '').split('-')[0], x]),
-)
+const deByAffair = new Map()
+for (const row of (db.items || [])) {
+  const sid = String(row.sourceId || '')
+  if (!sid.startsWith('ch-parliament-') || !sid.endsWith('-de')) continue
+  const affair = String(row.externalId || '').split('-')[0]
+  if (!affair) continue
+  const prev = deByAffair.get(affair)
+  if (!prev) {
+    deByAffair.set(affair, row)
+    continue
+  }
+  const qualityDelta = qualityScore(row) - qualityScore(prev)
+  const newer = new Date(row.fetchedAt || row.publishedAt || 0).getTime() > new Date(prev.fetchedAt || prev.publishedAt || 0).getTime()
+  if (qualityDelta > 0 || (qualityDelta === 0 && newer)) deByAffair.set(affair, row)
+}
 
 const variantsByAffair = new Map()
 for (const row of (db.items || [])) {
