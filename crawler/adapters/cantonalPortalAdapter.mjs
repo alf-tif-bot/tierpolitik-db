@@ -1069,6 +1069,30 @@ export function createCantonalPortalAdapter() {
           }
 
           const detailMap = parseZgHtmlDetailMap(zgListHtml, zgListUrl)
+          const paginationTargets = [...new Set([
+            ...String(zgListHtml || '').matchAll(/href=["']([^"']*\bpage=\d+[^"']*)["']/gi),
+          ].map((m) => normalizeUrl(String(m[1] || '').replaceAll('&amp;', '&'), zgListUrl)).filter(Boolean))]
+            .slice(0, 10)
+
+          for (const pageUrl of paginationTargets) {
+            if (signal?.aborted) break
+            try {
+              const pageResponse = await fetch(pageUrl, {
+                headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
+                redirect: 'follow',
+                signal: mergeAbortSignals(signal, AbortSignal.timeout(requestTimeoutMs)),
+              })
+              if (!pageResponse.ok) continue
+              const pageHtml = await pageResponse.text()
+              const pageMap = parseZgHtmlDetailMap(pageHtml, pageResponse.url || pageUrl)
+              for (const [nr, info] of pageMap.entries()) {
+                if (!detailMap.has(nr)) detailMap.set(nr, info)
+              }
+            } catch {
+              // best effort pagination fetch
+            }
+          }
+
           const dropReasons = {}
           let parsedCount = 0
           let emittedCount = 0

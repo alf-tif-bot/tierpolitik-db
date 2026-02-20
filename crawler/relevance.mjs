@@ -458,7 +458,7 @@ export function runRelevanceFilter({ minScore = 0.34, fallbackMin = 3, keywords 
 
     const isZgExportItem = String(item?.sourceId || '') === ZG_SOURCE_ID
       && String(item?.meta?.canton || '').toUpperCase() === ZG_CANTON
-      && /^cantonal-portal-zg-\d+$/i.test(String(item?.externalId || ''))
+      && /^cantonal-portal-zg-(?:export-)?\d+$/i.test(String(item?.externalId || ''))
 
     if (normalizedDecision) {
       item.status = normalizedDecision === 'published' ? 'published' : normalizedDecision

@@ -1,14 +1,15 @@
 {
-  "generatedAt": "2026-02-19T22:48:50.954Z",
+  "generatedAt": "2026-02-20T01:04:37.570Z",
   "minScore": 0.16,
   "zg": {
-    "raw": 14,
-    "open": 10,
-    "dropped": 4,
-    "decisionLocked": 0,
-    "rampupPromoted": 5,
+    "raw": 236,
+    "open": 0,
+    "dropped": 236,
+    "decisionLocked": 50,
+    "rampupPromoted": 0,
     "dropReasons": {
-      "weak-anchor-without-context": 4
+      "missing-anchor": 230,
+      "noise-without-anchor": 6
     }
   }
 }
