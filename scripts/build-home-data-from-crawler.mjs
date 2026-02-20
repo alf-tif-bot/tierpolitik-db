@@ -586,13 +586,8 @@ const normalizeDisplayTitle = (item, title = '') => {
 }
 
 const isPlaceholderParliamentTitle = (title = '') => /^Parlamentsgeschäft\s+(?:\d{8}|\d{2}\.\d{3,4})$/i.test(String(title || '').trim())
-
-const toFrenchPlaceholderTitle = (title = '') => {
-  const normalized = String(title || '').trim()
-  const m = normalized.match(/^Parlamentsgeschäft\s+(.+)$/i)
-  if (!m?.[1]) return normalized
-  return `Objet parlementaire ${clean(m[1])}`
-}
+const isGenericFrParliamentTitle = (title = '') => /^Objet parlementaire\s+(?:\d{8}|\d{2}\.\d{3,4})$/i.test(String(title || '').trim())
+const isGenericParliamentTitle = (title = '') => isPlaceholderParliamentTitle(title) || isGenericFrParliamentTitle(title)
 
 const statusToFrench = (status = '') => {
   const s = String(status || '').trim().toLowerCase()
@@ -812,17 +807,29 @@ const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallb
     themes: { de: fallbackThemes },
   }
 
+  const titleCandidates = [
+    fallbackTitle,
+    variants?.de?.title,
+    variants?.fr?.title,
+    variants?.it?.title,
+    variants?.en?.title,
+    item?.title,
+  ]
+    .map((x) => normalizeBusinessTitleText(x || ''))
+    .filter(Boolean)
+  const bestRealTitle = titleCandidates.find((t) => !isGenericParliamentTitle(t)) || titleCandidates[0] || fallbackTitle
+
   for (const lang of ['de', 'fr', 'it', 'en']) {
     const variant = variants?.[lang] || null
     const l = lang
     const title = normalizeBusinessTitleText(variant?.title || fallbackTitle)
-    const weakTitle = !title || isPlaceholderParliamentTitle(title)
+    const weakTitle = !title || isGenericParliamentTitle(title)
     const summary = clean(variant?.summary || variant?.body || fallbackSummary)
     const summaryLow = summary.toLowerCase()
     const weakSummary = !summary
       || summary.length < 24
       || summaryLow === 'erledigt'
-      || isPlaceholderParliamentTitle(summary)
+      || isGenericParliamentTitle(summary)
     const inferredVariantType = inferType(
       title,
       item.sourceId,
@@ -833,19 +840,13 @@ const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallb
     const matched = mapThemesFromKeywords(item.matchedKeywords || fallbackThemes || []).slice(0, 6)
 
     if (l === 'fr') {
-      const frTitle = weakTitle
-        ? (isPlaceholderParliamentTitle(fallbackTitle) ? toFrenchPlaceholderTitle(fallbackTitle) : fallbackTitle)
-        : title
+      const frTitle = weakTitle ? bestRealTitle : title
       const frSummaryNeedsFallback = weakSummary || isWeakSummarySentence(summary)
-      const frSummary = frSummaryNeedsFallback
-        ? (isPlaceholderParliamentTitle(fallbackTitle)
-          ? frenchSummaryFallback({ title: frTitle || fallbackTitle, status })
-          : fallbackSummary)
-        : summary
+      const frSummary = frSummaryNeedsFallback ? fallbackSummary : summary
       out.title[l] = frTitle
       out.summary[l] = frSummary
     } else {
-      out.title[l] = weakTitle ? fallbackTitle : title
+      out.title[l] = weakTitle ? bestRealTitle : title
       out.summary[l] = weakSummary ? fallbackSummary : summary
     }
 
