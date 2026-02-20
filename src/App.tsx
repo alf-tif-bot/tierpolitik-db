@@ -120,7 +120,7 @@ export default function App() {
               .map((r) => r.data)
           }
         }
-        if (parsed.length >= 20 && Math.abs(parsed.length - fallbackData.length) <= 10 && isSaneLivePayload(parsed)) {
+        if (parsed.length >= 20 && isSaneLivePayload(parsed)) {
           setData(parsed)
         }
       } catch {
