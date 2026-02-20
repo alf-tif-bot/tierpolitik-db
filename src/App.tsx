@@ -7,7 +7,7 @@ import { FiltersPanel } from './components/Filters'
 import { ProfileDrawer } from './components/ProfileDrawer'
 import { getAllColumnsMeta, TableView } from './components/TableView'
 import { i18n, languageNames, type Language } from './i18n'
-import { validateVorstoesse, vorstossSchema, type Vorstoss } from './types'
+import { validateVorstoesse, type Vorstoss } from './types'
 import { applyFilters, defaultFilters, type Filters } from './utils/filtering'
 import { clearHashId, getHashId, setHashId } from './utils/urlHash'
 
@@ -15,12 +15,9 @@ const fallbackData = (() => {
   try {
     return validateVorstoesse(rawData)
   } catch {
-    if (Array.isArray(rawData)) {
-      return rawData
-        .map((row) => vorstossSchema.safeParse(row))
-        .filter((r) => r.success)
-        .map((r) => r.data)
-    }
+    // Fail-open for bundled fallback data: keep records visible even when
+    // stricter schema checks reject some crawler rows (e.g. temporary empty fields).
+    if (Array.isArray(rawData)) return rawData as Vorstoss[]
     return []
   }
 })()
@@ -114,10 +111,7 @@ export default function App() {
           parsed = validateVorstoesse(payload)
         } catch {
           if (Array.isArray(payload)) {
-            parsed = payload
-              .map((row) => vorstossSchema.safeParse(row))
-              .filter((r) => r.success)
-              .map((r) => r.data)
+            parsed = payload as Vorstoss[]
           }
         }
         if (parsed.length >= 20 && isSaneLivePayload(parsed)) {
