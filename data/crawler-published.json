@@ -1,5 +1,16 @@
 [
   {
+    "id": "ch-parliament-motions-de:20184052-de",
+    "title": "18.4052 · Effiziente Vertretung von Tierschutzanliegen in Strafverfahren ermöglichen",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2018-09-28T00:00:00.000Z",
+    "score": 0.5800000000000001,
+    "matchedKeywords": [
+      "tierschutz"
+    ]
+  },
+  {
     "id": "ch-parliament-business-de:20223952",
     "title": "Parlamentsgeschäft 20223952",
     "summary": "Parlamentsgeschäft 20223952",
@@ -182,7 +193,7 @@
     "title": "NE · Grand Conseil Neuchâtel: Motions Grand Conseil NE",
     "summary": "Objets - R&eacute;publique et canton de Neuch&acirc;tel – 10 relevante Linkziele erkannt (2 thematisch, 3 Seiten gescannt, Leitlink: Motions Grand Conseil NE)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-19T23:26:19.769Z",
+    "publishedAt": "2026-02-20T00:24:43.223Z",
     "score": 1,
     "matchedKeywords": [
       "animaux",
@@ -197,7 +208,7 @@
     "title": "SZ · Kantonsrat Schwyz: Parlamentsgeschäfte",
     "summary": "STERNBERG Software: Mit uns besser Beraten! – 0 relevante Linkziele erkannt (0 thematisch, 2 Seiten gescannt, Leitlink: Parlamentsgeschäfte)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-19T23:26:19.769Z",
+    "publishedAt": "2026-02-20T00:24:43.223Z",
     "score": 0,
     "matchedKeywords": []
   },
@@ -257,17 +268,6 @@
     "score": 0.18000000000000002,
     "matchedKeywords": [
       "apiculteur"
-    ]
-  },
-  {
-    "id": "ch-parliament-motions-de:20184052-de",
-    "title": "18.4052 · Effiziente Vertretung von Tierschutzanliegen in Strafverfahren ermöglichen",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2018-09-28T00:00:00.000Z",
-    "score": 0.5800000000000001,
-    "matchedKeywords": [
-      "tierschutz"
     ]
   },
   {

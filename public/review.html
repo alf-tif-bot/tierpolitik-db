@@ -216,6 +216,7 @@ window.toggleDebugPanel = function toggleDebugPanel(){
   dbg('debug-panel', { enabled: DEBUG_REVIEW });
   renderDebug();
 }
+window.functions = window.functions || {}
 window.functions.toggleDebugPanel = window.toggleDebugPanel
 window.__reviewDebug = {
   hostname: location.hostname,
