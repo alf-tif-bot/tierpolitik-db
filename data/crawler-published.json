@@ -1,103 +1,5 @@
 [
   {
-    "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-13284d70bb124c23a1bbba427e8a7c5c",
-    "title": "Bern · Tierpark Bern: Welche Alternativen zur Tötung überzähliger Tiere gibt es?",
-    "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0019 · Eingereicht",
-    "sourceId": "ch-municipal-parliament-bern-zurich",
-    "publishedAt": "2026-01-28T23:00:00.000Z",
-    "score": 0.6900000000000001,
-    "matchedKeywords": [
-      "tiere"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20240331-de",
-    "title": "24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen",
-    "summary": "Beratung in Kommission des Ständerates abgeschlossen",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2024-12-19T00:00:00.000Z",
-    "score": 0.18000000000000002,
-    "matchedKeywords": [
-      "apiculteur"
-    ]
-  },
-  {
-    "id": "ch-parliament-postulates-de:20183989-de",
-    "title": "18.3989 · Tierschutzkonformität bei grossen Tierbeständen in der Schweiz",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-postulates-de",
-    "publishedAt": "2018-09-27T00:00:00.000Z",
-    "score": 0.7200000000000001,
-    "matchedKeywords": [
-      "tierschutz",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20081079-de",
-    "title": "08.1079 · Trichinellenuntersuchung in der Schweizer Schweinefleischproduktion",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2008-09-18T00:00:00.000Z",
-    "score": 1,
-    "matchedKeywords": [
-      "schwein",
-      "schweine",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20154105-de",
-    "title": "15.4105 · Tierquälerei. Stutenblut für die Schweineproduktion",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2015-12-07T00:00:00.000Z",
-    "score": 1,
-    "matchedKeywords": [
-      "schwein",
-      "schweine",
-      "tierquälerei",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-postulates-de:20243277-de",
-    "title": "24.3277 · Luchsbestände in der Schweiz sind bezüglich Nutztier- und Jagdregalschäden zu untersuchen",
-    "summary": "Überwiesen an den Bundesrat",
-    "sourceId": "ch-parliament-postulates-de",
-    "publishedAt": "2024-03-14T00:00:00.000Z",
-    "score": 0.06000000000000001,
-    "matchedKeywords": [
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-cantonal-portal-core:cantonal-portal-sz",
-    "title": "SZ · Kantonsrat Schwyz: Parlamentsgeschäfte",
-    "summary": "STERNBERG Software: Mit uns besser Beraten! – 0 relevante Linkziele erkannt (0 thematisch, 2 Seiten gescannt, Leitlink: Parlamentsgeschäfte)",
-    "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-21T02:24:55.099Z",
-    "score": 0,
-    "matchedKeywords": []
-  },
-  {
-    "id": "ch-parliament-business-fr:20250067-fr",
-    "title": "25.067 · «Pour une alimentation sûre – grâce au renforcement de la production indigène durable, à davantage de denrées alimentaires végétales et à une eau potable propre (initiative sur l’alimentation)». Initiative populaire",
-    "summary": "Message du 13 août 2025 relatif à l’initiative populaire fédérale « Pour une alimentation sûre – grâce au renforcement de la production indigène durable, à davantage de denrées alimentaires végétales et à une eau potable propre (initiative sur l’alimentation) »",
-    "sourceId": "ch-parliament-business-fr",
-    "publishedAt": "2025-08-13T00:00:00.000Z",
-    "score": 1,
-    "matchedKeywords": [
-      "ernährung",
-      "alimentazione",
-      "initiative",
-      "botschaft",
-      "landwirtschaft",
-      "agriculture",
-      "agricoltura"
-    ]
-  },
-  {
     "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-c6c65c8ce8a84435af97428996dadc64",
     "title": "Bern · Biodiversität im Wald fördern",
     "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0056 · Eingereicht",
@@ -185,14 +87,14 @@
     ]
   },
   {
-    "id": "ch-parliament-motions-de:20204002-de",
-    "title": "20.4002 · Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2020-09-16T00:00:00.000Z",
-    "score": 0.5800000000000001,
+    "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-13284d70bb124c23a1bbba427e8a7c5c",
+    "title": "Bern · Tierpark Bern: Welche Alternativen zur Tötung überzähliger Tiere gibt es?",
+    "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0019 · Eingereicht",
+    "sourceId": "ch-municipal-parliament-bern-zurich",
+    "publishedAt": "2026-01-28T23:00:00.000Z",
+    "score": 0.6900000000000001,
     "matchedKeywords": [
-      "tierschutz"
+      "tiere"
     ]
   },
   {
@@ -258,15 +160,14 @@
     ]
   },
   {
-    "id": "ch-parliament-petitions-de:20132059-de",
-    "title": "13.2059 · Deklaration von Tierversuchen auf Produkten",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-petitions-de",
-    "publishedAt": "2013-11-17T00:00:00.000Z",
-    "score": 0.8600000000000001,
+    "id": "ch-parliament-business-de:20240331-de",
+    "title": "24.331 · Finanzielle Unterstützung für Imkerinnen und Imker bei geoklimatischen Ausnahmebedingungen",
+    "summary": "Beratung in Kommission des Ständerates abgeschlossen",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2024-12-19T00:00:00.000Z",
+    "score": 0.18000000000000002,
     "matchedKeywords": [
-      "tierversuch",
-      "tierversuche"
+      "apiculteur"
     ]
   },
   {
@@ -296,6 +197,18 @@
     "score": 0.5800000000000001,
     "matchedKeywords": [
       "tierschutz"
+    ]
+  },
+  {
+    "id": "ch-parliament-postulates-de:20183989-de",
+    "title": "18.3989 · Tierschutzkonformität bei grossen Tierbeständen in der Schweiz",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-postulates-de",
+    "publishedAt": "2018-09-27T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "landwirtschaft"
     ]
   },
   {
@@ -648,18 +561,6 @@
     ]
   },
   {
-    "id": "ch-parliament-motions-de:20204340-de",
-    "title": "20.4340 · Schweizer Wolfspopulation. Geregelte Koexistenz zwischen Menschen, Grossraubtieren und Nutztieren",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-motions-de",
-    "publishedAt": "2020-11-17T00:00:00.000Z",
-    "score": 0.7200000000000001,
-    "matchedKeywords": [
-      "nutztiere",
-      "landwirtschaft"
-    ]
-  },
-  {
     "id": "ch-parliament-motions-de:20154176-de",
     "title": "15.4176 · Fische aus Aquakultur als landwirtschaftliche Nutztiere",
     "summary": "Erledigt",
@@ -810,6 +711,19 @@
     "summary": "Parlamentsgeschäft 20203648",
     "sourceId": "ch-parliament-business-de",
     "publishedAt": "2026-02-14T22:30:09.553Z",
+    "score": 1,
+    "matchedKeywords": [
+      "schwein",
+      "schweine",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20081079-de",
+    "title": "08.1079 · Trichinellenuntersuchung in der Schweizer Schweinefleischproduktion",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2008-09-18T00:00:00.000Z",
     "score": 1,
     "matchedKeywords": [
       "schwein",
@@ -977,15 +891,6 @@
     ]
   },
   {
-    "id": "user-input:user-1770941941585",
-    "title": "Hinweis: Taubenschutz in Gemeinde X",
-    "summary": "Eingereicht durch User-Input-Kanal",
-    "sourceId": "user-input",
-    "publishedAt": "2026-02-13T00:19:01.585Z",
-    "score": 0,
-    "matchedKeywords": []
-  },
-  {
     "id": "ch-parliament-motions-de:20173240-de",
     "title": "17.3240 · Für einen innovativen Forschungsstandort Schweiz. Bessere Förderung von Ersatzmethoden für Tierversuche",
     "summary": "Erledigt",
@@ -1095,23 +1000,6 @@
       "biodiversität",
       "biodiversite",
       "biodiversita"
-    ]
-  },
-  {
-    "id": "ch-parliament-business-de:20254812",
-    "title": "Parlamentsgeschäft 20254812",
-    "summary": "Parlamentsgeschäft 20254812",
-    "sourceId": "ch-parliament-business-de",
-    "publishedAt": "2026-02-14T07:47:00.200Z",
-    "score": 1,
-    "matchedKeywords": [
-      "tierschutz",
-      "animal",
-      "animaux",
-      "animali",
-      "landwirtschaft",
-      "agriculture",
-      "agricoltura"
     ]
   },
   {
@@ -1308,6 +1196,122 @@
       "sperimentazione animale",
       "3r",
       "animale"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20213363",
+    "title": "Parlamentsgeschäft 20213363",
+    "summary": "Parlamentsgeschäft 20213363",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2026-02-14T10:45:24.288Z",
+    "score": 0.8600000000000001,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche"
+    ]
+  },
+  {
+    "id": "ch-parliament-postulates-de:20203591-de",
+    "title": "20.3591 · Griffige Instrumente für die Oberaufsicht im Tierschutzrecht",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-postulates-de",
+    "publishedAt": "2020-06-11T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-cantonal-portal-core:cantonal-portal-ne",
+    "title": "NE · Grand Conseil Neuchâtel: Motions Grand Conseil NE",
+    "summary": "Objets - R&eacute;publique et canton de Neuch&acirc;tel – 10 relevante Linkziele erkannt (2 thematisch, 3 Seiten gescannt, Leitlink: Motions Grand Conseil NE)",
+    "sourceId": "ch-cantonal-portal-core",
+    "publishedAt": "2026-02-21T03:24:56.352Z",
+    "score": 1,
+    "matchedKeywords": [
+      "animaux",
+      "chasse",
+      "motion",
+      "postulat",
+      "faune"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20164122-de",
+    "title": "16.4122 · Forschung nach Ersatzmethoden zu Tierversuchen und 3R-Forschung. Ein Stiefkind",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2016-12-16T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "tierversuch",
+      "tierversuche",
+      "3r"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20254831-de",
+    "title": "25.4831 · Einheimische Produktionssysteme fördern anstatt Importbedingungen für mit Chlor behandeltem Hühnerfleisch lockern",
+    "summary": "Stellungnahme zum Vorstoss liegt vor",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2025-12-19T00:00:00.000Z",
+    "score": 0.8700000000000001,
+    "matchedKeywords": [
+      "hühner",
+      "landwirtschaft",
+      "agriculture",
+      "agricoltura"
+    ]
+  },
+  {
+    "id": "ch-parliament-business-de:20154105-de",
+    "title": "15.4105 · Tierquälerei. Stutenblut für die Schweineproduktion",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-business-de",
+    "publishedAt": "2015-12-07T00:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "schwein",
+      "schweine",
+      "tierquälerei",
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-parliament-postulates-de:20243277-de",
+    "title": "24.3277 · Luchsbestände in der Schweiz sind bezüglich Nutztier- und Jagdregalschäden zu untersuchen",
+    "summary": "Überwiesen an den Bundesrat",
+    "sourceId": "ch-parliament-postulates-de",
+    "publishedAt": "2024-03-14T00:00:00.000Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
+    ]
+  },
+  {
+    "id": "ch-municipal-parliament-bern-zurich:municipal-bern-api-b7e265b3766d43119b5279f5ea795e91",
+    "title": "Bern · Biodiversität im Siedlungsgebiet fördern",
+    "summary": "Gemeinde Bern (Stadtrat Bern) · 2026.SR.0055 · Eingereicht",
+    "sourceId": "ch-municipal-parliament-bern-zurich",
+    "publishedAt": "2026-02-11T23:00:00.000Z",
+    "score": 1,
+    "matchedKeywords": [
+      "biodiversität",
+      "biodiversita",
+      "motion"
+    ]
+  },
+  {
+    "id": "ch-parliament-motions-de:20213835-de",
+    "title": "21.3835 · Tierschutzverstösse besser ahnden",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-motions-de",
+    "publishedAt": "2021-06-17T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "landwirtschaft"
     ]
   }
 ]
