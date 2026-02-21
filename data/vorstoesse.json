@@ -226,7 +226,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "18.4052 - Effiziente Vertretung von Tierschutzanliegen in Strafverfahren ermöglichen",
@@ -310,7 +310,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "21.044 - Keine Massentierhaltung in der Schweiz (Massentierhaltungsinitiative). Volksinitiative und direkter Gegenentwurf",
@@ -745,7 +745,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "23.2009 - Für eine Änderung des Schweizer Tierschutzgesetzes (TSCHG) und für das Verbot der Euthanasie ohne triftigen Grund!",
@@ -824,7 +824,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "00.2000 - Verbot von Leiden und Schmerzen bei Tierversuchen (Schweregrad 3)",
@@ -1090,7 +1090,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "21.2027 - Echter Tierschutz jetzt!",
@@ -1167,7 +1167,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "18.3989 - Tierschutzkonformität bei grossen Tierbeständen in der Schweiz",
@@ -1826,7 +1826,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "20.4002 - Zulassung von Fahrzeugen für Nutztiertransporte gemäss Tierschutzgesetzgebung",
@@ -2043,7 +2043,7 @@
     }
   },
   {
-    "id": "vp-19940011-de",
+    "id": "vp-19940011-fr",
     "titel": "94.011 - Tierschutz. Uebereinkommen",
     "typ": "Interpellation",
     "kurzbeschreibung": "Botschaft und Beschlussesentwurf vom 26. Januar 1994 zum Protokoll der Aenderung des Europäischen Uebereinkommens zum Schutz von Tieren in landwirtschaftlichen Tierhaltung und zur Aenderung des Uebereinkommens über den i",
@@ -2074,7 +2074,7 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
+        "name": "Selon Curia Vista",
         "rolle": "",
         "partei": ""
       }
@@ -2089,8 +2089,8 @@
     ],
     "medien": [],
     "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
+      "sprache": "fr",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "94.011 - Tierschutz. Uebereinkommen",
@@ -2451,7 +2451,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "22.3952 - Den Besonderheiten von Eseln, Maultieren und Mauleseln in der Tierschutzverordnung Rechnung tragen",
@@ -2775,7 +2775,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "22.3187 - Hochgezüchtete Eier- und Geflügelfleischproduktion in Richtung Tierwohl weiterentwickeln",
@@ -2944,7 +2944,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "23.7580 - Der Schutz des Menschen und der Nutztiere ist höher zu gewichten als der Wolf",
@@ -3111,7 +3111,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "22.3300 - 3R-Kompetenz der kantonalen Tierversuchskommissionen stärken",
@@ -3369,7 +3369,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "17.5001 - Wildtierschutzgebiete. Neue Bezeichnung, höherer Schutz?",
@@ -3445,7 +3445,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "tierschutzkritisch",
       "i18n": {
         "title": {
           "de": "23.7858 - Abschuss von Wolfsrudeln trotz immer weniger Schäden an Nutztieren?",
@@ -3777,7 +3777,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "20.4214 - Amtliche Tierschutzkontrollen nachhaltig aus dem Landwirtschaftsbudget mitfinanzieren und transparent machen",
@@ -4612,7 +4612,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "25.4812 - Konsequenzen aus dem Tierschutzfall Ramiswil",
@@ -4696,7 +4696,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "18.491 - Verbot von schwerbelastenden Tierversuchen. Ergänzung des Tierschutzgesetzes",
@@ -4965,7 +4965,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "21.3829 - Regelungskompetenz im Tierschutz. Auch bei den Kantonen",
@@ -5132,7 +5132,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "21.3405 - Tierschutzkonforme Haltungsbedingungen für Labor- und Versuchstiere",
@@ -5310,7 +5310,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "12.3460 - Deklarationspflicht für importiertes Geflügelfleisch aus Tierhaltungen, die in der Schweiz verboten sind",
@@ -5476,7 +5476,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "24.3296 - Effizienteren Tierschutz durch Interessenvertretung",
@@ -5662,7 +5662,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "08.3696 - Auswirkungen des EU-Agrarfreihandels auf das Tierschutzniveau und die bäuerliche Tierhaltung",
@@ -5748,7 +5748,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "12.3660 - Zukunft der Stiftung Forschung 3R und Alternativmethoden für Tierversuche",
@@ -5833,7 +5833,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "24.4695 - Alternativen zu Tierversuchen. Forschungsstandort Schweiz stärken!",
@@ -6003,7 +6003,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "21.426 - Mehr Ressourcen und Anreize für die 3R-Forschung, um Alternativen zu den Tierversuchen rascher voranzutreiben",
@@ -6101,7 +6101,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "20.3591 - Griffige Instrumente für die Oberaufsicht im Tierschutzrecht",
@@ -6186,7 +6186,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "16.4122 - Forschung nach Ersatzmethoden zu Tierversuchen und 3R-Forschung. Ein Stiefkind",
@@ -6648,7 +6648,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "21.3835 - Tierschutzverstösse besser ahnden",
@@ -6933,7 +6933,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "94.2028 - Verbot der Massentierhaltung von Wachteln (mehr als 200 Tiere). Importverbot für Wachtelfleisch und Wachteleier",
@@ -7098,7 +7098,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "24.4344 - Tierschutzbeauftragte. Eine wirksame Unterstützung",
@@ -7412,7 +7412,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "22.7004 - Absurde Auslegung der Tierschutzverordnung - täglicher Auslauf für Bauernhof Hunde?",
@@ -7497,7 +7497,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "19.3215 - Mehr Tierschutz in der Aquakultur mit Fischen",
@@ -8333,7 +8333,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "17.5122 - Die Tierschutzverordnung besser durchsetzen",
@@ -8658,7 +8658,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "25.8205 - Reduktion der Tierschutzkontrollen: Ressourcen sparen auf Kosten der Tiere?",
@@ -8737,7 +8737,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "20.1046 - Schweizer Tierschutz im internationalen Vergleich",
@@ -8898,7 +8898,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "21.3703 - Tierschutz im Indonesien-Abkommen",
@@ -9228,7 +9228,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "17.4108 - Ist die Nutztierzucht tierschutzkonform?",
@@ -9399,7 +9399,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "25.2027 - Für ein Beschwerderecht von Tierschutzverbänden bei Misshandlung",
@@ -9479,7 +9479,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "17.3675 - Ungenügende Kapazitäten für die praxisnahe Forschung und Entwicklung im Bereich Tierwohl der Nutztiere",
@@ -9649,7 +9649,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "25.3976 - Tierschutz und neue Schweiz-EU-Abkommen. Steht das Verbot ritueller Schlachtungen in der Schweiz vor dem Aus?",
@@ -9736,7 +9736,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "17.3545 - Handlungsbedarf bei Tierversuchen. Förderung des 3R-Prinzips durch den Schweizerischen Nationalfonds",
@@ -10065,7 +10065,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "04.039 - Für einen zeitgemässen Tierschutz (Tierschutz - Ja!). Volksinitiative",
@@ -10316,7 +10316,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "09.1049 - Alternativen zu Tierversuchen",
@@ -10400,7 +10400,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "16.4121 - Alternativen zu Tierversuchen während der Ausbildung besser berücksichtigen",
@@ -10660,7 +10660,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "17.3130 - Internethandel mit lebenden Tieren und Tierschutz",
@@ -10834,7 +10834,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "25.059 - «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelzinitiative)». Volksinitiative und indirekter Gegenvorschlag (Änderung des Tierschutzgesetzes)",
@@ -10999,7 +10999,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "19.4253 - Tierschutzwidrige Zustände auf dem Gitzi- und Lämmermarkt",
@@ -11080,7 +11080,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "14.3502 - Tierschutzwidrige Importe von Jagdtrophäen",
@@ -11121,7 +11121,7 @@
     }
   },
   {
-    "id": "vp-20254547-de",
+    "id": "vp-20254547-fr",
     "titel": "25.4547 - Verhindert neues Tool für Geruchsabstände Tierwohl und Landschaftsschutz?",
     "typ": "Interpellation",
     "kurzbeschreibung": "25.4547 - Verhindert neues Tool für Geruchsabstände Tierwohl und Landschaftsschutz? (In Beratung).",
@@ -11152,7 +11152,7 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
+        "name": "Selon Curia Vista",
         "rolle": "",
         "partei": ""
       }
@@ -11167,8 +11167,8 @@
     ],
     "medien": [],
     "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
+      "sprache": "fr",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "25.4547 - Verhindert neues Tool für Geruchsabstände Tierwohl und Landschaftsschutz?",
@@ -11268,7 +11268,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "17.3646 - Tierquälereifälle verhindern, Tierschutzvollzug verbessern",
@@ -11356,7 +11356,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "19.3635 - Institutionelles Rahmenabkommen. Ist es auch dem Tierschutz in der Schweiz abträglich?",
@@ -11626,7 +11626,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "14.3692 - Vollzug des Tierschutzes in ausserlandwirtschaftlichen Hobby- und Kleintierhaltungen",
@@ -12032,7 +12032,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "23.7131 - Ziegen 1200 Tage pausenlos melken - vereinbar mit Tierschutzbestimmungen?",
@@ -12282,7 +12282,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "17.3143 - Tierschutzmassnahmen im Pferdesport",
@@ -12439,7 +12439,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "18.5382 - Exzesse von Tierschutz-Aktivismus bekämpfen",
@@ -12515,7 +12515,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "17.3105 - Sind lange Taubenwettflüge mit der Tierschutzgesetzgebung vereinbar?",
@@ -12591,7 +12591,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "19.4456 - Mehr Tierschutz in der privaten Aquaristik",
@@ -12673,7 +12673,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "08.036 - Gegen Tierquälerei und für einen besseren Rechtsschutz der Tiere (Tierschutzanwalt-Initiative). Volksinitiative",
@@ -12939,7 +12939,7 @@
     "medien": [],
     "metadaten": {
       "sprache": "de",
-      "haltung": "neutral/unklar",
+      "haltung": "pro-tierschutz",
       "i18n": {
         "title": {
           "de": "ZG · 1112 - Kantonsratsbeschluss betreffend Investitionsbeitrag an den Tierschutzverein des Kantons Zug für die Quarantänestation im Tierheim Allenwinden",

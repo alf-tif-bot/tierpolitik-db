@@ -150,13 +150,28 @@ const extractStance = (reason = '', title = '', summary = '', body = '') => {
 
 const mapStatus = (status = '', rawStatus = '', summary = '', body = '') => {
   const sourceStatus = String(rawStatus || '').toLowerCase()
-  if (sourceStatus.includes('hängig') || sourceStatus.includes('haengig') || sourceStatus.includes('in bearbeitung') || sourceStatus.includes('überwiesen') || sourceStatus.includes('ueberwiesen')) return 'In Beratung'
-  if (sourceStatus.includes('angenommen') || sourceStatus.includes('erheblich erklärt') || sourceStatus.includes('erheblich erklaert')) return 'Angenommen'
-  if (sourceStatus.includes('abgelehnt') || sourceStatus.includes('nicht überwiesen') || sourceStatus.includes('nicht ueberwiesen')) return 'Abgelehnt'
-  if (sourceStatus.includes('abgeschrieben')) return 'Abgeschrieben'
-  if (sourceStatus.includes('zurückgezogen') || sourceStatus.includes('zurueckgezogen')) return 'Zurückgezogen'
-  if (sourceStatus.includes('erledigt')) return 'Erledigt'
-  if (sourceStatus.includes('eingereicht')) return 'Eingereicht'
+  if (
+    sourceStatus.includes('hängig') || sourceStatus.includes('haengig')
+    || sourceStatus.includes('in bearbeitung')
+    || sourceStatus.includes('überwiesen') || sourceStatus.includes('ueberwiesen')
+    || sourceStatus.includes('en traitement') || sourceStatus.includes('in trattazione')
+  ) return 'In Beratung'
+  if (
+    sourceStatus.includes('angenommen')
+    || sourceStatus.includes('erheblich erklärt') || sourceStatus.includes('erheblich erklaert')
+    || sourceStatus.includes('accepté') || sourceStatus.includes('accepte')
+    || sourceStatus.includes('adottato')
+  ) return 'Angenommen'
+  if (
+    sourceStatus.includes('abgelehnt')
+    || sourceStatus.includes('nicht überwiesen') || sourceStatus.includes('nicht ueberwiesen')
+    || sourceStatus.includes('rejeté') || sourceStatus.includes('rejete')
+    || sourceStatus.includes('respinto')
+  ) return 'Abgelehnt'
+  if (sourceStatus.includes('abgeschrieben') || sourceStatus.includes('classé') || sourceStatus.includes('classe')) return 'Abgeschrieben'
+  if (sourceStatus.includes('zurückgezogen') || sourceStatus.includes('zurueckgezogen') || sourceStatus.includes('retiré') || sourceStatus.includes('retire') || sourceStatus.includes('ritirato')) return 'Zurückgezogen'
+  if (sourceStatus.includes('erledigt') || sourceStatus.includes('liquidé') || sourceStatus.includes('liquide') || sourceStatus.includes('evaso')) return 'Erledigt'
+  if (sourceStatus.includes('eingereicht') || sourceStatus.includes('déposé') || sourceStatus.includes('depose') || sourceStatus.includes('depositato')) return 'Eingereicht'
   if (sourceStatus.includes('stellungnahme zum vorstoss liegt vor') || sourceStatus.includes('stellungnahme liegt vor')) return 'Stellungnahme zum Vorstoss liegt vor'
 
   const textStatus = `${summary} ${body}`.toLowerCase()
