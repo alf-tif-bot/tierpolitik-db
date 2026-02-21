@@ -22,6 +22,18 @@
     ]
   },
   {
+    "id": "ch-parliament-postulates-de:20183989-de",
+    "title": "18.3989 · Tierschutzkonformität bei grossen Tierbeständen in der Schweiz",
+    "summary": "Erledigt",
+    "sourceId": "ch-parliament-postulates-de",
+    "publishedAt": "2018-09-27T00:00:00.000Z",
+    "score": 0.7200000000000001,
+    "matchedKeywords": [
+      "tierschutz",
+      "landwirtschaft"
+    ]
+  },
+  {
     "id": "ch-parliament-business-de:20081079-de",
     "title": "08.1079 · Trichinellenuntersuchung in der Schweizer Schweinefleischproduktion",
     "summary": "Erledigt",
@@ -49,11 +61,22 @@
     ]
   },
   {
+    "id": "ch-parliament-postulates-de:20243277-de",
+    "title": "24.3277 · Luchsbestände in der Schweiz sind bezüglich Nutztier- und Jagdregalschäden zu untersuchen",
+    "summary": "Überwiesen an den Bundesrat",
+    "sourceId": "ch-parliament-postulates-de",
+    "publishedAt": "2024-03-14T00:00:00.000Z",
+    "score": 0.06000000000000001,
+    "matchedKeywords": [
+      "landwirtschaft"
+    ]
+  },
+  {
     "id": "ch-cantonal-portal-core:cantonal-portal-sz",
     "title": "SZ · Kantonsrat Schwyz: Parlamentsgeschäfte",
     "summary": "STERNBERG Software: Mit uns besser Beraten! – 0 relevante Linkziele erkannt (0 thematisch, 2 Seiten gescannt, Leitlink: Parlamentsgeschäfte)",
     "sourceId": "ch-cantonal-portal-core",
-    "publishedAt": "2026-02-21T01:26:23.839Z",
+    "publishedAt": "2026-02-21T02:24:55.099Z",
     "score": 0,
     "matchedKeywords": []
   },
@@ -182,18 +205,6 @@
     "matchedKeywords": [
       "schwein",
       "schweine",
-      "landwirtschaft"
-    ]
-  },
-  {
-    "id": "ch-parliament-postulates-de:20183989-de",
-    "title": "18.3989 · Tierschutzkonformität bei grossen Tierbeständen in der Schweiz",
-    "summary": "Erledigt",
-    "sourceId": "ch-parliament-postulates-de",
-    "publishedAt": "2018-09-27T00:00:00.000Z",
-    "score": 0.7200000000000001,
-    "matchedKeywords": [
-      "tierschutz",
       "landwirtschaft"
     ]
   },
@@ -1297,17 +1308,6 @@
       "sperimentazione animale",
       "3r",
       "animale"
-    ]
-  },
-  {
-    "id": "ch-parliament-postulates-de:20243277-de",
-    "title": "24.3277 · Luchsbestände in der Schweiz sind bezüglich Nutztier- und Jagdregalschäden zu untersuchen",
-    "summary": "Überwiesen an den Bundesrat",
-    "sourceId": "ch-parliament-postulates-de",
-    "publishedAt": "2024-03-14T00:00:00.000Z",
-    "score": 0.06000000000000001,
-    "matchedKeywords": [
-      "landwirtschaft"
     ]
   }
 ]
