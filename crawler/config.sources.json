@@ -121,9 +121,9 @@
       "registryUrl": "data/cantonal-source-registry.json",
       "cantons": "AG,AI,AR,BE,BL,BS,FR,GE,GL,GR,JU,LU,NE,NW,OW,SG,SH,SO,SZ,TG,TI,UR,VD,VS,ZG,ZH",
       "sourceTimeoutMs": 45000,
-      "retries": 1,
+      "retries": 2,
       "requestTimeoutMs": 12000,
-      "maxEntriesPerRun": 120
+      "maxEntriesPerRun": 180
     }
   },
   {
@@ -159,7 +159,7 @@
     "enabled": true,
     "options": {
       "cities": "bern,zuerich,basel,geneve,lausanne",
-      "maxItemsPerCity": 60
+      "maxItemsPerCity": 90
     }
   },
   {

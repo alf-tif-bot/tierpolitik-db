@@ -1,22 +1,6 @@
 {
-  "updatedAt": "2026-02-20T21:26:10.152Z",
+  "updatedAt": "2026-02-21T04:05:56.555Z",
   "learned": [
-    {
-      "keyword": "tiere",
-      "weight": 1
-    },
-    {
-      "keyword": "schwein",
-      "weight": 1
-    },
-    {
-      "keyword": "schweine",
-      "weight": 1
-    },
-    {
-      "keyword": "tierquälerei",
-      "weight": 1
-    },
     {
       "keyword": "tierschutz",
       "weight": 1
@@ -35,6 +19,18 @@
     },
     {
       "keyword": "animali",
+      "weight": 1
+    },
+    {
+      "keyword": "tiere",
+      "weight": 1
+    },
+    {
+      "keyword": "schwein",
+      "weight": 1
+    },
+    {
+      "keyword": "schweine",
       "weight": 1
     },
     {
@@ -82,6 +78,10 @@
       "weight": 1
     },
     {
+      "keyword": "tierquälerei",
+      "weight": 1
+    },
+    {
       "keyword": "massentierhaltung",
       "weight": 1
     },
@@ -111,19 +111,19 @@
     },
     {
       "keyword": "biodiversita",
-      "weight": 0.429
+      "weight": 0.556
+    },
+    {
+      "keyword": "jagd",
+      "weight": 0.5
     },
     {
       "keyword": "biodiversität",
-      "weight": 0.333
+      "weight": 0.429
     },
     {
       "keyword": "alimentazione",
       "weight": 0.333
-    },
-    {
-      "keyword": "biodiversite",
-      "weight": -0.333
     }
   ]
 }
