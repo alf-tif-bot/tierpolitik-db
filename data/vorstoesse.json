@@ -980,8 +980,8 @@
     ],
     "einreichende": [
       {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
+        "name": "Kälin Irène",
+        "rolle": "Parlament",
         "partei": ""
       }
     ],
@@ -2043,7 +2043,7 @@
     }
   },
   {
-    "id": "vp-19940011-fr",
+    "id": "vp-19940011-de",
     "titel": "94.011 - Tierschutz. Uebereinkommen",
     "typ": "Interpellation",
     "kurzbeschreibung": "Botschaft und Beschlussesentwurf vom 26. Januar 1994 zum Protokoll der Aenderung des Europäischen Uebereinkommens zum Schutz von Tieren in landwirtschaftlichen Tierhaltung und zur Aenderung des Uebereinkommens über den i",
@@ -2074,7 +2074,7 @@
     ],
     "einreichende": [
       {
-        "name": "Selon Curia Vista",
+        "name": "Gemäss Curia Vista",
         "rolle": "",
         "partei": ""
       }
@@ -2089,7 +2089,7 @@
     ],
     "medien": [],
     "metadaten": {
-      "sprache": "fr",
+      "sprache": "de",
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {
@@ -6146,100 +6146,6 @@
     }
   },
   {
-    "id": "vp-cantonal-portal-ne",
-    "titel": "NE · Grand Conseil Neuchâtel: Motions Grand Conseil NE",
-    "typ": "Motion",
-    "kurzbeschreibung": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten. Objets - R&eacute;publique et canton de Neuch&acirc;tel – 10 relevante Linkziele erkannt (2 thematisch, 3 Seiten gescannt, Leitlink: Motions Grand Conseil NE)",
-    "geschaeftsnummer": "cantonal-portal-ne",
-    "ebene": "Kanton",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2026-02-21",
-    "datumAktualisiert": "2026-02-21",
-    "themen": [
-      "Animaux",
-      "Chasse",
-      "Faune"
-    ],
-    "schlagwoerter": [
-      "animaux",
-      "chasse",
-      "motion",
-      "postulat",
-      "faune"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.ne.ch/autorites/GC/objets/Pages/accueil.aspx",
-    "resultate": [
-      {
-        "datum": "2026-02-21",
-        "status": "In Beratung",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "NE · Grand Conseil Neuchâtel: Motions Grand Conseil NE",
-          "fr": "NE · Grand Conseil Neuchâtel: Motions Grand Conseil NE",
-          "it": "NE · Grand Conseil Neuchâtel: Motions Grand Conseil NE",
-          "en": "NE · Grand Conseil Neuchâtel: Motions Grand Conseil NE"
-        },
-        "summary": {
-          "de": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten. Objets - R&eacute;publique et canton de Neuch&acirc;tel – 10 relevante Linkziele erkannt (2 thematisch, 3 Seiten gescannt, Leitlink: Motions Grand Conseil NE)",
-          "fr": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten. Objets - R&eacute;publique et canton de Neuch&acirc;tel – 10 relevante Linkziele erkannt (2 thematisch, 3 Seiten gescannt, Leitlink: Motions Grand Conseil NE)",
-          "it": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten. Objets - R&eacute;publique et canton de Neuch&acirc;tel – 10 relevante Linkziele erkannt (2 thematisch, 3 Seiten gescannt, Leitlink: Motions Grand Conseil NE)",
-          "en": "Dieser Vorstoss betrifft die Wildtierpolitik, insbesondere das Spannungsfeld zwischen Schutz, Regulierung und Jagd. Für die Einordnung ist zentral, ob die vorgeschlagenen Massnahmen den Schutzstatus stärken oder Eingriffe ausweiten. Objets - R&eacute;publique et canton de Neuch&acirc;tel – 10 relevante Linkziele erkannt (2 thematisch, 3 Seiten gescannt, Leitlink: Motions Grand Conseil NE)"
-        },
-        "type": {
-          "de": "Motion",
-          "fr": "Motion",
-          "it": "Mozione",
-          "en": "Motion"
-        },
-        "themes": {
-          "de": [
-            "animaux",
-            "chasse",
-            "faune"
-          ],
-          "fr": [
-            "animaux",
-            "chasse",
-            "motion",
-            "postulat",
-            "faune"
-          ],
-          "it": [
-            "animaux",
-            "chasse",
-            "motion",
-            "postulat",
-            "faune"
-          ],
-          "en": [
-            "animaux",
-            "chasse",
-            "motion",
-            "postulat",
-            "faune"
-          ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
     "id": "vp-20164122-de",
     "titel": "16.4122 - Forschung nach Ersatzmethoden zu Tierversuchen und 3R-Forschung. Ein Stiefkind",
     "typ": "Interpellation",
@@ -7150,74 +7056,6 @@
             "Animal testing",
             "Animal testing"
           ]
-        }
-      },
-      "zuletztGeprueftVon": "Crawler/DB Sync"
-    }
-  },
-  {
-    "id": "vp-cantonal-portal-sz",
-    "titel": "SZ · Kantonsrat Schwyz: Parlamentsgeschäfte",
-    "typ": "Interpellation",
-    "kurzbeschreibung": "STERNBERG Software: Mit uns besser Beraten! Portal erreichbar (https://www.sitzungsdienst.net/), aber noch ohne extrahierte Vorstoss-Links.",
-    "geschaeftsnummer": "cantonal-portal-sz",
-    "ebene": "Kanton",
-    "kanton": null,
-    "regionGemeinde": null,
-    "status": "In Beratung",
-    "datumEingereicht": "2026-02-21",
-    "datumAktualisiert": "2026-02-21",
-    "themen": [
-      "Tierschutz"
-    ],
-    "schlagwoerter": [
-      "Tierpolitik"
-    ],
-    "einreichende": [
-      {
-        "name": "Gemäss Curia Vista",
-        "rolle": "",
-        "partei": ""
-      }
-    ],
-    "linkGeschaeft": "https://www.sitzungsdienst.net/",
-    "resultate": [
-      {
-        "datum": "2026-02-21",
-        "status": "In Beratung",
-        "bemerkung": "Stand gemäss Parlamentsdaten"
-      }
-    ],
-    "medien": [],
-    "metadaten": {
-      "sprache": "de",
-      "haltung": "neutral/unklar",
-      "i18n": {
-        "title": {
-          "de": "SZ · Kantonsrat Schwyz: Parlamentsgeschäfte",
-          "fr": "SZ · Kantonsrat Schwyz: Parlamentsgeschäfte",
-          "it": "SZ · Kantonsrat Schwyz: Parlamentsgeschäfte",
-          "en": "SZ · Kantonsrat Schwyz: Parlamentsgeschäfte"
-        },
-        "summary": {
-          "de": "STERNBERG Software: Mit uns besser Beraten! Portal erreichbar (https://www.sitzungsdienst.net/), aber noch ohne extrahierte Vorstoss-Links.",
-          "fr": "STERNBERG Software: Mit uns besser Beraten! Portal erreichbar (https://www.sitzungsdienst.net/), aber noch ohne extrahierte Vorstoss-Links.",
-          "it": "STERNBERG Software: Mit uns besser Beraten! Portal erreichbar (https://www.sitzungsdienst.net/), aber noch ohne extrahierte Vorstoss-Links.",
-          "en": "STERNBERG Software: Mit uns besser Beraten! Portal erreichbar (https://www.sitzungsdienst.net/), aber noch ohne extrahierte Vorstoss-Links."
-        },
-        "type": {
-          "de": "Interpellation",
-          "fr": "Interpellation",
-          "it": "Interpellanza",
-          "en": "Interpellation"
-        },
-        "themes": {
-          "de": [
-            "Tierschutz"
-          ],
-          "fr": [],
-          "it": [],
-          "en": []
         }
       },
       "zuletztGeprueftVon": "Crawler/DB Sync"
@@ -11283,7 +11121,7 @@
     }
   },
   {
-    "id": "vp-20254547-fr",
+    "id": "vp-20254547-de",
     "titel": "25.4547 - Verhindert neues Tool für Geruchsabstände Tierwohl und Landschaftsschutz?",
     "typ": "Interpellation",
     "kurzbeschreibung": "25.4547 - Verhindert neues Tool für Geruchsabstände Tierwohl und Landschaftsschutz? (In Beratung).",
@@ -11314,7 +11152,7 @@
     ],
     "einreichende": [
       {
-        "name": "Selon Curia Vista",
+        "name": "Gemäss Curia Vista",
         "rolle": "",
         "partei": ""
       }
@@ -11329,7 +11167,7 @@
     ],
     "medien": [],
     "metadaten": {
-      "sprache": "fr",
+      "sprache": "de",
       "haltung": "neutral/unklar",
       "i18n": {
         "title": {

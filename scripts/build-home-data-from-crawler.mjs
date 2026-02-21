@@ -738,10 +738,24 @@ const effectiveStatusFor = (item) => {
   return String(item?.status || '').toLowerCase()
 }
 
+const isGenericListLandingTitle = (title = '') => {
+  const t = clean(title).replace(/\s+/g, ' ').trim()
+  if (!t || !t.includes(':')) return false
+  const tail = t.split(':').map((x) => x.trim()).filter(Boolean).pop()?.toLowerCase() || ''
+
+  return /^parlamentsgesch(ä|a)fte?$/.test(tail)
+    || /^motions?(?: grand conseil [a-z]{2})?$/.test(tail)
+    || /^objets? parlementaires?$/.test(tail)
+    || /^vorst(ö|o)sse$/.test(tail)
+    || /^gesch(ä|a)fte$/.test(tail)
+    || /^ratsgesch(ä|a)fte$/.test(tail)
+}
+
 const isGenericOrPlaceholderTitle = (title = '') => {
   const t = String(title || '').trim()
   return /^parlamentsgesch(ä|a)ft\s+(?:\d{8}|\d{2}\.\d{3,4})$/i.test(t)
     || /^objet parlementaire\s+(?:\d{8}|\d{2}\.\d{3,4})$/i.test(t)
+    || isGenericListLandingTitle(t)
 }
 
 const hasStrongSummary = (item) => {
@@ -764,6 +778,7 @@ const baseItems = (db.items || [])
   .filter((item) => !item?.meta?.scaffold)
   .filter((item) => isPublicSourceId(item?.sourceId))
   .filter((item) => ['approved', 'published'].includes(effectiveStatusFor(item)))
+  .filter((item) => !isGenericListLandingTitle(item?.title || ''))
 
 const groupedByAffair = new Map()
 for (const item of baseItems) {
