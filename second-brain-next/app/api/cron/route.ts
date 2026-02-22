@@ -1,6 +1,6 @@
 import { execFile } from 'node:child_process'
 import { existsSync } from 'node:fs'
-import { readFile } from 'node:fs/promises'
+import { readdir, readFile } from 'node:fs/promises'
 import os from 'node:os'
 import path from 'node:path'
 import { promisify } from 'node:util'
@@ -115,22 +115,82 @@ function nextLocalRunAt(hour: number, minute: number) {
   return next.getTime()
 }
 
-function buildLaunchdMirrorJobs(): CronJobRaw[] {
+function buildLaunchdJobName(label: string) {
+  if (label === 'ai.openclaw.workspace-nightly-github-update') return 'Github Backup'
+  return label
+    .replace(/^ai\.openclaw\./, '')
+    .replace(/[-_]+/g, ' ')
+    .replace(/\b\w/g, (m) => m.toUpperCase())
+}
+
+function parseLaunchdStartCalendarInterval(plist: string) {
+  const hourMatch = plist.match(/<key>Hour<\/key>\s*<integer>(\d{1,2})<\/integer>/i)
+  const minuteMatch = plist.match(/<key>Minute<\/key>\s*<integer>(\d{1,2})<\/integer>/i)
+  if (!hourMatch || !minuteMatch) return null
+
+  const hour = Number(hourMatch[1])
+  const minute = Number(minuteMatch[1])
+  if (!Number.isFinite(hour) || !Number.isFinite(minute)) return null
+  if (hour < 0 || hour > 23 || minute < 0 || minute > 59) return null
+
+  const weekdayMatch = plist.match(/<key>Weekday<\/key>\s*<integer>(\d)<\/integer>/i)
+  const dayMatch = plist.match(/<key>Day<\/key>\s*<integer>(\d{1,2})<\/integer>/i)
+  const monthMatch = plist.match(/<key>Month<\/key>\s*<integer>(\d{1,2})<\/integer>/i)
+
+  const weekday = weekdayMatch ? Number(weekdayMatch[1]) : null
+  const day = dayMatch ? Number(dayMatch[1]) : null
+  const month = monthMatch ? Number(monthMatch[1]) : null
+
+  let expr = `${minute} ${hour} * * *`
+  if (weekday && weekday >= 0 && weekday <= 7) expr = `${minute} ${hour} * * ${weekday}`
+  if (day && day >= 1 && day <= 31) expr = `${minute} ${hour} ${day} * *`
+  if (month && month >= 1 && month <= 12) expr = `${minute} ${hour} ${day || '*'} ${month} *`
+
+  return { hour, minute, expr }
+}
+
+async function buildLaunchdMirrorJobs(): Promise<CronJobRaw[]> {
   if (process.platform !== 'darwin') return [] as CronJobRaw[]
 
-  const plist = path.join(os.homedir(), 'Library', 'LaunchAgents', 'ai.openclaw.workspace-nightly-github-update.plist')
-  if (!existsSync(plist)) return [] as CronJobRaw[]
+  const launchAgentsDir = path.join(os.homedir(), 'Library', 'LaunchAgents')
+  let files: string[] = []
+  try {
+    files = await readdir(launchAgentsDir)
+  } catch {
+    return [] as CronJobRaw[]
+  }
 
-  return [
-    {
-      id: 'launchd:workspace-nightly-github-update',
-      name: 'Github Backup',
+  const jobs: CronJobRaw[] = []
+
+  for (const fileName of files) {
+    if (!fileName.endsWith('.plist')) continue
+    if (!fileName.startsWith('ai.openclaw.')) continue
+
+    const filePath = path.join(launchAgentsDir, fileName)
+    let plist = ''
+    try {
+      plist = await readFile(filePath, 'utf8')
+    } catch {
+      continue
+    }
+
+    const labelMatch = plist.match(/<key>Label<\/key>\s*<string>([^<]+)<\/string>/i)
+    const label = labelMatch?.[1]?.trim() || fileName.replace(/\.plist$/i, '')
+
+    const schedule = parseLaunchdStartCalendarInterval(plist)
+    if (!schedule) continue
+
+    jobs.push({
+      id: `launchd:${label}`,
+      name: buildLaunchdJobName(label),
       enabled: true,
       source: 'launchd',
-      schedule: { kind: 'cron', expr: '0 1 * * *', tz: 'Europe/Zurich' },
-      state: { nextRunAtMs: nextLocalRunAt(1, 0), lastStatus: 'scheduled' },
-    },
-  ]
+      schedule: { kind: 'cron', expr: schedule.expr, tz: 'Europe/Zurich' },
+      state: { nextRunAtMs: nextLocalRunAt(schedule.hour, schedule.minute), lastStatus: 'scheduled' },
+    })
+  }
+
+  return jobs
 }
 
 export async function GET() {
@@ -150,7 +210,8 @@ export async function GET() {
       }
     }
 
-    const mergedJobs = [...jobs, ...buildLaunchdMirrorJobs()]
+    const launchdJobs = await buildLaunchdMirrorJobs()
+    const mergedJobs = [...jobs, ...launchdJobs]
 
     const normalized = mergedJobs
       .map(toJobView)

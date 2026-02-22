@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-type Section = 'radar' | 'tasks' | 'calendar' | 'projects' | 'content' | 'clients' | 'memory' | 'docs' | 'people' | 'office' | 'health' | 'files'
+type Section = 'radar' | 'tasks' | 'calendar' | 'projects' | 'content' | 'memory' | 'docs' | 'people' | 'office' | 'health' | 'files'
 type EntityType = 'project' | 'content' | 'client' | 'memory' | 'doc' | 'person' | 'office'
 
 type Task = {
@@ -2724,7 +2724,7 @@ export default function ClientBoard() {
         }
       } else if (key === 'm') {
         e.preventDefault()
-        setSection('clients')
+        setSection('memory')
       } else if (section === 'tasks' && e.shiftKey && (key === 'd' || key === 'f')) {
         const shortcutCandidate = topTaskShortcutCandidateRef.current
         if (!shortcutCandidate || taskActionPending[shortcutCandidate.id]) return
@@ -3610,7 +3610,7 @@ export default function ClientBoard() {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, marginBottom: 2 }}>
           <h1 style={{ margin: 0 }}>{sectionMeta[section].label}</h1>
         </div>
-        {(section === 'content' || section === 'clients') && (
+        {(section === 'content') && (
           <div style={{ fontSize: 13, opacity: 0.8, marginBottom: 10 }}>
             Operative Umsetzung läuft primär in Discord/Telegram; das Cockpit dient hier als Überblick, Priorisierung und Entscheidungslage.
           </div>
@@ -4430,7 +4430,7 @@ export default function ClientBoard() {
                   <strong>{e.title}</strong>
                   <div style={{ fontSize: 12, opacity: 0.85, marginTop: 4 }}>Owner: {e.owner || '-'} · Status: {e.status || '-'} · ToC: {e.tocAxis || '-'}</div>
                   {e.kpis && <div style={{ fontSize: 12, opacity: 0.85, marginTop: 2 }}>KPI: {e.kpis}</div>}
-                  {section === 'clients' && (
+                  {(
                     <div style={{ display: 'flex', gap: 6, marginTop: 8 }}>
                       <button
                         disabled={!!entityActionPending[e.id]}
