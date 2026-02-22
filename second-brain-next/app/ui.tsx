@@ -84,6 +84,16 @@ type KnowledgeEntry = {
   group: string
 }
 
+type HealthZoneDetail = {
+  status?: string
+  priority?: string
+  side?: string
+  symptoms: string[]
+  triggers: string[]
+  relief: string[]
+  tests: string[]
+}
+
 type RadarDecisionUndo = {
   id: string
   title: string
@@ -1393,6 +1403,8 @@ export default function ClientBoard() {
   const [knowledgeQuery, setKnowledgeQuery] = useState('')
   const [knowledgeLoading, setKnowledgeLoading] = useState(false)
   const [knowledgeError, setKnowledgeError] = useState<string | null>(null)
+  const [healthZoneDetails, setHealthZoneDetails] = useState<Record<string, HealthZoneDetail>>({})
+  const [healthZoneLoading, setHealthZoneLoading] = useState<Record<string, boolean>>({})
   const [cronJobs, setCronJobs] = useState<CronJob[]>([])
   const [cronLoading, setCronLoading] = useState(false)
   const [cronError, setCronError] = useState<string | null>(null)
@@ -1476,6 +1488,92 @@ export default function ClientBoard() {
   function canPreviewFile(filePath?: string) {
     if (!filePath) return false
     return /\.(md|txt|json|ya?ml|ps1|sh|ts|tsx|js|mjs|cjs)$/i.test(filePath)
+  }
+
+
+  function parseHealthZoneMarkdown(content: string): HealthZoneDetail {
+    const lines = content.split(/\r?\n/)
+    const detail: HealthZoneDetail = { symptoms: [], triggers: [], relief: [], tests: [] }
+
+    let currentSection: 'none' | 'symptoms' | 'triggers' | 'tests' = 'none'
+    let triggerMode: 'none' | 'bad' | 'good' = 'none'
+
+    for (const rawLine of lines) {
+      const line = rawLine.trim()
+      if (!line) continue
+
+      const statusMatch = line.match(/^-\s*\*\*Status:\*\*\s*(.+)$/i)
+      if (statusMatch) detail.status = statusMatch[1].trim()
+      const priorityMatch = line.match(/^-\s*\*\*Priorit[aä]t:\*\*\s*(.+)$/i)
+      if (priorityMatch) detail.priority = priorityMatch[1].trim()
+      const sideMatch = line.match(/^-\s*\*\*Seite:\*\*\s*(.+)$/i)
+      if (sideMatch) detail.side = sideMatch[1].trim()
+
+      if (line.startsWith('## Symptome')) {
+        currentSection = 'symptoms'
+        triggerMode = 'none'
+        continue
+      }
+      if (line.startsWith('## Trigger')) {
+        currentSection = 'triggers'
+        triggerMode = 'none'
+        continue
+      }
+      if (line.startsWith('## Tests')) {
+        currentSection = 'tests'
+        triggerMode = 'none'
+        continue
+      }
+      if (line.startsWith('## ')) {
+        currentSection = 'none'
+        triggerMode = 'none'
+        continue
+      }
+
+      if (/^\-\s*\*\*Verschlechtert durch/i.test(line)) {
+        triggerMode = 'bad'
+        continue
+      }
+      if (/^\-\s*\*\*Verbessert durch/i.test(line)) {
+        triggerMode = 'good'
+        continue
+      }
+
+      if (/^\-\s+/.test(line) && !/^\-\s*\*\*/.test(line)) {
+        const item = line.replace(/^\-\s+/, '').trim()
+        if (!item) continue
+
+        if (currentSection === 'symptoms' && detail.symptoms.length < 4) detail.symptoms.push(item)
+        if (currentSection === 'triggers') {
+          if (triggerMode === 'bad' && detail.triggers.length < 5) detail.triggers.push(item)
+          if (triggerMode === 'good' && detail.relief.length < 5) detail.relief.push(item)
+        }
+        continue
+      }
+
+      if (currentSection === 'tests' && (/^\d+\./.test(line) || /^\-\s*\*\*Test/i.test(line))) {
+        const cleaned = line.replace(/^\d+\.\s*/, '').replace(/^\-\s*/, '').replace(/\*\*/g, '').trim()
+        if (cleaned && detail.tests.length < 4) detail.tests.push(cleaned)
+      }
+    }
+
+    return detail
+  }
+
+  async function loadHealthZoneDetail(zone: KnowledgeEntry) {
+    if (healthZoneDetails[zone.path] || healthZoneLoading[zone.path]) return
+    setHealthZoneLoading((prev) => ({ ...prev, [zone.path]: true }))
+    try {
+      const res = await fetchWithTimeout(`/api/files/read?path=${encodeURIComponent(zone.path)}`, { cache: 'no-store' }, boardRequestTimeoutMs)
+      const payload = await res.json().catch(() => null)
+      if (!res.ok || typeof payload?.content !== 'string') throw new Error('detail load failed')
+      const parsed = parseHealthZoneMarkdown(payload.content)
+      setHealthZoneDetails((prev) => ({ ...prev, [zone.path]: parsed }))
+    } catch {
+      setHealthZoneDetails((prev) => ({ ...prev, [zone.path]: { symptoms: [], triggers: [], relief: [], tests: [] } }))
+    } finally {
+      setHealthZoneLoading((prev) => ({ ...prev, [zone.path]: false }))
+    }
   }
 
   function closeFilePreview() {
@@ -3403,6 +3501,17 @@ export default function ClientBoard() {
       .sort((a, b) => a.title.localeCompare(b.title, 'de-CH'))
   }, [knowledgeEntries])
 
+  useEffect(() => {
+    if (section !== 'health') return
+    if (isOffline) return
+    for (const zone of healthProblemZones) {
+      if (!healthZoneDetails[zone.path] && !healthZoneLoading[zone.path]) {
+        void loadHealthZoneDetail(zone)
+      }
+    }
+  }, [section, isOffline, healthProblemZones, healthZoneDetails, healthZoneLoading])
+
+
   const canRefreshSomeday = !somedayLoading && !tasksLoading && !Boolean(somedayBusyId)
   const refreshSomedayDisabledReason =
     somedayLoading
@@ -4196,19 +4305,61 @@ export default function ClientBoard() {
           </>
         ) : section === 'health' ? (
           <>
-            <div style={{ fontSize: 13, opacity: 0.82, marginBottom: 10 }}>
+            <div style={{ fontSize: 13, opacity: 0.86, marginBottom: 12 }}>
               Aktuelle Problemzonen aus <code>Obsidian / Health (Physio/Problemzonen)</code>.
             </div>
-            <div style={{ display: 'grid', gap: 8 }}>
-              {healthProblemZones.map((zone) => (
-                <div key={zone.path} style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 10 }}>
-                  <div style={{ fontWeight: 700 }}>{zone.title}</div>
-                  <div style={{ fontSize: 12, opacity: 0.78, marginTop: 4 }}>{zone.relPath}</div>
-                  <div style={{ marginTop: 8 }}>
-                    <button onClick={() => { void openFilePreview(zone.name, zone.path) }} style={{ fontSize: 12 }}>Anzeigen</button>
+            <div style={{ display: 'grid', gap: 12 }}>
+              {healthProblemZones.map((zone) => {
+                const detail = healthZoneDetails[zone.path]
+                const loading = !!healthZoneLoading[zone.path]
+                return (
+                  <div key={zone.path} style={{ background: 'linear-gradient(180deg, #1f1f1f, #1a1a1a)', border: '1px solid #343434', borderRadius: 12, padding: 12 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10 }}>
+                      <div>
+                        <div style={{ fontWeight: 800, fontSize: 16 }}>{zone.title}</div>
+                        <div style={{ fontSize: 11, opacity: 0.7, marginTop: 2 }}>{zone.relPath}</div>
+                      </div>
+                      <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
+                        {detail?.status && <span style={{ fontSize: 11, padding: '3px 8px', borderRadius: 999, border: '1px solid #7f1d1d', color: '#fecaca' }}>Status: {detail.status}</span>}
+                        {detail?.priority && <span style={{ fontSize: 11, padding: '3px 8px', borderRadius: 999, border: '1px solid #92400e', color: '#fde68a' }}>Prio: {detail.priority}</span>}
+                        {detail?.side && <span style={{ fontSize: 11, padding: '3px 8px', borderRadius: 999, border: '1px solid #1d4ed8', color: '#bfdbfe' }}>Seite: {detail.side}</span>}
+                      </div>
+                    </div>
+
+                    {loading ? (
+                      <div style={{ fontSize: 12, opacity: 0.75, marginTop: 10 }}>Lade Details…</div>
+                    ) : (
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 10, marginTop: 10 }}>
+                        <div style={{ background: '#171717', border: '1px solid #2f2f2f', borderRadius: 10, padding: 10 }}>
+                          <div style={{ fontSize: 11, opacity: 0.7, marginBottom: 6 }}>Trigger</div>
+                          <ul style={{ margin: 0, paddingLeft: 18, fontSize: 12, lineHeight: 1.4 }}>
+                            {(detail?.triggers || []).slice(0, 4).map((item) => <li key={`t-${zone.path}-${item}`}>{item}</li>)}
+                            {(detail?.triggers || []).length === 0 && <li style={{ opacity: 0.65 }}>Keine Details</li>}
+                          </ul>
+                        </div>
+                        <div style={{ background: '#171717', border: '1px solid #2f2f2f', borderRadius: 10, padding: 10 }}>
+                          <div style={{ fontSize: 11, opacity: 0.7, marginBottom: 6 }}>Entlastung</div>
+                          <ul style={{ margin: 0, paddingLeft: 18, fontSize: 12, lineHeight: 1.4 }}>
+                            {(detail?.relief || []).slice(0, 4).map((item) => <li key={`r-${zone.path}-${item}`}>{item}</li>)}
+                            {(detail?.relief || []).length === 0 && <li style={{ opacity: 0.65 }}>Keine Details</li>}
+                          </ul>
+                        </div>
+                        <div style={{ background: '#171717', border: '1px solid #2f2f2f', borderRadius: 10, padding: 10 }}>
+                          <div style={{ fontSize: 11, opacity: 0.7, marginBottom: 6 }}>Selbstchecks</div>
+                          <ul style={{ margin: 0, paddingLeft: 18, fontSize: 12, lineHeight: 1.4 }}>
+                            {(detail?.tests || []).slice(0, 4).map((item) => <li key={`s-${zone.path}-${item}`}>{item}</li>)}
+                            {(detail?.tests || []).length === 0 && <li style={{ opacity: 0.65 }}>Keine Details</li>}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+
+                    <div style={{ marginTop: 10, display: 'flex', gap: 8 }}>
+                      <button onClick={() => { void openFilePreview(zone.name, zone.path) }} style={{ fontSize: 12 }}>Details öffnen</button>
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
               {!knowledgeLoading && healthProblemZones.length === 0 && (
                 <div style={{ opacity: 0.75 }}>Keine Problemzonen gefunden unter <code>Physio/Problemzonen</code>.</div>
               )}
