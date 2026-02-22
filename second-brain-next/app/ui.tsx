@@ -61,6 +61,7 @@ type CronJob = {
   enabled: boolean
   scheduleLabel: string
   status: string
+  source?: 'openclaw' | 'launchd'
   nextRunAtMs: number | null
   nextRunAtIso: string | null
   lastRunAtMs: number | null
@@ -3257,23 +3258,27 @@ export default function ClientBoard() {
     ok: '#166534',
     error: '#991b1b',
     idle: '#334155',
+    scheduled: '#1e40af',
   }
 
-  const startOfCurrentWeek = (() => {
-    const now = new Date(nowTick)
-    const day = (now.getDay() + 6) % 7
-    const start = new Date(now)
+  const cronSourceColor: Record<string, string> = {
+    openclaw: '#1d4ed8',
+    launchd: '#a21caf',
+  }
+
+  const startOfWindow = (() => {
+    const start = new Date(nowTick)
     start.setHours(0, 0, 0, 0)
-    start.setDate(start.getDate() - day)
     return start
   })()
 
-  const weekDays = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'].map((label, idx) => {
-    const date = new Date(startOfCurrentWeek)
-    date.setDate(startOfCurrentWeek.getDate() + idx)
+  const weekDays = Array.from({ length: 7 }).map((_, idx) => {
+    const date = new Date(startOfWindow)
+    date.setDate(startOfWindow.getDate() + idx)
+    const weekday = date.toLocaleDateString('de-CH', { weekday: 'short' })
     const startMs = date.getTime()
     return {
-      label,
+      label: weekday.charAt(0).toUpperCase() + weekday.slice(1),
       startMs,
       endMs: startMs + 24 * 60 * 60 * 1000,
       dateLabel: date.toLocaleDateString('de-CH', { day: '2-digit', month: '2-digit' }),
@@ -4037,14 +4042,23 @@ export default function ClientBoard() {
                     <div style={{ fontSize: 12, opacity: 0.55 }}>–</div>
                   ) : (
                     <div style={{ display: 'grid', gap: 6 }}>
-                      {day.jobs.map((job) => (
-                        <div key={`${day.label}-${job.id}`} style={{ border: '1px solid #3a3a3a', borderLeft: `4px solid ${cronStatusColor[job.status] || '#1d4ed8'}`, background: '#181818', borderRadius: 8, padding: 6 }}>
-                          <div style={{ fontSize: 12, fontWeight: 600, lineHeight: 1.3 }}>{job.name}</div>
-                          <div style={{ fontSize: 11, opacity: 0.78 }}>
-                            {job.nextRunAtMs ? new Date(job.nextRunAtMs).toLocaleTimeString('de-CH', { hour: '2-digit', minute: '2-digit' }) : 'ohne Zeit'} · {job.status}
+                      {day.jobs.map((job) => {
+                        const sourceColor = cronSourceColor[job.source || 'openclaw'] || '#1d4ed8'
+                        const statusColor = cronStatusColor[job.status] || '#1d4ed8'
+                        return (
+                          <div key={`${day.label}-${job.id}`} style={{ border: '1px solid #3a3a3a', borderLeft: `4px solid ${sourceColor}`, background: '#181818', borderRadius: 8, padding: 6 }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                              <div style={{ fontSize: 12, fontWeight: 600, lineHeight: 1.3 }}>{job.name}</div>
+                              <span style={{ fontSize: 10, border: `1px solid ${sourceColor}`, color: sourceColor, borderRadius: 999, padding: '1px 6px' }}>
+                                {job.source === 'launchd' ? 'launchd' : 'cron'}
+                              </span>
+                            </div>
+                            <div style={{ fontSize: 11, opacity: 0.78 }}>
+                              {job.nextRunAtMs ? new Date(job.nextRunAtMs).toLocaleTimeString('de-CH', { hour: '2-digit', minute: '2-digit' }) : 'ohne Zeit'} · <span style={{ color: statusColor }}>{job.status}</span>
+                            </div>
                           </div>
-                        </div>
-                      ))}
+                        )
+                      })}
                     </div>
                   )}
                 </div>
@@ -4060,17 +4074,25 @@ export default function ClientBoard() {
                 </div>
               ) : (
                 <div style={{ display: 'grid', gap: 6 }}>
-                  {upcomingCronJobs.map((job) => (
-                    <div key={`next-${job.id}`} style={{ display: 'flex', justifyContent: 'space-between', gap: 12, border: '1px solid #2f2f2f', borderRadius: 8, background: '#181818', padding: '8px 10px' }}>
-                      <div style={{ minWidth: 0 }}>
-                        <div style={{ fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{job.name}</div>
-                        <div style={{ fontSize: 11, opacity: 0.72 }}>{job.scheduleLabel}</div>
+                  {upcomingCronJobs.map((job) => {
+                    const sourceColor = cronSourceColor[job.source || 'openclaw'] || '#1d4ed8'
+                    return (
+                      <div key={`next-${job.id}`} style={{ display: 'flex', justifyContent: 'space-between', gap: 12, border: '1px solid #2f2f2f', borderLeft: `4px solid ${sourceColor}`, borderRadius: 8, background: '#181818', padding: '8px 10px' }}>
+                        <div style={{ minWidth: 0 }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                            <div style={{ fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{job.name}</div>
+                            <span style={{ fontSize: 10, border: `1px solid ${sourceColor}`, color: sourceColor, borderRadius: 999, padding: '1px 6px' }}>
+                              {job.source === 'launchd' ? 'launchd' : 'cron'}
+                            </span>
+                          </div>
+                          <div style={{ fontSize: 11, opacity: 0.72 }}>{job.scheduleLabel}</div>
+                        </div>
+                        <div style={{ fontSize: 12, opacity: 0.85, whiteSpace: 'nowrap' }}>
+                          {job.nextRunAtMs ? new Date(job.nextRunAtMs).toLocaleString('de-CH', { weekday: 'short', hour: '2-digit', minute: '2-digit' }) : 'kein nächster Lauf'}
+                        </div>
                       </div>
-                      <div style={{ fontSize: 12, opacity: 0.85, whiteSpace: 'nowrap' }}>
-                        {job.nextRunAtMs ? new Date(job.nextRunAtMs).toLocaleString('de-CH', { weekday: 'short', hour: '2-digit', minute: '2-digit' }) : 'kein nächster Lauf'}
-                      </div>
-                    </div>
-                  ))}
+                    )
+                  })}
                 </div>
               )}
             </div>

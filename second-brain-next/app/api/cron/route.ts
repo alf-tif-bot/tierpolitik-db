@@ -16,6 +16,7 @@ type CronJobRaw = {
   id?: string
   name?: string
   enabled?: boolean
+  source?: 'openclaw' | 'launchd'
   schedule?: {
     kind?: 'every' | 'cron'
     everyMs?: number
@@ -97,6 +98,7 @@ function toJobView(job: CronJobRaw) {
     enabled: job.enabled !== false,
     scheduleLabel: formatSchedule(job),
     status: String(job.state?.lastStatus || 'idle'),
+    source: job.source === 'launchd' ? 'launchd' : 'openclaw',
     nextRunAtMs,
     nextRunAtIso: nextRunAtMs ? new Date(nextRunAtMs).toISOString() : null,
     lastRunAtMs: typeof job.state?.lastRunAtMs === 'number' ? job.state.lastRunAtMs : null,
@@ -124,6 +126,7 @@ function buildLaunchdMirrorJobs() {
       id: 'launchd:workspace-nightly-github-update',
       name: 'Nightly GitHub Update (launchd)',
       enabled: true,
+      source: 'launchd',
       schedule: { kind: 'cron', expr: '0 1 * * *', tz: 'Europe/Zurich' },
       state: { nextRunAtMs: nextLocalRunAt(1, 0), lastStatus: 'scheduled' },
     },
