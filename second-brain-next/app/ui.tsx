@@ -3285,15 +3285,58 @@ export default function ClientBoard() {
     }
   })
 
+  const expandCronOccurrencesForWindow = (jobs: CronJob[]) => {
+    const windowStartMs = weekDays[0]?.startMs ?? Date.now()
+    const windowEndMs = (weekDays[weekDays.length - 1]?.endMs ?? windowStartMs) - 1
+    const expanded: CronJob[] = []
+
+    for (const job of jobs) {
+      if (!job.enabled) continue
+
+      if (typeof job.nextRunAtMs === 'number' && job.nextRunAtMs >= windowStartMs && job.nextRunAtMs <= windowEndMs) {
+        expanded.push(job)
+      }
+
+      const matchDailyCron = job.scheduleLabel.match(/^cron\s+(\d{1,2})\s+(\d{1,2})\s+\*\s+\*\s+\*/i)
+      if (!matchDailyCron) continue
+
+      const minute = Number(matchDailyCron[1])
+      const hour = Number(matchDailyCron[2])
+      if (!Number.isFinite(minute) || !Number.isFinite(hour)) continue
+      if (minute < 0 || minute > 59 || hour < 0 || hour > 23) continue
+
+      for (const day of weekDays) {
+        const runAt = new Date(day.startMs)
+        runAt.setHours(hour, minute, 0, 0)
+        const runAtMs = runAt.getTime()
+        if (runAtMs < windowStartMs || runAtMs > windowEndMs) continue
+
+        if (typeof job.nextRunAtMs === 'number' && Math.abs(runAtMs - job.nextRunAtMs) < 60_000) continue
+
+        expanded.push({
+          ...job,
+          id: `${job.id}@${runAtMs}`,
+          status: 'scheduled',
+          nextRunAtMs: runAtMs,
+          nextRunAtIso: new Date(runAtMs).toISOString(),
+        })
+      }
+    }
+
+    return expanded
+  }
+
+  const calendarJobs = expandCronOccurrencesForWindow(cronJobs)
+
   const weeklyJobColumns = weekDays.map((day) => ({
     ...day,
-    jobs: cronJobs
-      .filter((job) => job.enabled && typeof job.nextRunAtMs === 'number' && job.nextRunAtMs >= day.startMs && job.nextRunAtMs < day.endMs)
+    jobs: calendarJobs
+      .filter((job) => typeof job.nextRunAtMs === 'number' && job.nextRunAtMs >= day.startMs && job.nextRunAtMs < day.endMs)
       .sort((a, b) => (a.nextRunAtMs || 0) - (b.nextRunAtMs || 0)),
   }))
 
-  const upcomingCronJobs = [...cronJobs]
-    .filter((job) => job.enabled && typeof job.nextRunAtMs === 'number' && job.nextRunAtMs >= nowTick)
+  const upcomingCronJobs = [...calendarJobs]
+    .filter((job) => typeof job.nextRunAtMs === 'number' && job.nextRunAtMs >= nowTick)
     .sort((a, b) => (a.nextRunAtMs || 0) - (b.nextRunAtMs || 0))
     .slice(0, 25)
 
