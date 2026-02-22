@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-type Section = 'radar' | 'tasks' | 'calendar' | 'projects' | 'content' | 'clients' | 'memory' | 'docs' | 'people' | 'office' | 'files'
+type Section = 'radar' | 'tasks' | 'calendar' | 'projects' | 'content' | 'clients' | 'memory' | 'docs' | 'people' | 'office' | 'health' | 'files'
 type EntityType = 'project' | 'content' | 'client' | 'memory' | 'doc' | 'person' | 'office'
 
 type Task = {
@@ -156,6 +156,7 @@ const sectionMeta: Record<Section, { label: string; hint?: string; entityType?: 
   memory: { label: 'Wissen & Notizen', hint: 'Privat + Arbeit', entityType: 'memory' },
   people: { label: 'Stakeholder', hint: 'Personen / Rollen', entityType: 'person' },
   office: { label: 'Archiv & Backoffice', hint: 'Ablage / Nebenaufgaben', entityType: 'office' },
+  health: { label: 'Health', hint: 'Obsidian/Physio Problemzonen' },
   files: { label: 'Files', hint: 'Wichtige Dateien & Scripts' },
 }
 
@@ -1957,7 +1958,7 @@ export default function ClientBoard() {
       void loadRadar()
     } else if (section === 'calendar') {
       void loadCronJobs()
-    } else if (section === 'files') {
+    } else if (section === 'files' || section === 'health') {
       setKnowledgeError(null)
       knowledgeAutoRefreshAtRef.current = Date.now()
       void loadKnowledgeIndex()
@@ -2051,7 +2052,7 @@ export default function ClientBoard() {
       return
     }
 
-    if (section === 'files') {
+    if (section === 'files' || section === 'health') {
       if (knowledgeLoadingRef.current) return
       setKnowledgeError(null)
       setFilePreview((prev) => {
@@ -2165,7 +2166,7 @@ export default function ClientBoard() {
   }, [section, isOffline])
 
   useEffect(() => {
-    if (section !== 'files' && section !== 'memory') return
+    if (section !== 'files' && section !== 'memory' && section !== 'health') return
 
     const refreshIfVisible = () => {
       if (document.visibilityState !== 'visible') return
@@ -2311,7 +2312,7 @@ export default function ClientBoard() {
         return
       }
 
-      if (section === 'files') {
+      if (section === 'files' || section === 'health') {
         if (knowledgeLoadingRef.current) return
         knowledgeAutoRefreshAtRef.current = Date.now()
         void loadKnowledgeIndex()
@@ -2391,7 +2392,7 @@ export default function ClientBoard() {
         return
       }
 
-      if (section === 'files') {
+      if (section === 'files' || section === 'health') {
         setKnowledgeError('Offline: Wissensindex kann nicht geladen werden.')
         setBoardError(null)
         return
@@ -3355,7 +3356,7 @@ export default function ClientBoard() {
       return null
     }
 
-    if (section === 'files') {
+    if (section === 'files' || section === 'health') {
       if (knowledgeLoading) return 'Wissensindex wird bereits aktualisiert.'
       return null
     }
@@ -3387,6 +3388,20 @@ export default function ClientBoard() {
     }
     return [...out.entries()]
   }, [filteredKnowledgeEntries])
+
+  const healthProblemZones = useMemo(() => {
+    return knowledgeEntries
+      .filter((entry) => entry.relPath.startsWith('Physio/Problemzonen/') && entry.name.toLowerCase().endswith('.md') && entry.name.toLowerCase() !== 'readme.md')
+      .map((entry) => {
+        const raw = entry.name.replace(/\.md$/i, '')
+        const title = raw
+          .split('-')
+          .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+          .join(' ')
+        return { ...entry, title }
+      })
+      .sort((a, b) => a.title.localeCompare(b.title, 'de-CH'))
+  }, [knowledgeEntries])
 
   const canRefreshSomeday = !somedayLoading && !tasksLoading && !Boolean(somedayBusyId)
   const refreshSomedayDisabledReason =
@@ -4177,6 +4192,26 @@ export default function ClientBoard() {
                 </div>
               ))}
               {entities.length === 0 && <div style={{ opacity: 0.7 }}>Noch keine zusätzlichen Wissenseinträge.</div>}
+            </div>
+          </>
+        ) : section === 'health' ? (
+          <>
+            <div style={{ fontSize: 13, opacity: 0.82, marginBottom: 10 }}>
+              Aktuelle Problemzonen aus <code>Obsidian / Health (Physio/Problemzonen)</code>.
+            </div>
+            <div style={{ display: 'grid', gap: 8 }}>
+              {healthProblemZones.map((zone) => (
+                <div key={zone.path} style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 10 }}>
+                  <div style={{ fontWeight: 700 }}>{zone.title}</div>
+                  <div style={{ fontSize: 12, opacity: 0.78, marginTop: 4 }}>{zone.relPath}</div>
+                  <div style={{ marginTop: 8 }}>
+                    <button onClick={() => { void openFilePreview(zone.name, zone.path) }} style={{ fontSize: 12 }}>Anzeigen</button>
+                  </div>
+                </div>
+              ))}
+              {!knowledgeLoading && healthProblemZones.length === 0 && (
+                <div style={{ opacity: 0.75 }}>Keine Problemzonen gefunden unter <code>Physio/Problemzonen</code>.</div>
+              )}
             </div>
           </>
         ) : section === 'files' ? (
