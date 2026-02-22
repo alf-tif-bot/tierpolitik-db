@@ -9,8 +9,9 @@ DATE_UTC="$(date -u +%F)"
 TS_UTC="$(date -u +%FT%TZ)"
 OUT_MD="$OUTDIR/${DATE_UTC}.md"
 TMP_JSON="$(mktemp)"
+RANKING_JSON="$WORKDIR/content-factory/sources-ranking.json"
 
-# Lean source set (can be extended later)
+# Lean source set
 FEEDS=(
   "https://news.google.com/rss/search?q=tierschutz+OR+tierrechte+OR+animal+welfare&hl=de&gl=CH&ceid=CH:de"
   "https://news.google.com/rss/search?q=ngo+fundraising+animal&hl=en-US&gl=US&ceid=US:en"
@@ -19,24 +20,23 @@ FEEDS=(
   "https://www.youtube.com/feeds/videos.xml?channel_id=UCupvZG-5ko_eiXAupbDfxWw"
 )
 
-python3 - "$TMP_JSON" "${FEEDS[@]}" <<'PY'
-import sys, json, re, html, urllib.request, urllib.parse, xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+python3 - "$TMP_JSON" "$RANKING_JSON" "${FEEDS[@]}" <<'PY'
+import sys, json, re, html, urllib.request, xml.etree.ElementTree as ET
+from urllib.parse import urlparse
 
-out_path = sys.argv[1]
-feeds = sys.argv[2:]
+out_path, ranking_path = sys.argv[1], sys.argv[2]
+feeds = sys.argv[3:]
+
+rank_weight = {'A': 30, 'B': 15, 'C': 0}
+ranking = {}
+try:
+    cfg = json.load(open(ranking_path, encoding='utf-8'))
+    for k, v in cfg.items():
+        ranking[k.lower().strip()] = str(v).upper().strip()
+except Exception:
+    pass
 
 items = []
-
-def parse_dt(s):
-    if not s:
-        return None
-    for fmt in ("%a, %d %b %Y %H:%M:%S %Z", "%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%dT%H:%M:%S.%f%z"):
-        try:
-            return datetime.strptime(s, fmt)
-        except Exception:
-            pass
-    return None
 
 def pick(item, *names):
     for n in names:
@@ -44,6 +44,13 @@ def pick(item, *names):
         if el is not None and (el.text or '').strip():
             return el.text.strip()
     return ""
+
+def detect_source(title, link):
+    dom = urlparse(link).netloc.lower().strip()
+    source_hint = title.rsplit(' - ', 1)[-1].strip() if ' - ' in title else ''
+    if dom.endswith('news.google.com') and source_hint:
+        return source_hint
+    return source_hint or dom or 'unknown'
 
 for url in feeds:
     try:
@@ -53,35 +60,32 @@ for url in feeds:
     except Exception:
         continue
 
-    # RSS
     for it in root.findall('.//item'):
         title = html.unescape(pick(it, 'title'))
         link = pick(it, 'link')
         desc = html.unescape(pick(it, 'description'))
-        pub = pick(it, 'pubDate')
-        items.append({"title": title, "link": link, "summary": re.sub('<[^<]+?>', ' ', desc), "published": pub})
+        items.append({"title": title, "link": link, "summary": re.sub('<[^<]+?>', ' ', desc)})
 
-    # Atom (e.g. YouTube)
     ns = {'a':'http://www.w3.org/2005/Atom'}
     for it in root.findall('.//a:entry', ns):
         title = html.unescape(pick(it, '{http://www.w3.org/2005/Atom}title'))
         link_el = it.find('{http://www.w3.org/2005/Atom}link')
         link = link_el.attrib.get('href','') if link_el is not None else ''
         summ = pick(it, '{http://www.w3.org/2005/Atom}summary')
-        pub = pick(it, '{http://www.w3.org/2005/Atom}published', '{http://www.w3.org/2005/Atom}updated')
-        items.append({"title": title, "link": link, "summary": summ, "published": pub})
+        items.append({"title": title, "link": link, "summary": summ})
 
-# dedupe
-seen = set()
-clean = []
+seen, clean = set(), []
 for it in items:
     key = (it.get('link') or '')[:300]
     if not key or key in seen:
         continue
     seen.add(key)
-    txt = ((it.get('title') or '') + ' ' + (it.get('summary') or '')).lower()
-    cat = 'allgemein'
-    route = 'NL'
+
+    title = (it.get('title') or '').strip()
+    source = detect_source(title, it.get('link') or '')
+    txt = (title + ' ' + (it.get('summary') or '')).lower()
+
+    cat, route = 'allgemein', 'NL'
     if any(k in txt for k in ['fundraising','spenden','donation','donor','crowdfunding','charity']):
         cat, route = 'fundraising', 'FR'
     elif any(k in txt for k in ['campaign','kampagne','petition','mobilization','mobilisierung']):
@@ -95,26 +99,25 @@ for it in items:
     elif any(k in txt for k in ['vegan recipe','rezept','plant-based recipe']):
         cat, route = 'rezept', 'NL'
 
-    clean.append({**it, 'category': cat, 'route': route})
+    grade = ranking.get(source.lower(), 'B')
+    score = rank_weight.get(grade, 15)
+    clean.append({**it, 'source': source, 'grade': grade, 'sourceScore': score, 'category': cat, 'route': route})
 
-# pick lean mix
 limits = [('politik',2), ('missstand',2), ('fundraising',2), ('kampagne',2), ('video',1), ('rezept',1)]
 selected = []
 for cat, lim in limits:
-    rows = [x for x in clean if x['category']==cat][:lim]
+    rows = sorted([x for x in clean if x['category'] == cat], key=lambda r: r['sourceScore'], reverse=True)[:lim]
     selected.extend(rows)
 
 if len(selected) < 10:
-    extras = [x for x in clean if x not in selected][:10-len(selected)]
-    selected.extend(extras)
+    leftovers = [x for x in sorted(clean, key=lambda r: r['sourceScore'], reverse=True) if x not in selected]
+    selected.extend(leftovers[:10-len(selected)])
 
-with open(out_path, 'w', encoding='utf-8') as f:
-    json.dump(selected[:10], f, ensure_ascii=False, indent=2)
+json.dump(selected[:10], open(out_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
 PY
 
 python3 - "$TMP_JSON" "$OUT_MD" "$TS_UTC" "$WORKDIR" <<'PY'
 import sys, json, re, os
-from urllib.parse import urlparse
 
 src, out_md, ts, workdir = sys.argv[1:5]
 rows = json.load(open(src, encoding='utf-8'))
@@ -127,85 +130,81 @@ with open(out_md, 'w', encoding='utf-8') as f:
         link = (r.get('link') or '').strip()
         cat = r.get('category','allgemein')
         route = r.get('route','NL')
+        source = r.get('source','unknown')
+        grade = r.get('grade','B')
         summary = (r.get('summary') or '').strip().replace('\n',' ')
         summary = (summary[:220] + '...') if len(summary) > 223 else summary
         f.write(f"## {i}) {title}\n")
+        f.write(f"- Quelle: {source} (Grade {grade})\n")
         f.write(f"- Kategorie: {cat}\n")
         f.write(f"- Vorschlag: {route}\n")
         if summary:
             f.write(f"- Warum relevant: {summary}\n")
         f.write(f"- Link: {link}\n\n")
 
-# Obsidian/ PARA Resources source vault
 base = os.path.join(workdir, 'PARA', 'Resources', 'Content-Factory', 'Quellen')
+items_dir = os.path.join(workdir, 'PARA', 'Resources', 'Content-Factory', 'Items')
 os.makedirs(base, exist_ok=True)
+os.makedirs(items_dir, exist_ok=True)
 index_path = os.path.join(base, 'Quellen-Index (Content Factory).md')
 
-def slug(s: str) -> str:
-    s = s.lower().strip()
-    s = re.sub(r'^www\.', '', s)
-    s = re.sub(r'[^a-z0-9.-]+', '-', s)
-    return s.strip('-') or 'unknown-source'
+def safe_name(s: str) -> str:
+    s = re.sub(r'[\\/:*?"<>|]', '-', s).strip()
+    s = re.sub(r'\s+', ' ', s)
+    return s[:120] or 'Unbenannt'
 
-by_domain = {}
+by_source = {}
 for r in rows:
-    link = (r.get('link') or '').strip()
-    if not link:
-        continue
-    dom = urlparse(link).netloc.lower().strip()
-    if not dom:
-        continue
+    src = (r.get('source') or 'Unknown Source').strip()
+    by_source.setdefault(src, []).append(r)
 
-    # Google News RSS often wraps original URLs; infer source from title suffix
-    source_hint = ''
-    title = (r.get('title') or '').strip()
-    if ' - ' in title:
-        source_hint = title.rsplit(' - ', 1)[-1].strip()
-
-    display = dom
-    if dom.endswith('news.google.com') and source_hint:
-        display = source_hint
-
-    key = slug(display)
-    by_domain.setdefault(key, {'domain': display, 'items': []})
-    by_domain[key]['items'].append(r)
-
-index_lines = [
-    '# Quellen-Index (Content Factory)',
-    '',
-    'Ablage für wiederkehrende Quellen inkl. Tags und Wiki-Links.',
-    ''
-]
-
-for key in sorted(by_domain.keys()):
-    entry = by_domain[key]
-    dom = entry['domain']
-    note_name = f"Quelle - {dom}"
+index_lines = ['# Quellen-Index (Content Factory)', '', 'Ablage für wiederkehrende Quellen inkl. Tags und Wiki-Links.', '']
+for source in sorted(by_source.keys(), key=lambda x: x.lower()):
+    entries = by_source[source]
+    note_name = safe_name(source)
     note_path = os.path.join(base, f"{note_name}.md")
-    cats = sorted(set((x.get('category') or 'allgemein') for x in entry['items']))
-    routes = sorted(set((x.get('route') or 'NL') for x in entry['items']))
+    cats = sorted(set((x.get('category') or 'allgemein') for x in entries))
+    routes = sorted(set((x.get('route') or 'NL') for x in entries))
+    grades = sorted(set((x.get('grade') or 'B') for x in entries))
 
     lines = [
         f"# {note_name}",
         '',
-        f"- Domain: `{dom}`",
+        f"- Source: `{source}`",
+        f"- Grade: `{', '.join(grades)}`",
         f"- Tags: {' '.join('#quelle/' + c for c in cats)} {' '.join('#route/' + r.lower() for r in routes)} #content-factory",
         '- Verlinkungen: [[Content Factory]] [[Quellen-Index (Content Factory)]]',
         '',
         '## Letzte Funde',
         ''
     ]
-    for it in entry['items'][:10]:
-        title = (it.get('title') or 'Ohne Titel').strip()
+
+    for it in entries[:10]:
+        title = safe_name((it.get('title') or 'Ohne Titel').strip())
         link = (it.get('link') or '').strip()
         cat = it.get('category') or 'allgemein'
         route = it.get('route') or 'NL'
-        lines.append(f"- [{title}]({link}) · `{cat}` · `{route}`")
+        lines.append(f"- [[{title}]] · `{cat}` · `{route}`")
+
+        item_note = [
+            f"# {title}",
+            '',
+            f"- Link: {link}",
+            f"- Quelle: [[{note_name}]]",
+            f"- Kategorie: `{cat}`",
+            f"- Route: `{route}`",
+            f"- Grade: `{it.get('grade','B')}`",
+            '',
+            '## Notiz',
+            ''
+        ]
+        with open(os.path.join(items_dir, f"{title}.md"), 'w', encoding='utf-8') as inf:
+            inf.write('\n'.join(item_note))
 
     with open(note_path, 'w', encoding='utf-8') as nf:
         nf.write('\n'.join(lines).rstrip() + '\n')
 
-    index_lines.append(f"- [[{note_name}]] · Kategorien: {', '.join(cats)} · Routes: {', '.join(routes)}")
+    index_lines.append(f"- [[{note_name}]] · Grade: {', '.join(grades)} · Kategorien: {', '.join(cats)}")
 
 with open(index_path, 'w', encoding='utf-8') as idx:
     idx.write('\n'.join(index_lines).rstrip() + '\n')

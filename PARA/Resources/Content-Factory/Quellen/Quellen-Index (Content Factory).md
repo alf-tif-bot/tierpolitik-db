@@ -2,11 +2,10 @@
 
 Ablage für wiederkehrende Quellen inkl. Tags und Wiki-Links.
 
-- [[Quelle - 20 Minuten]] · Kategorien: allgemein · Routes: NL
-- [[Quelle - Animal Welfare Foundation]] · Kategorien: allgemein, kampagne, politik · Routes: Kampagne, NL, Vorstoss
-- [[Quelle - animalrights.nl]] · Kategorien: video · Routes: NL
-- [[Quelle - Brussels Morning Newspaper]] · Kategorien: kampagne · Routes: Kampagne
-- [[Quelle - Food & Wine]] · Kategorien: rezept · Routes: NL
-- [[Quelle - interpharma.ch]] · Kategorien: politik · Routes: Vorstoss
-- [[Quelle - Pixelkin]] · Kategorien: fundraising · Routes: FR
-- [[Quelle - Schwäbische.de]] · Kategorien: fundraising · Routes: FR
+- [[Animal Welfare Foundation]] · Grade: A · Kategorien: allgemein, kampagne, politik
+- [[animalrights.nl]] · Grade: B · Kategorien: video
+- [[Charity Digital]] · Grade: B · Kategorien: fundraising
+- [[Food & Wine]] · Grade: B · Kategorien: rezept
+- [[interpharma.ch]] · Grade: B · Kategorien: politik
+- [[Schwäbische.de]] · Grade: B · Kategorien: fundraising
+- [[Yabiladi.com]] · Grade: B · Kategorien: kampagne
