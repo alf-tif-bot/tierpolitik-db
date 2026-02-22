@@ -4,7 +4,7 @@ import path from 'node:path'
 
 const HOST = '0.0.0.0'
 const PORT = 3020
-const BASE = 'http://192.168.50.219'
+const BASE = 'http://192.168.50.140'
 const STALL_PUBLIC = 'C:/Users/yokim/.openclaw/workspace/PARA/Projects/Stallbraende-Schweiz/public'
 
 const routes = {
