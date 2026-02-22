@@ -103,6 +103,33 @@ function toJobView(job: CronJobRaw) {
   }
 }
 
+function nextLocalRunAt(hour: number, minute: number) {
+  const now = new Date()
+  const next = new Date(now)
+  next.setHours(hour, minute, 0, 0)
+  if (next.getTime() <= now.getTime()) {
+    next.setDate(next.getDate() + 1)
+  }
+  return next.getTime()
+}
+
+function buildLaunchdMirrorJobs() {
+  if (process.platform !== 'darwin') return [] as CronJobRaw[]
+
+  const plist = path.join(os.homedir(), 'Library', 'LaunchAgents', 'ai.openclaw.workspace-nightly-github-update.plist')
+  if (!existsSync(plist)) return [] as CronJobRaw[]
+
+  return [
+    {
+      id: 'launchd:workspace-nightly-github-update',
+      name: 'Nightly GitHub Update (launchd)',
+      enabled: true,
+      schedule: { kind: 'cron', expr: '0 1 * * *', tz: 'Europe/Zurich' },
+      state: { nextRunAtMs: nextLocalRunAt(1, 0), lastStatus: 'scheduled' },
+    },
+  ]
+}
+
 export async function GET() {
   try {
     let jobs: CronJobRaw[] = []
@@ -120,7 +147,9 @@ export async function GET() {
       }
     }
 
-    const normalized = jobs
+    const mergedJobs = [...jobs, ...buildLaunchdMirrorJobs()]
+
+    const normalized = mergedJobs
       .map(toJobView)
       .filter((job) => job.id)
       .sort((a, b) => {
