@@ -76,6 +76,9 @@
 - Nachtschmerz/Ruheschmerz zunehmend trotz Entlastung
 - Ausstrahlende neurologische Symptome (Taubheit, Kribbeln, Schwäche)
 
+## Verknüpfte Leitlinie
+- `../Prinzipien/bizepssehne-recovery-protokoll.md`
+
 ## Nächster Review
 - **Datum:**
 - **Entscheidung:** beibehalten | progressieren | regressieren | pausieren
