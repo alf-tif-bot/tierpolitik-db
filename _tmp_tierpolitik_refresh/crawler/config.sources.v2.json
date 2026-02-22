@@ -1,0 +1,63 @@
+[
+  {
+    "id": "ch-parliament-affairs-v2",
+    "label": "Parlament.ch Curia Vista Affairs (DE/FR/IT merged)",
+    "type": "api",
+    "adapter": "parliamentOdataV2",
+    "url": "https://ws.parlament.ch/odata.svc/Business",
+    "enabled": true,
+    "options": {
+      "langs": "DE,FR,IT",
+      "top": 900,
+      "daysBack": 9500,
+      "requestTimeoutMs": 35000,
+      "businessTypeIncludes": "Motion,Postulat,Interpellation,Anfrage,Petition"
+    }
+  },
+  {
+    "id": "ch-cantons-registry-v2",
+    "label": "Cantonal parliaments source registry scaffold (all cantons)",
+    "type": "api",
+    "adapter": "cantonRegistry",
+    "url": "https://placeholder.invalid/cantons",
+    "enabled": true,
+    "options": {
+      "sinceYear": 2020
+    }
+  },
+  {
+    "id": "ch-cantonal-portal-priority-v2",
+    "label": "Cantonal portals parser (priority unresolved cantons)",
+    "type": "html",
+    "adapter": "cantonalPortal",
+    "url": "https://raw.githubusercontent.com/yokimxyz/tierpolitik-vorstoesse-db/main/data/cantonal-source-registry.json",
+    "enabled": true,
+    "options": {
+      "registryUrl": "data/cantonal-source-registry.json"
+    }
+  },
+  {
+    "id": "ch-municipal-parliament-bern-zurich-v2",
+    "label": "Municipal parliaments (Bern, Zürich)",
+    "type": "html",
+    "adapter": "municipalParliament",
+    "url": "https://www.bern.ch/politik-und-verwaltung/stadtrat/geschaefte-des-stadtrats",
+    "enabled": true,
+    "options": {
+      "cities": "bern,zuerich",
+      "maxItemsPerCity": 24
+    }
+  },
+  {
+    "id": "ch-cantonal-be-rss-v2",
+    "label": "Grosser Rat Bern – Vorstösse (RSS)",
+    "type": "rss",
+    "adapter": "rss",
+    "url": "https://www.rrgr-service.apps.be.ch/api/gr/instances/1796b1af-bd1e-4ffa-a80d-ba08d1b8a2ed/render?lang=de",
+    "enabled": true,
+    "options": {
+      "canton": "BE",
+      "sinceYear": 2020
+    }
+  }
+]

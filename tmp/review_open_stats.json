@@ -1,0 +1,13 @@
+{
+  "openTotal": 5,
+  "bySource": {
+    "ch-cantonal-portal-core": 4,
+    "ch-municipal-parliament-bern-zurich": 1
+  },
+  "cityCount": 1,
+  "cities": [
+    "Bern"
+  ],
+  "cantonCount": 0,
+  "cantons": []
+}

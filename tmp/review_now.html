@@ -1,0 +1,511 @@
+﻿<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Crawler Review</title>
+<style>
+  body{font-family:Inter,Arial,sans-serif;background:#0f172a;color:#e2e8f0;margin:0;padding:24px}
+  .wrap{max-width:1280px;margin:0 auto}
+  h1{margin:0 0 8px}
+  p{color:#a9bfd8}
+  code{background:#1f2937;border:1px solid #334155;color:#dbeafe;padding:1px 5px;border-radius:6px}
+  .links{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+  .links a{display:inline-block;border:1px solid rgba(255,255,255,.18);padding:6px 10px;border-radius:999px;text-decoration:none;color:#dbeafe}
+  .status{margin:10px 0 14px;color:#bfdbfe}
+  button{margin-right:6px;border:1px solid #4b5563;border-radius:8px;padding:5px 9px;background:#22364f;color:#e8effa;cursor:pointer}
+  button:hover{background:#2b4565}
+  .export{margin:10px 0 12px}
+  .view-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .view-label{font-size:12px;color:#94a3b8;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
+  .view-btn{opacity:.78}
+  .view-btn.active{opacity:1;border-color:#93c5fd;background:#2b4565;box-shadow:0 0 0 1px rgba(147,197,253,.25) inset}
+  .debug-box{margin:10px 0;padding:8px 10px;border:1px solid #334155;border-radius:8px;background:#0b1220;color:#cbd5e1;font:12px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .debug-box pre{margin:0;white-space:pre-wrap;word-break:break-word;max-height:180px;overflow:auto}
+  table{width:100%;border-collapse:collapse;background:#111827;border:1px solid #334155;border-radius:12px;overflow:hidden}
+  td,th{border-bottom:1px solid #1f2937;padding:10px;vertical-align:top;text-align:left}
+  th{background:#1b2433;color:#dbeafe;font-weight:700;position:sticky;top:0}
+  tr:hover td{background:#172133}
+  .orig-link{display:inline-block;margin-top:6px;color:#93c5fd}
+  .muted{color:#94a3b8}
+  .pending{color:#f59e0b}
+  .historic{color:#94a3b8}
+  .fast-lane{color:#fbbf24;font-weight:700}
+  .row-fastlane td{background:rgba(251,191,36,.08)}
+  .fastlane-wrap{margin:12px 0 16px;padding:12px;border:1px solid #475569;border-radius:10px;background:#111827}
+  .fastlane-wrap h2{font-size:16px;margin:0 0 10px;color:#fde68a}
+  .fastlane-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}
+  .fastlane-card{border:1px solid #334155;border-radius:10px;padding:10px;background:#0b1220}
+  .fastlane-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+  .fastlane-score{font-weight:700;color:#fde68a}
+  .fastlane-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:8px}
+  @media (max-width: 760px){
+    body{padding:12px}
+    td,th{padding:8px;font-size:13px}
+    .fastlane-wrap{position:sticky;top:0;z-index:5}
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Review-Ansicht</h1>
+    <p>Es werden standardmässig nur <strong>offene</strong> relevante Einträge gezeigt (queued/new). Bereits bearbeitete Einträge bleiben ausgeblendet und können bei Bedarf über den Button eingeblendet werden. Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB übernommen.</p>
+    <p class="status" id="status-summary">Status-Summen (sichtbar): offen=0, gutgeheissen=0, publiziert=0</p>
+    <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a><a href="/status.html">API-Status</a></nav>
+    <p class="export view-controls"><span class="view-label">Ansicht</span><button class="view-btn" onclick="setViewMode('open')" id="view-open">Offen</button> <button class="view-btn" onclick="setViewMode('rejected')" id="view-rejected">Abgelehnt (neu → alt)</button> <button class="view-btn" onclick="clearLocalReviewState()" id="view-reset">Lokale Entscheide löschen</button> <button class="view-btn" onclick="toggleDebugPanel()" id="view-debug">Debug an/aus</button></p>
+    <p id="decision-status" class="muted" aria-live="polite"></p>
+    <div id="review-debug-box" class="debug-box" style="display:none"><pre id="review-debug-log"></pre></div>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Titel</th>
+          <th>Typ</th>
+          <th>Quelle</th>
+          <th>Score</th>
+          <th>Treffer</th>
+          <th>Status</th>
+          <th>Warum relevant / nicht</th>
+          <th>Aktion</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr data-id="ch-cantonal-portal-core:cantonal-portal-zg-1214" data-status="queued" data-fastlane-tagged="0" class="row-fastlane">
+<td>
+  <strong>ZG · 1648 - Interpellation von Franz Hürlimann betreffend kosteneffizienter Reorganisation beim kantonalen Amt für Fischerei und Jagd</strong><br>
+  <small>Kantonsrat Zug (quick_search): Treffer für Jagd.</small><br>
+  <a class="orig-link" href="https://kr-geschaefte.zug.ch/gast/geschaefte/1214" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
+</td>
+<td>Crawler</td>
+<td>
+  <div>Cantonal portals (core crawl)</div>
+  <small class="muted">ch-cantonal-portal-core</small>
+</td>
+<td>1.00<br><small class="muted">Priorität: fast-lane</small><br><small class="fast-lane">âš¡ Sehr wahrscheinlich relevant</small></td>
+<td>jagd, fischerei, fisch</td>
+<td><span data-status-label>offen</span> (<span data-status-badge><strong class="pending">offen</strong></span>)</td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> jagd, fischerei</div><div><strong>Kontext:</strong> fisch</div><div><strong>Score:</strong> 1.00</div></small></td>
+<td>
+<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-zg-1214','approved')">Gutheissen</button>
+<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-zg-1214','rejected')">Ablehnen</button>
+<button class="tag-btn" data-tag-btn="ch-cantonal-portal-core:cantonal-portal-zg-1214" onclick="toggleFastlaneTag(this,'ch-cantonal-portal-core:cantonal-portal-zg-1214')">Fastlane: AUS</button>
+</td>
+</tr>
+<tr data-id="ch-cantonal-portal-core:cantonal-portal-zg-3045" data-status="queued" data-fastlane-tagged="0" class="">
+<td>
+  <strong>ZG · 4032 - Petition zur Prüfung der wissenschaftlichen Notwendigkeit zur Fuchsjagd</strong><br>
+  <small>Kantonsrat Zug (quick_search): Treffer für Jagd.</small><br>
+  <a class="orig-link" href="https://kr-geschaefte.zug.ch/gast/geschaefte/3045" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
+</td>
+<td>Crawler</td>
+<td>
+  <div>Cantonal portals (core crawl)</div>
+  <small class="muted">ch-cantonal-portal-core</small>
+</td>
+<td>0.73<br><small class="muted">Priorität: mittel</small></td>
+<td>fuchs, jagd</td>
+<td><span data-status-label>offen</span> (<span data-status-badge><strong class="pending">offen</strong></span>)</td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> fuchs, jagd</div><div><strong>Score:</strong> 0.73</div></small></td>
+<td>
+<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-zg-3045','approved')">Gutheissen</button>
+<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-zg-3045','rejected')">Ablehnen</button>
+<button class="tag-btn" data-tag-btn="ch-cantonal-portal-core:cantonal-portal-zg-3045" onclick="toggleFastlaneTag(this,'ch-cantonal-portal-core:cantonal-portal-zg-3045')">Fastlane: AUS</button>
+</td>
+</tr>
+<tr data-id="ch-cantonal-portal-core:cantonal-portal-zg-716" data-status="queued" data-fastlane-tagged="0" class="">
+<td>
+  <strong>ZG · 1112 - Kantonsratsbeschluss betreffend Investitionsbeitrag an den Tierschutzverein des Kantons Zug für die Quarantänestation im Tierheim Allenwinden</strong><br>
+  <small>Kantonsrat Zug (quick_search): Treffer für Tierschutz.</small><br>
+  <a class="orig-link" href="https://kr-geschaefte.zug.ch/gast/geschaefte/716" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
+</td>
+<td>Crawler</td>
+<td>
+  <div>Cantonal portals (core crawl)</div>
+  <small class="muted">ch-cantonal-portal-core</small>
+</td>
+<td>0.61<br><small class="muted">Priorität: mittel</small></td>
+<td>tierschutz</td>
+<td><span data-status-label>offen</span> (<span data-status-badge><strong class="pending">offen</strong></span>)</td>
+<td><small><div><strong>Einordnung:</strong> pro Tierschutz</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> tierschutz</div><div><strong>Score:</strong> 0.61</div></small></td>
+<td>
+<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-zg-716','approved')">Gutheissen</button>
+<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-zg-716','rejected')">Ablehnen</button>
+<button class="tag-btn" data-tag-btn="ch-cantonal-portal-core:cantonal-portal-zg-716" onclick="toggleFastlaneTag(this,'ch-cantonal-portal-core:cantonal-portal-zg-716')">Fastlane: AUS</button>
+</td>
+</tr>
+<tr data-id="ch-cantonal-portal-core:cantonal-portal-zg-66" data-status="queued" data-fastlane-tagged="0" class="">
+<td>
+  <strong>ZG · 1778 - Postulat von Franz Hürlimann und Thiemo Hächler betreffend Senkung der Jagdgebühren im Kanton Zug</strong><br>
+  <small>Kantonsrat Zug (quick_search): Treffer für Jagd.</small><br>
+  <a class="orig-link" href="https://kr-geschaefte.zug.ch/gast/geschaefte/66" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
+</td>
+<td>Crawler</td>
+<td>
+  <div>Cantonal portals (core crawl)</div>
+  <small class="muted">ch-cantonal-portal-core</small>
+</td>
+<td>0.59<br><small class="muted">Priorität: mittel</small></td>
+<td>jagd, postulat</td>
+<td><span data-status-label>offen</span> (<span data-status-badge><strong class="pending">offen</strong></span>)</td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> jagd</div><div><strong>Kontext:</strong> postulat</div><div><strong>Score:</strong> 0.59</div></small></td>
+<td>
+<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-zg-66','approved')">Gutheissen</button>
+<button onclick="setDecision(this,'ch-cantonal-portal-core:cantonal-portal-zg-66','rejected')">Ablehnen</button>
+<button class="tag-btn" data-tag-btn="ch-cantonal-portal-core:cantonal-portal-zg-66" onclick="toggleFastlaneTag(this,'ch-cantonal-portal-core:cantonal-portal-zg-66')">Fastlane: AUS</button>
+</td>
+</tr>
+<tr data-id="ch-municipal-parliament-bern-zurich:municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9" data-status="queued" data-fastlane-tagged="0" class="">
+<td>
+  <strong>Nachtfahrverbot für Mähroboter - für Igel und andere Kleintiere</strong><br>
+  <small>Gemeinde Bern (Stadtrat Bern) · 2025.SR.0388 · Eingereicht</small><br>
+  <a class="orig-link" href="https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=d0f7b26541424c43aab28a91744f6ba9" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
+</td>
+<td>Crawler</td>
+<td>
+  <div>Municipal parliaments (Bern, Zürich)</div>
+  <small class="muted">ch-municipal-parliament-bern-zurich</small>
+</td>
+<td>0.32<br><small class="muted">Priorität: niedriger</small></td>
+<td>motion</td>
+<td><span data-status-label>offen</span> (<span data-status-badge><strong class="pending">offen</strong></span>)</td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Thematisch relevant und von priorisiertem Parlamentsprofil</div><div><strong>Kontext:</strong> motion</div><div><strong>Priorisierte Profile:</strong> tobias sennhauser</div><div><strong>Score:</strong> 0.32</div></small></td>
+<td>
+<button onclick="setDecision(this,'ch-municipal-parliament-bern-zurich:municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9','approved')">Gutheissen</button>
+<button onclick="setDecision(this,'ch-municipal-parliament-bern-zurich:municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9','rejected')">Ablehnen</button>
+<button class="tag-btn" data-tag-btn="ch-municipal-parliament-bern-zurich:municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9" onclick="toggleFastlaneTag(this,'ch-municipal-parliament-bern-zurich:municipal-bern-api-d0f7b26541424c43aab28a91744f6ba9')">Fastlane: AUS</button>
+</td>
+</tr></tbody>
+    </table>
+  </main>
+<script>
+const key='tierpolitik.review';
+const uiKey='tierpolitik.review.ui';
+const fastlaneTagKey='tierpolitik.review.fastlaneTags';
+const initialFastlaneTags={"ch-parliament-business-de:20223210-de":{"fastlane":true,"taggedAt":"2026-02-14T10:46:37.937Z"},"ch-parliament-business-de:20250078-de":{"fastlane":true,"taggedAt":"2026-02-14T08:25:12.936Z"},"ch-parliament-business-de:20213835-de":{"fastlane":true,"taggedAt":"2026-02-14T08:25:24.389Z"},"ch-parliament-business-de:20213405-de":{"fastlane":true,"taggedAt":"2026-02-14T08:25:32.546Z"},"ch-parliament-business-de:20233515-de":{"fastlane":true,"taggedAt":"2026-02-14T08:25:44.286Z"},"ch-parliament-business-de:20237115-de":{"fastlane":true,"taggedAt":"2026-02-14T08:25:54.185Z"},"ch-parliament-business-de:20227807-de":{"fastlane":true,"taggedAt":"2026-02-14T08:26:08.828Z"},"ch-parliament-business-de:20258205-de":{"fastlane":true,"taggedAt":"2026-02-14T08:26:27.637Z"},"ch-parliament-business-de:20244696-de":{"fastlane":true,"taggedAt":"2026-02-14T08:28:00.545Z"},"ch-parliament-business-de:20244695-de":{"fastlane":true,"taggedAt":"2026-02-14T08:28:13.450Z"},"ch-parliament-business-de:20244465-de":{"fastlane":true,"taggedAt":"2026-02-14T10:34:56.969Z"},"ch-parliament-business-de:20240436-de":{"fastlane":true,"taggedAt":"2026-02-14T10:44:57.766Z"},"ch-parliament-business-de:20223300-de":{"fastlane":true,"taggedAt":"2026-02-14T10:45:09.382Z"},"ch-parliament-business-de:20213363-de":{"fastlane":true,"taggedAt":"2026-02-14T10:45:19.848Z"},"ch-parliament-business-de:20213364-de":{"fastlane":true,"taggedAt":"2026-02-14T10:45:28.520Z"},"ch-parliament-business-de:20212004-de":{"fastlane":true,"taggedAt":"2026-02-14T10:45:41.919Z"},"ch-parliament-business-de:20253976-de":{"fastlane":true,"taggedAt":"2026-02-14T10:46:04.703Z"},"ch-parliament-business-de:20250059-de":{"fastlane":true,"taggedAt":"2026-02-14T10:46:16.584Z"},"ch-parliament-business-de:20232009-de":{"fastlane":true,"taggedAt":"2026-02-14T10:46:29.666Z"},"ch-parliament-business-de:20214167-de":{"fastlane":true,"taggedAt":"2026-02-14T10:47:07.633Z"},"ch-parliament-business-de:20252027-de":{"fastlane":true,"taggedAt":"2026-02-14T10:47:24.017Z"},"ch-parliament-business-de:20244344-de":{"fastlane":true,"taggedAt":"2026-02-14T10:47:42.196Z"},"ch-parliament-business-de:20243296-de":{"fastlane":true,"taggedAt":"2026-02-14T10:47:57.369Z"},"ch-parliament-business-de:20223952-de":{"fastlane":true,"taggedAt":"2026-02-14T10:48:16.353Z"},"ch-parliament-business-de:20223808-de":{"fastlane":true,"taggedAt":"2026-02-14T10:48:30.730Z"},"ch-parliament-business-de:20258063-de":{"fastlane":true,"taggedAt":"2026-02-14T10:48:46.707Z"},"ch-parliament-business-de:20213229-de":{"fastlane":true,"taggedAt":"2026-02-14T10:50:13.054Z"},"ch-parliament-business-de:20223302-de":{"fastlane":true,"taggedAt":"2026-02-14T10:50:31.269Z"},"ch-parliament-business-de:20231034-de":{"fastlane":true,"taggedAt":"2026-02-14T10:50:39.327Z"},"ch-parliament-business-de:20243277-de":{"fastlane":true,"taggedAt":"2026-02-14T10:51:01.036Z"},"ch-parliament-business-de:20254144-de":{"fastlane":true,"taggedAt":"2026-02-14T10:51:22.151Z"},"ch-parliament-business-de:20213703-de":{"fastlane":true,"taggedAt":"2026-02-14T10:51:32.388Z"},"ch-parliament-business-de:20212027-de":{"fastlane":true,"taggedAt":"2026-02-14T10:51:44.244Z"},"ch-municipal-parliament-bern-zurich:municipal-bern-api-c6c65c8ce8a84435af97428996dadc64":{"fastlane":true,"taggedAt":"2026-02-14T18:37:06.036Z"},"ch-municipal-parliament-bern-zurich:municipal-bern-api-13284d70bb124c23a1bbba427e8a7c5c":{"fastlane":true,"taggedAt":"2026-02-14T18:37:25.611Z"},"user-input:user-bern-2026sr0019-tierpark-alternativen-toetung":{"fastlane":true,"taggedAt":"2026-02-14T18:43:35.637Z"},"ch-municipal-parliament-bern-zurich:municipal-bern-api-b7e265b3766d43119b5279f5ea795e91":{"fastlane":true,"taggedAt":"2026-02-14T18:44:17.747Z"},"user-input:user-bern-2026sr0056-biodiversitaet":{"fastlane":true,"taggedAt":"2026-02-14T22:33:21.861Z"},"ch-parliament-business-de:20203021-de":{"fastlane":true,"taggedAt":"2026-02-14T22:33:43.182Z"},"ch-cantonal-be-rss:www-gr-be-ch-de-start-geschaefte-geschaeftssuche-geschaeftsdetail-html-guid-57c34c78ddf541f098b29f4c2be2cbfa":{"fastlane":true,"taggedAt":"2026-02-15T09:51:04.074Z"}};
+const lsGet=(k)=>{ try { return localStorage.getItem(k); } catch { return null; } };
+const lsSet=(k,v)=>{ try { localStorage.setItem(k,v); } catch {} };
+const LEGACY_API_BASE_KEY='tierpolitik.apiBase';
+const LEGACY_NETLIFY_RE=/netlify.app/.netlify/functions/i;
+const storedApiBaseRaw = lsGet(LEGACY_API_BASE_KEY) || '';
+if (LEGACY_NETLIFY_RE.test(storedApiBaseRaw)) {
+  try { localStorage.removeItem(LEGACY_API_BASE_KEY); } catch {}
+}
+const API_BASE='';
+const apiUrl=(path)=> (API_BASE ? API_BASE : '') + path;
+let DEBUG_REVIEW = /(?:\?|&)debug=1(?:&|$)/.test(location.search) || lsGet('tierpolitik.review.debug') === '1';
+const debugState = { lines: [] };
+const renderDebug = () => {
+  const box = document.getElementById('review-debug-box');
+  const pre = document.getElementById('review-debug-log');
+  if (!box || !pre) return;
+  box.style.display = DEBUG_REVIEW ? '' : 'none';
+  pre.textContent = debugState.lines.slice(-30).join('\n');
+};
+const dbg = (...args) => {
+  const line = args.map((a) => {
+    if (typeof a === 'string') return a;
+    try { return JSON.stringify(a); } catch { return String(a); }
+  }).join(' ');
+  debugState.lines.push(line);
+  if (DEBUG_REVIEW) console.log('[review-debug]', ...args);
+  renderDebug();
+};
+window.toggleDebugPanel = function toggleDebugPanel(){
+  DEBUG_REVIEW = !DEBUG_REVIEW;
+  lsSet('tierpolitik.review.debug', DEBUG_REVIEW ? '1' : '0');
+  dbg('debug-panel', { enabled: DEBUG_REVIEW });
+  renderDebug();
+}
+window.functions = window.functions || {}
+window.functions.toggleDebugPanel = window.toggleDebugPanel
+window.__reviewDebug = {
+  hostname: location.hostname,
+  storedApiBaseRaw,
+  legacyApiBaseRemoved: LEGACY_NETLIFY_RE.test(storedApiBaseRaw),
+  effectiveApiBase: API_BASE || '(same-origin)',
+};
+dbg('boot', window.__reviewDebug);
+const safeJsonParse=(raw, fallback={})=>{
+  try { return JSON.parse(raw || JSON.stringify(fallback)); }
+  catch { return fallback; }
+};
+const read=()=>safeJsonParse(lsGet(key),{});
+const write=(v)=>lsSet(key,JSON.stringify(v,null,2));
+const readFastlaneTags=()=>{
+  const local = safeJsonParse(lsGet(fastlaneTagKey),{});
+  return { ...initialFastlaneTags, ...local };
+};
+const writeFastlaneTags=(v)=>lsSet(fastlaneTagKey,JSON.stringify(v));
+const readUi=()=>safeJsonParse(lsGet(uiKey),{});
+const writeUi=(v)=>lsSet(uiKey,JSON.stringify(v));
+
+const statusLabelFor = (status = '') => {
+  const s = String(status || '').toLowerCase()
+  if (s === 'queued' || s === 'new') return 'offen'
+  if (s === 'approved') return 'gutgeheissen'
+  if (s === 'published') return 'publiziert'
+  if (s === 'rejected') return 'abgelehnt'
+  return s || '-'
+}
+// Backward-compat alias for older handlers that may still call this name.
+const reviewStatusLabel = statusLabelFor
+
+let viewMode = 'open';
+
+document.querySelectorAll('tr[data-id]').forEach((row, idx) => {
+  row.setAttribute('data-base-order', String(idx))
+});
+
+function updateStatusSummary(){
+  const stats = { offen: 0, gutgeheissen: 0, publiziert: 0 }
+  let visibleRows = 0
+  document.querySelectorAll('tr[data-id]').forEach((row)=>{
+    const hidden = row.style.display === 'none'
+    if (hidden) return
+    visibleRows += 1
+    const status = String(row.getAttribute('data-status') || '').toLowerCase()
+    if (status === 'queued' || status === 'new') stats.offen += 1
+    else if (status === 'approved') stats.gutgeheissen += 1
+    else if (status === 'published') stats.publiziert += 1
+  })
+  const el = document.getElementById('status-summary')
+  if (el) {
+    el.textContent = 'Status-Summen (sichtbar): offen=' + stats.offen + ', gutgeheissen=' + stats.gutgeheissen + ', publiziert=' + stats.publiziert
+    if (visibleRows === 0) el.textContent += ' · keine offenen Einträge'
+  }
+}
+
+function hideDecidedRows(){
+  const decisions = read();
+  const rows = [...document.querySelectorAll('tr[data-id]')]
+  const decidedById = {}
+
+  const localAffairDecided = new Set(Object.keys(decisions)
+    .filter((id) => String(id).startsWith('ch-parliament-'))
+    .map((id) => {
+      const external = String(id).split(':')[1] || ''
+      return String(external).split('-')[0]
+    })
+    .filter(Boolean))
+
+  rows.forEach((row)=>{
+    const id = row.getAttribute('data-id');
+    if (!id) return
+    const rowStatus = String(row.getAttribute('data-status') || '').toLowerCase()
+    const localStatus = String(decisions[id]?.status || '').toLowerCase()
+    const effectiveStatus = localStatus || rowStatus
+
+    const serverDecided = rowStatus !== 'queued' && rowStatus !== 'new'
+    const localDecided = Boolean(decisions[id])
+    const isParliamentEntry = String(id).startsWith('ch-parliament-')
+    const affairId = isParliamentEntry ? (String(id).split(':')[1] || '').split('-')[0] : ''
+    const localAffairHit = Boolean(affairId) && localAffairDecided.has(affairId)
+    const decided = serverDecided || localDecided || localAffairHit
+    decidedById[id] = decided
+
+    if (localStatus) {
+      row.setAttribute('data-status', localStatus)
+    }
+
+    const statusLabelEl = row.querySelector('[data-status-label]')
+    const statusBadgeEl = row.querySelector('[data-status-badge]')
+    if (statusLabelEl) statusLabelEl.textContent = statusLabelFor(effectiveStatus)
+    if (statusBadgeEl) {
+      statusBadgeEl.innerHTML = (effectiveStatus === 'queued' || effectiveStatus === 'new')
+        ? '<strong class="pending">offen</strong>'
+        : '<span class="historic">historisch</span>'
+    }
+
+    if (viewMode === 'rejected') {
+      const isRejected = effectiveStatus === 'rejected'
+      row.style.display = isRejected ? '' : 'none'
+    } else {
+      const isOpen = effectiveStatus === 'queued' || effectiveStatus === 'new'
+      row.style.display = isOpen ? '' : 'none'
+    }
+  });
+
+  const tbody = rows[0]?.parentElement
+  if (tbody) {
+    if (viewMode === 'rejected') {
+      rows
+        .filter((row) => row.style.display !== 'none')
+        .sort((a, b) => {
+          const aId = a.getAttribute('data-id') || ''
+          const bId = b.getAttribute('data-id') || ''
+          const aTs = Date.parse(String(decisions[aId]?.decidedAt || '')) || 0
+          const bTs = Date.parse(String(decisions[bId]?.decidedAt || '')) || 0
+          if (bTs !== aTs) return bTs - aTs
+          return Number(a.getAttribute('data-base-order') || 0) - Number(b.getAttribute('data-base-order') || 0)
+        })
+        .forEach((row) => tbody.appendChild(row))
+    } else {
+      rows
+        .sort((a, b) => Number(a.getAttribute('data-base-order') || 0) - Number(b.getAttribute('data-base-order') || 0))
+        .forEach((row) => tbody.appendChild(row))
+    }
+  }
+
+  document.querySelectorAll('.fastlane-card[data-id]').forEach((card)=>{
+    const id = card.getAttribute('data-id')
+    if (!id) return
+    const decided = Boolean(decidedById[id]) || Boolean(decisions[id])
+    card.style.display = (viewMode === 'rejected' || decided) ? 'none' : ''
+  })
+
+  const openBtn = document.getElementById('view-open')
+  const rejectedBtn = document.getElementById('view-rejected')
+  if (openBtn) openBtn.classList.toggle('active', viewMode === 'open')
+  if (rejectedBtn) rejectedBtn.classList.toggle('active', viewMode === 'rejected')
+
+  updateStatusSummary();
+}
+
+window.setViewMode = function setViewMode(mode){
+  viewMode = mode === 'rejected' ? 'rejected' : 'open'
+  hideDecidedRows()
+}
+
+window.clearLocalReviewState = function clearLocalReviewState(){
+  lsSet(key, JSON.stringify({}))
+  viewMode = 'open'
+  const statusEl = document.getElementById('decision-status')
+  if (statusEl) statusEl.textContent = 'Lokale Entscheidungen gelöscht.'
+  hideDecidedRows()
+}
+
+function renderFastlaneTagButton(id){
+  const tags = readFastlaneTags();
+  const isTagged = Boolean(tags[id]?.fastlane);
+  document.querySelectorAll('[data-tag-btn="' + id + '"]').forEach((btn)=>{
+    btn.textContent = isTagged ? 'Fastlane: AN' : 'Fastlane: AUS';
+  });
+}
+
+window.toggleFastlaneTag = async function toggleFastlaneTag(btn,id){
+  const tags = readFastlaneTags();
+  const next = !Boolean(tags[id]?.fastlane);
+  const taggedAt = new Date().toISOString();
+  if (btn) btn.disabled = true;
+
+  let serverOk = false;
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 5000);
+    const url = apiUrl('/review-fastlane-tag');
+    dbg('fastlane:request', { id, next, url });
+    const res = await fetch(url, {
+      method:'POST',
+      headers:{'content-type':'application/json'},
+      body: JSON.stringify({ id, fastlane: next, taggedAt }),
+      signal: controller.signal,
+    });
+    clearTimeout(timer);
+    dbg('fastlane:response', { id, next, code: res.status, ok: res.ok });
+    if (res.ok) serverOk = true;
+  } catch (err) {
+    dbg('fastlane:error', { id, next, message: String(err?.message || err) });
+  }
+
+  tags[id] = { fastlane: next, taggedAt };
+  writeFastlaneTags(tags);
+  renderFastlaneTagButton(id);
+
+  document.querySelectorAll('tr[data-id="' + id + '"]').forEach((row)=>{
+    row.setAttribute('data-fastlane-tagged', next ? '1' : '0');
+  })
+  document.querySelectorAll('.fastlane-card[data-id="' + id + '"]').forEach((card)=>{
+    card.setAttribute('data-fastlane-tagged', next ? '1' : '0');
+  })
+
+  const statusEl = document.getElementById('decision-status');
+  if (statusEl) {
+    statusEl.textContent = serverOk
+      ? 'Fastlane-Markierung gespeichert.'
+      : 'Fastlane lokal markiert (Server nicht erreichbar).';
+  }
+
+  if (btn) btn.disabled = false;
+}
+
+window.setDecision = async function setDecision(btn,id,status){
+  const decidedAt = new Date().toISOString();
+  const statusEl = document.getElementById('decision-status');
+  if (statusEl) statusEl.textContent = 'Speichere Entscheidung…';
+
+  if (btn) btn.disabled = true;
+
+  // Optimistic UI: hide immediately, even if API is slow/unreachable.
+  const clickedRow = btn ? btn.closest('tr[data-id]') : null;
+  if (clickedRow) {
+    clickedRow.setAttribute('data-status', status)
+    clickedRow.style.opacity = '0.72'
+    clickedRow.style.display='none'
+  }
+
+  document.querySelectorAll('tr[data-id="' + id + '"]').forEach((row)=>{
+    row.setAttribute('data-status', status)
+    row.style.opacity = '0.72'
+    row.style.display='none'
+  })
+
+  let serverOk = false;
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 5000);
+    const url = apiUrl('/review-decision');
+    dbg('setDecision:request', { id, status, url });
+
+    const res = await fetch(url, {
+      method:'POST',
+      headers:{'content-type':'application/json'},
+      body: JSON.stringify({ id, status, decidedAt }),
+      signal: controller.signal,
+    });
+
+    clearTimeout(timer);
+    dbg('setDecision:response', { id, status, code: res.status, ok: res.ok });
+    if (res.ok) serverOk = true;
+  } catch (err) {
+    dbg('setDecision:error', { id, status, message: String(err?.message || err) });
+  }
+
+  try {
+    const s=read();
+    s[id]={status,decidedAt};
+    write(s);
+  } catch(err) {
+    console.warn('Local decision persist failed', err)
+  }
+
+  document.querySelectorAll('.fastlane-card[data-id="' + id + '"]').forEach((card)=>{
+    card.style.display = 'none'
+  })
+  updateStatusSummary();
+
+  if (statusEl) {
+    statusEl.textContent = serverOk
+      ? 'Entscheidung gespeichert.'
+      : 'Entscheidung lokal gespeichert (Server nicht erreichbar).';
+  }
+  if (btn) btn.disabled = false;
+}
+window.exportDecisions = function exportDecisions(){
+  const blob=new Blob([JSON.stringify(read(),null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='review-decisions.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+for (const id of Object.keys(readFastlaneTags())) renderFastlaneTagButton(id)
+window.functions.setDecision = (...args) => window.setDecision(...args)
+window.functions.toggleFastlaneTag = (...args) => window.toggleFastlaneTag(...args)
+window.functions.setViewMode = (...args) => window.setViewMode(...args)
+window.functions.clearLocalReviewState = (...args) => window.clearLocalReviewState(...args)
+
+hideDecidedRows();
+</script>
+</body>
+</html>

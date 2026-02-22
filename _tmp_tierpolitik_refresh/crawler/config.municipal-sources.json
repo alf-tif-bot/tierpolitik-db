@@ -1,0 +1,28 @@
+[
+  {
+    "cityId": "bern",
+    "municipality": "Bern",
+    "canton": "BE",
+    "parliament": "Stadtrat Bern",
+    "language": "de",
+    "url": "https://www.bern.ch/politik-und-verwaltung/stadtrat/geschaefte-des-stadtrats",
+    "altUrls": [
+      "https://www.bern.ch/politik-und-verwaltung/stadtrat"
+    ],
+    "seedUrls": [
+      "https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=c6c65c8ce8a84435af97428996dadc64"
+    ],
+    "apiEndpoint": "https://stadtrat.bern.ch/format/module/politik_axioma/geschaefte/geschaefte_data_server.php"
+  },
+  {
+    "cityId": "zuerich",
+    "municipality": "Zürich",
+    "canton": "ZH",
+    "parliament": "Gemeinderat Zürich",
+    "language": "de",
+    "url": "https://www.gemeinderat-zuerich.ch/geschaefte",
+    "altUrls": [
+      "https://www.gemeinderat-zuerich.ch"
+    ]
+  }
+]

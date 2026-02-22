@@ -1,0 +1,42 @@
+[
+  {
+    "id": "user-1770941941585",
+    "title": "Hinweis: Taubenschutz in Gemeinde X",
+    "url": "https://example.org/hinweis",
+    "summary": "",
+    "createdAt": "2026-02-13T00:19:01.585Z",
+    "processed": true
+  },
+  {
+    "id": "user-bern-2026sr0056-biodiversitaet",
+    "title": "2026.SR.0056 · Motion: Biodiversität im Wald fördern",
+    "url": "https://stadtrat.bern.ch/de/dokumente/2f31f089c01646d99d80ebe9b0047115-332",
+    "summary": "Eingereicht von u.a. Tobias Sennhauser (TiF). Geschäftstyp: Motion als Richtlinie. Stand Beratung: Eingereicht.",
+    "createdAt": "2026-02-14T17:38:00.000Z",
+    "processed": true
+  },
+  {
+    "id": "user-bern-2026sr0055-biodiversitaet-siedlungsgebiet",
+    "title": "2026.SR.0055 · Motion: Biodiversität im Siedlungsgebiet fördern",
+    "url": "https://stadtrat.bern.ch",
+    "summary": "Geschäftstyp: Motion als Richtlinie. Stand Beratung: Eingereicht. Eingereicht von u.a. Katharina Gallizzi, Nora Joos, Mirjam Läderach (gemäss Screenshot).",
+    "createdAt": "2026-02-14T17:50:03.563Z",
+    "processed": true
+  },
+  {
+    "id": "user-bern-2026sr0054-biodiversitaet-landwirtschaft",
+    "title": "2026.SR.0054 · Motion: Biodiversität im Landwirtschaftsgebiet fördern",
+    "url": "https://stadtrat.bern.ch",
+    "summary": "Geschäftstyp: Motion als Richtlinie. Stand Beratung: Eingereicht. Eingereicht von u.a. Nora Joos, Mirjam Läderach, Katharina Gallizzi (gemäss Screenshot).",
+    "createdAt": "2026-02-14T17:50:45.203Z",
+    "processed": true
+  },
+  {
+    "id": "user-bern-2026sr0019-tierpark-alternativen-toetung",
+    "title": "2026.SR.0019 · Interpellation: Tierpark Bern: Welche Alternativen zur Tötung überzähliger Tiere gibt es?",
+    "url": "https://stadtrat.bern.ch",
+    "summary": "Geschäftstyp: Interpellation. Stand Beratung: Eingereicht. Eingereicht von u.a. Raffael Joggi, Tobias Sennhauser, Matteo Micieli (gemäss Screenshot).",
+    "createdAt": "2026-02-14T17:52:14.779Z",
+    "processed": true
+  }
+]

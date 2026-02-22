@@ -1,0 +1,22 @@
+[
+  {
+    "id": 20210044,
+    "label": "Massentierhaltungsinitiative (Volksinitiative + Gegenentwurf)",
+    "langs": ["DE", "FR", "IT"]
+  },
+  {
+    "id": 20183204,
+    "label": "Keine Massentierhaltung in der Schweiz",
+    "langs": ["DE", "FR", "IT"]
+  },
+  {
+    "id": 20240089,
+    "label": "Ja zum Importverbot für Stopfleber",
+    "langs": ["DE", "FR", "IT"]
+  },
+  {
+    "id": 20250404,
+    "label": "Indirekter Gegenentwurf Stopfleber-Initiative",
+    "langs": ["DE", "FR", "IT"]
+  }
+]

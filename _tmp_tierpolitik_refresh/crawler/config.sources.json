@@ -1,0 +1,141 @@
+[
+  {
+    "id": "ch-parliament-business-de",
+    "label": "Parlament.ch Curia Vista (DE)",
+    "type": "api",
+    "adapter": "parliamentOdata",
+    "url": "https://ws.parlament.ch/odata.svc/Business",
+    "enabled": true,
+    "options": {
+      "lang": "DE",
+      "top": 900,
+      "sampleLimit": 360,
+      "thematicMinQuota": 260,
+      "daysBack": 9500
+    }
+  },
+  {
+    "id": "ch-parliament-business-fr",
+    "label": "Parlament.ch Curia Vista (FR)",
+    "type": "api",
+    "adapter": "parliamentOdata",
+    "url": "https://ws.parlament.ch/odata.svc/Business",
+    "enabled": true,
+    "options": {
+      "lang": "FR",
+      "top": 700,
+      "sampleLimit": 260,
+      "thematicMinQuota": 170,
+      "daysBack": 9500
+    }
+  },
+  {
+    "id": "ch-parliament-business-it",
+    "label": "Parlament.ch Curia Vista (IT)",
+    "type": "api",
+    "adapter": "parliamentOdata",
+    "url": "https://ws.parlament.ch/odata.svc/Business",
+    "enabled": true,
+    "options": {
+      "lang": "IT",
+      "top": 500,
+      "sampleLimit": 160,
+      "thematicMinQuota": 90,
+      "daysBack": 9500
+    }
+  },
+  {
+    "id": "ch-parliament-motions-de",
+    "label": "Parlament.ch Motionen (DE)",
+    "type": "api",
+    "adapter": "parliamentOdata",
+    "url": "https://ws.parlament.ch/odata.svc/Business",
+    "enabled": true,
+    "options": {
+      "lang": "DE",
+      "top": 600,
+      "sampleLimit": 220,
+      "thematicMinQuota": 140,
+      "daysBack": 9500,
+      "businessTypeIncludes": "Motion"
+    }
+  },
+  {
+    "id": "ch-parliament-postulates-de",
+    "label": "Parlament.ch Postulate (DE)",
+    "type": "api",
+    "adapter": "parliamentOdata",
+    "url": "https://ws.parlament.ch/odata.svc/Business",
+    "enabled": true,
+    "options": {
+      "lang": "DE",
+      "top": 500,
+      "sampleLimit": 180,
+      "thematicMinQuota": 110,
+      "daysBack": 9500,
+      "businessTypeIncludes": "Postulat"
+    }
+  },
+  {
+    "id": "ch-cantonal-portal-core",
+    "label": "Cantonal portals (core crawl)",
+    "type": "html",
+    "adapter": "cantonalPortal",
+    "url": "https://www.ag.ch/grosser-rat",
+    "enabled": true,
+    "options": {
+      "registryUrl": "data/cantonal-source-registry.json",
+      "cantons": "AG,AI,AR,BE,BL,BS,FR,GE,GL,GR,JU,LU,NE,NW,OW,SG,SH,SO,SZ,TG,TI,UR,VD,VS,ZG,ZH"
+    }
+  },
+  {
+    "id": "blv-news",
+    "label": "BLV News",
+    "type": "rss",
+    "url": "https://www.blv.admin.ch/blv/de/home/das-blv/aktuell/medienmitteilungen.feed.xml",
+    "alternateUrls": [
+      "https://www.blv.admin.ch/blv/fr/home/das-blv/aktuell/medienmitteilungen.feed.xml"
+    ],
+    "enabled": false,
+    "fallbackMode": "alwaysOnFailure",
+    "fallbackPath": "data/fixtures/blv-news.xml"
+  },
+  {
+    "id": "bundesrat-news",
+    "label": "Bundesrat Medien",
+    "type": "rss",
+    "url": "https://www.admin.ch/gov/de/start/dokumentation/medienmitteilungen.rss.xml",
+    "alternateUrls": [
+      "https://www.admin.ch/gov/de/start/dokumentation/medienmitteilungen.rss"
+    ],
+    "enabled": false,
+    "fallbackMode": "alwaysOnFailure",
+    "fallbackPath": "data/fixtures/bundesrat-news.xml"
+  },
+  {
+    "id": "ch-municipal-parliament-bern-zurich",
+    "label": "Municipal parliaments (Bern, Zürich)",
+    "type": "html",
+    "adapter": "municipalParliament",
+    "url": "https://www.bern.ch/politik-und-verwaltung/stadtrat/geschaefte-des-stadtrats",
+    "enabled": true,
+    "options": {
+      "cities": "bern,zuerich",
+      "maxItemsPerCity": 24
+    }
+  },
+  {
+    "id": "ch-cantonal-be-rss",
+    "label": "Grosser Rat Bern – Vorstösse (RSS)",
+    "type": "rss",
+    "adapter": "rss",
+    "url": "https://www.rrgr-service.apps.be.ch/api/gr/instances/1796b1af-bd1e-4ffa-a80d-ba08d1b8a2ed/render?lang=de",
+    "enabled": true,
+    "options": {
+      "canton": "BE",
+      "sinceYear": 2020
+    }
+  }
+]
+
+

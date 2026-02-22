@@ -1,0 +1,146 @@
+Styleguide
+Tier im Fokus
+Version 1 | Jessica Ladanie
+Inhalt.
+Zurück zum Inhalt
+» Intro. 
+» Logo. 
+» Fonts.
+» Colour Palettes.
+» Formen.
+Gestaltungsvorgabe 
+für die Designs 
+von Tier im Fokus
+Intro.
+Styleguide Tier im Fokus
+über Tier im Fokus
+Tier im Fokus ist e ine Schweizer Tierrechtsorganisation. In umfangreichen 
+Kampagnen deckt sie regelmässig grobe Missstände in der Schweizer 
+Nutztierhaltung auf.
+Tier im Fokus kämpft für eine Zoopolis: eine friedliche Koexistenz menschlicher 
+und domestizierter Tiere, die der Gesellschaft als vollwertige Mitglieder 
+angehören. 
+Zurück zum Inhalt
+Logo.
+Verwendung des Logos 
+nach Hintergrund. 
+Zurück zum Inhalt
+» Kontrast auf hell.
+» Kontrast auf dunkel.
+Logo.
+» Kontrast auf hell.
+Auf hellem Grund wird die Schriftfarbe 
+«Raisin Black» verwendet. 
+Zurück zum InhaltStyleguide Tier im Fokus
+Logo.
+» Kontrast auf dunkel. 
+Auf dunklem Hintergrund wird die Schriftfarbe  
+«Ghost White» verwendet. 
+Zurück zum InhaltStyleguide Tier im Fokus
+Fonts.
+Verwendung 
+verschiedener 
+Schriftfamilien. 
+Zurück zum Inhalt
+» Primäre Font.
+» Sekundäre Font.
+» Weitere Fonts.
+Font.
+» Primäre Font.
+Verwendung: Überschriften, Titel
+Lauweite: 25
+Verwendung: Untertitel
+Lauweite: 25
+Popping ExtraBold
+abcdefghijklmnopqrstuvwxyzäöü
+ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ
+Popping ExtraBold
+abcdefghijklmnopqrstuvwxyzäöü
+ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ
+Lorem ipsum dolor 
+sit amet
+At vero eos
+Zurück zum InhaltStyleguide Tier im Fokus
+Font.
+» Sekundäre Font.
+Verwendung: Lauftext
+Lauweite: 25
+Greycliff CF Thin
+abcdefghijklmnopqrstuvwxyzäöü
+ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ
+Lorem ipsum dolor 
+sit amet
+At vero eos
+Lorem ipsum dolor sit amet, consetetur 
+sadipscing elitr, sed diam nonumy eirmod 
+tempor invidunt ut labore et dolore magna 
+aliquyam erat, sed diam voluptua. At vero 
+eos et accusam et justo duo dolores et ea 
+rebum.
+Zurück zum InhaltStyleguide Tier im Fokus
+Font.
+» Weitere Fonts.
+Verwendung: unterstreichen
+Lauweite: 25
+Verwendung: Verlinkungen
+Lauweite: 0
+Verwendung: Spielereien
+Poppins Bold
+abcdefghijklmnopqrstuvwxyzäöü
+Poppins Bold
+abcdefghijklmnopqrstuvwxyzäöü
+Cubano
+abcdefghijklmnopqrstuvwxyzäöü»×=;
+BrUSh UP
+aBcdefG hijklmnopqrst Uvwxyzäöü»×=;
+Amster Light 
+abcdefghijklmnopqrstuvwxyzäöü
+Lorem ipsum dolor 
+sit amet
+At vero eos
+Lorem ipsum dolor sit amet, consetetur 
+sadipscing elitr, sed diam nonumy eirmod 
+tempor invidunt ut labore et dolore magna 
+aliquyam erat, sed diam voluptua. At vero 
+eos et accusam et justo duo dolores et ea 
+rebum. 
+ » www. accusam-et-justo.ch
+lorem ipsum!
+t referenz
+70 % transparenz
+Zurück zum InhaltStyleguide Tier im Fokus
+Colour 
+Palettes.
+Farben.
+cedar
+chest. 
+cmyk 0, 52, 59, 25
+rgb 192, 92, 79 
+hex code #c05c4f
+raisin 
+black. 
+cmyk 10, 5, 0, 84
+rgb 38, 40, 42
+hex code #26282a
+platinum. 
+cmyk 0, 0, 3, 11
+rgb 227, 227, 221
+hex code #e3e3dd
+ghost 
+white. 
+cmyk 2, 2, 0, 0
+rgb 250, 250, 255
+hex code #fafaff
+laurel 
+green. 
+cmyk 13, 0, 11, 32
+rgb 152, 174, 154
+hex code #98ae9a
+Zurück zum Inhalt
+Formen.
+Linien und Kreise.
+Als wiedererkennbare Elemente 
+werden Linien, Kreise & freihändige, 
+runde Formen in den Designs 
+verwendet. 
+Zurück zum InhaltStyleguide Tier im Fokus

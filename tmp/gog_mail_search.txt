@@ -1,0 +1,2 @@
+﻿ID                THREAD            DATE              FROM                                                                           SUBJECT                                                  LABELS
+19c779d8b0b3df1e  19c779d8b0b3df1e  2026-02-19 21:35  "R├ñuber Hotzenplotz (via Google Sheets)" <drive-shares-dm-noreply@google.com>  Spreadsheet shared with you: "Sleep Tracker | Personal"  UNREAD,INBOX
