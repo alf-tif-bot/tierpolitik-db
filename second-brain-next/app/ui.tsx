@@ -3254,13 +3254,6 @@ export default function ClientBoard() {
     }
   }
 
-  const cronStatusColor: Record<string, string> = {
-    ok: '#166534',
-    error: '#991b1b',
-    idle: '#334155',
-    scheduled: '#1e40af',
-  }
-
   const cronSourceColor: Record<string, string> = {
     openclaw: '#1d4ed8',
     launchd: '#a21caf',
@@ -4082,17 +4075,11 @@ export default function ClientBoard() {
                     <div style={{ display: 'grid', gap: 6 }}>
                       {day.jobs.map((job) => {
                         const sourceColor = cronSourceColor[job.source || 'openclaw'] || '#1d4ed8'
-                        const statusColor = cronStatusColor[job.status] || '#1d4ed8'
                         return (
                           <div key={`${day.label}-${job.id}`} style={{ border: '1px solid #3a3a3a', borderLeft: `4px solid ${sourceColor}`, background: '#181818', borderRadius: 8, padding: 6 }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                              <div style={{ fontSize: 12, fontWeight: 600, lineHeight: 1.3 }}>{job.name}</div>
-                              <span style={{ fontSize: 10, border: `1px solid ${sourceColor}`, color: sourceColor, borderRadius: 999, padding: '1px 6px' }}>
-                                {job.source === 'launchd' ? 'launchd' : 'cron'}
-                              </span>
-                            </div>
+                            <div style={{ fontSize: 12, fontWeight: 600, lineHeight: 1.3 }}>{job.name}</div>
                             <div style={{ fontSize: 11, opacity: 0.78 }}>
-                              {job.nextRunAtMs ? new Date(job.nextRunAtMs).toLocaleTimeString('de-CH', { hour: '2-digit', minute: '2-digit' }) : 'ohne Zeit'} · <span style={{ color: statusColor }}>{job.status}</span>
+                              {job.nextRunAtMs ? new Date(job.nextRunAtMs).toLocaleTimeString('de-CH', { hour: '2-digit', minute: '2-digit' }) : 'ohne Zeit'}
                             </div>
                           </div>
                         )

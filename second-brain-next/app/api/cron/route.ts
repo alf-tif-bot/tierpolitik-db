@@ -124,7 +124,7 @@ function buildLaunchdMirrorJobs() {
   return [
     {
       id: 'launchd:workspace-nightly-github-update',
-      name: 'Nightly GitHub Update (launchd)',
+      name: 'Github Backup',
       enabled: true,
       source: 'launchd',
       schedule: { kind: 'cron', expr: '0 1 * * *', tz: 'Europe/Zurich' },
