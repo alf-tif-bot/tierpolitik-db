@@ -112,9 +112,11 @@ with open(out_path, 'w', encoding='utf-8') as f:
     json.dump(selected[:10], f, ensure_ascii=False, indent=2)
 PY
 
-python3 - "$TMP_JSON" "$OUT_MD" "$TS_UTC" <<'PY'
-import sys, json
-src, out_md, ts = sys.argv[1:4]
+python3 - "$TMP_JSON" "$OUT_MD" "$TS_UTC" "$WORKDIR" <<'PY'
+import sys, json, re, os
+from urllib.parse import urlparse
+
+src, out_md, ts, workdir = sys.argv[1:5]
 rows = json.load(open(src, encoding='utf-8'))
 
 with open(out_md, 'w', encoding='utf-8') as f:
@@ -134,7 +136,82 @@ with open(out_md, 'w', encoding='utf-8') as f:
             f.write(f"- Warum relevant: {summary}\n")
         f.write(f"- Link: {link}\n\n")
 
+# Obsidian/ PARA Resources source vault
+base = os.path.join(workdir, 'PARA', 'Resources', 'Content-Factory', 'Quellen')
+os.makedirs(base, exist_ok=True)
+index_path = os.path.join(base, 'Quellen-Index (Content Factory).md')
+
+def slug(s: str) -> str:
+    s = s.lower().strip()
+    s = re.sub(r'^www\.', '', s)
+    s = re.sub(r'[^a-z0-9.-]+', '-', s)
+    return s.strip('-') or 'unknown-source'
+
+by_domain = {}
+for r in rows:
+    link = (r.get('link') or '').strip()
+    if not link:
+        continue
+    dom = urlparse(link).netloc.lower().strip()
+    if not dom:
+        continue
+
+    # Google News RSS often wraps original URLs; infer source from title suffix
+    source_hint = ''
+    title = (r.get('title') or '').strip()
+    if ' - ' in title:
+        source_hint = title.rsplit(' - ', 1)[-1].strip()
+
+    display = dom
+    if dom.endswith('news.google.com') and source_hint:
+        display = source_hint
+
+    key = slug(display)
+    by_domain.setdefault(key, {'domain': display, 'items': []})
+    by_domain[key]['items'].append(r)
+
+index_lines = [
+    '# Quellen-Index (Content Factory)',
+    '',
+    'Ablage für wiederkehrende Quellen inkl. Tags und Wiki-Links.',
+    ''
+]
+
+for key in sorted(by_domain.keys()):
+    entry = by_domain[key]
+    dom = entry['domain']
+    note_name = f"Quelle - {dom}"
+    note_path = os.path.join(base, f"{note_name}.md")
+    cats = sorted(set((x.get('category') or 'allgemein') for x in entry['items']))
+    routes = sorted(set((x.get('route') or 'NL') for x in entry['items']))
+
+    lines = [
+        f"# {note_name}",
+        '',
+        f"- Domain: `{dom}`",
+        f"- Tags: {' '.join('#quelle/' + c for c in cats)} {' '.join('#route/' + r.lower() for r in routes)} #content-factory",
+        '- Verlinkungen: [[Content Factory]] [[Quellen-Index (Content Factory)]]',
+        '',
+        '## Letzte Funde',
+        ''
+    ]
+    for it in entry['items'][:10]:
+        title = (it.get('title') or 'Ohne Titel').strip()
+        link = (it.get('link') or '').strip()
+        cat = it.get('category') or 'allgemein'
+        route = it.get('route') or 'NL'
+        lines.append(f"- [{title}]({link}) · `{cat}` · `{route}`")
+
+    with open(note_path, 'w', encoding='utf-8') as nf:
+        nf.write('\n'.join(lines).rstrip() + '\n')
+
+    index_lines.append(f"- [[{note_name}]] · Kategorien: {', '.join(cats)} · Routes: {', '.join(routes)}")
+
+with open(index_path, 'w', encoding='utf-8') as idx:
+    idx.write('\n'.join(index_lines).rstrip() + '\n')
+
 print(out_md)
+print(index_path)
 PY
 
 rm -f "$TMP_JSON"
