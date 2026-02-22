@@ -2636,7 +2636,14 @@ export default function ClientBoard() {
             setRadarLaneFilter('all')
             setRadarLeverageOnly(false)
             setRadarSortMode('status')
+            return
           }
+        }
+
+        if (filePreview.open && key === 'escape') {
+          e.preventDefault()
+          closeFilePreview()
+          return
         }
         return
       }
