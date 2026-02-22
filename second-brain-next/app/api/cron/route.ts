@@ -117,8 +117,11 @@ function nextLocalRunAt(hour: number, minute: number) {
 
 function buildLaunchdJobName(label: string) {
   if (label === 'ai.openclaw.workspace-nightly-github-update') return 'Github Backup'
+  if (label === 'ai.openclaw.workspace-restic-backup') return 'Workspace Restic Backup'
+  if (label === 'ch.tif.content-factory-crawler') return 'Content Crawler'
   return label
     .replace(/^ai\.openclaw\./, '')
+    .replace(/^ch\.tif\./, '')
     .replace(/[-_]+/g, ' ')
     .replace(/\b\w/g, (m) => m.toUpperCase())
 }
@@ -164,7 +167,7 @@ async function buildLaunchdMirrorJobs(): Promise<CronJobRaw[]> {
 
   for (const fileName of files) {
     if (!fileName.endsWith('.plist')) continue
-    if (!fileName.startsWith('ai.openclaw.')) continue
+    if (!fileName.startsWith('ai.openclaw.') && !fileName.startsWith('ch.tif.')) continue
 
     const filePath = path.join(launchAgentsDir, fileName)
     let plist = ''

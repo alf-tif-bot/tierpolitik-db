@@ -3359,9 +3359,15 @@ export default function ClientBoard() {
     }
   }
 
-  const cronSourceColor: Record<string, string> = {
-    openclaw: '#1d4ed8',
-    launchd: '#a21caf',
+  const cronPalette = ['#a21caf', '#2563eb', '#0891b2', '#16a34a', '#ca8a04', '#ea580c', '#dc2626', '#7c3aed']
+
+  function getCronJobColor(job: CronJob) {
+    const key = `${job.name}|${job.scheduleLabel}|${job.source || 'openclaw'}`
+    let hash = 0
+    for (let i = 0; i < key.length; i += 1) {
+      hash = (hash * 31 + key.charCodeAt(i)) >>> 0
+    }
+    return cronPalette[hash % cronPalette.length]
   }
 
   const startOfWindow = (() => {
@@ -4181,7 +4187,7 @@ export default function ClientBoard() {
                   ) : (
                     <div style={{ display: 'grid', gap: 6 }}>
                       {day.jobs.map((job) => {
-                        const sourceColor = cronSourceColor[job.source || 'openclaw'] || '#1d4ed8'
+                        const sourceColor = getCronJobColor(job)
                         return (
                           <div key={`${day.label}-${job.id}`} style={{ border: '1px solid #3a3a3a', borderLeft: `4px solid ${sourceColor}`, background: '#181818', borderRadius: 8, padding: 6 }}>
                             <div style={{ fontSize: 12, fontWeight: 600, lineHeight: 1.3 }}>{job.name}</div>
