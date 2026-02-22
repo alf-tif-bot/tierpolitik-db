@@ -1,6 +1,6 @@
-# Second Brain Next.js
+# Cockpit (Second Brain Next)
 
-Gemeinsame To-do-App (Tobi + ALF) auf Next.js.
+Gemeinsames operatives Cockpit (Tobi + ALF) auf Next.js.
 
 ## Start
 

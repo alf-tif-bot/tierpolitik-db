@@ -217,7 +217,7 @@ const importantFiles = [
     ],
   },
   {
-    group: 'Mission Control',
+    group: 'Cockpit',
     items: [
       {
         name: 'ABKUERZUNGEN.md',
@@ -877,7 +877,7 @@ function sanitizeRadarStats(stats: unknown, fallbackRows: RadarItem[]): RadarSta
   }
 
   // Corrupted or legacy cache payloads can contain stale/invalid stats despite valid rows.
-  // In that case rebuild stats from rows so offline Mission Control stays trustworthy.
+  // In that case rebuild stats from rows so offline Cockpit stays trustworthy.
   if (fallbackRows.length > 0) {
     const expectedStats = computeRadarStatsFromRows(fallbackRows)
 
@@ -3670,7 +3670,7 @@ export default function ClientBoard() {
             </div>
             {isOffline && (
               <div style={{ marginBottom: 10, padding: '8px 10px', borderRadius: 8, border: '1px solid #92400e', background: '#2b1a0a', color: '#fde68a', fontSize: 13 }}>
-                Offline erkannt. Mission Control zeigt die letzten Radar-Daten und aktualisiert automatisch, sobald die Verbindung zurück ist.
+                Offline erkannt. Cockpit zeigt die letzten Radar-Daten und aktualisiert automatisch, sobald die Verbindung zurück ist.
               </div>
             )}
             {radarError && (

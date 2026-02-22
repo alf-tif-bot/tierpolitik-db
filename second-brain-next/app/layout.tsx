@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 
 export const metadata = {
-  title: 'Second Brain Next',
+  title: 'Cockpit',
   icons: {
     icon: '/favicon-brain-bold.svg',
     shortcut: '/favicon-brain-bold.svg',

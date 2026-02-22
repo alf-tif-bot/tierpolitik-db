@@ -25,7 +25,7 @@ const html = `<!doctype html>
 <body>
   <h1>Interne Projekte</h1>
   <a href="/cockpit">Cockpit</a>
-  <a href="/mission-control">Mission Control (alt)</a>
+  <a href="/mission-control">Cockpit (Alias: mission-control)</a>
   <a href="/stallbraende">Stallbrände Review</a>
   <a href="/stallbraende-dashboard">Stallbrände Dashboard</a>
 </body></html>`
