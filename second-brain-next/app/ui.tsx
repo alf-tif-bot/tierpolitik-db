@@ -3368,18 +3368,6 @@ export default function ClientBoard() {
 
   const canRefreshCurrentSection = refreshButtonDisabledReason === null
 
-  const refreshButtonLabel = useMemo(() => {
-    if (section === 'radar' && radarLoading) return 'Aktualisiere Radar…'
-    if (section === 'radar' && hasPendingRadarMutation) return 'Radar speichert…'
-    if (section === 'tasks' && tasksLoading) return 'Aktualisiere Aufgaben…'
-    if (section === 'tasks' && somedayLoading) return 'Aktualisiere Someday…'
-    if (section === 'tasks' && (hasPendingTaskMutation || Boolean(somedayBusyId))) return 'Task-Aktion läuft…'
-    if (section === 'calendar' && cronLoading) return 'Aktualisiere Kalender…'
-    if (section === 'files' && knowledgeLoading) return 'Aktualisiere Wissensindex…'
-    if (sectionMeta[section].entityType && entitiesLoading) return 'Aktualisiere Einträge…'
-    if (sectionMeta[section].entityType && hasPendingEntityMutation) return 'Bitte warten…'
-    return 'Aktualisieren'
-  }, [section, radarLoading, hasPendingRadarMutation, tasksLoading, somedayLoading, hasPendingTaskMutation, somedayBusyId, cronLoading, knowledgeLoading, entitiesLoading, hasPendingEntityMutation])
 
   const filteredKnowledgeEntries = useMemo(() => {
     const q = knowledgeQuery.trim().toLowerCase()
@@ -3491,17 +3479,6 @@ export default function ClientBoard() {
       <section>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, marginBottom: 2 }}>
           <h1 style={{ margin: 0 }}>{sectionMeta[section].label}</h1>
-          <button
-            onClick={() => refreshCurrentSection({ forceRadar: true })}
-            disabled={!canRefreshCurrentSection}
-            style={{ fontSize: 12, padding: '6px 10px' }}
-            title={refreshButtonDisabledReason || 'Aktualisiert die aktuelle Ansicht (Shortcut: Shift+R)'}
-          >
-            {refreshButtonLabel}
-          </button>
-        </div>
-        <div style={{ fontSize: 12, opacity: 0.65, marginBottom: 10 }}>
-          Shortcut: Shift+R aktualisiert die aktuelle Ansicht ohne Seiten-Reload.
         </div>
         {(section === 'content' || section === 'clients') && (
           <div style={{ fontSize: 13, opacity: 0.8, marginBottom: 10 }}>
