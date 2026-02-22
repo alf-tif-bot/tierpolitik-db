@@ -3,7 +3,7 @@
 ## Poll-Antworten
 - **Haupt-Problemzone heute:**
 - **Intensität (0-10):**
-- **Zeitbudget:** 5min | 10min | 20min
+- **Verfügbar für:** so viel wie nötig
 - **Energielevel:** niedrig | mittel | hoch
 - **Trainiert heute?** ja | nein
 

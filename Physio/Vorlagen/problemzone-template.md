@@ -27,7 +27,7 @@
   - Zielwert:
 
 ## Heute-Protokoll (Kurz)
-- **Gewählte Einheit:** 5min | 10min | 20min
+- **Heutiger Umfang:** bis qualitative Verbesserung erreicht ist
 - **Vorher Schmerz/Steifigkeit (0-10):**
 - **Nachher Schmerz/Steifigkeit (0-10):**
 - **Notiz:**
