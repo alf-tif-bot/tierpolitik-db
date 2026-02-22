@@ -24,38 +24,5 @@
     "altUrls": [
       "https://www.gemeinderat-zuerich.ch"
     ]
-  },
-  {
-    "cityId": "basel",
-    "municipality": "Basel",
-    "canton": "BS",
-    "parliament": "Grosser Rat Basel-Stadt",
-    "language": "de",
-    "url": "https://grosserrat.bs.ch/geschaefte",
-    "altUrls": [
-      "https://grosserrat.bs.ch"
-    ]
-  },
-  {
-    "cityId": "geneve",
-    "municipality": "Genève",
-    "canton": "GE",
-    "parliament": "Conseil municipal de Genève",
-    "language": "fr",
-    "url": "https://conseil-municipal.geneve.ch/objets/",
-    "altUrls": [
-      "https://conseil-municipal.geneve.ch"
-    ]
-  },
-  {
-    "cityId": "lausanne",
-    "municipality": "Lausanne",
-    "canton": "VD",
-    "parliament": "Conseil communal de Lausanne",
-    "language": "fr",
-    "url": "https://www.lausanne.ch/officiel/conseil-communal/preavis-motions-postulats-et-interpellations.html",
-    "altUrls": [
-      "https://www.lausanne.ch/officiel/conseil-communal.html"
-    ]
   }
 ]

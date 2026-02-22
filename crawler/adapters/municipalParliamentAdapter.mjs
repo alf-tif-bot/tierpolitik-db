@@ -124,21 +124,6 @@ const isOverviewTitle = (title = '') => {
 
 const isBernDetailUrl = (href = '') => /(?:\/geschaefte\/)?detail\.php\?gid=[a-f0-9]+/i.test(String(href || ''))
 
-const extractBusinessNumber = (text = '', href = '') => {
-  const combined = `${text} ${href}`
-  const candidates = [
-    /\b(GR\.?\s*Nr\.?\s*\d+[./-]\d+)\b/i,
-    /\b(\d{2,4}[./-]\d{1,4})\b/,
-    /[?&](?:geschaeftid|objektid|id|nr|nummer)=([A-Za-z0-9.-]{3,})/i,
-    /\/geschaeft\/(\d{2,})/i,
-  ]
-  for (const re of candidates) {
-    const m = combined.match(re)
-    if (m?.[1]) return String(m[1]).trim()
-  }
-  return null
-}
-
 const parseLinks = (html = '', baseUrl = '') => {
   const links = []
   const re = /<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi
@@ -406,9 +391,6 @@ export function createMunicipalParliamentAdapter() {
               const inferredTitle = await enrichMunicipalTitle(link.href, rawTitle)
               if (!inferredTitle || inferredTitle.toLowerCase() === 'parlamentsgeschäft' || isOverviewTitle(inferredTitle)) continue
 
-              const businessNumber = extractBusinessNumber(`${link.text || ''} ${inferredTitle}`, link.href)
-              if (!businessNumber) continue
-
               const externalId = `municipal-${cityId}-${hashId(link.href)}`
               const entryType = classifyMunicipalEntry(inferredTitle)
 
@@ -417,8 +399,8 @@ export function createMunicipalParliamentAdapter() {
                 sourceUrl: response.url,
                 externalId,
                 title: `${municipalityName} · ${entryType}: ${inferredTitle}`.slice(0, 260),
-                summary: `Gemeinde ${municipalityName} (${parliament}) · ${entryType} · ${businessNumber}`.slice(0, 300),
-                body: `Titel: ${inferredTitle}\nGeschäftsnummer: ${businessNumber}\nTyp: ${entryType}\nQuelle: ${link.href}`,
+                summary: `Gemeinde ${municipalityName} (${parliament}) · ${entryType} · ${inferredTitle}`.slice(0, 300),
+                body: `Titel: ${inferredTitle}\nTyp: ${entryType}\nQuelle: ${link.href}\nScreening-Hinweis: potenzieller Tierschutz-Vorstoss auf Gemeindeebene.`,
                 publishedAt: fetchedAt,
                 fetchedAt,
                 language,
@@ -434,7 +416,6 @@ export function createMunicipalParliamentAdapter() {
                   sourceLink: link.href,
                   rawType: link.typeHint,
                   rawStatus: link.statusHint,
-                  businessNumber,
                   adapterHint: 'municipalParliament',
                 },
               })
@@ -448,7 +429,29 @@ export function createMunicipalParliamentAdapter() {
         }
 
         if (!resolved) {
-          // skip silently: no synthetic scaffold items (only verifiable parliamentary entries)
+          rows.push({
+            sourceId: source.id,
+            sourceUrl: source.url,
+            externalId: `municipal-scaffold-${cityId}`,
+            title: `${parliament}: Quelle vorbereitet`,
+            summary: `Scaffold für ${municipalityName} (${canton || 'n/a'}) – Parser benötigt manuelle Nachführung.`,
+            body: `Kommunale Quelle konnte aktuell nicht automatisiert gelesen werden. URL(s): ${urls.join(', ')}`,
+            publishedAt: fetchedAt,
+            fetchedAt,
+            language,
+            score: 0,
+            matchedKeywords: ['gemeinde', municipalityName.toLowerCase(), 'scaffold'],
+            status: 'new',
+            reviewReason: 'municipal-scaffold',
+            meta: {
+              level: 'Gemeinde',
+              municipality: municipalityName,
+              canton,
+              parliament,
+              scaffold: true,
+              adapterHint: 'municipalParliament',
+            },
+          })
         }
       }
 

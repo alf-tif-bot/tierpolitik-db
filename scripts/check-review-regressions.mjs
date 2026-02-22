@@ -90,9 +90,6 @@ const CANTONAL_THEME_STRONG_KEYWORDS = [
 const CANTONAL_THEME_CONTEXT_KEYWORDS = [
   'lebensraum', 'biotop', 'wildkorridor', 'lichtverschmutzung', 'insekten', 'schutzgebiet',
   'renatur', 'ufernatur', 'waldrand', 'gewässerraum', 'vogel', 'biber',
-  // FR/IT terms for better cantonal recall since 2020
-  'habitat', 'corridor faunistique', 'zone protégée', 'biodiversité', 'faune',
-  'habitat naturale', 'corridoio faunistico', 'zona protetta', 'biodiversità',
 ]
 
 const isCantonalReadableRelevant = (item) => {
@@ -118,21 +115,10 @@ const isCantonalReadableRelevant = (item) => {
 
 const normalizeReviewStatus = (item) => String(item?.status || '')
 
-const isGenericParliamentTitle = (title = '') => /^parlamentsgesch(ä|a)ft\s+(?:\d{8}|\d{2}\.\d{3,4})$/i.test(String(title || '').trim())
-const reviewItemQuality = (item) => {
-  const title = String(item?.title || '')
-  const summary = String(item?.summary || item?.body || '').trim().toLowerCase()
-  let score = 0
-  if (!isGenericParliamentTitle(title)) score += 2
-  if (summary.length >= 24 && !['erledigt', 'in beratung', 'eingereicht', 'abgelehnt', 'abgeschrieben'].includes(summary)) score += 1
-  if (String(item?.businessTypeName || item?.meta?.rawType || '').trim()) score += 1
-  return score
-}
-
 const reviewCandidates = (db.items || [])
   .filter((item) => enabledSourceIds.has(item.sourceId) || String(item.sourceId || '') === 'user-input')
   .filter((item) => isReviewSource(item.sourceId))
-  .filter((item) => ['new', 'queued'].includes(normalizeReviewStatus(item)))
+  .filter((item) => ['new', 'queued', 'approved', 'published'].includes(normalizeReviewStatus(item)))
   .filter((item) => !isMunicipalOverviewNoise(item))
   .filter((item) => isMunicipalTopicRelevant(item))
   .filter((item) => isCantonalReadableRelevant(item))
@@ -149,10 +135,9 @@ for (const item of reviewCandidates) {
     expectedGrouped.set(affair, item)
     continue
   }
-  const qualityDelta = reviewItemQuality(item) - reviewItemQuality(prev)
   const betterLang = langRank(item.sourceId) < langRank(prev.sourceId)
   const betterScore = Number(item.score || 0) > Number(prev.score || 0)
-  if (qualityDelta > 0 || (qualityDelta === 0 && (betterLang || (!betterLang && betterScore)))) expectedGrouped.set(affair, item)
+  if (betterLang || (!betterLang && betterScore)) expectedGrouped.set(affair, item)
 }
 
 const expectedReviewIds = new Set([...expectedGrouped.values()].map((item) => itemId(item)))

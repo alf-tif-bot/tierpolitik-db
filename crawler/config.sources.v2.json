@@ -11,9 +11,7 @@
       "top": 900,
       "daysBack": 9500,
       "requestTimeoutMs": 35000,
-      "businessTypeIncludes": "Motion,Postulat,Interpellation,Anfrage,Petition",
-      "sourceTimeoutMs": 100000,
-      "retries": 2
+      "businessTypeIncludes": "Motion,Postulat,Interpellation,Anfrage,Petition"
     }
   },
   {
@@ -35,11 +33,7 @@
     "url": "https://raw.githubusercontent.com/yokimxyz/tierpolitik-vorstoesse-db/main/data/cantonal-source-registry.json",
     "enabled": true,
     "options": {
-      "registryUrl": "data/cantonal-source-registry.json",
-      "sourceTimeoutMs": 45000,
-      "retries": 1,
-      "requestTimeoutMs": 12000,
-      "maxEntriesPerRun": 8
+      "registryUrl": "data/cantonal-source-registry.json"
     }
   },
   {

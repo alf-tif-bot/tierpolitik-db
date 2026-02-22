@@ -9,12 +9,9 @@
     "options": {
       "lang": "DE",
       "top": 900,
-      "sampleLimit": 520,
+      "sampleLimit": 360,
       "thematicMinQuota": 260,
-      "daysBack": 7300,
-      "sourceTimeoutMs": 95000,
-      "retries": 3,
-      "requestTimeoutMs": 35000
+      "daysBack": 9500
     }
   },
   {
@@ -27,12 +24,9 @@
     "options": {
       "lang": "FR",
       "top": 700,
-      "sampleLimit": 420,
+      "sampleLimit": 260,
       "thematicMinQuota": 170,
-      "daysBack": 7300,
-      "sourceTimeoutMs": 95000,
-      "retries": 3,
-      "requestTimeoutMs": 35000
+      "daysBack": 9500
     }
   },
   {
@@ -45,12 +39,9 @@
     "options": {
       "lang": "IT",
       "top": 500,
-      "sampleLimit": 260,
+      "sampleLimit": 160,
       "thematicMinQuota": 90,
-      "daysBack": 7300,
-      "sourceTimeoutMs": 95000,
-      "retries": 3,
-      "requestTimeoutMs": 35000
+      "daysBack": 9500
     }
   },
   {
@@ -63,13 +54,10 @@
     "options": {
       "lang": "DE",
       "top": 600,
-      "sampleLimit": 320,
+      "sampleLimit": 220,
       "thematicMinQuota": 140,
-      "daysBack": 7300,
-      "businessTypeIncludes": "Motion",
-      "sourceTimeoutMs": 95000,
-      "retries": 3,
-      "requestTimeoutMs": 35000
+      "daysBack": 9500,
+      "businessTypeIncludes": "Motion"
     }
   },
   {
@@ -82,32 +70,10 @@
     "options": {
       "lang": "DE",
       "top": 500,
-      "sampleLimit": 260,
+      "sampleLimit": 180,
       "thematicMinQuota": 110,
-      "daysBack": 7300,
-      "businessTypeIncludes": "Postulat",
-      "sourceTimeoutMs": 95000,
-      "retries": 3,
-      "requestTimeoutMs": 35000
-    }
-  },
-  {
-    "id": "ch-parliament-petitions-de",
-    "label": "Parlament.ch Petitionen (DE)",
-    "type": "api",
-    "adapter": "parliamentOdata",
-    "url": "https://ws.parlament.ch/odata.svc/Business",
-    "enabled": true,
-    "options": {
-      "lang": "DE",
-      "top": 400,
-      "sampleLimit": 220,
-      "thematicMinQuota": 80,
-      "daysBack": 7300,
-      "businessTypeIncludes": "Petition",
-      "sourceTimeoutMs": 90000,
-      "retries": 2,
-      "requestTimeoutMs": 32000
+      "daysBack": 9500,
+      "businessTypeIncludes": "Postulat"
     }
   },
   {
@@ -119,11 +85,7 @@
     "enabled": true,
     "options": {
       "registryUrl": "data/cantonal-source-registry.json",
-      "cantons": "AG,AI,AR,BE,BL,BS,FR,GE,GL,GR,JU,LU,NE,NW,OW,SG,SH,SO,SZ,TG,TI,UR,VD,VS,ZG,ZH",
-      "sourceTimeoutMs": 45000,
-      "retries": 2,
-      "requestTimeoutMs": 12000,
-      "maxEntriesPerRun": 180
+      "cantons": "AG,AI,AR,BE,BL,BS,FR,GE,GL,GR,JU,LU,NE,NW,OW,SG,SH,SO,SZ,TG,TI,UR,VD,VS,ZG,ZH"
     }
   },
   {
@@ -152,27 +114,28 @@
   },
   {
     "id": "ch-municipal-parliament-bern-zurich",
-    "label": "Municipal parliaments (Bern, ZÃ¼rich)",
+    "label": "Municipal parliaments (Bern, Zürich)",
     "type": "html",
     "adapter": "municipalParliament",
     "url": "https://www.bern.ch/politik-und-verwaltung/stadtrat/geschaefte-des-stadtrats",
     "enabled": true,
     "options": {
-      "cities": "bern,zuerich,basel,geneve,lausanne",
-      "maxItemsPerCity": 90
+      "cities": "bern,zuerich",
+      "maxItemsPerCity": 24
     }
   },
   {
     "id": "ch-cantonal-be-rss",
-    "label": "Grosser Rat Bern â€“ VorstÃ¶sse (RSS)",
+    "label": "Grosser Rat Bern – Vorstösse (RSS)",
     "type": "rss",
     "adapter": "rss",
     "url": "https://www.rrgr-service.apps.be.ch/api/gr/instances/1796b1af-bd1e-4ffa-a80d-ba08d1b8a2ed/render?lang=de",
     "enabled": true,
     "options": {
       "canton": "BE",
-      "sinceYear": 2010
+      "sinceYear": 2020
     }
   }
 ]
+
 

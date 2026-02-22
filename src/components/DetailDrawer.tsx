@@ -1,12 +1,10 @@
-﻿import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { I18nText, Language } from '../i18n'
 import { localizedMetaText, localizedMetaThemes, localizedMetaType, statusClassSlug, statusIcon, translateContent, translateStatus } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
-import { normalizePartyName, normalizeSubmitterName } from '../utils/submitters'
-import { toFrenchQuotes } from '../utils/text'
 
-type QuickFilterField = 'thema' | 'typ' | 'ebene' | 'kanton' | 'region' | 'submitter' | 'party'
+type QuickFilterField = 'thema' | 'typ' | 'ebene' | 'kanton' | 'region'
 
 type Props = {
   item: Vorstoss | null
@@ -45,11 +43,33 @@ const normalizeTitle = (value: string, typ?: string) => {
     out = out.replace(new RegExp(`(?:\\.|,)?\\s*${escaped}\\s*$`, 'i'), '').trim()
   }
 
-  return toFrenchQuotes(out)
+  return out
 }
 
-const API_BASE = (import.meta.env.VITE_API_BASE || '').replace(/\/$/, '')
-const apiUrl = (path: string) => `${API_BASE || ''}${path}`
+const formatSubmitterDisplay = (name: string, party?: string) => {
+  const rawName = String(name || '').trim()
+  const rawParty = String(party || '').trim()
+  if (!rawName) return rawParty ? `(${rawParty})` : ''
+
+  const parts = rawName.split(/\s+/).filter(Boolean)
+  const likelyParticles = new Set(['de', 'del', 'della', 'di', 'du', 'von', 'van', 'la', 'le'])
+
+  let normalizedName = rawName
+  if (parts.length >= 2) {
+    const first = parts[0]
+    const last = parts[parts.length - 1]
+    const firstIsParticle = likelyParticles.has(first.toLowerCase()) || first[0] === first[0]?.toLowerCase()
+    const lastLooksFirstname = /^[A-ZÄÖÜ][a-zäöüàâéèêîïôûùç-]+$/.test(last)
+    if (firstIsParticle && lastLooksFirstname) {
+      normalizedName = `${last} ${parts.slice(0, -1).join(' ')}`
+    }
+  }
+
+  if (!rawParty || /^unbekannt$/i.test(rawParty)) return normalizedName
+  return `${normalizedName} (${rawParty})`
+}
+
+const API_BASE = (import.meta.env.VITE_API_BASE || '/.netlify/functions').replace(/\/$/, '')
 
 type TimelineItem = {
   datum: string
@@ -58,30 +78,17 @@ type TimelineItem = {
   url?: string
 }
 
-export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted, lang, t }: Props) {
+export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyProfile, onSubscribe, onQuickFilter, onFeedbackSubmitted, lang, t }: Props) {
   const [feedbackOpen, setFeedbackOpen] = useState(false)
   const [feedbackType, setFeedbackType] = useState('Fehler gefunden')
   const [feedbackText, setFeedbackText] = useState('')
   const [feedbackState, setFeedbackState] = useState<'idle' | 'saving' | 'done' | 'error'>('idle')
-  const [subscriptionOpen, setSubscriptionOpen] = useState(false)
-  const [subscriptionEmail, setSubscriptionEmail] = useState('')
-  const [subscriptionState, setSubscriptionState] = useState<'idle' | 'saving' | 'done' | 'error'>('idle')
-  const [subscriptionError, setSubscriptionError] = useState('')
-  const [newsletterOptIn, setNewsletterOptIn] = useState(true)
-  const modalRef = useRef<HTMLElement | null>(null)
-  const closeButtonRef = useRef<HTMLButtonElement | null>(null)
-  const titleRef = useRef<HTMLHeadingElement | null>(null)
 
   useEffect(() => {
     setFeedbackOpen(false)
     setFeedbackState('idle')
     setFeedbackText('')
     setFeedbackType('Fehler gefunden')
-    setSubscriptionOpen(false)
-    setSubscriptionEmail('')
-    setSubscriptionState('idle')
-    setSubscriptionError('')
-    setNewsletterOptIn(true)
   }, [item?.id])
 
   useEffect(() => {
@@ -98,58 +105,6 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [])
-
-  useEffect(() => {
-    if (!item) return
-
-    const focusInitial = () => {
-      if (closeButtonRef.current) {
-        closeButtonRef.current.focus()
-        return
-      }
-      titleRef.current?.focus()
-    }
-
-    focusInitial()
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (!modalRef.current) return
-
-      if (event.key === 'Escape') {
-        event.preventDefault()
-        onClose()
-        return
-      }
-
-      if (event.key !== 'Tab') return
-
-      const focusable = Array.from(
-        modalRef.current.querySelectorAll<HTMLElement>(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
-        ),
-      ).filter((el) => !el.hasAttribute('disabled') && el.getAttribute('aria-hidden') !== 'true')
-
-      if (focusable.length === 0) {
-        event.preventDefault()
-        return
-      }
-
-      const first = focusable[0]
-      const last = focusable[focusable.length - 1]
-      const active = document.activeElement as HTMLElement | null
-
-      if (!event.shiftKey && active === last) {
-        event.preventDefault()
-        first.focus()
-      } else if (event.shiftKey && (active === first || !modalRef.current.contains(active))) {
-        event.preventDefault()
-        last.focus()
-      }
-    }
-
-    document.addEventListener('keydown', onKeyDown)
-    return () => document.removeEventListener('keydown', onKeyDown)
-  }, [item, onClose])
 
   if (!item) return null
 
@@ -170,24 +125,13 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
   const level = item.ebene === 'Bund' ? t.section.federal : item.ebene === 'Kanton' ? t.section.cantonal : item.ebene === 'Gemeinde' ? t.section.municipal : item.ebene
   const statusSlug = statusClassSlug(item.status)
 
+  const stanceValue = item.metadaten?.haltung === 'pro-tierschutz'
+    ? 'Pro Tierschutz'
+    : item.metadaten?.haltung === 'tierschutzkritisch'
+      ? 'Tierschutzkritisch'
+      : 'Neutral / unklar'
+
   const themesLocalized = localizedMetaThemes(item, lang)
-  const summaryText = localizedMetaText(item, 'summary', lang, item.kurzbeschreibung)
-  const hideSummary = item.typ === 'Volksinitiative' && /^botschaft\s+vom\s+/i.test(String(summaryText || '').trim())
-
-  const normalizedSubmitters = (() => {
-    const withParty = item.einreichende.filter((p) => String(p.partei || '').trim())
-    const partySet = new Set(withParty.map((p) => normalizePartyName(p.partei)).filter(Boolean))
-
-    return item.einreichende.filter((p) => {
-      const rawParty = String(p.partei || '').trim()
-      if (rawParty) return true
-
-      const nameAsParty = normalizePartyName(p.name)
-      if (!nameAsParty || nameAsParty === p.name) return true
-
-      return !partySet.has(nameAsParty)
-    })
-  })()
 
   const metaRows = [
     { label: t.type, value: localizedMetaType(item, lang), filterField: 'typ' as const, rawValue: item.typ },
@@ -198,42 +142,6 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
     { label: t.region, value: item.regionGemeinde ?? '-', filterField: 'region' as const },
     { label: t.dateSubmitted, value: formatDateCH(item.datumEingereicht) },
   ]
-
-  const submitSubscription = async () => {
-    const email = subscriptionEmail.trim()
-    setSubscriptionError('')
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setSubscriptionState('error')
-      setSubscriptionError('Bitte eine gültige E-Mail eingeben.')
-      return
-    }
-
-    try {
-      setSubscriptionState('saving')
-      const payload = {
-        id: item.id,
-        geschaeftsnummer: item.geschaeftsnummer,
-        title: item.titel,
-        link: item.linkGeschaeft,
-        category: 'Status-Abo',
-        email,
-        newsletterOptIn,
-        message: `Bitte Status-Updates an ${email}${newsletterOptIn ? ' | Newsletter: ja' : ' | Newsletter: nein'}`,
-      }
-      const res = await fetch(apiUrl('/feedback-submit'), {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify(payload),
-      })
-      if (!res.ok) throw new Error(await res.text())
-      setSubscriptionState('done')
-      setSubscriptionError('')
-    } catch {
-      setSubscriptionState('error')
-      setSubscriptionError('Abo konnte aktuell nicht gespeichert werden. Bitte später erneut versuchen.')
-    }
-  }
 
   const submitFeedback = async () => {
     try {
@@ -246,7 +154,7 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
         category: feedbackType,
         message: feedbackText,
       }
-      const res = await fetch(apiUrl('/feedback-submit'), {
+      const res = await fetch(`${API_BASE}/feedback-submit`, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(payload),
@@ -274,26 +182,18 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
 
   return (
     <div className="drawer-backdrop" onClick={onClose}>
-      <aside
-        ref={modalRef}
-        className="drawer"
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="detail-modal-title"
-        data-testid="modal"
-      >
+      <aside className="drawer" onClick={(e) => e.stopPropagation()}>
         <div className="row drawer-head">
           <div>
-            <h2 id="detail-modal-title" ref={titleRef} tabIndex={-1}>{normalizeTitle(localizedMetaText(item, 'title', lang, item.titel), item.typ)}</h2>
+            <h2>{normalizeTitle(localizedMetaText(item, 'title', lang, item.titel), item.typ)}</h2>
             <div className="drawer-status-row">
               <span className={`status-badge status-${statusSlug}`}>{statusIcon(item.status)} {translateStatus(item.status, lang)}</span>
             </div>
           </div>
-          <button ref={closeButtonRef} data-testid="close-button" onClick={onClose}>{t.close}</button>
+          <button onClick={onClose}>{t.close}</button>
         </div>
 
-        {!hideSummary && <p className="drawer-summary">{summaryText}</p>}
+        <p className="drawer-summary">{localizedMetaText(item, 'summary', lang, item.kurzbeschreibung)}</p>
 
         <h3>Falldaten</h3>
         <div className="detail-grid">
@@ -328,21 +228,17 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
             </div>
           </div>
           <div className="detail-card">
+            <span className="detail-label">Tierbezug</span>
+            <span className="detail-value">{stanceValue}</span>
+          </div>
+          <div className="detail-card">
             <span className="detail-label">{t.submitters}</span>
             <div className="detail-links">
-              {normalizedSubmitters.map((p) => {
-                const party = String(p.partei || '').trim()
-                return (
-                  <div key={`${p.name}-${party}`} className="detail-link-row">
-                    <button className="text-link-btn" onClick={() => onQuickFilter('submitter', p.name)}>{normalizeSubmitterName(p.name)}</button>
-                    {party && (
-                      <button className="text-link-btn" onClick={() => onQuickFilter('party', party)}>
-                        {party}
-                      </button>
-                    )}
-                  </div>
-                )
-              })}
+              {item.einreichende.map((p) => (
+                <div key={`${p.name}-${p.partei || ''}`} className="detail-link-row">
+                  <button className="text-link-btn" onClick={() => onOpenPersonProfile(p.name)}>{formatSubmitterDisplay(p.name, p.partei)}</button>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -361,48 +257,8 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
               <button className="btn-secondary">Behörden-Resultate</button>
             </a>
           )}
-          <button
-            className="btn-secondary"
-            onClick={() => {
-              setSubscriptionOpen((prev) => !prev)
-              setSubscriptionState('idle')
-            }}
-          >
-            Geschäft abonnieren
-          </button>
+          <button className="btn-secondary" onClick={() => onSubscribe(`Vorstoss ${item.geschaeftsnummer}`)}>Geschäft abonnieren</button>
         </div>
-
-        {subscriptionOpen && (
-          <div className="subscription-inline" role="dialog" aria-modal="true">
-            <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
-              <h3>Geschäft abonnieren</h3>
-            </div>
-            <label>
-              E-Mail
-              <input
-                type="email"
-                placeholder="name@beispiel.ch"
-                value={subscriptionEmail}
-                onChange={(e) => setSubscriptionEmail(e.target.value)}
-              />
-            </label>
-            <label className="subscription-checkbox">
-              <input
-                type="checkbox"
-                checked={newsletterOptIn}
-                onChange={(e) => setNewsletterOptIn(e.target.checked)}
-              />
-              <span>Ja, ich möchte den Newsletter abonnieren</span>
-            </label>
-            <div className="row">
-              <button className="btn-primary" onClick={submitSubscription} disabled={subscriptionState === 'saving'}>
-                {subscriptionState === 'saving' ? 'Speichere…' : 'Abo speichern'}
-              </button>
-            </div>
-            {subscriptionState === 'done' && <p className="muted">Abo gespeichert. Du wirst bei Statusänderungen benachrichtigt.</p>}
-            {subscriptionState === 'error' && <p className="muted">{subscriptionError}</p>}
-          </div>
-        )}
 
         <h3>{t.timeline}</h3>
         <ul className="timeline-list">
@@ -480,7 +336,3 @@ export function DetailDrawer({ item, onClose, onQuickFilter, onFeedbackSubmitted
     </div>
   )
 }
-
-
-
-

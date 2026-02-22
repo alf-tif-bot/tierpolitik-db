@@ -1,5 +1,4 @@
 import type { Vorstoss } from '../types'
-import { formatSubmitterDisplay } from './submitters'
 
 const escapeCsv = (value: string) => `"${value.replaceAll('"', '""')}"`
 
@@ -16,7 +15,7 @@ export function buildCsv(rows: Vorstoss[], columns: { key: string; label: string
       status: r.status,
       datumEingereicht: r.datumEingereicht,
       schlagwoerter: r.schlagwoerter.join(' | '),
-      einreichende: r.einreichende.map((p) => formatSubmitterDisplay(p.name, p.partei)).join(' | '),
+      einreichende: r.einreichende.map((p) => `${p.name} (${p.partei})`).join(' | '),
       linkGeschaeft: r.linkGeschaeft,
       geschaeftsnummer: r.geschaeftsnummer,
       themen: r.themen.join(' | '),

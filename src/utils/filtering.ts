@@ -1,6 +1,5 @@
 import { canonicalStatus } from '../i18n'
 import type { Ebene, Status, Vorstoss } from '../types'
-import { formatSubmitterDisplay } from './submitters'
 
 export type Filters = {
   globalQuery: string
@@ -31,10 +30,9 @@ export const canonicalTheme = (value: string): string => {
   const n = norm(raw)
 
   if (n === 'unsichtbare tiere' || n === 'tiere' || n === 'tier' || n === 'massentier' || n === 'tierversuchsfreie' || n === 'tierversuchsfrei' || n === 'initiative' || n === 'initiativ' || n === 'schweinezucht' || n === 'versuchstiere') return ''
-  if (n === 'staatspolitik' || n === '3r' || n === 'beschaeftigung und arbeit' || n === 'beschaeftiung und arbeit' || n === 'wissenschaft und forschung' || n === 'wissenscahft und forschung') return ''
   if (n === 'nutrition') return 'Ernährung'
   if (n === 'biodiversita' || n === 'biodiversite' || n === 'biodiversitat' || n === 'biodiversitaet') return 'Biodiversität'
-  if (n === 'schlacht') return 'Schlachtung'
+  if (n === '3r') return '3R'
 
   const lc = raw.toLowerCase()
   return lc.charAt(0).toUpperCase() + lc.slice(1)
@@ -47,7 +45,7 @@ export function matchesGlobal(v: Vorstoss, query: string): boolean {
     v.titel,
     v.kurzbeschreibung,
     v.geschaeftsnummer,
-    ...v.einreichende.map((p) => formatSubmitterDisplay(p.name, p.partei)),
+    ...v.einreichende.map((p) => `${p.name} ${p.partei}`),
     ...v.themen,
   ].join(' ')
 

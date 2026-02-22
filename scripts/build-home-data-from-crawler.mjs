@@ -36,7 +36,7 @@ const inferType = (title = '', sourceId = '', businessTypeName = '', rawType = '
   if (text.includes('petition') || text.includes('pétition') || text.includes('petizione')) return 'Petition'
   if (text.includes('dringliche motion') || text.includes('motion') || text.includes('mozione')) return 'Motion'
   if (text.includes('dringliches postulat') || text.includes('postulat') || text.includes('postulato')) return 'Postulat'
-  if (text.includes('fragestunde') || text.includes('fragestunde-frage') || text.includes('frage für die fragestunde') || text.includes('frage fuer die fragestunde') || text.includes('question time') || text.includes('question pour l\'heure des questions') || text.includes('heure des questions') || text.includes('ora delle domande')) return 'Fragestunde. Frage'
+  if (text.includes('fragestunde') || text.includes('question time') || text.includes('heure des questions') || text.includes('ora delle domande')) return 'Fragestunde. Frage'
   if (text.includes('interpellation') || text.includes('interpellanza')) return 'Interpellation'
   if (text.includes('schriftliche anfrage') || text.includes('kleine anfrage') || text.includes('anfrage') || text.includes('frage') || text.includes('question') || text.includes('interrogazione')) return 'Anfrage'
   if (text.includes('standesinitiative') || text.includes('initiative cantonale') || text.includes('iniziativa cantonale')) return 'Standesinitiative'
@@ -44,20 +44,6 @@ const inferType = (title = '', sourceId = '', businessTypeName = '', rawType = '
   if (text.includes('volksinitiative') || text.includes('initiative populaire') || text.includes('iniziativa popolare')) return 'Volksinitiative'
   if (text.includes('initiative') || text.includes('iniziativa')) return 'Volksinitiative'
   return 'Interpellation'
-}
-
-const inferTypeFromBusinessNumber = (businessNumber = '') => {
-  const normalized = String(businessNumber || '').trim()
-  const m = normalized.match(/^(\d{2})\.(\d{3,4})$/)
-  if (!m) return null
-  const suffix = Number(m[2])
-  if (Number.isNaN(suffix)) return null
-
-  // Curia-Vista-Nummern im 4xx-Bereich sind parlamentarische Initiativen.
-  if (suffix >= 400 && suffix < 500) return 'Parlamentarische Initiative'
-  // 7xxx-Geschäfte sind in der Regel Fragestunde. Frage (Nationalrat).
-  if (suffix >= 7000 && suffix < 8000) return 'Fragestunde. Frage'
-  return null
 }
 
 const typeLabels = {
@@ -150,28 +136,13 @@ const extractStance = (reason = '', title = '', summary = '', body = '') => {
 
 const mapStatus = (status = '', rawStatus = '', summary = '', body = '') => {
   const sourceStatus = String(rawStatus || '').toLowerCase()
-  if (
-    sourceStatus.includes('hängig') || sourceStatus.includes('haengig')
-    || sourceStatus.includes('in bearbeitung')
-    || sourceStatus.includes('überwiesen') || sourceStatus.includes('ueberwiesen')
-    || sourceStatus.includes('en traitement') || sourceStatus.includes('in trattazione')
-  ) return 'In Beratung'
-  if (
-    sourceStatus.includes('angenommen')
-    || sourceStatus.includes('erheblich erklärt') || sourceStatus.includes('erheblich erklaert')
-    || sourceStatus.includes('accepté') || sourceStatus.includes('accepte')
-    || sourceStatus.includes('adottato')
-  ) return 'Angenommen'
-  if (
-    sourceStatus.includes('abgelehnt')
-    || sourceStatus.includes('nicht überwiesen') || sourceStatus.includes('nicht ueberwiesen')
-    || sourceStatus.includes('rejeté') || sourceStatus.includes('rejete')
-    || sourceStatus.includes('respinto')
-  ) return 'Abgelehnt'
-  if (sourceStatus.includes('abgeschrieben') || sourceStatus.includes('classé') || sourceStatus.includes('classe')) return 'Abgeschrieben'
-  if (sourceStatus.includes('zurückgezogen') || sourceStatus.includes('zurueckgezogen') || sourceStatus.includes('retiré') || sourceStatus.includes('retire') || sourceStatus.includes('ritirato')) return 'Zurückgezogen'
-  if (sourceStatus.includes('erledigt') || sourceStatus.includes('liquidé') || sourceStatus.includes('liquide') || sourceStatus.includes('evaso')) return 'Erledigt'
-  if (sourceStatus.includes('eingereicht') || sourceStatus.includes('déposé') || sourceStatus.includes('depose') || sourceStatus.includes('depositato')) return 'Eingereicht'
+  if (sourceStatus.includes('hängig') || sourceStatus.includes('haengig') || sourceStatus.includes('in bearbeitung') || sourceStatus.includes('überwiesen') || sourceStatus.includes('ueberwiesen')) return 'In Beratung'
+  if (sourceStatus.includes('angenommen') || sourceStatus.includes('erheblich erklärt') || sourceStatus.includes('erheblich erklaert')) return 'Angenommen'
+  if (sourceStatus.includes('abgelehnt') || sourceStatus.includes('nicht überwiesen') || sourceStatus.includes('nicht ueberwiesen')) return 'Abgelehnt'
+  if (sourceStatus.includes('abgeschrieben')) return 'Abgeschrieben'
+  if (sourceStatus.includes('zurückgezogen') || sourceStatus.includes('zurueckgezogen')) return 'Zurückgezogen'
+  if (sourceStatus.includes('erledigt')) return 'Erledigt'
+  if (sourceStatus.includes('eingereicht')) return 'Eingereicht'
   if (sourceStatus.includes('stellungnahme zum vorstoss liegt vor') || sourceStatus.includes('stellungnahme liegt vor')) return 'Stellungnahme zum Vorstoss liegt vor'
 
   const textStatus = `${summary} ${body}`.toLowerCase()
@@ -211,16 +182,7 @@ const cantonFromItem = (item) => {
 
 const regionFromItem = (item) => {
   const sourceId = String(item?.sourceId || '').toLowerCase()
-  const externalId = String(item?.externalId || '').toLowerCase()
   if (item?.meta?.municipality) return String(item.meta.municipality)
-
-  if (sourceId.includes('municipal')) {
-    if (externalId.startsWith('municipal-bern-')) return 'Bern'
-    if (externalId.startsWith('municipal-zuerich-') || externalId.startsWith('municipal-zurich-')) return 'Zürich'
-    if (externalId.startsWith('municipal-basel-')) return 'Basel'
-    if (externalId.startsWith('municipal-geneve-')) return 'Genf'
-    if (externalId.startsWith('municipal-lausanne-')) return 'Lausanne'
-  }
 
   // Sprachvarianten von Bundesgeschäften sind keine geografische Region.
   // Region nur dann setzen, wenn die Quelle tatsächlich subnational verortet ist.
@@ -603,29 +565,6 @@ const normalizeDisplayTitle = (item, title = '') => {
 }
 
 const isPlaceholderParliamentTitle = (title = '') => /^Parlamentsgeschäft\s+(?:\d{8}|\d{2}\.\d{3,4})$/i.test(String(title || '').trim())
-const isGenericFrParliamentTitle = (title = '') => /^Objet parlementaire\s+(?:\d{8}|\d{2}\.\d{3,4})$/i.test(String(title || '').trim())
-const isGenericParliamentTitle = (title = '') => isPlaceholderParliamentTitle(title) || isGenericFrParliamentTitle(title)
-
-const statusToFrench = (status = '') => {
-  const s = String(status || '').trim().toLowerCase()
-  if (!s) return 'en traitement'
-  if (s.includes('in beratung')) return 'en traitement'
-  if (s.includes('eingereicht')) return 'déposé'
-  if (s.includes('angenommen')) return 'accepté'
-  if (s.includes('abgelehnt')) return 'rejeté'
-  if (s.includes('abgeschrieben')) return 'classé'
-  if (s.includes('zurückgezogen') || s.includes('zurueckgezogen')) return 'retiré'
-  if (s.includes('erledigt')) return 'traité'
-  if (s.includes('überwiesen') || s.includes('ueberwiesen')) return 'transmis au Conseil fédéral'
-  if (s.includes('stellungnahme')) return 'prise de position disponible'
-  return 'en traitement'
-}
-
-const frenchSummaryFallback = ({ title = '', status = '' } = {}) => {
-  const frTitle = toFrenchPlaceholderTitle(title) || 'Objet parlementaire'
-  const statusFr = statusToFrench(status)
-  return `${frTitle} : objet fédéral actuellement ${statusFr}. Résumé détaillé non disponible dans les données sources.`
-}
 
 const firstSentence = (text = '') => {
   const c = clean(text)
@@ -687,22 +626,16 @@ const isWeakSummarySentence = (text = '') => {
 
 const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '', sourceId = '' }) => {
   const t = clean(title)
-  const normalizedStatus = clean(status) || 'In Beratung'
   if (String(sourceId || '').startsWith('ch-municipal-')) {
-    const state = /erledigt|abgeschrieben|abgelehnt|zurückgezogen/i.test(normalizedStatus)
-      ? 'abgeschlossen'
-      : 'in Beratung'
+    const state = status === 'published' ? 'abgeschlossen' : 'in Beratung'
     return `${t} (Gemeinde, ${state}).`
   }
   const summaryClean = clean(summary).replace(/eingereicht von:[^\n]*/ig, '').trim()
   const bodyClean = clean(body).replace(/eingereicht von:[^\n]*/ig, '').trim()
-  const summaryLooksStatusOnly = /^(erledigt|in beratung|abgeschrieben|abgelehnt|zurückgezogen|eingereicht|stellungnahme zum vorstoss liegt vor)$/i.test(summaryClean)
-  if (summaryLooksStatusOnly && (!bodyClean || bodyClean.length < 8)) {
-    return `${t || 'Parlamentsgeschäft'} (${normalizedStatus}).`
-  }
   const s = firstSentence(summaryClean)
   const b = firstSentence(bodyClean)
   const low = `${t} ${summary} ${body}`.toLowerCase()
+  const statusLabel = status === 'published' ? 'abgeschlossen' : 'in Beratung'
 
   const sentences = []
 
@@ -732,12 +665,9 @@ const summarizeVorstoss = ({ title = '', summary = '', body = '', status = '', s
     unique.push(line)
   }
 
-  const merged = unique
+  return unique
     .slice(0, 3)
     .join(' ')
-
-  if (merged.length >= 10) return merged
-  return `${t || 'Parlamentsgeschäft'} (${normalizedStatus}).`
 }
 
 const isParliamentSourceId = (sourceId = '') => String(sourceId || '').startsWith('ch-parliament-')
@@ -753,47 +683,10 @@ const effectiveStatusFor = (item) => {
   return String(item?.status || '').toLowerCase()
 }
 
-const isGenericListLandingTitle = (title = '') => {
-  const t = clean(title).replace(/\s+/g, ' ').trim()
-  if (!t || !t.includes(':')) return false
-  const tail = t.split(':').map((x) => x.trim()).filter(Boolean).pop()?.toLowerCase() || ''
-
-  return /^parlamentsgesch(ä|a)fte?$/.test(tail)
-    || /^motions?(?: grand conseil [a-z]{2})?$/.test(tail)
-    || /^objets? parlementaires?$/.test(tail)
-    || /^vorst(ö|o)sse$/.test(tail)
-    || /^gesch(ä|a)fte$/.test(tail)
-    || /^ratsgesch(ä|a)fte$/.test(tail)
-}
-
-const isGenericOrPlaceholderTitle = (title = '') => {
-  const t = String(title || '').trim()
-  return /^parlamentsgesch(ä|a)ft\s+(?:\d{8}|\d{2}\.\d{3,4})$/i.test(t)
-    || /^objet parlementaire\s+(?:\d{8}|\d{2}\.\d{3,4})$/i.test(t)
-    || isGenericListLandingTitle(t)
-}
-
-const hasStrongSummary = (item) => {
-  const text = clean(item?.summary || item?.body || '')
-  if (!text || text.length < 24) return false
-  const low = text.toLowerCase()
-  return !['erledigt', 'in beratung', 'eingereicht', 'abgelehnt', 'abgeschrieben', 'zurückgezogen', 'zurueckgezogen'].includes(low)
-    && !isGenericOrPlaceholderTitle(text)
-}
-
-const qualityScore = (item) => {
-  let score = 0
-  if (!isGenericOrPlaceholderTitle(item?.title || '')) score += 2
-  if (hasStrongSummary(item)) score += 1
-  if (String(item?.businessTypeName || item?.meta?.rawType || '').trim()) score += 1
-  return score
-}
-
 const baseItems = (db.items || [])
   .filter((item) => !item?.meta?.scaffold)
   .filter((item) => isPublicSourceId(item?.sourceId))
   .filter((item) => ['approved', 'published'].includes(effectiveStatusFor(item)))
-  .filter((item) => !isGenericListLandingTitle(item?.title || ''))
 
 const groupedByAffair = new Map()
 for (const item of baseItems) {
@@ -809,28 +702,17 @@ for (const item of baseItems) {
   }
   const prevLang = langFromSource(prev.sourceId)
   const betterLang = langRank(lang) < langRank(prevLang)
-  const qualityDelta = qualityScore(item) - qualityScore(prev)
   const newer = new Date(item.fetchedAt || item.publishedAt || 0).getTime() > new Date(prev.fetchedAt || prev.publishedAt || 0).getTime()
-  if (qualityDelta > 0 || (qualityDelta === 0 && (betterLang || (!betterLang && newer)))) groupedByAffair.set(affairKey, item)
+  if (betterLang || (!betterLang && newer)) groupedByAffair.set(affairKey, item)
 }
 
 const items = [...groupedByAffair.values()].slice(0, 1200)
 
-const deByAffair = new Map()
-for (const row of (db.items || [])) {
-  const sid = String(row.sourceId || '')
-  if (!sid.startsWith('ch-parliament-') || !sid.endsWith('-de')) continue
-  const affair = String(row.externalId || '').split('-')[0]
-  if (!affair) continue
-  const prev = deByAffair.get(affair)
-  if (!prev) {
-    deByAffair.set(affair, row)
-    continue
-  }
-  const qualityDelta = qualityScore(row) - qualityScore(prev)
-  const newer = new Date(row.fetchedAt || row.publishedAt || 0).getTime() > new Date(prev.fetchedAt || prev.publishedAt || 0).getTime()
-  if (qualityDelta > 0 || (qualityDelta === 0 && newer)) deByAffair.set(affair, row)
-}
+const deByAffair = new Map(
+  (db.items || [])
+    .filter((x) => String(x.sourceId || '').startsWith('ch-parliament-') && String(x.sourceId || '').endsWith('-de'))
+    .map((x) => [String(x.externalId || '').split('-')[0], x]),
+)
 
 const variantsByAffair = new Map()
 for (const row of (db.items || [])) {
@@ -864,7 +746,7 @@ const buildInitiativeLinks = ({ typ, externalId }) => {
   }
 }
 
-const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallbackType, fallbackThemes, businessNumber = '', status = '') => {
+const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallbackType, fallbackThemes, businessNumber = '') => {
   const out = {
     title: { de: fallbackTitle },
     summary: { de: fallbackSummary },
@@ -872,49 +754,26 @@ const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallb
     themes: { de: fallbackThemes },
   }
 
-  const titleCandidates = [
-    fallbackTitle,
-    variants?.de?.title,
-    variants?.fr?.title,
-    variants?.it?.title,
-    variants?.en?.title,
-    item?.title,
-  ]
-    .map((x) => normalizeBusinessTitleText(x || ''))
-    .filter(Boolean)
-  const bestRealTitle = titleCandidates.find((t) => !isGenericParliamentTitle(t)) || titleCandidates[0] || fallbackTitle
-
-  for (const lang of ['de', 'fr', 'it', 'en']) {
-    const variant = variants?.[lang] || null
-    const l = lang
+  for (const [lang, variant] of Object.entries(variants || {})) {
+    const l = ['de', 'fr', 'it', 'en'].includes(lang) ? lang : 'de'
     const title = normalizeBusinessTitleText(variant?.title || fallbackTitle)
-    const weakTitle = !title || isGenericParliamentTitle(title)
+    const weakTitle = !title || isPlaceholderParliamentTitle(title)
     const summary = clean(variant?.summary || variant?.body || fallbackSummary)
     const summaryLow = summary.toLowerCase()
     const weakSummary = !summary
       || summary.length < 24
       || summaryLow === 'erledigt'
-      || isGenericParliamentTitle(summary)
+      || isPlaceholderParliamentTitle(summary)
     const inferredVariantType = inferType(
       title,
       item.sourceId,
       variant?.businessTypeName || '',
       variant?.meta?.rawType || item?.meta?.rawType || '',
     )
-    const canonicalType = TYPE_OVERRIDES[businessNumber] || inferTypeFromBusinessNumber(businessNumber) || fallbackType || inferredVariantType
+    const canonicalType = TYPE_OVERRIDES[businessNumber] || fallbackType || inferredVariantType
     const matched = mapThemesFromKeywords(item.matchedKeywords || fallbackThemes || []).slice(0, 6)
-
-    if (l === 'fr') {
-      const frTitle = weakTitle ? bestRealTitle : title
-      const frSummaryNeedsFallback = weakSummary || isWeakSummarySentence(summary)
-      const frSummary = frSummaryNeedsFallback ? fallbackSummary : summary
-      out.title[l] = frTitle
-      out.summary[l] = frSummary
-    } else {
-      out.title[l] = weakTitle ? bestRealTitle : title
-      out.summary[l] = weakSummary ? fallbackSummary : summary
-    }
-
+    out.title[l] = weakTitle ? fallbackTitle : title
+    out.summary[l] = weakSummary ? fallbackSummary : summary
     out.type[l] = typeLabels[canonicalType]?.[l] || canonicalType
     out.themes[l] = l === 'de'
       ? fallbackThemes
@@ -922,23 +781,6 @@ const buildI18nFromItem = (variants, item, fallbackTitle, fallbackSummary, fallb
   }
 
   return out
-}
-
-const resolveBusinessLink = (item) => {
-  const sourceId = String(item?.sourceId || '')
-  const externalId = String(item?.externalId || '')
-  const municipalSourceLink = String(item?.meta?.sourceLink || '').trim()
-
-  if (sourceId === 'ch-municipal-parliament-bern-zurich' && externalId.startsWith('municipal-bern-api-')) {
-    const gid = externalId.replace('municipal-bern-api-', '').trim()
-    if (/^[a-f0-9]{24,}$/i.test(gid)) {
-      return `https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=${gid}`
-    }
-  }
-
-  if (municipalSourceLink.startsWith('http')) return municipalSourceLink
-  if (String(item?.sourceUrl || '').startsWith('http')) return String(item.sourceUrl)
-  return `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${String(item?.externalId || '').split('-')[0]}`
 }
 
 const vorstoesse = items.map((item, index) => {
@@ -965,10 +807,7 @@ const vorstoesse = items.map((item, index) => {
   const eingereicht = SUBMISSION_DATE_OVERRIDES[businessNumber] || computedEingereicht
   const status = STATUS_OVERRIDES[businessNumber] || inferredStatus
   const titleOverride = TITLE_OVERRIDES[businessNumber]
-  const rawFinalTitle = titleOverride || displayTitle
-  const finalTitle = String(item?.sourceId || '') === 'ch-municipal-parliament-bern-zurich'
-    ? String(rawFinalTitle).replace(/^Bern\s*[·\-–:]\s*/i, '').trim()
-    : rawFinalTitle
+  const finalTitle = titleOverride || displayTitle
   const inferredType = inferType(
     finalTitle,
     item.sourceId,
@@ -976,8 +815,7 @@ const vorstoesse = items.map((item, index) => {
     sourceVariant?.meta?.rawType || item?.meta?.rawType || '',
     `${displaySummary} ${displayBody} ${SUMMARY_OVERRIDES[businessNumber] || ''}`,
   )
-  const numberBasedType = inferTypeFromBusinessNumber(businessNumber)
-  const typ = TYPE_OVERRIDES[businessNumber] || numberBasedType || inferredType
+  const typ = TYPE_OVERRIDES[businessNumber] || inferredType
   const stance = extractStance(item.reviewReason, finalTitle, displaySummary, displayBody)
   const initiativeLinks = buildInitiativeLinks({
     typ,
@@ -986,12 +824,17 @@ const vorstoesse = items.map((item, index) => {
     status,
   })
   const idSafe = String(item.externalId || `${Date.now()}-${index}`).replace(/[^a-zA-Z0-9-]/g, '-')
-  const link = resolveBusinessLink(item)
+  const municipalSourceLink = String(item?.meta?.sourceLink || '').trim()
+  const link = municipalSourceLink.startsWith('http')
+    ? municipalSourceLink
+    : (item.sourceUrl && item.sourceUrl.startsWith('http')
+      ? item.sourceUrl
+      : `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${String(item.externalId || '').split('-')[0]}`)
   const rawSummaryText = SUMMARY_OVERRIDES[businessNumber] || summarizeVorstoss({
     title: finalTitle,
     summary: displaySummary,
     body: displayBody,
-    status,
+    status: item.status,
     sourceId: item.sourceId,
   })
   const normalizedSummary = clean(rawSummaryText)
@@ -1014,7 +857,7 @@ const vorstoesse = items.map((item, index) => {
       ? municipalThemesFromTitle(finalTitle)
       : (normalizedThemes.length ? normalizedThemes : ['Tierschutz']).slice(0, 6))
   const i18nVariants = isParliament ? (variantsByAffair.get(affairId) || {}) : {}
-  const i18nMeta = buildI18nFromItem(i18nVariants, item, finalTitle || `Vorstoss ${index + 1}`, summaryText, typ, baseThemes, businessNumber, status)
+  const i18nMeta = buildI18nFromItem(i18nVariants, item, finalTitle || `Vorstoss ${index + 1}`, summaryText, typ, baseThemes, businessNumber)
 
   const municipalSubmitters = String(item?.sourceId || '').startsWith('ch-municipal-')
     ? parseMunicipalSubmitters(displayBody)

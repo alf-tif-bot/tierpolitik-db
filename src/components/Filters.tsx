@@ -59,17 +59,7 @@ export function FiltersPanel({ data, filters, onChange, lang, t, searchInputRef 
     'AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU', 'NE',
     'NW', 'OW', 'SG', 'SH', 'SO', 'SZ', 'TG', 'TI', 'UR', 'VD', 'VS', 'ZG', 'ZH',
   ]
-  const baseTypes = [
-    'Anfrage',
-    'Fragestunde. Frage',
-    'Geschäft des Bundesrates',
-    'Interpellation',
-    'Motion',
-    'Postulat',
-    'Petition',
-    'Volksinitiative',
-  ]
-  const typenItems: FilterItem[] = [...new Set([...baseTypes, ...data.map((d) => d.typ)])]
+  const typenItems: FilterItem[] = [...new Set(data.map((d) => d.typ))]
     .sort((a, b) => a.localeCompare(b, 'de-CH'))
     .map((v) => ({ value: v, label: translateType(v, lang) }))
   const defaultThemes = [...new Set(data.flatMap((d) => d.themen.map(canonicalTheme)).filter(Boolean))]

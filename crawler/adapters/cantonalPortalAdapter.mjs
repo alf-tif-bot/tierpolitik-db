@@ -1,5 +1,4 @@
 import fs from 'node:fs'
-import { read as readXlsx, utils as xlsxUtils } from 'xlsx'
 
 const BASE_KEYWORDS = [
   'vorstoss',
@@ -200,8 +199,6 @@ const CANTON_FALLBACK_LINKS = {
   ZG: [
     { href: 'https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats', text: 'Geschäfte des Kantonsrats ZG' },
     { href: 'https://zg.ch/de/behoerden/kantonsrat', text: 'Kantonsrat Zug' },
-    { href: 'https://kr-geschaefte.zug.ch/gast/geschaefte', text: 'Geschäftsverzeichnis Kantonsrat Zug' },
-    { href: 'https://kr-geschaefte.zug.ch/sitemap.xml', text: 'Sitemap Geschäftsdetailseiten Zug' },
   ],
   ZH: [
     { href: 'https://www.kantonsrat.zh.ch/geschaefte/', text: 'Geschäfte Kantonsrat Zürich' },
@@ -405,461 +402,6 @@ const parseLinks = (html = '', baseUrl = '', canton = '') => {
     .map((l) => [canonicalizeLinkUrl(l.href), l])).values()].slice(0, 10)
 }
 
-const extractSpecializedDetailLinks = (html = '', baseUrl = '', canton = '') => {
-  const out = []
-  const push = (href, text, rank = 10) => {
-    const normalized = normalizeUrl(href, baseUrl)
-    if (!normalized || !normalized.startsWith('http')) return
-    out.push({ href: normalized, text, rank, themed: true, businessLike: true })
-  }
-
-  if (canton === 'ZG') {
-    for (const m of html.matchAll(/href=["']([^"']*\/gast\/geschaefte\/\d+)["']/gi)) {
-      push(m[1], 'Geschäftsdetail Kantonsrat Zug', 14)
-    }
-  }
-
-  if (canton === 'TI') {
-    for (const m of html.matchAll(/href=["']([^"']*dettaglio\?[^"']*attid%5D=\d+[^"']*)["']/gi)) {
-      push(m[1], 'Dettaglio atto parlamentare TI', 14)
-    }
-  }
-
-  if (canton === 'NE') {
-    for (const m of html.matchAll(/href=["']([^"']*\/autorites\/GC\/objets\/motions\/Pages\/Motions-[^"']+\.aspx)["']/gi)) {
-      push(m[1], 'Motions Grand Conseil NE', 9)
-    }
-  }
-
-  return [...new Map(out.map((l) => [canonicalizeLinkUrl(l.href), l])).values()].slice(0, 20)
-}
-
-const ZG_SITEMAP_URL = 'https://kr-geschaefte.zug.ch/sitemap.xml'
-const ZG_QUICK_SEARCH_BASE_URL = 'https://kr-geschaefte.zug.ch/quick_search.json'
-const ZG_QUICK_SEARCH_TERMS = ['Tier', 'Tierschutz', 'Schlachtung', 'Jagd', 'Nutztier']
-const ZG_DETAIL_URL_RX = /https:\/\/kr-geschaefte\.zug\.ch\/gast\/geschaefte\/(\d+)/gi
-const ZG_SITEMAP_INDEX_RX = /<sitemap>\s*<loc>([^<]+)<\/loc>/gi
-const ZG_SEED_SOURCES = [
-  { kind: 'sitemap', url: 'https://kr-geschaefte.zug.ch/sitemap.xml' },
-  { kind: 'sitemap', url: 'https://www.kr-geschaefte.zug.ch/sitemap.xml' },
-  { kind: 'sitemap', url: 'https://kr-geschaefte.zug.ch/sitemap_index.xml' },
-  { kind: 'sitemap', url: 'https://www.kr-geschaefte.zug.ch/sitemap_index.xml' },
-  { kind: 'list', url: 'https://kr-geschaefte.zug.ch/gast/geschaefte' },
-  { kind: 'list', url: 'https://www.kr-geschaefte.zug.ch/gast/geschaefte' },
-  { kind: 'list', url: 'https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats' },
-  { kind: 'list', url: 'https://www.zg.ch/de/staat-politik/geschaefte-des-kantonsrats' },
-  { kind: 'archive', url: 'https://zg.ch/de/staat-politik/geschaefte-des-kantonsrats/protokolle' },
-  { kind: 'archive', url: 'https://www.zg.ch/de/staat-politik/geschaefte-des-kantonsrats/protokolle' },
-]
-
-const extractZgLinksFromSitemap = (xml = '') => {
-  const extracted = []
-  for (const m of String(xml || '').matchAll(ZG_DETAIL_URL_RX)) {
-    extracted.push({
-      href: `https://kr-geschaefte.zug.ch/gast/geschaefte/${m[1]}`,
-      text: `Geschäftsdetail Kantonsrat Zug #${m[1]}`,
-      rank: 16,
-      themed: true,
-      businessLike: true,
-    })
-    if (extracted.length >= 120) break
-  }
-
-  return [...new Map(extracted
-    .map((l) => [canonicalizeLinkUrl(l.href), l])).values()]
-}
-
-const extractZgSitemapChildren = (xml = '') => {
-  const children = []
-  for (const m of String(xml || '').matchAll(ZG_SITEMAP_INDEX_RX)) {
-    const child = normalizeUrl(String(m[1] || '').trim(), ZG_SITEMAP_URL)
-    if (!child || !child.includes('kr-geschaefte.zug.ch')) continue
-    children.push(child)
-    if (children.length >= 20) break
-  }
-  return [...new Set(children)]
-}
-
-const fetchZgSeedPages = async ({ parentSignal, requestTimeoutMs }) => {
-  const seedTelemetry = []
-  const collected = []
-
-  for (const seed of ZG_SEED_SOURCES) {
-    if (parentSignal?.aborted) break
-
-    const startedAt = Date.now()
-    let ok = false
-    let status = null
-    let finalUrl = ''
-    let discovered = 0
-    let error = ''
-
-    try {
-      const response = await fetch(seed.url, {
-        headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
-        redirect: 'follow',
-        signal: mergeAbortSignals(parentSignal, AbortSignal.timeout(requestTimeoutMs)),
-      })
-      status = response.status
-      finalUrl = response.url
-      if (!response.ok) throw new Error(`http-${response.status}`)
-      const text = await response.text()
-      ok = true
-
-      const baseLinks = extractZgLinksFromSitemap(text)
-      discovered += baseLinks.length
-      if (baseLinks.length) {
-        collected.push(...baseLinks)
-      }
-
-      const childSitemaps = extractZgSitemapChildren(text)
-      for (const childUrl of childSitemaps) {
-        if (parentSignal?.aborted) break
-        try {
-          const childResponse = await fetch(childUrl, {
-            headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
-            redirect: 'follow',
-            signal: mergeAbortSignals(parentSignal, AbortSignal.timeout(requestTimeoutMs)),
-          })
-          if (!childResponse.ok) continue
-          const childText = await childResponse.text()
-          const childLinks = extractZgLinksFromSitemap(childText)
-          if (childLinks.length) {
-            discovered += childLinks.length
-            collected.push(...childLinks)
-          }
-        } catch {
-          // best effort child sitemap fetch
-        }
-      }
-
-      const htmlLinks = extractSpecializedDetailLinks(text, finalUrl || seed.url, 'ZG')
-      if (htmlLinks.length) {
-        discovered += htmlLinks.length
-        collected.push(...htmlLinks)
-      }
-    } catch (err) {
-      error = String(err?.message || err || 'fetch-failed').slice(0, 140)
-    }
-
-    seedTelemetry.push({
-      seedUrl: seed.url,
-      kind: seed.kind,
-      ok,
-      httpStatus: status,
-      finalUrl: finalUrl || undefined,
-      discoveredLinks: discovered,
-      durationMs: Date.now() - startedAt,
-      error: error || undefined,
-    })
-  }
-
-  const links = [...new Map(collected
-    .map((l) => [canonicalizeLinkUrl(l.href), l])).values()]
-    .slice(0, 140)
-
-  return { links, seedTelemetry }
-}
-
-const sleep = (ms = 0) => new Promise((resolve) => setTimeout(resolve, Math.max(0, Number(ms) || 0)))
-
-const normalizeZgDetailUrl = (value = '') => {
-  const normalized = normalizeUrl(String(value || '').trim(), 'https://kr-geschaefte.zug.ch')
-  if (!normalized) return ''
-  try {
-    const parsed = new URL(normalized)
-    parsed.hash = ''
-    parsed.search = ''
-    parsed.pathname = parsed.pathname.replace(/\/+$/, '')
-    return parsed.toString()
-  } catch {
-    return normalized
-  }
-}
-
-const parseZgGeschaeftId = (url = '') => {
-  const id = String(url || '').match(/\/gast\/geschaefte\/(\d+)/i)?.[1]
-  return id || ''
-}
-
-const ZG_EXPORT_ENDPOINTS = [
-  { format: 'xlsx', url: 'https://kr-geschaefte.zug.ch/gast/geschaefte?format=xlsx' },
-  { format: 'csv', url: 'https://kr-geschaefte.zug.ch/gast/geschaefte?format=csv' },
-  { format: 'pdf', url: 'https://kr-geschaefte.zug.ch/gast/geschaefte?format=pdf' },
-]
-
-const normalizeHeader = (value = '') => String(value || '')
-  .normalize('NFD')
-  .replace(/[\u0300-\u036f]/g, '')
-  .toLowerCase()
-  .replace(/[^a-z0-9]+/g, '_')
-  .replace(/^_+|_+$/g, '')
-
-const toIsoDate = (value = '') => {
-  const raw = String(value || '').trim()
-  if (!raw) return ''
-  if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw
-  const dmy = raw.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/)
-  if (dmy) {
-    const [, d, m, y] = dmy
-    return `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`
-  }
-  return raw
-}
-
-const parseZgXlsxRows = (buffer) => {
-  const wb = readXlsx(buffer, { type: 'buffer' })
-  const firstSheetName = wb.SheetNames?.[0]
-  if (!firstSheetName) return []
-  const sheet = wb.Sheets[firstSheetName]
-  const rows = xlsxUtils.sheet_to_json(sheet, { header: 1, blankrows: false, raw: false, defval: '' })
-  if (!rows.length) return []
-  const headerRow = rows[0].map((h) => normalizeHeader(h))
-
-  const idx = {
-    geschaeftNr: headerRow.findIndex((h) => ['geschaft_nr', 'geschaeft_nr', 'geschaftnr', 'geschaeftnr'].includes(h)),
-    titel: headerRow.findIndex((h) => h === 'titel' || h === 'geschaft' || h === 'geschaeft'),
-    status: headerRow.findIndex((h) => h === 'status'),
-    geschaeftstyp: headerRow.findIndex((h) => h === 'geschaftsart' || h === 'geschaeftsart' || h === 'art'),
-    zustaendig: headerRow.findIndex((h) => h === 'zustandig' || h === 'zustaendig'),
-    verfahrensstand: headerRow.findIndex((h) => h === 'verfahrensstand'),
-    verfahrensstandDatum: headerRow.findIndex((h) => h === 'verfahrensstand_datum'),
-    eingereichtAm: headerRow.findIndex((h) => h === 'eingereicht_am'),
-    abgeschlossenAm: headerRow.findIndex((h) => h === 'abgeschlossen_am'),
-  }
-
-  return rows.slice(1).map((row) => {
-    const get = (i) => (i >= 0 ? String(row[i] || '').trim() : '')
-    return {
-      geschaeft_nr: get(idx.geschaeftNr).replace(/\s+/g, ''),
-      titel: get(idx.titel),
-      status: get(idx.status),
-      geschaeftstyp: get(idx.geschaeftstyp),
-      zustaendig: get(idx.zustaendig),
-      verfahrensstand: get(idx.verfahrensstand),
-      verfahrensstand_datum: toIsoDate(get(idx.verfahrensstandDatum)),
-      eingereicht_am: toIsoDate(get(idx.eingereichtAm)),
-      abgeschlossen_am: toIsoDate(get(idx.abgeschlossenAm)),
-    }
-  })
-}
-
-const parseZgCsvRows = (text = '') => {
-  const lines = String(text || '').split(/\r?\n/).filter(Boolean)
-  if (!lines.length) return []
-
-  const splitCsv = (line) => {
-    const out = []
-    let cur = ''
-    let quoted = false
-    for (let i = 0; i < line.length; i += 1) {
-      const ch = line[i]
-      if (ch === '"') {
-        if (quoted && line[i + 1] === '"') {
-          cur += '"'
-          i += 1
-        } else {
-          quoted = !quoted
-        }
-      } else if (ch === ';' && !quoted) {
-        out.push(cur)
-        cur = ''
-      } else {
-        cur += ch
-      }
-    }
-    out.push(cur)
-    return out.map((v) => String(v || '').trim())
-  }
-
-  const header = splitCsv(lines[0]).map((h) => normalizeHeader(h))
-  const pick = (row, ...keys) => {
-    const idx = header.findIndex((h) => keys.includes(h))
-    return idx >= 0 ? String(row[idx] || '').trim() : ''
-  }
-
-  return lines.slice(1).map((line) => {
-    const row = splitCsv(line)
-    return {
-      geschaeft_nr: pick(row, 'geschaft_nr', 'geschaeft_nr', 'geschaftnr', 'geschaeftnr').replace(/\s+/g, ''),
-      titel: pick(row, 'titel', 'geschaft', 'geschaeft'),
-      status: pick(row, 'status'),
-      geschaeftstyp: pick(row, 'geschaftsart', 'geschaeftsart', 'art'),
-      zustaendig: pick(row, 'zustandig', 'zustaendig'),
-      verfahrensstand: pick(row, 'verfahrensstand'),
-      verfahrensstand_datum: toIsoDate(pick(row, 'verfahrensstand_datum')),
-      eingereicht_am: toIsoDate(pick(row, 'eingereicht_am')),
-      abgeschlossen_am: toIsoDate(pick(row, 'abgeschlossen_am')),
-    }
-  })
-}
-
-const parseZgHtmlDetailMap = (html = '', baseUrl = 'https://kr-geschaefte.zug.ch/gast/geschaefte') => {
-  const map = new Map()
-  for (const m of String(html || '').matchAll(/<a[^>]+href=["']([^"']*\/gast\/geschaefte\/(\d+))[^"']*["'][^>]*>(.*?)<\/a>/gis)) {
-    const href = normalizeUrl(m[1], baseUrl)
-    const detailId = String(m[2] || '')
-    const text = stripTags(m[3] || '').trim().replace(/\s+/g, '')
-    if (!href || !detailId || !/^\d+$/.test(text)) continue
-    if (!map.has(text)) map.set(text, { detailUrl: href, detailId })
-  }
-  return map
-}
-
-const fetchZgExportRows = async ({ parentSignal, requestTimeoutMs }) => {
-  const telemetry = []
-  let parsedRows = []
-  let usedFormat = ''
-
-  for (const endpoint of ZG_EXPORT_ENDPOINTS) {
-    if (parentSignal?.aborted) break
-    const startedAt = Date.now()
-    let ok = false
-    let status = null
-    let error = ''
-    let rowCount = 0
-
-    try {
-      const response = await fetch(endpoint.url, {
-        headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
-        redirect: 'follow',
-        signal: mergeAbortSignals(parentSignal, AbortSignal.timeout(requestTimeoutMs)),
-      })
-      status = response.status
-      if (!response.ok) throw new Error(`http-${response.status}`)
-
-      if (endpoint.format === 'xlsx') {
-        const arrayBuffer = await response.arrayBuffer()
-        parsedRows = parseZgXlsxRows(Buffer.from(arrayBuffer))
-      } else if (endpoint.format === 'csv') {
-        parsedRows = parseZgCsvRows(await response.text())
-      } else {
-        parsedRows = []
-      }
-
-      rowCount = parsedRows.length
-      ok = rowCount > 0
-      if (ok) {
-        usedFormat = endpoint.format
-        telemetry.push({ format: endpoint.format, url: endpoint.url, ok, httpStatus: status, rowCount, durationMs: Date.now() - startedAt })
-        break
-      }
-    } catch (err) {
-      error = String(err?.message || err || 'fetch-failed').slice(0, 140)
-    }
-
-    telemetry.push({ format: endpoint.format, url: endpoint.url, ok, httpStatus: status, rowCount, durationMs: Date.now() - startedAt, error: error || undefined })
-  }
-
-  return { rows: parsedRows, format: usedFormat, telemetry }
-}
-
-const fetchZgQuickSearchForTerm = async ({ term, parentSignal, requestTimeoutMs, retries = 2, minDelayMs = 300 }) => {
-  const telemetry = {
-    term,
-    url: `${ZG_QUICK_SEARCH_BASE_URL}?term=${encodeURIComponent(term)}`,
-    attempts: 0,
-    ok: false,
-    httpStatus: null,
-    fetched: 0,
-    error: null,
-  }
-
-  let lastError = null
-  for (let attempt = 1; attempt <= retries + 1; attempt += 1) {
-    if (parentSignal?.aborted) break
-    telemetry.attempts = attempt
-
-    if (attempt > 1) {
-      const backoffMs = Math.min(2500, minDelayMs * 2 ** (attempt - 1))
-      await sleep(backoffMs)
-    }
-
-    try {
-      const response = await fetch(telemetry.url, {
-        headers: {
-          'user-agent': 'tierpolitik-crawler/portal-adapter',
-          accept: 'application/json',
-        },
-        redirect: 'follow',
-        signal: mergeAbortSignals(parentSignal, AbortSignal.timeout(requestTimeoutMs)),
-      })
-
-      telemetry.httpStatus = response.status
-      if (!response.ok) {
-        if (response.status >= 500 || response.status === 429) {
-          lastError = new Error(`http-${response.status}`)
-          continue
-        }
-        throw new Error(`http-${response.status}`)
-      }
-
-      const payload = await response.json()
-      const list = Array.isArray(payload) ? payload : []
-      telemetry.ok = true
-      telemetry.fetched = list.length
-      return { list, telemetry }
-    } catch (err) {
-      lastError = err
-      telemetry.error = String(err?.message || err || 'quick-search-failed').slice(0, 160)
-    }
-  }
-
-  return { list: [], telemetry: { ...telemetry, error: telemetry.error || String(lastError?.message || 'quick-search-failed') } }
-}
-
-const fetchZgQuickSearchItems = async ({ parentSignal, requestTimeoutMs, terms = ZG_QUICK_SEARCH_TERMS }) => {
-  const dedup = new Map()
-  const termTelemetry = []
-
-  for (const term of terms) {
-    if (parentSignal?.aborted) break
-    const { list, telemetry } = await fetchZgQuickSearchForTerm({
-      term,
-      parentSignal,
-      requestTimeoutMs,
-      retries: 2,
-      minDelayMs: 320,
-    })
-
-    termTelemetry.push(telemetry)
-
-    for (const row of list) {
-      const url = normalizeZgDetailUrl(row?.url)
-      const geschaeftId = parseZgGeschaeftId(url)
-      const label = String(row?.label || row?.value || '').trim()
-      if (!url || !geschaeftId || !label) continue
-      const key = `${geschaeftId}`
-      const existing = dedup.get(key)
-      if (!existing) {
-        dedup.set(key, {
-          geschaeftId,
-          detailUrl: url,
-          label,
-          value: String(row?.value || '').trim() || label,
-          terms: [term],
-          sourceRows: [{ label: String(row?.label || '').trim(), value: String(row?.value || '').trim(), url }],
-        })
-      } else {
-        if (!existing.terms.includes(term)) existing.terms.push(term)
-        existing.sourceRows.push({ label: String(row?.label || '').trim(), value: String(row?.value || '').trim(), url })
-      }
-    }
-
-    await sleep(350)
-  }
-
-  return { items: [...dedup.values()], telemetry: termTelemetry }
-}
-
-const hasConcreteCantonalDetailUrl = (href = '') => {
-  const low = String(href || '').toLowerCase()
-  return /[?&](affairid|geschaeftid|objektid|objectid|id)=\d+/.test(low)
-    || /detail\.php\?gid=[a-f0-9]+/.test(low)
-    || /\/gast\/geschaefte\/\d+/.test(low)
-    || /dettaglio\?[^\s]*attid%5d=\d+/.test(low)
-}
-
 const appendFallbackLinks = (canton, links) => {
   const fallback = CANTON_FALLBACK_LINKS[canton] || []
 
@@ -930,16 +472,16 @@ const candidateUrlsFromRegistry = (entry) => {
     .sort((a, b) => rankCandidateUrl(entry, b) - rankCandidateUrl(entry, a))
 }
 
-const fetchReachablePages = async (urls = [], limit = 3, parentSignal, requestTimeoutMs = 12000) => {
+const fetchReachablePages = async (urls = [], limit = 3, parentSignal) => {
   const pages = []
 
   for (const url of urls) {
-    if (pages.length >= limit || parentSignal?.aborted) break
+    if (pages.length >= limit) break
     try {
       const response = await fetch(url, {
         headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
         redirect: 'follow',
-        signal: mergeAbortSignals(parentSignal, AbortSignal.timeout(requestTimeoutMs)),
+        signal: mergeAbortSignals(parentSignal, AbortSignal.timeout(12000)),
       })
       if (!response.ok) continue
       const html = await response.text()
@@ -954,9 +496,8 @@ const fetchReachablePages = async (urls = [], limit = 3, parentSignal, requestTi
 
 export function createCantonalPortalAdapter() {
   return {
-    async fetch(source, { signal, timeoutMs } = {}) {
+    async fetch(source, { signal } = {}) {
       const fetchedAt = new Date().toISOString()
-      const requestTimeoutMs = Math.max(8000, Number(source.options?.requestTimeoutMs ?? Math.min(20000, Number(timeoutMs || 12000))))
       const cantonFilter = new Set(asList(source.options?.cantons).map((c) => c.toUpperCase()))
       const rows = []
       const registryUrl = source.options?.registryUrl || 'data/cantonal-source-registry.json'
@@ -965,7 +506,7 @@ export function createCantonalPortalAdapter() {
       if (String(registryUrl).startsWith('http')) {
         const registryResponse = await fetch(registryUrl, {
           headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
-          signal: mergeAbortSignals(signal, AbortSignal.timeout(requestTimeoutMs)),
+          signal: mergeAbortSignals(signal, AbortSignal.timeout(15000)),
         })
         if (!registryResponse.ok) throw new Error(`cantonal registry unavailable (${registryResponse.status})`)
         registry = await registryResponse.json()
@@ -975,24 +516,15 @@ export function createCantonalPortalAdapter() {
       }
 
       const entries = Array.isArray(registry?.sources) ? registry.sources : []
-      const budgetMs = Math.max(15000, Number(timeoutMs || 60000))
-      const deadline = Date.now() + budgetMs - 750
-      const maxEntriesPerRun = Math.max(1, Number(source.options?.maxEntriesPerRun || 8))
-      let processedEntries = 0
 
       for (const entry of entries) {
-        if (processedEntries >= maxEntriesPerRun) break
-        if (Date.now() >= deadline || signal?.aborted) {
-          break
-        }
         const canton = String(entry?.canton || '').toUpperCase()
         if (!canton || (cantonFilter.size && !cantonFilter.has(canton))) continue
-        processedEntries += 1
 
         const candidateUrls = candidateUrlsFromRegistry(entry)
         if (!candidateUrls.length || entry?.probe?.httpStatus === 403) continue
 
-        const fetchedPages = await fetchReachablePages(candidateUrls, 3, signal, requestTimeoutMs)
+        const fetchedPages = await fetchReachablePages(candidateUrls, 3, signal)
         if (!fetchedPages.length) continue
 
         const leadPage = fetchedPages[0]
@@ -1003,201 +535,12 @@ export function createCantonalPortalAdapter() {
           .trim()
 
         const parsedLinks = fetchedPages.flatMap(({ html: pageHtml, response: pageResponse }) => parseLinks(pageHtml, pageResponse.url, canton))
-        const listTargets = parsedLinks
-          .map((l) => l.href)
-          .filter((href) => {
-            const low = String(href || '').toLowerCase()
-            if (canton === 'ZG') return low.includes('kr-geschaefte.zug.ch/gast/geschaefte')
-            if (canton === 'TI') return low.includes('/ricerca-messaggi-e-atti/ricerca/risultati')
-            if (canton === 'NE') return low.includes('/autorites/gc/objets/motions/') || low.includes('/autorites/gc/objets/postulats/') || low.includes('/autorites/gc/objets/interpellations/')
-            if (canton === 'SZ') return low.includes('/kantonsrat/geschaefte')
-            return false
-          })
-          .slice(0, 2)
-
-        const fetchedListPages = await fetchReachablePages(listTargets, 2, signal, requestTimeoutMs)
-        const specializedLinks = [
-          ...fetchedPages.flatMap(({ html: pageHtml, response: pageResponse }) => extractSpecializedDetailLinks(pageHtml, pageResponse.url, canton)),
-          ...fetchedListPages.flatMap(({ html: pageHtml, response: pageResponse }) => extractSpecializedDetailLinks(pageHtml, pageResponse.url, canton)),
-        ]
-
-        let zgSitemapLinks = []
-        let zgSeedTelemetry = []
-        let zgExportRows = []
-        let zgExportFormat = ''
-        let zgExportTelemetry = []
-        if (canton === 'ZG') {
-          const [zgSeedResult, zgExportResult] = await Promise.all([
-            fetchZgSeedPages({
-              parentSignal: signal,
-              requestTimeoutMs,
-            }),
-            fetchZgExportRows({
-              parentSignal: signal,
-              requestTimeoutMs,
-            }),
-          ])
-          zgSitemapLinks = zgSeedResult.links
-          zgSeedTelemetry = zgSeedResult.seedTelemetry
-          zgExportRows = zgExportResult.rows
-          zgExportFormat = zgExportResult.format
-          zgExportTelemetry = zgExportResult.telemetry
-        }
-
-        const links = appendFallbackLinks(canton, [...zgSitemapLinks, ...specializedLinks, ...parsedLinks])
+        const links = appendFallbackLinks(canton, parsedLinks)
         const themedLinkCount = links.filter((link) => hasAnimalTheme(link.href, link.text)).length
-        const concreteDetailLinks = links.filter((link) => hasConcreteCantonalDetailUrl(link.href))
-        const concreteDetailLinkCount = concreteDetailLinks.length
         const pageText = fetchedPages.map((p) => stripTags(p.html).slice(0, 2500)).join('\n')
         const language = pickLanguage(canton, pageText)
 
-        if (canton === 'ZG' && zgExportRows.length) {
-          let zgListHtml = fetchedPages[0]?.html || ''
-          let zgListUrl = fetchedPages[0]?.response?.url || 'https://kr-geschaefte.zug.ch/gast/geschaefte'
-          try {
-            const listResponse = await fetch('https://kr-geschaefte.zug.ch/gast/geschaefte', {
-              headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
-              redirect: 'follow',
-              signal: mergeAbortSignals(signal, AbortSignal.timeout(requestTimeoutMs)),
-            })
-            if (listResponse.ok) {
-              zgListUrl = listResponse.url || zgListUrl
-              zgListHtml = await listResponse.text()
-            }
-          } catch {
-            // keep best-effort fetched page HTML
-          }
-
-          const detailMap = parseZgHtmlDetailMap(zgListHtml, zgListUrl)
-          const paginationTargets = [...new Set([
-            ...String(zgListHtml || '').matchAll(/href=["']([^"']*\bpage=\d+[^"']*)["']/gi),
-          ].map((m) => normalizeUrl(String(m[1] || '').replaceAll('&amp;', '&'), zgListUrl)).filter(Boolean))]
-            .slice(0, 10)
-
-          for (const pageUrl of paginationTargets) {
-            if (signal?.aborted) break
-            try {
-              const pageResponse = await fetch(pageUrl, {
-                headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
-                redirect: 'follow',
-                signal: mergeAbortSignals(signal, AbortSignal.timeout(requestTimeoutMs)),
-              })
-              if (!pageResponse.ok) continue
-              const pageHtml = await pageResponse.text()
-              const pageMap = parseZgHtmlDetailMap(pageHtml, pageResponse.url || pageUrl)
-              for (const [nr, info] of pageMap.entries()) {
-                if (!detailMap.has(nr)) detailMap.set(nr, info)
-              }
-            } catch {
-              // best effort pagination fetch
-            }
-          }
-
-          const dropReasons = {}
-          let parsedCount = 0
-          let emittedCount = 0
-
-          for (const row of zgExportRows) {
-            parsedCount += 1
-            const geschaeftNr = String(row?.geschaeft_nr || '').trim()
-            const titel = String(row?.titel || '').trim()
-            if (!geschaeftNr || !titel) {
-              const reason = !geschaeftNr ? 'missing_geschaeft_nr' : 'missing_titel'
-              dropReasons[reason] = (dropReasons[reason] || 0) + 1
-              continue
-            }
-
-            const detailInfo = detailMap.get(geschaeftNr)
-            const detailUrl = detailInfo?.detailUrl || ''
-            const geschaeftId = detailInfo?.detailId || geschaeftNr
-            if (!detailUrl) {
-              dropReasons.no_detail_url_match = (dropReasons.no_detail_url_match || 0) + 1
-              continue
-            }
-
-            emittedCount += 1
-            const keywordSeed = `${titel} ${row?.status || ''} ${row?.geschaeftstyp || ''} ${row?.zustaendig || ''}`.toLowerCase()
-            const keywords = new Set(['kanton', 'zug'])
-            for (const kw of [...BASE_KEYWORDS, ...ANIMAL_POLICY_LINK_KEYWORDS, ...(CANTON_KEYWORDS[canton] || [])]) {
-              if (keywordSeed.includes(kw)) keywords.add(kw)
-            }
-
-            const dateBits = [row?.eingereicht_am, row?.verfahrensstand_datum, row?.abgeschlossen_am].filter(Boolean)
-            const publishedAt = dateBits[0] ? `${dateBits[0]}T00:00:00Z` : fetchedAt
-            const summaryParts = [
-              row?.geschaeftstyp ? `Typ: ${row.geschaeftstyp}` : null,
-              row?.status ? `Status: ${row.status}` : null,
-              row?.zustaendig ? `Zuständig: ${row.zustaendig}` : null,
-            ].filter(Boolean)
-
-            rows.push({
-              sourceId: source.id,
-              sourceUrl: detailUrl,
-              externalId: `cantonal-portal-zg-export-${geschaeftNr}`,
-              affairId: geschaeftId,
-              title: `ZG · ${geschaeftNr}: ${titel}`.slice(0, 260),
-              summary: summaryParts.join(' · ').slice(0, 300),
-              body: [
-                `${geschaeftNr} · ${titel}`,
-                row?.verfahrensstand ? `Verfahrensstand: ${row.verfahrensstand}` : null,
-                row?.verfahrensstand_datum ? `Verfahrensstand Datum: ${row.verfahrensstand_datum}` : null,
-                row?.eingereicht_am ? `Eingereicht am: ${row.eingereicht_am}` : null,
-                row?.abgeschlossen_am ? `Abgeschlossen am: ${row.abgeschlossen_am}` : null,
-                `Quelle: ${detailUrl}`,
-              ].filter(Boolean).join('\n'),
-              publishedAt,
-              fetchedAt,
-              language,
-              score: 0.68,
-              matchedKeywords: [...keywords].slice(0, 12),
-              status: 'new',
-              reviewReason: 'cantonal-portal-zg-export',
-              meta: {
-                canton,
-                parliament: entry.parliament,
-                readiness: entry.readiness,
-                adapterHint: 'cantonalPortal',
-                sourceLink: detailUrl,
-                geschaeftId,
-                businessNumber: geschaeftNr,
-                zgExport: {
-                  format: zgExportFormat,
-                  row: {
-                    geschaeft_nr: geschaeftNr,
-                    titel,
-                    status: row?.status || '',
-                    geschaeftstyp: row?.geschaeftstyp || '',
-                    zustaendig: row?.zustaendig || '',
-                    verfahrensstand: row?.verfahrensstand || '',
-                    verfahrensstand_datum: row?.verfahrensstand_datum || '',
-                    eingereicht_am: row?.eingereicht_am || '',
-                    abgeschlossen_am: row?.abgeschlossen_am || '',
-                  },
-                },
-                zgExportMetrics: {
-                  rowsParsed: parsedCount,
-                  rowsEmitted: emittedCount,
-                  rowsDropped: parsedCount - emittedCount,
-                  dropReasons,
-                },
-                extractedLinkCount: links.length,
-                themedLinkCount,
-                concreteDetailLinkCount,
-                extractedLinks: links,
-                candidateUrlsTried: candidateUrls.slice(0, 8),
-                fetchedPages: fetchedPages.map((p) => ({ requestedUrl: p.usedUrl, finalUrl: p.response.url })).slice(0, 3),
-                zgSitemapLinkCount: zgSitemapLinks.length || undefined,
-                zgSeedDiscovery: zgSeedTelemetry,
-                zgSeedDiscoveryTotal: zgSeedTelemetry.reduce((acc, seed) => acc + Number(seed?.discoveredLinks || 0), 0),
-                zgExportTelemetry,
-              },
-            })
-          }
-          continue
-        }
-
         const topLink = links[0]?.text || 'Parlamentsgeschäfte'
-        const needsSourceFix = ['NW', 'UR'].includes(canton) && concreteDetailLinkCount === 0
 
         rows.push({
           sourceId: source.id,
@@ -1214,29 +557,17 @@ export function createCantonalPortalAdapter() {
           score: Math.min(0.4 + links.length * 0.05 + Math.min(0.12, fetchedPages.length * 0.03), 0.9),
           matchedKeywords: ['kanton', canton.toLowerCase(), ...new Set(links.flatMap((l) => [...BASE_KEYWORDS, ...ANIMAL_POLICY_LINK_KEYWORDS, ...(CANTON_KEYWORDS[canton] || [])].filter((kw) => `${l.href} ${l.text}`.toLowerCase().includes(kw))))].slice(0, 12),
           status: 'new',
-          reviewReason: needsSourceFix
-            ? 'needs-source-fix:cantonal-no-concrete-detail-url'
-            : (links.length ? 'cantonal-portal-links' : 'cantonal-portal-reachable'),
+          reviewReason: links.length ? 'cantonal-portal-links' : 'cantonal-portal-reachable',
           meta: {
             canton,
             parliament: entry.parliament,
             readiness: entry.readiness,
             extractedLinkCount: links.length,
             themedLinkCount,
-            concreteDetailLinkCount,
             extractedLinks: links,
-            needsSourceFix,
-            sourceFixReason: needsSourceFix ? 'overview-links-only' : undefined,
             adapterHint: 'cantonalPortal',
             candidateUrlsTried: candidateUrls.slice(0, 8),
             fetchedPages: fetchedPages.map((p) => ({ requestedUrl: p.usedUrl, finalUrl: p.response.url })).slice(0, 3),
-            zgSitemapLinkCount: zgSitemapLinks.length || undefined,
-            zgFallbackUsed: canton === 'ZG' ? zgSitemapLinks.length > 0 : undefined,
-            zgSeedDiscovery: canton === 'ZG' ? zgSeedTelemetry : undefined,
-            zgSeedDiscoveryTotal: canton === 'ZG'
-              ? zgSeedTelemetry.reduce((acc, seed) => acc + Number(seed?.discoveredLinks || 0), 0)
-              : undefined,
-            zgExportTelemetry: canton === 'ZG' ? zgExportTelemetry : undefined,
           },
         })
       }
@@ -1245,4 +576,3 @@ export function createCantonalPortalAdapter() {
     },
   }
 }
-

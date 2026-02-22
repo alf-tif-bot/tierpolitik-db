@@ -1,6 +1,5 @@
 import fs from 'node:fs'
 import { loadDb, saveDb, upsertItems } from './db.mjs'
-import { readCollectEnv, resolveSourcePolicy, executeSourceFetch } from './collectRuntime.mjs'
 import { sourceSchema } from './schema.mjs'
 
 const SOURCES_PATH = new URL('./config.sources.json', import.meta.url)
@@ -16,73 +15,23 @@ export async function runCollect({ adapters }) {
   const rawItems = []
 
   const sourceStats = []
-  const runtimeConfig = readCollectEnv({
-    timeoutMs: 90000,
-    concurrency: 3,
-    retries: 1,
-    backoffMs: 1200,
-    backoffMaxMs: 12000,
-    backoffFactor: 2,
-  })
 
-  const tasks = [...sources]
-
-  const worker = async () => {
-    while (tasks.length) {
-      const source = tasks.shift()
-      if (!source) break
-
-      const adapterKey = source.adapter || source.type
-      const adapter = adapters[adapterKey]
-      if (!adapter) {
-        sourceStats.push({ sourceId: source.id, ok: false, reason: `Kein Adapter: ${adapterKey}` })
-        continue
-      }
-
-      const policy = resolveSourcePolicy(source, runtimeConfig)
-      const result = await executeSourceFetch({
-        source,
-        adapter,
-        policy,
-        onStart: ({ sourceId, timeoutMs, retries }) => {
-          console.log(`[collect] start ${sourceId} (timeout=${timeoutMs}ms retries=${retries})`)
-        },
-        onRetry: ({ sourceId, attempt, nextAttempt, backoffMs, error }) => {
-          console.warn(`[collect] retry ${sourceId} (attempt ${attempt}->${nextAttempt}, wait=${backoffMs}ms): ${error.message}`)
-        },
-        onDone: ({ sourceId, fetched, durationMs, attempt }) => {
-          console.log(`[collect] done ${sourceId} (items=${fetched}, attempt=${attempt}, ms=${durationMs})`)
-        },
-        onFail: ({ sourceId, durationMs, attempt, error }) => {
-          console.warn(`[collect] fail ${sourceId} (attempt=${attempt}, ms=${durationMs}): ${error.message}`)
-        },
-      })
-
-      if (result.ok) {
-        rawItems.push(...result.rows)
-        sourceStats.push({
-          sourceId: source.id,
-          ok: true,
-          fetched: result.rows.length,
-          attempts: result.attempts,
-          timeoutMs: policy.timeoutMs,
-          ms: result.durationMs,
-        })
-      } else {
-        sourceStats.push({
-          sourceId: source.id,
-          ok: false,
-          reason: result.error?.message,
-          attempts: result.attempts,
-          timeoutMs: policy.timeoutMs,
-          ms: result.durationMs,
-        })
-      }
+  for (const source of sources) {
+    const adapterKey = source.adapter || source.type
+    const adapter = adapters[adapterKey]
+    if (!adapter) {
+      sourceStats.push({ sourceId: source.id, ok: false, reason: `Kein Adapter: ${adapterKey}` })
+      continue
+    }
+    try {
+      const rows = await adapter.fetch(source)
+      rawItems.push(...rows)
+      sourceStats.push({ sourceId: source.id, ok: true, fetched: rows.length })
+    } catch (error) {
+      sourceStats.push({ sourceId: source.id, ok: false, reason: error.message })
+      console.warn(`[collect] Quelle uebersprungen (${source.id}):`, error.message)
     }
   }
-
-  const workers = Math.min(runtimeConfig.concurrency, sources.length || 1)
-  await Promise.all(Array.from({ length: workers }, () => worker()))
 
   const { inserted } = upsertItems(db, rawItems)
   db.sources = sources

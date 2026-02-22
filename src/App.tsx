@@ -7,7 +7,7 @@ import { FiltersPanel } from './components/Filters'
 import { ProfileDrawer } from './components/ProfileDrawer'
 import { getAllColumnsMeta, TableView } from './components/TableView'
 import { i18n, languageNames, type Language } from './i18n'
-import { validateVorstoesse, type Vorstoss } from './types'
+import { validateVorstoesse, vorstossSchema, type Vorstoss } from './types'
 import { applyFilters, defaultFilters, type Filters } from './utils/filtering'
 import { clearHashId, getHashId, setHashId } from './utils/urlHash'
 
@@ -15,27 +15,17 @@ const fallbackData = (() => {
   try {
     return validateVorstoesse(rawData)
   } catch {
-    // Fail-open for bundled fallback data: keep records visible even when
-    // stricter schema checks reject some crawler rows (e.g. temporary empty fields).
-    if (Array.isArray(rawData)) return rawData as Vorstoss[]
+    if (Array.isArray(rawData)) {
+      return rawData
+        .map((row) => vorstossSchema.safeParse(row))
+        .filter((r) => r.success)
+        .map((r) => r.data)
+    }
     return []
   }
 })()
 
 const API_BASE = (import.meta.env.VITE_API_BASE || '').replace(/\/$/, '')
-const apiUrl = (path: string) => `${API_BASE || ''}${path}`
-
-const migrateLegacyApiBase = () => {
-  if (typeof window === 'undefined') return
-  try {
-    const legacy = window.localStorage.getItem('tierpolitik.apiBase') || ''
-    if (/netlify\.app\/\.netlify\/functions/i.test(legacy)) {
-      window.localStorage.removeItem('tierpolitik.apiBase')
-    }
-  } catch {
-    // ignore storage access issues
-  }
-}
 
 const isSaneLivePayload = (rows: Vorstoss[]) => {
   if (!rows.length) return false
@@ -56,11 +46,10 @@ type ProfileState =
   | null
 
 export default function App() {
-  const infoSeparationVariant: 'border' | 'gradient' = 'gradient'
   const [lang, setLang] = useState<Language>('de')
-  const [theme, setTheme] = useState<'charcoal' | 'sand'>(() => {
-    if (typeof window === 'undefined') return 'charcoal'
-    return 'charcoal'
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    if (typeof window === 'undefined') return 'light'
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   })
   const [filters, setFilters] = useState<Filters>(defaultFilters)
   const [data, setData] = useState<Vorstoss[]>(fallbackData)
@@ -72,38 +61,17 @@ export default function App() {
   const comboBufferRef = useRef('')
   const comboTimerRef = useRef<number | null>(null)
   const darkModeTimerRef = useRef<number | null>(null)
-  const previousFocusRef = useRef<HTMLElement | null>(null)
-  const lastSelectedIdRef = useRef<string | null>(null)
 
   const t = i18n[lang]
   const allColumnsMeta = useMemo(() => getAllColumnsMeta(t), [t])
   const visibleData = useMemo(() => data.filter((v) => !hiddenIds.has(v.id)), [data, hiddenIds])
   const filtered = useMemo(() => applyFilters(visibleData, filters), [visibleData, filters])
-  const monitorStats = useMemo(() => {
-    // Footer stats should reflect full monitor coverage, not session-local hidden rows.
-    const total = data.length
-    const cantons = new Set(
-      data
-        .filter((v) => v.ebene === 'Kanton' || /^[A-Z]{2}$/.test(String(v.kanton || '').trim()))
-        .map((v) => String(v.kanton || '').trim())
-        .filter((v) => /^[A-Z]{2}$/.test(v)),
-    ).size
-
-    const cities = new Set(
-      data
-        .filter((v) => v.ebene === 'Gemeinde' || String(v.regionGemeinde || '').trim().length > 0)
-        .map((v) => String(v.regionGemeinde || '').trim())
-        .filter(Boolean),
-    ).size
-
-    return { total, cantons, cities }
-  }, [data])
 
   useEffect(() => {
-    migrateLegacyApiBase()
     const loadLive = async () => {
+      if (!API_BASE) return
       try {
-        const res = await fetch(apiUrl('/home-data'), { cache: 'no-store' })
+        const res = await fetch(`${API_BASE}/home-data`, { cache: 'no-store' })
         if (!res.ok) return
         const payload = await res.json()
         let parsed: Vorstoss[] = []
@@ -111,10 +79,13 @@ export default function App() {
           parsed = validateVorstoesse(payload)
         } catch {
           if (Array.isArray(payload)) {
-            parsed = payload as Vorstoss[]
+            parsed = payload
+              .map((row) => vorstossSchema.safeParse(row))
+              .filter((r) => r.success)
+              .map((r) => r.data)
           }
         }
-        if (parsed.length >= 20 && isSaneLivePayload(parsed)) {
+        if (parsed.length >= 20 && Math.abs(parsed.length - fallbackData.length) <= 10 && isSaneLivePayload(parsed)) {
           setData(parsed)
         }
       } catch {
@@ -126,32 +97,16 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    const syncFromHash = () => {
-      const id = getHashId()
-      if (!id) return
-      const hit = data.find((v) => v.id === id)
-      if (hit) setSelected(hit)
-    }
-
-    syncFromHash()
-    window.addEventListener('hashchange', syncFromHash)
-    return () => window.removeEventListener('hashchange', syncFromHash)
+    const id = getHashId()
+    if (!id) return
+    const hit = data.find((v) => v.id === id)
+    if (hit) setSelected(hit)
   }, [data])
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('tierpolitik.theme')
-    if (savedTheme === 'charcoal' || savedTheme === 'sand') {
+    if (savedTheme === 'light' || savedTheme === 'dark') {
       setTheme(savedTheme)
-      return
-    }
-
-    if (savedTheme === 'original') {
-      setTheme('sand')
-      return
-    }
-
-    if (savedTheme === 'forest') {
-      setTheme('charcoal')
     }
   }, [])
 
@@ -192,7 +147,7 @@ export default function App() {
       const key = event.key.toLowerCase()
 
       if (key === 'w') {
-        setTheme('sand')
+        setTheme('light')
         event.preventDefault()
         return
       }
@@ -234,7 +189,7 @@ export default function App() {
         if (key === 'd') {
           if (darkModeTimerRef.current) window.clearTimeout(darkModeTimerRef.current)
           darkModeTimerRef.current = window.setTimeout(() => {
-            setTheme('charcoal')
+            setTheme('dark')
             comboBufferRef.current = ''
           }, 320)
           event.preventDefault()
@@ -261,31 +216,13 @@ export default function App() {
   }, [selected, profile])
 
   const openDetail = (item: Vorstoss) => {
-    previousFocusRef.current = document.activeElement as HTMLElement | null
-    lastSelectedIdRef.current = item.id
     setSelected(item)
     setHashId(item.id)
   }
 
   const closeDetail = () => {
-    const previousFocus = previousFocusRef.current
-    const selectedId = lastSelectedIdRef.current
-
     setSelected(null)
     clearHashId()
-
-    window.requestAnimationFrame(() => {
-      if (previousFocus && document.contains(previousFocus)) {
-        previousFocus.focus()
-        return
-      }
-
-      if (selectedId) {
-        const escapedId = typeof CSS !== 'undefined' && CSS.escape ? CSS.escape(selectedId) : selectedId
-        const fallbackRow = document.querySelector<HTMLElement>(`[data-row-id="${escapedId}"]`)
-        fallbackRow?.focus()
-      }
-    })
   }
 
   const onVisibleColumnsChange = useCallback((cols: { key: string; label: string }[]) => {
@@ -307,7 +244,7 @@ export default function App() {
     window.open(`mailto:kulturfenster@gmail.com?subject=${subject}&body=${body}`, '_blank', 'noopener,noreferrer')
   }
 
-  const applyQuickFilter = (field: 'thema' | 'typ' | 'ebene' | 'kanton' | 'region' | 'submitter' | 'party', value: string) => {
+  const applyQuickFilter = (field: 'thema' | 'typ' | 'ebene' | 'kanton' | 'region', value: string) => {
     const base = defaultFilters()
 
     if (field === 'thema') base.themen = [value]
@@ -315,8 +252,6 @@ export default function App() {
     if (field === 'kanton') base.kantone = [value]
     if (field === 'typ') base.globalQuery = value
     if (field === 'region') base.globalQuery = value
-    if (field === 'submitter') base.globalQuery = value
-    if (field === 'party') base.globalQuery = value
 
     setFilters(base)
     setProfile(null)
@@ -333,21 +268,22 @@ export default function App() {
   }
 
   return (
-    <main className={`container info-sep-${infoSeparationVariant}`}>
-      <div className="language-switch row" style={{ marginBottom: '0.55rem' }}>
-        <div className="chips">
-          {(Object.keys(languageNames) as Language[]).map((code) => (
-            <button key={code} className={lang === code ? 'chip active' : 'chip'} type="button" onClick={() => setLang(code)}>
-              {languageNames[code]}
-            </button>
-          ))}
-          <span className="switch-sep">|</span>
-          <button className={theme === 'sand' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('sand')}>WHITE</button>
-          <button className={theme === 'charcoal' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('charcoal')}>DARK</button>
-        </div>
-      </div>
-
+    <main className="container">
       <header className="hero-head">
+        <div className="hero-top row">
+          <div className="language-switch row">
+            <div className="chips">
+              {(Object.keys(languageNames) as Language[]).map((code) => (
+                <button key={code} className={lang === code ? 'chip active' : 'chip'} type="button" onClick={() => setLang(code)}>
+                  {languageNames[code]}
+                </button>
+              ))}
+              <span className="switch-sep">|</span>
+              <button className={theme === 'light' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('light')}>WHITE</button>
+              <button className={theme === 'dark' ? 'chip active' : 'chip'} type="button" onClick={() => setTheme('dark')}>DARK</button>
+            </div>
+          </div>
+        </div>
         <div className="title-row">
           <img className="hero-monitor-logo logo-light" src="/branding/monitor-icon-light.png" alt="Tierpolitik Monitor" />
           <img className="hero-monitor-logo logo-dark" src="/branding/monitor-icon.png" alt="Tierpolitik Monitor" />
@@ -406,16 +342,14 @@ export default function App() {
               <img src="/branding/TIF_Logo_Button.png" alt="Tier im Fokus" />
               <strong>tier im fokus</strong>
             </a>
-            <p className="footer-blurb">Tier im Fokus (TIF) wurde 2025 als erste Tierrechtsorganisation der Schweiz in ein Parlament gewählt und vertritt seither die Interessen der Tiere im <a href="https://tierimfokus.ch/stadtrat" target="_blank" rel="noopener noreferrer">Berner Stadtrat</a>.</p>
-            <p className="footer-blurb">Der Tierpolitik-Monitor Schweiz macht parlamentarische Vorstösse zu Tierschutz und Tierrechten in Bund, Kantonen und Gemeinden sichtbar.</p>
-            <p className="footer-blurb">Derzeit sind {monitorStats.total} Vorstösse aus {monitorStats.cantons} Kantonen und {monitorStats.cities} Städten erfasst.</p>
+            <p className="footer-blurb">Tier im Fokus (TIF) wurde 2025 als erste Tierrechtsorganisation der Schweiz in ein Parlament gewählt und vertritt seither die Interessen der Tiere im <a href="https://tierimfokus.ch/stadtrat" target="_blank" rel="noopener noreferrer">Berner Stadtrat</a>. Dieses Projekt soll die Tierpolitik schweizweit sichtbar machen und fördern.</p>
           </div>
 
           <nav className="site-nav" aria-label="Tier im Fokus Links">
-            <a className="btn btn--secondary" href="https://www.tierimfokus.ch/medien" target="_blank" rel="noopener noreferrer">Medien</a>
-            <a className="btn btn--secondary" href="https://www.tierimfokus.ch/kontakt" target="_blank" rel="noopener noreferrer">Kontakt</a>
-            <a className="btn btn--secondary" href="https://www.tierimfokus.ch/newsletter" target="_blank" rel="noopener noreferrer">Newsletter</a>
-            <a className="btn btn--primary" href="https://www.tierimfokus.ch/spenden" target="_blank" rel="noopener noreferrer">Spenden</a>
+            <a href="https://www.tierimfokus.ch/medien" target="_blank" rel="noopener noreferrer">Medien</a>
+            <a href="https://www.tierimfokus.ch/kontakt" target="_blank" rel="noopener noreferrer">Kontakt</a>
+            <a href="https://www.tierimfokus.ch/newsletter" target="_blank" rel="noopener noreferrer">Newsletter</a>
+            <a href="https://www.tierimfokus.ch/spenden" target="_blank" rel="noopener noreferrer">Spenden</a>
           </nav>
         </div>
 

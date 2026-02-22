@@ -1,68 +1,61 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { adapters } from '../crawler/adapters/index.mjs'
-import { readCollectEnv, resolveSourcePolicy, executeSourceFetch } from '../crawler/collectRuntime.mjs'
 import { loadSourceRegistry, summarizeRegistry } from '../crawler/source-registry.mjs'
 
 const outPath = path.resolve(process.cwd(), 'data/crawler-v2-collect.json')
 
-const runtimeConfig = readCollectEnv({
-  timeoutMs: 45000,
-  concurrency: 4,
-  retries: 1,
-  backoffMs: 1200,
-  backoffMaxMs: 12000,
-  backoffFactor: 2,
-})
+const parseIntSafe = (value, fallback) => {
+  const n = Number.parseInt(String(value ?? ''), 10)
+  return Number.isFinite(n) && n > 0 ? n : fallback
+}
+
+const COLLECT_TIMEOUT_MS = parseIntSafe(process.env.CRAWLER_COLLECT_TIMEOUT_MS, 45000)
+const COLLECT_CONCURRENCY = parseIntSafe(process.env.CRAWLER_COLLECT_CONCURRENCY, 4)
+
+const runWithAbortTimeout = async (runner, timeoutMs) => {
+  const controller = new AbortController()
+  let timer
+  const timeoutPromise = new Promise((_, reject) => {
+    timer = setTimeout(() => {
+      controller.abort(new Error(`Adapter timeout after ${timeoutMs}ms`))
+      reject(new Error(`Adapter timeout after ${timeoutMs}ms`))
+    }, timeoutMs)
+  })
+
+  try {
+    return await Promise.race([runner(controller.signal), timeoutPromise])
+  } finally {
+    if (timer) clearTimeout(timer)
+  }
+}
 
 const collectOneSource = async (source) => {
   const adapterKey = source.adapter || source.type
   const adapter = adapters[adapterKey]
   if (!adapter) {
-    return { sourceId: source.id, ok: false, reason: `Kein Adapter: ${adapterKey}`, fetched: 0, durationMs: 0, items: [] }
+    return { sourceId: source.id, ok: false, reason: `Kein Adapter: ${adapterKey}`, fetched: 0, items: [] }
   }
 
-  const policy = resolveSourcePolicy(source, runtimeConfig)
-
-  const result = await executeSourceFetch({
-    source,
-    adapter,
-    policy,
-    onStart: ({ sourceId, timeoutMs, retries }) => {
-      console.log(`[collect:v2] start ${sourceId} (timeout=${timeoutMs}ms retries=${retries})`)
-    },
-    onRetry: ({ sourceId, attempt, nextAttempt, backoffMs, error }) => {
-      console.warn(`[collect:v2] retry ${sourceId} (attempt ${attempt}->${nextAttempt}, wait=${backoffMs}ms): ${error.message}`)
-    },
-    onDone: ({ sourceId, fetched, durationMs, attempt }) => {
-      console.log(`[collect:v2] done ${sourceId} (items=${fetched}, attempt=${attempt}, ms=${durationMs})`)
-    },
-    onFail: ({ sourceId, durationMs, attempt, error }) => {
-      console.warn(`[collect:v2] fail ${sourceId} (attempt=${attempt}, ms=${durationMs}): ${error.message}`)
-    },
-  })
-
-  if (result.ok) {
+  const startedAt = Date.now()
+  try {
+    const rows = await runWithAbortTimeout((signal) => adapter.fetch(source, { signal }), COLLECT_TIMEOUT_MS)
     return {
       sourceId: source.id,
       ok: true,
-      fetched: result.rows.length,
-      attempts: result.attempts,
-      timeoutMs: policy.timeoutMs,
-      durationMs: result.durationMs,
-      items: result.rows,
+      fetched: rows.length,
+      durationMs: Date.now() - startedAt,
+      items: rows,
     }
-  }
-
-  return {
-    sourceId: source.id,
-    ok: false,
-    reason: result.error?.message || 'collect failed',
-    attempts: result.attempts,
-    timeoutMs: policy.timeoutMs,
-    durationMs: result.durationMs,
-    fetched: 0,
-    items: [],
+  } catch (error) {
+    return {
+      sourceId: source.id,
+      ok: false,
+      reason: error.message,
+      durationMs: Date.now() - startedAt,
+      fetched: 0,
+      items: [],
+    }
   }
 }
 
@@ -79,7 +72,7 @@ const collectFromSources = async (sources) => {
     }
   }
 
-  await Promise.all(Array.from({ length: Math.min(runtimeConfig.concurrency, enabledSources.length || 1) }, () => worker()))
+  await Promise.all(Array.from({ length: Math.min(COLLECT_CONCURRENCY, enabledSources.length || 1) }, () => worker()))
 
   const sourceStats = runs
     .map(({ items: _items, ...stat }) => stat)
@@ -97,10 +90,8 @@ const payload = {
   generatedAt: new Date().toISOString(),
   registry,
   runtime: {
-    collectConcurrency: runtimeConfig.concurrency,
-    collectTimeoutMs: runtimeConfig.timeoutMs,
-    collectRetries: runtimeConfig.retries,
-    collectRetryBackoffMs: runtimeConfig.backoffMs,
+    collectConcurrency: COLLECT_CONCURRENCY,
+    collectTimeoutMs: COLLECT_TIMEOUT_MS,
   },
   sourceStats,
   totalItems: items.length,

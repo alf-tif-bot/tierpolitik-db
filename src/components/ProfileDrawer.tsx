@@ -2,8 +2,6 @@ import type { Language } from '../i18n'
 import { translateContent } from '../i18n'
 import type { Vorstoss } from '../types'
 import { formatDateCH } from '../utils/date'
-import { normalizePartyName, normalizeSubmitterName } from '../utils/submitters'
-import { toFrenchQuotes } from '../utils/text'
 
 type ProfileState =
   | { kind: 'person'; value: string }
@@ -19,22 +17,20 @@ type Props = {
   onSubscribe: (context: string) => void
 }
 
-const normalizeTitle = (value: string) => toFrenchQuotes(value.replace(/^Vorstoss\s+\d+\s*:\s*/i, ''))
+const normalizeTitle = (value: string) => value.replace(/^Vorstoss\s+\d+\s*:\s*/i, '')
 
 export function ProfileDrawer({ profile, data, lang, onClose, onOpenDetail, onSubscribe }: Props) {
   if (!profile) return null
 
   const isParty = profile.kind === 'party'
-  const normalizedProfileValue = isParty ? normalizePartyName(profile.value) : normalizeSubmitterName(profile.value)
-
   const matching = data.filter((v) =>
     isParty
-      ? v.einreichende.some((p) => normalizePartyName(p.partei) === normalizedProfileValue)
-      : v.einreichende.some((p) => normalizeSubmitterName(p.name) === normalizedProfileValue),
+      ? v.einreichende.some((p) => p.partei === profile.value)
+      : v.einreichende.some((p) => p.name === profile.value),
   )
 
-  const title = isParty ? `Partei: ${normalizedProfileValue}` : `Person: ${normalizedProfileValue}`
-  const subscriptionLabel = isParty ? `Partei ${normalizedProfileValue}` : `Person ${normalizedProfileValue}`
+  const title = isParty ? `Partei: ${profile.value}` : `Person: ${profile.value}`
+  const subscriptionLabel = isParty ? `Partei ${profile.value}` : `Person ${profile.value}`
 
   return (
     <div className="drawer-backdrop" onClick={onClose}>

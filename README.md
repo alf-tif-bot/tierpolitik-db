@@ -63,30 +63,8 @@ Wirkung:
 
 - `/crawler.html` (Quelle, Publikationsdatum, Titel, Kurzsummary, Originallink)
 - `/review.html`
-- `/status.html` (Endpoint-Diagnose für `/home-data`, `/feedback-submit`, `/review-decision`, `/review-fastlane-tag`)
 
 Beide werden immer aus derselben `data/crawler-db.json` erzeugt und sind gegenseitig verlinkt.
-
-## Monitor API (domain-native)
-
-Serverstart lokal:
-
-```bash
-npm run monitor-api:start
-```
-
-Endpoints (same-origin auf `monitor.tierimfokus.ch`):
-- `GET /home-data`
-- `POST /feedback-submit`
-- `POST /review-decision`
-- `POST /review-fastlane-tag`
-- `GET /healthz`
-
-Smoke-Test:
-
-```bash
-npm run smoke:monitor-api
-```
 
 ## PostgreSQL (additiver Migrationspfad)
 
@@ -94,7 +72,7 @@ Die bestehende JSON-Pipeline bleibt unverändert funktionsfähig. Die DB-Integra
 
 - JSON bleibt zunächst "Source of Truth".
 - DB wird parallel gespiegelt (Mirror), um risikoarm zu migrieren.
-- Site-Flow bleibt auf `data/crawler-db.json` und `data/crawler-published.json`.
+- Netlify/Site-Flow bleibt auf `data/crawler-db.json` und `data/crawler-published.json`.
 
 ### Setup (1st time, minimal)
 
@@ -153,10 +131,8 @@ Synchronisiert zuerst die neuesten Review/Crawler-Entscheide in die DB und baut 
 
 ### Automatische Review->DB Anbindung
 
-- `review.html` sendet Approve/Reject serverseitig an **same-origin** `/review-decision`
-- Fastlane-Tags laufen analog über same-origin `/review-fastlane-tag`
-- Home lädt Live-Daten aus DB via same-origin `/home-data` (mit lokalem JSON-Fallback)
-- Legacy-Wert `localStorage['tierpolitik.apiBase']` mit Netlify-URL wird automatisch entfernt/ignoriert
+- `review.html` sendet Approve/Reject jetzt serverseitig an `/.netlify/functions/review-decision`
+- Home lädt Live-Daten aus DB via `/.netlify/functions/home-data` (mit lokalem JSON-Fallback)
 
 ### Phasenplan (pragmatisch)
 
@@ -167,7 +143,7 @@ Synchronisiert zuerst die neuesten Review/Crawler-Entscheide in die DB und baut 
 
 **Phase B: DB primär + JSON Export für Site (später)**
 1. Crawler schreibt direkt in PostgreSQL
-2. `npm run db:sync-json` erzeugt JSON-Artefakte für die bestehende Site
+2. `npm run db:sync-json` erzeugt JSON-Artefakte für bestehende Site/Netlify
 3. Schrittweise Umstellung der Read-Paths auf DB-Helper
 
 ## Cron / unattended run
