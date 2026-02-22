@@ -22,9 +22,10 @@
 - notieren: vorher/nachher Schmerz
 
 ## Dose & Steuerung
-- **Regel 1:** Keine aggressive Dehnung in Schmerz
-- **Regel 2:** Keine Laststeigerung bei Rebound >24h
-- **Regel 3:** Bei Flare-up direkt 48-72h zurück auf isometrische Phase
+- **Regel 1:** Harte 0/10-Regel (während + nach Übung)
+- **Regel 2:** Nur schmerzfreier ROM, notfalls sehr klein
+- **Regel 3:** Keine Laststeigerung bei Rebound >24h
+- **Regel 4:** Bei Flare-up direkt 48-72h nur minimale, schmerzfreie Bewegung
 
 ## Ergebnis
 - **Vorher (0-10):**

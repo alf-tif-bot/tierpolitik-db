@@ -3,22 +3,21 @@
 ## Snapshot
 - **Status:** aktiv
 - **Priorität:** hoch
-- **Seite:** (bitte eintragen: links/rechts)
+- **Seite:** rechts
 
 ## Symptome
 - **Typ:** Schmerz + Reizbarkeit bei Belastung
 - **Intensität (0-10):**
-  - Ruhe: 
-  - Belastung: 
+  - Ruhe: 0/10
+  - Belastung: v. a. bei Triggerbewegungen
 - **Verlauf:** seit Monaten
 - **Tagesmuster:** eintragen (morgens/abends/nach Belastung)
 
 ## Trigger & Entlastung
-- **Verschlechtert durch (typisch bei LBS-Reizung):**
-  - Überkopfbewegungen unter Last
-  - Starkes Ziehen/Tragen mit gestrecktem Arm
-  - Endrange-Dehnung in schmerzhafte Position
-  - Zu frühe/zu hohe Übungsintensität
+- **Verschlechtert durch (aktuell):**
+  - Über-Schulter-Bewegungen
+  - Außenrotation mit Kraft bei ca. 90° Armposition
+  - Beim Autofahren stark nach links steuern (rechte Schulter belastet)
 - **Verbessert durch:**
   - isometrische, gut tolerierbare Last
   - reduzierte Bewegungsamplitude im schmerzarmen Bereich
@@ -61,10 +60,11 @@
 3. **Zug-/Drückmuster mit sauberer Schulterblattkontrolle**
 
 ## Last-Steuerung (wichtig)
-- Während Übung: Schmerz bis **max 2-3/10** akzeptabel
-- Nach Übung/Tag danach: keine deutliche Verschlechterung (>24h)
-- Bei Flare-up: 48-72h zurück auf Phase 1, dann wieder langsam steigern
-- Steigerung nur in **einer** Variable gleichzeitig: Last ODER Volumen ODER ROM
+- Während Übung: **0/10 Schmerz** (harte Regel)
+- Direkt nach Übung: **0/10 Schmerz**
+- Später am Tag/Tag danach: keine Zunahme
+- Bei Flare-up: 48-72h zurück auf minimale, komplett schmerzfreie Bewegung
+- Steigerung nur in **einer** Variable gleichzeitig: ROM ODER Last ODER Volumen
 
 ## Medikationshinweis (allgemein)
 - Ibuprofen kann Symptome dämpfen; nicht als Signal nutzen, um aggressiver zu laden.
