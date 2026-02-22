@@ -115,7 +115,7 @@ function nextLocalRunAt(hour: number, minute: number) {
   return next.getTime()
 }
 
-function buildLaunchdMirrorJobs() {
+function buildLaunchdMirrorJobs(): CronJobRaw[] {
   if (process.platform !== 'darwin') return [] as CronJobRaw[]
 
   const plist = path.join(os.homedir(), 'Library', 'LaunchAgents', 'ai.openclaw.workspace-nightly-github-update.plist')

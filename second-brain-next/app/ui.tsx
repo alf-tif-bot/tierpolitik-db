@@ -3391,7 +3391,7 @@ export default function ClientBoard() {
 
   const healthProblemZones = useMemo(() => {
     return knowledgeEntries
-      .filter((entry) => entry.relPath.startsWith('Physio/Problemzonen/') && entry.name.toLowerCase().endswith('.md') && entry.name.toLowerCase() !== 'readme.md')
+      .filter((entry) => entry.relPath.startsWith('Physio/Problemzonen/') && entry.name.toLowerCase().endsWith('.md') && entry.name.toLowerCase() !== 'readme.md')
       .map((entry) => {
         const raw = entry.name.replace(/\.md$/i, '')
         const title = raw
