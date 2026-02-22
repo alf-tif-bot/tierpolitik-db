@@ -1738,9 +1738,14 @@ export default function ClientBoard() {
       const rows = Array.isArray(payload?.jobs) ? payload.jobs : []
       setCronJobs(rows)
       setCronError(null)
-    } catch {
+    } catch (error) {
       if (loadSeq !== cronLoadSeq.current) return
-      setCronError('Kalender konnte nicht geladen werden. Letzte Daten bleiben sichtbar.')
+      const msg = error instanceof Error ? error.message : ''
+      if (/pairing required/i.test(msg)) {
+        setCronError('Kalender konnte nicht geladen werden: OpenClaw-Gateway verlangt Pairing/Token. Bitte Gateway-Auth prüfen.')
+      } else {
+        setCronError('Kalender konnte nicht geladen werden. Letzte Daten bleiben sichtbar.')
+      }
     } finally {
       if (loadSeq === cronLoadSeq.current) {
         setCronLoading(false)
@@ -4017,13 +4022,6 @@ export default function ClientBoard() {
                   </span>
                 )}
               </div>
-              <button
-                onClick={() => refreshCurrentSection({ forceRadar: true })}
-                disabled={!canRefreshCurrentSection}
-                title={refreshButtonDisabledReason || 'Aktualisiert den Kalender jetzt'}
-              >
-                {section === 'calendar' && cronLoading ? 'Aktualisiere…' : 'Aktualisieren'}
-              </button>
             </div>
             {cronError && (
               <div style={{ marginBottom: 10, padding: '8px 10px', borderRadius: 8, border: '1px solid #7f1d1d', background: '#2b1111', color: '#fecaca', fontSize: 13 }}>
