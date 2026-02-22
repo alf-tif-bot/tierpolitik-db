@@ -1,0 +1,53 @@
+# macOS
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+secrets/
+**/secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.ovpn
+
+# OpenClaw runtime/private
+.openclaw/
+.pi/
+memory/
+MEMORY.md
+USER.md
+IDENTITY.md
+
+# Node / build
+node_modules/
+**/node_modules/
+.next/
+**/.next/
+dist/
+build/
+coverage/
+.cache/
+.turbo/
+
+# Temp / archives
+tmp/
+*.tmp
+*.swp
+*~
+
+# Backup credentials / local state
+restic.env
+scripts/.restic.env
