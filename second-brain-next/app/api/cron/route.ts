@@ -1,5 +1,7 @@
 import { execFile } from 'node:child_process'
 import { existsSync } from 'node:fs'
+import { readFile } from 'node:fs/promises'
+import os from 'node:os'
 import path from 'node:path'
 import { promisify } from 'node:util'
 import { NextResponse } from 'next/server'
@@ -25,6 +27,10 @@ type CronJobRaw = {
     lastRunAtMs?: number
     lastStatus?: string
   }
+}
+
+type CronJobsFile = {
+  jobs?: CronJobRaw[]
 }
 
 function formatSchedule(job: CronJobRaw) {
@@ -75,6 +81,13 @@ async function cronListJson() {
   return stdout
 }
 
+async function readCronJobsFileFallback() {
+  const jobsFile = path.join(os.homedir(), '.openclaw', 'cron', 'jobs.json')
+  const raw = await readFile(jobsFile, 'utf8')
+  const parsed = JSON.parse(raw) as CronJobsFile
+  return Array.isArray(parsed.jobs) ? parsed.jobs : []
+}
+
 function toJobView(job: CronJobRaw) {
   const nextRunAtMs = typeof job.state?.nextRunAtMs === 'number' ? job.state.nextRunAtMs : null
 
@@ -92,9 +105,20 @@ function toJobView(job: CronJobRaw) {
 
 export async function GET() {
   try {
-    const stdout = await cronListJson()
-    const parsed = JSON.parse(stdout) as { jobs?: CronJobRaw[] }
-    const jobs = Array.isArray(parsed.jobs) ? parsed.jobs : []
+    let jobs: CronJobRaw[] = []
+
+    try {
+      const stdout = await cronListJson()
+      const parsed = JSON.parse(stdout) as CronJobsFile
+      jobs = Array.isArray(parsed.jobs) ? parsed.jobs : []
+    } catch (error) {
+      const message = error instanceof Error ? error.message : ''
+      if (/pairing required|device token mismatch/i.test(message)) {
+        jobs = await readCronJobsFileFallback()
+      } else {
+        throw error
+      }
+    }
 
     const normalized = jobs
       .map(toJobView)
