@@ -3335,11 +3335,6 @@ export default function ClientBoard() {
       .sort((a, b) => (a.nextRunAtMs || 0) - (b.nextRunAtMs || 0)),
   }))
 
-  const upcomingCronJobs = [...calendarJobs]
-    .filter((job) => typeof job.nextRunAtMs === 'number' && job.nextRunAtMs >= nowTick)
-    .sort((a, b) => (a.nextRunAtMs || 0) - (b.nextRunAtMs || 0))
-    .slice(0, 25)
-
   const hiddenDisabledCronJobsCount = cronJobs.filter((job) => !job.enabled).length
 
   const hasPendingTaskMutation = useMemo(() => Object.values(taskActionPending).some(Boolean), [taskActionPending])
@@ -4108,37 +4103,6 @@ export default function ClientBoard() {
               ))}
             </div>
 
-            <div style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 12 }}>
-              <h3 style={{ margin: '0 0 8px 0' }}>Nächste Jobs</h3>
-              {upcomingCronJobs.length === 0 ? (
-                <div style={{ fontSize: 13, opacity: 0.75 }}>
-                  Keine bevorstehenden Läufe gefunden.
-                  {hiddenDisabledCronJobsCount > 0 ? ` (${hiddenDisabledCronJobsCount} deaktivierte Jobs sind ausgeblendet.)` : ''}
-                </div>
-              ) : (
-                <div style={{ display: 'grid', gap: 6 }}>
-                  {upcomingCronJobs.map((job) => {
-                    const sourceColor = cronSourceColor[job.source || 'openclaw'] || '#1d4ed8'
-                    return (
-                      <div key={`next-${job.id}`} style={{ display: 'flex', justifyContent: 'space-between', gap: 12, border: '1px solid #2f2f2f', borderLeft: `4px solid ${sourceColor}`, borderRadius: 8, background: '#181818', padding: '8px 10px' }}>
-                        <div style={{ minWidth: 0 }}>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                            <div style={{ fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{job.name}</div>
-                            <span style={{ fontSize: 10, border: `1px solid ${sourceColor}`, color: sourceColor, borderRadius: 999, padding: '1px 6px' }}>
-                              {job.source === 'launchd' ? 'launchd' : 'cron'}
-                            </span>
-                          </div>
-                          <div style={{ fontSize: 11, opacity: 0.72 }}>{job.scheduleLabel}</div>
-                        </div>
-                        <div style={{ fontSize: 12, opacity: 0.85, whiteSpace: 'nowrap' }}>
-                          {job.nextRunAtMs ? new Date(job.nextRunAtMs).toLocaleString('de-CH', { weekday: 'short', hour: '2-digit', minute: '2-digit' }) : 'kein nächster Lauf'}
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-              )}
-            </div>
           </>
         ) : section === 'memory' ? (
           <>
