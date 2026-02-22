@@ -1,0 +1,37 @@
+{
+  "entities": [
+    {
+      "id": "project_mll94kkt_4rqks",
+      "type": "project",
+      "title": "Tierpolitik HQ",
+      "tags": [],
+      "createdAt": "2026-02-13T18:59:18.701Z",
+      "updatedAt": "2026-02-13T18:59:18.701Z"
+    },
+    {
+      "id": "task_mll94me8_yqt1e",
+      "type": "task",
+      "title": "Crawler Review Auto-Sync",
+      "tags": [
+        "crawler",
+        "review"
+      ],
+      "createdAt": "2026-02-13T18:59:21.056Z",
+      "updatedAt": "2026-02-13T18:59:21.057Z",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "task_mll9fzsv_r5wd6",
+      "type": "task",
+      "title": "ALF: UI polish",
+      "tags": [],
+      "createdAt": "2026-02-13T19:08:11.647Z",
+      "updatedAt": "2026-02-13T19:08:11.647Z",
+      "priority": "high",
+      "status": "open",
+      "assignee": "ALF"
+    }
+  ],
+  "links": []
+}

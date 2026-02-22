@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Second Brain – Shared To‑Dos</title>
+    <style>
+      body { font-family: Inter, system-ui, sans-serif; margin: 0; background:#0b0f16; color:#eef3ff; }
+      .wrap { max-width: 1100px; margin: 0 auto; padding: 20px; }
+      h1 { margin: 0 0 16px; }
+      .row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px; }
+      input, select, button { padding:10px; border-radius:10px; border:1px solid #2a3450; background:#121a2a; color:#eef3ff; }
+      button { cursor:pointer; }
+      .cols { display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-top:16px; }
+      .col { background:#121a2a; border:1px solid #26324b; border-radius:12px; padding:10px; min-height:200px; }
+      .card { background:#1a243a; border:1px solid #324263; border-radius:10px; padding:10px; margin-bottom:8px; }
+      .meta { font-size:12px; opacity:.8; margin-top:6px; display:flex; gap:8px; flex-wrap:wrap; }
+      .small { font-size:12px; opacity:.75; }
+      @media (max-width: 900px){ .cols { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Second Brain · Gemeinsame To‑Dos</h1>
+      <div class="row">
+        <input id="title" placeholder="Neue Aufgabe" style="min-width:280px" />
+        <select id="assignee">
+          <option value="Tobi">Tobi</option>
+          <option value="ALF">ALF</option>
+          <option value="Beide">Beide</option>
+        </select>
+        <select id="priority">
+          <option value="high">High</option>
+          <option value="med" selected>Medium</option>
+          <option value="low">Low</option>
+        </select>
+        <button id="add">+ Task</button>
+      </div>
+
+      <div class="row">
+        <label class="small">Filter:</label>
+        <select id="filterAssignee">
+          <option value="all">Alle</option>
+          <option value="Tobi">Nur Tobi</option>
+          <option value="ALF">Nur ALF</option>
+          <option value="Beide">Nur Beide</option>
+        </select>
+      </div>
+
+      <div class="cols">
+        <div class="col"><h3>Open</h3><div id="open"></div></div>
+        <div class="col"><h3>Doing</h3><div id="doing"></div></div>
+        <div class="col"><h3>Done</h3><div id="done"></div></div>
+      </div>
+    </div>
+
+    <script>
+      async function load() {
+        const assigneeFilter = document.getElementById('filterAssignee').value
+        const res = await fetch('/api/entities?type=task')
+        let tasks = await res.json()
+        if (assigneeFilter !== 'all') tasks = tasks.filter(t => (t.assignee || '') === assigneeFilter)
+
+        ;['open','doing','done'].forEach(s => document.getElementById(s).innerHTML = '')
+        for (const t of tasks) {
+          const card = document.createElement('div')
+          card.className = 'card'
+          card.innerHTML = `
+            <div><strong>${t.title}</strong></div>
+            <div class="meta">
+              <span>👤 ${t.assignee || '–'}</span>
+              <span>⚡ ${t.priority || 'med'}</span>
+              <span>📌 ${t.status}</span>
+            </div>
+            <div class="row" style="margin-top:8px">
+              <button data-id="${t.id}" data-status="open">Open</button>
+              <button data-id="${t.id}" data-status="doing">Doing</button>
+              <button data-id="${t.id}" data-status="done">Done</button>
+            </div>
+          `
+          card.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', async () => {
+              await fetch('/api/tasks/' + btn.dataset.id, {
+                method: 'PATCH',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ status: btn.dataset.status })
+              })
+              load()
+            })
+          })
+          document.getElementById(t.status || 'open').appendChild(card)
+        }
+      }
+
+      document.getElementById('add').addEventListener('click', async () => {
+        const title = document.getElementById('title').value.trim()
+        if (!title) return
+        const assignee = document.getElementById('assignee').value
+        const priority = document.getElementById('priority').value
+        await fetch('/api/tasks', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ title, assignee, priority, status: 'open' })
+        })
+        document.getElementById('title').value = ''
+        load()
+      })
+
+      document.getElementById('filterAssignee').addEventListener('change', load)
+      load()
+    </script>
+  </body>
+</html>

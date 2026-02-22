@@ -1,0 +1,4336 @@
+"use client"
+
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+
+type Section = 'radar' | 'tasks' | 'calendar' | 'projects' | 'content' | 'clients' | 'memory' | 'docs' | 'people' | 'office' | 'files'
+type EntityType = 'project' | 'content' | 'client' | 'memory' | 'doc' | 'person' | 'office'
+
+type Task = {
+  id: string
+  title: string
+  status: 'open' | 'doing' | 'waiting' | 'done'
+  priority: 'low' | 'med' | 'high'
+  impact?: 'low' | 'med' | 'high'
+  area?: 'medien' | 'politik' | 'buch' | 'ops'
+  deadline?: string
+  tocAxis?: 'wertschoepfung' | 'weltbild' | 'repraesentation'
+  assignee: 'Tobi' | 'ALF' | 'Beide'
+}
+
+type Entity = {
+  id: string
+  type: EntityType
+  title: string
+  notes?: string
+  owner?: 'Tobi' | 'ALF' | 'Beide'
+  status?: 'idea' | 'brief' | 'draft' | 'review' | 'approved' | 'published' | 'repurposed'
+  kpis?: string
+  tocAxis?: 'wertschoepfung' | 'weltbild' | 'repraesentation'
+}
+
+type RadarItem = {
+  id: string
+  title: string
+  source: string
+  url: string
+  lane: 'medienarbeit' | 'politik' | 'buchprojekt'
+  kind: 'news' | 'vorstoss' | 'kampagne' | 'analyse'
+  score: number
+  impact: 'low' | 'med' | 'high'
+  urgency: 'low' | 'med' | 'high'
+  tocAxis?: 'wertschoepfung' | 'weltbild' | 'repraesentation'
+  status: 'new' | 'accepted' | 'watchlist' | 'rejected'
+}
+
+type RadarStats = { total: number; accepted: number; watchlist: number; rejected: number; fresh: number; highScore: number; lanePolitik: number; laneMedien: number; laneBuch: number }
+
+type SomedayItem = {
+  id: string
+  fileName: string
+  title: string
+  description?: string
+  status?: string
+  impact?: string
+  effort?: string
+  tags?: string[]
+}
+
+type CronJob = {
+  id: string
+  name: string
+  enabled: boolean
+  scheduleLabel: string
+  status: string
+  nextRunAtMs: number | null
+  nextRunAtIso: string | null
+  lastRunAtMs: number | null
+}
+
+type FilePreviewState = {
+  open: boolean
+  name?: string
+  path?: string
+  content?: string
+  loading: boolean
+  saving?: boolean
+  error?: string
+}
+
+type KnowledgeEntry = {
+  name: string
+  path: string
+  relPath: string
+  group: string
+}
+
+type RadarDecisionUndo = {
+  id: string
+  title: string
+  from: RadarItem['status']
+  to: RadarItem['status']
+}
+
+const maxRadarUndoDepth = 5
+
+function createEmptyRadarStats(): RadarStats {
+  return { total: 0, accepted: 0, watchlist: 0, rejected: 0, fresh: 0, highScore: 0, lanePolitik: 0, laneMedien: 0, laneBuch: 0 }
+}
+
+function computeRadarStatsFromRows(rows: RadarItem[]): RadarStats {
+  return {
+    total: rows.length,
+    accepted: rows.filter((r) => r.status === 'accepted').length,
+    watchlist: rows.filter((r) => r.status === 'watchlist').length,
+    rejected: rows.filter((r) => r.status === 'rejected').length,
+    fresh: rows.filter((r) => r.status === 'new').length,
+    highScore: rows.filter((r) => r.score >= 80).length,
+    lanePolitik: rows.filter((r) => r.lane === 'politik').length,
+    laneMedien: rows.filter((r) => r.lane === 'medienarbeit').length,
+    laneBuch: rows.filter((r) => r.lane === 'buchprojekt').length,
+  }
+}
+
+function radarFollowupConfig(item: RadarItem) {
+  if (item.lane === 'politik') {
+    return {
+      taskTitle: `Politik: Vorstoss-Chance prüfen (Kurzbrief) – ${item.title}`,
+      taskArea: 'politik' as const,
+      entityType: 'doc' as const,
+      entityTitle: `Radar-Politik: ${item.title}`,
+    }
+  }
+
+  if (item.lane === 'buchprojekt') {
+    return {
+      taskTitle: `Buchprojekt: Quelle einordnen & Notiz erstellen – ${item.title}`,
+      taskArea: 'buch' as const,
+      entityType: 'memory' as const,
+      entityTitle: `Radar-Quelle Buch: ${item.title}`,
+    }
+  }
+
+  return {
+    taskTitle: `Medienarbeit: Angle-Vorschläge (1-3) – ${item.title}`,
+    taskArea: 'medien' as const,
+    entityType: 'client' as const,
+    entityTitle: `Radar-Story: ${item.title}`,
+  }
+}
+
+function radarFollowupDeadlineIso(urgency: RadarItem['urgency']) {
+  const dueInDays = urgency === 'high' ? 1 : urgency === 'med' ? 3 : 5
+  const dueAt = new Date(Date.now() + dueInDays * 24 * 60 * 60 * 1000)
+  dueAt.setHours(17, 0, 0, 0)
+  return dueAt.toISOString()
+}
+
+const sectionMeta: Record<Section, { label: string; hint?: string; entityType?: EntityType }> = {
+  radar: { label: 'Radar', hint: 'Signale & Entscheide' },
+  tasks: { label: 'Heute', hint: 'Top-Prioritäten im Cockpit' },
+  calendar: { label: 'Kalender', hint: 'Cron-Jobs der Woche' },
+  content: { label: 'Content Factory', hint: 'Discord-first (Planung im Cockpit)', entityType: 'content' },
+  projects: { label: 'Strategie & Projekte', hint: 'Roadmap / Prioritäten', entityType: 'project' },
+  docs: { label: 'Politik', hint: 'Vorstösse / Agenda', entityType: 'doc' },
+  clients: { label: 'Medienmitteilungen', hint: 'Discord-operativ, Cockpit-Überblick', entityType: 'client' },
+  memory: { label: 'Wissen & Notizen', hint: 'Privat + Arbeit', entityType: 'memory' },
+  people: { label: 'Stakeholder', hint: 'Personen / Rollen', entityType: 'person' },
+  office: { label: 'Archiv & Backoffice', hint: 'Ablage / Nebenaufgaben', entityType: 'office' },
+  files: { label: 'Files', hint: 'Wichtige Dateien & Scripts' },
+}
+
+const importantFiles = [
+  {
+    group: 'Ops · OpenClaw Backup & Migration',
+    items: [
+      {
+        name: 'backup-openclaw.ps1',
+        note: 'Windows-Backup (inkl. ~/.openclaw, Metadaten, ZIP)',
+        path: 'C:/Users/yokim/.openclaw/workspace/scripts/openclaw-backup/backup-openclaw.ps1',
+      },
+      {
+        name: 'restore-openclaw-on-mac.sh',
+        note: 'Restore auf macOS aus Backup-ZIP oder entpacktem Ordner',
+        path: 'C:/Users/yokim/.openclaw/workspace/scripts/openclaw-backup/restore-openclaw-on-mac.sh',
+      },
+      {
+        name: 'README.md (Backup)',
+        note: 'Schnellanleitung Backup -> Mac Restore',
+        path: 'C:/Users/yokim/.openclaw/workspace/scripts/openclaw-backup/README.md',
+      },
+      {
+        name: 'TIF-Setup Lokales Modell (Mac mini)',
+        note: 'Mehruser-Betrieb: 1x lokaler Model-Server, getrennte OpenClaw-Instanzen',
+        path: 'C:/Users/yokim/.openclaw/workspace/TIF-Setup-Lokales-Modell-Mehruser-Mac-mini.md',
+      },
+      {
+        name: 'Recherche SAUGUT / Suisseporcs (Bernhard)',
+        note: 'Andreas & Simon Bernhard + kampagnenrelevante Angriffsflächen mit Quellen',
+        path: 'C:/Users/yokim/.openclaw/workspace/SAUGUT-Suisseporcs-Andreas-Simon-Bernhard-Recherche.md',
+      },
+    ],
+  },
+  {
+    group: 'Stallbrände Schweiz',
+    items: [
+      {
+        name: 'Dashboard v0',
+        note: 'Live-Dashboard (Heatmap + SVG-Karte + Tierzahlen-KPIs)',
+        path: 'C:/Users/yokim/.openclaw/workspace/PARA/Projects/Stallbraende-Schweiz/public/dashboard-stallbraende.v0.html',
+        href: 'http://192.168.50.219:3020/stallbraende-dashboard',
+      },
+      {
+        name: 'Review v0',
+        note: 'Review-UI mit accept/reject/needs-info',
+        path: 'C:/Users/yokim/.openclaw/workspace/PARA/Projects/Stallbraende-Schweiz/public/review-stallbraende.v0.html',
+        href: 'http://192.168.50.219:3020/stallbraende',
+      },
+      {
+        name: 'animal-estimates.v0.json',
+        note: 'min/realistisch/max + QA-Status (pending-review/manual-confirmed)',
+        path: 'C:/Users/yokim/.openclaw/workspace/PARA/Projects/Stallbraende-Schweiz/data/stallbraende/animal-estimates.v0.json',
+      },
+      {
+        name: 'animal-reports.inbox.txt',
+        note: 'Text-Inbox für manuelle Nachmeldungen (Link/PDF + Zahlen)',
+        path: 'C:/Users/yokim/.openclaw/workspace/PARA/Projects/Stallbraende-Schweiz/data/stallbraende/animal-reports.inbox.txt',
+      },
+    ],
+  },
+  {
+    group: 'Mission Control',
+    items: [
+      {
+        name: 'ABKUERZUNGEN.md',
+        note: 'Chat-Kurzformen (z. B. j/y = ja, n = nein)',
+        path: 'C:/Users/yokim/.openclaw/workspace/ABKUERZUNGEN.md',
+      },
+      {
+        name: 'DB (single source of truth)',
+        note: 'Projekte, Tasks, Entities',
+        path: 'C:/Users/yokim/.openclaw/workspace/second-brain-next/data/db.json',
+      },
+      {
+        name: 'UI (diese App)',
+        note: 'Navigation, Radar, Files-Ansicht',
+        path: 'C:/Users/yokim/.openclaw/workspace/second-brain-next/app/ui.tsx',
+      },
+    ],
+  },
+  {
+    group: 'ALF · System & Profil',
+    items: [
+      {
+        name: 'SOUL.md',
+        note: 'Wie ich arbeite und antworte (Persona/Vibe)',
+        path: 'C:/Users/yokim/.openclaw/workspace/SOUL.md',
+      },
+      {
+        name: 'USER.md',
+        note: 'Was ich über dich weiss (Präferenzen & Arbeitsmodus)',
+        path: 'C:/Users/yokim/.openclaw/workspace/USER.md',
+      },
+      {
+        name: 'MEMORY.md',
+        note: 'Langzeit-Memory (kuratierte Fakten/Kontext)',
+        path: 'C:/Users/yokim/.openclaw/workspace/MEMORY.md',
+      },
+      {
+        name: 'IDENTITY.md',
+        note: 'Meine Identität (Name/Charakter-Basis)',
+        path: 'C:/Users/yokim/.openclaw/workspace/IDENTITY.md',
+      },
+    ],
+  },
+]
+
+const pScore = { high: 3, med: 2, low: 1 }
+const radarStatusPriority = { new: 4, watchlist: 3, accepted: 2, rejected: 1 }
+const radarDedupeStatusPriority = { accepted: 4, watchlist: 3, new: 2, rejected: 1 }
+
+function radarLeverageRank(item: RadarItem) {
+  return pScore[item.urgency] * 1_000 + pScore[item.impact] * 100 + item.score
+}
+
+function pickTopActionableRadar(rows: RadarItem[]) {
+  const actionable = rows.filter((r) => r.status === 'new' || r.status === 'watchlist')
+  if (actionable.length === 0) return null
+
+  return [...actionable].sort((a, b) => {
+    const leverageDelta = radarLeverageRank(b) - radarLeverageRank(a)
+    if (leverageDelta !== 0) return leverageDelta
+    return a.title.localeCompare(b.title, 'de-CH')
+  })[0]
+}
+
+function parseTaskDeadlineMs(deadline: string | undefined) {
+  if (!deadline) return Number.NaN
+
+  const dateOnlyMatch = deadline.match(/^(\d{4})-(\d{2})-(\d{2})$/)
+  if (dateOnlyMatch) {
+    const [, yearRaw, monthRaw, dayRaw] = dateOnlyMatch
+    const year = Number(yearRaw)
+    const month = Number(monthRaw)
+    const day = Number(dayRaw)
+
+    const localEndOfDay = new Date(year, month - 1, day, 23, 59, 59, 999)
+    if (localEndOfDay.getFullYear() !== year || localEndOfDay.getMonth() !== month - 1 || localEndOfDay.getDate() !== day) {
+      return Number.NaN
+    }
+
+    return localEndOfDay.getTime()
+  }
+
+  return new Date(deadline).getTime()
+}
+
+function formatTaskDeadline(deadline: string) {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(deadline)) {
+    const [year, month, day] = deadline.split('-')
+    return `${day}.${month}.${year}`
+  }
+
+  const parsed = new Date(deadline)
+  if (Number.isNaN(parsed.getTime())) return deadline
+  return parsed.toLocaleString('de-CH')
+}
+
+function taskDeadlinePressure(task: Task, nowMs: number) {
+  if (!task.deadline || task.status === 'done') return 0
+
+  const deadlineMs = parseTaskDeadlineMs(task.deadline)
+  if (!Number.isFinite(deadlineMs)) return 0
+
+  if (deadlineMs < nowMs) return 3
+  if (deadlineMs - nowMs <= 24 * 60 * 60 * 1000) return 2
+  if (deadlineMs - nowMs <= 3 * 24 * 60 * 60 * 1000) return 1
+  return 0
+}
+
+function taskExecutionRank(task: Task, nowMs: number) {
+  const doingScore = task.status === 'doing' ? 10_000 : 0
+  const deadlineScore = taskDeadlinePressure(task, nowMs) * 1_000
+  const impactScore = pScore[task.impact || 'med'] * 100
+  const priorityScore = pScore[task.priority] * 10
+
+  return doingScore + deadlineScore + impactScore + priorityScore
+}
+
+function parseSomedayScale(value: string | undefined, fallback = 2) {
+  if (!value) return fallback
+  const normalized = value.trim().toLowerCase()
+
+  if (normalized.startsWith('h')) return 3
+  if (normalized.startsWith('m')) return 2
+  if (normalized.startsWith('l')) return 1
+
+  return fallback
+}
+
+function somedayExecutionRank(item: SomedayItem) {
+  const impactScore = parseSomedayScale(item.impact, 2) * 1_000
+  const effortScore = (4 - parseSomedayScale(item.effort, 2)) * 100
+  const hasDescriptionScore = item.description ? 20 : 0
+
+  return impactScore + effortScore + hasDescriptionScore
+}
+
+const sectionStorageKey = 'missionControl.section'
+const taskCacheStorageKey = 'missionControl.tasks.cache.v1'
+const entityCacheStorageKey = 'missionControl.entities.cache.v1'
+const radarCacheStorageKey = 'missionControl.radar.cache.v1'
+const radarRequestTimeoutMs = 12_000
+const boardRequestTimeoutMs = 10_000
+const radarActionTimeoutMs = 8_000
+const taskActionTimeoutMs = 20_000
+const taskActionRetryDelayMs = 550
+const taskActionMaxRetries = 1
+const radarActionRetryDelayMs = 650
+const radarActionMaxRetries = 1
+const followupActionRetryDelayMs = 700
+const followupActionMaxRetries = 1
+const somedayActionTimeoutMs = 8_000
+const somedayActionRetryDelayMs = 650
+const somedayActionMaxRetries = 1
+const radarAutoRefreshCooldownMs = 10_000
+const boardAutoRefreshCooldownMs = 10_000
+const radarRetryBaseMs = 2_500
+const radarMaxAutoRetries = 2
+const boardLoadRetryDelayMs = 450
+const boardLoadMaxRetries = 1
+const radarFutureSkewToleranceMs = 5 * 60_000
+const radarStaleThresholdMinutes = 15
+const radarDedupedCountDriftTolerance = 1
+
+function radarMaxAcceptedFutureMs() {
+  return Date.now() + radarFutureSkewToleranceMs
+}
+const radarUnsafeSourceTooltip = 'Quelle ist ungültig oder unsicher und wurde blockiert'
+const radarOfflineRefreshError = 'Offline: Radar kann ohne Internet nicht aktualisiert werden.'
+const filePreviewOfflineLoadError = 'Offline: Datei-Vorschau kann ohne Netzwerk nicht geladen werden.'
+const filePreviewOfflineInterruptedError = 'Offline: Datei-Vorschau wurde unterbrochen. Bitte erneut versuchen, sobald die Verbindung zurück ist.'
+const filePreviewOfflineSaveInterruptedError = 'Offline: Speichern wurde unterbrochen. Bitte erneut speichern, sobald die Verbindung zurück ist.'
+const radarTimeoutError = 'Radar-Antwort zu langsam. Letzte Daten bleiben sichtbar.'
+const radarUnavailableError = 'Radar temporär nicht verfügbar. Letzte Daten bleiben sichtbar.'
+const radarMaxUrlLength = 2_048
+const radarMaxHostnameLength = 253
+const radarMaxPathnameLength = 1_500
+const radarMaxSearchLength = 512
+const radarMaxHashLength = 128
+const radarMaxIdLength = 160
+const radarMaxTitleLength = 280
+const radarMaxSourceLength = 120
+const radarUrlWhitespacePattern = /\s/
+const radarUrlControlCharPattern = /[\u0000-\u001F\u007F]/
+const radarTextControlCharPattern = /[\u0000-\u001F\u007F]/
+const radarIdUnsafePattern = /\s|[\u0000-\u001F\u007F]/
+const radarHostnameDotAnomalyPattern = /^\.|\.$|\.\./
+const radarHostnameControlCharPattern = /[\u0000-\u001F\u007F]/
+const radarHostnameLabelPattern = /^[a-z0-9-]+$/
+const radarPortPattern = /^[0-9]{1,5}$/
+const radarMinPort = 1
+const radarMaxPort = 65_535
+const radarIpv4OctetMin = 0
+const radarIpv4OctetMax = 255
+const radarPrivate10FirstOctet = 10
+const radarCarrierNat100FirstOctet = 100
+const radarLoopback127FirstOctet = 127
+const radarLinkLocal169FirstOctet = 169
+const radarPrivate172FirstOctet = 172
+const radarPrivate172SecondOctetMin = 16
+const radarPrivate172SecondOctetMax = 31
+const radarCarrierNat100SecondOctetMin = 64
+const radarCarrierNat100SecondOctetMax = 127
+const radarBenchmark198FirstOctet = 198
+const radarMulticast224FirstOctet = 224
+const radarBenchmark198SecondOctetMin = 18
+const radarBenchmark198SecondOctetMax = 19
+const radarPrivate192FirstOctet = 192
+const radarLocalhostHostname = 'localhost'
+const radarLocalDomainSuffix = '.local'
+const radarIpv4Pattern = /^(\d{1,3})(?:\.(\d{1,3})){3}$/
+const radarLinkLocal169SecondOctet = 254
+const radarPrivate192SecondOctet = 168
+
+function isValidRadarHostnameSyntax(hostname: string) {
+  if (!hostname || hostname.length > radarMaxHostnameLength) return false
+
+  const labels = hostname.split('.')
+  if (labels.length === 0) return false
+
+  for (const label of labels) {
+    if (!label) return false
+    if (label.length > 63) return false
+    if (!radarHostnameLabelPattern.test(label)) return false
+    if (label.startsWith('-') || label.endsWith('-')) return false
+  }
+
+  return true
+}
+
+function isPrivateRadarHostname(hostname: string) {
+  if (hostname === radarLocalhostHostname || hostname.endsWith(radarLocalDomainSuffix)) return true
+
+  if (!radarIpv4Pattern.test(hostname)) return false
+
+  const octets = hostname.split('.').map((part) => Number(part))
+  if (octets.some((octet) => !Number.isInteger(octet) || octet < radarIpv4OctetMin || octet > radarIpv4OctetMax)) return true
+
+  const [a, b] = octets
+  if (a === 0) return true
+  if (a === radarPrivate10FirstOctet) return true
+  if (a === radarLoopback127FirstOctet) return true
+  if (a === radarLinkLocal169FirstOctet && b === radarLinkLocal169SecondOctet) return true
+  if (a === radarPrivate172FirstOctet && b >= radarPrivate172SecondOctetMin && b <= radarPrivate172SecondOctetMax) return true
+  if (a === radarPrivate192FirstOctet && b === radarPrivate192SecondOctet) return true
+  if (a === radarCarrierNat100FirstOctet && b >= radarCarrierNat100SecondOctetMin && b <= radarCarrierNat100SecondOctetMax) return true
+  if (a === radarBenchmark198FirstOctet && b >= radarBenchmark198SecondOctetMin && b <= radarBenchmark198SecondOctetMax) return true
+  if (a >= radarMulticast224FirstOctet) return true
+
+  return false
+}
+
+function normalizeTitle(value: string | undefined) {
+  return (value ?? '')
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim()
+    .replace(/\s+/g, ' ')
+    .toLocaleLowerCase('de-CH')
+}
+
+function normalizeRadarHostname(value: string) {
+  let host = value.toLowerCase()
+
+  while (/^(www|m|mobile|amp)\./i.test(host)) {
+    host = host.replace(/^(www|m|mobile|amp)\./i, '')
+  }
+
+  return host
+}
+
+function normalizeComparableUrl(value: string | undefined) {
+  if (!value) return ''
+
+  try {
+    const parsed = new URL(value.trim())
+    parsed.hash = ''
+
+    const trackingKeys = new Set([
+      'fbclid',
+      'gclid',
+      'igshid',
+      'mc_cid',
+      'mc_eid',
+      'mkt_tok',
+      'ref',
+      'ref_src',
+      'si',
+      'spm',
+      'utm_campaign',
+      'utm_content',
+      'utm_id',
+      'utm_medium',
+      'utm_name',
+      'utm_source',
+      'utm_term',
+      'wt_mc',
+    ])
+
+    for (const key of [...parsed.searchParams.keys()]) {
+      const normalized = key.toLowerCase()
+      if (normalized.startsWith('utm_') || trackingKeys.has(normalized)) {
+        parsed.searchParams.delete(key)
+      }
+    }
+
+    parsed.searchParams.sort()
+
+    const normalizedHost = normalizeRadarHostname(parsed.hostname)
+    const isDefaultPort = (parsed.protocol === 'https:' && parsed.port === '443') || (parsed.protocol === 'http:' && parsed.port === '80')
+    const normalizedPort = parsed.port && !isDefaultPort ? `:${parsed.port}` : ''
+
+    const normalizedPath = (() => {
+      const collapsed = parsed.pathname.replace(/\/{2,}/g, '/')
+      const withoutIndex = collapsed.replace(/\/(index\.(html?|php))$/i, '/')
+      return withoutIndex === '/' ? '' : withoutIndex.replace(/\/$/, '')
+    })()
+
+    const normalizedBase = `${normalizedHost}${normalizedPort}${normalizedPath}${parsed.search}`.toLowerCase()
+    const isHttpLikeProtocol = parsed.protocol === 'http:' || parsed.protocol === 'https:'
+
+    return isHttpLikeProtocol ? normalizedBase : `${parsed.protocol}//${normalizedBase}`
+  } catch {
+    return value.trim().toLowerCase().replace(/\/$/, '')
+  }
+}
+
+function parseSafeRadarUrl(value: string): URL | null {
+  if (typeof value !== 'string') return null
+
+  const trimmed = value.trim()
+  if (!trimmed || trimmed.length > radarMaxUrlLength) return null
+  if (radarUrlWhitespacePattern.test(trimmed)) return null
+  if (radarUrlControlCharPattern.test(trimmed)) return null
+
+  try {
+    const parsed = new URL(trimmed)
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return null
+    const hostname = parsed.hostname.toLowerCase()
+    if (!hostname) return null
+    if (radarHostnameDotAnomalyPattern.test(hostname)) return null
+    if (radarHostnameControlCharPattern.test(hostname)) return null
+    if (!isValidRadarHostnameSyntax(hostname)) return null
+    if (isPrivateRadarHostname(hostname)) return null
+    if (parsed.pathname.length > radarMaxPathnameLength) return null
+    if (parsed.search.length > radarMaxSearchLength) return null
+    if (parsed.hash.length > radarMaxHashLength) return null
+    if (parsed.username || parsed.password) return null
+    if (parsed.port) {
+      if (!radarPortPattern.test(parsed.port)) return null
+      const port = Number(parsed.port)
+      if (!Number.isInteger(port) || port < radarMinPort || port > radarMaxPort) return null
+    }
+    return parsed
+  } catch {
+    return null
+  }
+}
+
+function isSafeRadarHttpUrl(value: string) {
+  return parseSafeRadarUrl(value) !== null
+}
+
+function normalizedRadarDomain(value: string | undefined) {
+  if (!value) return ''
+
+  try {
+    return normalizeRadarHostname(new URL(value.trim()).hostname)
+  } catch {
+    return ''
+  }
+}
+
+function radarSearchHaystack(item: RadarItem) {
+  const normalizedUrl = normalizeComparableUrl(item.url)
+  const normalizedUrlText = normalizedUrl
+    .replace(/[/?#&=._:-]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+  return normalizeTitle(
+    `${item.title} ${item.source} ${item.kind} ${item.lane} ${item.tocAxis || ''} ${normalizedRadarDomain(item.url)} ${normalizedUrlText}`,
+  )
+}
+
+const radarStatusFilterStorageKey = 'missionControl.radar.statusFilter'
+const radarLaneFilterStorageKey = 'missionControl.radar.laneFilter'
+const radarQueryStorageKey = 'missionControl.radar.query'
+const radarLeverageFilterStorageKey = 'missionControl.radar.leverageOnly'
+const radarSortModeStorageKey = 'missionControl.radar.sortMode'
+const defaultRadarStatusFilter: 'all' | 'actionable' | 'new' | 'watchlist' | 'accepted' | 'rejected' = 'actionable'
+
+function radarUpdatedAtMs(item: RadarItem) {
+  const updatedAt = (item as { updatedAt?: unknown }).updatedAt
+  if (typeof updatedAt !== 'string') return Number.NEGATIVE_INFINITY
+
+  const parsedMs = new Date(updatedAt).getTime()
+  return Number.isFinite(parsedMs) ? parsedMs : Number.NEGATIVE_INFINITY
+}
+
+function dedupeRadarItems(rows: RadarItem[]): RadarItem[] {
+  const bestByKey = new Map<string, RadarItem>()
+
+  for (const item of rows) {
+    const urlKey = normalizeComparableUrl(item.url)
+    const titleKey = normalizeTitle(item.title)
+    const sourceKey = normalizeTitle(item.source)
+    const domainKey = normalizedRadarDomain(item.url)
+    const titleFallbackKey = titleKey
+      ? `${titleKey}::${domainKey || sourceKey || 'unknown-source'}`
+      : ''
+    const dedupeKey = urlKey || titleFallbackKey || `id::${item.id}`
+    const existing = bestByKey.get(dedupeKey)
+
+    if (!existing) {
+      bestByKey.set(dedupeKey, item)
+      continue
+    }
+
+    const existingRank =
+      radarDedupeStatusPriority[existing.status] * 10_000 +
+      pScore[existing.urgency] * 100 +
+      pScore[existing.impact] * 10 +
+      existing.score
+    const nextRank =
+      radarDedupeStatusPriority[item.status] * 10_000 +
+      pScore[item.urgency] * 100 +
+      pScore[item.impact] * 10 +
+      item.score
+
+    if (nextRank > existingRank) {
+      bestByKey.set(dedupeKey, item)
+      continue
+    }
+
+    if (nextRank === existingRank) {
+      const existingSafe = isSafeRadarHttpUrl(existing.url)
+      const nextSafe = isSafeRadarHttpUrl(item.url)
+
+      if (nextSafe && !existingSafe) {
+        bestByKey.set(dedupeKey, item)
+        continue
+      }
+
+      if (existingSafe && !nextSafe) {
+        continue
+      }
+
+      if (radarUpdatedAtMs(item) > radarUpdatedAtMs(existing)) {
+        bestByKey.set(dedupeKey, item)
+      }
+    }
+  }
+
+  return [...bestByKey.values()]
+}
+
+function sanitizeTaskCacheRows(rows: unknown): Task[] {
+  if (!Array.isArray(rows)) return []
+
+  const allowedStatus = new Set<Task['status']>(['open', 'doing', 'waiting', 'done'])
+  const allowedPriority = new Set<Task['priority']>(['low', 'med', 'high'])
+  const allowedImpact = new Set<NonNullable<Task['impact']>>(['low', 'med', 'high'])
+  const allowedArea = new Set<NonNullable<Task['area']>>(['medien', 'politik', 'buch', 'ops'])
+  const allowedAxis = new Set<NonNullable<Task['tocAxis']>>(['wertschoepfung', 'weltbild', 'repraesentation'])
+  const allowedAssignee = new Set<Task['assignee']>(['Tobi', 'ALF', 'Beide'])
+
+  return rows
+    .map((row) => {
+      if (!row || typeof row !== 'object') return null
+      const task = row as Partial<Task>
+
+      if (typeof task.id !== 'string' || typeof task.title !== 'string') return null
+      if (!allowedStatus.has(task.status as Task['status'])) return null
+      if (!allowedPriority.has(task.priority as Task['priority'])) return null
+      if (!allowedAssignee.has(task.assignee as Task['assignee'])) return null
+
+      return {
+        id: task.id,
+        title: task.title,
+        status: task.status,
+        priority: task.priority,
+        impact: allowedImpact.has(task.impact as NonNullable<Task['impact']>) ? task.impact : undefined,
+        area: allowedArea.has(task.area as NonNullable<Task['area']>) ? task.area : undefined,
+        deadline: typeof task.deadline === 'string' ? task.deadline : undefined,
+        tocAxis: allowedAxis.has(task.tocAxis as NonNullable<Task['tocAxis']>) ? task.tocAxis : undefined,
+        assignee: task.assignee,
+      } as Task
+    })
+    .filter((task): task is Task => task !== null)
+}
+
+function sanitizeEntityRows(rows: unknown): Entity[] {
+  if (!Array.isArray(rows)) return []
+
+  const allowedType = new Set<EntityType>(['project', 'content', 'client', 'memory', 'doc', 'person', 'office'])
+  const allowedOwner = new Set<NonNullable<Entity['owner']>>(['Tobi', 'ALF', 'Beide'])
+  const allowedStatus = new Set<NonNullable<Entity['status']>>(['idea', 'brief', 'draft', 'review', 'approved', 'published', 'repurposed'])
+  const allowedAxis = new Set<NonNullable<Entity['tocAxis']>>(['wertschoepfung', 'weltbild', 'repraesentation'])
+
+  return rows
+    .map((row) => {
+      if (!row || typeof row !== 'object') return null
+      const entity = row as Partial<Entity>
+
+      if (typeof entity.id !== 'string' || typeof entity.title !== 'string') return null
+      if (!allowedType.has(entity.type as EntityType)) return null
+
+      return {
+        id: entity.id,
+        type: entity.type,
+        title: entity.title,
+        notes: typeof entity.notes === 'string' ? entity.notes : undefined,
+        owner: allowedOwner.has(entity.owner as NonNullable<Entity['owner']>) ? entity.owner : undefined,
+        status: allowedStatus.has(entity.status as NonNullable<Entity['status']>) ? entity.status : undefined,
+        kpis: typeof entity.kpis === 'string' ? entity.kpis : undefined,
+        tocAxis: allowedAxis.has(entity.tocAxis as NonNullable<Entity['tocAxis']>) ? entity.tocAxis : undefined,
+      } as Entity
+    })
+    .filter((entity): entity is Entity => entity !== null)
+}
+
+function readTaskCache(): Task[] {
+  if (typeof window === 'undefined') return []
+
+  try {
+    const raw = window.localStorage.getItem(taskCacheStorageKey)
+    if (!raw) return []
+
+    const parsed = JSON.parse(raw)
+    return sanitizeTaskCacheRows(parsed)
+  } catch {
+    return []
+  }
+}
+
+function readEntityCache(): Partial<Record<EntityType, Entity[]>> {
+  if (typeof window === 'undefined') return {}
+
+  try {
+    const raw = window.localStorage.getItem(entityCacheStorageKey)
+    if (!raw) return {}
+
+    const parsed = JSON.parse(raw) as Record<string, unknown>
+    const out: Partial<Record<EntityType, Entity[]>> = {}
+
+    for (const entityType of ['project', 'content', 'client', 'memory', 'doc', 'person', 'office'] as const) {
+      out[entityType] = sanitizeEntityRows(parsed?.[entityType])
+    }
+
+    return out
+  } catch {
+    return {}
+  }
+}
+
+function persistEntityCache(cacheByType: Partial<Record<EntityType, Entity[]>>) {
+  if (typeof window === 'undefined') return
+
+  try {
+    window.localStorage.setItem(entityCacheStorageKey, JSON.stringify(cacheByType))
+  } catch {
+    // ignore cache write failures (private mode / quota)
+  }
+}
+
+function persistTaskCache(rows: Task[]) {
+  if (typeof window === 'undefined') return
+
+  try {
+    window.localStorage.setItem(taskCacheStorageKey, JSON.stringify(rows))
+  } catch {
+    // ignore cache write failures (private mode / quota)
+  }
+}
+
+function sanitizeRadarCacheRows(rows: unknown): RadarItem[] {
+  if (!Array.isArray(rows)) return []
+
+  const allowedLane = new Set<RadarItem['lane']>(['medienarbeit', 'politik', 'buchprojekt'])
+  const allowedKind = new Set<RadarItem['kind']>(['news', 'vorstoss', 'kampagne', 'analyse'])
+  const allowedImpact = new Set<RadarItem['impact']>(['low', 'med', 'high'])
+  const allowedUrgency = new Set<RadarItem['urgency']>(['low', 'med', 'high'])
+  const allowedStatus = new Set<RadarItem['status']>(['new', 'accepted', 'watchlist', 'rejected'])
+  const allowedAxis = new Set<NonNullable<RadarItem['tocAxis']>>(['wertschoepfung', 'weltbild', 'repraesentation'])
+
+  return rows
+    .map((row) => {
+      if (!row || typeof row !== 'object') return null
+      const item = row as Partial<RadarItem>
+
+      if (typeof item.id !== 'string' || typeof item.title !== 'string' || typeof item.source !== 'string' || typeof item.url !== 'string') {
+        return null
+      }
+
+      const id = item.id.trim().slice(0, radarMaxIdLength)
+      const title = item.title.trim().replace(/\s+/g, ' ').slice(0, radarMaxTitleLength)
+      const source = item.source.trim().replace(/\s+/g, ' ').slice(0, radarMaxSourceLength)
+      const url = item.url.trim()
+
+      if (!id || !title || !source || !url) return null
+      if (radarIdUnsafePattern.test(id)) return null
+      if (radarTextControlCharPattern.test(title) || radarTextControlCharPattern.test(source)) return null
+      if (url.length > radarMaxUrlLength) return null
+      if (radarUrlWhitespacePattern.test(url)) return null
+      if (radarUrlControlCharPattern.test(url)) return null
+      if (!isSafeRadarHttpUrl(url)) return null
+
+      if (!allowedLane.has(item.lane as RadarItem['lane'])) return null
+      if (!allowedKind.has(item.kind as RadarItem['kind'])) return null
+      if (!allowedImpact.has(item.impact as RadarItem['impact'])) return null
+      if (!allowedUrgency.has(item.urgency as RadarItem['urgency'])) return null
+      if (!allowedStatus.has(item.status as RadarItem['status'])) return null
+
+      const rawUpdatedAt = (item as { updatedAt?: unknown }).updatedAt
+      const parsedUpdatedAtMs = typeof rawUpdatedAt === 'string' ? new Date(rawUpdatedAt).getTime() : Number.NaN
+      const updatedAt = Number.isFinite(parsedUpdatedAtMs) ? new Date(parsedUpdatedAtMs).toISOString() : undefined
+
+      return {
+        ...item,
+        id,
+        title,
+        source,
+        url,
+        updatedAt,
+        score: Math.max(0, Math.min(100, Math.round(Number(item.score) || 0))),
+        tocAxis: allowedAxis.has(item.tocAxis as NonNullable<RadarItem['tocAxis']>) ? item.tocAxis : undefined,
+      } as RadarItem
+    })
+    .filter((item): item is RadarItem => item !== null)
+}
+
+function sanitizeRadarStats(stats: unknown, fallbackRows: RadarItem[]): RadarStats {
+  if (fallbackRows.length === 0) {
+    return createEmptyRadarStats()
+  }
+
+  if (!stats || typeof stats !== 'object') return computeRadarStatsFromRows(fallbackRows)
+
+  const parsed = stats as Partial<RadarStats>
+  const asNonNegativeInt = (value: unknown) => {
+    const numeric = Number(value)
+    if (!Number.isFinite(numeric) || numeric < 0) return 0
+    return Math.floor(numeric)
+  }
+
+  const sanitized: RadarStats = {
+    total: asNonNegativeInt(parsed.total),
+    accepted: asNonNegativeInt(parsed.accepted),
+    watchlist: asNonNegativeInt(parsed.watchlist),
+    rejected: asNonNegativeInt(parsed.rejected),
+    fresh: asNonNegativeInt(parsed.fresh),
+    highScore: asNonNegativeInt(parsed.highScore),
+    lanePolitik: asNonNegativeInt(parsed.lanePolitik),
+    laneMedien: asNonNegativeInt(parsed.laneMedien),
+    laneBuch: asNonNegativeInt(parsed.laneBuch),
+  }
+
+  // Corrupted or legacy cache payloads can contain stale/invalid stats despite valid rows.
+  // In that case rebuild stats from rows so offline Mission Control stays trustworthy.
+  if (fallbackRows.length > 0) {
+    const expectedStats = computeRadarStatsFromRows(fallbackRows)
+
+    if (
+      sanitized.total !== expectedStats.total ||
+      sanitized.accepted !== expectedStats.accepted ||
+      sanitized.watchlist !== expectedStats.watchlist ||
+      sanitized.rejected !== expectedStats.rejected ||
+      sanitized.fresh !== expectedStats.fresh ||
+      sanitized.highScore !== expectedStats.highScore ||
+      sanitized.lanePolitik !== expectedStats.lanePolitik ||
+      sanitized.laneMedien !== expectedStats.laneMedien ||
+      sanitized.laneBuch !== expectedStats.laneBuch
+    ) {
+      return expectedStats
+    }
+  }
+
+  return sanitized
+}
+
+function deriveRadarLastUpdatedAt(rows: RadarItem[]) {
+  let latestMs = Number.NEGATIVE_INFINITY
+  const maxAcceptedFutureMs = radarMaxAcceptedFutureMs()
+
+  for (const row of rows) {
+    const updatedAt = (row as { updatedAt?: unknown }).updatedAt
+    if (typeof updatedAt !== 'string') continue
+
+    const ts = new Date(updatedAt).getTime()
+    if (!Number.isFinite(ts) || ts > maxAcceptedFutureMs) continue
+    if (ts > latestMs) latestMs = ts
+  }
+
+  return Number.isFinite(latestMs) ? new Date(latestMs).toISOString() : null
+}
+
+function readRadarCache(): { rows: RadarItem[]; stats: RadarStats; lastUpdatedAt: string | null; dedupedCount: number } | null {
+  if (typeof window === 'undefined') return null
+
+  try {
+    const raw = window.localStorage.getItem(radarCacheStorageKey)
+    if (!raw) return null
+
+    const parsed = JSON.parse(raw)
+    const sanitizedRows = sanitizeRadarCacheRows(parsed?.rows)
+    const dedupedRows = dedupeRadarItems(sanitizedRows)
+    const computedDedupedCount = Math.max(0, sanitizedRows.length - dedupedRows.length)
+    const dedupedCountRaw = Number(parsed?.dedupedCount)
+    const parsedDedupedCount =
+      Number.isFinite(dedupedCountRaw) && dedupedCountRaw >= 0
+        ? Math.min(Math.floor(dedupedCountRaw), sanitizedRows.length)
+        : Number.NaN
+    const dedupedCountDrift = Math.abs(parsedDedupedCount - computedDedupedCount)
+    const dedupedCount =
+      Number.isFinite(parsedDedupedCount) && dedupedCountDrift <= radarDedupedCountDriftTolerance
+        ? parsedDedupedCount
+        : computedDedupedCount
+    const parsedLastUpdatedAtMs =
+      typeof parsed?.lastUpdatedAt === 'string' ? new Date(parsed.lastUpdatedAt).getTime() : Number.NaN
+    const maxAcceptedFutureMs = radarMaxAcceptedFutureMs()
+    const lastUpdatedAt =
+      Number.isFinite(parsedLastUpdatedAtMs) && parsedLastUpdatedAtMs <= maxAcceptedFutureMs
+        ? new Date(parsedLastUpdatedAtMs).toISOString()
+        : deriveRadarLastUpdatedAt(dedupedRows)
+
+    return {
+      rows: dedupedRows,
+      stats: sanitizeRadarStats(parsed?.stats, dedupedRows),
+      lastUpdatedAt,
+      dedupedCount,
+    }
+  } catch {
+    try {
+      window.localStorage.removeItem(radarCacheStorageKey)
+    } catch {
+      // ignore cache cleanup failures
+    }
+    return null
+  }
+}
+
+function persistRadarCache(rows: RadarItem[], stats: RadarStats, lastUpdatedAt: string | null, dedupedCount: number) {
+  if (typeof window === 'undefined') return
+
+  const safeDedupedCount = Math.min(rows.length, Math.max(0, Math.floor(dedupedCount)))
+
+  try {
+    window.localStorage.setItem(
+      radarCacheStorageKey,
+      JSON.stringify({ rows, stats, lastUpdatedAt, dedupedCount: safeDedupedCount }),
+    )
+  } catch {
+    // ignore cache write failures (private mode / quota)
+  }
+}
+
+function isSection(value: string | null): value is Section {
+  if (!value) return false
+  return Object.prototype.hasOwnProperty.call(sectionMeta, value)
+}
+
+function safeGetLocalStorage(key: string): string | null {
+  if (typeof window === 'undefined') return null
+
+  try {
+    return window.localStorage.getItem(key)
+  } catch {
+    return null
+  }
+}
+
+function safeSetLocalStorage(key: string, value: string) {
+  if (typeof window === 'undefined') return
+
+  try {
+    window.localStorage.setItem(key, value)
+  } catch {
+    // ignore storage write failures (private mode / quota / denied storage)
+  }
+}
+
+async function fetchJsonWithTimeout<T>(url: string, timeoutMs: number): Promise<T> {
+  const controller = new AbortController()
+  const timeoutId = window.setTimeout(() => controller.abort(), timeoutMs)
+
+  try {
+    const response = await fetch(url, { cache: 'no-store', signal: controller.signal })
+
+    if (!response.ok) {
+      let errorDetails = ''
+
+      try {
+        const payload = (await response.clone().json()) as { error?: unknown; message?: unknown }
+        if (typeof payload?.error === 'string' && payload.error.trim()) errorDetails = payload.error.trim()
+        else if (typeof payload?.message === 'string' && payload.message.trim()) errorDetails = payload.message.trim()
+      } catch {
+        // ignore non-JSON error payloads
+      }
+
+      const suffix = errorDetails ? ` (${errorDetails})` : ''
+      throw new Error(`Request failed: ${response.status}${suffix}`)
+    }
+
+    try {
+      return (await response.json()) as T
+    } catch {
+      throw new Error('Ungültige JSON-Antwort vom Server')
+    }
+  } finally {
+    window.clearTimeout(timeoutId)
+  }
+}
+
+async function fetchWithTimeout(url: string, init: RequestInit, timeoutMs: number) {
+  const controller = new AbortController()
+  const timeoutId = window.setTimeout(() => controller.abort(), timeoutMs)
+  const upstreamSignal = init.signal
+
+  const onUpstreamAbort = () => controller.abort()
+
+  if (upstreamSignal) {
+    if (upstreamSignal.aborted) {
+      controller.abort()
+    } else {
+      upstreamSignal.addEventListener('abort', onUpstreamAbort, { once: true })
+    }
+  }
+
+  try {
+    return await fetch(url, { ...init, signal: controller.signal })
+  } finally {
+    window.clearTimeout(timeoutId)
+    if (upstreamSignal) {
+      upstreamSignal.removeEventListener('abort', onUpstreamAbort)
+    }
+  }
+}
+
+function parseFailedRequestStatus(error: unknown) {
+  if (!(error instanceof Error)) return null
+  const match = error.message.match(/^Request failed:\s*(\d+)/)
+  if (!match) return null
+  const status = Number(match[1])
+  return Number.isFinite(status) ? status : null
+}
+
+function isRetryableBoardLoadError(error: unknown) {
+  if (error instanceof DOMException && error.name === 'AbortError') return true
+  if (error instanceof TypeError) return true
+
+  const status = parseFailedRequestStatus(error)
+  return status === 408 || status === 425 || status === 429 || (typeof status === 'number' && status >= 500)
+}
+
+async function fetchJsonWithTransientRetry<T>(url: string, timeoutMs: number) {
+  let lastError: unknown = null
+
+  for (let attempt = 0; attempt <= boardLoadMaxRetries; attempt += 1) {
+    try {
+      return await fetchJsonWithTimeout<T>(url, timeoutMs)
+    } catch (error) {
+      lastError = error
+
+      const shouldRetry =
+        attempt < boardLoadMaxRetries &&
+        isRetryableBoardLoadError(error) &&
+        (typeof navigator === 'undefined' || navigator.onLine)
+
+      if (!shouldRetry) {
+        throw error
+      }
+
+      await wait(boardLoadRetryDelayMs)
+    }
+  }
+
+  throw lastError instanceof Error ? lastError : new Error('Request failed')
+}
+
+function wait(ms: number) {
+  return new Promise<void>((resolve) => {
+    window.setTimeout(resolve, ms)
+  })
+}
+
+function isRetryableRadarPatchStatus(status: number) {
+  return status === 408 || status === 425 || status === 429 || status >= 500
+}
+
+function isRetryableRadarPatchError(error: unknown) {
+  if (error instanceof DOMException && error.name === 'AbortError') return true
+  if (error instanceof TypeError) return true
+  return false
+}
+
+function isRetryableTaskPatchStatus(status: number) {
+  return status === 408 || status === 425 || status === 429 || status >= 500
+}
+
+function isRetryableTaskPatchError(error: unknown) {
+  if (error instanceof DOMException && error.name === 'AbortError') return true
+  if (error instanceof TypeError) return true
+  return false
+}
+
+function isRetryableSomedayActionStatus(status: number) {
+  return status === 408 || status === 425 || status === 429 || status >= 500
+}
+
+function isRetryableSomedayActionError(error: unknown) {
+  if (error instanceof DOMException && error.name === 'AbortError') return true
+  if (error instanceof TypeError) return true
+  return false
+}
+
+async function runSomedayActionWithRetry(url: string, init: RequestInit, errorMessage: string) {
+  let lastError: unknown = null
+
+  for (let attempt = 0; attempt <= somedayActionMaxRetries; attempt += 1) {
+    try {
+      const response = await fetchWithTimeout(url, init, somedayActionTimeoutMs)
+      if (response.ok) return response
+
+      const shouldRetry =
+        attempt < somedayActionMaxRetries &&
+        isRetryableSomedayActionStatus(response.status) &&
+        (typeof navigator === 'undefined' || navigator.onLine)
+
+      if (!shouldRetry) {
+        throw new Error(errorMessage)
+      }
+
+      await wait(somedayActionRetryDelayMs)
+    } catch (error) {
+      lastError = error
+
+      const shouldRetry =
+        attempt < somedayActionMaxRetries &&
+        isRetryableSomedayActionError(error) &&
+        (typeof navigator === 'undefined' || navigator.onLine)
+
+      if (!shouldRetry) {
+        throw error instanceof Error ? error : new Error(errorMessage)
+      }
+
+      await wait(somedayActionRetryDelayMs)
+    }
+  }
+
+  throw lastError instanceof Error ? lastError : new Error(errorMessage)
+}
+
+async function patchTaskStatusWithRetry(id: string, status: Task['status']) {
+  const requestInit: RequestInit = {
+    method: 'PATCH',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ status }),
+  }
+
+  let lastError: unknown = null
+
+  for (let attempt = 0; attempt <= taskActionMaxRetries; attempt += 1) {
+    try {
+      const response = await fetchWithTimeout(`/api/tasks/${id}`, requestInit, taskActionTimeoutMs)
+      if (response.ok) return response
+
+      const shouldRetry =
+        attempt < taskActionMaxRetries &&
+        isRetryableTaskPatchStatus(response.status) &&
+        (typeof navigator === 'undefined' || navigator.onLine)
+
+      if (!shouldRetry) {
+        throw new Error('Status konnte nicht gespeichert werden.')
+      }
+
+      await wait(taskActionRetryDelayMs)
+    } catch (error) {
+      lastError = error
+
+      const shouldRetry =
+        attempt < taskActionMaxRetries &&
+        isRetryableTaskPatchError(error) &&
+        (typeof navigator === 'undefined' || navigator.onLine)
+
+      if (!shouldRetry) {
+        throw error
+      }
+
+      await wait(taskActionRetryDelayMs)
+    }
+  }
+
+  throw lastError instanceof Error ? lastError : new Error('Status konnte nicht gespeichert werden.')
+}
+
+async function patchRadarStatusWithRetry(id: string, status: RadarItem['status']) {
+  const requestInit: RequestInit = {
+    method: 'PATCH',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ status }),
+  }
+
+  let lastError: unknown = null
+
+  for (let attempt = 0; attempt <= radarActionMaxRetries; attempt += 1) {
+    try {
+      const response = await fetchWithTimeout(`/api/radar/${id}`, requestInit, radarActionTimeoutMs)
+      if (response.ok) return response
+
+      const retryableStatus = isRetryableRadarPatchStatus(response.status)
+      const shouldRetry = attempt < radarActionMaxRetries && retryableStatus && (typeof navigator === 'undefined' || navigator.onLine)
+
+      if (!shouldRetry) {
+        throw new Error('Radar-Status konnte nicht gespeichert werden.')
+      }
+
+      await wait(radarActionRetryDelayMs)
+    } catch (error) {
+      lastError = error
+      const shouldRetry =
+        attempt < radarActionMaxRetries &&
+        isRetryableRadarPatchError(error) &&
+        (typeof navigator === 'undefined' || navigator.onLine)
+
+      if (!shouldRetry) {
+        throw error
+      }
+
+      await wait(radarActionRetryDelayMs)
+    }
+  }
+
+  throw lastError instanceof Error ? lastError : new Error('Radar-Status konnte nicht gespeichert werden.')
+}
+
+async function fetchWithRetry(url: string, init: RequestInit, timeoutMs: number, errorMessage: string) {
+  let lastError: unknown = null
+
+  for (let attempt = 0; attempt <= followupActionMaxRetries; attempt += 1) {
+    try {
+      const response = await fetchWithTimeout(url, init, timeoutMs)
+      if (response.ok) return response
+
+      const shouldRetry =
+        attempt < followupActionMaxRetries &&
+        isRetryableRadarPatchStatus(response.status) &&
+        (typeof navigator === 'undefined' || navigator.onLine)
+
+      if (!shouldRetry) {
+        throw new Error(errorMessage)
+      }
+
+      await wait(followupActionRetryDelayMs)
+    } catch (error) {
+      lastError = error
+
+      const shouldRetry =
+        attempt < followupActionMaxRetries &&
+        isRetryableRadarPatchError(error) &&
+        (typeof navigator === 'undefined' || navigator.onLine)
+
+      if (!shouldRetry) {
+        throw error instanceof Error ? error : new Error(errorMessage)
+      }
+
+      await wait(followupActionRetryDelayMs)
+    }
+  }
+
+  throw lastError instanceof Error ? lastError : new Error(errorMessage)
+}
+
+export default function ClientBoard() {
+  const [section, setSection] = useState<Section>(() => {
+    const savedSection = safeGetLocalStorage(sectionStorageKey)
+    return isSection(savedSection) ? savedSection : 'tasks'
+  })
+
+  const cachedTasks = useMemo(() => readTaskCache(), [])
+  const cachedEntitiesByType = useMemo(() => readEntityCache(), [])
+  const cachedRadar = useMemo(() => readRadarCache(), [])
+
+  const [tasks, setTasks] = useState<Task[]>(() => cachedTasks)
+  const [entities, setEntities] = useState<Entity[]>(() => cachedEntitiesByType.project || [])
+  const [boardError, setBoardError] = useState<string | null>(null)
+  const [taskActionPending, setTaskActionPending] = useState<Record<string, boolean>>({})
+  const [entityActionPending, setEntityActionPending] = useState<Record<string, boolean>>({})
+  const [radar, setRadar] = useState<RadarItem[]>(() => cachedRadar?.rows || [])
+  const radarRef = useRef<RadarItem[]>(cachedRadar?.rows || [])
+  const [radarStats, setRadarStats] = useState<RadarStats>(() => cachedRadar?.stats || createEmptyRadarStats())
+  const [radarActionPending, setRadarActionPending] = useState<Record<string, boolean>>({})
+  const [radarPendingTargetStatus, setRadarPendingTargetStatus] = useState<Record<string, RadarItem['status']>>({})
+  const [radarActionError, setRadarActionError] = useState<string | null>(null)
+  const [radarLoading, setRadarLoading] = useState(false)
+  const [tasksLoading, setTasksLoading] = useState(false)
+  const [entitiesLoading, setEntitiesLoading] = useState(false)
+  const [radarError, setRadarError] = useState<string | null>(null)
+  const [radarDedupedCount, setRadarDedupedCount] = useState(() => cachedRadar?.dedupedCount || 0)
+  const [radarRetryScheduledAt, setRadarRetryScheduledAt] = useState<number | null>(null)
+  const [isOffline, setIsOffline] = useState(() => (typeof navigator === 'undefined' ? false : !navigator.onLine))
+  const [radarLastUpdatedAt, setRadarLastUpdatedAt] = useState<string | null>(() => cachedRadar?.lastUpdatedAt || null)
+  const [radarStatusFilter, setRadarStatusFilter] = useState<'all' | 'actionable' | 'new' | 'watchlist' | 'accepted' | 'rejected'>(() => {
+    const saved = safeGetLocalStorage(radarStatusFilterStorageKey)
+    return saved === 'all' || saved === 'actionable' || saved === 'new' || saved === 'watchlist' || saved === 'accepted' || saved === 'rejected'
+      ? saved
+      : defaultRadarStatusFilter
+  })
+  const [radarLaneFilter, setRadarLaneFilter] = useState<'all' | 'medienarbeit' | 'politik' | 'buchprojekt'>(() => {
+    const saved = safeGetLocalStorage(radarLaneFilterStorageKey)
+    return saved === 'medienarbeit' || saved === 'politik' || saved === 'buchprojekt' ? saved : 'all'
+  })
+  const [radarQuery, setRadarQuery] = useState(() => safeGetLocalStorage(radarQueryStorageKey) || '')
+  const [radarLeverageOnly, setRadarLeverageOnly] = useState(() => safeGetLocalStorage(radarLeverageFilterStorageKey) === '1')
+  const [radarSortMode, setRadarSortMode] = useState<'status' | 'leverage'>(() => {
+    const saved = safeGetLocalStorage(radarSortModeStorageKey)
+    return saved === 'leverage' ? 'leverage' : 'status'
+  })
+  const [nowTick, setNowTick] = useState(() => Date.now())
+  const radarLoadSeq = useRef(0)
+  const radarAbortRef = useRef<AbortController | null>(null)
+  const radarSearchInputRef = useRef<HTMLInputElement | null>(null)
+  const knowledgeSearchInputRef = useRef<HTMLInputElement | null>(null)
+  const radarPendingIdsRef = useRef<Set<string>>(new Set())
+  const radarAutoRefreshAtRef = useRef(0)
+  const radarRetryCountRef = useRef(0)
+  const radarRetryTimerRef = useRef<number | null>(null)
+  const radarDeferredDecisionRef = useRef<{ id: string; status: RadarItem['status'] } | null>(null)
+  const topTaskShortcutCandidateRef = useRef<Task | null>(null)
+  const topDoingTaskShortcutCandidateRef = useRef<Task | null>(null)
+  const topSomedayShortcutCandidateRef = useRef<SomedayItem | null>(null)
+  const quickAcceptCandidateRef = useRef<RadarItem | null>(null)
+  const [radarDeferredDecision, setRadarDeferredDecision] = useState<{ id: string; status: RadarItem['status']; title: string } | null>(null)
+  const [radarDecisionUndoStack, setRadarDecisionUndoStack] = useState<RadarDecisionUndo[]>([])
+  const latestRadarDecision = radarDecisionUndoStack[0] || null
+  const tasksLoadSeq = useRef(0)
+  const entitiesLoadSeq = useRef(0)
+  const somedayLoadSeq = useRef(0)
+  const cronLoadSeq = useRef(0)
+  const knowledgeLoadSeq = useRef(0)
+  const cronLoadingRef = useRef(false)
+  const tasksLoadingRef = useRef(false)
+  const entitiesLoadingRef = useRef(false)
+  const somedayLoadingRef = useRef(false)
+  const radarLoadingRef = useRef(false)
+  const knowledgeLoadingRef = useRef(false)
+  const filePreviewAbortRef = useRef<AbortController | null>(null)
+  const filePreviewSaveAbortRef = useRef<AbortController | null>(null)
+  const filePreviewLoadingPathRef = useRef<string | null>(null)
+  const filePreviewLoadSeq = useRef(0)
+  const entitiesCacheRef = useRef<Partial<Record<EntityType, Entity[]>>>(cachedEntitiesByType)
+  const tasksAutoRefreshAtRef = useRef(0)
+  const calendarAutoRefreshAtRef = useRef(0)
+  const entitiesAutoRefreshAtRef = useRef(0)
+  const knowledgeAutoRefreshAtRef = useRef(0)
+  const taskActionPendingRef = useRef<Record<string, boolean>>({})
+  const somedayBusyIdRef = useRef<string | null>(null)
+  const entityActionPendingRef = useRef<Record<string, boolean>>({})
+  const canSaveFilePreviewRef = useRef(false)
+
+  const [tocAxis, setTocAxis] = useState<'wertschoepfung' | 'weltbild' | 'repraesentation'>('weltbild')
+  const [filter] = useState<'all' | 'Tobi' | 'ALF' | 'Beide'>('all')
+  const [somedayItems, setSomedayItems] = useState<SomedayItem[]>([])
+  const [somedayLoading, setSomedayLoading] = useState(false)
+  const [somedayError, setSomedayError] = useState<string | null>(null)
+  const [somedayBusyId, setSomedayBusyId] = useState<string | null>(null)
+  const [somedayTagFilter, setSomedayTagFilter] = useState<string>('all')
+  const [filePreview, setFilePreview] = useState<FilePreviewState>({ open: false, loading: false })
+  const [fileDraft, setFileDraft] = useState('')
+  const [knowledgeEntries, setKnowledgeEntries] = useState<KnowledgeEntry[]>([])
+  const [knowledgeQuery, setKnowledgeQuery] = useState('')
+  const [knowledgeLoading, setKnowledgeLoading] = useState(false)
+  const [knowledgeError, setKnowledgeError] = useState<string | null>(null)
+  const [cronJobs, setCronJobs] = useState<CronJob[]>([])
+  const [cronLoading, setCronLoading] = useState(false)
+  const [cronError, setCronError] = useState<string | null>(null)
+
+  function isOfflineClient() {
+    return typeof navigator !== 'undefined' && !navigator.onLine
+  }
+
+  async function loadSomeday() {
+    if (somedayLoadingRef.current) return
+
+    const loadSeq = somedayLoadSeq.current + 1
+    somedayLoadSeq.current = loadSeq
+    somedayLoadingRef.current = true
+
+    if (isOfflineClient()) {
+      if (loadSeq !== somedayLoadSeq.current) return
+      setSomedayLoading(false)
+      setSomedayError(null)
+      somedayLoadingRef.current = false
+      return
+    }
+
+    setSomedayLoading(true)
+    try {
+      const rows = await fetchJsonWithTransientRetry<SomedayItem[]>('/api/someday', boardRequestTimeoutMs)
+      if (loadSeq !== somedayLoadSeq.current) return
+      setSomedayItems(Array.isArray(rows) ? rows : [])
+      setSomedayError(null)
+    } catch {
+      if (loadSeq !== somedayLoadSeq.current) return
+      setSomedayError('Someday-Liste konnte nicht geladen werden.')
+    } finally {
+      if (loadSeq === somedayLoadSeq.current) {
+        setSomedayLoading(false)
+        somedayLoadingRef.current = false
+      }
+    }
+  }
+
+  async function promoteSomeday(item: SomedayItem, removeSource = false) {
+    if (somedayBusyId) return
+    setSomedayBusyId(item.id)
+    try {
+      await runSomedayActionWithRetry(
+        '/api/someday/promote',
+        {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ id: item.id, removeSource }),
+        },
+        'Someday konnte nicht zur Taskliste übernommen werden.',
+      )
+      await Promise.all([loadTasks(), loadSomeday()])
+      setBoardError(null)
+    } catch {
+      setBoardError('Someday konnte nicht zur Taskliste übernommen werden.')
+    } finally {
+      setSomedayBusyId(null)
+    }
+  }
+
+  async function deleteSomeday(item: SomedayItem) {
+    if (somedayBusyId) return
+    setSomedayBusyId(item.id)
+    try {
+      await runSomedayActionWithRetry(
+        `/api/someday/${item.id}`,
+        { method: 'DELETE' },
+        'Someday-Eintrag konnte nicht gelöscht werden.',
+      )
+      await loadSomeday()
+      setBoardError(null)
+    } catch {
+      setBoardError('Someday-Eintrag konnte nicht gelöscht werden.')
+    } finally {
+      setSomedayBusyId(null)
+    }
+  }
+
+  function canPreviewFile(filePath?: string) {
+    if (!filePath) return false
+    return /\.(md|txt|json|ya?ml|ps1|sh|ts|tsx|js|mjs|cjs)$/i.test(filePath)
+  }
+
+  function closeFilePreview() {
+    if (filePreview.saving) {
+      setFilePreview((prev) => ({
+        ...prev,
+        error: 'Bitte warten: Datei wird gerade gespeichert und kann noch nicht geschlossen werden.',
+      }))
+      return
+    }
+
+    const hasUnsavedChanges = fileDraft !== (filePreview.content || '')
+    if (hasUnsavedChanges) {
+      const shouldClose = window.confirm('Ungespeicherte Änderungen verwerfen und Vorschau schliessen?')
+      if (!shouldClose) return
+    }
+
+    filePreviewLoadSeq.current += 1
+    filePreviewAbortRef.current?.abort()
+    filePreviewAbortRef.current = null
+    filePreviewLoadingPathRef.current = null
+    setFileDraft('')
+    setFilePreview({ open: false, loading: false })
+  }
+
+  async function openFilePreview(name: string, filePath: string) {
+    if (!canPreviewFile(filePath)) return
+    if (filePreview.open && filePreview.saving) {
+      setFilePreview((prev) => ({
+        ...prev,
+        error: 'Bitte warten: Datei wird noch gespeichert. Danach kann eine andere Datei geöffnet werden.',
+      }))
+      return
+    }
+    if (filePreviewLoadingPathRef.current === filePath) return
+    if (filePreview.open && !filePreview.loading && filePreview.path === filePath && typeof filePreview.content === 'string') return
+
+    const hasUnsavedChangesInOpenPreview =
+      filePreview.open &&
+      filePreview.path &&
+      filePreview.path !== filePath &&
+      !filePreview.saving &&
+      fileDraft !== (filePreview.content || '')
+
+    if (hasUnsavedChangesInOpenPreview) {
+      const shouldDiscard = window.confirm('Ungespeicherte Änderungen in der geöffneten Datei verwerfen und neue Datei öffnen?')
+      if (!shouldDiscard) return
+    }
+
+    const loadSeq = filePreviewLoadSeq.current + 1
+    filePreviewLoadSeq.current = loadSeq
+
+    if (isOfflineClient()) {
+      if (loadSeq !== filePreviewLoadSeq.current) return
+      setFilePreview({
+        open: true,
+        loading: false,
+        name,
+        path: filePath,
+        error: filePreviewOfflineLoadError,
+      })
+      return
+    }
+
+    filePreviewAbortRef.current?.abort()
+    const abortController = new AbortController()
+    filePreviewAbortRef.current = abortController
+    filePreviewLoadingPathRef.current = filePath
+
+    setFilePreview({ open: true, loading: true, name, path: filePath })
+    try {
+      const res = await fetchWithTimeout(
+        `/api/files/read?path=${encodeURIComponent(filePath)}`,
+        { cache: 'no-store', signal: abortController.signal },
+        boardRequestTimeoutMs,
+      )
+
+      let payload: any = null
+      try {
+        payload = await res.json()
+      } catch {
+        payload = null
+      }
+
+      if (!res.ok) throw new Error(payload?.error || 'Datei konnte nicht geladen werden')
+      if (typeof payload?.content !== 'string') throw new Error('Datei-Vorschau enthaelt kein lesbares Textformat')
+
+      if (loadSeq !== filePreviewLoadSeq.current) return
+      setFileDraft(payload.content)
+      setFilePreview({ open: true, loading: false, name, path: filePath, content: payload.content })
+    } catch (error) {
+      if (loadSeq !== filePreviewLoadSeq.current) return
+
+      const message =
+        error instanceof DOMException && error.name === 'AbortError'
+          ? (typeof navigator !== 'undefined' && !navigator.onLine
+            ? filePreviewOfflineInterruptedError
+            : 'Datei-Vorschau hat zu lange gedauert. Bitte erneut versuchen.')
+          : error instanceof Error && error.message
+            ? error.message
+            : 'Datei konnte nicht geladen werden'
+
+      setFilePreview({ open: true, loading: false, name, path: filePath, error: message })
+    } finally {
+      if (filePreviewAbortRef.current === abortController) {
+        filePreviewAbortRef.current = null
+      }
+      if (filePreviewLoadingPathRef.current === filePath) {
+        filePreviewLoadingPathRef.current = null
+      }
+    }
+  }
+
+  async function saveFilePreview() {
+    if (!filePreview.path || filePreview.loading || filePreview.saving) return
+
+    if (isOfflineClient()) {
+      setFilePreview((prev) => ({ ...prev, error: 'Offline: Datei kann aktuell nicht gespeichert werden.' }))
+      return
+    }
+
+    filePreviewSaveAbortRef.current?.abort()
+    const saveAbortController = new AbortController()
+    filePreviewSaveAbortRef.current = saveAbortController
+
+    setFilePreview((prev) => ({ ...prev, saving: true, error: undefined }))
+    try {
+      const res = await fetchWithTimeout(
+        '/api/files/write',
+        {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ path: filePreview.path, content: fileDraft }),
+          signal: saveAbortController.signal,
+        },
+        boardRequestTimeoutMs,
+      )
+
+      let payload: any = null
+      try {
+        payload = await res.json()
+      } catch {
+        payload = null
+      }
+
+      if (!res.ok) throw new Error(payload?.error || 'Datei konnte nicht gespeichert werden')
+
+      setFilePreview((prev) => ({ ...prev, saving: false, content: fileDraft, error: undefined }))
+    } catch (error) {
+      const wasAborted = saveAbortController.signal.aborted
+      const message =
+        error instanceof DOMException && error.name === 'AbortError'
+          ? (typeof navigator !== 'undefined' && !navigator.onLine
+            ? filePreviewOfflineSaveInterruptedError
+            : wasAborted
+              ? 'Speichern wurde abgebrochen. Bitte erneut versuchen.'
+              : 'Speichern hat zu lange gedauert. Bitte erneut versuchen.')
+          : error instanceof Error && error.message
+            ? error.message
+            : 'Datei konnte nicht gespeichert werden'
+      setFilePreview((prev) => ({ ...prev, saving: false, error: message }))
+    } finally {
+      if (filePreviewSaveAbortRef.current === saveAbortController) {
+        filePreviewSaveAbortRef.current = null
+      }
+    }
+  }
+
+  async function loadKnowledgeIndex() {
+    if (knowledgeLoadingRef.current) return
+
+    const loadSeq = knowledgeLoadSeq.current + 1
+    knowledgeLoadSeq.current = loadSeq
+
+    if (isOfflineClient()) {
+      if (loadSeq !== knowledgeLoadSeq.current) return
+      setKnowledgeError('Offline: Wissensindex kann nicht geladen werden.')
+      return
+    }
+
+    knowledgeLoadingRef.current = true
+    setKnowledgeLoading(true)
+    setKnowledgeError(null)
+    try {
+      const payload = await fetchJsonWithTransientRetry<{ entries?: KnowledgeEntry[] }>('/api/files/index', boardRequestTimeoutMs)
+      if (loadSeq !== knowledgeLoadSeq.current) return
+
+      const rows = Array.isArray(payload?.entries) ? payload.entries : []
+      const collator = new Intl.Collator('de-CH', { sensitivity: 'base', numeric: true })
+      const sortedRows = [...rows].sort((a, b) => {
+        const groupDelta = collator.compare(a.group || '', b.group || '')
+        if (groupDelta !== 0) return groupDelta
+
+        const pathDelta = collator.compare(a.relPath || '', b.relPath || '')
+        if (pathDelta !== 0) return pathDelta
+
+        return collator.compare(a.name || '', b.name || '')
+      })
+      setKnowledgeEntries(sortedRows)
+    } catch {
+      if (loadSeq !== knowledgeLoadSeq.current) return
+      setKnowledgeError('Wissensindex konnte nicht geladen werden.')
+    } finally {
+      if (loadSeq === knowledgeLoadSeq.current) {
+        setKnowledgeLoading(false)
+        knowledgeLoadingRef.current = false
+      }
+    }
+  }
+
+  async function loadTasks() {
+    if (tasksLoadingRef.current) return
+
+    const loadSeq = tasksLoadSeq.current + 1
+    tasksLoadSeq.current = loadSeq
+    tasksLoadingRef.current = true
+    setTasksLoading(true)
+
+    if (isOfflineClient()) {
+      if (loadSeq !== tasksLoadSeq.current) return
+      setBoardError('Offline: Aufgaben bleiben im letzten bekannten Stand sichtbar.')
+      setTasksLoading(false)
+      tasksLoadingRef.current = false
+      return
+    }
+
+    try {
+      const rows = await fetchJsonWithTransientRetry<Task[]>('/api/tasks', boardRequestTimeoutMs)
+      if (loadSeq !== tasksLoadSeq.current) return
+      setTasks(sanitizeTaskCacheRows(rows))
+      setBoardError(null)
+    } catch {
+      if (loadSeq !== tasksLoadSeq.current) return
+      setBoardError('Heute konnte nicht geladen werden. Letzte Daten bleiben sichtbar.')
+    } finally {
+      if (loadSeq === tasksLoadSeq.current) {
+        setTasksLoading(false)
+        tasksLoadingRef.current = false
+      }
+    }
+  }
+
+  async function loadCronJobs() {
+    if (cronLoadingRef.current) return
+
+    const loadSeq = cronLoadSeq.current + 1
+    cronLoadSeq.current = loadSeq
+    cronLoadingRef.current = true
+
+    if (isOfflineClient()) {
+      if (loadSeq !== cronLoadSeq.current) return
+      setCronError('Offline: Kalender bleibt im letzten bekannten Stand sichtbar.')
+      setCronLoading(false)
+      cronLoadingRef.current = false
+      return
+    }
+
+    setCronLoading(true)
+    try {
+      const payload = await fetchJsonWithTransientRetry<{ jobs?: CronJob[] }>('/api/cron', boardRequestTimeoutMs)
+      if (loadSeq !== cronLoadSeq.current) return
+      const rows = Array.isArray(payload?.jobs) ? payload.jobs : []
+      setCronJobs(rows)
+      setCronError(null)
+    } catch {
+      if (loadSeq !== cronLoadSeq.current) return
+      setCronError('Kalender konnte nicht geladen werden. Letzte Daten bleiben sichtbar.')
+    } finally {
+      if (loadSeq === cronLoadSeq.current) {
+        setCronLoading(false)
+        cronLoadingRef.current = false
+      }
+    }
+  }
+
+  async function loadEntities(entityType: EntityType, sectionLabel: string) {
+    if (entitiesLoadingRef.current) return
+
+    const loadSeq = entitiesLoadSeq.current + 1
+    entitiesLoadSeq.current = loadSeq
+    entitiesLoadingRef.current = true
+    setEntitiesLoading(true)
+
+    if (isOfflineClient()) {
+      if (loadSeq !== entitiesLoadSeq.current) return
+      setBoardError(`Offline: ${sectionLabel} bleibt im letzten bekannten Stand sichtbar.`)
+      setEntitiesLoading(false)
+      entitiesLoadingRef.current = false
+      return
+    }
+
+    try {
+      const rows = await fetchJsonWithTransientRetry<Entity[]>(`/api/entities?type=${entityType}`, boardRequestTimeoutMs)
+      if (loadSeq !== entitiesLoadSeq.current) return
+      const sanitizedRows = sanitizeEntityRows(rows)
+      setEntities(sanitizedRows)
+      entitiesCacheRef.current = { ...entitiesCacheRef.current, [entityType]: sanitizedRows }
+      persistEntityCache(entitiesCacheRef.current)
+      setBoardError(null)
+    } catch {
+      if (loadSeq !== entitiesLoadSeq.current) return
+      setBoardError(`${sectionLabel} konnte nicht geladen werden. Letzte Daten bleiben sichtbar.`)
+    } finally {
+      if (loadSeq === entitiesLoadSeq.current) {
+        setEntitiesLoading(false)
+        entitiesLoadingRef.current = false
+      }
+    }
+  }
+
+  function clearRadarRetryTimer() {
+    if (radarRetryTimerRef.current !== null) {
+      window.clearTimeout(radarRetryTimerRef.current)
+      radarRetryTimerRef.current = null
+    }
+    setRadarRetryScheduledAt(null)
+  }
+
+  function scheduleRadarRetry() {
+    if (radarRetryCountRef.current >= radarMaxAutoRetries) return
+    if (radarRetryTimerRef.current !== null) return
+    if (section !== 'radar') return
+    if (typeof navigator !== 'undefined' && !navigator.onLine) return
+
+    const retryInMs = radarRetryBaseMs * (radarRetryCountRef.current + 1)
+    setRadarRetryScheduledAt(Date.now() + retryInMs)
+    radarRetryTimerRef.current = window.setTimeout(() => {
+      radarRetryTimerRef.current = null
+      setRadarRetryScheduledAt(null)
+      if (section !== 'radar') return
+      if (typeof document !== 'undefined' && document.visibilityState !== 'visible') return
+      if (typeof navigator !== 'undefined' && !navigator.onLine) return
+
+      radarRetryCountRef.current += 1
+      void loadRadar()
+    }, retryInMs)
+  }
+
+  async function loadRadar(options?: { force?: boolean }) {
+    const force = options?.force === true
+
+    if (radarLoadingRef.current) return
+
+    if (!force && radarAbortRef.current) {
+      return
+    }
+
+    if (typeof navigator !== 'undefined' && !navigator.onLine) {
+      setIsOffline(true)
+      setRadarError(radarOfflineRefreshError)
+      setRadarLoading(false)
+      radarLoadingRef.current = false
+      return
+    }
+
+    setIsOffline(false)
+    clearRadarRetryTimer()
+
+    const loadSeq = radarLoadSeq.current + 1
+    radarLoadSeq.current = loadSeq
+
+    radarAbortRef.current?.abort()
+    const abortController = new AbortController()
+    radarAbortRef.current = abortController
+
+    let didTimeout = false
+    const timeoutId = window.setTimeout(() => {
+      didTimeout = true
+      abortController.abort()
+    }, radarRequestTimeoutMs)
+
+    radarLoadingRef.current = true
+    setRadarLoading(true)
+    setRadarError(null)
+    try {
+      const rowsRes = await fetch('/api/radar?mode=board', { cache: 'no-store', signal: abortController.signal })
+
+      if (!rowsRes.ok) {
+        throw new Error('Radar-Daten konnten nicht geladen werden.')
+      }
+
+      const rows = await rowsRes.json()
+
+      if (!Array.isArray(rows)) {
+        throw new Error('Radar-Antwort hat ein ungueltiges Format.')
+      }
+
+      const sanitizedRows = sanitizeRadarCacheRows(rows)
+
+      if (rows.length > 0 && sanitizedRows.length === 0) {
+        throw new Error('Radar-Antwort enthielt nur ungueltige Signale.')
+      }
+
+      if (sanitizedRows.length === 0 && radarRef.current.length > 0) {
+        setRadarError('Radar lieferte voruebergehend keine Signale. Letzte Daten bleiben sichtbar.')
+        scheduleRadarRetry()
+        return
+      }
+
+      if (loadSeq !== radarLoadSeq.current) return
+
+      const pendingStatuses = new Map<string, RadarItem['status']>()
+      for (const item of radarRef.current) {
+        if (radarPendingIdsRef.current.has(item.id)) {
+          pendingStatuses.set(item.id, item.status)
+        }
+      }
+
+      const mergedRows = sanitizedRows.map((item) => {
+        const pendingStatus = pendingStatuses.get(item.id)
+        return pendingStatus ? { ...item, status: pendingStatus } : item
+      })
+      const dedupedRows = dedupeRadarItems(mergedRows)
+      const mergedStats = computeRadarStatsFromRows(dedupedRows)
+
+      const latestSignalUpdatedAt = deriveRadarLastUpdatedAt(dedupedRows)
+      setRadar(dedupedRows)
+      setRadarStats(mergedStats)
+      setRadarDedupedCount(Math.max(0, mergedRows.length - dedupedRows.length))
+      setRadarLastUpdatedAt(latestSignalUpdatedAt)
+      radarRetryCountRef.current = 0
+
+      persistRadarCache(dedupedRows, mergedStats, latestSignalUpdatedAt, Math.max(0, mergedRows.length - dedupedRows.length))
+
+      const deferredDecision = radarDeferredDecisionRef.current
+      if (deferredDecision) {
+        const deferredCandidate = dedupedRows.find((item) => item.id === deferredDecision.id)
+
+        if (!deferredCandidate) {
+          radarDeferredDecisionRef.current = null
+          setRadarDeferredDecision(null)
+          setRadarActionError('Geplante Radar-Entscheidung konnte nicht ausgeführt werden: Signal nicht mehr vorhanden.')
+        } else if (!radarPendingIdsRef.current.has(deferredCandidate.id)) {
+          radarDeferredDecisionRef.current = null
+          setRadarDeferredDecision(null)
+          void setRadarStatus(deferredCandidate.id, deferredDecision.status, { allowStale: true })
+        }
+      }
+    } catch (error) {
+      if (loadSeq !== radarLoadSeq.current) return
+      if (error instanceof DOMException && error.name === 'AbortError') {
+        if (didTimeout) {
+          setRadarError(radarTimeoutError)
+          scheduleRadarRetry()
+        }
+        return
+      }
+      setRadarError(radarUnavailableError)
+      scheduleRadarRetry()
+    } finally {
+      window.clearTimeout(timeoutId)
+      if (loadSeq === radarLoadSeq.current) {
+        setRadarLoading(false)
+        radarLoadingRef.current = false
+      }
+      if (radarAbortRef.current === abortController) radarAbortRef.current = null
+    }
+  }
+
+  useEffect(() => {
+    safeSetLocalStorage(sectionStorageKey, section)
+
+    if (section !== 'radar') {
+      radarAbortRef.current?.abort()
+      clearRadarRetryTimer()
+      radarDeferredDecisionRef.current = null
+      setRadarDeferredDecision(null)
+      setRadarLoading(false)
+    }
+
+    if (section === 'tasks') {
+      void loadTasks()
+      void loadSomeday()
+    } else if (section === 'radar') {
+      void loadRadar()
+    } else if (section === 'calendar') {
+      void loadCronJobs()
+    } else if (section === 'files') {
+      setKnowledgeError(null)
+      knowledgeAutoRefreshAtRef.current = Date.now()
+      void loadKnowledgeIndex()
+    } else {
+      const entityType = sectionMeta[section].entityType!
+      setEntities(entitiesCacheRef.current[entityType] || [])
+      void loadEntities(entityType, sectionMeta[section].label)
+      if (section === 'memory') {
+        knowledgeAutoRefreshAtRef.current = Date.now()
+        void loadKnowledgeIndex()
+      }
+    }
+  }, [section])
+
+  useEffect(() => {
+    persistTaskCache(tasks)
+  }, [tasks])
+
+  useEffect(() => {
+    safeSetLocalStorage(radarStatusFilterStorageKey, radarStatusFilter)
+  }, [radarStatusFilter])
+
+  useEffect(() => {
+    safeSetLocalStorage(radarLaneFilterStorageKey, radarLaneFilter)
+  }, [radarLaneFilter])
+
+  useEffect(() => {
+    safeSetLocalStorage(radarQueryStorageKey, radarQuery)
+  }, [radarQuery])
+
+  useEffect(() => {
+    safeSetLocalStorage(radarLeverageFilterStorageKey, radarLeverageOnly ? '1' : '0')
+  }, [radarLeverageOnly])
+
+  useEffect(() => {
+    safeSetLocalStorage(radarSortModeStorageKey, radarSortMode)
+  }, [radarSortMode])
+
+  useEffect(() => {
+    radarRef.current = radar
+  }, [radar])
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setNowTick(Date.now())
+    }, 60_000)
+
+    return () => window.clearInterval(intervalId)
+  }, [])
+
+  useEffect(() => {
+    if (!radarRetryScheduledAt) return
+
+    const intervalId = window.setInterval(() => {
+      setNowTick(Date.now())
+    }, 1_000)
+
+    return () => window.clearInterval(intervalId)
+  }, [radarRetryScheduledAt])
+
+  const refreshCurrentSection = useCallback((options?: { forceRadar?: boolean }) => {
+    setNowTick(Date.now())
+    if (isOffline) return
+
+    if (section === 'radar') {
+      if (radarLoadingRef.current) return
+      if (radarPendingIdsRef.current.size > 0) return
+      setRadarError(null)
+      setRadarActionError(null)
+      radarAutoRefreshAtRef.current = Date.now()
+      void loadRadar(options?.forceRadar ? { force: true } : undefined)
+      return
+    }
+
+    if (section === 'tasks') {
+      if (tasksLoadingRef.current || somedayLoadingRef.current) return
+      const hasPendingTaskMutation = Object.values(taskActionPendingRef.current).some(Boolean)
+      if (hasPendingTaskMutation || Boolean(somedayBusyIdRef.current)) return
+      setBoardError(null)
+      setSomedayError(null)
+      tasksAutoRefreshAtRef.current = Date.now()
+      void Promise.all([loadTasks(), loadSomeday()])
+      return
+    }
+
+    if (section === 'calendar') {
+      if (cronLoadingRef.current) return
+      setCronError(null)
+      calendarAutoRefreshAtRef.current = Date.now()
+      void loadCronJobs()
+      return
+    }
+
+    if (section === 'files') {
+      if (knowledgeLoadingRef.current) return
+      setKnowledgeError(null)
+      setFilePreview((prev) => {
+        if (!prev.open || !prev.error) return prev
+        const isOfflinePreviewError =
+          prev.error === filePreviewOfflineLoadError ||
+          prev.error === filePreviewOfflineInterruptedError ||
+          prev.error === filePreviewOfflineSaveInterruptedError
+        return isOfflinePreviewError ? { ...prev, error: undefined } : prev
+      })
+      knowledgeAutoRefreshAtRef.current = Date.now()
+      void loadKnowledgeIndex()
+      return
+    }
+
+    const entityType = sectionMeta[section].entityType
+    if (entityType) {
+      if (entitiesLoadingRef.current) return
+      if (Object.values(entityActionPendingRef.current).some(Boolean)) return
+      setBoardError(null)
+      if (section === 'memory') {
+        setKnowledgeError(null)
+        knowledgeAutoRefreshAtRef.current = Date.now()
+        void loadKnowledgeIndex()
+      }
+      entitiesAutoRefreshAtRef.current = Date.now()
+      void loadEntities(entityType, sectionMeta[section].label)
+    }
+  }, [isOffline, section])
+
+  useEffect(() => {
+    if (section !== 'radar') return
+
+    const refreshIfVisible = () => {
+      if (document.visibilityState !== 'visible') return
+      if (isOffline) return
+      if (radarLoadingRef.current) return
+      if (radarPendingIdsRef.current.size > 0) return
+
+      const now = Date.now()
+      if (now - radarAutoRefreshAtRef.current < radarAutoRefreshCooldownMs) return
+
+      radarAutoRefreshAtRef.current = now
+      void loadRadar()
+    }
+
+    const intervalId = window.setInterval(refreshIfVisible, 60_000)
+    document.addEventListener('visibilitychange', refreshIfVisible)
+    window.addEventListener('focus', refreshIfVisible)
+
+    return () => {
+      window.clearInterval(intervalId)
+      document.removeEventListener('visibilitychange', refreshIfVisible)
+      window.removeEventListener('focus', refreshIfVisible)
+    }
+  }, [section, isOffline])
+
+  useEffect(() => {
+    if (section !== 'tasks') return
+
+    const refreshIfVisible = () => {
+      if (document.visibilityState !== 'visible') return
+      if (isOffline) return
+      if (tasksLoadingRef.current || somedayLoadingRef.current) return
+
+      const hasPendingTaskMutation = Object.values(taskActionPendingRef.current).some(Boolean)
+      if (hasPendingTaskMutation || Boolean(somedayBusyIdRef.current)) return
+
+      const now = Date.now()
+      if (now - tasksAutoRefreshAtRef.current < boardAutoRefreshCooldownMs) return
+
+      tasksAutoRefreshAtRef.current = now
+      void Promise.all([loadTasks(), loadSomeday()])
+    }
+
+    const intervalId = window.setInterval(refreshIfVisible, 60_000)
+    document.addEventListener('visibilitychange', refreshIfVisible)
+    window.addEventListener('focus', refreshIfVisible)
+
+    return () => {
+      window.clearInterval(intervalId)
+      document.removeEventListener('visibilitychange', refreshIfVisible)
+      window.removeEventListener('focus', refreshIfVisible)
+    }
+  }, [section, isOffline])
+
+  useEffect(() => {
+    if (section !== 'calendar') return
+
+    const refreshIfVisible = () => {
+      if (document.visibilityState !== 'visible') return
+      if (isOffline) return
+      if (cronLoadingRef.current) return
+
+      const now = Date.now()
+      if (now - calendarAutoRefreshAtRef.current < boardAutoRefreshCooldownMs) return
+
+      calendarAutoRefreshAtRef.current = now
+      void loadCronJobs()
+    }
+
+    const intervalId = window.setInterval(refreshIfVisible, 60_000)
+    document.addEventListener('visibilitychange', refreshIfVisible)
+    window.addEventListener('focus', refreshIfVisible)
+
+    return () => {
+      window.clearInterval(intervalId)
+      document.removeEventListener('visibilitychange', refreshIfVisible)
+      window.removeEventListener('focus', refreshIfVisible)
+    }
+  }, [section, isOffline])
+
+  useEffect(() => {
+    if (section !== 'files' && section !== 'memory') return
+
+    const refreshIfVisible = () => {
+      if (document.visibilityState !== 'visible') return
+      if (isOffline) return
+      if (knowledgeLoadingRef.current) return
+
+      const now = Date.now()
+      if (now - knowledgeAutoRefreshAtRef.current < boardAutoRefreshCooldownMs) return
+
+      knowledgeAutoRefreshAtRef.current = now
+      void loadKnowledgeIndex()
+    }
+
+    const intervalId = window.setInterval(refreshIfVisible, 120_000)
+    document.addEventListener('visibilitychange', refreshIfVisible)
+    window.addEventListener('focus', refreshIfVisible)
+
+    return () => {
+      window.clearInterval(intervalId)
+      document.removeEventListener('visibilitychange', refreshIfVisible)
+      window.removeEventListener('focus', refreshIfVisible)
+    }
+  }, [section, isOffline])
+
+  useEffect(() => {
+    const entityType = sectionMeta[section].entityType
+    if (!entityType) return
+    if (section === 'tasks' || section === 'radar') return
+
+    const refreshIfVisible = () => {
+      if (document.visibilityState !== 'visible') return
+      if (isOffline) return
+      if (entitiesLoadingRef.current) return
+      if (Object.values(entityActionPendingRef.current).some(Boolean)) return
+
+      const now = Date.now()
+      if (now - entitiesAutoRefreshAtRef.current < boardAutoRefreshCooldownMs) return
+
+      entitiesAutoRefreshAtRef.current = now
+      void loadEntities(entityType, sectionMeta[section].label)
+
+      if (section === 'memory' && !knowledgeLoadingRef.current) {
+        knowledgeAutoRefreshAtRef.current = now
+        void loadKnowledgeIndex()
+      }
+    }
+
+    const intervalId = window.setInterval(refreshIfVisible, 120_000)
+    document.addEventListener('visibilitychange', refreshIfVisible)
+    window.addEventListener('focus', refreshIfVisible)
+
+    return () => {
+      window.clearInterval(intervalId)
+      document.removeEventListener('visibilitychange', refreshIfVisible)
+      window.removeEventListener('focus', refreshIfVisible)
+    }
+  }, [section, isOffline])
+
+  useEffect(() => {
+    taskActionPendingRef.current = taskActionPending
+  }, [taskActionPending])
+
+  useEffect(() => {
+    somedayBusyIdRef.current = somedayBusyId
+  }, [somedayBusyId])
+
+  useEffect(() => {
+    entityActionPendingRef.current = entityActionPending
+  }, [entityActionPending])
+
+  useEffect(() => {
+    radarLoadingRef.current = radarLoading
+  }, [radarLoading])
+
+  useEffect(() => {
+    tasksLoadingRef.current = tasksLoading
+  }, [tasksLoading])
+
+  useEffect(() => {
+    entitiesLoadingRef.current = entitiesLoading
+  }, [entitiesLoading])
+
+  useEffect(() => {
+    somedayLoadingRef.current = somedayLoading
+  }, [somedayLoading])
+
+  useEffect(() => {
+    cronLoadingRef.current = cronLoading
+  }, [cronLoading])
+
+  useEffect(() => {
+    knowledgeLoadingRef.current = knowledgeLoading
+  }, [knowledgeLoading])
+
+  useEffect(() => {
+    const markOnline = () => {
+      setIsOffline(false)
+      setNowTick(Date.now())
+      setBoardError(null)
+      setRadarError(null)
+      setRadarActionError(null)
+      setCronError(null)
+      setSomedayError(null)
+      setKnowledgeError(null)
+      setFilePreview((prev) => {
+        if (!prev.open) return prev
+
+        const shouldClearError =
+          prev.error === filePreviewOfflineInterruptedError ||
+          prev.error === filePreviewOfflineSaveInterruptedError ||
+          prev.error === filePreviewOfflineLoadError
+
+        if (!prev.loading && !shouldClearError) return prev
+
+        const next = { ...prev }
+        if (next.loading) next.loading = false
+        if (shouldClearError) next.error = undefined
+        return next
+      })
+
+      if (section === 'radar') {
+        if (radarLoadingRef.current) return
+        if (radarPendingIdsRef.current.size > 0) return
+        radarAutoRefreshAtRef.current = Date.now()
+        void loadRadar({ force: true })
+        return
+      }
+
+      if (section === 'tasks') {
+        if (tasksLoadingRef.current || somedayLoadingRef.current) return
+        const hasPendingTaskMutation = Object.values(taskActionPendingRef.current).some(Boolean)
+        if (hasPendingTaskMutation || Boolean(somedayBusyIdRef.current)) return
+
+        tasksAutoRefreshAtRef.current = Date.now()
+        void Promise.all([loadTasks(), loadSomeday()])
+        return
+      }
+
+      if (section === 'calendar') {
+        if (cronLoadingRef.current) return
+        calendarAutoRefreshAtRef.current = Date.now()
+        void loadCronJobs()
+        return
+      }
+
+      if (section === 'files') {
+        if (knowledgeLoadingRef.current) return
+        knowledgeAutoRefreshAtRef.current = Date.now()
+        void loadKnowledgeIndex()
+        return
+      }
+
+      const entityType = sectionMeta[section].entityType
+      if (entityType) {
+        if (entitiesLoadingRef.current) return
+        if (Object.values(entityActionPendingRef.current).some(Boolean)) return
+
+        const now = Date.now()
+        entitiesAutoRefreshAtRef.current = now
+        void loadEntities(entityType, sectionMeta[section].label)
+
+        if (section === 'memory' && !knowledgeLoadingRef.current) {
+          knowledgeAutoRefreshAtRef.current = now
+          void loadKnowledgeIndex()
+        }
+      }
+    }
+
+    const markOffline = () => {
+      setIsOffline(true)
+      setNowTick(Date.now())
+      setRadarActionError(null)
+      knowledgeLoadSeq.current += 1
+      clearRadarRetryTimer()
+      radarAbortRef.current?.abort()
+      radarAbortRef.current = null
+      setRadarLoading(false)
+      radarLoadingRef.current = false
+      setCronLoading(false)
+      cronLoadingRef.current = false
+      setTasksLoading(false)
+      tasksLoadingRef.current = false
+      setSomedayLoading(false)
+      somedayLoadingRef.current = false
+      setEntitiesLoading(false)
+      entitiesLoadingRef.current = false
+      setKnowledgeLoading(false)
+      knowledgeLoadingRef.current = false
+      filePreviewAbortRef.current?.abort()
+      filePreviewAbortRef.current = null
+      filePreviewSaveAbortRef.current?.abort()
+      filePreviewSaveAbortRef.current = null
+      filePreviewLoadingPathRef.current = null
+      setFilePreview((prev) => {
+        if (!prev.open) return prev
+
+        if (!prev.loading && !prev.saving) {
+          return prev
+        }
+
+        const nextError = prev.saving ? filePreviewOfflineSaveInterruptedError : filePreviewOfflineInterruptedError
+
+        return {
+          ...prev,
+          loading: false,
+          saving: false,
+          error: nextError,
+        }
+      })
+
+      if (section === 'radar') {
+        setRadarError(radarOfflineRefreshError)
+        return
+      }
+
+      if (section === 'tasks') {
+        setBoardError('Offline: Aufgaben und Someday bleiben im letzten bekannten Stand sichtbar.')
+        return
+      }
+
+      if (section === 'calendar') {
+        setCronError('Offline: Kalender bleibt im letzten bekannten Stand sichtbar.')
+        return
+      }
+
+      if (section === 'files') {
+        setKnowledgeError('Offline: Wissensindex kann nicht geladen werden.')
+        setBoardError(null)
+        return
+      }
+
+      const sectionLabel = sectionMeta[section].label
+      setBoardError(`Offline: ${sectionLabel} bleibt im letzten bekannten Stand sichtbar.`)
+    }
+
+    window.addEventListener('online', markOnline)
+    window.addEventListener('offline', markOffline)
+
+    return () => {
+      window.removeEventListener('online', markOnline)
+      window.removeEventListener('offline', markOffline)
+      radarAbortRef.current?.abort()
+      radarAbortRef.current = null
+      setRadarLoading(false)
+      radarLoadingRef.current = false
+      setCronLoading(false)
+      cronLoadingRef.current = false
+      setTasksLoading(false)
+      tasksLoadingRef.current = false
+      setSomedayLoading(false)
+      somedayLoadingRef.current = false
+      setEntitiesLoading(false)
+      entitiesLoadingRef.current = false
+      setKnowledgeLoading(false)
+      knowledgeLoadingRef.current = false
+      knowledgeLoadSeq.current += 1
+      filePreviewAbortRef.current?.abort()
+      filePreviewAbortRef.current = null
+      filePreviewSaveAbortRef.current?.abort()
+      filePreviewSaveAbortRef.current = null
+      filePreviewLoadingPathRef.current = null
+      setFilePreview((prev) => (prev.loading || prev.saving ? { ...prev, loading: false, saving: false } : prev))
+      clearRadarRetryTimer()
+    }
+  }, [section])
+
+  useEffect(() => {
+    const hasUnsavedFileChanges = filePreview.open && fileDraft !== (filePreview.content || '')
+    const hasPendingFileSave = filePreview.open && !!filePreview.saving
+    if (!hasUnsavedFileChanges && !hasPendingFileSave) return
+
+    const onBeforeUnload = (event: BeforeUnloadEvent) => {
+      event.preventDefault()
+      event.returnValue = ''
+    }
+
+    window.addEventListener('beforeunload', onBeforeUnload)
+    return () => window.removeEventListener('beforeunload', onBeforeUnload)
+  }, [filePreview.open, filePreview.content, filePreview.saving, fileDraft])
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.defaultPrevented) return
+      if (e.isComposing) return
+      if (e.repeat) return
+
+      const key = e.key.toLowerCase()
+      const isUndoCombo = key === 'z' && (e.metaKey || e.ctrlKey) && !e.altKey && !e.shiftKey
+      const isRadarSearchCombo = key === 'k' && (e.metaKey || e.ctrlKey) && !e.altKey && !e.shiftKey
+      const isMemoryFindCombo = key === 'f' && (e.metaKey || e.ctrlKey) && !e.altKey && !e.shiftKey
+      const isManualRefreshShortcut = key === 'r' && e.shiftKey && !e.metaKey && !e.ctrlKey && !e.altKey
+      const isSaveFileCombo = key === 's' && (e.metaKey || e.ctrlKey) && !e.altKey
+      const target = e.target as HTMLElement | null
+      const tag = target?.tagName?.toLowerCase()
+      const isTyping = tag === 'input' || tag === 'textarea' || tag === 'select' || target?.isContentEditable
+
+      if (isSaveFileCombo && !filePreview.open) {
+        e.preventDefault()
+        return
+      }
+
+      if (isTyping) {
+        if (isManualRefreshShortcut) {
+          e.preventDefault()
+          refreshCurrentSection({ forceRadar: true })
+          return
+        }
+
+        if (section === 'memory' && isMemoryFindCombo) {
+          e.preventDefault()
+          knowledgeSearchInputRef.current?.focus()
+          knowledgeSearchInputRef.current?.select()
+          return
+        }
+
+        if (filePreview.open && isSaveFileCombo) {
+          e.preventDefault()
+          if (!canSaveFilePreviewRef.current) return
+          void saveFilePreview()
+          return
+        }
+
+        const isRadarSearchTypingTarget = section === 'radar' && target === radarSearchInputRef.current
+        if (isRadarSearchTypingTarget && e.shiftKey && (key === 'a' || key === 'w' || key === 'x' || key === 'o' || key === 'enter')) {
+          const candidate = quickAcceptCandidateRef.current
+          if (!candidate || radarActionPending[candidate.id]) return
+
+          e.preventDefault()
+          if (key === 'o') {
+            openRadarSource(candidate.url, candidate.title)
+            return
+          }
+
+          if (key === 'enter') {
+            if (!openRadarSource(candidate.url, candidate.title)) return
+            void setRadarStatus(candidate.id, 'accepted')
+            return
+          }
+
+          const nextStatus = key === 'a' ? 'accepted' : key === 'w' ? 'watchlist' : 'rejected'
+          void setRadarStatus(candidate.id, nextStatus)
+          return
+        }
+
+        const isKnowledgeSearchTypingTarget = section === 'memory' && target === knowledgeSearchInputRef.current
+        if (isKnowledgeSearchTypingTarget && e.shiftKey && !e.metaKey && !e.ctrlKey && !e.altKey && key === 'enter') {
+          e.preventDefault()
+          if (knowledgeLoadingRef.current) return
+          knowledgeAutoRefreshAtRef.current = Date.now()
+          void loadKnowledgeIndex()
+          return
+        }
+
+        if (isKnowledgeSearchTypingTarget && key === 'escape' && knowledgeQuery.trim()) {
+          e.preventDefault()
+          setKnowledgeQuery('')
+          return
+        }
+
+        if (section === 'radar' && key === 'escape') {
+          if (radarQuery.trim()) {
+            e.preventDefault()
+            setRadarQuery('')
+            return
+          }
+
+          if (radarStatusFilter !== defaultRadarStatusFilter || radarLaneFilter !== 'all' || radarLeverageOnly || radarSortMode !== 'status') {
+            e.preventDefault()
+            setRadarStatusFilter(defaultRadarStatusFilter)
+            setRadarLaneFilter('all')
+            setRadarLeverageOnly(false)
+            setRadarSortMode('status')
+          }
+        }
+        return
+      }
+
+      if (filePreview.open) {
+        if (isManualRefreshShortcut) {
+          e.preventDefault()
+          refreshCurrentSection({ forceRadar: true })
+          return
+        }
+
+        if (isSaveFileCombo) {
+          e.preventDefault()
+          if (!canSaveFilePreviewRef.current) return
+          void saveFilePreview()
+          return
+        }
+
+        if (key === 'escape') {
+          e.preventDefault()
+          closeFilePreview()
+        }
+        return
+      }
+
+      if (section === 'radar' && isUndoCombo && latestRadarDecision) {
+        e.preventDefault()
+        void undoLastRadarDecision()
+        return
+      }
+
+      if (section === 'memory' && isMemoryFindCombo) {
+        e.preventDefault()
+        knowledgeSearchInputRef.current?.focus()
+        knowledgeSearchInputRef.current?.select()
+        return
+      }
+
+      if (isRadarSearchCombo) {
+        e.preventDefault()
+
+        if (section === 'memory') {
+          knowledgeSearchInputRef.current?.focus()
+          knowledgeSearchInputRef.current?.select()
+          return
+        }
+
+        if (section !== 'radar') {
+          setSection('radar')
+          window.setTimeout(() => {
+            radarSearchInputRef.current?.focus()
+            radarSearchInputRef.current?.select()
+          }, 0)
+        } else {
+          radarSearchInputRef.current?.focus()
+          radarSearchInputRef.current?.select()
+        }
+        return
+      }
+
+      if (isManualRefreshShortcut) {
+        e.preventDefault()
+        refreshCurrentSection({ forceRadar: true })
+        return
+      }
+
+      if (e.metaKey || e.ctrlKey || e.altKey) return
+
+      if (key === 'h') {
+        e.preventDefault()
+        setSection('tasks')
+      } else if (key === 'r') {
+        e.preventDefault()
+        if (section === 'radar') {
+          refreshCurrentSection({ forceRadar: true })
+        } else {
+          setSection('radar')
+        }
+      } else if (key === 'm') {
+        e.preventDefault()
+        setSection('clients')
+      } else if (section === 'tasks' && e.shiftKey && (key === 'd' || key === 'f')) {
+        const shortcutCandidate = topTaskShortcutCandidateRef.current
+        if (!shortcutCandidate || taskActionPending[shortcutCandidate.id]) return
+
+        e.preventDefault()
+        const nextStatus = key === 'd' ? 'doing' : 'waiting'
+        void move(shortcutCandidate.id, nextStatus)
+      } else if (section === 'tasks' && e.shiftKey && key === 's') {
+        const doingCandidate = topDoingTaskShortcutCandidateRef.current
+        if (!doingCandidate || taskActionPending[doingCandidate.id]) return
+
+        e.preventDefault()
+        void move(doingCandidate.id, 'done')
+      } else if (section === 'tasks' && e.shiftKey && key === 'p') {
+        const somedayCandidate = topSomedayShortcutCandidateRef.current
+        if (!somedayCandidate || somedayBusyId) return
+
+        e.preventDefault()
+        void promoteSomeday(somedayCandidate, true)
+      } else if (section === 'radar' && key === '/') {
+        e.preventDefault()
+        radarSearchInputRef.current?.focus()
+        radarSearchInputRef.current?.select()
+      } else if (section === 'memory' && key === '/') {
+        e.preventDefault()
+        knowledgeSearchInputRef.current?.focus()
+        knowledgeSearchInputRef.current?.select()
+      } else if (section === 'memory' && e.shiftKey && !e.metaKey && !e.ctrlKey && !e.altKey && key === 'enter') {
+        e.preventDefault()
+        if (knowledgeLoadingRef.current) return
+        knowledgeAutoRefreshAtRef.current = Date.now()
+        void loadKnowledgeIndex()
+      } else if (section === 'radar' && (e.shiftKey && (key === 'a' || key === 'w' || key === 'x' || key === 'o') || (e.shiftKey && key === 'enter'))) {
+        const candidate = quickAcceptCandidateRef.current
+
+        if (!candidate || radarActionPending[candidate.id]) return
+
+        e.preventDefault()
+        if (key === 'o') {
+          openRadarSource(candidate.url, candidate.title)
+          return
+        }
+
+        if (key === 'enter') {
+          if (!openRadarSource(candidate.url, candidate.title)) return
+          void setRadarStatus(candidate.id, 'accepted')
+          return
+        }
+
+        const nextStatus = key === 'a' ? 'accepted' : key === 'w' ? 'watchlist' : 'rejected'
+        void setRadarStatus(candidate.id, nextStatus)
+      } else if (section === 'radar' && key === 'escape') {
+        if (radarQuery.trim()) {
+          e.preventDefault()
+          setRadarQuery('')
+          return
+        }
+
+        if (radarStatusFilter !== defaultRadarStatusFilter || radarLaneFilter !== 'all' || radarLeverageOnly || radarSortMode !== 'status') {
+          e.preventDefault()
+          setRadarStatusFilter(defaultRadarStatusFilter)
+          setRadarLaneFilter('all')
+          setRadarLeverageOnly(false)
+          setRadarSortMode('status')
+        }
+      } else if (section === 'memory' && key === 'escape') {
+        if (knowledgeQuery.trim()) {
+          e.preventDefault()
+          setKnowledgeQuery('')
+          return
+        }
+
+        e.preventDefault()
+        knowledgeSearchInputRef.current?.focus()
+        knowledgeSearchInputRef.current?.select()
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [
+    section,
+    radarQuery,
+    radarStatusFilter,
+    radarLaneFilter,
+    radarLeverageOnly,
+    radarSortMode,
+    radarActionPending,
+    latestRadarDecision,
+    taskActionPending,
+    somedayBusyId,
+    refreshCurrentSection,
+    filePreview.open,
+  ])
+
+  const visible = useMemo(() => (filter === 'all' ? tasks : tasks.filter((t) => t.assignee === filter)), [tasks, filter])
+
+  const rankedOpenTasks = useMemo(() => {
+    const nowMs = nowTick
+
+    return [...visible]
+      .filter((t) => t.status !== 'done')
+      .sort((a, b) => {
+        const rankDelta = taskExecutionRank(b, nowMs) - taskExecutionRank(a, nowMs)
+        if (rankDelta !== 0) return rankDelta
+        return a.title.localeCompare(b.title, 'de-CH')
+      })
+  }, [visible, nowTick])
+
+  const todayFocus = useMemo(() => rankedOpenTasks.slice(0, 3), [rankedOpenTasks])
+
+  const topTaskShortcutCandidate = useMemo(() => {
+    return rankedOpenTasks.find((task) => task.status === 'open') || null
+  }, [rankedOpenTasks])
+
+  const topDoingTaskShortcutCandidate = useMemo(() => {
+    return rankedOpenTasks.find((task) => task.status === 'doing') || null
+  }, [rankedOpenTasks])
+
+  const somedayTags = useMemo(() => Array.from(new Set(
+    somedayItems.flatMap((item) => Array.isArray(item.tags) ? item.tags : [])
+  )).sort((a, b) => a.localeCompare(b, 'de-CH')), [somedayItems])
+
+  const visibleSomedayItems = useMemo(() => {
+    const filtered = somedayTagFilter === 'all'
+      ? [...somedayItems]
+      : somedayItems.filter((item) => (item.tags || []).includes(somedayTagFilter))
+
+    return filtered.sort((a, b) => {
+      const rankDelta = somedayExecutionRank(b) - somedayExecutionRank(a)
+      if (rankDelta !== 0) return rankDelta
+      return a.title.localeCompare(b.title, 'de-CH')
+    })
+  }, [somedayItems, somedayTagFilter])
+
+  const topSomedayShortcutCandidate = useMemo(() => {
+    if (visibleSomedayItems.length === 0) return null
+    return visibleSomedayItems[0]
+  }, [visibleSomedayItems])
+
+  useEffect(() => {
+    topTaskShortcutCandidateRef.current = topTaskShortcutCandidate
+  }, [topTaskShortcutCandidate])
+
+  useEffect(() => {
+    topDoingTaskShortcutCandidateRef.current = topDoingTaskShortcutCandidate
+  }, [topDoingTaskShortcutCandidate])
+
+  useEffect(() => {
+    if (somedayTagFilter !== 'all' && !somedayTags.includes(somedayTagFilter)) {
+      setSomedayTagFilter('all')
+    }
+  }, [somedayTagFilter, somedayTags])
+
+  useEffect(() => {
+    topSomedayShortcutCandidateRef.current = topSomedayShortcutCandidate
+  }, [topSomedayShortcutCandidate])
+
+  const overdueCount = useMemo(() => {
+    const now = new Date(nowTick)
+    return visible.filter((t) => t.status !== 'done' && t.deadline && parseTaskDeadlineMs(t.deadline) < now.getTime()).length
+  }, [visible, nowTick])
+
+  const dueSoonCount = useMemo(() => {
+    const nowMs = nowTick
+    const next24hMs = nowMs + 24 * 60 * 60 * 1000
+
+    return visible.filter((t) => {
+      if (t.status === 'done' || !t.deadline) return false
+      const deadlineMs = parseTaskDeadlineMs(t.deadline)
+      if (!Number.isFinite(deadlineMs)) return false
+      return deadlineMs >= nowMs && deadlineMs <= next24hMs
+    }).length
+  }, [visible, nowTick])
+
+  const tocCounts = useMemo(() => {
+    const c = { wertschoepfung: 0, weltbild: 0, repraesentation: 0 }
+    visible.forEach((t) => {
+      if (t.tocAxis) c[t.tocAxis] += 1
+    })
+    return c
+  }, [visible])
+
+  const filteredRadar = useMemo(() => {
+    const normalizedQuery = normalizeTitle(radarQuery)
+
+    return radar
+      .filter((r) => {
+        if (radarStatusFilter === 'all') return true
+        if (radarStatusFilter === 'actionable') return r.status === 'new' || r.status === 'watchlist'
+        return r.status === radarStatusFilter
+      })
+      .filter((r) => (radarLaneFilter === 'all' ? true : r.lane === radarLaneFilter))
+      .filter((r) => {
+        if (!normalizedQuery) return true
+        return radarSearchHaystack(r).includes(normalizedQuery)
+      })
+      .filter((r) => {
+        if (!radarLeverageOnly) return true
+        return r.score >= 80 || r.impact === 'high' || r.urgency === 'high'
+      })
+      .sort((a, b) => {
+        if (radarSortMode === 'leverage') {
+          const leverageDelta = radarLeverageRank(b) - radarLeverageRank(a)
+          if (leverageDelta !== 0) return leverageDelta
+
+          const statusDelta = radarStatusPriority[b.status] - radarStatusPriority[a.status]
+          if (statusDelta !== 0) return statusDelta
+
+          return a.title.localeCompare(b.title, 'de-CH')
+        }
+
+        const statusDelta = radarStatusPriority[b.status] - radarStatusPriority[a.status]
+        if (statusDelta !== 0) return statusDelta
+
+        const urgencyDelta = pScore[b.urgency] - pScore[a.urgency]
+        if (urgencyDelta !== 0) return urgencyDelta
+
+        const impactDelta = pScore[b.impact] - pScore[a.impact]
+        if (impactDelta !== 0) return impactDelta
+
+        return b.score - a.score || a.title.localeCompare(b.title, 'de-CH')
+      })
+  }, [radar, radarStatusFilter, radarLaneFilter, radarQuery, radarLeverageOnly, radarSortMode])
+
+  const radarStaleMinutes = useMemo(() => {
+    if (!radarLastUpdatedAt) return null
+    const parsedMs = new Date(radarLastUpdatedAt).getTime()
+    if (!Number.isFinite(parsedMs)) return null
+    return Math.max(0, Math.floor((nowTick - parsedMs) / 60_000))
+  }, [radarLastUpdatedAt, nowTick])
+
+  const radarHasUnknownFreshness = radar.length > 0 && radarStaleMinutes === null
+  const radarIsStale = radarHasUnknownFreshness || (radarStaleMinutes ?? 0) >= radarStaleThresholdMinutes
+  const radarRetrySecondsRemaining = radarRetryScheduledAt ? Math.max(1, Math.ceil((radarRetryScheduledAt - nowTick) / 1_000)) : null
+
+  const quickAcceptCandidate = useMemo(() => pickTopActionableRadar(filteredRadar), [filteredRadar])
+  const quickAcceptCandidateSafeUrl = quickAcceptCandidate ? safeRadarSourceUrl(quickAcceptCandidate.url) : null
+
+  useEffect(() => {
+    quickAcceptCandidateRef.current = quickAcceptCandidate
+  }, [quickAcceptCandidate])
+
+  const quickCandidateContext = useMemo(() => {
+    if (!quickAcceptCandidate) return null
+    const title = quickAcceptCandidate.title.length > 90
+      ? `${quickAcceptCandidate.title.slice(0, 87)}...`
+      : quickAcceptCandidate.title
+    return `${title} (${quickAcceptCandidate.source})`
+  }, [quickAcceptCandidate])
+
+  const actionableInFocusCount = useMemo(
+    () => filteredRadar.filter((r) => r.status === 'new' || r.status === 'watchlist').length,
+    [filteredRadar],
+  )
+
+  const actionableTotalCount = useMemo(
+    () => radar.filter((r) => r.status === 'new' || r.status === 'watchlist').length,
+    [radar],
+  )
+
+  const unsafeRadarSourceCount = useMemo(
+    () => radar.filter((r) => !safeRadarSourceUrl(r.url)).length,
+    [radar],
+  )
+
+  const highLeverageActionableInFocusCount = useMemo(
+    () =>
+      filteredRadar.filter(
+        (r) =>
+          (r.status === 'new' || r.status === 'watchlist') &&
+          (r.score >= 80 || r.impact === 'high' || r.urgency === 'high'),
+      ).length,
+    [filteredRadar],
+  )
+
+  const highLeverageActionableTotalCount = useMemo(
+    () =>
+      radar.filter(
+        (r) =>
+          (r.status === 'new' || r.status === 'watchlist') &&
+          (r.score >= 80 || r.impact === 'high' || r.urgency === 'high'),
+      ).length,
+    [radar],
+  )
+
+  const hasActiveRadarFilters =
+    radarStatusFilter !== defaultRadarStatusFilter ||
+    radarLaneFilter !== 'all' ||
+    radarSortMode !== 'status' ||
+    radarLeverageOnly ||
+    Boolean(radarQuery.trim())
+
+  function safeRadarSourceUrl(url: string): string | null {
+    const parsed = parseSafeRadarUrl(url)
+    return parsed ? parsed.toString() : null
+  }
+
+  function openRadarSource(url: string, contextTitle?: string) {
+    const safeUrl = safeRadarSourceUrl(url)
+    const suffix = contextTitle ? ` (${contextTitle})` : ''
+
+    if (!safeUrl) {
+      setRadarActionError(`Quelle konnte nicht sicher geöffnet werden${suffix}. Bitte URL prüfen.`)
+      return false
+    }
+
+    setRadarActionError(null)
+    const openedWindow = window.open(safeUrl, '_blank', 'noopener,noreferrer')
+    if (!openedWindow) {
+      setRadarActionError(`Quelle konnte nicht geöffnet werden${suffix}. Popup-Blocker prüfen.`)
+      return false
+    }
+
+    return true
+  }
+
+  async function move(id: string, status: 'open' | 'doing' | 'waiting' | 'done') {
+    if (taskActionPending[id]) return
+
+    if (typeof navigator !== 'undefined' && !navigator.onLine) {
+      setBoardError('Offline: Task-Änderungen sind aktuell nicht möglich. Bitte erneut versuchen, sobald die Verbindung zurück ist.')
+      return
+    }
+
+    const current = tasks.find((t) => t.id === id)
+    if (!current || current.status === status) return
+
+    const previousStatus = current.status
+
+    // Invalidate older in-flight task loads so they cannot overwrite this optimistic update.
+    tasksLoadSeq.current += 1
+
+    setTaskActionPending((prev) => ({ ...prev, [id]: true }))
+    setBoardError(null)
+    setTasks((prev) => prev.map((task) => (task.id === id ? { ...task, status } : task)))
+
+    try {
+      await patchTaskStatusWithRetry(id, status)
+      await loadTasks()
+    } catch (error) {
+      setTasks((prev) => prev.map((task) => (task.id === id ? { ...task, status: previousStatus } : task)))
+
+      if (error instanceof DOMException && error.name === 'AbortError') {
+        setBoardError('Speichern hat zu lange gedauert. Bitte erneut versuchen.')
+      } else {
+        setBoardError('Status konnte nicht gespeichert werden. Bitte erneut versuchen.')
+      }
+    } finally {
+      setTaskActionPending((prev) => {
+        const next = { ...prev }
+        delete next[id]
+        return next
+      })
+    }
+  }
+
+  async function setRadarStatus(
+    id: string,
+    status: 'new' | 'accepted' | 'watchlist' | 'rejected',
+    options?: { allowStale?: boolean; suppressUndoCapture?: boolean },
+  ): Promise<boolean> {
+    if (radarPendingIdsRef.current.has(id) || radarActionPending[id]) return false
+
+    if (typeof navigator !== 'undefined' && !navigator.onLine) {
+      setIsOffline(true)
+      setRadarActionError('Offline: Status-Änderungen sind aktuell nicht möglich. Bitte erneut versuchen, sobald die Verbindung zurück ist.')
+      return false
+    }
+
+    const current = radar.find((r) => r.id === id)
+    if (!current || current.status === status) return false
+    const previousStatus = current.status
+
+    if (radarIsStale && !options?.allowStale) {
+      radarDeferredDecisionRef.current = { id, status }
+      setRadarDeferredDecision({ id, status, title: current.title })
+      setRadarActionError(`Radar-Daten sind älter als ${radarStaleThresholdMinutes} Minuten. Aktualisierung läuft – Entscheidung wird danach automatisch ausgeführt.`)
+      void loadRadar({ force: true })
+      return false
+    }
+
+    if (radarDeferredDecisionRef.current?.id === id && radarDeferredDecisionRef.current?.status === status) {
+      radarDeferredDecisionRef.current = null
+      setRadarDeferredDecision(null)
+    }
+
+    const isHighLeverageSignal = current.score >= 80 || current.impact === 'high' || current.urgency === 'high'
+    if (status === 'rejected' && isHighLeverageSignal && previousStatus !== 'rejected') {
+      const shouldReject = window.confirm(
+        `Dieses Signal hat hohen Hebel (Score ${current.score}, Impact ${current.impact}, Urgency ${current.urgency}). Wirklich auf "Rejected" setzen?`,
+      )
+
+      if (!shouldReject) return false
+    }
+
+    const shouldCaptureUndo = !options?.suppressUndoCapture
+
+    setRadarActionError(null)
+    radarPendingIdsRef.current.add(id)
+    setRadarActionPending((prev) => ({ ...prev, [id]: true }))
+    setRadarPendingTargetStatus((prev) => ({ ...prev, [id]: status }))
+    setRadar((prev) => {
+      const next = prev.map((item) => (item.id === id ? { ...item, status } : item))
+      const nextStats = computeRadarStatsFromRows(next)
+      setRadarStats(nextStats)
+      persistRadarCache(next, nextStats, radarLastUpdatedAt, radarDedupedCount)
+      return next
+    })
+
+    let patchPersisted = false
+
+    try {
+      await patchRadarStatusWithRetry(id, status)
+
+      patchPersisted = true
+
+      if (shouldCaptureUndo) {
+        setRadarDecisionUndoStack((prev) => [{ id, title: current.title, from: previousStatus, to: status }, ...prev].slice(0, maxRadarUndoDepth))
+      }
+
+      const becameAccepted = status === 'accepted' && current && current.status !== 'accepted'
+      let followupWarning: string | null = null
+
+      if (becameAccepted) {
+        try {
+          const followup = radarFollowupConfig(current)
+          const taskTitle = followup.taskTitle
+          const entityTitle = followup.entityTitle
+          const followupAxis = current.tocAxis || 'weltbild'
+
+          const [taskRowsRaw, entityRowsRaw] = await Promise.all([
+            fetchJsonWithTransientRetry<unknown>('/api/tasks', boardRequestTimeoutMs),
+            fetchJsonWithTransientRetry<unknown>(`/api/entities?type=${followup.entityType}`, boardRequestTimeoutMs),
+          ])
+
+          const taskRows = sanitizeTaskCacheRows(taskRowsRaw)
+          const entityRows = sanitizeEntityRows(entityRowsRaw)
+
+          const normalizedTaskTitle = normalizeTitle(taskTitle)
+          const normalizedEntityTitle = normalizeTitle(entityTitle)
+          const normalizedRadarUrl = normalizeComparableUrl(current.url)
+
+          const existingTask = taskRows.find((t: Task) => normalizeTitle(t.title) === normalizedTaskTitle)
+          const followupDeadline = radarFollowupDeadlineIso(current.urgency)
+
+          const desiredImpact = current.impact === 'high' ? 'high' : 'med'
+
+          if (existingTask) {
+            const existingDeadlineMs = existingTask.deadline ? parseTaskDeadlineMs(existingTask.deadline) : Number.NaN
+            const followupDeadlineMs = new Date(followupDeadline).getTime()
+            const shouldTightenDeadline =
+              !Number.isFinite(existingDeadlineMs) ||
+              (Number.isFinite(followupDeadlineMs) && existingDeadlineMs > followupDeadlineMs)
+
+            const needsTaskRefresh =
+              existingTask.status === 'done' ||
+              existingTask.priority !== 'high' ||
+              (existingTask.impact || 'med') !== desiredImpact ||
+              (existingTask.area || 'ops') !== followup.taskArea ||
+              (existingTask.tocAxis || 'weltbild') !== followupAxis ||
+              shouldTightenDeadline
+
+            if (needsTaskRefresh) {
+              await fetchWithRetry(
+                `/api/tasks/${existingTask.id}`,
+                {
+                  method: 'PATCH',
+                  headers: { 'content-type': 'application/json' },
+                  body: JSON.stringify({
+                    status: existingTask.status === 'done' ? 'open' : existingTask.status,
+                    priority: 'high',
+                    impact: desiredImpact,
+                    area: followup.taskArea,
+                    tocAxis: followupAxis,
+                    ...(shouldTightenDeadline ? { deadline: followupDeadline } : {}),
+                  }),
+                },
+                radarActionTimeoutMs,
+                'Follow-up Task konnte nicht aktualisiert werden.',
+              )
+            }
+          } else {
+            await fetchWithRetry(
+              '/api/tasks',
+              {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                  title: taskTitle,
+                  assignee: 'ALF',
+                  priority: 'high',
+                  impact: desiredImpact,
+                  area: followup.taskArea,
+                  tocAxis: followupAxis,
+                  deadline: followupDeadline,
+                }),
+              },
+              radarActionTimeoutMs,
+              'Follow-up Task konnte nicht erstellt werden.',
+            )
+          }
+
+          const hasMatchingEntity = entityRows.some((e: Entity) => {
+            if (normalizeTitle(e.title) === normalizedEntityTitle) return true
+
+            const noteUrls = (e.notes || '').match(/https?:\/\/\S+/g) || []
+            return noteUrls.some((url) => normalizeComparableUrl(url) === normalizedRadarUrl)
+          })
+
+          if (!hasMatchingEntity) {
+            await fetchWithRetry(
+              '/api/entities',
+              {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                  type: followup.entityType,
+                  title: entityTitle,
+                  notes: `${current.source} | Score ${current.score} | ${current.url}`,
+                  owner: 'ALF',
+                  status: 'brief',
+                  tocAxis: followupAxis,
+                }),
+              },
+              radarActionTimeoutMs,
+              'Follow-up Kontakt konnte nicht erstellt werden.',
+            )
+          }
+        } catch {
+          followupWarning = 'Radar akzeptiert, aber Follow-up (Task/Entity) konnte nicht vollständig erstellt werden. Bitte kurz manuell prüfen.'
+        }
+      }
+
+      await loadRadar({ force: true })
+      if (becameAccepted) {
+        await loadTasks()
+      }
+
+      if (followupWarning) {
+        setRadarActionError(followupWarning)
+      }
+
+      return true
+    } catch (error) {
+      if (!patchPersisted && previousStatus) {
+        setRadar((prev) => {
+          const next = prev.map((item) => (item.id === id ? { ...item, status: previousStatus } : item))
+          const nextStats = computeRadarStatsFromRows(next)
+          setRadarStats(nextStats)
+          persistRadarCache(next, nextStats, radarLastUpdatedAt, radarDedupedCount)
+          return next
+        })
+      }
+      if (error instanceof DOMException && error.name === 'AbortError') {
+        setRadarActionError('Radar-Änderung hat zu lange gedauert. Bitte erneut versuchen.')
+      } else if (error instanceof Error) {
+        setRadarActionError(
+          patchPersisted
+            ? 'Status gespeichert, aber Ansicht konnte nicht vollständig aktualisiert werden. Bitte kurz neu laden.'
+            : error.message,
+        )
+      } else {
+        setRadarActionError('Aktion fehlgeschlagen. Bitte erneut versuchen.')
+      }
+
+      return false
+    } finally {
+      radarPendingIdsRef.current.delete(id)
+      setRadarActionPending((prev) => {
+        const next = { ...prev }
+        delete next[id]
+        return next
+      })
+      setRadarPendingTargetStatus((prev) => {
+        const next = { ...prev }
+        delete next[id]
+        return next
+      })
+    }
+  }
+
+  async function undoLastRadarDecision() {
+    if (!latestRadarDecision) return
+
+    const decisionToUndo = latestRadarDecision
+
+    const undoApplied = await setRadarStatus(decisionToUndo.id, decisionToUndo.from, {
+      allowStale: true,
+      suppressUndoCapture: true,
+    })
+
+    if (undoApplied) {
+      setRadarDecisionUndoStack((prev) => prev.slice(1))
+    }
+  }
+
+  async function removeEntityById(id: string, reason: 'false' | 'duplicate') {
+    if (entityActionPending[id]) return
+
+    if (typeof navigator !== 'undefined' && !navigator.onLine) {
+      setBoardError('Offline: Einträge können aktuell nicht aussortiert werden. Bitte erneut versuchen, sobald die Verbindung zurück ist.')
+      return
+    }
+
+    const label = reason === 'duplicate' ? 'Duplikat' : 'falsch'
+    const shouldDelete = window.confirm(`Eintrag als ${label} aussortieren und entfernen?`)
+    if (!shouldDelete) return
+
+    setEntityActionPending((prev) => ({ ...prev, [id]: true }))
+    setBoardError(null)
+
+    try {
+      const res = await fetchWithTimeout(`/api/entities/${id}`, { method: 'DELETE' }, taskActionTimeoutMs)
+      if (!res.ok) throw new Error('Eintrag konnte nicht entfernt werden.')
+
+      if (sectionMeta[section].entityType) {
+        await loadEntities(sectionMeta[section].entityType!, sectionMeta[section].label)
+      }
+    } catch (error) {
+      if (error instanceof DOMException && error.name === 'AbortError') {
+        setBoardError('Aussortieren hat zu lange gedauert. Bitte erneut versuchen.')
+      } else {
+        setBoardError('Eintrag konnte nicht entfernt werden. Bitte erneut versuchen.')
+      }
+    } finally {
+      setEntityActionPending((prev) => {
+        const next = { ...prev }
+        delete next[id]
+        return next
+      })
+    }
+  }
+
+  const cronStatusColor: Record<string, string> = {
+    ok: '#166534',
+    error: '#991b1b',
+    idle: '#334155',
+  }
+
+  const startOfCurrentWeek = (() => {
+    const now = new Date(nowTick)
+    const day = (now.getDay() + 6) % 7
+    const start = new Date(now)
+    start.setHours(0, 0, 0, 0)
+    start.setDate(start.getDate() - day)
+    return start
+  })()
+
+  const weekDays = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'].map((label, idx) => {
+    const date = new Date(startOfCurrentWeek)
+    date.setDate(startOfCurrentWeek.getDate() + idx)
+    const startMs = date.getTime()
+    return {
+      label,
+      startMs,
+      endMs: startMs + 24 * 60 * 60 * 1000,
+      dateLabel: date.toLocaleDateString('de-CH', { day: '2-digit', month: '2-digit' }),
+    }
+  })
+
+  const weeklyJobColumns = weekDays.map((day) => ({
+    ...day,
+    jobs: cronJobs
+      .filter((job) => job.enabled && typeof job.nextRunAtMs === 'number' && job.nextRunAtMs >= day.startMs && job.nextRunAtMs < day.endMs)
+      .sort((a, b) => (a.nextRunAtMs || 0) - (b.nextRunAtMs || 0)),
+  }))
+
+  const upcomingCronJobs = [...cronJobs]
+    .filter((job) => job.enabled && typeof job.nextRunAtMs === 'number' && job.nextRunAtMs >= nowTick)
+    .sort((a, b) => (a.nextRunAtMs || 0) - (b.nextRunAtMs || 0))
+    .slice(0, 25)
+
+  const hiddenDisabledCronJobsCount = cronJobs.filter((job) => !job.enabled).length
+
+  const hasPendingTaskMutation = useMemo(() => Object.values(taskActionPending).some(Boolean), [taskActionPending])
+  const hasPendingRadarMutation = useMemo(() => Object.values(radarActionPending).some(Boolean), [radarActionPending])
+  const hasPendingEntityMutation = useMemo(() => Object.values(entityActionPending).some(Boolean), [entityActionPending])
+
+  const refreshButtonDisabledReason = useMemo(() => {
+    if (isOffline) return 'Offline: Aktualisierung pausiert bis Verbindung wieder da ist.'
+
+    if (section === 'radar') {
+      if (radarLoading) return 'Radar wird bereits aktualisiert.'
+      if (hasPendingRadarMutation) return 'Radar-Entscheidung läuft noch. Danach erneut aktualisieren.'
+      return null
+    }
+
+    if (section === 'tasks') {
+      if (tasksLoading) return 'Aufgaben werden bereits aktualisiert.'
+      if (somedayLoading) return 'Someday-Liste wird bereits aktualisiert.'
+      if (hasPendingTaskMutation || Boolean(somedayBusyId)) return 'Task-Änderung läuft noch. Danach erneut aktualisieren.'
+      return null
+    }
+
+    if (section === 'calendar') {
+      if (cronLoading) return 'Kalender wird bereits aktualisiert.'
+      return null
+    }
+
+    if (section === 'files') {
+      if (knowledgeLoading) return 'Wissensindex wird bereits aktualisiert.'
+      return null
+    }
+
+    if (entitiesLoading) return 'Einträge werden bereits aktualisiert.'
+    if (hasPendingEntityMutation) return 'Änderung läuft noch. Danach erneut aktualisieren.'
+
+    return null
+  }, [isOffline, section, radarLoading, hasPendingRadarMutation, tasksLoading, somedayLoading, hasPendingTaskMutation, somedayBusyId, cronLoading, knowledgeLoading, entitiesLoading, hasPendingEntityMutation])
+
+  const canRefreshCurrentSection = refreshButtonDisabledReason === null
+
+  const refreshButtonLabel = useMemo(() => {
+    if (section === 'radar' && radarLoading) return 'Aktualisiere Radar…'
+    if (section === 'radar' && hasPendingRadarMutation) return 'Radar speichert…'
+    if (section === 'tasks' && tasksLoading) return 'Aktualisiere Aufgaben…'
+    if (section === 'tasks' && somedayLoading) return 'Aktualisiere Someday…'
+    if (section === 'tasks' && (hasPendingTaskMutation || Boolean(somedayBusyId))) return 'Task-Aktion läuft…'
+    if (section === 'calendar' && cronLoading) return 'Aktualisiere Kalender…'
+    if (section === 'files' && knowledgeLoading) return 'Aktualisiere Wissensindex…'
+    if (sectionMeta[section].entityType && entitiesLoading) return 'Aktualisiere Einträge…'
+    if (sectionMeta[section].entityType && hasPendingEntityMutation) return 'Bitte warten…'
+    return 'Aktualisieren'
+  }, [section, radarLoading, hasPendingRadarMutation, tasksLoading, somedayLoading, hasPendingTaskMutation, somedayBusyId, cronLoading, knowledgeLoading, entitiesLoading, hasPendingEntityMutation])
+
+  const filteredKnowledgeEntries = useMemo(() => {
+    const q = knowledgeQuery.trim().toLowerCase()
+    if (!q) return knowledgeEntries
+    return knowledgeEntries.filter((entry) => {
+      const hay = `${entry.name} ${entry.relPath} ${entry.group}`.toLowerCase()
+      return hay.includes(q)
+    })
+  }, [knowledgeEntries, knowledgeQuery])
+
+  const groupedKnowledgeEntries = useMemo(() => {
+    const out = new Map<string, KnowledgeEntry[]>()
+    for (const entry of filteredKnowledgeEntries) {
+      const rows = out.get(entry.group) || []
+      rows.push(entry)
+      out.set(entry.group, rows)
+    }
+    return [...out.entries()]
+  }, [filteredKnowledgeEntries])
+
+  const canRefreshSomeday = !somedayLoading && !tasksLoading && !Boolean(somedayBusyId)
+  const refreshSomedayDisabledReason =
+    somedayLoading
+      ? 'Someday-Liste wird bereits aktualisiert.'
+      : tasksLoading
+        ? 'Aufgaben werden gerade aktualisiert. Danach Someday erneut laden.'
+        : somedayBusyId
+          ? 'Someday-Aktion läuft noch. Danach erneut laden.'
+          : null
+
+  const canSaveFilePreview = !isOffline && !filePreview.loading && !filePreview.saving && fileDraft !== (filePreview.content || '')
+  const saveFilePreviewDisabledReason =
+    isOffline
+      ? 'Offline: Datei kann aktuell nicht gespeichert werden.'
+      : filePreview.loading
+        ? 'Datei lädt noch. Danach speichern.'
+        : filePreview.saving
+          ? 'Datei wird bereits gespeichert.'
+          : fileDraft === (filePreview.content || '')
+            ? 'Keine Änderungen zum Speichern.'
+            : null
+
+  const canRefreshKnowledgeIndex = !knowledgeLoading && !isOffline
+  const refreshKnowledgeDisabledReason = knowledgeLoading
+    ? 'Wissensindex wird bereits aktualisiert.'
+    : isOffline
+      ? 'Offline: Wissensindex kann ohne Netzwerk nicht geladen werden.'
+      : null
+
+  useEffect(() => {
+    canSaveFilePreviewRef.current = canSaveFilePreview
+  }, [canSaveFilePreview])
+
+  const col = (s: 'open' | 'doing' | 'waiting', colTitle: string) => (
+    <div
+      style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 12, padding: 12 }}
+      onDragOver={(e) => e.preventDefault()}
+      onDrop={(e) => {
+        const id = e.dataTransfer.getData('text/task-id')
+        if (id) move(id, s)
+      }}
+    >
+      <h3 style={{ marginTop: 0 }}>{colTitle}</h3>
+      {visible
+        .filter((t) => t.status === s)
+        .sort((a, b) => {
+          const rankDelta = taskExecutionRank(b, nowTick) - taskExecutionRank(a, nowTick)
+          if (rankDelta !== 0) return rankDelta
+          return (a.title || '').localeCompare(b.title || '', 'de-CH')
+        })
+        .map((t) => (
+        <div
+          key={t.id}
+          draggable
+          onDragStart={(e) => e.dataTransfer.setData('text/task-id', t.id)}
+          style={{ background: '#202020', border: '1px solid #3b3b3b', borderRadius: 10, padding: 10, marginBottom: 8, cursor: 'grab' }}
+        >
+          <div><strong>{t.title}</strong></div>
+          <div style={{ fontSize: 12, opacity: 0.85, marginTop: 6 }}>👤 {t.assignee} · ⚡ {t.priority} · 🎯 {t.impact || 'med'} · 🧭 {t.area || 'ops'}</div>
+          {t.deadline && <div style={{ fontSize: 12, opacity: 0.85, marginTop: 4 }} suppressHydrationWarning>⏰ {formatTaskDeadline(t.deadline)}</div>}
+          <div style={{ display: 'flex', gap: 6, marginTop: 8, flexWrap: 'wrap' }}>
+            <button disabled={!!taskActionPending[t.id]} onClick={() => move(t.id, 'open')}>Open</button>
+            <button disabled={!!taskActionPending[t.id]} onClick={() => move(t.id, 'doing')}>Doing</button>
+            <button disabled={!!taskActionPending[t.id]} onClick={() => move(t.id, 'waiting')}>
+              {taskActionPending[t.id] ? 'Saving…' : 'Waiting For'}
+            </button>
+            <button disabled={!!taskActionPending[t.id]} onClick={() => move(t.id, 'done')}>
+              {taskActionPending[t.id] ? 'Saving…' : 'Done'}
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+
+  return (
+    <main style={{ maxWidth: 1280, margin: '0 auto', padding: 20, display: 'grid', gridTemplateColumns: '220px 1fr', gap: 16 }}>
+      <aside style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 12, padding: 10, height: 'fit-content' }}>
+        <div style={{ fontWeight: 700, marginBottom: 2 }}>Cockpit</div>
+        <div style={{ fontSize: 12, opacity: 0.75, marginBottom: 10 }}>Übersicht · Prioritäten · Entscheidungen</div>
+        {(Object.keys(sectionMeta) as Section[]).map((s) => (
+          <button key={s} onClick={() => setSection(s)} style={{ width: '100%', textAlign: 'left', marginBottom: 6, background: section === s ? '#2a2a2a' : '#181818', color: '#f5f5f5', border: '1px solid #3a3a3a', borderRadius: 8, padding: '8px 10px' }}>
+            <div style={{ fontWeight: 600 }}>{sectionMeta[s].label}</div>
+            {sectionMeta[s].hint && <div style={{ fontSize: 11, opacity: 0.7 }}>{sectionMeta[s].hint}</div>}
+          </button>
+        ))}
+      </aside>
+
+      <section>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, marginBottom: 2 }}>
+          <h1 style={{ margin: 0 }}>{sectionMeta[section].label}</h1>
+          <button
+            onClick={() => refreshCurrentSection({ forceRadar: true })}
+            disabled={!canRefreshCurrentSection}
+            style={{ fontSize: 12, padding: '6px 10px' }}
+            title={refreshButtonDisabledReason || 'Aktualisiert die aktuelle Ansicht (Shortcut: Shift+R)'}
+          >
+            {refreshButtonLabel}
+          </button>
+        </div>
+        <div style={{ fontSize: 12, opacity: 0.65, marginBottom: 10 }}>
+          Shortcut: Shift+R aktualisiert die aktuelle Ansicht ohne Seiten-Reload.
+        </div>
+        {(section === 'content' || section === 'clients') && (
+          <div style={{ fontSize: 13, opacity: 0.8, marginBottom: 10 }}>
+            Operative Umsetzung läuft primär in Discord/Telegram; das Cockpit dient hier als Überblick, Priorisierung und Entscheidungslage.
+          </div>
+        )}
+        {boardError && section !== 'radar' && (
+          <div style={{ marginBottom: 10, padding: '8px 10px', borderRadius: 8, border: '1px solid #7f1d1d', background: '#2b1111', color: '#fecaca', fontSize: 13 }}>
+            {boardError}
+          </div>
+        )}
+
+        {section === 'tasks' ? (
+          <>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(0,1fr))', gap: 8, marginBottom: 12 }}>
+              <div style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 10 }}>
+                <div style={{ fontSize: 12, opacity: 0.8 }}>Heute-Fokus (Top 3 offen)</div>
+                <div style={{ marginTop: 6, fontSize: 13 }}>
+                  {todayFocus.length === 0 ? (
+                    <span style={{ opacity: 0.75 }}>Alles erledigt 🎉</span>
+                  ) : (
+                    todayFocus.map((t, idx) => (
+                      <div key={t.id} style={{ marginTop: idx === 0 ? 0 : 4 }}>
+                        {idx + 1}. {t.title}
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+              <div style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 10 }}>
+                <div style={{ fontSize: 12, opacity: 0.8 }}>Überfällig</div>
+                <div style={{ fontSize: 22, fontWeight: 700 }}>{overdueCount}</div>
+                <div style={{ fontSize: 12, opacity: 0.75 }}>Offene Tasks mit verpasster Deadline</div>
+              </div>
+              <div style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 10 }}>
+                <div style={{ fontSize: 12, opacity: 0.8 }}>Fällig in 24h</div>
+                <div style={{ fontSize: 22, fontWeight: 700 }}>{dueSoonCount}</div>
+                <div style={{ fontSize: 12, opacity: 0.75 }}>Offene Tasks mit Deadline bis morgen</div>
+              </div>
+              <div style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 10 }}>
+                <div style={{ fontSize: 12, opacity: 0.8 }}>ToC-Verteilung (offene Tasks)</div>
+                <div style={{ marginTop: 6, fontSize: 13 }}>
+                  W: {tocCounts.wertschoepfung} · B: {tocCounts.weltbild} · R: {tocCounts.repraesentation}
+                </div>
+                <div style={{ fontSize: 11, opacity: 0.65, marginTop: 4 }}>W = Wertschöpfung, B = Weltbild, R = Repräsentation</div>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+              <button
+                disabled={!topTaskShortcutCandidate || !!taskActionPending[topTaskShortcutCandidate.id]}
+                onClick={() => topTaskShortcutCandidate && move(topTaskShortcutCandidate.id, 'doing')}
+                title={
+                  topTaskShortcutCandidate
+                    ? `Setzt den wichtigsten offenen Task auf Doing: ${topTaskShortcutCandidate.title}`
+                    : 'Kein offener Task'
+                }
+              >
+                {topTaskShortcutCandidate ? 'Top-Task auf Doing' : 'Kein offener Task'}
+              </button>
+              <button
+                disabled={!topTaskShortcutCandidate || !!taskActionPending[topTaskShortcutCandidate.id]}
+                onClick={() => topTaskShortcutCandidate && move(topTaskShortcutCandidate.id, 'waiting')}
+                title={
+                  topTaskShortcutCandidate
+                    ? `Setzt den wichtigsten offenen Task auf Waiting For: ${topTaskShortcutCandidate.title}`
+                    : 'Kein offener Task'
+                }
+              >
+                {topTaskShortcutCandidate ? 'Top-Task auf Waiting For' : 'Kein offener Task'}
+              </button>
+              <button
+                disabled={!topDoingTaskShortcutCandidate || !!taskActionPending[topDoingTaskShortcutCandidate.id]}
+                onClick={() => topDoingTaskShortcutCandidate && move(topDoingTaskShortcutCandidate.id, 'done')}
+                title={
+                  topDoingTaskShortcutCandidate
+                    ? `Markiert den wichtigsten laufenden Task als Done: ${topDoingTaskShortcutCandidate.title}`
+                    : 'Kein laufender Task'
+                }
+              >
+                {topDoingTaskShortcutCandidate ? 'Top-Doing auf Done' : 'Kein Doing-Task'}
+              </button>
+              <button
+                disabled={!topSomedayShortcutCandidate || !!somedayBusyId}
+                onClick={() => topSomedayShortcutCandidate && void promoteSomeday(topSomedayShortcutCandidate, true)}
+                title={
+                  topSomedayShortcutCandidate
+                    ? `Übernimmt den wirkungsvollsten Someday-Eintrag in die Taskliste: ${topSomedayShortcutCandidate.title}`
+                    : 'Kein Someday-Eintrag'
+                }
+              >
+                {topSomedayShortcutCandidate ? 'Top-Someday zur Taskliste' : 'Kein Someday'}
+              </button>
+              {(topTaskShortcutCandidate || topDoingTaskShortcutCandidate || topSomedayShortcutCandidate) && (
+                <span style={{ fontSize: 11, opacity: 0.72 }}>
+                  Shortcuts: Shift+D = Doing · Shift+F = Waiting For · Shift+S = Done · Shift+P = Someday → Taskliste
+                  {topTaskShortcutCandidate && ` · Fokus Open: ${topTaskShortcutCandidate.title}`}
+                  {topDoingTaskShortcutCandidate && ` · Fokus Doing: ${topDoingTaskShortcutCandidate.title}`}
+                  {topSomedayShortcutCandidate && ` · Fokus Someday: ${topSomedayShortcutCandidate.title}`}
+                </span>
+              )}
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0,1fr))', gap: 12, marginTop: 16 }}>
+              {col('open', 'Open')}
+              {col('doing', 'Doing')}
+              {col('waiting', 'Waiting For')}
+            </div>
+
+            <div style={{ marginTop: 16, background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 12 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                <h3 style={{ margin: 0 }}>Someday / Maybe</h3>
+                <button
+                  onClick={() => void loadSomeday()}
+                  disabled={!canRefreshSomeday}
+                  title={refreshSomedayDisabledReason || 'Someday-Liste aktualisieren'}
+                >
+                  {somedayLoading ? 'Lädt…' : 'Aktualisieren'}
+                </button>
+              </div>
+              {somedayError && <div style={{ fontSize: 12, color: '#fca5a5', marginBottom: 8 }}>{somedayError}</div>}
+
+              {somedayTags.length > 0 && (
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 10 }}>
+                  <button
+                    style={{ fontSize: 12, padding: '4px 8px', borderRadius: 999, border: '1px solid #3a3a3a', background: somedayTagFilter === 'all' ? '#1d4ed8' : '#1f2937', color: '#fff' }}
+                    onClick={() => setSomedayTagFilter('all')}
+                  >
+                    Alle Themen
+                  </button>
+                  {somedayTags.map((tag) => (
+                    <button
+                      key={tag}
+                      style={{ fontSize: 12, padding: '4px 8px', borderRadius: 999, border: '1px solid #3a3a3a', background: somedayTagFilter === tag ? '#1d4ed8' : '#111827', color: '#dbeafe' }}
+                      onClick={() => setSomedayTagFilter(tag)}
+                    >
+                      #{tag}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {visibleSomedayItems.length === 0 ? (
+                <div style={{ fontSize: 13, opacity: 0.75 }}>
+                  {somedayItems.length === 0 ? 'Keine Someday-Einträge gefunden.' : 'Keine Einträge für dieses Thema.'}
+                </div>
+              ) : (
+                <div style={{ display: 'grid', gap: 8 }}>
+                  {visibleSomedayItems.map((item) => (
+                    <div key={item.id} style={{ border: '1px solid #3a3a3a', borderRadius: 8, padding: 8 }}>
+                      <div style={{ fontWeight: 600, marginBottom: 4 }}>{item.title}</div>
+                      {item.description && <div style={{ fontSize: 12, opacity: 0.88, marginBottom: 4 }}>{item.description}</div>}
+                      <div style={{ fontSize: 12, opacity: 0.75, marginBottom: 4 }}>
+                        {item.status ? `Status: ${item.status}` : ''}
+                        {item.impact ? ` · Impact: ${item.impact}` : ''}
+                        {item.effort ? ` · Effort: ${item.effort}` : ''}
+                      </div>
+                      {item.tags && item.tags.length > 0 && (
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 6 }}>
+                          {item.tags.map((tag) => (
+                            <button
+                              key={`${item.id}-${tag}`}
+                              style={{ fontSize: 11, padding: '2px 6px', borderRadius: 999, border: '1px solid #334155', background: '#0f172a', color: '#bfdbfe' }}
+                              onClick={() => setSomedayTagFilter(tag)}
+                            >
+                              #{tag}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                      <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+                        <button disabled={somedayBusyId === item.id} onClick={() => void promoteSomeday(item, true)}>Zur Taskliste</button>
+                        <button disabled={somedayBusyId === item.id} onClick={() => void deleteSomeday(item)}>Löschen</button>
+                        {(item.tags || []).includes('tierschutzmeldungen') && (
+                          <>
+                            <button
+                              onClick={() => setBoardError('Mock aktiv: Rückfrage an meldende Person vorbereiten (inkl. fehlende Angaben).')}
+                              title="Mock: Rückfrage-Flow"
+                            >
+                              Rückfrage senden (Mock)
+                            </button>
+                            <button
+                              onClick={() => setBoardError('Mock aktiv: Kanton + zuständiges Veterinäramt ermitteln und Meldung vorbereiten.')}
+                              title="Mock: Behörden-Flow"
+                            >
+                              Behörde informieren (Mock)
+                            </button>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </>
+        ) : section === 'radar' ? (
+          <>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 10 }}>
+              <button
+                onClick={() => refreshCurrentSection({ forceRadar: true })}
+                disabled={!canRefreshCurrentSection}
+                title={refreshButtonDisabledReason || 'Aktualisiert Radar jetzt'}
+              >
+                {section === 'radar' && radarLoading ? 'Aktualisiere…' : 'Jetzt aktualisieren'}
+              </button>
+            </div>
+            {isOffline && (
+              <div style={{ marginBottom: 10, padding: '8px 10px', borderRadius: 8, border: '1px solid #92400e', background: '#2b1a0a', color: '#fde68a', fontSize: 13 }}>
+                Offline erkannt. Mission Control zeigt die letzten Radar-Daten und aktualisiert automatisch, sobald die Verbindung zurück ist.
+              </div>
+            )}
+            {radarError && (
+              <div style={{ marginBottom: 10, padding: '8px 10px', borderRadius: 8, border: '1px solid #7f1d1d', background: '#2b1111', color: '#fecaca', fontSize: 13 }}>
+                <div>{radarError}</div>
+                {radarRetrySecondsRemaining !== null && (
+                  <div style={{ marginTop: 4, opacity: 0.9 }}>
+                    Nächster Auto-Retry in ca. {radarRetrySecondsRemaining}s.
+                  </div>
+                )}
+              </div>
+            )}
+            {radarActionError && (
+              <div style={{ marginBottom: 10, padding: '8px 10px', borderRadius: 8, border: '1px solid #7f1d1d', background: '#2b1111', color: '#fecaca', fontSize: 13 }}>
+                {radarActionError}
+              </div>
+            )}
+            {radarDeferredDecision && (
+              <div style={{ marginBottom: 10, padding: '8px 10px', borderRadius: 8, border: '1px solid #1d4ed8', background: '#0f1b33', color: '#bfdbfe', fontSize: 13, display: 'flex', justifyContent: 'space-between', gap: 10, alignItems: 'center' }}>
+                <span>
+                  Ausstehende Aktion: <strong>{radarDeferredDecision.status}</strong> für <strong>{radarDeferredDecision.title}</strong>. Wird nach dem Refresh automatisch ausgeführt.
+                </span>
+                <button
+                  onClick={() => {
+                    radarDeferredDecisionRef.current = null
+                    setRadarDeferredDecision(null)
+                    setRadarActionError(null)
+                  }}
+                >
+                  Abbrechen
+                </button>
+              </div>
+            )}
+            {latestRadarDecision && (
+              <div style={{ marginBottom: 10, padding: '8px 10px', borderRadius: 8, border: '1px solid #14532d', background: '#0e2518', color: '#bbf7d0', fontSize: 13, display: 'flex', justifyContent: 'space-between', gap: 10, alignItems: 'center' }}>
+                <span>
+                  Letzte Entscheidung: <strong>{latestRadarDecision.title}</strong> ({latestRadarDecision.from} → {latestRadarDecision.to})
+                  {radarDecisionUndoStack.length > 1 ? ` · +${radarDecisionUndoStack.length - 1} weitere` : ''}
+                </span>
+                <button
+                  onClick={() => {
+                    void undoLastRadarDecision()
+                  }}
+                  disabled={!!radarActionPending[latestRadarDecision.id]}
+                  title="Setzt den letzten Status-Wechsel direkt zurück"
+                >
+                  Rückgängig
+                </button>
+              </div>
+            )}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, minmax(0,1fr))', gap: 8, marginBottom: 8 }}>
+              {[
+                ['Einträge', radarStats.total],
+                ['Handlungsbedarf', radarStats.fresh + radarStats.watchlist],
+                ['Neu', radarStats.fresh],
+                ['Accepted', radarStats.accepted],
+                ['Rejected', radarStats.rejected],
+                ['Score ≥ 80', radarStats.highScore],
+              ].map(([k, v]) => (
+                <div key={String(k)} style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 10 }}>
+                  <div style={{ fontSize: 12, opacity: 0.8 }}>{k}</div>
+                  <div style={{ fontSize: 22, fontWeight: 700 }}>{String(v)}</div>
+                </div>
+              ))}
+            </div>
+            <div style={{ fontSize: 12, opacity: 0.85, marginBottom: 12 }}>
+              Kategorien: Medienarbeit {radarStats.laneMedien} · Politik {radarStats.lanePolitik} · Buchprojekt {radarStats.laneBuch}
+              {radarDedupedCount > 0 && <span style={{ marginLeft: 10, opacity: 0.75 }}>Duplikate entfernt: {radarDedupedCount}</span>}
+              {unsafeRadarSourceCount > 0 && (
+                <span style={{ marginLeft: 10, color: '#fca5a5', fontWeight: 600 }}>
+                  Unsichere Quellen blockiert: {unsafeRadarSourceCount}
+                </span>
+              )}
+              <span style={{ marginLeft: 10, opacity: 0.75 }}>
+                {radarLastUpdatedAt
+                  ? `Auto-Refresh aktiv · zuletzt ${new Date(radarLastUpdatedAt).toLocaleTimeString('de-CH', { hour: '2-digit', minute: '2-digit' })}`
+                  : 'Auto-Refresh aktiv'}
+              </span>
+              {(radarStaleMinutes !== null || radarHasUnknownFreshness) && (
+                <span style={{ marginLeft: 10, color: radarIsStale ? '#fca5a5' : '#a3e635', fontSize: 12 }}>
+                  {radarHasUnknownFreshness
+                    ? 'Datenalter: unbekannt (bitte aktualisieren)'
+                    : `Datenalter: ${radarStaleMinutes} min${radarIsStale ? ' (bitte aktualisieren)' : ''}`}
+                </span>
+              )}
+            </div>
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+              <div style={{ fontSize: 12, opacity: 0.85 }}>
+                {filteredRadar.length} Signale im Fokus · {actionableInFocusCount} mit Handlungsbedarf im Fokus
+                {actionableTotalCount !== actionableInFocusCount && (
+                  <span style={{ opacity: 0.75 }}> (gesamt: {actionableTotalCount})</span>
+                )}
+                {' · '}
+                {highLeverageActionableInFocusCount} mit hohem Hebel im Fokus
+                {highLeverageActionableTotalCount !== highLeverageActionableInFocusCount && (
+                  <span style={{ opacity: 0.75 }}> (gesamt: {highLeverageActionableTotalCount})</span>
+                )}
+              </div>
+              <label style={{ fontSize: 12, opacity: 0.9 }}>
+                Status{' '}
+                <select value={radarStatusFilter} onChange={(e) => setRadarStatusFilter(e.target.value as 'all' | 'actionable' | 'new' | 'watchlist' | 'accepted' | 'rejected')}>
+                  <option value="all">Alle</option>
+                  <option value="actionable">Handlungsbedarf (Neu + Hold)</option>
+                  <option value="new">Neu</option>
+                  <option value="watchlist">Hold</option>
+                  <option value="accepted">Accepted</option>
+                  <option value="rejected">Rejected</option>
+                </select>
+              </label>
+              <label style={{ fontSize: 12, opacity: 0.9 }}>
+                Lane{' '}
+                <select value={radarLaneFilter} onChange={(e) => setRadarLaneFilter(e.target.value as 'all' | 'medienarbeit' | 'politik' | 'buchprojekt')}>
+                  <option value="all">Alle</option>
+                  <option value="medienarbeit">Medienarbeit</option>
+                  <option value="politik">Politik</option>
+                  <option value="buchprojekt">Buchprojekt</option>
+                </select>
+              </label>
+              <label style={{ fontSize: 12, opacity: 0.9 }}>
+                Sortierung{' '}
+                <select value={radarSortMode} onChange={(e) => setRadarSortMode(e.target.value as 'status' | 'leverage')}>
+                  <option value="status">Status zuerst</option>
+                  <option value="leverage">Hebel zuerst</option>
+                </select>
+              </label>
+              <label style={{ fontSize: 12, opacity: 0.9 }}>
+                Suche{' '}
+                <input
+                  ref={radarSearchInputRef}
+                  value={radarQuery}
+                  onChange={(e) => setRadarQuery(e.target.value)}
+                  placeholder="Titel, Source, Lane, Domain…"
+                  style={{ minWidth: 220 }}
+                />
+              </label>
+              <label style={{ fontSize: 12, opacity: 0.9, display: 'flex', alignItems: 'center', gap: 6 }}>
+                <input
+                  type="checkbox"
+                  checked={radarLeverageOnly}
+                  onChange={(e) => setRadarLeverageOnly(e.target.checked)}
+                />
+                Nur hoher Hebel (Score ≥ 80 oder hohe Wirkung/Dringlichkeit)
+              </label>
+              <button
+                onClick={() => {
+                  setRadarStatusFilter('actionable')
+                  setRadarLaneFilter('all')
+                  setRadarSortMode('leverage')
+                  setRadarQuery('')
+                  setRadarLeverageOnly(true)
+                }}
+                disabled={radarStatusFilter === 'actionable' && radarLaneFilter === 'all' && radarSortMode === 'leverage' && !radarQuery.trim() && radarLeverageOnly}
+                title="Setzt den Fokus auf sofort triagierbare High-Leverage-Signale"
+              >
+                High-Leverage-Triage
+              </button>
+              {hasActiveRadarFilters && (
+                <button onClick={() => {
+                  setRadarStatusFilter(defaultRadarStatusFilter)
+                  setRadarLaneFilter('all')
+                  setRadarSortMode('status')
+                  setRadarQuery('')
+                  setRadarLeverageOnly(false)
+                }}>
+                  Fokus zurücksetzen
+                </button>
+              )}
+              <button
+                disabled={!quickAcceptCandidate || !quickAcceptCandidateSafeUrl}
+                onClick={() => {
+                  if (!quickAcceptCandidate) return
+                  openRadarSource(quickAcceptCandidate.url, quickAcceptCandidate.title)
+                }}
+                title={
+                  quickAcceptCandidate
+                    ? quickAcceptCandidateSafeUrl
+                      ? `Öffnet Quelle: ${quickAcceptCandidate.title}`
+                      : radarUnsafeSourceTooltip
+                    : 'Kein offenes Signal im aktuellen Fokus'
+                }
+              >
+                {quickAcceptCandidate ? 'Top-Signal öffnen' : 'Kein offenes Signal'}
+              </button>
+              <button
+                disabled={!quickAcceptCandidate || !quickAcceptCandidateSafeUrl || !!radarActionPending[quickAcceptCandidate.id]}
+                onClick={() => {
+                  if (!quickAcceptCandidate) return
+                  if (!openRadarSource(quickAcceptCandidate.url, quickAcceptCandidate.title)) return
+                  void setRadarStatus(quickAcceptCandidate.id, 'accepted')
+                }}
+                title={
+                  quickAcceptCandidate
+                    ? quickAcceptCandidateSafeUrl
+                      ? `Öffnet Quelle und akzeptiert: ${quickAcceptCandidate.title}`
+                      : radarUnsafeSourceTooltip
+                    : 'Kein offenes Signal im aktuellen Fokus'
+                }
+              >
+                {quickAcceptCandidate ? 'Öffnen + akzeptieren' : 'Kein offenes Signal'}
+              </button>
+              <button
+                disabled={!quickAcceptCandidate || !!radarActionPending[quickAcceptCandidate.id]}
+                onClick={() => quickAcceptCandidate && setRadarStatus(quickAcceptCandidate.id, 'accepted')}
+                title={
+                  quickAcceptCandidate
+                    ? `Akzeptiert: ${quickAcceptCandidate.title}`
+                    : 'Kein offenes Signal im aktuellen Fokus'
+                }
+              >
+                {quickAcceptCandidate ? 'Top-Signal akzeptieren' : 'Kein offenes Signal'}
+              </button>
+              <button
+                disabled={!quickAcceptCandidate || !!radarActionPending[quickAcceptCandidate.id]}
+                onClick={() => quickAcceptCandidate && setRadarStatus(quickAcceptCandidate.id, 'watchlist')}
+                title={
+                  quickAcceptCandidate
+                    ? `Auf Watchlist: ${quickAcceptCandidate.title}`
+                    : 'Kein offenes Signal im aktuellen Fokus'
+                }
+              >
+                {quickAcceptCandidate ? 'Top-Signal auf Watchlist' : 'Kein offenes Signal'}
+              </button>
+              <button
+                disabled={!quickAcceptCandidate || !!radarActionPending[quickAcceptCandidate.id]}
+                onClick={() => quickAcceptCandidate && setRadarStatus(quickAcceptCandidate.id, 'rejected')}
+                title={
+                  quickAcceptCandidate
+                    ? `Verwerfen: ${quickAcceptCandidate.title}`
+                    : 'Kein offenes Signal im aktuellen Fokus'
+                }
+              >
+                {quickAcceptCandidate ? 'Top-Signal verwerfen' : 'Kein offenes Signal'}
+              </button>
+              {quickCandidateContext && (
+                <span style={{ fontSize: 11, opacity: 0.78 }}>Quick-Aktion Ziel: {quickCandidateContext}</span>
+              )}
+              {quickAcceptCandidate && !quickAcceptCandidateSafeUrl && (
+                <span style={{ fontSize: 11, color: '#fca5a5' }}>
+                  Top-Signal hat eine unsichere URL: Öffnen ist blockiert, Triage per Shift+A/W/X bleibt möglich.
+                </span>
+              )}
+              <span style={{ fontSize: 11, opacity: 0.65 }}>Shortcuts: Shift+R = aktuelle Ansicht aktualisieren, / = Suche, Cmd/Ctrl+K = Radar-Suche fokussieren, Shift+Enter = Öffnen + akzeptieren, Shift+O = Top-Signal öffnen, Shift+A = Top-Signal akzeptieren, Shift+W = Top-Signal auf Watchlist, Shift+X = Top-Signal verwerfen, Cmd/Ctrl+Z = letzte Entscheidung rückgängig, Esc = Reset</span>
+            </div>
+
+            <div style={{ display: 'grid', gap: 8 }}>
+              {filteredRadar.map((r) => {
+                const safeSourceUrl = safeRadarSourceUrl(r.url)
+
+                return (
+                <div key={r.id} style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 10 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', gap: 10 }}>
+                    <strong>{r.title}</strong>
+                    <span style={{ fontSize: 12, opacity: 0.8 }}>{r.source} · {normalizedRadarDomain(r.url) || 'ohne-domain'} · {r.kind} · {r.lane} · Score {r.score}</span>
+                  </div>
+                  <div style={{ fontSize: 12, opacity: 0.9, marginTop: 4 }}>Status: {r.status === 'watchlist' ? 'hold' : r.status} · Impact: {r.impact} · Urgency: {r.urgency} · ToC: {r.tocAxis || '-'}</div>
+                  {safeSourceUrl ? (
+                    <a href={safeSourceUrl} target="_blank" rel="noreferrer" style={{ fontSize: 13, color: '#f59e0b', fontWeight: 600, textDecoration: 'underline' }}>Open source link</a>
+                  ) : (
+                    <span style={{ fontSize: 12, color: '#fca5a5', fontWeight: 600 }}>Source link blocked (invalid URL)</span>
+                  )}
+                  <div style={{ display: 'flex', gap: 6, marginTop: 8 }}>
+                    <button
+                      disabled={!!radarActionPending[r.id] || r.status === 'new'}
+                      onClick={() => setRadarStatus(r.id, 'new')}
+                      title={r.status === 'new' ? 'Bereits auf Neu' : undefined}
+                    >
+                      {radarPendingTargetStatus[r.id] === 'new' ? 'Saving…' : 'Neu'}
+                    </button>
+                    <button
+                      disabled={!!radarActionPending[r.id] || r.status === 'accepted'}
+                      onClick={() => setRadarStatus(r.id, 'accepted')}
+                      title={r.status === 'accepted' ? 'Bereits akzeptiert' : undefined}
+                    >
+                      {radarPendingTargetStatus[r.id] === 'accepted' ? 'Saving…' : 'Accept'}
+                    </button>
+                    <button
+                      disabled={!!radarActionPending[r.id] || r.status === 'watchlist'}
+                      onClick={() => setRadarStatus(r.id, 'watchlist')}
+                      title={r.status === 'watchlist' ? 'Bereits auf Hold' : undefined}
+                    >
+                      {radarPendingTargetStatus[r.id] === 'watchlist' ? 'Saving…' : 'Hold'}
+                    </button>
+                    <button
+                      disabled={!!radarActionPending[r.id] || r.status === 'rejected'}
+                      onClick={() => setRadarStatus(r.id, 'rejected')}
+                      title={r.status === 'rejected' ? 'Bereits abgelehnt' : undefined}
+                    >
+                      {radarPendingTargetStatus[r.id] === 'rejected' ? 'Saving…' : 'Reject'}
+                    </button>
+                  </div>
+                </div>
+                )
+              })}
+              {radarLoading && <div style={{ opacity: 0.7 }}>Radar wird geladen…</div>}
+              {!radarLoading && filteredRadar.length === 0 && (
+                <div style={{ opacity: 0.82, background: '#171717', border: '1px solid #2e2e2e', borderRadius: 8, padding: '10px 12px' }}>
+                  <div>Keine Radar-Signale für den aktuellen Fokus.</div>
+                  {actionableTotalCount > 0 && (
+                    <div style={{ marginTop: 6, fontSize: 12, opacity: 0.82 }}>
+                      Es gibt aktuell insgesamt {actionableTotalCount} Signale mit Handlungsbedarf ausserhalb dieses Filters.
+                    </div>
+                  )}
+                  <div style={{ display: 'flex', gap: 8, marginTop: 8, flexWrap: 'wrap' }}>
+                    {actionableTotalCount > 0 && (
+                      <button
+                        onClick={() => {
+                          setRadarStatusFilter('actionable')
+                          setRadarLaneFilter('all')
+                          setRadarSortMode('leverage')
+                          setRadarQuery('')
+                          setRadarLeverageOnly(false)
+                        }}
+                      >
+                        Handlungsbedarf zeigen ({actionableTotalCount})
+                      </button>
+                    )}
+                    {hasActiveRadarFilters && (
+                      <button
+                        onClick={() => {
+                          setRadarStatusFilter(defaultRadarStatusFilter)
+                          setRadarLaneFilter('all')
+                          setRadarSortMode('status')
+                          setRadarQuery('')
+                          setRadarLeverageOnly(false)
+                        }}
+                      >
+                        Filter zurücksetzen
+                      </button>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          </>
+        ) : section === 'calendar' ? (
+          <>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+              <div style={{ fontSize: 13, opacity: 0.8 }}>
+                OpenClaw Cron-Jobs mit nächster Ausführung in der aktuellen Woche (Europe/Zurich).
+                {hiddenDisabledCronJobsCount > 0 && (
+                  <span style={{ marginLeft: 8, opacity: 0.72 }}>
+                    {hiddenDisabledCronJobsCount} deaktivierte Jobs ausgeblendet.
+                  </span>
+                )}
+              </div>
+              <button
+                onClick={() => refreshCurrentSection({ forceRadar: true })}
+                disabled={!canRefreshCurrentSection}
+                title={refreshButtonDisabledReason || 'Aktualisiert den Kalender jetzt'}
+              >
+                {section === 'calendar' && cronLoading ? 'Aktualisiere…' : 'Aktualisieren'}
+              </button>
+            </div>
+            {cronError && (
+              <div style={{ marginBottom: 10, padding: '8px 10px', borderRadius: 8, border: '1px solid #7f1d1d', background: '#2b1111', color: '#fecaca', fontSize: 13 }}>
+                {cronError}
+              </div>
+            )}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, minmax(0,1fr))', gap: 8, marginBottom: 14 }}>
+              {weeklyJobColumns.map((day) => (
+                <div key={day.label} style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 8, minHeight: 170 }}>
+                  <div style={{ fontSize: 12, opacity: 0.75 }}>{day.dateLabel}</div>
+                  <div style={{ fontWeight: 700, marginBottom: 8 }}>{day.label}</div>
+                  {day.jobs.length === 0 ? (
+                    <div style={{ fontSize: 12, opacity: 0.55 }}>–</div>
+                  ) : (
+                    <div style={{ display: 'grid', gap: 6 }}>
+                      {day.jobs.map((job) => (
+                        <div key={`${day.label}-${job.id}`} style={{ border: '1px solid #3a3a3a', borderLeft: `4px solid ${cronStatusColor[job.status] || '#1d4ed8'}`, background: '#181818', borderRadius: 8, padding: 6 }}>
+                          <div style={{ fontSize: 12, fontWeight: 600, lineHeight: 1.3 }}>{job.name}</div>
+                          <div style={{ fontSize: 11, opacity: 0.78 }}>
+                            {job.nextRunAtMs ? new Date(job.nextRunAtMs).toLocaleTimeString('de-CH', { hour: '2-digit', minute: '2-digit' }) : 'ohne Zeit'} · {job.status}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 12 }}>
+              <h3 style={{ margin: '0 0 8px 0' }}>Nächste Jobs</h3>
+              {upcomingCronJobs.length === 0 ? (
+                <div style={{ fontSize: 13, opacity: 0.75 }}>
+                  Keine bevorstehenden Läufe gefunden.
+                  {hiddenDisabledCronJobsCount > 0 ? ` (${hiddenDisabledCronJobsCount} deaktivierte Jobs sind ausgeblendet.)` : ''}
+                </div>
+              ) : (
+                <div style={{ display: 'grid', gap: 6 }}>
+                  {upcomingCronJobs.map((job) => (
+                    <div key={`next-${job.id}`} style={{ display: 'flex', justifyContent: 'space-between', gap: 12, border: '1px solid #2f2f2f', borderRadius: 8, background: '#181818', padding: '8px 10px' }}>
+                      <div style={{ minWidth: 0 }}>
+                        <div style={{ fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{job.name}</div>
+                        <div style={{ fontSize: 11, opacity: 0.72 }}>{job.scheduleLabel}</div>
+                      </div>
+                      <div style={{ fontSize: 12, opacity: 0.85, whiteSpace: 'nowrap' }}>
+                        {job.nextRunAtMs ? new Date(job.nextRunAtMs).toLocaleString('de-CH', { weekday: 'short', hour: '2-digit', minute: '2-digit' }) : 'kein nächster Lauf'}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </>
+        ) : section === 'memory' ? (
+          <>
+            <div style={{ marginBottom: 10, fontSize: 13, opacity: 0.85 }}>
+              Zentrales Wissensarchiv mit 1-Klick-Öffnen. Suche über Dateiname, Pfad und Bereich.
+            </div>
+            <div style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
+              <input
+                ref={knowledgeSearchInputRef}
+                value={knowledgeQuery}
+                onChange={(e) => setKnowledgeQuery(e.target.value)}
+                placeholder="Suche in Wissen & Notizen (z. B. memory, monitor, soul, deploy)"
+                style={{ flex: 1, minWidth: 260 }}
+              />
+              {knowledgeQuery.trim() && (
+                <button
+                  onClick={() => {
+                    if (knowledgeLoading) return
+                    setKnowledgeQuery('')
+                    knowledgeSearchInputRef.current?.focus()
+                  }}
+                  disabled={knowledgeLoading}
+                  title={knowledgeLoading ? 'Bitte warten, Index lädt gerade…' : 'Suche leeren (Esc)'}
+                >
+                  Leeren
+                </button>
+              )}
+              <button
+                onClick={() => {
+                  knowledgeAutoRefreshAtRef.current = Date.now()
+                  void loadKnowledgeIndex()
+                }}
+                disabled={!canRefreshKnowledgeIndex}
+                title={refreshKnowledgeDisabledReason || 'Wissensindex aktualisieren'}
+              >
+                {knowledgeLoading ? 'Indexiere…' : 'Index neu laden'}
+              </button>
+              {knowledgeQuery.trim() && (
+                <button
+                  onClick={() => {
+                    if (!canRefreshKnowledgeIndex) return
+                    setKnowledgeQuery('')
+                    knowledgeAutoRefreshAtRef.current = Date.now()
+                    void loadKnowledgeIndex()
+                    knowledgeSearchInputRef.current?.focus()
+                  }}
+                  disabled={!canRefreshKnowledgeIndex}
+                  title={refreshKnowledgeDisabledReason || 'Suche leeren und Index neu laden'}
+                >
+                  Reset + Reload
+                </button>
+              )}
+            </div>
+            <div style={{ fontSize: 12, opacity: 0.68, marginTop: -4, marginBottom: 10 }}>
+              Shortcuts: /, Cmd/Ctrl+K oder Cmd/Ctrl+F fokussiert die Suche · Esc leert die Suche · Shift+Enter (ohne Ctrl/Cmd/Alt) lädt den Index neu · Reset + Reload leert Suche und lädt neu
+            </div>
+            {knowledgeError && (
+              <div style={{ marginBottom: 10, padding: '8px 10px', borderRadius: 8, border: '1px solid #7f1d1d', background: '#2b1111', color: '#fecaca', fontSize: 13 }}>
+                {knowledgeError}
+              </div>
+            )}
+            <div style={{ fontSize: 12, opacity: 0.75, marginBottom: 10 }}>
+              Treffer: {filteredKnowledgeEntries.length}
+            </div>
+            <div style={{ display: 'grid', gap: 12, marginBottom: 14 }}>
+              {groupedKnowledgeEntries.map(([groupName, rows]) => (
+                <div key={groupName} style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 12 }}>
+                  <div style={{ fontWeight: 700, marginBottom: 8 }}>{groupName}</div>
+                  <div style={{ display: 'grid', gap: 8 }}>
+                    {rows.map((entry) => (
+                      <div
+                        key={`${groupName}-${entry.path}`}
+                        style={{ background: '#181818', border: '1px solid #2f2f2f', borderRadius: 8, padding: 10, cursor: 'pointer' }}
+                        onClick={() => { void openFilePreview(entry.name, entry.path) }}
+                      >
+                        <div style={{ display: 'flex', justifyContent: 'space-between', gap: 10, alignItems: 'center' }}>
+                          <strong>{entry.name}</strong>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              void openFilePreview(entry.name, entry.path)
+                            }}
+                            style={{ fontSize: 12 }}
+                          >
+                            Öffnen
+                          </button>
+                        </div>
+                        <code style={{ display: 'block', marginTop: 6, fontSize: 11, opacity: 0.82, wordBreak: 'break-all' }}>{entry.relPath}</code>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+              {!knowledgeLoading && groupedKnowledgeEntries.length === 0 && (
+                <div style={{ opacity: 0.75 }}>
+                  Keine Treffer für deine Suche.
+                </div>
+              )}
+            </div>
+
+            <div style={{ fontSize: 12, opacity: 0.7, marginBottom: 8 }}>Zusätzliche Wissenseinträge aus der Entity-Datenbank:</div>
+            <div style={{ display: 'grid', gap: 8 }}>
+              {entities.map((e) => (
+                <div key={e.id} style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 10 }}>
+                  <strong>{e.title}</strong>
+                  <div style={{ fontSize: 12, opacity: 0.85, marginTop: 4 }}>Owner: {e.owner || '-'} · Status: {e.status || '-'} · ToC: {e.tocAxis || '-'}</div>
+                  {e.notes && <div style={{ fontSize: 12, opacity: 0.88, marginTop: 4 }}>{e.notes}</div>}
+                </div>
+              ))}
+              {entities.length === 0 && <div style={{ opacity: 0.7 }}>Noch keine zusätzlichen Wissenseinträge.</div>}
+            </div>
+          </>
+        ) : section === 'files' ? (
+          <>
+            <div style={{ fontSize: 13, opacity: 0.8, marginBottom: 10 }}>
+              Kuratierte Schnellzugriffe auf wichtige Arbeitsdateien (deine + meine Kernfiles).
+            </div>
+            <div style={{ display: 'grid', gap: 12 }}>
+              {importantFiles.map((group) => (
+                <div key={group.group} style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 12 }}>
+                  <div style={{ fontWeight: 700, marginBottom: 8 }}>{group.group}</div>
+                  <div style={{ display: 'grid', gap: 8 }}>
+                    {group.items.map((item) => {
+                      const previewable = canPreviewFile(item.path)
+                      return (
+                        <div
+                          key={`${group.group}-${item.name}`}
+                          style={{ background: '#181818', border: '1px solid #2f2f2f', borderRadius: 8, padding: 10, cursor: previewable ? 'pointer' : 'default' }}
+                          onClick={() => {
+                            if (previewable) void openFilePreview(item.name, item.path)
+                          }}
+                        >
+                          <div style={{ display: 'flex', justifyContent: 'space-between', gap: 10, alignItems: 'center' }}>
+                            <strong>{item.name}</strong>
+                            <div style={{ display: 'flex', gap: 10 }}>
+                              {previewable && (
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation()
+                                    void openFilePreview(item.name, item.path)
+                                  }}
+                                  style={{ fontSize: 12 }}
+                                >
+                                  Anzeigen
+                                </button>
+                              )}
+                              {item.href && (
+                                <a onClick={(e) => e.stopPropagation()} href={item.href} target="_blank" rel="noreferrer" style={{ fontSize: 12, color: '#f59e0b', textDecoration: 'underline' }}>
+                                  Öffnen
+                                </a>
+                              )}
+                            </div>
+                          </div>
+                          <div style={{ fontSize: 12, opacity: 0.85, marginTop: 3 }}>{item.note}</div>
+                          <code style={{ display: 'block', marginTop: 6, fontSize: 11, opacity: 0.8, wordBreak: 'break-all' }}>{item.path}</code>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        ) : (
+          <>
+            <div style={{ display: 'grid', gap: 8 }}>
+              {entities.map((e) => (
+                <div key={e.id} style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 10 }}>
+                  <strong>{e.title}</strong>
+                  <div style={{ fontSize: 12, opacity: 0.85, marginTop: 4 }}>Owner: {e.owner || '-'} · Status: {e.status || '-'} · ToC: {e.tocAxis || '-'}</div>
+                  {e.kpis && <div style={{ fontSize: 12, opacity: 0.85, marginTop: 2 }}>KPI: {e.kpis}</div>}
+                  {section === 'clients' && (
+                    <div style={{ display: 'flex', gap: 6, marginTop: 8 }}>
+                      <button
+                        disabled={!!entityActionPending[e.id]}
+                        onClick={() => removeEntityById(e.id, 'false')}
+                        style={{ borderColor: '#7f1d1d' }}
+                      >
+                        {entityActionPending[e.id] ? 'Aussortiere…' : 'Falsch'}
+                      </button>
+                      <button
+                        disabled={!!entityActionPending[e.id]}
+                        onClick={() => removeEntityById(e.id, 'duplicate')}
+                        style={{ borderColor: '#92400e' }}
+                      >
+                        {entityActionPending[e.id] ? 'Aussortiere…' : 'Duplikat'}
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ))}
+              {entities.length === 0 && <div style={{ opacity: 0.7 }}>Noch keine Einträge.</div>}
+            </div>
+          </>
+        )}
+
+
+        {filePreview.open && (
+          <div
+            onClick={closeFilePreview}
+            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.55)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1200 }}
+          >
+            <div
+              onClick={(e) => e.stopPropagation()}
+              style={{ width: 'min(1100px, 96vw)', maxHeight: '90vh', overflow: 'auto', background: '#101215', border: '1px solid #31363d', borderRadius: 10, padding: 12 }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10, gap: 10 }}>
+                <div>
+                  <div style={{ fontWeight: 700 }}>{filePreview.name || 'Datei-Vorschau'}</div>
+                  <div style={{ fontSize: 11, opacity: 0.75 }}>{filePreview.path}</div>
+                </div>
+                <div style={{ display: 'flex', gap: 8 }}>
+                  <button
+                    onClick={() => { void saveFilePreview() }}
+                    disabled={!canSaveFilePreview}
+                    title={saveFilePreviewDisabledReason || 'Speichern (Shortcut: Cmd/Ctrl+S)'}
+                  >
+                    {filePreview.saving ? 'Speichere…' : 'Speichern'}
+                  </button>
+                  <button onClick={closeFilePreview} disabled={!!filePreview.saving} title={filePreview.saving ? 'Bitte warten, Speichern läuft…' : 'Vorschau schliessen'}>Schliessen</button>
+                </div>
+              </div>
+              {filePreview.loading && <div style={{ opacity: 0.8 }}>Lädt…</div>}
+              {!filePreview.loading && filePreview.error && <div style={{ color: '#fca5a5', marginBottom: 8 }}>{filePreview.error}</div>}
+              {!filePreview.loading && (
+                <>
+                  <textarea
+                    value={fileDraft}
+                    disabled={filePreview.loading || !!filePreview.saving}
+                    onChange={(e) => {
+                      setFileDraft(e.target.value)
+                      setFilePreview((prev) => (prev.error ? { ...prev, error: undefined } : prev))
+                    }}
+                    title={filePreview.saving ? 'Bearbeitung ist während dem Speichern kurz pausiert.' : undefined}
+                    style={{ width: '100%', minHeight: '65vh', resize: 'vertical', background: '#0b0d10', color: '#f5f5f5', border: '1px solid #31363d', borderRadius: 8, padding: 10, fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace', fontSize: 12, lineHeight: 1.45, opacity: filePreview.saving ? 0.75 : 1 }}
+                  />
+                  <div style={{ marginTop: 8, fontSize: 12, opacity: 0.78 }}>
+                    {fileDraft === (filePreview.content || '')
+                      ? 'Keine ungespeicherten Änderungen.'
+                      : isOffline
+                        ? 'Ungespeicherte Änderungen vorhanden (offline – Speichern derzeit nicht möglich).'
+                        : 'Ungespeicherte Änderungen vorhanden.'}
+                  </div>
+                  <div style={{ marginTop: 4, fontSize: 11, opacity: 0.62 }}>
+                    Shortcut: Cmd/Ctrl+S speichert die Datei.
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        )}
+      </section>
+    </main>
+  )
+}
+
+
+

@@ -1,0 +1,31 @@
+diff --git a/app/ui.tsx b/app/ui.tsx
+--- a/app/ui.tsx
++++ b/app/ui.tsx
+@@ -1999,6 +2005,20 @@
+                   Fokus zurücksetzen
+                 </button>
+               )}
++              <button
++                disabled={!quickAcceptCandidate}
++                onClick={() => {
++                  if (!quickAcceptCandidate) return
++                  window.open(quickAcceptCandidate.url, '_blank', 'noopener,noreferrer')
++                }}
++                title={
++                  quickAcceptCandidate
++                    ? `Öffnet Quelle: ${quickAcceptCandidate.title}`
++                    : 'Kein offenes Signal im aktuellen Fokus'
++                }
++              >
++                {quickAcceptCandidate ? 'Top-Signal öffnen' : 'Kein offenes Signal'}
++              </button>
+               <button
+                 disabled={!quickAcceptCandidate || !!radarActionPending[quickAcceptCandidate.id]}
+                 onClick={() => quickAcceptCandidate && setRadarStatus(quickAcceptCandidate.id, 'accepted')}
+@@ -2035,7 +2055,7 @@
+               {quickCandidateContext && (
+                 <span style={{ fontSize: 11, opacity: 0.78 }}>Quick-Aktion Ziel: {quickCandidateContext}</span>
+               )}
+-              <span style={{ fontSize: 11, opacity: 0.65 }}>Shortcuts: R = Radar neu laden, / = Suche, Shift+A = Top-Signal akzeptieren, Shift+W = Top-Signal auf Watchlist, Shift+X = Top-Signal verwerfen, Z = letzte Entscheidung rückgängig, Esc = Reset</span>
++              <span style={{ fontSize: 11, opacity: 0.65 }}>Shortcuts: R = Radar neu laden, / = Suche, Shift+A = Top-Signal akzeptieren, Shift+W = Top-Signal auf Watchlist, Shift+X = Top-Signal verwerfen, Cmd/Ctrl+Z = letzte Entscheidung rückgängig, Esc = Reset</span>
+             </div>

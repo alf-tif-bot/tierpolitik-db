@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Brain favicon">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="brain" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="24" y="24" width="464" height="464" rx="110" fill="url(#bg)"/>
+
+  <!-- Brain outer shape -->
+  <path d="M256 118
+           C206 118 168 151 160 194
+           C131 206 114 236 114 268
+           C114 312 150 348 194 348
+           H318
+           C362 348 398 312 398 268
+           C398 236 381 206 352 194
+           C344 151 306 118 256 118Z"
+        fill="none" stroke="url(#brain)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Mid split -->
+  <path d="M256 140 V348" fill="none" stroke="url(#brain)" stroke-width="18" stroke-linecap="round"/>
+
+  <!-- Left folds -->
+  <path d="M205 168 C176 178 166 206 176 228 C154 244 150 270 168 290 C178 300 194 306 208 306"
+        fill="none" stroke="url(#brain)" stroke-width="14" stroke-linecap="round"/>
+  <path d="M230 160 C214 184 214 208 230 228 C212 246 210 270 226 292"
+        fill="none" stroke="url(#brain)" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- Right folds -->
+  <path d="M307 168 C336 178 346 206 336 228 C358 244 362 270 344 290 C334 300 318 306 304 306"
+        fill="none" stroke="url(#brain)" stroke-width="14" stroke-linecap="round"/>
+  <path d="M282 160 C298 184 298 208 282 228 C300 246 302 270 286 292"
+        fill="none" stroke="url(#brain)" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- Subtle glow dot -->
+  <circle cx="372" cy="140" r="10" fill="#67e8f9" opacity="0.9"/>
+</svg>
