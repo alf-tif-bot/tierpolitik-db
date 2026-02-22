@@ -162,7 +162,6 @@ const sectionMeta: Record<Section, { label: string; hint?: string; entityType?: 
   content: { label: 'Content Factory', hint: 'Discord-first (Planung im Cockpit)', entityType: 'content' },
   projects: { label: 'Strategie & Projekte', hint: 'Roadmap / Prioritäten', entityType: 'project' },
   docs: { label: 'Politik', hint: 'Vorstösse / Agenda', entityType: 'doc' },
-  clients: { label: 'Medienmitteilungen', hint: 'Discord-operativ, Cockpit-Überblick', entityType: 'client' },
   memory: { label: 'Wissen & Notizen', hint: 'Privat + Arbeit', entityType: 'memory' },
   people: { label: 'Stakeholder', hint: 'Personen / Rollen', entityType: 'person' },
   office: { label: 'Archiv & Backoffice', hint: 'Ablage / Nebenaufgaben', entityType: 'office' },
