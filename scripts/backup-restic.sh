@@ -11,7 +11,14 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 ENV_FILE="${RESTIC_ENV_FILE:-$ROOT_DIR/scripts/restic.env}"
 
-if ! command -v restic >/dev/null 2>&1; then
+RESTIC_BIN="$(command -v restic || true)"
+if [[ -z "$RESTIC_BIN" && -x "/opt/homebrew/bin/restic" ]]; then
+  RESTIC_BIN="/opt/homebrew/bin/restic"
+fi
+if [[ -z "$RESTIC_BIN" && -x "/usr/local/bin/restic" ]]; then
+  RESTIC_BIN="/usr/local/bin/restic"
+fi
+if [[ -z "$RESTIC_BIN" ]]; then
   echo "restic is not installed. Install with: brew install restic"
   exit 1
 fi
@@ -27,6 +34,7 @@ source "$ENV_FILE"
 
 : "${RESTIC_REPOSITORY:?RESTIC_REPOSITORY is required}"
 : "${RESTIC_PASSWORD:?RESTIC_PASSWORD is required}"
+export RESTIC_REPOSITORY RESTIC_PASSWORD
 
 EXCLUDES=(
   --exclude "$ROOT_DIR/.git"
@@ -38,9 +46,9 @@ EXCLUDES=(
 )
 
 echo "[$(date)] running restic backup..."
-restic backup "$ROOT_DIR" "${EXCLUDES[@]}"
+"$RESTIC_BIN" backup "$ROOT_DIR" "${EXCLUDES[@]}"
 
 echo "[$(date)] pruning old snapshots..."
-restic forget --keep-daily 7 --keep-weekly 4 --keep-monthly 6 --prune
+"$RESTIC_BIN" forget --keep-daily 7 --keep-weekly 4 --keep-monthly 6 --prune
 
 echo "[$(date)] done."
