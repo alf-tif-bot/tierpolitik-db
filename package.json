@@ -12,6 +12,7 @@
     "crawler:collect": "node scripts/crawler-collect.mjs",
     "crawler:collect:v2": "node scripts/crawler-collect-v2.mjs",
     "crawler:score": "node scripts/crawler-score.mjs",
+    "crawler:review:high-volume": "CRAWLER_MIN_SCORE=0.14 CRAWLER_FALLBACK_MIN=40 REVIEW_TARGET_SINCE_YEAR=2016 npm run crawler:score && npm run crawler:build-review",
     "crawler:seed-core": "node scripts/crawler-seed-core.mjs",
     "crawler:build-review": "node scripts/build-review-view.mjs",
     "crawler:ingest-user-input": "node scripts/user-input-ingest.mjs",

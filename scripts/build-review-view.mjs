@@ -22,7 +22,7 @@ const enabledSourceIds = new Set(((configuredSources.length ? configuredSources 
   .filter((s) => s.enabled !== false)
   .map((s) => s.id))
 
-const TARGET_SINCE_YEAR = Math.max(2014, Number(process.env.REVIEW_TARGET_SINCE_YEAR || 2018))
+const TARGET_SINCE_YEAR = Math.max(2012, Number(process.env.REVIEW_TARGET_SINCE_YEAR || 2016))
 const targetSinceTs = Date.UTC(TARGET_SINCE_YEAR, 0, 1, 0, 0, 0)
 const isInTargetHorizon = (item) => {
   const iso = item?.publishedAt || item?.fetchedAt
