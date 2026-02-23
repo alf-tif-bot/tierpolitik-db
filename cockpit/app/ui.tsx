@@ -4253,7 +4253,7 @@ export default function ClientBoard() {
                 <div key={agent.id} style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 12 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10 }}>
                     <div>
-                      <div style={{ fontWeight: 700 }}>{agent.emoji || '🤖'} {agent.id}</div>
+                      <div style={{ fontWeight: 700 }}>{agent.emoji || '🤖'} {agent.id.replace(/^tif-/, '')}</div>
                       <div style={{ fontSize: 12, opacity: 0.85 }}>{agent.purpose}</div>
                       <div style={{ fontSize: 12, opacity: 0.75 }}>Model: {agent.model || 'unbekannt'}</div>
                     </div>
