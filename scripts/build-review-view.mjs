@@ -251,7 +251,17 @@ const isValidHttpUrl = (value = '') => {
 const resolveOriginalUrl = (item) => {
   const meta = item?.meta || {}
 
-  if (isValidHttpUrl(meta.sourceLink)) return String(meta.sourceLink)
+  if (item.sourceId?.startsWith('ch-municipal-parliament-bern-zurich')) {
+    const guidMatch = String(item.externalId || '').match(/municipal-bern-api-([a-f0-9]{12,})/i)
+    if (guidMatch) {
+      return `https://stadtrat.bern.ch/de/geschaefte/detail.php?gid=${guidMatch[1]}`
+    }
+  }
+
+  if (isValidHttpUrl(meta.sourceLink)) {
+    const sourceLink = String(meta.sourceLink)
+    if (!/geschaefte_data_server\.php/i.test(sourceLink)) return sourceLink
+  }
 
   const extracted = Array.isArray(meta.extractedLinks) ? meta.extractedLinks : []
   const firstExtractedHref = extracted.map((x) => x?.href).find((href) => isValidHttpUrl(href))
@@ -259,9 +269,12 @@ const resolveOriginalUrl = (item) => {
 
   const body = String(item?.body || '')
   const bodySourceMatch = body.match(/(?:^|\n)Quelle:\s*(https?:\/\/\S+)/i)
-  if (bodySourceMatch && isValidHttpUrl(bodySourceMatch[1])) return String(bodySourceMatch[1])
+  if (bodySourceMatch && isValidHttpUrl(bodySourceMatch[1])) {
+    const bodyUrl = String(bodySourceMatch[1])
+    if (!/geschaefte_data_server\.php/i.test(bodyUrl)) return bodyUrl
+  }
 
-  if (isValidHttpUrl(item.sourceUrl)) return item.sourceUrl
+  if (isValidHttpUrl(item.sourceUrl) && !/geschaefte_data_server\.php/i.test(String(item.sourceUrl))) return item.sourceUrl
 
   if (item.sourceId?.startsWith('ch-parliament-business-')) {
     const affairId = String(item.externalId || '').split('-')[0]
