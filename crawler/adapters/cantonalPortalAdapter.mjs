@@ -391,7 +391,12 @@ const parseLinks = (html = '', baseUrl = '', canton = '') => {
     const rank = scoreLink(canton, href, text)
     const themed = hasAnimalTheme(href, text)
     const businessLike = isLikelyParliamentBusinessLink(href, text)
-    if (!businessLike && !themed) continue
+
+    // Strenger Filter gegen Verwaltungs-/Infoseiten:
+    // - Bevorzugt parlamentarische Geschäftsseiten
+    // - Themensignale (z.B. "Tierschutz") allein reichen nicht
+    if (!businessLike) continue
+
     if (rank < 2) continue
     if (!themed && rank < 3) continue
     links.push({ href, text, rank, themed, businessLike })
@@ -409,13 +414,21 @@ const appendFallbackLinks = (canton, links) => {
   for (const item of fallback) {
     const fallbackKey = canonicalizeLinkUrl(item.href)
     if (merged.some((entry) => canonicalizeLinkUrl(entry.href) === fallbackKey)) continue
-    merged.push({ ...item, rank: scoreLink(canton, item.href, item.text) || 1 })
+    const businessLike = isLikelyParliamentBusinessLink(item.href, item.text)
+    merged.push({ ...item, rank: scoreLink(canton, item.href, item.text) || 1, themed: hasAnimalTheme(item.href, item.text), businessLike })
   }
 
   return [...new Map(merged
     .sort((a, b) => b.rank - a.rank)
     .map((l) => [canonicalizeLinkUrl(l.href), l])).values()]
     .slice(0, 10)
+}
+
+const pickLeadLink = (links = []) => {
+  const preferred = links.find((l) => l.businessLike && l.themed)
+    || links.find((l) => l.businessLike)
+    || links[0]
+  return preferred?.text || 'Parlamentsgeschäfte'
 }
 
 const isGenericSitzungsdienstLanding = (href = '') => {
@@ -544,17 +557,18 @@ export function createCantonalPortalAdapter() {
         const parsedLinks = fetchedPages.flatMap(({ html: pageHtml, response: pageResponse }) => parseLinks(pageHtml, pageResponse.url, canton))
         const links = appendFallbackLinks(canton, parsedLinks)
         const themedLinkCount = links.filter((link) => hasAnimalTheme(link.href, link.text)).length
+        const businessLinkCount = links.filter((link) => link.businessLike).length
         const pageText = fetchedPages.map((p) => stripTags(p.html).slice(0, 2500)).join('\n')
         const language = pickLanguage(canton, pageText)
 
-        const topLink = links[0]?.text || 'Parlamentsgeschäfte'
+        const topLink = pickLeadLink(links)
 
         rows.push({
           sourceId: source.id,
           sourceUrl: response.url,
           externalId: `cantonal-portal-${canton.toLowerCase()}`,
           title: `${canton} · ${entry.parliament}: ${topLink}`.slice(0, 260),
-          summary: `${title} – ${links.length} relevante Linkziele erkannt (${themedLinkCount} thematisch, ${fetchedPages.length} Seiten gescannt, Leitlink: ${topLink})`.slice(0, 300),
+          summary: `${title} – ${links.length} relevante Linkziele erkannt (${businessLinkCount} parlamentarisch, ${themedLinkCount} thematisch, ${fetchedPages.length} Seiten gescannt, Leitlink: ${topLink})`.slice(0, 300),
           body: links.length
             ? links.map((l, idx) => `${idx + 1}. ${l.text || 'Ohne Titel'} – ${l.href}`).join('\n')
             : `Portal erreichbar (${response.url}), aber noch ohne extrahierte Vorstoss-Links.`,
@@ -570,6 +584,7 @@ export function createCantonalPortalAdapter() {
             parliament: entry.parliament,
             readiness: entry.readiness,
             extractedLinkCount: links.length,
+            businessLinkCount,
             themedLinkCount,
             extractedLinks: links,
             adapterHint: 'cantonalPortal',

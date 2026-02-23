@@ -1,4 +1,6 @@
 /review /review.html 200
 /review/ /review.html 200
+/crawler /review.html 200
+/crawler/ /review.html 200
 /user-input /user-input.html 200
 /user-input/ /user-input.html 200
