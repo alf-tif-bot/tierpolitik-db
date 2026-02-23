@@ -335,10 +335,12 @@ const hasBusinessIdSignal = (href = '') => {
 
 const isLikelyParliamentBusinessLink = (href = '', text = '') => {
   if (looksLikePersonOrMemberPage(href, text)) return false
-  const themed = hasAnimalTheme(href, text)
+
+  // Strikt: nur echte Geschäfts-/Vorstoss-Signale zulassen.
+  // Reine Themen-/Verwaltungsseiten (z.B. "Jagd", "Tierschutz") reichen NICHT.
   if (hasBusinessToken(href, text)) return true
   if (hasBusinessIdSignal(href)) return true
-  if (themed && /\b(motion|postulat|interpellation|initiative|vorstoss|vorstösse|jagd|tierschutz|animaux|faune)\b/i.test(String(text || ''))) return true
+
   return false
 }
 
