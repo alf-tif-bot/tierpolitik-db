@@ -605,28 +605,12 @@ function renderFastlaneTagButton(id){
 }
 
 async function toggleFastlaneTag(btn,id){
-  let savedRemote = false
   const tags = readFastlaneTags();
   const next = !Boolean(tags[id]?.fastlane);
   const taggedAt = new Date().toISOString();
   if (btn) btn.disabled = true;
 
-  try {
-    const res = await fetch('/.netlify/functions/review-fastlane-tag', {
-      method:'POST',
-      headers:{'content-type':'application/json'},
-      body: JSON.stringify({ id, fastlane: next, taggedAt }),
-    });
-    if(!res.ok){
-      const txt = await res.text();
-      throw new Error(txt || 'Fastlane tag API failed');
-    }
-    savedRemote = true
-  } catch(err) {
-    console.warn('Fastlane server save failed, using local fallback', err);
-  }
-
-  tags[id] = { fastlane: next, taggedAt, storage: savedRemote ? 'server+local' : 'local-only' };
+  tags[id] = { fastlane: next, taggedAt, storage: 'local-only' };
   writeFastlaneTags(tags);
   renderFastlaneTagButton(id);
 
@@ -645,32 +629,8 @@ async function setDecision(btn,id,status){
 
   if (btn) btn.disabled = true;
 
-  let savedRemote = false
-
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 10000);
-
-    const res = await fetch('/.netlify/functions/review-decision', {
-      method:'POST',
-      headers:{'content-type':'application/json'},
-      body: JSON.stringify({ id, status, decidedAt }),
-      signal: controller.signal,
-    });
-
-    clearTimeout(timer);
-
-    if(!res.ok){
-      const txt = await res.text();
-      throw new Error(txt || 'Decision API failed');
-    }
-    savedRemote = true
-  } catch(err) {
-    console.warn('Decision server save failed, using local fallback', err);
-  }
-
   const s=read();
-  s[id]={status,decidedAt,storage: savedRemote ? 'server+local' : 'local-only'};
+  s[id]={status,decidedAt,storage:'local-only'};
   write(s);
 
   const row = document.querySelector('tr[data-id="' + id + '"]');
@@ -683,7 +643,7 @@ async function setDecision(btn,id,status){
   const card = document.querySelector('.fastlane-card[data-id="' + id + '"]');
   if (card) card.style.display = 'none'
   updateStatusSummary();
-  if (statusEl) statusEl.textContent = savedRemote ? 'Entscheidung gespeichert.' : 'Lokal gespeichert (Server aktuell nicht erreichbar).';
+  if (statusEl) statusEl.textContent = 'Lokal gespeichert.';
   if (btn) btn.disabled = false;
 }
 
