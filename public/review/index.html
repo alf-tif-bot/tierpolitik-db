@@ -2106,17 +2106,13 @@ async function setDecision(btn,id,status){
       const txt = await res.text();
       throw new Error(txt || 'Decision API failed');
     }
+    savedRemote = true
   } catch(err) {
-    const msg = String(err?.message || err || 'unbekannter Fehler').slice(0, 220)
-    if (statusEl) statusEl.textContent = 'Fehler beim Speichern: ' + msg;
-    alert('Konnte Entscheidung nicht serverseitig speichern.\n' + msg);
-    console.error(err);
-    if (btn) btn.disabled = false;
-    return;
+    console.warn('Decision server save failed, using local fallback', err);
   }
 
   const s=read();
-  s[id]={status,decidedAt};
+  s[id]={status,decidedAt,storage: savedRemote ? 'server+local' : 'local-only'};
   write(s);
 
   const row = document.querySelector('tr[data-id="' + id + '"]');
@@ -2130,6 +2126,7 @@ async function setDecision(btn,id,status){
   if (card) card.style.display = 'none'
   updateStatusSummary();
   if (statusEl) statusEl.textContent = savedRemote ? 'Entscheidung gespeichert.' : 'Lokal gespeichert (Server aktuell nicht erreichbar).';
+  if (btn) btn.disabled = false;
 }
 
 function exportDecisions(){
