@@ -605,6 +605,7 @@ function renderFastlaneTagButton(id){
 }
 
 async function toggleFastlaneTag(btn,id){
+  let savedRemote = false
   const tags = readFastlaneTags();
   const next = !Boolean(tags[id]?.fastlane);
   const taggedAt = new Date().toISOString();
@@ -620,14 +621,12 @@ async function toggleFastlaneTag(btn,id){
       const txt = await res.text();
       throw new Error(txt || 'Fastlane tag API failed');
     }
+    savedRemote = true
   } catch(err) {
-    alert('Konnte Fastlane-Tag nicht speichern.');
-    console.error(err);
-    if (btn) btn.disabled = false;
-    return;
+    console.warn('Fastlane server save failed, using local fallback', err);
   }
 
-  tags[id] = { fastlane: next, taggedAt };
+  tags[id] = { fastlane: next, taggedAt, storage: savedRemote ? 'server+local' : 'local-only' };
   writeFastlaneTags(tags);
   renderFastlaneTagButton(id);
 
@@ -645,6 +644,8 @@ async function setDecision(btn,id,status){
   if (statusEl) statusEl.textContent = 'Speichere Entscheidung…';
 
   if (btn) btn.disabled = true;
+
+  let savedRemote = false
 
   try {
     const controller = new AbortController();
@@ -686,7 +687,7 @@ async function setDecision(btn,id,status){
   const card = document.querySelector('.fastlane-card[data-id="' + id + '"]');
   if (card) card.style.display = 'none'
   updateStatusSummary();
-  if (statusEl) statusEl.textContent = 'Entscheidung gespeichert.';
+  if (statusEl) statusEl.textContent = savedRemote ? 'Entscheidung gespeichert.' : 'Lokal gespeichert (Server aktuell nicht erreichbar).';
 }
 
 function exportDecisions(){
