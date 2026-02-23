@@ -80,5 +80,7 @@ async function syncFastlaneTagsFromDb() {
 
 const synced = await syncReviewDecisionsFromDb()
 const syncedFastlaneTags = await syncFastlaneTagsFromDb()
-const result = runRelevanceFilter({ minScore: 0.18, fallbackMin: 0 })
-console.log('Relevanz-Filter OK', { ...result, syncedReviewDecisions: synced, syncedFastlaneTags })
+const minScore = Number(process.env.CRAWLER_MIN_SCORE || 0.16)
+const fallbackMin = Number(process.env.CRAWLER_FALLBACK_MIN || 0)
+const result = runRelevanceFilter({ minScore, fallbackMin })
+console.log('Relevanz-Filter OK', { ...result, minScore, fallbackMin, syncedReviewDecisions: synced, syncedFastlaneTags })

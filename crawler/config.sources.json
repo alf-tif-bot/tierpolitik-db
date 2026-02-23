@@ -121,7 +121,7 @@
     "enabled": true,
     "options": {
       "cities": "bern,zuerich",
-      "maxItemsPerCity": 24
+      "maxItemsPerCity": 60
     }
   },
   {
@@ -133,7 +133,7 @@
     "enabled": true,
     "options": {
       "canton": "BE",
-      "sinceYear": 2020
+      "sinceYear": 2016
     }
   }
 ]
