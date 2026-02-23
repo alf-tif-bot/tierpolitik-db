@@ -19,18 +19,31 @@ function resolveOpenClawBin() {
   return 'openclaw'
 }
 
-async function runOpenclaw(args: string[]) {
-  const env = {
+function runtimeEnv() {
+  return {
     ...process.env,
     PATH: `${process.env.PATH || ''}:/opt/homebrew/bin:/usr/local/bin`,
     HOME: process.env.HOME || os.homedir(),
   }
+}
 
+async function runOpenclaw(args: string[]) {
   const { stdout, stderr } = await execFileAsync(resolveOpenClawBin(), args, {
-    env,
+    env: runtimeEnv(),
     timeout: 45_000,
     windowsHide: true,
     maxBuffer: 2 * 1024 * 1024,
+  })
+
+  return { stdout, stderr }
+}
+
+async function runShell(command: string, timeout = 120_000) {
+  const { stdout, stderr } = await execFileAsync('/bin/bash', ['-lc', command], {
+    env: runtimeEnv(),
+    timeout,
+    windowsHide: true,
+    maxBuffer: 4 * 1024 * 1024,
   })
 
   return { stdout, stderr }
@@ -57,6 +70,14 @@ export async function POST(req: Request) {
 
     if (action === 'gateway-restart') {
       const result = await runOpenclaw(['gateway', 'restart'])
+      return NextResponse.json({ ok: true, action, ...result }, { headers: noStoreHeaders })
+    }
+
+    if (action === 'cockpit-self-heal') {
+      const result = await runShell(
+        'cd /Users/alf/.openclaw/workspace/cockpit && rm -rf .next && npm run build && launchctl kickstart -k gui/$(id -u)/ai.openclaw.cockpit-server',
+        240_000,
+      )
       return NextResponse.json({ ok: true, action, ...result }, { headers: noStoreHeaders })
     }
 

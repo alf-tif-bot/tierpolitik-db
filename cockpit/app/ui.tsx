@@ -1907,7 +1907,7 @@ export default function ClientBoard() {
     }
   }
 
-  async function triggerAgentControl(action: 'heartbeat-enable' | 'heartbeat-disable' | 'gateway-restart') {
+  async function triggerAgentControl(action: 'heartbeat-enable' | 'heartbeat-disable' | 'gateway-restart' | 'cockpit-self-heal') {
     if (agentsControlPending) return
 
     setAgentsControlPending(action)
@@ -4293,6 +4293,13 @@ export default function ClientBoard() {
                 title="OpenClaw Gateway neu starten"
               >
                 {agentsControlPending === 'gateway-restart' ? 'Starte neu…' : 'Gateway restart'}
+              </button>
+              <button
+                onClick={() => { void triggerAgentControl('cockpit-self-heal') }}
+                disabled={!!agentsControlPending}
+                title="Rebuild + Restart vom Cockpit (gegen Chunk/Client-Fehler)"
+              >
+                {agentsControlPending === 'cockpit-self-heal' ? 'Heile…' : 'Cockpit Self-Heal'}
               </button>
             </div>
             {agentsControlError && (
