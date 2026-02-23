@@ -249,6 +249,18 @@ const isValidHttpUrl = (value = '') => {
 }
 
 const resolveOriginalUrl = (item) => {
+  const meta = item?.meta || {}
+
+  if (isValidHttpUrl(meta.sourceLink)) return String(meta.sourceLink)
+
+  const extracted = Array.isArray(meta.extractedLinks) ? meta.extractedLinks : []
+  const firstExtractedHref = extracted.map((x) => x?.href).find((href) => isValidHttpUrl(href))
+  if (firstExtractedHref) return String(firstExtractedHref)
+
+  const body = String(item?.body || '')
+  const bodySourceMatch = body.match(/(?:^|\n)Quelle:\s*(https?:\/\/\S+)/i)
+  if (bodySourceMatch && isValidHttpUrl(bodySourceMatch[1])) return String(bodySourceMatch[1])
+
   if (isValidHttpUrl(item.sourceUrl)) return item.sourceUrl
 
   if (item.sourceId?.startsWith('ch-parliament-business-')) {
