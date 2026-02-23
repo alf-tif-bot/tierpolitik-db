@@ -119,6 +119,7 @@ function buildLaunchdJobName(label: string) {
   if (label === 'ai.openclaw.workspace-nightly-github-update') return 'Github Backup'
   if (label === 'ai.openclaw.workspace-restic-backup') return 'Workspace Restic Backup'
   if (label === 'ch.tif.content-factory-crawler') return 'Content Crawler'
+  if (label === 'ch.tif.monitor-nightly-crawler') return 'Monitor Crawler (Kanton-Rotation)'
   return label
     .replace(/^ai\.openclaw\./, '')
     .replace(/^ch\.tif\./, '')
