@@ -1426,6 +1426,8 @@ export default function ClientBoard() {
   const [agentsSummary, setAgentsSummary] = useState<AgentSummary[]>([])
   const [agentsLoading, setAgentsLoading] = useState(false)
   const [agentsError, setAgentsError] = useState<string | null>(null)
+  const [agentsControlPending, setAgentsControlPending] = useState<string | null>(null)
+  const [agentsControlError, setAgentsControlError] = useState<string | null>(null)
 
   function isOfflineClient() {
     return typeof navigator !== 'undefined' && !navigator.onLine
@@ -1902,6 +1904,33 @@ export default function ClientBoard() {
         setAgentsLoading(false)
         agentsLoadingRef.current = false
       }
+    }
+  }
+
+  async function triggerAgentControl(action: 'heartbeat-enable' | 'heartbeat-disable' | 'gateway-restart') {
+    if (agentsControlPending) return
+
+    setAgentsControlPending(action)
+    setAgentsControlError(null)
+
+    try {
+      const res = await fetch('/api/agents/control', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ action }),
+      })
+
+      const payload = await res.json().catch(() => ({}))
+      if (!res.ok || payload?.ok === false) {
+        throw new Error(payload?.error || 'Aktion fehlgeschlagen')
+      }
+
+      await loadAgentsSummary()
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Agent-Steuerung fehlgeschlagen'
+      setAgentsControlError(message)
+    } finally {
+      setAgentsControlPending(null)
     }
   }
 
@@ -4243,6 +4272,34 @@ export default function ClientBoard() {
           </>
         ) : section === 'agents' ? (
           <>
+            <div style={{ display: 'flex', gap: 8, marginBottom: 10, flexWrap: 'wrap' }}>
+              <button
+                onClick={() => { void triggerAgentControl('heartbeat-enable') }}
+                disabled={!!agentsControlPending}
+                title="Globale Heartbeats aktivieren"
+              >
+                {agentsControlPending === 'heartbeat-enable' ? 'Aktiviere…' : 'Heartbeat an'}
+              </button>
+              <button
+                onClick={() => { void triggerAgentControl('heartbeat-disable') }}
+                disabled={!!agentsControlPending}
+                title="Globale Heartbeats deaktivieren"
+              >
+                {agentsControlPending === 'heartbeat-disable' ? 'Deaktiviere…' : 'Heartbeat aus'}
+              </button>
+              <button
+                onClick={() => { void triggerAgentControl('gateway-restart') }}
+                disabled={!!agentsControlPending}
+                title="OpenClaw Gateway neu starten"
+              >
+                {agentsControlPending === 'gateway-restart' ? 'Starte neu…' : 'Gateway restart'}
+              </button>
+            </div>
+            {agentsControlError && (
+              <div style={{ marginBottom: 10, padding: '8px 10px', borderRadius: 8, border: '1px solid #7f1d1d', background: '#2b1111', color: '#fecaca', fontSize: 13 }}>
+                {agentsControlError}
+              </div>
+            )}
             {agentsError && (
               <div style={{ marginBottom: 10, padding: '8px 10px', borderRadius: 8, border: '1px solid #7f1d1d', background: '#2b1111', color: '#fecaca', fontSize: 13 }}>
                 {agentsError}

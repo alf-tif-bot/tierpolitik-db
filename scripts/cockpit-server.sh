@@ -20,8 +20,18 @@ if [ ! -d node_modules ]; then
   "$NPM_BIN" ci
 fi
 
-if [ ! -d .next ]; then
-  "$NPM_BIN" run build
+# Deploy-Guardrail: immer frisch bauen, damit keine stale chunk refs ausgeliefert werden
+"$NPM_BIN" run build
+
+# Guardrail checks vor Start
+if [ ! -f .next/BUILD_ID ]; then
+  echo "[cockpit-server] BUILD_ID fehlt - Start abgebrochen" >&2
+  exit 1
+fi
+
+if ! ls .next/static/chunks/app/page-*.js >/dev/null 2>&1; then
+  echo "[cockpit-server] app page chunk fehlt - Start abgebrochen" >&2
+  exit 1
 fi
 
 exec "$NODE_BIN" "$ROOT/node_modules/next/dist/bin/next" start --hostname 0.0.0.0 --port 3001
