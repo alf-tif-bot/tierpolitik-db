@@ -52,6 +52,7 @@ const PARLIAMENT_BUSINESS_LINK_KEYWORDS = [
   'postulat',
   'interpellation',
   'initiative',
+  'politbusiness',
 ]
 
 const LINK_NOISE_KEYWORDS = [
@@ -92,6 +93,7 @@ const CANTON_KEYWORDS = {
   GE: ['grandconseil', 'recherche', 'dossiers'],
   JU: ['interventions-parlementaires-deposees', 'questions-ecrites', 'interpellations'],
   OW: ['kantonsratview', 'kantonsratmain', 'geschaefte'],
+  NW: ['politbusiness', 'landratmain', 'landrat', 'sitzung'],
   SZ: ['geschaefte-des-kantonsrats', 'behoerden/kantonsrat'],
   TI: ['gran consiglio', 'ricerca messaggi e atti', 'atti parlamentari', 'mozioni', 'interrogazioni'],
   VD: ['objets-et-rapports-de-commissions', 'grand conseil', 'bulletin'],
@@ -169,6 +171,8 @@ const CANTON_FALLBACK_LINKS = {
     { href: 'https://www.ur.ch/landrat', text: 'Landrat Uri' },
   ],
   NW: [
+    { href: 'https://www.nw.ch/politbusiness', text: 'Geschäfte Landrat Nidwalden' },
+    { href: 'https://www.nw.ch/sitzung', text: 'Sitzungen & Protokolle Landrat Nidwalden' },
     { href: 'https://www.nw.ch/landrat', text: 'Landrat Nidwalden' },
     { href: 'https://www.nw.ch/landratmain', text: 'Landratmain Nidwalden' },
   ],
