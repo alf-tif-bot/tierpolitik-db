@@ -30,6 +30,11 @@ Build a digital Animal Liberation Front with specialized agents for:
 - Data processing
 - Research
 
+## TIF strategic anchor (added 2026-02-23)
+- TIF Theory of Change ingested (PDF from Google Drive) and summarized in:
+  - `PARA/Resources/TIF/2026-02-23--theory-of-change-tif-summary.md`
+- Core sequence to respect in strategy proposals: build movement strength (Ziel 0) → protein/market shift (Ziel 1) → cultural worldview shift (Ziel 2) → institutional political representation for animals (Ziel 3)
+- Prefer proposals with measurable impact indicators (campaign reach, alliance growth, vegan adoption, policy outputs, reductions in animal exploitation metrics)
 
 ## Operating preferences (added 2026-02-23)
 - Proactive outreach is desired for meaningful opportunities/risks
