@@ -434,7 +434,7 @@ const html = `<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Crawler Review</title>
 <style>
-  body{font-family:Inter,Arial,sans-serif;background:#2a0000;color:#e2e8f0;margin:0;padding:24px}
+  body{font-family:Inter,Arial,sans-serif;background:#0f172a;color:#e2e8f0;margin:0;padding:24px}
   .wrap{max-width:1280px;margin:0 auto}
   h1{margin:0 0 8px}
   p{color:#a9bfd8}
@@ -458,7 +458,7 @@ const html = `<!doctype html>
   .fastlane-wrap{margin:12px 0 16px;padding:12px;border:1px solid #475569;border-radius:10px;background:#111827}
   .fastlane-wrap h2{font-size:16px;margin:0 0 10px;color:#fde68a}
   .fastlane-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}
-  .fastlane-card{border:1px solid #334155;border-radius:10px;padding:10px;background:#5a0000}
+  .fastlane-card{border:1px solid #334155;border-radius:10px;padding:10px;background:#0b1220}
   .fastlane-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
   .fastlane-score{font-weight:700;color:#fde68a}
   .fastlane-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:8px}
