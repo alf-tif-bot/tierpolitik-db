@@ -204,12 +204,32 @@ for (const item of grouped.values()) {
   hardGrouped.set(key, pickPreferredItem(item, prev))
 }
 
+
+const isLikelyPoliticalVorstoss = (item) => {
+  const text = `${item?.title || ''}
+${item?.summary || ''}
+${item?.body || ''}`.toLowerCase()
+  if (/\d{2}\.\d{3,4}/.test(text)) return true
+  return /(vorstoss|geschäftsnummer|geschaeftsnummer|motion|postulat|interpellation|anfrage|initiative|parlamentarische initiative|standesinitiative)/i.test(text)
+}
+
+
+const effectiveReviewScore = (item) => {
+  const raw = Number(item?.score || 0)
+  if (String(item?.sourceId || '') === 'ch-cantonal-portal-core' && !isLikelyPoliticalVorstoss(item)) {
+    return Math.min(raw, 0.45)
+  }
+  return raw
+}
+
 const isHighConfidenceReview = (item) => {
   const reason = String(item.reviewReason || '').toLowerCase()
   const score = Number(item.score || 0)
   const queued = item.status === 'queued' || item.status === 'new'
   if (!queued) return false
   if (reason.includes('feedback-negative-only') || reason.includes('noise-without-anchor')) return false
+
+  if (String(item.sourceId || '') === 'ch-cantonal-portal-core' && !isLikelyPoliticalVorstoss(item)) return false
 
   const hasStrongRule = reason.includes('[anchor+score]') || reason.includes('[anchor2+support]') || reason.includes('[feedback-recall]')
   const hasAnchorSignal = /anchor=(?!-)/.test(reason)
@@ -226,7 +246,7 @@ const reviewItems = [...hardGrouped.values()]
     const bFast = isHighConfidenceReview(b) ? 1 : 0
     if (bFast !== aFast) return bFast - aFast
 
-    const scoreDelta = Number(b.score || 0) - Number(a.score || 0)
+    const scoreDelta = effectiveReviewScore(b) - effectiveReviewScore(a)
     if (Math.abs(scoreDelta) > 0.0001) return scoreDelta
 
     const aTs = Date.parse(String(a.publishedAt || a.fetchedAt || '')) || 0
@@ -371,7 +391,7 @@ const fastLaneItems = reviewItems.filter((item) => {
 
 const fastLaneRows = fastLaneItems.map((item) => {
   const id = `${item.sourceId}:${item.externalId}`
-  const scoreValue = Number(item.score || 0)
+  const scoreValue = effectiveReviewScore(item)
   const isTaggedFastlane = Boolean(fastlaneTags[id]?.fastlane)
   return `<div class="fastlane-card" data-id="${esc(id)}" data-fastlane-tagged="${isTaggedFastlane ? '1' : '0'}">
     <div class="fastlane-head">
@@ -395,7 +415,7 @@ const rows = reviewItems.map((item) => {
   const pendingBadge = isPending ? '<strong class="pending">offen</strong>' : '<span class="historic">historisch</span>'
   const sourceLabel = esc(sourceMap.get(item.sourceId) || item.sourceId)
   const entryType = item.sourceId === 'user-input' || item.sourceId === 'user-feedback' ? 'User-Feedback' : 'Crawler'
-  const scoreValue = Number(item.score || 0)
+  const scoreValue = effectiveReviewScore(item)
   const priorityLabel = fastLane ? 'fast-lane' : (scoreValue >= 0.8 ? 'hoch' : scoreValue >= 0.55 ? 'mittel' : 'niedriger')
   const sourceUrl = resolveOriginalUrl(item)
   const isTaggedFastlane = Boolean(fastlaneTags[id]?.fastlane)
