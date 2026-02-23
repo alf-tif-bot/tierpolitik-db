@@ -116,5 +116,5 @@ const server = http.createServer(async (req, res) => {
 })
 
 server.listen(PORT, () => {
-  console.log(`Second Brain UI läuft auf http://localhost:${PORT}`)
+  console.log(`Cockpit UI läuft auf http://localhost:${PORT}`)
 })

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="/Users/alf/.openclaw/workspace/second-brain-next"
+ROOT="/Users/alf/.openclaw/workspace/cockpit"
 cd "$ROOT"
 
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH"

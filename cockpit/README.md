@@ -1,11 +1,11 @@
-# Cockpit (Second Brain Next)
+# Cockpit (Cockpit)
 
 Gemeinsames operatives Cockpit (Tobi + ALF) auf Next.js.
 
 ## Start
 
 ```bash
-cd second-brain-next
+cd cockpit
 npm install
 npm run dev
 ```

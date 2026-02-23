@@ -21,7 +21,7 @@ function requiredValue(v: string | undefined, msg: string): string {
 }
 
 function help() {
-  console.log(`Second Brain CLI
+  console.log(`Cockpit CLI
 
 Befehle:
   add <type> "Titel" [--notes "..."] [--tags a,b]

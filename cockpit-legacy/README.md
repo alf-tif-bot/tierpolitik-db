@@ -1,4 +1,4 @@
-# Second Brain System (local-first)
+# Cockpit System (local-first)
 
 Ein einfaches, lokales Second-Brain-System für:
 
@@ -13,7 +13,7 @@ Ein einfaches, lokales Second-Brain-System für:
 ## Setup
 
 ```bash
-cd second-brain
+cd cockpit-legacy
 npm install
 ```
 

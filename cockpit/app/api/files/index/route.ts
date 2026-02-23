@@ -65,7 +65,7 @@ export async function GET() {
     { dir: path.join(workspaceRoot, 'memory'), group: 'Memory (Daily)', shallow: false },
     { dir: path.join(workspaceRoot, 'tierpolitik-vorstoesse-db'), group: 'Tierpolitik Monitor', shallow: false },
     { dir: path.join(workspaceRoot, 'Physio'), group: 'Health (Physio)', shallow: false },
-    { dir: path.join(workspaceRoot, 'second-brain-next'), group: 'Cockpit', shallow: false },
+    { dir: path.join(workspaceRoot, 'cockpit'), group: 'Cockpit', shallow: false },
   ]
 
   for (const root of roots) {

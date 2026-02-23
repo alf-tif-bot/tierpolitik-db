@@ -250,12 +250,12 @@ const importantFiles = [
       {
         name: 'DB (single source of truth)',
         note: 'Projekte, Tasks, Entities',
-        path: 'C:/Users/yokim/.openclaw/workspace/second-brain-next/data/db.json',
+        path: 'C:/Users/yokim/.openclaw/workspace/cockpit/data/db.json',
       },
       {
         name: 'UI (diese App)',
         note: 'Navigation, Radar, Files-Ansicht',
-        path: 'C:/Users/yokim/.openclaw/workspace/second-brain-next/app/ui.tsx',
+        path: 'C:/Users/yokim/.openclaw/workspace/cockpit/app/ui.tsx',
       },
     ],
   },

@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'Stop'
-$project = 'C:\Users\yokim\.openclaw\workspace\second-brain-next'
+$project = 'C:\Users\yokim\.openclaw\workspace\cockpit'
 $port = 3001
 
 $listening = netstat -ano | Select-String ":$port" | Select-String 'LISTENING'

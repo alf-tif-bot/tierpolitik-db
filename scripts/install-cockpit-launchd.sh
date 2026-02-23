@@ -22,7 +22,7 @@ cat > "$PLIST" <<PLIST
     </array>
 
     <key>WorkingDirectory</key>
-    <string>/Users/alf/.openclaw/workspace/second-brain-next</string>
+    <string>/Users/alf/.openclaw/workspace/cockpit</string>
 
     <key>RunAtLoad</key>
     <true/>
