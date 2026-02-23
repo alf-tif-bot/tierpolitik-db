@@ -11,6 +11,9 @@ OUT_MD="$OUTDIR/${DATE_UTC}.md"
 TMP_JSON="$(mktemp)"
 RANKING_JSON="$WORKDIR/content-factory/sources-ranking.json"
 
+# Learn from vote history before each run (safe no-op if no votes)
+python3 "$WORKDIR/scripts/content-factory-rank-learn.py" >/dev/null 2>&1 || true
+
 # Lean source set
 FEEDS=(
   "https://news.google.com/rss/search?q=tierschutz+OR+tierrechte+OR+animal+welfare&hl=de&gl=CH&ceid=CH:de"

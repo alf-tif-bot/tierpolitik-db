@@ -23,6 +23,18 @@ Ziel: Aus täglichem Input schnell verwertbare Outputs machen — ohne Chaos.
 - Parken
 - Irrelevant
 
+## Lern-Loop (ABC-Quellenranking)
+
+- Ranking-Datei: `content-factory/sources-ranking.json`
+- Vote-Input: `content-factory/votes.csv` (Spalten: `source,decision`)
+- Decisions: `MM`, `Vorstoss`, `NL`, `FR`, `Kampagne`, `Parken`, `Irrelevant`
+- Lernregel:
+  - Upgrade (z. B. B→A): mind. 4 Votes, davon >=75% positiv
+  - Downgrade (z. B. B→C): mind. 3 Votes, davon >=60% `Irrelevant`
+- Report: `content-factory/runs/ranking-learning-latest.md`
+
+Das Learning läuft automatisch vor jedem Crawler-Run.
+
 ## Betriebsregeln
 
 - Ein Intake-Kanal als Eingang.
