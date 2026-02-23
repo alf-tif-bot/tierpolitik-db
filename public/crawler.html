@@ -37,18 +37,16 @@
       </thead>
       <tbody id="rows"></tbody>
     </table>
-    <p><small>Hinweis: <code>/.netlify/functions/*</code> funktioniert nur, wenn Netlify Functions aktiv sind oder auf dem Host entsprechend gemappt werden.</small></p>
+    <p><small>Primärziel ist jetzt <code>/api/*</code> (netlify-frei). Der Netlify-Check bleibt nur als Migrations-Indikator sichtbar.</small></p>
   </main>
 <script>
 const checks=[
-  {path:'/home-data',method:'GET'},
-  {path:'/feedback-submit',method:'POST',body:{id:'debug',vote:'up'}},
-  {path:'/review-decision',method:'POST',body:{id:'debug',status:'approved'}},
-  {path:'/review-fastlane-tag',method:'POST',body:{id:'debug',fastlane:true}},
+  {path:'/api/home-data',method:'GET'},
+  {path:'/api/feedback-submit',method:'POST',body:{id:'debug',vote:'up'}},
+  {path:'/api/review-decision',method:'POST',body:{id:'debug',status:'approved'}},
+  {path:'/api/review-fastlane-tag',method:'POST',body:{id:'debug',fastlane:true}},
+  // Legacy check for migration visibility
   {path:'/.netlify/functions/home-data',method:'GET'},
-  {path:'/.netlify/functions/feedback-submit',method:'POST',body:{id:'debug',vote:'up'}},
-  {path:'/.netlify/functions/review-decision',method:'POST',body:{id:'debug',status:'approved'}},
-  {path:'/.netlify/functions/review-fastlane-tag',method:'POST',body:{id:'debug',fastlane:true}},
 ]
 const esc=(s='')=>String(s).replace(/[&<>]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[ch]))
 async function one(c){

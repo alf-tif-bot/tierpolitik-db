@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "api:start": "node api/server.mjs",
     "crawler:collect": "node scripts/crawler-collect.mjs",
     "crawler:collect:v2": "node scripts/crawler-collect-v2.mjs",
     "crawler:score": "node scripts/crawler-score.mjs",

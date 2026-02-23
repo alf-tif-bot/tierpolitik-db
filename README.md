@@ -127,12 +127,24 @@ Synchronisiert zuerst die neuesten Review/Crawler-Entscheide in die DB und baut 
 - `data/vorstoesse.json` (Home-Tabelle)
 - `public/review.html`
 - `data/crawler-published.json`
-- `public/crawler.html` (Redirect auf Review)
+- `public/crawler.html` (Endpoint-Debug-Seite)
 
-### Automatische Review->DB Anbindung
+### API (netlify-freier Standard)
 
-- `review.html` sendet Approve/Reject jetzt serverseitig an `/.netlify/functions/review-decision`
-- Home lädt Live-Daten aus DB via `/.netlify/functions/home-data` (mit lokalem JSON-Fallback)
+- Primärpfad ist jetzt `/api/*`.
+- Lokalen API-Server starten mit:
+
+```bash
+npm run api:start
+```
+
+Verfügbare Endpunkte:
+- `GET /api/home-data`
+- `POST /api/feedback-submit`
+- `POST /api/review-decision`
+- `POST /api/review-fastlane-tag`
+
+Hinweis: `/.netlify/functions/*` kann als Legacy-Migrationspfad bestehen bleiben, ist aber nicht mehr Standard.
 
 ### Phasenplan (pragmatisch)
 
