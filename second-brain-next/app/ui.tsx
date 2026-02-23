@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-type Section = 'radar' | 'tasks' | 'calendar' | 'projects' | 'content' | 'memory' | 'docs' | 'people' | 'office' | 'health' | 'files'
+type Section = 'radar' | 'tasks' | 'calendar' | 'agents' | 'projects' | 'content' | 'memory' | 'docs' | 'people' | 'office' | 'health' | 'files'
 type EntityType = 'project' | 'content' | 'client' | 'memory' | 'doc' | 'person' | 'office'
 
 type Task = {
@@ -65,6 +65,17 @@ type CronJob = {
   nextRunAtMs: number | null
   nextRunAtIso: string | null
   lastRunAtMs: number | null
+}
+
+type AgentSummary = {
+  id: string
+  purpose: string
+  status: 'active' | 'idle' | 'sleeping' | 'bootstrapping'
+  heartbeat: string
+  lastActiveLabel: string
+  sessionsCount: number
+  lastWorkedOn: string
+  lastSessionKey?: string
 }
 
 type FilePreviewState = {
@@ -159,6 +170,7 @@ const sectionMeta: Record<Section, { label: string; hint?: string; entityType?: 
   radar: { label: 'Radar', hint: 'Signale & Entscheide' },
   tasks: { label: 'Heute', hint: 'Top-Prioritäten im Cockpit' },
   calendar: { label: 'Kalender', hint: 'Cron-Jobs der Woche' },
+  agents: { label: 'Agents', hint: 'Zweck, Status, letzter Arbeitskontext' },
   content: { label: 'Content Factory', hint: 'Discord-first (Planung im Cockpit)', entityType: 'content' },
   projects: { label: 'Strategie & Projekte', hint: 'Roadmap / Prioritäten', entityType: 'project' },
   docs: { label: 'Politik', hint: 'Vorstösse / Agenda', entityType: 'doc' },
@@ -1369,12 +1381,14 @@ export default function ClientBoard() {
   const somedayLoadSeq = useRef(0)
   const cronLoadSeq = useRef(0)
   const knowledgeLoadSeq = useRef(0)
+  const agentsLoadSeq = useRef(0)
   const cronLoadingRef = useRef(false)
   const tasksLoadingRef = useRef(false)
   const entitiesLoadingRef = useRef(false)
   const somedayLoadingRef = useRef(false)
   const radarLoadingRef = useRef(false)
   const knowledgeLoadingRef = useRef(false)
+  const agentsLoadingRef = useRef(false)
   const filePreviewAbortRef = useRef<AbortController | null>(null)
   const filePreviewSaveAbortRef = useRef<AbortController | null>(null)
   const filePreviewLoadingPathRef = useRef<string | null>(null)
@@ -1407,6 +1421,9 @@ export default function ClientBoard() {
   const [cronJobs, setCronJobs] = useState<CronJob[]>([])
   const [cronLoading, setCronLoading] = useState(false)
   const [cronError, setCronError] = useState<string | null>(null)
+  const [agentsSummary, setAgentsSummary] = useState<AgentSummary[]>([])
+  const [agentsLoading, setAgentsLoading] = useState(false)
+  const [agentsError, setAgentsError] = useState<string | null>(null)
 
   function isOfflineClient() {
     return typeof navigator !== 'undefined' && !navigator.onLine
@@ -1853,6 +1870,39 @@ export default function ClientBoard() {
     }
   }
 
+  async function loadAgentsSummary() {
+    if (agentsLoadingRef.current) return
+
+    const loadSeq = agentsLoadSeq.current + 1
+    agentsLoadSeq.current = loadSeq
+    agentsLoadingRef.current = true
+
+    if (isOfflineClient()) {
+      if (loadSeq !== agentsLoadSeq.current) return
+      setAgentsError('Offline: Agent-Status bleibt im letzten bekannten Stand sichtbar.')
+      setAgentsLoading(false)
+      agentsLoadingRef.current = false
+      return
+    }
+
+    setAgentsLoading(true)
+    try {
+      const payload = await fetchJsonWithTransientRetry<{ agents?: AgentSummary[] }>('/api/agents', boardRequestTimeoutMs)
+      if (loadSeq !== agentsLoadSeq.current) return
+      const rows = Array.isArray(payload?.agents) ? payload.agents : []
+      setAgentsSummary(rows)
+      setAgentsError(null)
+    } catch {
+      if (loadSeq !== agentsLoadSeq.current) return
+      setAgentsError('Agent-Übersicht konnte nicht geladen werden. Letzte Daten bleiben sichtbar.')
+    } finally {
+      if (loadSeq === agentsLoadSeq.current) {
+        setAgentsLoading(false)
+        agentsLoadingRef.current = false
+      }
+    }
+  }
+
   async function loadEntities(entityType: EntityType, sectionLabel: string) {
     if (entitiesLoadingRef.current) return
 
@@ -2055,6 +2105,8 @@ export default function ClientBoard() {
       void loadRadar()
     } else if (section === 'calendar') {
       void loadCronJobs()
+    } else if (section === 'agents') {
+      void loadAgentsSummary()
     } else if (section === 'files' || section === 'health') {
       setKnowledgeError(null)
       knowledgeAutoRefreshAtRef.current = Date.now()
@@ -2146,6 +2198,13 @@ export default function ClientBoard() {
       setCronError(null)
       calendarAutoRefreshAtRef.current = Date.now()
       void loadCronJobs()
+      return
+    }
+
+    if (section === 'agents') {
+      if (agentsLoadingRef.current) return
+      setAgentsError(null)
+      void loadAgentsSummary()
       return
     }
 
@@ -2359,6 +2418,10 @@ export default function ClientBoard() {
   }, [knowledgeLoading])
 
   useEffect(() => {
+    agentsLoadingRef.current = agentsLoading
+  }, [agentsLoading])
+
+  useEffect(() => {
     const markOnline = () => {
       setIsOffline(false)
       setNowTick(Date.now())
@@ -2406,6 +2469,12 @@ export default function ClientBoard() {
         if (cronLoadingRef.current) return
         calendarAutoRefreshAtRef.current = Date.now()
         void loadCronJobs()
+        return
+      }
+
+      if (section === 'agents') {
+        if (agentsLoadingRef.current) return
+        void loadAgentsSummary()
         return
       }
 
@@ -2486,6 +2555,11 @@ export default function ClientBoard() {
 
       if (section === 'calendar') {
         setCronError('Offline: Kalender bleibt im letzten bekannten Stand sichtbar.')
+        return
+      }
+
+      if (section === 'agents') {
+        setAgentsError('Offline: Agent-Status bleibt im letzten bekannten Stand sichtbar.')
         return
       }
 
@@ -3466,6 +3540,11 @@ export default function ClientBoard() {
       return null
     }
 
+    if (section === 'agents') {
+      if (agentsLoading) return 'Agent-Status wird bereits aktualisiert.'
+      return null
+    }
+
     if (section === 'files' || section === 'health') {
       if (knowledgeLoading) return 'Wissensindex wird bereits aktualisiert.'
       return null
@@ -3475,7 +3554,7 @@ export default function ClientBoard() {
     if (hasPendingEntityMutation) return 'Änderung läuft noch. Danach erneut aktualisieren.'
 
     return null
-  }, [isOffline, section, radarLoading, hasPendingRadarMutation, tasksLoading, somedayLoading, hasPendingTaskMutation, somedayBusyId, cronLoading, knowledgeLoading, entitiesLoading, hasPendingEntityMutation])
+  }, [isOffline, section, radarLoading, hasPendingRadarMutation, tasksLoading, somedayLoading, hasPendingTaskMutation, somedayBusyId, cronLoading, agentsLoading, knowledgeLoading, entitiesLoading, hasPendingEntityMutation])
 
   const canRefreshCurrentSection = refreshButtonDisabledReason === null
 
@@ -4158,6 +4237,48 @@ export default function ClientBoard() {
                   </div>
                 </div>
               )}
+            </div>
+          </>
+        ) : section === 'agents' ? (
+          <>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 10 }}>
+              <button
+                onClick={() => refreshCurrentSection()}
+                disabled={agentsLoading}
+                title={agentsLoading ? 'Agent-Status wird bereits geladen.' : 'Agent-Status aktualisieren'}
+              >
+                {agentsLoading ? 'Aktualisiere…' : 'Jetzt aktualisieren'}
+              </button>
+            </div>
+            {agentsError && (
+              <div style={{ marginBottom: 10, padding: '8px 10px', borderRadius: 8, border: '1px solid #7f1d1d', background: '#2b1111', color: '#fecaca', fontSize: 13 }}>
+                {agentsError}
+              </div>
+            )}
+            <div style={{ display: 'grid', gap: 10 }}>
+              {agentsSummary.map((agent) => (
+                <div key={agent.id} style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 12 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10 }}>
+                    <div>
+                      <div style={{ fontWeight: 700 }}>{agent.id}</div>
+                      <div style={{ fontSize: 12, opacity: 0.85 }}>{agent.purpose}</div>
+                    </div>
+                    <span style={{ fontSize: 12, padding: '4px 8px', borderRadius: 999, border: '1px solid #3a3a3a', background: '#181818' }}>
+                      {agent.status}
+                    </span>
+                  </div>
+                  <div style={{ marginTop: 8, fontSize: 12, opacity: 0.86 }}>
+                    Last active: {agent.lastActiveLabel} · Heartbeat: {agent.heartbeat} · Sessions: {agent.sessionsCount}
+                  </div>
+                  <div style={{ marginTop: 6, fontSize: 12, opacity: 0.9 }}>
+                    Zuletzt gearbeitet an: <strong>{agent.lastWorkedOn}</strong>
+                  </div>
+                  {agent.lastSessionKey && (
+                    <code style={{ display: 'block', marginTop: 6, fontSize: 11, opacity: 0.72, wordBreak: 'break-all' }}>{agent.lastSessionKey}</code>
+                  )}
+                </div>
+              ))}
+              {!agentsLoading && agentsSummary.length === 0 && <div style={{ opacity: 0.75 }}>Keine Agent-Daten verfügbar.</div>}
             </div>
           </>
         ) : section === 'calendar' ? (
