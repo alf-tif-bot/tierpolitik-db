@@ -315,7 +315,6 @@ export default function App() {
         item={selected}
         onClose={closeDetail}
         onOpenPersonProfile={(name) => setProfile({ kind: 'person', value: name })}
-        onOpenPartyProfile={(party) => setProfile({ kind: 'party', value: party })}
         onSubscribe={openSubscribe}
         onQuickFilter={applyQuickFilter}
         onFeedbackSubmitted={onFeedbackSubmitted}

@@ -10,7 +10,6 @@ type Props = {
   item: Vorstoss | null
   onClose: () => void
   onOpenPersonProfile: (name: string) => void
-  onOpenPartyProfile: (party: string) => void
   onSubscribe: (context: string) => void
   onQuickFilter: (field: QuickFilterField, value: string) => void
   onFeedbackSubmitted: (payload: { id: string; irrelevant: boolean }) => void
@@ -78,7 +77,7 @@ type TimelineItem = {
   url?: string
 }
 
-export function DetailDrawer({ item, onClose, onOpenPersonProfile, onOpenPartyProfile, onSubscribe, onQuickFilter, onFeedbackSubmitted, lang, t }: Props) {
+export function DetailDrawer({ item, onClose, onOpenPersonProfile, onSubscribe, onQuickFilter, onFeedbackSubmitted, lang, t }: Props) {
   const [feedbackOpen, setFeedbackOpen] = useState(false)
   const [feedbackType, setFeedbackType] = useState('Fehler gefunden')
   const [feedbackText, setFeedbackText] = useState('')

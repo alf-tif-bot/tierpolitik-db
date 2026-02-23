@@ -20,8 +20,16 @@ export function createCantonRegistryAdapter() {
         ? new Set(source.options.cantons.map((c) => String(c).toUpperCase()))
         : null
 
+      const envTargetCantons = new Set(
+        String(process.env.MONITOR_TARGET_CANTON || '')
+          .split(',')
+          .map((c) => c.trim().toUpperCase())
+          .filter(Boolean),
+      )
+
       const entries = loadCantons()
         .filter((entry) => !enabledCantons || enabledCantons.has(String(entry?.canton || '').toUpperCase()))
+        .filter((entry) => !envTargetCantons.size || envTargetCantons.has(String(entry?.canton || '').toUpperCase()))
 
       return entries.map((entry) => {
         const canton = String(entry.canton || '').toUpperCase()

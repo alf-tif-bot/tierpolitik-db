@@ -499,6 +499,12 @@ export function createCantonalPortalAdapter() {
     async fetch(source, { signal } = {}) {
       const fetchedAt = new Date().toISOString()
       const cantonFilter = new Set(asList(source.options?.cantons).map((c) => c.toUpperCase()))
+      const envTargetCantons = new Set(
+        String(process.env.MONITOR_TARGET_CANTON || '')
+          .split(',')
+          .map((c) => c.trim().toUpperCase())
+          .filter(Boolean),
+      )
       const rows = []
       const registryUrl = source.options?.registryUrl || 'data/cantonal-source-registry.json'
 
@@ -520,6 +526,7 @@ export function createCantonalPortalAdapter() {
       for (const entry of entries) {
         const canton = String(entry?.canton || '').toUpperCase()
         if (!canton || (cantonFilter.size && !cantonFilter.has(canton))) continue
+        if (envTargetCantons.size && !envTargetCantons.has(canton)) continue
 
         const candidateUrls = candidateUrlsFromRegistry(entry)
         if (!candidateUrls.length || entry?.probe?.httpStatus === 403) continue
