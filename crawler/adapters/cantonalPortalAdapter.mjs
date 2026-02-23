@@ -509,6 +509,34 @@ const fetchReachablePages = async (urls = [], limit = 3, parentSignal) => {
   return pages
 }
 
+const fetchNestedThemedBusinessLinks = async (seedLinks = [], canton = '', parentSignal) => {
+  const seeds = seedLinks
+    .filter((link) => link?.businessLike && !link?.themed)
+    .slice(0, 2)
+
+  const discovered = []
+
+  for (const seed of seeds) {
+    try {
+      const response = await fetch(seed.href, {
+        headers: { 'user-agent': 'tierpolitik-crawler/portal-adapter' },
+        redirect: 'follow',
+        signal: mergeAbortSignals(parentSignal, AbortSignal.timeout(10000)),
+      })
+      if (!response.ok) continue
+      const html = await response.text()
+      const nested = parseLinks(html, response.url, canton)
+        .filter((link) => link.themed)
+        .slice(0, 8)
+      discovered.push(...nested)
+    } catch {
+      // non-fatal: continue with next seed
+    }
+  }
+
+  return [...new Map(discovered.map((l) => [canonicalizeLinkUrl(l.href), l])).values()]
+}
+
 export function createCantonalPortalAdapter() {
   return {
     async fetch(source, { signal } = {}) {
@@ -557,7 +585,8 @@ export function createCantonalPortalAdapter() {
           .trim()
 
         const parsedLinks = fetchedPages.flatMap(({ html: pageHtml, response: pageResponse }) => parseLinks(pageHtml, pageResponse.url, canton))
-        const links = appendFallbackLinks(canton, parsedLinks)
+        const nestedThemedLinks = await fetchNestedThemedBusinessLinks(parsedLinks, canton, signal)
+        const links = appendFallbackLinks(canton, [...parsedLinks, ...nestedThemedLinks])
         const themedLinkCount = links.filter((link) => hasAnimalTheme(link.href, link.text)).length
         const businessLinkCount = links.filter((link) => link.businessLike).length
         const pageText = fetchedPages.map((p) => stripTags(p.html).slice(0, 2500)).join('\n')
@@ -588,6 +617,7 @@ export function createCantonalPortalAdapter() {
             extractedLinkCount: links.length,
             businessLinkCount,
             themedLinkCount,
+            nestedThemedLinkCount: nestedThemedLinks.length,
             extractedLinks: links,
             adapterHint: 'cantonalPortal',
             candidateUrlsTried: candidateUrls.slice(0, 8),
