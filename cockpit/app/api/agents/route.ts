@@ -26,6 +26,16 @@ type StatusJson = {
     agents?: Array<{ agentId?: string; enabled?: boolean; every?: string }>
   }
   sessions?: {
+    defaults?: {
+      model?: string
+    }
+    recent?: Array<{
+      agentId?: string
+      key?: string
+      kind?: string
+      updatedAt?: number
+      model?: string
+    }>
     byAgent?: Array<{
       agentId?: string
       recent?: Array<{
@@ -45,6 +55,16 @@ const defaultPurposeMap: PurposeMap = {
   'tif-politik': 'Politik-Agent für Vorstösse, Agenda und Stakeholder-Monitoring',
   'tif-text': 'Text-Agent für Entwürfe, Ausformulierungen und Redaktionsarbeit',
   'tif-website': 'Website-Agent für Webpflege, Struktur und technische Inhalte',
+}
+
+const defaultEmojiMap: Record<string, string> = {
+  main: '🧠',
+  'tif-coding': '🛠️',
+  'tif-health': '🩺',
+  'tif-medien': '📣',
+  'tif-politik': '🏛️',
+  'tif-text': '✍️',
+  'tif-website': '🌐',
 }
 
 function resolveOpenClawBin() {
@@ -145,6 +165,13 @@ export async function GET() {
       if (latest) recentByAgent.set(id, latest)
     }
 
+    const modelByAgent = new Map<string, string>()
+    for (const row of status.sessions?.recent || []) {
+      if (!row?.agentId || !row?.model) continue
+      if (modelByAgent.has(row.agentId)) continue
+      modelByAgent.set(row.agentId, row.model)
+    }
+
     const agents = (status.agents?.agents || [])
       .filter((agent) => typeof agent?.id === 'string' && agent.id)
       .map((agent) => {
@@ -154,6 +181,8 @@ export async function GET() {
 
         return {
           id,
+          emoji: defaultEmojiMap[id] || '🤖',
+          model: modelByAgent.get(id) || status.sessions?.defaults?.model || 'unbekannt',
           purpose: purposeOverrides[id] || defaultPurposeMap[id] || 'Zweck noch nicht dokumentiert',
           status: classifyStatus(agent.bootstrapPending, agent.lastActiveAgeMs),
           heartbeat: heartbeat?.enabled ? heartbeat.every || 'aktiv' : 'disabled',

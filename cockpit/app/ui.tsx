@@ -69,6 +69,8 @@ type CronJob = {
 
 type AgentSummary = {
   id: string
+  emoji?: string
+  model?: string
   purpose: string
   status: 'active' | 'idle' | 'sleeping' | 'bootstrapping'
   heartbeat: string
@@ -4241,15 +4243,6 @@ export default function ClientBoard() {
           </>
         ) : section === 'agents' ? (
           <>
-            <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 10 }}>
-              <button
-                onClick={() => refreshCurrentSection()}
-                disabled={agentsLoading}
-                title={agentsLoading ? 'Agent-Status wird bereits geladen.' : 'Agent-Status aktualisieren'}
-              >
-                {agentsLoading ? 'Aktualisiere…' : 'Jetzt aktualisieren'}
-              </button>
-            </div>
             {agentsError && (
               <div style={{ marginBottom: 10, padding: '8px 10px', borderRadius: 8, border: '1px solid #7f1d1d', background: '#2b1111', color: '#fecaca', fontSize: 13 }}>
                 {agentsError}
@@ -4260,8 +4253,9 @@ export default function ClientBoard() {
                 <div key={agent.id} style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 12 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10 }}>
                     <div>
-                      <div style={{ fontWeight: 700 }}>{agent.id}</div>
+                      <div style={{ fontWeight: 700 }}>{agent.emoji || '🤖'} {agent.id}</div>
                       <div style={{ fontSize: 12, opacity: 0.85 }}>{agent.purpose}</div>
+                      <div style={{ fontSize: 12, opacity: 0.75 }}>Model: {agent.model || 'unbekannt'}</div>
                     </div>
                     <span style={{ fontSize: 12, padding: '4px 8px', borderRadius: 999, border: '1px solid #3a3a3a', background: '#181818' }}>
                       {agent.status}
