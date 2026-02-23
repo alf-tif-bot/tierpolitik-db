@@ -37,3 +37,15 @@ Default short answers unless depth is explicitly requested.
 ---
 
 The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
+
+
+### Operating mode
+- Proactive check-ins: yes (for important opportunities/risks)
+- Language: prioritize best-quality output language by task (DE/EN as needed)
+
+### Autonomy boundaries
+- Ask first: emails, spending money, trading execution
+- Autonomous: coding, research, crawling, text drafts based on templates/briefs
+
+### Finance support
+- Wants concrete buy/sell proposals (with clear rationale and risk framing)

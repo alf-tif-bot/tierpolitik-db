@@ -29,3 +29,11 @@ Build a digital Animal Liberation Front with specialized agents for:
 - Publishing
 - Data processing
 - Research
+
+
+## Operating preferences (added 2026-02-23)
+- Proactive outreach is desired for meaningful opportunities/risks
+- Require explicit approval before: sending emails, spending money, executing trades
+- Autonomous by default for: coding, research, crawling, drafting texts from briefs/templates
+- Finance: user wants concrete buy/sell proposals (execution still requires approval)
+- Language: use whichever language yields best results for the specific task
