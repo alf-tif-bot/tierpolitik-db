@@ -495,7 +495,8 @@ const html = `<!doctype html>
     <p>Es werden standardmässig nur <strong>offene</strong> relevante Einträge gezeigt (queued/new). Bereits bearbeitete Einträge bleiben ausgeblendet und können bei Bedarf über den Button eingeblendet werden. Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB übernommen.</p>
     <p class="status" id="status-summary">Status-Summen (sichtbar): queued=0, approved=0, published=0</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
-    <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="toggleDecided()" id="toggle-decided">Bereits bearbeitete anzeigen</button> <button onclick="resetLocalReviewState()">Lokale Entscheidungen zurücksetzen</button></p>
+    <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="importDecisionsPrompt()">Entscheidungen importieren</button> <button onclick="syncLocalDecisions()">Lokale Entscheidungen synchronisieren</button> <button onclick="toggleDecided()" id="toggle-decided">Bereits bearbeitete anzeigen</button> <button onclick="resetLocalReviewState()">Lokale Entscheidungen zurücksetzen</button></p>
+    <input id="import-decisions-input" type="file" accept="application/json" style="display:none" onchange="importDecisionsFile(event)" />
     <p id="decision-status" class="muted" aria-live="polite"></p>
     ${fastLaneRows ? `<section class="fastlane-wrap">
       <h2>⚡ Fast-Lane</h2>
@@ -522,6 +523,7 @@ const key='tierpolitik.review';
 const uiKey='tierpolitik.review.ui';
 const fastlaneTagKey='tierpolitik.review.fastlaneTags';
 const initialFastlaneTags=${JSON.stringify(fastlaneTags)};
+const API_BASE=(window.__REVIEW_API_BASE__||'/.netlify/functions').replace(/\\/$/,'');
 const read=()=>JSON.parse(localStorage.getItem(key)||'{}');
 const write=(v)=>localStorage.setItem(key,JSON.stringify(v,null,2));
 const readFastlaneTags=()=>{
@@ -531,6 +533,18 @@ const readFastlaneTags=()=>{
 const writeFastlaneTags=(v)=>localStorage.setItem(fastlaneTagKey,JSON.stringify(v));
 const readUi=()=>JSON.parse(localStorage.getItem(uiKey)||'{}');
 const writeUi=(v)=>localStorage.setItem(uiKey,JSON.stringify(v));
+
+async function postJson(path,payload){
+  const res = await fetch(API_BASE + path, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
+  let data = null
+  try { data = await res.json() } catch {}
+  if (!res.ok || data?.ok === false) throw new Error(data?.error || ('HTTP ' + res.status))
+  return data || { ok: true }
+}
 
 let showDecided = false;
 
@@ -620,7 +634,13 @@ async function toggleFastlaneTag(btn,id){
   const taggedAt = new Date().toISOString();
   if (btn) btn.disabled = true;
 
-  tags[id] = { fastlane: next, taggedAt, storage: 'local-only' };
+  try {
+    await postJson('/review-fastlane-tag', { id, fastlane: next, taggedAt })
+    tags[id] = { fastlane: next, taggedAt, storage: 'server' };
+  } catch {
+    tags[id] = { fastlane: next, taggedAt, storage: 'local-only' };
+  }
+
   writeFastlaneTags(tags);
   renderFastlaneTagButton(id);
 
@@ -639,8 +659,16 @@ async function setDecision(btn,id,status){
 
   if (btn) btn.disabled = true;
 
+  let storage = 'local-only'
+  try {
+    await postJson('/review-decision', { id, status, decidedAt })
+    storage = 'server'
+  } catch {
+    storage = 'local-only'
+  }
+
   const s=read();
-  s[id]={status,decidedAt,storage:'local-only'};
+  s[id]={status,decidedAt,storage};
   write(s);
 
   const row = document.querySelector('tr[data-id="' + id + '"]');
@@ -653,8 +681,80 @@ async function setDecision(btn,id,status){
   const card = document.querySelector('.fastlane-card[data-id="' + id + '"]');
   if (card) card.style.display = 'none'
   updateStatusSummary();
-  if (statusEl) statusEl.textContent = 'Lokal gespeichert.';
+  if (statusEl) statusEl.textContent = storage === 'server' ? 'In DB gespeichert.' : 'Lokal gespeichert.';
   if (btn) btn.disabled = false;
+}
+
+function importDecisionsPrompt(){
+  const input = document.getElementById('import-decisions-input')
+  if (input) input.click()
+}
+
+async function importDecisionsFile(event){
+  const file = event?.target?.files?.[0]
+  if (!file) return
+  const statusEl = document.getElementById('decision-status')
+  try {
+    const text = await file.text()
+    const imported = JSON.parse(text)
+    const current = read()
+    const merged = { ...current, ...imported }
+    write(merged)
+    hideDecidedRows()
+    if (statusEl) statusEl.textContent = 'Entscheidungen importiert. Jetzt synchronisieren klicken.'
+  } catch {
+    if (statusEl) statusEl.textContent = 'Import fehlgeschlagen (ungültige JSON-Datei).'
+  }
+  event.target.value = ''
+}
+
+async function syncLocalDecisions(){
+  const statusEl = document.getElementById('decision-status');
+  if (statusEl) statusEl.textContent = 'Synchronisiere lokale Entscheidungen…';
+
+  const decisions = read();
+  let synced = 0;
+  let failed = 0;
+
+  for (const [id, d] of Object.entries(decisions)) {
+    if (!id || !d || d.storage === 'server') continue
+    try {
+      await postJson('/review-decision', {
+        id,
+        status: d.status,
+        decidedAt: d.decidedAt || new Date().toISOString(),
+      })
+      decisions[id] = { ...d, storage: 'server' }
+      synced += 1
+    } catch {
+      failed += 1
+    }
+  }
+
+  const tags = readFastlaneTags();
+  for (const [id, t] of Object.entries(tags)) {
+    if (!id || !t || t.storage === 'server') continue
+    try {
+      await postJson('/review-fastlane-tag', {
+        id,
+        fastlane: Boolean(t.fastlane),
+        taggedAt: t.taggedAt || new Date().toISOString(),
+      })
+      tags[id] = { ...t, storage: 'server' }
+    } catch {
+      // ignore tag sync failures for now
+    }
+  }
+
+  write(decisions);
+  writeFastlaneTags(tags);
+  hideDecidedRows();
+
+  if (statusEl) {
+    statusEl.textContent = failed === 0
+      ? 'Synchronisiert: ' + synced + ' Entscheidungen in DB.'
+      : 'Teilweise synchronisiert: ' + synced + ' ok, ' + failed + ' fehlgeschlagen.'
+  }
 }
 
 function exportDecisions(){
