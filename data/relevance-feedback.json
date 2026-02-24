@@ -1,4 +1,17 @@
 {
-  "updatedAt": "2026-02-16T18:36:38.096Z",
-  "learned": []
+  "updatedAt": "2026-02-24T20:44:40.721Z",
+  "learned": [
+    {
+      "keyword": "schaf",
+      "weight": -1
+    },
+    {
+      "keyword": "verein",
+      "weight": -1
+    },
+    {
+      "keyword": "organisation",
+      "weight": -1
+    }
+  ]
 }
