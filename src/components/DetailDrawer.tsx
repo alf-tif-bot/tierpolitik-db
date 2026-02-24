@@ -68,7 +68,7 @@ const formatSubmitterDisplay = (name: string, party?: string) => {
   return `${normalizedName} (${rawParty})`
 }
 
-const API_BASE = (import.meta.env.VITE_API_BASE || '/api').replace(/\/$/, '')
+const API_BASE = (import.meta.env.VITE_API_BASE || '/.netlify/functions').replace(/\/$/, '')
 
 type TimelineItem = {
   datum: string

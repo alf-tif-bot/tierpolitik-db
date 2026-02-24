@@ -118,7 +118,7 @@ export const i18n: Record<Language, I18nText> = {
     close: 'Schliessen',
     businessNo: 'Geschäftsnummer',
     region: 'Region/Gemeinde',
-    dateSubmitted: 'Datum eingereicht',
+    dateSubmitted: 'Datum',
     submitters: 'Einreichende',
     copyLink: 'Link kopieren',
     openBusiness: 'Geschäft öffnen',
