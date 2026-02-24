@@ -6,6 +6,31 @@ import { withPgClient } from '../crawler/db-postgres.mjs'
 const decisionsPath = path.resolve(process.cwd(), 'data/review-decisions.json')
 const fastlaneTagsPath = path.resolve(process.cwd(), 'data/review-fastlane-tags.json')
 
+async function writeDecisions(rows = []) {
+  const current = fs.existsSync(decisionsPath)
+    ? JSON.parse(fs.readFileSync(decisionsPath, 'utf8'))
+    : {}
+
+  const liveKeys = new Set()
+  for (const row of rows) {
+    const key = `${row.source_id}:${row.external_id}`
+    liveKeys.add(key)
+    current[key] = {
+      status: String(row.status || 'queued'),
+      decidedAt: new Date(row.decided_at || Date.now()).toISOString(),
+    }
+  }
+
+  for (const key of Object.keys(current)) {
+    if (key.startsWith('ch-parliament') && !liveKeys.has(key)) {
+      delete current[key]
+    }
+  }
+
+  fs.writeFileSync(decisionsPath, JSON.stringify(current, null, 2))
+  return rows.length
+}
+
 async function syncReviewDecisionsFromDb() {
   try {
     const rows = await withPgClient(async (client) => {
@@ -21,31 +46,27 @@ async function syncReviewDecisionsFromDb() {
       `)
       return res.rows
     })
-
-    const current = fs.existsSync(decisionsPath)
-      ? JSON.parse(fs.readFileSync(decisionsPath, 'utf8'))
-      : {}
-
-    const liveKeys = new Set()
-    for (const row of rows) {
-      const key = `${row.source_id}:${row.external_id}`
-      liveKeys.add(key)
-      current[key] = {
-        status: String(row.status || 'queued'),
-        decidedAt: new Date(row.decided_at || Date.now()).toISOString(),
-      }
-    }
-
-    for (const key of Object.keys(current)) {
-      if (key.startsWith('ch-parliament') && !liveKeys.has(key)) {
-        delete current[key]
-      }
-    }
-
-    fs.writeFileSync(decisionsPath, JSON.stringify(current, null, 2))
-    return rows.length
+    return await writeDecisions(rows)
   } catch {
-    return 0
+    try {
+      const url = process.env.REVIEW_DECISIONS_EXPORT_URL || 'https://tierpolitik.netlify.app/.netlify/functions/review-decisions-export'
+      const res = await fetch(url, { headers: { 'user-agent': 'tierpolitik-crawler/score-sync' } })
+      if (!res.ok) return 0
+      const data = await res.json()
+      const decisions = data?.decisions || {}
+      const rows = Object.entries(decisions).map(([key, value]) => {
+        const [source_id, external_id] = String(key).split(':')
+        return {
+          source_id,
+          external_id,
+          status: value?.status || 'queued',
+          decided_at: value?.decidedAt || new Date().toISOString(),
+        }
+      }).filter((r) => r.source_id && r.external_id)
+      return await writeDecisions(rows)
+    } catch {
+      return 0
+    }
   }
 }
 
