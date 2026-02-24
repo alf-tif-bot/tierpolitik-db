@@ -8,11 +8,11 @@ export const languageNames: Record<Language, string> = {
 }
 
 export const statusLabels: Record<string, Record<Language, string>> = {
-  Eingereicht: { de: 'Eingereicht', fr: 'Déposé', it: 'Presentato', en: 'Submitted' },
+  Eingereicht: { de: 'Beratung', fr: 'En délibération', it: 'In discussione', en: 'In review' },
   'In Beratung': { de: 'Beratung', fr: 'En délibération', it: 'In discussione', en: 'In review' },
   Angenommen: { de: 'Angenommen', fr: 'Accepté', it: 'Accolto', en: 'Accepted' },
   Abgelehnt: { de: 'Abgelehnt', fr: 'Rejeté', it: 'Respinto', en: 'Rejected' },
-  Abgeschrieben: { de: 'Abgeschlossen', fr: 'Clôturé', it: 'Chiuso', en: 'Closed' },
+  Abgeschrieben: { de: 'Erledigt', fr: 'Clôturé', it: 'Chiuso', en: 'Closed' },
   Zurueckgezogen: { de: 'Zurückgezogen', fr: 'Retiré', it: 'Ritirato', en: 'Withdrawn' },
   Zurückgezogen: { de: 'Zurückgezogen', fr: 'Retiré', it: 'Ritirato', en: 'Withdrawn' },
 }
@@ -449,7 +449,7 @@ export function canonicalStatus(status: string): keyof typeof statusLabels {
   if (s.includes('abgelehnt') || s.includes('rejet')) return 'Abgelehnt'
   if (s.includes('angenommen') || s.includes('accept')) return 'Angenommen'
   if (s.includes('uberwiesen an den bundesrat') || s.includes('ueberwiesen an den bundesrat')) return 'Angenommen'
-  if (s.includes('eingereicht') || s.includes('depose') || s.includes('presentato') || s.includes('submitted')) return 'Eingereicht'
+  if (s.includes('eingereicht') || s.includes('depose') || s.includes('presentato') || s.includes('submitted')) return 'In Beratung'
   if (
     s.includes('in beratung') ||
     s.includes('beratung') ||
