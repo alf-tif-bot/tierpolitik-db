@@ -31,6 +31,11 @@ Things like:
 - Default speaker: Kitchen HomePod
 ```
 
+## WordPress (TIF)
+
+- Für TIF-Artikel immer den **WPBakery Page Builder** verwenden (nicht nur ACF-Kurzbeschreibung ausfüllen).
+- Nach Upload immer prüfen, dass der Body-Text in der Vorschau sichtbar ist (nicht nur Teaser + Kommentare).
+
 ## Why Separate?
 
 Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
