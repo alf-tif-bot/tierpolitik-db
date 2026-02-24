@@ -1,17 +1,129 @@
 {
-  "updatedAt": "2026-02-24T20:57:49.868Z",
+  "updatedAt": "2026-02-24T21:22:32.734Z",
   "learned": [
+    {
+      "keyword": "tierversuch",
+      "weight": 1
+    },
+    {
+      "keyword": "tierversuche",
+      "weight": 1
+    },
+    {
+      "keyword": "3r",
+      "weight": 1
+    },
+    {
+      "keyword": "stopfleber",
+      "weight": 1
+    },
+    {
+      "keyword": "animal",
+      "weight": 1
+    },
     {
       "keyword": "schaf",
       "weight": -1
     },
     {
-      "keyword": "verein",
+      "keyword": "organisation",
       "weight": -1
     },
     {
-      "keyword": "organisation",
-      "weight": -1
+      "keyword": "foie gras",
+      "weight": 1
+    },
+    {
+      "keyword": "tiere",
+      "weight": 1
+    },
+    {
+      "keyword": "massentierhaltung",
+      "weight": 1
+    },
+    {
+      "keyword": "massentier",
+      "weight": 1
+    },
+    {
+      "keyword": "wildtier",
+      "weight": 1
+    },
+    {
+      "keyword": "geflügel",
+      "weight": 1
+    },
+    {
+      "keyword": "schwein",
+      "weight": 1
+    },
+    {
+      "keyword": "schweine",
+      "weight": 1
+    },
+    {
+      "keyword": "fisch",
+      "weight": 1
+    },
+    {
+      "keyword": "fische",
+      "weight": 1
+    },
+    {
+      "keyword": "tierhaltung",
+      "weight": 1
+    },
+    {
+      "keyword": "tierwohl",
+      "weight": 1
+    },
+    {
+      "keyword": "ernährung",
+      "weight": 1
+    },
+    {
+      "keyword": "nutztiere",
+      "weight": 1
+    },
+    {
+      "keyword": "schlacht",
+      "weight": 1
+    },
+    {
+      "keyword": "tierqual",
+      "weight": 1
+    },
+    {
+      "keyword": "tierquälerei",
+      "weight": 1
+    },
+    {
+      "keyword": "animaux",
+      "weight": 1
+    },
+    {
+      "keyword": "élevage",
+      "weight": 1
+    },
+    {
+      "keyword": "elevage",
+      "weight": 1
+    },
+    {
+      "keyword": "tierschutz",
+      "weight": 0.964
+    },
+    {
+      "keyword": "verein",
+      "weight": -0.84
+    },
+    {
+      "keyword": "biodiversität",
+      "weight": 0.2
+    },
+    {
+      "keyword": "biodiversita",
+      "weight": 0.2
     }
   ]
 }
