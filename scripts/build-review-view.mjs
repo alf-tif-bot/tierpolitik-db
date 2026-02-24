@@ -236,7 +236,31 @@ const isHighConfidenceReview = (item) => {
   return hasStrongRule && hasAnchorSignal && score >= 0.78
 }
 
+const germanParliamentByAffair = new Map(
+  [...db.items]
+    .filter((it) => String(it?.sourceId || '').startsWith('ch-parliament-') && String(it?.sourceId || '').endsWith('-de'))
+    .filter((it) => String(it?.title || '').trim().length > 0)
+    .sort((a, b) => Date.parse(String(b?.fetchedAt || b?.publishedAt || 0)) - Date.parse(String(a?.fetchedAt || a?.publishedAt || 0)))
+    .map((it) => [String(it?.externalId || '').split('-')[0], it]),
+)
+
+const withGermanDisplay = (item) => {
+  const sid = String(item?.sourceId || '')
+  if (!sid.startsWith('ch-parliament-') || sid.endsWith('-de')) return item
+  const affair = String(item?.externalId || '').split('-')[0]
+  const de = germanParliamentByAffair.get(affair)
+  if (!de) return item
+  return {
+    ...item,
+    displayTitle: String(de?.title || item?.title || ''),
+    displaySummary: String(de?.summary || item?.summary || ''),
+    displayBody: String(de?.body || item?.body || ''),
+    displaySourceLabel: 'Parlament.ch Curia Vista (DE)',
+  }
+}
+
 const reviewItems = [...hardGrouped.values()]
+  .map(withGermanDisplay)
   .sort((a, b) => {
     const aPending = (a.status === 'queued' || a.status === 'new') ? 1 : 0
     const bPending = (b.status === 'queued' || b.status === 'new') ? 1 : 0
@@ -395,7 +419,7 @@ const fastLaneRows = fastLaneItems.map((item) => {
   const isTaggedFastlane = Boolean(fastlaneTags[id]?.fastlane)
   return `<div class="fastlane-card" data-id="${esc(id)}" data-fastlane-tagged="${isTaggedFastlane ? '1' : '0'}">
     <div class="fastlane-head">
-      <strong>${esc(item.title)}</strong>
+      <strong>${esc(item.displayTitle || item.title)}</strong>
       <span class="fastlane-score">${scoreValue.toFixed(2)}</span>
     </div>
     <div class="fastlane-actions">
@@ -413,7 +437,7 @@ const rows = reviewItems.map((item) => {
   const displayStatus = normalizeReviewStatus(item)
   const isPending = displayStatus === 'queued' || displayStatus === 'new'
   const pendingBadge = isPending ? '<strong class="pending">offen</strong>' : '<span class="historic">historisch</span>'
-  const sourceLabel = esc(sourceMap.get(item.sourceId) || item.sourceId)
+  const sourceLabel = esc(item.displaySourceLabel || sourceMap.get(item.sourceId) || item.sourceId)
   const entryType = item.sourceId === 'user-input' || item.sourceId === 'user-feedback' ? 'User-Feedback' : 'Crawler'
   const scoreValue = effectiveReviewScore(item)
   const priorityLabel = fastLane ? 'fast-lane' : (scoreValue >= 0.8 ? 'hoch' : scoreValue >= 0.55 ? 'mittel' : 'niedriger')
@@ -426,8 +450,8 @@ const rows = reviewItems.map((item) => {
   return `
 <tr data-id="${esc(id)}" data-status="${esc(displayStatus)}" data-fastlane-tagged="${isTaggedFastlane ? '1' : '0'}" class="${fastLane ? 'row-fastlane' : ''}">
 <td>
-  <strong>${esc(item.title)}</strong><br>
-  <small>${esc(summarizeForReview(item))}</small><br>
+  <strong>${esc(item.displayTitle || item.title)}</strong><br>
+  <small>${esc(summarizeForReview({ ...item, title: item.displayTitle || item.title, summary: item.displaySummary || item.summary, body: item.displayBody || item.body }))}</small><br>
   ${originalLink}
 </td>
 <td>${entryType}</td>
