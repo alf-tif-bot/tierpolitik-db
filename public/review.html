@@ -49,7 +49,21 @@
     <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="importDecisionsPrompt()">Entscheidungen importieren</button> <button onclick="syncLocalDecisions()">Lokale Entscheidungen synchronisieren</button> <button onclick="toggleDecided()" id="toggle-decided">Bereits bearbeitete anzeigen</button> <button onclick="resetLocalReviewState()">Lokale Entscheidungen zurücksetzen</button></p>
     <input id="import-decisions-input" type="file" accept="application/json" style="display:none" onchange="importDecisionsFile(event)" />
     <p id="decision-status" class="muted" aria-live="polite"></p>
-    
+    <section class="fastlane-wrap">
+      <h2>⚡ Fast-Lane</h2>
+      <div class="fastlane-grid"><div class="fastlane-card" data-id="ch-parliament-business-de:20254541-de" data-fastlane-tagged="0">
+    <div class="fastlane-head">
+      <strong>25.4541 · Anpassung der Prüfung und Anerkennung von Herdenschutzhunden</strong>
+      <span class="fastlane-score">1.00</span>
+    </div>
+    <div class="fastlane-actions">
+      <button onclick="setDecision(this,'ch-parliament-business-de:20254541-de','approved')">Approve</button>
+      <button onclick="setDecision(this,'ch-parliament-business-de:20254541-de','rejected')">Reject</button>
+      <button class="tag-btn" data-tag-btn="ch-parliament-business-de:20254541-de" onclick="toggleFastlaneTag(this,'ch-parliament-business-de:20254541-de')">☆ Fastlane</button>
+      <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254541" target="_blank" rel="noopener noreferrer">Original</a>
+    </div>
+  </div></div>
+    </section>
     <table>
       <thead>
         <tr>
@@ -64,6 +78,69 @@
         </tr>
       </thead>
       <tbody>
+<tr data-id="ch-parliament-business-de:20254541-de" data-status="queued" data-fastlane-tagged="0" class="row-fastlane">
+<td>
+  <strong>25.4541 · Anpassung der Prüfung und Anerkennung von Herdenschutzhunden</strong><br>
+  <small>Kurzfassung: Das Geschäft behandelt herdenschutz, herdenschutzhund. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
+  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254541" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
+</td>
+<td>Crawler</td>
+<td>
+  <div>Parlament.ch Curia Vista (DE)</div>
+  <small class="muted">ch-parliament-business-de</small>
+</td>
+<td>1.00<br><small class="muted">Priorität: fast-lane</small><br><small class="fast-lane">⚡ Sehr wahrscheinlich relevant</small></td>
+<td>herdenschutz, herdenschutzhund, landwirtschaft, agriculture, agricoltura</td>
+<td>queued (<strong class="pending">offen</strong>)</td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> herdenschutz, herdenschutzhund</div><div><strong>Kontext:</strong> landwirtschaft, agriculture, agricoltura</div><div><strong>Score:</strong> 1.00</div></small></td>
+<td>
+<button onclick="setDecision(this,'ch-parliament-business-de:20254541-de','approved')">Approve</button>
+<button onclick="setDecision(this,'ch-parliament-business-de:20254541-de','rejected')">Reject</button>
+<button class="tag-btn" data-tag-btn="ch-parliament-business-de:20254541-de" onclick="toggleFastlaneTag(this,'ch-parliament-business-de:20254541-de')">☆ Fastlane</button>
+</td>
+</tr>
+<tr data-id="ch-parliament-business-de:20254707-de" data-status="queued" data-fastlane-tagged="0" class="">
+<td>
+  <strong>25.4707 · Klimapolitische Doppelmoral bei der SERV. Wie lange will der Bundesrat die fossile Exportförderung noch legitimieren?</strong><br>
+  <small>Kurzfassung: Das Geschäft behandelt enten. Einordnung: Es hat einen indirekten bzw. unklaren Tierbezug.</small><br>
+  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20254707" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
+</td>
+<td>Crawler</td>
+<td>
+  <div>Parlament.ch Curia Vista (DE)</div>
+  <small class="muted">ch-parliament-business-de</small>
+</td>
+<td>0.21<br><small class="muted">Priorität: niedriger</small></td>
+<td>enten</td>
+<td>queued (<strong class="pending">offen</strong>)</td>
+<td><small><div><strong>Einordnung:</strong> neutral / unklar</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> enten</div><div><strong>Störsignale:</strong> energie</div><div><strong>Score:</strong> 0.21</div></small></td>
+<td>
+<button onclick="setDecision(this,'ch-parliament-business-de:20254707-de','approved')">Approve</button>
+<button onclick="setDecision(this,'ch-parliament-business-de:20254707-de','rejected')">Reject</button>
+<button class="tag-btn" data-tag-btn="ch-parliament-business-de:20254707-de" onclick="toggleFastlaneTag(this,'ch-parliament-business-de:20254707-de')">☆ Fastlane</button>
+</td>
+</tr>
+<tr data-id="ch-parliament-business-de:20263015-de" data-status="queued" data-fastlane-tagged="0" class="">
+<td>
+  <strong>26.3015 · Schaffung eines Rechtsrahmens für alternative Schutzeinrichtungen im bewaffneten Konflikt</strong><br>
+  <small>Kurzfassung: Das Geschäft behandelt schaf. Einordnung: Es stellt eher einen positiven Bezug zum Tierschutz her.</small><br>
+  <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20263015" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>
+</td>
+<td>Crawler</td>
+<td>
+  <div>Parlament.ch Curia Vista (DE)</div>
+  <small class="muted">ch-parliament-business-de</small>
+</td>
+<td>0.17<br><small class="muted">Priorität: niedriger</small></td>
+<td>schaf</td>
+<td>queued (<strong class="pending">offen</strong>)</td>
+<td><small><div><strong>Einordnung:</strong> pro Tierschutz</div><div><strong>Bewertung:</strong> Klare Tier-Relevanz (Schlüsselbegriffe + Score erfüllt)</div><div><strong>Tier-Begriffe:</strong> schaf</div><div><strong>Score:</strong> 0.17</div></small></td>
+<td>
+<button onclick="setDecision(this,'ch-parliament-business-de:20263015-de','approved')">Approve</button>
+<button onclick="setDecision(this,'ch-parliament-business-de:20263015-de','rejected')">Reject</button>
+<button class="tag-btn" data-tag-btn="ch-parliament-business-de:20263015-de" onclick="toggleFastlaneTag(this,'ch-parliament-business-de:20263015-de')">☆ Fastlane</button>
+</td>
+</tr>
 <tr data-id="ch-parliament-business-it:20251052-it" data-status="queued" data-fastlane-tagged="0" class="">
 <td>
   <strong>25.1052 · Verhinderung häuslicher Gewalt. Wie ist der Stand der Arbeiten zur Schaffung einer nationalen Abfrageplattform für Polizeidaten?</strong><br>
