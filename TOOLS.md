@@ -33,7 +33,8 @@ Things like:
 
 ## WordPress (TIF)
 
-- Für TIF-Artikel immer den **WPBakery Page Builder** verwenden (nicht nur ACF-Kurzbeschreibung ausfüllen).
+- Für TIF-Artikel und **Vorstösse** immer den **WPBakery Page Builder** verwenden (nicht nur ACF-Kurzbeschreibung ausfüllen).
+- Auch Textblöcke, Absätze und weitere Elemente konsequent im offiziellen WPBakery-Block aufbauen.
 - Nach Upload immer prüfen, dass der Body-Text in der Vorschau sichtbar ist (nicht nur Teaser + Kommentare).
 
 ## TIF Medien-Workflow (Google Alerts)
