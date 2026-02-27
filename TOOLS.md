@@ -44,7 +44,14 @@ Things like:
 - Stilpräferenz:
   - bevorzugt **pencil sketch / illustrativ** (dezent, nicht offensichtlich KI)
   - alternativ **symbolisches Foto/Visual** in sachlichem Stil
-- Bei neuen MM-Bildern immer gegen TIF-Styleguide prüfen (`PARA/Resources/TIF/Branding/TIF-Styleguide.pdf`, sobald lokal verfügbar)
+- TIF-Styleguide lokal vorhanden: `PARA/Resources/TIF/Branding/TIF-Styleguide-v1-Jessica-Ladanie.pdf`
+- Verbindliche TIF-Farbpalette (aus Styleguide):
+  - `#26282A` (dunkel)
+  - `#98AE9A` (grün-grau)
+  - `#C05C4F` (korall)
+  - `#E3E3DD` (hell warmgrau)
+  - `#FAFAFF` (off-white)
+- Bei neuen MM-Bildern diese HEX-Werte aktiv im Prompt nennen.
 
 
 - Alert-Postfach: `alf.tif.bot@gmail.com`
