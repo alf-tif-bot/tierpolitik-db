@@ -68,6 +68,23 @@ const mapStatus = (status = '') => {
   return 'In Beratung'
 }
 
+const inferScope = (sourceId = '', title = '', body = '') => {
+  const sid = String(sourceId || '').toLowerCase()
+  const text = `${title} ${body}`
+
+  if (sid.startsWith('ch-municipal-')) {
+    const m = text.match(/([A-Z]{2})/)
+    return { ebene: 'Gemeinde', kanton: m ? m[1] : null, regionGemeinde: null }
+  }
+
+  if (sid.startsWith('ch-cantonal-')) {
+    const m = sid.match(/cantonal-(?:portal-core:)?(?:cantonal-portal-)?([a-z]{2})/)
+    return { ebene: 'Kanton', kanton: m ? m[1].toUpperCase() : null, regionGemeinde: null }
+  }
+
+  return { ebene: 'Bund', kanton: null, regionGemeinde: null }
+}
+
 const toIsoDate = (value, fallbackYear) => {
   const d = value ? new Date(value) : null
   const base = d && !Number.isNaN(d.getTime()) ? d : null
@@ -546,15 +563,17 @@ export const handler = async (event) => {
         : []
       const submitterOverride = SUBMITTER_OVERRIDES[businessNumber]
 
+      const scope = inferScope(r.source_id, displayTitle, displayBody)
+
       return {
         id: `vp-${idSafe.toLowerCase()}`,
         titel: clean(displayTitle),
         typ,
         kurzbeschreibung: summaryText,
         geschaeftsnummer: businessNumber,
-        ebene: 'Bund',
-        kanton: null,
-        regionGemeinde: null,
+        ebene: scope.ebene,
+        kanton: scope.kanton,
+        regionGemeinde: scope.regionGemeinde,
         status: statusLabel,
         datumEingereicht: eingereicht,
         datumAktualisiert: updated,
