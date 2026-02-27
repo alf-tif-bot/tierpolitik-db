@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-25T17:31:59.073Z",
+  "updatedAt": "2026-02-27T17:32:10.275Z",
   "learned": [
     {
       "keyword": "tierversuch",
@@ -115,7 +115,7 @@
     },
     {
       "keyword": "verein",
-      "weight": -0.84
+      "weight": -0.862
     },
     {
       "keyword": "biodiversität",
