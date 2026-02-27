@@ -52,6 +52,7 @@ Things like:
   - `#E3E3DD` (hell warmgrau)
   - `#FAFAFF` (off-white)
 - Bei neuen MM-Bildern diese HEX-Werte aktiv im Prompt nennen.
+- Varianten/Bildresultate immer **im Chat posten** (nicht nur lokale Dateipfade), da Tobi nicht auf dem Mac mini arbeitet.
 
 
 - Alert-Postfach: `alf.tif.bot@gmail.com`
