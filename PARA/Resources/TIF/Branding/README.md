@@ -1,7 +1,7 @@
 # TIF Branding / Styleguide
 
-- Primärdokument: `TIF-Styleguide.pdf`
-- Quelle: Google Drive (File ID: `1gfj0GRa0jO6aFDwxHsZK3HyX7tU53QKy`)
+- Primärdokument: `TIF-Styleguide-v1-Jessica-Ladanie.pdf`
+- Quelle: vom User direkt bereitgestellt (2026-02-27)
 
 ## Operative Design-Regeln für Medienmitteilungen (Working Defaults)
 
