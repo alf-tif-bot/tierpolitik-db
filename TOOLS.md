@@ -65,6 +65,14 @@ Things like:
 
 - Referenz bestehender Vorstösse von Tobi:
   - `https://stadtrat.bern.ch/de/mitglieder/detail.php?gid=a5324a6fdd314d9b9384cdead9708ea2`
+- Referenz veröffentlichte TIF-Vorstösse:
+  - `https://tierimfokus.ch/vorstoesse/`
+- Wöchentlicher Soll-Prozess:
+  - Parlamentsseite vs. TIF-Vorstoss-Seite abgleichen (neue, auf TIF noch fehlende Vorstösse)
+  - Neue Kandidaten in Discord posten zur Review durch Tobi
+  - Tobi markiert Vorstösse mit 👍, wenn Tierbezug vorhanden
+  - Bei 👍: Entwurfstext + Bild (Stil: pencil sketch) erstellen
+  - Danach auf TIF-Website veröffentlichen
 - Bei neuen Vorschlägen immer gegen diese Liste prüfen.
 - Keine identischen oder sehr ähnlichen Vorschläge erneut bringen; stattdessen klar differenzieren (anderer Hebel, Ebene, Instrument oder Zielgruppe).
 
