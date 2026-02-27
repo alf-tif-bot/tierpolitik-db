@@ -481,6 +481,12 @@ export const handler = async (event) => {
         : (String(r.source_url || '').startsWith('http')
           ? r.source_url
           : `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${affairId}`)
+      const businessNumber = formatBusinessNumber(
+        displayTitle,
+        r.external_id || `AUTO-${index + 1}`,
+        displaySummary,
+        displayBody,
+      )
       const typ = TYPE_OVERRIDES[businessNumber] || inferType(displayTitle || '', r.source_id || '')
       const statusLabel = mapStatus(r.status)
       const initiativeLinks = buildInitiativeLinks({
@@ -489,13 +495,6 @@ export const handler = async (event) => {
         externalId: r.external_id,
         status: statusLabel,
       })
-
-      const businessNumber = formatBusinessNumber(
-        displayTitle,
-        r.external_id || `AUTO-${index + 1}`,
-        displaySummary,
-        displayBody,
-      )
       const normalizedSummary = clean(SUMMARY_OVERRIDES[businessNumber] || summarizeVorstoss({
         title: displayTitle,
         summary: displaySummary,
