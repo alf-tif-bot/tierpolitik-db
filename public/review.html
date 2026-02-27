@@ -2911,6 +2911,18 @@ function hideDecidedRows(){
   const rows = [...document.querySelectorAll('tr[data-id]')]
   const decidedById = {}
 
+  const hasOpenRows = rows.some((row) => {
+    const status = row.getAttribute('data-status') || ''
+    return status === 'queued' || status === 'new'
+  })
+
+  if (!showDecided && !hasOpenRows) {
+    showDecided = true
+    writeUi({ showDecided, autoOpened: true })
+    const statusEl = document.getElementById('decision-status')
+    if (statusEl) statusEl.textContent = 'Keine offenen Einträge: bearbeitete Einträge werden automatisch eingeblendet.'
+  }
+
   const localAffairDecided = new Set(Object.keys(decisions)
     .filter((id) => String(id).startsWith('ch-parliament-'))
     .map((id) => {
