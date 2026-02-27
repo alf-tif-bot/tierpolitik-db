@@ -36,6 +36,13 @@ Things like:
 - Für TIF-Artikel immer den **WPBakery Page Builder** verwenden (nicht nur ACF-Kurzbeschreibung ausfüllen).
 - Nach Upload immer prüfen, dass der Body-Text in der Vorschau sichtbar ist (nicht nur Teaser + Kommentare).
 
+## TIF Medien-Workflow (Google Alerts)
+
+- Alert-Postfach: `alf.tif.bot@gmail.com`
+- Aufgabe: Eingehende Google Alerts zu TIF prüfen und relevante Treffer unter `https://tierimfokus.ch/in-den-medien/` als **Medienartikel** erfassen.
+- Danach Beleglink an Tobi senden.
+- TIF-WordPress-Zugang liegt in `secrets/wp-tif.env`.
+
 ## Why Separate?
 
 Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
