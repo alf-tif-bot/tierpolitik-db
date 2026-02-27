@@ -43,6 +43,13 @@ Things like:
 - Danach Beleglink an Tobi senden.
 - TIF-WordPress-Zugang liegt in `secrets/wp-tif.env`.
 
+## Politik-Vorstösse (Bern) – Duplikate vermeiden
+
+- Referenz bestehender Vorstösse von Tobi:
+  - `https://stadtrat.bern.ch/de/mitglieder/detail.php?gid=a5324a6fdd314d9b9384cdead9708ea2`
+- Bei neuen Vorschlägen immer gegen diese Liste prüfen.
+- Keine identischen oder sehr ähnlichen Vorschläge erneut bringen; stattdessen klar differenzieren (anderer Hebel, Ebene, Instrument oder Zielgruppe).
+
 ## Why Separate?
 
 Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
