@@ -49,43 +49,7 @@
     <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="importDecisionsPrompt()">Entscheidungen importieren</button> <button onclick="syncLocalDecisions()">Lokale Entscheidungen synchronisieren</button> <button onclick="toggleDecided()" id="toggle-decided">Bereits bearbeitete anzeigen</button> <button onclick="resetLocalReviewState()">Lokale Entscheidungen zurücksetzen</button></p>
     <input id="import-decisions-input" type="file" accept="application/json" style="display:none" onchange="importDecisionsFile(event)" />
     <p id="decision-status" class="muted" aria-live="polite"></p>
-    <section class="fastlane-wrap">
-      <h2>⚡ Fast-Lane</h2>
-      <div class="fastlane-grid"><div class="fastlane-card" data-id="ch-parliament-business-de:20243030-de" data-fastlane-tagged="0">
-    <div class="fastlane-head">
-      <strong>24.3030 · Tierspezifische Brandschutzvorschriften für Ställe</strong>
-      <span class="fastlane-score">1.00</span>
-    </div>
-    <div class="fastlane-actions">
-      <button onclick="setDecision(this,'ch-parliament-business-de:20243030-de','approved')">Approve</button>
-      <button onclick="setDecision(this,'ch-parliament-business-de:20243030-de','rejected')">Reject</button>
-      <button class="tag-btn" data-tag-btn="ch-parliament-business-de:20243030-de" onclick="toggleFastlaneTag(this,'ch-parliament-business-de:20243030-de')">☆ Fastlane</button>
-      <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20243030" target="_blank" rel="noopener noreferrer">Original</a>
-    </div>
-  </div><div class="fastlane-card" data-id="ch-parliament-business-de:20223809-de" data-fastlane-tagged="0">
-    <div class="fastlane-head">
-      <strong>22.3809 · Deklarationspflicht und Zollbeschränkungen für Fleisch von mehrtägigen Tiertransporten aus dem Ausland</strong>
-      <span class="fastlane-score">1.00</span>
-    </div>
-    <div class="fastlane-actions">
-      <button onclick="setDecision(this,'ch-parliament-business-de:20223809-de','approved')">Approve</button>
-      <button onclick="setDecision(this,'ch-parliament-business-de:20223809-de','rejected')">Reject</button>
-      <button class="tag-btn" data-tag-btn="ch-parliament-business-de:20223809-de" onclick="toggleFastlaneTag(this,'ch-parliament-business-de:20223809-de')">☆ Fastlane</button>
-      <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20223809" target="_blank" rel="noopener noreferrer">Original</a>
-    </div>
-  </div><div class="fastlane-card" data-id="ch-parliament-business-de:20244317-de" data-fastlane-tagged="0">
-    <div class="fastlane-head">
-      <strong>24.4317 · Fische. Damit unsere Flüsse, Seen und Teiche lebendig bleiben</strong>
-      <span class="fastlane-score">0.84</span>
-    </div>
-    <div class="fastlane-actions">
-      <button onclick="setDecision(this,'ch-parliament-business-de:20244317-de','approved')">Approve</button>
-      <button onclick="setDecision(this,'ch-parliament-business-de:20244317-de','rejected')">Reject</button>
-      <button class="tag-btn" data-tag-btn="ch-parliament-business-de:20244317-de" onclick="toggleFastlaneTag(this,'ch-parliament-business-de:20244317-de')">☆ Fastlane</button>
-      <a class="orig-link" href="https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20244317" target="_blank" rel="noopener noreferrer">Original</a>
-    </div>
-  </div></div>
-    </section>
+    
     <table>
       <thead>
         <tr>
