@@ -38,6 +38,15 @@ Things like:
 
 ## TIF Medien-Workflow (Google Alerts)
 
+## TIF Visual-Style (MM Vorschaubilder)
+
+- Ziel-Format: **680 x 383 px**, Dateityp **JPG**
+- Stilpräferenz:
+  - bevorzugt **pencil sketch / illustrativ** (dezent, nicht offensichtlich KI)
+  - alternativ **symbolisches Foto/Visual** in sachlichem Stil
+- Bei neuen MM-Bildern immer gegen TIF-Styleguide prüfen (`PARA/Resources/TIF/Branding/TIF-Styleguide.pdf`, sobald lokal verfügbar)
+
+
 - Alert-Postfach: `alf.tif.bot@gmail.com`
 - Aufgabe: Eingehende Google Alerts zu TIF prüfen und relevante Treffer unter `https://tierimfokus.ch/in-den-medien/` als **Medienartikel** erfassen.
 - Danach Beleglink an Tobi senden.
