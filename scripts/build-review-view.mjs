@@ -99,7 +99,7 @@ const baseReviewItems = [...db.items]
     const sid = String(item.sourceId || '')
     return sid.startsWith('ch-parliament-') || sid.startsWith('ch-municipal-') || sid.startsWith('ch-cantonal-') || sid === 'user-input'
   })
-  .filter((item) => ['new', 'queued', 'approved', 'published'].includes(normalizeReviewStatus(item)))
+  .filter((item) => ['new', 'queued'].includes(normalizeReviewStatus(item)))
   .filter((item) => !isMunicipalOverviewNoise(item))
   .filter((item) => isMunicipalTopicRelevant(item))
   .filter((item) => isCantonalReadableRelevant(item))
