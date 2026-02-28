@@ -3593,6 +3593,13 @@ export default function ClientBoard() {
     })
   }
 
+  function formatCronDayMonth(ms?: number | null) {
+    if (typeof ms !== 'number' || !Number.isFinite(ms)) return '–'
+    const d = new Date(ms)
+    const months = ['JANUAR', 'FEBRUAR', 'MÄRZ', 'APRIL', 'MAI', 'JUNI', 'JULI', 'AUGUST', 'SEPTEMBER', 'OKTOBER', 'NOVEMBER', 'DEZEMBER']
+    return `${String(d.getDate()).padStart(2, '0')}. ${months[d.getMonth()]}`
+  }
+
   function formatCronDuration(ms?: number | null) {
     if (typeof ms !== 'number' || !Number.isFinite(ms) || ms < 0) return '–'
     if (ms < 1000) return `${ms} ms`
@@ -4948,16 +4955,22 @@ export default function ClientBoard() {
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>LLM-Modell:</strong> {selectedCronJob.job.agentId ? (modelByAgentId.get(selectedCronJob.job.agentId) || selectedCronJob.job.lastRunModel || 'unbekannt') : (selectedCronJob.job.lastRunModel || '–')}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Nächster Run:</strong> {formatCronDateTime(selectedCronJob.job.nextRunAtMs)}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}>
-                      <strong>Letzter Run:</strong> {selectedCronJob.job.source === 'launchd' && !selectedCronJob.job.lastRunAtMs ? 'nicht im Cockpit-Feed verfügbar' : formatCronDateTime(selectedCronJob.job.lastRunAtMs)}
-                      {selectedCronJob.job.lastRunReportPath && (
-                        <button
-                          type="button"
-                          onClick={() => { void openFilePreview('cron-run-report.md', selectedCronJob.job.lastRunReportPath || '', { readOnly: true, renderMarkdown: true }) }}
-                          style={{ ...polishedButtonStyle, marginLeft: 8, padding: '3px 8px', fontSize: 11 }}
+                      <strong>Letzter Run:</strong>{' '}
+                      {selectedCronJob.job.source === 'launchd' && !selectedCronJob.job.lastRunAtMs ? (
+                        'nicht im Cockpit-Feed verfügbar'
+                      ) : selectedCronJob.job.lastRunReportPath ? (
+                        <a
+                          href="#last-run-report"
+                          onClick={(event) => {
+                            event.preventDefault()
+                            void openFilePreview('cron-run-report.md', selectedCronJob.job.lastRunReportPath || '', { readOnly: true, renderMarkdown: true })
+                          }}
                           title="Run-Report öffnen"
                         >
-                          Report öffnen
-                        </button>
+                          {formatCronDayMonth(selectedCronJob.job.lastRunAtMs)}
+                        </a>
+                      ) : (
+                        formatCronDayMonth(selectedCronJob.job.lastRunAtMs)
                       )}
                     </div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Letzte Dauer:</strong> {formatCronDuration(selectedCronJob.job.lastDurationMs)}</div>
