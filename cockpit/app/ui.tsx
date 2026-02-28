@@ -190,6 +190,8 @@ function radarFollowupDeadlineIso(urgency: RadarItem['urgency']) {
   return dueAt.toISOString()
 }
 
+const sectionOrder: Section[] = ['radar', 'tasks', 'calendar', 'agents', 'content', 'projects', 'docs', 'memory', 'people', 'office', 'health', 'files']
+
 const sectionMeta: Record<Section, { label: string; hint?: string; entityType?: EntityType }> = {
   radar: { label: 'Radar', hint: 'Signale & Entscheide' },
   tasks: { label: 'Heute', hint: 'Top-Prioritäten im Cockpit' },
@@ -1426,6 +1428,7 @@ export default function ClientBoard() {
   const somedayBusyIdRef = useRef<string | null>(null)
   const entityActionPendingRef = useRef<Record<string, boolean>>({})
   const canSaveFilePreviewRef = useRef(false)
+  const sectionNavRefs = useRef<Partial<Record<Section, HTMLButtonElement | null>>>({})
 
   const [tocAxis, setTocAxis] = useState<'wertschoepfung' | 'weltbild' | 'repraesentation'>('weltbild')
   const [filter] = useState<'all' | 'Tobi' | 'ALF' | 'Beide'>('all')
@@ -2841,7 +2844,24 @@ export default function ClientBoard() {
         return
       }
 
+      if (selectedCronJob) return
       if (e.metaKey || e.ctrlKey || e.altKey) return
+
+      if (key === 'arrowup' || key === 'arrowdown') {
+        e.preventDefault()
+        if (section === 'calendar') {
+          focusCalendarCard(key === 'arrowdown' ? 1 : -1)
+        } else {
+          focusSidebarSection(key === 'arrowdown' ? 1 : -1)
+        }
+        return
+      }
+
+      if ((key === 'arrowleft' || key === 'arrowright') && section === 'calendar') {
+        e.preventDefault()
+        focusCalendarCard(key === 'arrowright' ? 1 : -1)
+        return
+      }
 
       if (key === 'h') {
         e.preventDefault()
@@ -2949,6 +2969,7 @@ export default function ClientBoard() {
     somedayBusyId,
     refreshCurrentSection,
     filePreview.open,
+    selectedCronJob,
   ])
 
   const visible = useMemo(() => (filter === 'all' ? tasks : tasks.filter((t) => t.assignee === filter)), [tasks, filter])
@@ -3533,6 +3554,27 @@ export default function ClientBoard() {
     return cronJobs.find((row) => row.name === job.name && row.scheduleLabel === job.scheduleLabel && (row.source || 'openclaw') === (job.source || 'openclaw')) || job
   }
 
+  function focusSidebarSection(step: 1 | -1) {
+    const currentEl = document.activeElement as HTMLElement | null
+    const currentSection = (currentEl?.getAttribute('data-section') || section) as Section
+    const currentIdx = Math.max(0, sectionOrder.indexOf(currentSection))
+    const nextIdx = (currentIdx + step + sectionOrder.length) % sectionOrder.length
+    const nextSection = sectionOrder[nextIdx]
+    setSection(nextSection)
+    window.setTimeout(() => sectionNavRefs.current[nextSection]?.focus(), 0)
+  }
+
+  function focusCalendarCard(step: 1 | -1) {
+    const cards = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-nav="cron-card"]'))
+    if (cards.length === 0) return
+
+    const active = document.activeElement as HTMLElement | null
+    const currentIdx = cards.findIndex((card) => card === active)
+    const startIdx = currentIdx >= 0 ? currentIdx : 0
+    const nextIdx = (startIdx + step + cards.length) % cards.length
+    cards[nextIdx]?.focus()
+  }
+
   async function fixCronJob(job: CronJob) {
     if (!job?.id || cronFixPendingJobId) return
     setCronFixPendingJobId(job.id)
@@ -3849,7 +3891,14 @@ export default function ClientBoard() {
         <div style={{ fontWeight: 700, marginBottom: 2 }}>Cockpit</div>
         <div style={{ fontSize: 12, opacity: 0.75, marginBottom: 10 }}>Übersicht · Prioritäten · Entscheidungen</div>
         {(Object.keys(sectionMeta) as Section[]).map((s) => (
-          <button key={s} onClick={() => setSection(s)} style={{ width: '100%', textAlign: 'left', marginBottom: 6, background: section === s ? '#2a2a2a' : '#181818', color: '#f5f5f5', border: '1px solid #3a3a3a', borderRadius: 8, padding: '8px 10px' }}>
+          <button
+            key={s}
+            ref={(el) => { sectionNavRefs.current[s] = el }}
+            data-nav="section-item"
+            data-section={s}
+            onClick={() => setSection(s)}
+            style={{ width: '100%', textAlign: 'left', marginBottom: 6, background: section === s ? '#2a2a2a' : '#181818', color: '#f5f5f5', border: '1px solid #3a3a3a', borderRadius: 8, padding: '8px 10px' }}
+          >
             <div style={{ fontWeight: 600 }}>{sectionMeta[s].label}</div>
             {sectionMeta[s].hint && <div style={{ fontSize: 11, opacity: 0.7 }}>{sectionMeta[s].hint}</div>}
           </button>
@@ -4521,6 +4570,7 @@ export default function ClientBoard() {
                           <button
                             key={`${day.label}-${job.id}`}
                             type="button"
+                            data-nav="cron-card"
                             onClick={() => {
                               const baseJob = resolveCronBaseJob(job)
                               setSelectedCronJob({ job: baseJob, runAtMs: job.nextRunAtMs ?? null })
