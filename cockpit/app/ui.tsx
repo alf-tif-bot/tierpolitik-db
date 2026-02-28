@@ -1458,6 +1458,7 @@ export default function ClientBoard() {
   const [selectedCronJob, setSelectedCronJob] = useState<{ job: CronJob; runAtMs: number | null } | null>(null)
   const [cronFixPendingJobId, setCronFixPendingJobId] = useState<string | null>(null)
   const [cronRunPendingJobId, setCronRunPendingJobId] = useState<string | null>(null)
+  const [cronSummaryModal, setCronSummaryModal] = useState<{ title: string; text: string } | null>(null)
   const [agentsSummary, setAgentsSummary] = useState<AgentSummary[]>([])
   const [agentsLoading, setAgentsLoading] = useState(false)
   const [agentsError, setAgentsError] = useState<string | null>(null)
@@ -2693,6 +2694,13 @@ export default function ClientBoard() {
       if (e.repeat) return
 
       const key = e.key.toLowerCase()
+      if (cronSummaryModal) {
+        if (key === 'escape') {
+          e.preventDefault()
+          setCronSummaryModal(null)
+        }
+        return
+      }
       const isUndoCombo = key === 'z' && (e.metaKey || e.ctrlKey) && !e.altKey && !e.shiftKey
       const isRadarSearchCombo = key === 'k' && (e.metaKey || e.ctrlKey) && !e.altKey && !e.shiftKey
       const isMemoryFindCombo = key === 'f' && (e.metaKey || e.ctrlKey) && !e.altKey && !e.shiftKey
@@ -2978,6 +2986,7 @@ export default function ClientBoard() {
     refreshCurrentSection,
     filePreview.open,
     selectedCronJob,
+    cronSummaryModal,
   ])
 
   const visible = useMemo(() => (filter === 'all' ? tasks : tasks.filter((t) => t.assignee === filter)), [tasks, filter])
@@ -3572,7 +3581,6 @@ export default function ClientBoard() {
       .replace(/^executive summary:?\s*/i, '')
       .replace(/^zusammenfassung:?\s*/i, '')
       .replace(/^summary:?\s*/i, '')
-      .replace(/\s+/g, ' ')
   }
 
   function renderInlineMarkdown(text: string) {
@@ -4832,12 +4840,22 @@ export default function ClientBoard() {
                   <div style={{ marginTop: 10, fontSize: 12, opacity: 0.82 }}>
                     {selectedCronJob.job.lastRunSummary && (
                       <div style={{ marginTop: 6, padding: 12, borderRadius: 10, border: '1px solid #2c3e50', background: 'linear-gradient(180deg, #132234 0%, #0f1a29 100%)', color: '#dbeafe' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 6 }}>
-                          <span aria-hidden>📝</span>
-                          <strong>Letztes Ergebnis</strong>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6, marginBottom: 6 }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                            <span aria-hidden>📝</span>
+                            <strong>Letztes Ergebnis</strong>
+                          </div>
+                          <button
+                            type="button"
+                            style={{ ...polishedButtonStyle, padding: '3px 8px', fontSize: 11 }}
+                            onClick={() => setCronSummaryModal({ title: `${selectedCronJob.job.name} · Letztes Ergebnis`, text: beautifyCronSummary(selectedCronJob.job.lastRunSummary || '') })}
+                          >
+                            Vollansicht
+                          </button>
                         </div>
-                        <div style={{ lineHeight: 1.55, fontSize: 14, whiteSpace: 'pre-wrap' }}>
-                          {beautifyCronSummary(selectedCronJob.job.lastRunSummary)}
+                        <div style={{ lineHeight: 1.55, fontSize: 14, whiteSpace: 'pre-wrap', maxHeight: 180, overflow: 'hidden' }}>
+                          {beautifyCronSummary(selectedCronJob.job.lastRunSummary).slice(0, 700)}
+                          {beautifyCronSummary(selectedCronJob.job.lastRunSummary).length > 700 ? '…' : ''}
                         </div>
                       </div>
                     )}
@@ -5109,6 +5127,32 @@ export default function ClientBoard() {
           </>
         )}
 
+
+        {cronSummaryModal && (
+          <div
+            onClick={() => setCronSummaryModal(null)}
+            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1250 }}
+          >
+            <div
+              onClick={(e) => e.stopPropagation()}
+              style={{ width: 'min(980px, 96vw)', maxHeight: '90vh', overflow: 'auto', background: '#101215', border: '1px solid #31363d', borderRadius: 10, padding: 14 }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10, gap: 10 }}>
+                <div style={{ fontWeight: 700 }}>{cronSummaryModal.title}</div>
+                <button type="button" style={polishedButtonStyle} onClick={() => setCronSummaryModal(null)}>Schliessen</button>
+              </div>
+              <div style={{ whiteSpace: 'pre-wrap', fontSize: 15, lineHeight: 1.65, color: '#e5e7eb', background: '#0b0d10', border: '1px solid #2f3640', borderRadius: 8, padding: 12 }}>
+                {cronSummaryModal.text.split('\n').map((line, idx) => {
+                  const trimmed = line.trim()
+                  if (!trimmed) return <div key={`sum-empty-${idx}`} style={{ height: 8 }} />
+                  if (trimmed.startsWith('- ')) return <div key={`sum-li-${idx}`} style={{ marginLeft: 8 }}>• {renderInlineMarkdown(trimmed.slice(2))}</div>
+                  if (trimmed.match(/^\d+[\).]\s+/)) return <div key={`sum-ol-${idx}`} style={{ marginLeft: 4 }}>{renderInlineMarkdown(trimmed)}</div>
+                  return <p key={`sum-p-${idx}`} style={{ margin: '6px 0' }}>{renderInlineMarkdown(line)}</p>
+                })}
+              </div>
+            </div>
+          </div>
+        )}
 
         {filePreview.open && (
           <div
