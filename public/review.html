@@ -391,6 +391,13 @@ function setActiveRow(index){
   rows[activeRowIndex].scrollIntoView({ block: 'nearest' })
 }
 
+function focusActiveRow(){
+  const row = currentRow()
+  if (!row) return
+  row.setAttribute('tabindex','-1')
+  row.focus({ preventScroll: true })
+}
+
 function currentRow(){
   const rows = allRows()
   if (!rows.length) return null
@@ -411,6 +418,7 @@ function actCurrent(action){
 function keyboardHandler(e){
   const tag = (e.target && e.target.tagName || '').toLowerCase()
   if (tag === 'input' || tag === 'textarea' || e.metaKey || e.ctrlKey || e.altKey) return
+  if (tag === 'button' && (e.key === ' ' || e.key === 'Enter')) return
 
   if (e.key === 'j') { e.preventDefault(); setActiveRow(activeRowIndex + 1); return }
   if (e.key === 'k' || e.key === 'l') { e.preventDefault(); setActiveRow(activeRowIndex - 1); return }
@@ -630,7 +638,8 @@ function exportDecisions(){
 
 for (const id of Object.keys(readFastlaneTags())) renderFastlaneTagButton(id)
 document.addEventListener('keydown', keyboardHandler)
-loadReviewItemsFromDb().finally(()=>{ hideDecidedRows(); setActiveRow(0); });
+window.addEventListener('load', ()=>{ setTimeout(()=>{ setActiveRow(0); focusActiveRow(); }, 0) })
+loadReviewItemsFromDb().finally(()=>{ hideDecidedRows(); setActiveRow(0); focusActiveRow(); });
 </script>
 </body>
 </html>
