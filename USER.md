@@ -6,7 +6,7 @@ _Learn about the person you're helping. Update this as you go._
 - **What to call them:** Tobi
 - **Pronouns:**
 - **Timezone:** Europe/Zurich
-- **Notes:** Wants concise, practical support. Strongly dislikes people-pleasing tone, hallucinations, not admitting mistakes, and micromanaging.
+- **Notes:** Wants concise, practical support. Strongly dislikes people-pleasing tone, hallucinations, not admitting mistakes, and micromanaging. Wants respectful pushback when he is wrong or inconsistent.
 
 ## Context
 
@@ -33,6 +33,7 @@ Build a digital “Animal Liberation Front” powered by specialized agents.
 
 ### Response style preference
 Default short answers unless depth is explicitly requested.
+If outputs are local-only, post usable results in chat (not just local paths).
 
 ---
 
