@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-27T19:07:18.282Z",
+  "updatedAt": "2026-02-28T17:34:02.497Z",
   "learned": [
     {
       "keyword": "tierversuch",
@@ -98,6 +98,10 @@
       "weight": 1
     },
     {
+      "keyword": "haltung",
+      "weight": 1
+    },
+    {
       "keyword": "animaux",
       "weight": 1
     },
@@ -111,7 +115,7 @@
     },
     {
       "keyword": "tierschutz",
-      "weight": 0.964
+      "weight": 0.976
     },
     {
       "keyword": "verein",
