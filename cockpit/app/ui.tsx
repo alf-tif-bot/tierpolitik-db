@@ -3547,6 +3547,29 @@ export default function ClientBoard() {
     return `${minutes}m ${seconds}s`
   }
 
+  function cronStatusTone(status?: string | null) {
+    const s = String(status || '').toLowerCase()
+    if (s === 'ok' || s === 'done' || s === 'success') {
+      return { fg: '#86efac', bg: '#102218', border: '#14532d', label: 'OK' }
+    }
+    if (s === 'error' || s === 'failed' || s === 'fail') {
+      return { fg: '#fecaca', bg: '#2b1111', border: '#7f1d1d', label: 'Error' }
+    }
+    if (s === 'running' || s === 'working') {
+      return { fg: '#bfdbfe', bg: '#10233d', border: '#1e3a8a', label: 'Running' }
+    }
+    return { fg: '#e5e7eb', bg: '#1b1b1b', border: '#3f3f46', label: status || 'Unknown' }
+  }
+
+  function beautifyCronSummary(text?: string | null) {
+    const raw = String(text || '').trim()
+    if (!raw) return ''
+    return raw
+      .replace(/^executive summary:?\s*/i, 'Zusammenfassung: ')
+      .replace(/\s+/g, ' ')
+      .replace(/^summary:?\s*/i, 'Zusammenfassung: ')
+  }
+
   function resolveCronBaseJob(job: CronJob) {
     const directMatch = cronJobs.find((row) => row.id === job.id)
     if (directMatch) return directMatch
@@ -4747,7 +4770,23 @@ export default function ClientBoard() {
                   </div>
 
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0,1fr))', gap: 8, marginTop: 12 }}>
-                    <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Status:</strong> {selectedCronJob.job.status || '–'}</div>
+                    <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}>
+                      <strong>Status:</strong>{' '}
+                      <span
+                        style={{
+                          display: 'inline-block',
+                          padding: '2px 8px',
+                          borderRadius: 999,
+                          fontSize: 11,
+                          fontWeight: 700,
+                          color: cronStatusTone(selectedCronJob.job.status).fg,
+                          background: cronStatusTone(selectedCronJob.job.status).bg,
+                          border: `1px solid ${cronStatusTone(selectedCronJob.job.status).border}`,
+                        }}
+                      >
+                        {cronStatusTone(selectedCronJob.job.status).label}
+                      </span>
+                    </div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Typ:</strong> {selectedCronJob.job.cronType || 'General'}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Quelle:</strong> {selectedCronJob.job.source === 'launchd' ? 'System-Job (launchd)' : (selectedCronJob.job.source || 'openclaw')}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Agent:</strong> {selectedCronJob.job.agentId || (selectedCronJob.job.source === 'launchd' ? 'System-Task' : '–')}</div>
@@ -4775,8 +4814,15 @@ export default function ClientBoard() {
 
                   <div style={{ marginTop: 10, fontSize: 12, opacity: 0.82 }}>
                     {selectedCronJob.job.lastRunSummary && (
-                      <div style={{ marginTop: 6, padding: 8, borderRadius: 8, border: '1px solid #2f2f2f', background: '#1b1b1b', color: '#e5e7eb' }}>
-                        <strong>Letzte Summary:</strong> {selectedCronJob.job.lastRunSummary.slice(0, 320)}{selectedCronJob.job.lastRunSummary.length > 320 ? '…' : ''}
+                      <div style={{ marginTop: 6, padding: 10, borderRadius: 10, border: '1px solid #2c3e50', background: 'linear-gradient(180deg, #132234 0%, #0f1a29 100%)', color: '#dbeafe' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+                          <span aria-hidden>📝</span>
+                          <strong>Letztes Ergebnis</strong>
+                        </div>
+                        <div style={{ lineHeight: 1.45 }}>
+                          {beautifyCronSummary(selectedCronJob.job.lastRunSummary).slice(0, 420)}
+                          {beautifyCronSummary(selectedCronJob.job.lastRunSummary).length > 420 ? '…' : ''}
+                        </div>
                       </div>
                     )}
                     {selectedCronJob.job.lastError && (
