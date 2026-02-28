@@ -66,6 +66,9 @@ type CronRunRecord = {
   model?: string
   provider?: string
   sessionKey?: string
+  delivered?: boolean
+  deliveryStatus?: string
+  usage?: { input_tokens?: number; output_tokens?: number; total_tokens?: number }
 }
 
 type CronJobView = ReturnType<typeof toJobView>
@@ -335,20 +338,28 @@ async function ensureCronRunReport(job: CronJobRaw, latest: CronRunRecord | null
   const fileName = `${stamp}.md`
   const absPath = path.join(jobDir, fileName)
 
+  const fallbackSummary = latest.status === 'ok' && latest.delivered === false
+    ? '_Kein Output veröffentlicht (vermutlich NO_REPLY oder kein neuer Trigger)._'
+    : latest.status === 'ok'
+      ? '_Run erfolgreich, aber ohne zusammenfassenden Text im Run-Record._'
+      : '_Keine Summary verfügbar._'
+
   const content = [
     `# Cron Run Report`,
     ``,
     `- Job: ${job.name || 'Ohne Namen'}`,
     `- Job-ID: ${job.id}`,
     `- Status: ${latest.status || 'unknown'}`,
+    `- Delivery: ${typeof latest.delivered === 'boolean' ? (latest.delivered ? 'delivered' : (latest.deliveryStatus || 'not-delivered')) : '–'}`,
     `- Run at: ${new Date(latest.runAtMs).toLocaleString('de-CH')}`,
     `- Duration: ${typeof latest.durationMs === 'number' ? `${latest.durationMs} ms` : '–'}`,
     `- Model: ${latest.model || '–'}`,
     `- Provider: ${latest.provider || '–'}`,
+    typeof latest.usage?.total_tokens === 'number' ? `- Tokens: ${latest.usage.total_tokens}` : `- Tokens: –`,
     latest.sessionKey ? `- Session: ${latest.sessionKey}` : `- Session: –`,
     ``,
-    `## Summary`,
-    latest.summary || '_Keine Summary verfügbar._',
+    `## Ergebnis`,
+    latest.summary || fallbackSummary,
     ``,
     latest.error ? `## Error\n${latest.error}\n` : '',
   ].join('\n')
@@ -445,10 +456,16 @@ export async function GET() {
       const latest = await readLatestRunRecord(job.id)
       const isSecurity = inferCronType(raw) === 'Security'
       const report = await ensureCronRunReport(raw, latest)
+      const fallbackSummary = latest?.status === 'ok' && latest?.delivered === false
+        ? 'Kein Output veröffentlicht (vermutlich NO_REPLY oder kein neuer Trigger).'
+        : latest?.status === 'ok'
+          ? 'Run erfolgreich, aber ohne zusammenfassenden Text im Run-Record.'
+          : null
+
       return {
         ...job,
         lastRunReportPath: isSecurity ? null : (report?.relPath || null),
-        lastRunSummary: isSecurity ? null : (typeof latest?.summary === 'string' ? latest.summary : null),
+        lastRunSummary: isSecurity ? null : (typeof latest?.summary === 'string' ? latest.summary : fallbackSummary),
         lastRunModel: typeof latest?.model === 'string' ? latest.model : null,
         lastError: isSecurity ? null : job.lastError,
       }
