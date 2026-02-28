@@ -332,9 +332,9 @@ function renderRowsFromItems(items){
       + '<td>' + escHtml((item.matchedKeywords||[]).join(', ')) + '</td>'
       + '<td>' + escHtml(st) + ' (' + pendingBadge + ')</td>'
       + '<td><small>' + escHtml(humanize(item.reviewReason||'')) + '</small></td>'
-      + '<td><button onclick="setDecision(this,'' + escHtml(id) + '','approved')">Approve</button>'
-      + '<button onclick="setDecision(this,'' + escHtml(id) + '','rejected')">Reject</button>'
-      + '<button class="tag-btn" data-tag-btn="' + escHtml(id) + '" onclick="toggleFastlaneTag(this,'' + escHtml(id) + '')">☆ Fastlane</button></td>'
+      + '<td><button onclick="setDecision(this,\'' + escHtml(id) + '\',\'approved\')">Approve</button>'
+      + '<button onclick="setDecision(this,\'' + escHtml(id) + '\',\'rejected\')">Reject</button>'
+      + '<button class="tag-btn" data-tag-btn="' + escHtml(id) + '" onclick="toggleFastlaneTag(this,\'' + escHtml(id) + '\')">☆ Fastlane</button></td>'
       + '</tr>';
   }).join('');
 }
