@@ -113,6 +113,8 @@ type FilePreviewState = {
   loading: boolean
   saving?: boolean
   error?: string
+  readOnly?: boolean
+  renderMarkdown?: boolean
 }
 
 type KnowledgeEntry = {
@@ -1652,7 +1654,7 @@ export default function ClientBoard() {
     setFilePreview({ open: false, loading: false })
   }
 
-  async function openFilePreview(name: string, filePath: string) {
+  async function openFilePreview(name: string, filePath: string, opts?: { readOnly?: boolean; renderMarkdown?: boolean }) {
     if (!canPreviewFile(filePath)) return
     if (filePreview.open && filePreview.saving) {
       setFilePreview((prev) => ({
@@ -1687,6 +1689,8 @@ export default function ClientBoard() {
         name,
         path: filePath,
         error: filePreviewOfflineLoadError,
+        readOnly: !!opts?.readOnly,
+        renderMarkdown: !!opts?.renderMarkdown,
       })
       return
     }
@@ -1696,7 +1700,7 @@ export default function ClientBoard() {
     filePreviewAbortRef.current = abortController
     filePreviewLoadingPathRef.current = filePath
 
-    setFilePreview({ open: true, loading: true, name, path: filePath })
+    setFilePreview({ open: true, loading: true, name, path: filePath, readOnly: !!opts?.readOnly, renderMarkdown: !!opts?.renderMarkdown })
     try {
       const res = await fetchWithTimeout(
         `/api/files/read?path=${encodeURIComponent(filePath)}`,
@@ -1716,7 +1720,7 @@ export default function ClientBoard() {
 
       if (loadSeq !== filePreviewLoadSeq.current) return
       setFileDraft(payload.content)
-      setFilePreview({ open: true, loading: false, name, path: filePath, content: payload.content })
+      setFilePreview({ open: true, loading: false, name, path: filePath, content: payload.content, readOnly: !!opts?.readOnly, renderMarkdown: !!opts?.renderMarkdown })
     } catch (error) {
       if (loadSeq !== filePreviewLoadSeq.current) return
 
@@ -1729,7 +1733,7 @@ export default function ClientBoard() {
             ? error.message
             : 'Datei konnte nicht geladen werden'
 
-      setFilePreview({ open: true, loading: false, name, path: filePath, error: message })
+      setFilePreview({ open: true, loading: false, name, path: filePath, error: message, readOnly: !!opts?.readOnly, renderMarkdown: !!opts?.renderMarkdown })
     } finally {
       if (filePreviewAbortRef.current === abortController) {
         filePreviewAbortRef.current = null
@@ -1741,7 +1745,7 @@ export default function ClientBoard() {
   }
 
   async function saveFilePreview() {
-    if (!filePreview.path || filePreview.loading || filePreview.saving) return
+    if (!filePreview.path || filePreview.loading || filePreview.saving || filePreview.readOnly) return
 
     if (isOfflineClient()) {
       setFilePreview((prev) => ({ ...prev, error: 'Offline: Datei kann aktuell nicht gespeichert werden.' }))
@@ -3571,6 +3575,16 @@ export default function ClientBoard() {
       .replace(/\s+/g, ' ')
   }
 
+  function renderInlineMarkdown(text: string) {
+    const parts = text.split(/(\*\*[^*]+\*\*)/g)
+    return parts.map((part, idx) => {
+      if (part.startsWith('**') && part.endsWith('**') && part.length >= 4) {
+        return <strong key={`md-bold-${idx}`}>{part.slice(2, -2)}</strong>
+      }
+      return <span key={`md-text-${idx}`}>{part}</span>
+    })
+  }
+
   function resolveCronBaseJob(job: CronJob) {
     const directMatch = cronJobs.find((row) => row.id === job.id)
     if (directMatch) return directMatch
@@ -3912,17 +3926,19 @@ export default function ClientBoard() {
           ? 'Someday-Aktion läuft noch. Danach erneut laden.'
           : null
 
-  const canSaveFilePreview = !isOffline && !filePreview.loading && !filePreview.saving && fileDraft !== (filePreview.content || '')
+  const canSaveFilePreview = !isOffline && !filePreview.readOnly && !filePreview.loading && !filePreview.saving && fileDraft !== (filePreview.content || '')
   const saveFilePreviewDisabledReason =
     isOffline
       ? 'Offline: Datei kann aktuell nicht gespeichert werden.'
-      : filePreview.loading
-        ? 'Datei lädt noch. Danach speichern.'
-        : filePreview.saving
-          ? 'Datei wird bereits gespeichert.'
-          : fileDraft === (filePreview.content || '')
-            ? 'Keine Änderungen zum Speichern.'
-            : null
+      : filePreview.readOnly
+        ? 'Read-only Vorschau.'
+        : filePreview.loading
+          ? 'Datei lädt noch. Danach speichern.'
+          : filePreview.saving
+            ? 'Datei wird bereits gespeichert.'
+            : fileDraft === (filePreview.content || '')
+              ? 'Keine Änderungen zum Speichern.'
+              : null
 
   const canRefreshKnowledgeIndex = !knowledgeLoading && !isOffline
   const refreshKnowledgeDisabledReason = knowledgeLoading
@@ -4798,7 +4814,7 @@ export default function ClientBoard() {
                       {selectedCronJob.job.lastRunReportPath && (
                         <button
                           type="button"
-                          onClick={() => { void openFilePreview('cron-run-report.md', selectedCronJob.job.lastRunReportPath || '') }}
+                          onClick={() => { void openFilePreview('cron-run-report.md', selectedCronJob.job.lastRunReportPath || '', { readOnly: true, renderMarkdown: true }) }}
                           style={{ ...polishedButtonStyle, marginLeft: 8, padding: '3px 8px', fontSize: 11 }}
                           title="Run-Report öffnen"
                         >
@@ -5109,13 +5125,15 @@ export default function ClientBoard() {
                   <div style={{ fontSize: 11, opacity: 0.75 }}>{filePreview.path}</div>
                 </div>
                 <div style={{ display: 'flex', gap: 8 }}>
-                  <button
-                    onClick={() => { void saveFilePreview() }}
-                    disabled={!canSaveFilePreview}
-                    title={saveFilePreviewDisabledReason || 'Speichern (Shortcut: Cmd/Ctrl+S)'}
-                  >
-                    {filePreview.saving ? 'Speichere…' : 'Speichern'}
-                  </button>
+                  {!filePreview.readOnly && (
+                    <button
+                      onClick={() => { void saveFilePreview() }}
+                      disabled={!canSaveFilePreview}
+                      title={saveFilePreviewDisabledReason || 'Speichern (Shortcut: Cmd/Ctrl+S)'}
+                    >
+                      {filePreview.saving ? 'Speichere…' : 'Speichern'}
+                    </button>
+                  )}
                   <button onClick={closeFilePreview} disabled={!!filePreview.saving} title={filePreview.saving ? 'Bitte warten, Speichern läuft…' : 'Vorschau schliessen'}>Schliessen</button>
                 </div>
               </div>
@@ -5123,26 +5141,44 @@ export default function ClientBoard() {
               {!filePreview.loading && filePreview.error && <div style={{ color: '#fca5a5', marginBottom: 8 }}>{filePreview.error}</div>}
               {!filePreview.loading && (
                 <>
-                  <textarea
-                    value={fileDraft}
-                    disabled={filePreview.loading || !!filePreview.saving}
-                    onChange={(e) => {
-                      setFileDraft(e.target.value)
-                      setFilePreview((prev) => (prev.error ? { ...prev, error: undefined } : prev))
-                    }}
-                    title={filePreview.saving ? 'Bearbeitung ist während dem Speichern kurz pausiert.' : undefined}
-                    style={{ width: '100%', minHeight: '65vh', resize: 'vertical', background: '#0b0d10', color: '#f5f5f5', border: '1px solid #31363d', borderRadius: 8, padding: 10, fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace', fontSize: 12, lineHeight: 1.45, opacity: filePreview.saving ? 0.75 : 1 }}
-                  />
+                  {filePreview.renderMarkdown ? (
+                    <div style={{ width: '100%', minHeight: '65vh', background: '#0b0d10', color: '#f5f5f5', border: '1px solid #31363d', borderRadius: 8, padding: 14, fontSize: 14, lineHeight: 1.6, overflow: 'auto' }}>
+                      {fileDraft.split('\n').map((line, idx) => {
+                        const trimmed = line.trim()
+                        if (!trimmed) return <div key={`md-empty-${idx}`} style={{ height: 8 }} />
+                        if (trimmed.startsWith('### ')) return <h3 key={`md-h3-${idx}`} style={{ margin: '10px 0 6px' }}>{renderInlineMarkdown(trimmed.slice(4))}</h3>
+                        if (trimmed.startsWith('## ')) return <h2 key={`md-h2-${idx}`} style={{ margin: '12px 0 8px' }}>{renderInlineMarkdown(trimmed.slice(3))}</h2>
+                        if (trimmed.startsWith('# ')) return <h1 key={`md-h1-${idx}`} style={{ margin: '14px 0 10px', fontSize: 22 }}>{renderInlineMarkdown(trimmed.slice(2))}</h1>
+                        if (trimmed.startsWith('- ')) return <div key={`md-li-${idx}`} style={{ marginLeft: 8 }}>• {renderInlineMarkdown(trimmed.slice(2))}</div>
+                        return <p key={`md-p-${idx}`} style={{ margin: '6px 0' }}>{renderInlineMarkdown(line)}</p>
+                      })}
+                    </div>
+                  ) : (
+                    <textarea
+                      value={fileDraft}
+                      disabled={filePreview.loading || !!filePreview.saving || !!filePreview.readOnly}
+                      onChange={(e) => {
+                        setFileDraft(e.target.value)
+                        setFilePreview((prev) => (prev.error ? { ...prev, error: undefined } : prev))
+                      }}
+                      title={filePreview.saving ? 'Bearbeitung ist während dem Speichern kurz pausiert.' : undefined}
+                      style={{ width: '100%', minHeight: '65vh', resize: 'vertical', background: '#0b0d10', color: '#f5f5f5', border: '1px solid #31363d', borderRadius: 8, padding: 10, fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace', fontSize: 12, lineHeight: 1.45, opacity: filePreview.saving ? 0.75 : 1 }}
+                    />
+                  )}
                   <div style={{ marginTop: 8, fontSize: 12, opacity: 0.78 }}>
-                    {fileDraft === (filePreview.content || '')
-                      ? 'Keine ungespeicherten Änderungen.'
-                      : isOffline
-                        ? 'Ungespeicherte Änderungen vorhanden (offline – Speichern derzeit nicht möglich).'
-                        : 'Ungespeicherte Änderungen vorhanden.'}
+                    {filePreview.readOnly
+                      ? 'Read-only Vorschau.'
+                      : fileDraft === (filePreview.content || '')
+                        ? 'Keine ungespeicherten Änderungen.'
+                        : isOffline
+                          ? 'Ungespeicherte Änderungen vorhanden (offline – Speichern derzeit nicht möglich).'
+                          : 'Ungespeicherte Änderungen vorhanden.'}
                   </div>
-                  <div style={{ marginTop: 4, fontSize: 11, opacity: 0.62 }}>
-                    Shortcut: Cmd/Ctrl+S speichert die Datei.
-                  </div>
+                  {!filePreview.readOnly && (
+                    <div style={{ marginTop: 4, fontSize: 11, opacity: 0.62 }}>
+                      Shortcut: Cmd/Ctrl+S speichert die Datei.
+                    </div>
+                  )}
                 </>
               )}
             </div>
