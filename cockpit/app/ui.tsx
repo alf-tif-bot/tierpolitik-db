@@ -3565,9 +3565,10 @@ export default function ClientBoard() {
     const raw = String(text || '').trim()
     if (!raw) return ''
     return raw
-      .replace(/^executive summary:?\s*/i, 'Zusammenfassung: ')
+      .replace(/^executive summary:?\s*/i, '')
+      .replace(/^zusammenfassung:?\s*/i, '')
+      .replace(/^summary:?\s*/i, '')
       .replace(/\s+/g, ' ')
-      .replace(/^summary:?\s*/i, 'Zusammenfassung: ')
   }
 
   function resolveCronBaseJob(job: CronJob) {
@@ -4814,14 +4815,13 @@ export default function ClientBoard() {
 
                   <div style={{ marginTop: 10, fontSize: 12, opacity: 0.82 }}>
                     {selectedCronJob.job.lastRunSummary && (
-                      <div style={{ marginTop: 6, padding: 10, borderRadius: 10, border: '1px solid #2c3e50', background: 'linear-gradient(180deg, #132234 0%, #0f1a29 100%)', color: '#dbeafe' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+                      <div style={{ marginTop: 6, padding: 12, borderRadius: 10, border: '1px solid #2c3e50', background: 'linear-gradient(180deg, #132234 0%, #0f1a29 100%)', color: '#dbeafe' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 6 }}>
                           <span aria-hidden>📝</span>
                           <strong>Letztes Ergebnis</strong>
                         </div>
-                        <div style={{ lineHeight: 1.45 }}>
-                          {beautifyCronSummary(selectedCronJob.job.lastRunSummary).slice(0, 420)}
-                          {beautifyCronSummary(selectedCronJob.job.lastRunSummary).length > 420 ? '…' : ''}
+                        <div style={{ lineHeight: 1.55, fontSize: 14, whiteSpace: 'pre-wrap' }}>
+                          {beautifyCronSummary(selectedCronJob.job.lastRunSummary)}
                         </div>
                       </div>
                     )}
