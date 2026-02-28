@@ -31,7 +31,7 @@ export const handler = async (event) => {
     const includeDecided = String(event?.queryStringParameters?.includeDecided || '').toLowerCase() === 'true'
     const limit = Math.min(5000, Math.max(1, Number(event?.queryStringParameters?.limit || 500)))
 
-    const rows = await withPgClient(async (client) => {
+    const { rows, titleFallbacks } = await withPgClient(async (client) => {
       const res = await client.query(
         `select
           m.source_id,
@@ -70,26 +70,72 @@ export const handler = async (event) => {
         limit $2`,
         [includeDecided, limit],
       )
-      return res.rows
+
+      const affairIds = [...new Set(res.rows
+        .filter((r) => String(r.source_id || '').startsWith('ch-parliament-'))
+        .map((r) => String(r.external_id || '').split('-')[0])
+        .filter(Boolean))]
+
+      let titleFallbacks = []
+      if (affairIds.length) {
+        const fallbackRes = await client.query(
+          `select
+             split_part(m.external_id, '-', 1) as affair_id,
+             mv.title,
+             mv.summary
+           from motions m
+           left join lateral (
+             select title, summary
+             from motion_versions mv
+             where mv.motion_id = m.id
+             order by mv.version_no desc
+             limit 1
+           ) mv on true
+           where split_part(m.external_id, '-', 1) = any($1)
+             and coalesce(mv.title, '') <> ''
+             and mv.title !~* '^Parlamentsgeschäft\\s+[0-9]+'
+           order by m.updated_at desc`,
+          [affairIds],
+        )
+        titleFallbacks = fallbackRes.rows
+      }
+
+      return { rows: res.rows, titleFallbacks }
     })
 
-    const items = rows.map((r) => ({
-      id: `${r.source_id}:${r.external_id}`,
-      sourceId: r.source_id,
-      externalId: r.external_id,
-      sourceUrl: r.source_url,
-      language: r.language || 'de',
-      title: r.title || '',
-      summary: r.summary || '',
-      body: r.body || '',
-      publishedAt: r.published_at ? new Date(r.published_at).toISOString() : null,
-      fetchedAt: r.fetched_at ? new Date(r.fetched_at).toISOString() : null,
-      score: Number(r.score || 0),
-      matchedKeywords: Array.isArray(r.matched_keywords) ? r.matched_keywords : [],
-      status: r.review_status || r.motion_status || 'new',
-      reviewReason: r.review_reason || '',
-      decidedAt: r.decided_at ? new Date(r.decided_at).toISOString() : null,
-    }))
+    const bestTitleByAffair = new Map()
+    for (const row of titleFallbacks) {
+      const key = String(row.affair_id || '')
+      if (!key || bestTitleByAffair.has(key)) continue
+      bestTitleByAffair.set(key, {
+        title: String(row.title || ''),
+        summary: String(row.summary || ''),
+      })
+    }
+
+    const items = rows.map((r) => {
+      const affairId = String(r.external_id || '').split('-')[0]
+      const genericParliamentTitle = /^Parlamentsgeschäft\s+[0-9]+$/i.test(String(r.title || '').trim())
+      const titleFallback = genericParliamentTitle ? bestTitleByAffair.get(affairId) : null
+
+      return {
+        id: `${r.source_id}:${r.external_id}`,
+        sourceId: r.source_id,
+        externalId: r.external_id,
+        sourceUrl: r.source_url,
+        language: r.language || 'de',
+        title: titleFallback?.title || r.title || '',
+        summary: titleFallback?.summary || r.summary || '',
+        body: r.body || '',
+        publishedAt: r.published_at ? new Date(r.published_at).toISOString() : null,
+        fetchedAt: r.fetched_at ? new Date(r.fetched_at).toISOString() : null,
+        score: Number(r.score || 0),
+        matchedKeywords: Array.isArray(r.matched_keywords) ? r.matched_keywords : [],
+        status: r.review_status || r.motion_status || 'new',
+        reviewReason: r.review_reason || '',
+        decidedAt: r.decided_at ? new Date(r.decided_at).toISOString() : null,
+      }
+    })
 
     return {
       statusCode: 200,
