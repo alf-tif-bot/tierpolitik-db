@@ -52,8 +52,14 @@ input:focus, select:focus, textarea:focus, button:focus {
 .cockpit-shell aside {
   position: sticky;
   top: 12px;
+  max-height: calc(100vh - 24px);
+  overflow-y: hidden;
   background: #202020 !important;
   border: 1px solid var(--line) !important;
+}
+
+.cockpit-shell aside:hover {
+  overflow-y: auto;
 }
 
 .cockpit-shell aside button {
