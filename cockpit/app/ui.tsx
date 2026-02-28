@@ -4141,22 +4141,9 @@ export default function ClientBoard() {
   return (
     <main className="cockpit-shell" suppressHydrationWarning style={{ maxWidth: 1280, margin: '0 auto', padding: 20, display: 'grid', gridTemplateColumns: '220px 1fr', gap: 16 }}>
       <aside style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 12, padding: 10, height: 'fit-content' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 }}>
-          <div style={{ fontWeight: 700 }}>Tobi</div>
-          <a
-            href="#kalender"
-            onClick={(event) => {
-              event.preventDefault()
-              setSection('calendar')
-            }}
-            title="Zum Kalender"
-            style={{ fontSize: 11, opacity: 0.95, padding: '3px 8px', borderRadius: 999, border: '1px solid #3a3a3a', background: '#151515', color: '#e8e8e8', textDecoration: 'none', display: 'inline-block' }}
-          >
-            {sidebarDateLabel}
-          </a>
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: 8 }}>
+          <div style={{ fontWeight: 700 }}>Cockpit 🚀</div>
         </div>
-        <div style={{ fontSize: 12, opacity: 0.75, marginBottom: 2 }}>Cockpit · Übersicht · Prioritäten</div>
-        <div style={{ fontSize: 10, opacity: 0.5, marginBottom: 8 }}>ui: e4f0b83</div>
         {(Object.keys(sectionMeta) as Section[]).map((s) => (
           <button
             key={s}
