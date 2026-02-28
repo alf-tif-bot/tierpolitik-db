@@ -1445,6 +1445,7 @@ export default function ClientBoard() {
   const [cronLoading, setCronLoading] = useState(false)
   const [cronError, setCronError] = useState<string | null>(null)
   const [selectedCronJob, setSelectedCronJob] = useState<{ job: CronJob; runAtMs: number | null } | null>(null)
+  const [cronFixPendingJobId, setCronFixPendingJobId] = useState<string | null>(null)
   const [agentsSummary, setAgentsSummary] = useState<AgentSummary[]>([])
   const [agentsLoading, setAgentsLoading] = useState(false)
   const [agentsError, setAgentsError] = useState<string | null>(null)
@@ -3529,6 +3530,37 @@ export default function ClientBoard() {
     return cronJobs.find((row) => row.name === job.name && row.scheduleLabel === job.scheduleLabel && (row.source || 'openclaw') === (job.source || 'openclaw')) || job
   }
 
+  async function fixCronJob(job: CronJob) {
+    if (!job?.id || cronFixPendingJobId) return
+    setCronFixPendingJobId(job.id)
+    setCronError(null)
+
+    try {
+      const res = await fetchWithTimeout('/api/cron/fix', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ jobId: job.id }),
+      }, boardRequestTimeoutMs)
+
+      if (!res.ok) {
+        const payload = await res.json().catch(() => ({})) as { error?: string }
+        throw new Error(payload?.error || 'Fix fehlgeschlagen')
+      }
+
+      await loadCronJobs()
+      setSelectedCronJob((prev) => {
+        if (!prev) return prev
+        const refreshed = cronJobs.find((row) => row.id === prev.job.id)
+        return refreshed ? { ...prev, job: refreshed } : prev
+      })
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Fix fehlgeschlagen'
+      setCronError(`Cron-Fix fehlgeschlagen: ${message}`)
+    } finally {
+      setCronFixPendingJobId(null)
+    }
+  }
+
   const startOfWindow = (() => {
     const start = new Date(nowTick)
     start.setHours(0, 0, 0, 0)
@@ -3599,6 +3631,14 @@ export default function ClientBoard() {
   }))
 
   const hiddenDisabledCronJobsCount = cronJobs.filter((job) => !job.enabled).length
+  const modelByAgentId = useMemo(() => {
+    const map = new Map<string, string>()
+    for (const agent of agentsSummary) {
+      if (!agent.id) continue
+      map.set(agent.id, agent.model || 'unbekannt')
+    }
+    return map
+  }, [agentsSummary])
 
   const hasPendingTaskMutation = useMemo(() => Object.values(taskActionPending).some(Boolean), [taskActionPending])
   const hasPendingRadarMutation = useMemo(() => Object.values(radarActionPending).some(Boolean), [radarActionPending])
@@ -4462,18 +4502,30 @@ export default function ClientBoard() {
                         Geplanter Slot: {formatCronDateTime(selectedCronJob.runAtMs)}
                       </div>
                     </div>
-                    <button type="button" onClick={() => setSelectedCronJob(null)}>Schliessen</button>
+                    <div style={{ display: 'flex', gap: 8 }}>
+                      {(selectedCronJob.job.status === 'error' || !!selectedCronJob.job.lastError) && (
+                        <button
+                          type="button"
+                          onClick={() => { void fixCronJob(selectedCronJob.job) }}
+                          disabled={cronFixPendingJobId === selectedCronJob.job.id}
+                          title="Versucht bekannte Cron-Fehler automatisch zu reparieren und startet den Job neu"
+                        >
+                          {cronFixPendingJobId === selectedCronJob.job.id ? 'Fix läuft…' : 'Fix Error'}
+                        </button>
+                      )}
+                      <button type="button" onClick={() => setSelectedCronJob(null)}>Schliessen</button>
+                    </div>
                   </div>
 
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0,1fr))', gap: 8, marginTop: 12 }}>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Status:</strong> {selectedCronJob.job.status || '–'}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Quelle:</strong> {selectedCronJob.job.source || 'openclaw'}</div>
-                    <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>LLM-Modell:</strong> {selectedCronJob.job.agentId ? `via Agent ${selectedCronJob.job.agentId}` : 'nicht im Cron-Record'}</div>
+                    <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Agent:</strong> {selectedCronJob.job.agentId || '–'}</div>
+                    <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>LLM-Modell:</strong> {selectedCronJob.job.agentId ? (modelByAgentId.get(selectedCronJob.job.agentId) || 'unbekannt') : '–'}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Nächster Run:</strong> {formatCronDateTime(selectedCronJob.job.nextRunAtMs)}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Letzter Run:</strong> {formatCronDateTime(selectedCronJob.job.lastRunAtMs)}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Letzte Dauer:</strong> {formatCronDuration(selectedCronJob.job.lastDurationMs)}</div>
-                    <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Schedule:</strong> {selectedCronJob.job.scheduleExpr || selectedCronJob.job.scheduleLabel}</div>
-                    <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Timezone:</strong> {selectedCronJob.job.scheduleTz || 'Europe/Zurich'}</div>
+                    <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Intervall:</strong> {selectedCronJob.job.scheduleLabel}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Delivery:</strong> {selectedCronJob.job.deliveryMode || '–'} {selectedCronJob.job.deliveryChannel ? `· ${selectedCronJob.job.deliveryChannel}` : ''}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Discord-Channel:</strong> {selectedCronJob.job.deliveryTargetLabel || selectedCronJob.job.deliveryTo || '–'}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Consecutive Errors:</strong> {typeof selectedCronJob.job.consecutiveErrors === 'number' ? selectedCronJob.job.consecutiveErrors : 0}</div>
