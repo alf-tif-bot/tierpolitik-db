@@ -773,32 +773,38 @@ async function setDecision(btn,id,status){
 
   if (btn) btn.disabled = true;
 
-  let storage = 'local-only'
-  try {
-    await postJson('/review-decision', { id, status, decidedAt })
-    storage = 'server'
-  } catch {
-    storage = 'local-only'
-  }
-
-  const s=read();
-  s[id]={status,decidedAt,storage};
-  write(s);
-
+  // Optimistic UI: sofort weiterarbeiten, Server-Sync im Hintergrund
   const row = document.querySelector('tr[data-id="' + id + '"]');
   if (row) {
     row.setAttribute('data-status', status)
     row.style.opacity = '0.72'
     row.style.display='none'
   }
-
   const card = document.querySelector('.fastlane-card[data-id="' + id + '"]');
   if (card) card.style.display = 'none'
   setActiveRow(0)
   focusActiveRow()
   updateStatusSummary();
-  if (statusEl) statusEl.textContent = storage === 'server' ? 'In DB gespeichert. (Shortcuts: j/k bzw. j/l, a=approve, r=reject, f=fastlane)' : 'Lokal gespeichert.';
-  if (btn) btn.disabled = false;
+
+  const s=read();
+  s[id]={status,decidedAt,storage:'pending-sync'};
+  write(s);
+
+  // Fire-and-forget sync
+  postJson('/review-decision', { id, status, decidedAt })
+    .then(()=>{
+      const x=read();
+      x[id]={status,decidedAt,storage:'server'};
+      write(x);
+      if (statusEl) statusEl.textContent = 'In DB gespeichert. (Shortcuts: j/k bzw. j/l, a=approve, r=reject, f=fastlane)';
+    })
+    .catch(()=>{
+      const x=read();
+      x[id]={status,decidedAt,storage:'local-only'};
+      write(x);
+      if (statusEl) statusEl.textContent = 'Lokal gespeichert (Sync fehlgeschlagen).';
+    })
+    .finally(()=>{ if (btn) btn.disabled = false; });
 }
 
 function importDecisionsPrompt(){
