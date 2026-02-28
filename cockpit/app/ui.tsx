@@ -2850,7 +2850,7 @@ export default function ClientBoard() {
       if (key === 'arrowup' || key === 'arrowdown') {
         e.preventDefault()
         if (section === 'calendar') {
-          focusCalendarCard(key === 'arrowdown' ? 1 : -1)
+          focusCalendarCardVertical(key === 'arrowdown' ? 1 : -1)
         } else {
           focusSidebarSection(key === 'arrowdown' ? 1 : -1)
         }
@@ -2859,7 +2859,7 @@ export default function ClientBoard() {
 
       if ((key === 'arrowleft' || key === 'arrowright') && section === 'calendar') {
         e.preventDefault()
-        focusCalendarCard(key === 'arrowright' ? 1 : -1)
+        focusCalendarCardHorizontal(key === 'arrowright' ? 1 : -1)
         return
       }
 
@@ -3564,15 +3564,58 @@ export default function ClientBoard() {
     window.setTimeout(() => sectionNavRefs.current[nextSection]?.focus(), 0)
   }
 
-  function focusCalendarCard(step: 1 | -1) {
-    const cards = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-nav="cron-card"]'))
-    if (cards.length === 0) return
-
+  function focusCalendarCardVertical(step: 1 | -1) {
     const active = document.activeElement as HTMLElement | null
-    const currentIdx = cards.findIndex((card) => card === active)
-    const startIdx = currentIdx >= 0 ? currentIdx : 0
-    const nextIdx = (startIdx + step + cards.length) % cards.length
-    cards[nextIdx]?.focus()
+    const dayIdx = Number(active?.getAttribute('data-day-idx'))
+    const jobIdx = Number(active?.getAttribute('data-job-idx'))
+
+    if (!Number.isFinite(dayIdx) || !Number.isFinite(jobIdx)) {
+      const first = document.querySelector<HTMLButtonElement>('[data-nav="cron-card"]')
+      first?.focus()
+      return
+    }
+
+    const nextJobIdx = jobIdx + step
+    const next = document.querySelector<HTMLButtonElement>(`[data-nav="cron-card"][data-day-idx="${dayIdx}"][data-job-idx="${nextJobIdx}"]`)
+    if (next) {
+      next.focus()
+      return
+    }
+
+    // wrap within same day
+    const dayCards = Array.from(document.querySelectorAll<HTMLButtonElement>(`[data-nav="cron-card"][data-day-idx="${dayIdx}"]`))
+    if (dayCards.length === 0) return
+    ;(step === 1 ? dayCards[0] : dayCards[dayCards.length - 1])?.focus()
+  }
+
+  function focusCalendarCardHorizontal(step: 1 | -1) {
+    const active = document.activeElement as HTMLElement | null
+    const dayIdx = Number(active?.getAttribute('data-day-idx'))
+    const jobIdx = Number(active?.getAttribute('data-job-idx'))
+
+    if (!Number.isFinite(dayIdx) || !Number.isFinite(jobIdx)) {
+      const first = document.querySelector<HTMLButtonElement>('[data-nav="cron-card"]')
+      first?.focus()
+      return
+    }
+
+    const dayCount = weeklyJobColumns.length
+    if (!dayCount) return
+
+    for (let hop = 1; hop <= dayCount; hop += 1) {
+      const targetDay = (dayIdx + step * hop + dayCount) % dayCount
+      const sameRow = document.querySelector<HTMLButtonElement>(`[data-nav="cron-card"][data-day-idx="${targetDay}"][data-job-idx="${jobIdx}"]`)
+      if (sameRow) {
+        sameRow.focus()
+        return
+      }
+
+      const dayCards = Array.from(document.querySelectorAll<HTMLButtonElement>(`[data-nav="cron-card"][data-day-idx="${targetDay}"]`))
+      if (dayCards.length > 0) {
+        dayCards[Math.min(jobIdx, dayCards.length - 1)]?.focus()
+        return
+      }
+    }
   }
 
   async function fixCronJob(job: CronJob) {
@@ -4556,7 +4599,7 @@ export default function ClientBoard() {
               </div>
             )}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, minmax(0,1fr))', gap: 8, marginBottom: 14 }}>
-              {weeklyJobColumns.map((day) => (
+              {weeklyJobColumns.map((day, dayIdx) => (
                 <div key={day.label} style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 8, minHeight: 170 }}>
                   <div style={{ fontSize: 12, opacity: 0.75 }}>{day.dateLabel}</div>
                   <div style={{ fontWeight: 700, marginBottom: 8 }}>{day.label}</div>
@@ -4564,13 +4607,15 @@ export default function ClientBoard() {
                     <div style={{ fontSize: 12, opacity: 0.55 }}>–</div>
                   ) : (
                     <div style={{ display: 'grid', gap: 6 }}>
-                      {day.jobs.map((job) => {
+                      {day.jobs.map((job, jobIdx) => {
                         const sourceColor = getCronJobColor(job)
                         return (
                           <button
                             key={`${day.label}-${job.id}`}
                             type="button"
                             data-nav="cron-card"
+                            data-day-idx={dayIdx}
+                            data-job-idx={jobIdx}
                             onClick={() => {
                               const baseJob = resolveCronBaseJob(job)
                               setSelectedCronJob({ job: baseJob, runAtMs: job.nextRunAtMs ?? null })
