@@ -324,6 +324,7 @@ function sanitizeFilePart(value: string) {
 
 async function ensureCronRunReport(job: CronJobRaw, latest: CronRunRecord | null) {
   if (!job.id || !latest || typeof latest.runAtMs !== 'number') return null
+  if (inferCronType(job) === 'Security') return null
 
   const runsRoot = path.join(process.cwd(), 'data', 'cron-runs')
   const jobSlug = sanitizeFilePart(String(job.name || job.id))
