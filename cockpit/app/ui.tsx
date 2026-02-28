@@ -1452,6 +1452,7 @@ export default function ClientBoard() {
   const [cronSortMode, setCronSortMode] = useState<'time' | 'type'>('time')
   const [selectedCronJob, setSelectedCronJob] = useState<{ job: CronJob; runAtMs: number | null } | null>(null)
   const [cronFixPendingJobId, setCronFixPendingJobId] = useState<string | null>(null)
+  const [cronRunPendingJobId, setCronRunPendingJobId] = useState<string | null>(null)
   const [agentsSummary, setAgentsSummary] = useState<AgentSummary[]>([])
   const [agentsLoading, setAgentsLoading] = useState(false)
   const [agentsError, setAgentsError] = useState<string | null>(null)
@@ -3653,6 +3654,32 @@ export default function ClientBoard() {
     }
   }
 
+  async function runCronJobNow(job: CronJob) {
+    if (!job?.id || cronRunPendingJobId) return
+    setCronRunPendingJobId(job.id)
+    setCronError(null)
+
+    try {
+      const res = await fetchWithTimeout('/api/cron/run', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ jobId: job.id }),
+      }, boardRequestTimeoutMs)
+
+      if (!res.ok) {
+        const payload = await res.json().catch(() => ({})) as { error?: string }
+        throw new Error(payload?.error || 'Test-Run fehlgeschlagen')
+      }
+
+      await loadCronJobs()
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Test-Run fehlgeschlagen'
+      setCronError(`Cron-Test-Run fehlgeschlagen: ${message}`)
+    } finally {
+      setCronRunPendingJobId(null)
+    }
+  }
+
   const startOfWindow = (() => {
     const start = new Date(nowTick)
     start.setHours(0, 0, 0, 0)
@@ -3892,6 +3919,25 @@ export default function ClientBoard() {
   useEffect(() => {
     canSaveFilePreviewRef.current = canSaveFilePreview
   }, [canSaveFilePreview])
+
+  const polishedButtonStyle = {
+    background: 'linear-gradient(180deg, #2b2b2b 0%, #202020 100%)',
+    color: '#f5f5f5',
+    border: '1px solid #454545',
+    borderRadius: 8,
+    padding: '6px 10px',
+    fontSize: 12,
+    cursor: 'pointer',
+  }
+
+  const polishedSelectStyle = {
+    background: '#1b1b1b',
+    color: '#f5f5f5',
+    border: '1px solid #474747',
+    borderRadius: 8,
+    padding: '5px 8px',
+    fontSize: 12,
+  }
 
   const col = (s: 'open' | 'doing' | 'waiting', colTitle: string) => (
     <div
@@ -4597,14 +4643,14 @@ export default function ClientBoard() {
               <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
                 <label style={{ fontSize: 12, opacity: 0.85 }}>
                   Typ
-                  <select value={cronTypeFilter} onChange={(e) => setCronTypeFilter(e.target.value)} style={{ marginLeft: 6 }}>
+                  <select value={cronTypeFilter} onChange={(e) => setCronTypeFilter(e.target.value)} style={{ ...polishedSelectStyle, marginLeft: 6 }}>
                     <option value="all">Alle</option>
                     {availableCronTypes.map((type) => <option key={type} value={type}>{type}</option>)}
                   </select>
                 </label>
                 <label style={{ fontSize: 12, opacity: 0.85 }}>
                   Sortierung
-                  <select value={cronSortMode} onChange={(e) => setCronSortMode(e.target.value as 'time' | 'type')} style={{ marginLeft: 6 }}>
+                  <select value={cronSortMode} onChange={(e) => setCronSortMode(e.target.value as 'time' | 'type')} style={{ ...polishedSelectStyle, marginLeft: 6 }}>
                     <option value="time">Zeit</option>
                     <option value="type">Typ, dann Zeit</option>
                   </select>
@@ -4672,17 +4718,27 @@ export default function ClientBoard() {
                       </div>
                     </div>
                     <div style={{ display: 'flex', gap: 8 }}>
+                      <button
+                        type="button"
+                        onClick={() => { void runCronJobNow(selectedCronJob.job) }}
+                        disabled={cronRunPendingJobId === selectedCronJob.job.id}
+                        style={polishedButtonStyle}
+                        title="Job sofort testweise ausführen"
+                      >
+                        {cronRunPendingJobId === selectedCronJob.job.id ? 'Test läuft…' : 'Test-Run'}
+                      </button>
                       {(selectedCronJob.job.status === 'error' || !!selectedCronJob.job.lastError) && (
                         <button
                           type="button"
                           onClick={() => { void fixCronJob(selectedCronJob.job) }}
                           disabled={cronFixPendingJobId === selectedCronJob.job.id}
+                          style={{ ...polishedButtonStyle, borderColor: '#7f1d1d', background: 'linear-gradient(180deg, #3a1313 0%, #2b1111 100%)' }}
                           title="Versucht bekannte Cron-Fehler automatisch zu reparieren und startet den Job neu"
                         >
                           {cronFixPendingJobId === selectedCronJob.job.id ? 'Fix läuft…' : 'Fix Error'}
                         </button>
                       )}
-                      <button type="button" onClick={() => setSelectedCronJob(null)}>Schliessen</button>
+                      <button type="button" onClick={() => setSelectedCronJob(null)} style={polishedButtonStyle}>Schliessen</button>
                     </div>
                   </div>
 

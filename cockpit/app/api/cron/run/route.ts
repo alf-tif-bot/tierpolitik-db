@@ -1,0 +1,41 @@
+import { execFile } from 'node:child_process'
+import os from 'node:os'
+import { promisify } from 'node:util'
+import { NextResponse } from 'next/server'
+
+const execFileAsync = promisify(execFile)
+
+const noStoreHeaders = {
+  'cache-control': 'no-store, no-cache, must-revalidate, max-age=0',
+}
+
+function runtimeEnv() {
+  return {
+    ...process.env,
+    PATH: `${process.env.PATH || ''}:/opt/homebrew/bin:/usr/local/bin`,
+    HOME: process.env.HOME || os.homedir(),
+  }
+}
+
+export async function POST(req: Request) {
+  try {
+    const payload = (await req.json().catch(() => ({}))) as { jobId?: string }
+    const jobId = String(payload?.jobId || '').trim()
+
+    if (!jobId) {
+      return NextResponse.json({ ok: false, error: 'jobId missing' }, { status: 400, headers: noStoreHeaders })
+    }
+
+    const { stdout, stderr } = await execFileAsync('openclaw', ['cron', 'run', jobId], {
+      env: runtimeEnv(),
+      timeout: 45_000,
+      windowsHide: true,
+      maxBuffer: 2 * 1024 * 1024,
+    })
+
+    return NextResponse.json({ ok: true, jobId, stdout, stderr }, { headers: noStoreHeaders })
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Cron-Test-Run fehlgeschlagen'
+    return NextResponse.json({ ok: false, error: message }, { status: 500, headers: noStoreHeaders })
+  }
+}
