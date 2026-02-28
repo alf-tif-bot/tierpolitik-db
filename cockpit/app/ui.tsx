@@ -4034,7 +4034,7 @@ export default function ClientBoard() {
   )
 
   return (
-    <main suppressHydrationWarning style={{ maxWidth: 1280, margin: '0 auto', padding: 20, display: 'grid', gridTemplateColumns: '220px 1fr', gap: 16 }}>
+    <main className="cockpit-shell" suppressHydrationWarning style={{ maxWidth: 1280, margin: '0 auto', padding: 20, display: 'grid', gridTemplateColumns: '220px 1fr', gap: 16 }}>
       <aside style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 12, padding: 10, height: 'fit-content' }}>
         <div style={{ fontWeight: 700, marginBottom: 2 }}>Cockpit</div>
         <div style={{ fontSize: 12, opacity: 0.75, marginBottom: 10 }}>Übersicht · Prioritäten · Entscheidungen</div>
