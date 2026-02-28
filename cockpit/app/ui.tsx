@@ -3711,11 +3711,12 @@ export default function ClientBoard() {
         expanded.push(job)
       }
 
-      const matchDailyCron = job.scheduleLabel.match(/^cron\s+(\d{1,2})\s+(\d{1,2})\s+\*\s+\*\s+\*/i)
-      if (!matchDailyCron) continue
+      const hasDailyShape = job.scheduleKind === 'cron' && typeof job.scheduleExpr === 'string' && /^\s*\d{1,2}\s+\d{1,2}\s+\*\s+\*\s+\*\s*$/.test(job.scheduleExpr)
+      if (!hasDailyShape || !job.scheduleExpr) continue
 
-      const minute = Number(matchDailyCron[1])
-      const hour = Number(matchDailyCron[2])
+      const [minuteRaw, hourRaw] = job.scheduleExpr.trim().split(/\s+/)
+      const minute = Number(minuteRaw)
+      const hour = Number(hourRaw)
       if (!Number.isFinite(minute) || !Number.isFinite(hour)) continue
       if (minute < 0 || minute > 59 || hour < 0 || hour > 23) continue
 
