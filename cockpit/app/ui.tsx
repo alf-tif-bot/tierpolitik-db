@@ -2995,18 +2995,18 @@ export default function ClientBoard() {
   const sidebarDateLabel = useMemo(() => {
     const d = new Date(nowTick)
     const months = [
-      'JANUAR',
-      'FEBRUAR',
-      'MÄRZ',
-      'APRIL',
-      'MAI',
-      'JUNI',
-      'JULI',
-      'AUGUST',
-      'SEPTEMBER',
-      'OKTOBER',
-      'NOVEMBER',
-      'DEZEMBER',
+      'Januar',
+      'Februar',
+      'März',
+      'April',
+      'Mai',
+      'Juni',
+      'Juli',
+      'August',
+      'September',
+      'Oktober',
+      'November',
+      'Dezember',
     ]
     return `${String(d.getDate()).padStart(2, '0')}. ${months[d.getMonth()]}`
   }, [nowTick])
@@ -3596,7 +3596,7 @@ export default function ClientBoard() {
   function formatCronDayMonth(ms?: number | null) {
     if (typeof ms !== 'number' || !Number.isFinite(ms)) return '–'
     const d = new Date(ms)
-    const months = ['JANUAR', 'FEBRUAR', 'MÄRZ', 'APRIL', 'MAI', 'JUNI', 'JULI', 'AUGUST', 'SEPTEMBER', 'OKTOBER', 'NOVEMBER', 'DEZEMBER']
+    const months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
     return `${String(d.getDate()).padStart(2, '0')}. ${months[d.getMonth()]}`
   }
 
