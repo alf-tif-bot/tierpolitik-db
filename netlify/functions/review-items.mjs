@@ -137,10 +137,56 @@ export const handler = async (event) => {
       }
     })
 
+    const sourceRank = (sourceId = '') => {
+      const s = String(sourceId || '').toLowerCase()
+      if (s === 'ch-parliament-business-de') return 0
+      if (s === 'ch-parliament-motions-de') return 1
+      if (s.startsWith('ch-parliament-')) return 2
+      return 3
+    }
+
+    const keyFor = (item) => {
+      const sid = String(item?.sourceId || '')
+      if (sid.startsWith('ch-parliament-')) return `affair:${String(item?.externalId || '').split('-')[0]}`
+      return `id:${item?.id || `${sid}:${item?.externalId || ''}`}`
+    }
+
+    const dedupedMap = new Map()
+    for (const item of items) {
+      const key = keyFor(item)
+      const prev = dedupedMap.get(key)
+      if (!prev) {
+        dedupedMap.set(key, item)
+        continue
+      }
+
+      const prevRank = sourceRank(prev.sourceId)
+      const nextRank = sourceRank(item.sourceId)
+      if (nextRank < prevRank) {
+        dedupedMap.set(key, item)
+        continue
+      }
+      if (nextRank === prevRank) {
+        const prevScore = Number(prev.score || 0)
+        const nextScore = Number(item.score || 0)
+        if (nextScore > prevScore) {
+          dedupedMap.set(key, item)
+          continue
+        }
+        if (nextScore === prevScore) {
+          const prevTs = Date.parse(prev.publishedAt || prev.fetchedAt || '') || 0
+          const nextTs = Date.parse(item.publishedAt || item.fetchedAt || '') || 0
+          if (nextTs > prevTs) dedupedMap.set(key, item)
+        }
+      }
+    }
+
+    const dedupedItems = [...dedupedMap.values()]
+
     return {
       statusCode: 200,
       headers: corsHeaders(origin),
-      body: JSON.stringify({ ok: true, count: items.length, items }),
+      body: JSON.stringify({ ok: true, count: dedupedItems.length, items: dedupedItems }),
     }
   } catch (error) {
     return {
