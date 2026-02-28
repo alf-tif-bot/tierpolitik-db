@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Review History</title>
+  <style>
+    body{font-family:Inter,Arial,sans-serif;background:#0f172a;color:#e2e8f0;margin:0;padding:24px}
+    .wrap{max-width:1280px;margin:0 auto}
+    table{width:100%;border-collapse:collapse;background:#111827;border:1px solid #334155}
+    td,th{border-bottom:1px solid #1f2937;padding:10px;vertical-align:top;text-align:left}
+    th{background:#1b2433;color:#dbeafe}
+    .links{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+    .links a{display:inline-block;border:1px solid rgba(255,255,255,.18);padding:6px 10px;border-radius:999px;text-decoration:none;color:#dbeafe}
+    .muted{color:#94a3b8}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Review-History</h1>
+    <div class="links"><a href="/review.html">Review (offen)</a><a href="/">Zur App</a></div>
+    <p class="muted" id="meta">Lade…</p>
+    <table>
+      <thead><tr><th>Titel</th><th>Quelle</th><th>Status</th><th>Score</th><th>Link</th></tr></thead>
+      <tbody id="rows"><tr><td colspan="5">Lade…</td></tr></tbody>
+    </table>
+  </main>
+<script>
+const API_BASE='/.netlify/functions';
+const esc=(v)=>String(v??'').replace(/[&<>"']/g,(c)=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+(async()=>{
+  const tb=document.getElementById('rows');
+  const meta=document.getElementById('meta');
+  try{
+    const res=await fetch(API_BASE + '/review-items?includeDecided=true&limit=2000');
+    const data=await res.json();
+    const items=(data.items||[]).filter(i=>!['new','queued'].includes(String(i.status||'').toLowerCase()));
+    meta.textContent=`${items.length} bearbeitete Einträge`;
+    if(!items.length){tb.innerHTML='<tr><td colspan="5">Keine bearbeiteten Einträge.</td></tr>';return;}
+    tb.innerHTML=items.map(i=>`<tr><td>${esc(i.title||'')}</td><td>${esc(i.sourceId||'')}</td><td>${esc(i.status||'')}</td><td>${Number(i.score||0).toFixed(2)}</td><td>${i.sourceUrl?`<a href="${esc(i.sourceUrl)}" target="_blank" rel="noopener noreferrer">Original</a>`:'-'}</td></tr>`).join('');
+  }catch(e){tb.innerHTML='<tr><td colspan="5">Fehler beim Laden.</td></tr>';meta.textContent=String(e&&e.message||e)}
+})();
+</script>
+</body>
+</html>

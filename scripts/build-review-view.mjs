@@ -517,10 +517,10 @@ const html = `<!doctype html>
 <body>
   <main class="wrap">
     <h1>Review-Ansicht</h1>
-    <p>Es werden standardmässig nur <strong>offene</strong> relevante Einträge gezeigt (queued/new). Bereits bearbeitete Einträge bleiben ausgeblendet und können bei Bedarf über den Button eingeblendet werden. Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt. Approve/Reject blendet den Eintrag sofort aus; mit <strong>Entscheidungen exportieren</strong> + <code>npm run crawler:apply-review</code> wird es in JSON/DB übernommen.</p>
+    <p>Diese Ansicht zeigt strikt nur <strong>offene</strong> Einträge (queued/new). Bereits bearbeitete Einträge findest du unter <a href="/review-history.html">Review-History</a>. Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt.</p>
     <p class="status" id="status-summary">Status-Summen (sichtbar): queued=0, approved=0, published=0</p>
-    <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a></nav>
-    <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="importDecisionsPrompt()">Entscheidungen importieren</button> <button onclick="syncLocalDecisions()">Lokale Entscheidungen synchronisieren</button> <button onclick="toggleDecided()" id="toggle-decided">Bereits bearbeitete anzeigen</button> <button onclick="resetLocalReviewState()">Lokale Entscheidungen zurücksetzen</button></p>
+    <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a><a href="/review-history.html">Review-History</a></nav>
+    <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="importDecisionsPrompt()">Entscheidungen importieren</button> <button onclick="syncLocalDecisions()">Lokale Entscheidungen synchronisieren</button> <button onclick="resetLocalReviewState()">Lokale Entscheidungen zurücksetzen</button></p>
     <input id="import-decisions-input" type="file" accept="application/json" style="display:none" onchange="importDecisionsFile(event)" />
     <p id="decision-status" class="muted" aria-live="polite"></p>
     ${fastLaneRows ? `<section class="fastlane-wrap">
@@ -545,7 +545,6 @@ const html = `<!doctype html>
   </main>
 <script>
 const key='tierpolitik.review';
-const uiKey='tierpolitik.review.ui';
 const fastlaneTagKey='tierpolitik.review.fastlaneTags';
 const initialFastlaneTags=${JSON.stringify(fastlaneTags)};
 const API_BASE=(window.__REVIEW_API_BASE__||'/.netlify/functions').replace(/\\/$/,'');
@@ -588,8 +587,7 @@ function renderRowsFromItems(items){
 
 async function loadReviewItemsFromDb(){
   try{
-    const includeDecided = showDecided ? '&includeDecided=true' : '';
-    const res=await fetch(API_BASE + '/review-items?limit=1000' + includeDecided,{headers:{accept:'application/json'}});
+    const res=await fetch(API_BASE + '/review-items?limit=1000',{headers:{accept:'application/json'}});
     if(!res.ok) return;
     const data=await res.json().catch(()=>null);
     if(!data?.ok || !Array.isArray(data.items)) return;
@@ -604,9 +602,6 @@ const readFastlaneTags=()=>{
   return { ...initialFastlaneTags, ...local };
 };
 const writeFastlaneTags=(v)=>localStorage.setItem(fastlaneTagKey,JSON.stringify(v));
-const readUi=()=>JSON.parse(localStorage.getItem(uiKey)||'{}');
-const writeUi=(v)=>localStorage.setItem(uiKey,JSON.stringify(v));
-
 async function postJson(path,payload){
   const res = await fetch(API_BASE + path, {
     method: 'POST',
@@ -618,8 +613,6 @@ async function postJson(path,payload){
   if (!res.ok || data?.ok === false) throw new Error(data?.error || ('HTTP ' + res.status))
   return data || { ok: true }
 }
-
-let showDecided = false;
 
 function updateStatusSummary(){
   const stats = { queued: 0, approved: 0, published: 0 }
@@ -643,17 +636,6 @@ function hideDecidedRows(){
   const rows = [...document.querySelectorAll('tr[data-id]')]
   const decidedById = {}
 
-  const hasOpenRows = rows.some((row) => {
-    const status = row.getAttribute('data-status') || ''
-    return status === 'queued' || status === 'new'
-  })
-
-  if (!showDecided && !hasOpenRows) {
-    showDecided = true
-    writeUi({ showDecided, autoOpened: true })
-    const statusEl = document.getElementById('decision-status')
-    if (statusEl) statusEl.textContent = 'Keine offenen Einträge: bearbeitete Einträge werden automatisch eingeblendet.'
-  }
 
   const localAffairDecided = new Set(Object.keys(decisions)
     .filter((id) => String(id).startsWith('ch-parliament-'))
@@ -674,7 +656,7 @@ function hideDecidedRows(){
     const localAffairHit = Boolean(affairId) && localAffairDecided.has(affairId)
     const decided = serverDecided || localDecided || localAffairHit
     decidedById[id] = decided
-    row.style.display = (!showDecided && decided) ? 'none' : ''
+    row.style.display = decided ? 'none' : ''
   });
 
   document.querySelectorAll('.fastlane-card[data-id]').forEach((card)=>{
@@ -684,22 +666,12 @@ function hideDecidedRows(){
     card.style.display = decided ? 'none' : ''
   })
 
-  const btn = document.getElementById('toggle-decided')
-  if (btn) btn.textContent = showDecided ? 'Bearbeitete ausblenden' : 'Bereits bearbeitete anzeigen'
   updateStatusSummary();
-}
-
-function toggleDecided(){
-  showDecided = !showDecided
-  writeUi({ showDecided })
-  hideDecidedRows()
 }
 
 function resetLocalReviewState(){
   localStorage.removeItem(key)
   localStorage.removeItem(fastlaneTagKey)
-  showDecided = false
-  writeUi({ showDecided })
   const statusEl = document.getElementById('decision-status')
   if (statusEl) statusEl.textContent = 'Lokale Entscheidungen/Fastlane-Tags zurückgesetzt.'
   hideDecidedRows()
@@ -760,7 +732,7 @@ async function setDecision(btn,id,status){
   if (row) {
     row.setAttribute('data-status', status)
     row.style.opacity = '0.72'
-    if (!showDecided) row.style.display='none'
+    row.style.display='none'
   }
 
   const card = document.querySelector('.fastlane-card[data-id="' + id + '"]');
