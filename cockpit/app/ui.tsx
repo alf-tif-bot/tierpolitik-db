@@ -66,6 +66,7 @@ type CronJob = {
   scheduleTz?: string | null
   scheduleEveryMs?: number | null
   status: string
+  cronType?: string | null
   source?: 'openclaw' | 'launchd'
   sessionTarget?: string | null
   wakeMode?: string | null
@@ -1444,6 +1445,8 @@ export default function ClientBoard() {
   const [cronJobs, setCronJobs] = useState<CronJob[]>([])
   const [cronLoading, setCronLoading] = useState(false)
   const [cronError, setCronError] = useState<string | null>(null)
+  const [cronTypeFilter, setCronTypeFilter] = useState<string>('all')
+  const [cronSortMode, setCronSortMode] = useState<'time' | 'type'>('time')
   const [selectedCronJob, setSelectedCronJob] = useState<{ job: CronJob; runAtMs: number | null } | null>(null)
   const [cronFixPendingJobId, setCronFixPendingJobId] = useState<string | null>(null)
   const [agentsSummary, setAgentsSummary] = useState<AgentSummary[]>([])
@@ -3621,13 +3624,37 @@ export default function ClientBoard() {
     return expanded
   }
 
-  const calendarJobs = expandCronOccurrencesForWindow(cronJobs)
+  const availableCronTypes = useMemo(() => {
+    const types = new Set<string>()
+    for (const job of cronJobs) {
+      if (!job.enabled) continue
+      const type = String(job.cronType || 'General').trim()
+      if (type) types.add(type)
+    }
+    return [...types].sort((a, b) => a.localeCompare(b, 'de-CH'))
+  }, [cronJobs])
+
+  const calendarSourceJobs = useMemo(() => {
+    return cronJobs.filter((job) => {
+      if (!job.enabled) return false
+      if (cronTypeFilter === 'all') return true
+      return (job.cronType || 'General') === cronTypeFilter
+    })
+  }, [cronJobs, cronTypeFilter])
+
+  const calendarJobs = expandCronOccurrencesForWindow(calendarSourceJobs)
 
   const weeklyJobColumns = weekDays.map((day) => ({
     ...day,
     jobs: calendarJobs
       .filter((job) => typeof job.nextRunAtMs === 'number' && job.nextRunAtMs >= day.startMs && job.nextRunAtMs < day.endMs)
-      .sort((a, b) => (a.nextRunAtMs || 0) - (b.nextRunAtMs || 0)),
+      .sort((a, b) => {
+        if (cronSortMode === 'type') {
+          const typeCmp = String(a.cronType || 'General').localeCompare(String(b.cronType || 'General'), 'de-CH')
+          if (typeCmp !== 0) return typeCmp
+        }
+        return (a.nextRunAtMs || 0) - (b.nextRunAtMs || 0)
+      }),
   }))
 
   const hiddenDisabledCronJobsCount = cronJobs.filter((job) => !job.enabled).length
@@ -4435,14 +4462,30 @@ export default function ClientBoard() {
           </>
         ) : section === 'calendar' ? (
           <>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10, gap: 10, flexWrap: 'wrap' }}>
               <div style={{ fontSize: 13, opacity: 0.8 }}>
-                OpenClaw Cron-Jobs mit nächster Ausführung in der aktuellen Woche (Europe/Zurich).
+                OpenClaw Cron-Jobs mit nächster Ausführung in der aktuellen Woche.
                 {hiddenDisabledCronJobsCount > 0 && (
                   <span style={{ marginLeft: 8, opacity: 0.72 }}>
                     {hiddenDisabledCronJobsCount} deaktivierte Jobs ausgeblendet.
                   </span>
                 )}
+              </div>
+              <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+                <label style={{ fontSize: 12, opacity: 0.85 }}>
+                  Typ
+                  <select value={cronTypeFilter} onChange={(e) => setCronTypeFilter(e.target.value)} style={{ marginLeft: 6 }}>
+                    <option value="all">Alle</option>
+                    {availableCronTypes.map((type) => <option key={type} value={type}>{type}</option>)}
+                  </select>
+                </label>
+                <label style={{ fontSize: 12, opacity: 0.85 }}>
+                  Sortierung
+                  <select value={cronSortMode} onChange={(e) => setCronSortMode(e.target.value as 'time' | 'type')} style={{ marginLeft: 6 }}>
+                    <option value="time">Zeit</option>
+                    <option value="type">Typ, dann Zeit</option>
+                  </select>
+                </label>
               </div>
             </div>
             {cronError && (
@@ -4474,7 +4517,7 @@ export default function ClientBoard() {
                           >
                             <div style={{ fontSize: 12, fontWeight: 600, lineHeight: 1.3 }}>{job.name}</div>
                             <div style={{ fontSize: 11, opacity: 0.78 }}>
-                              {job.nextRunAtMs ? new Date(job.nextRunAtMs).toLocaleTimeString('de-CH', { hour: '2-digit', minute: '2-digit' }) : 'ohne Zeit'}
+                              {job.nextRunAtMs ? new Date(job.nextRunAtMs).toLocaleTimeString('de-CH', { hour: '2-digit', minute: '2-digit' }) : 'ohne Zeit'} · {job.cronType || 'General'}
                             </div>
                           </button>
                         )
@@ -4519,6 +4562,7 @@ export default function ClientBoard() {
 
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0,1fr))', gap: 8, marginTop: 12 }}>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Status:</strong> {selectedCronJob.job.status || '–'}</div>
+                    <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Typ:</strong> {selectedCronJob.job.cronType || 'General'}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Quelle:</strong> {selectedCronJob.job.source || 'openclaw'}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Agent:</strong> {selectedCronJob.job.agentId || '–'}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>LLM-Modell:</strong> {selectedCronJob.job.agentId ? (modelByAgentId.get(selectedCronJob.job.agentId) || 'unbekannt') : '–'}</div>

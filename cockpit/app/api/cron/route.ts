@@ -111,6 +111,22 @@ async function readCronJobsFileFallback() {
   return Array.isArray(parsed.jobs) ? parsed.jobs : []
 }
 
+function inferCronType(job: CronJobRaw) {
+  const name = String(job.name || '').toLowerCase()
+  const agentId = String(job.agentId || '').toLowerCase()
+  const message = String(job.payload?.message || '').toLowerCase()
+
+  if (name.includes('security') || message.includes('security') || message.includes('sicher')) return 'Security'
+  if (name.includes('backup') || name.includes('restic') || message.includes('backup')) return 'Backup'
+  if (name.includes('crawler') || name.includes('monitor')) return 'Monitoring'
+  if (name.includes('health') || agentId.includes('health')) return 'Health'
+  if (agentId.startsWith('tif-') || name.includes('tif') || message.includes('tier im fokus') || message.includes('tierimfokus')) return 'TIF'
+  if (name.includes('content') || message.includes('newsletter') || message.includes('social')) return 'Content'
+  if (name.includes('workspace') || message.includes('workspace')) return 'Ops'
+
+  return 'General'
+}
+
 function toJobView(job: CronJobRaw) {
   const nextRunAtMs = typeof job.state?.nextRunAtMs === 'number' ? job.state.nextRunAtMs : null
 
@@ -125,6 +141,7 @@ function toJobView(job: CronJobRaw) {
     scheduleTz: typeof job.schedule?.tz === 'string' ? job.schedule.tz : null,
     scheduleEveryMs: typeof job.schedule?.everyMs === 'number' ? job.schedule.everyMs : null,
     status: String(job.state?.lastStatus || 'idle'),
+    cronType: inferCronType(job),
     source: job.source === 'launchd' ? 'launchd' : 'openclaw',
     sessionTarget: typeof job.sessionTarget === 'string' ? job.sessionTarget : null,
     wakeMode: typeof job.wakeMode === 'string' ? job.wakeMode : null,
