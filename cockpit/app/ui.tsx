@@ -74,6 +74,7 @@ type CronJob = {
   deliveryMode?: string | null
   deliveryChannel?: string | null
   deliveryTo?: string | null
+  deliveryTargetLabel?: string | null
   createdAtMs?: number | null
   updatedAtMs?: number | null
   nextRunAtMs: number | null
@@ -4474,6 +4475,7 @@ export default function ClientBoard() {
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Schedule:</strong> {selectedCronJob.job.scheduleExpr || selectedCronJob.job.scheduleLabel}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Timezone:</strong> {selectedCronJob.job.scheduleTz || 'Europe/Zurich'}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Delivery:</strong> {selectedCronJob.job.deliveryMode || '–'} {selectedCronJob.job.deliveryChannel ? `· ${selectedCronJob.job.deliveryChannel}` : ''}</div>
+                    <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Discord-Channel:</strong> {selectedCronJob.job.deliveryTargetLabel || selectedCronJob.job.deliveryTo || '–'}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Consecutive Errors:</strong> {typeof selectedCronJob.job.consecutiveErrors === 'number' ? selectedCronJob.job.consecutiveErrors : 0}</div>
                   </div>
 

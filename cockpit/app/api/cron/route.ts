@@ -54,6 +54,8 @@ type CronJobsFile = {
   jobs?: CronJobRaw[]
 }
 
+type CronJobView = ReturnType<typeof toJobView>
+
 function formatSchedule(job: CronJobRaw) {
   const schedule = job.schedule
   if (!schedule) return 'unbekannt'
@@ -131,6 +133,7 @@ function toJobView(job: CronJobRaw) {
     deliveryMode: typeof job.delivery?.mode === 'string' ? job.delivery.mode : null,
     deliveryChannel: typeof job.delivery?.channel === 'string' ? job.delivery.channel : null,
     deliveryTo: typeof job.delivery?.to === 'string' ? job.delivery.to : null,
+    deliveryTargetLabel: null as string | null,
     createdAtMs: typeof job.createdAtMs === 'number' ? job.createdAtMs : null,
     updatedAtMs: typeof job.updatedAtMs === 'number' ? job.updatedAtMs : null,
     nextRunAtMs,
@@ -153,6 +156,60 @@ function nextLocalRunAt(hour: number, minute: number) {
     next.setDate(next.getDate() + 1)
   }
   return next.getTime()
+}
+
+async function readDiscordTokenFromConfig() {
+  try {
+    const cfgPath = path.join(os.homedir(), '.openclaw', 'openclaw.json')
+    const raw = await readFile(cfgPath, 'utf8')
+    const parsed = JSON.parse(raw) as { channels?: { discord?: { token?: string } } }
+    const token = parsed?.channels?.discord?.token
+    return typeof token === 'string' && token.trim() ? token.trim() : null
+  } catch {
+    return null
+  }
+}
+
+async function resolveDiscordChannelLabels(jobs: CronJobView[]) {
+  const channelIds = [...new Set(
+    jobs
+      .filter((job) => job.deliveryChannel === 'discord')
+      .map((job) => String(job.deliveryTo || '').trim())
+      .filter((id) => /^\d{8,}$/.test(id)),
+  )]
+
+  if (channelIds.length === 0) return jobs
+
+  const token = await readDiscordTokenFromConfig()
+  if (!token) return jobs
+
+  const labels = new Map<string, string>()
+
+  await Promise.all(channelIds.map(async (id) => {
+    try {
+      const res = await fetch(`https://discord.com/api/v10/channels/${id}`, {
+        headers: { Authorization: `Bot ${token}` },
+        cache: 'no-store',
+      })
+      if (!res.ok) return
+      const payload = (await res.json()) as { name?: string; type?: number }
+      const channelName = typeof payload?.name === 'string' ? payload.name.trim() : ''
+      if (!channelName) return
+      const pretty = payload.type === 1 ? `@${channelName}` : `#${channelName}`
+      labels.set(id, pretty)
+    } catch {
+      // ignore network/api errors; fallback to raw channel id
+    }
+  }))
+
+  return jobs.map((job) => {
+    if (job.deliveryChannel !== 'discord') return job
+    const target = String(job.deliveryTo || '').trim()
+    if (!target) return job
+    const label = labels.get(target)
+    if (!label) return job
+    return { ...job, deliveryTargetLabel: `${label} (${target})` }
+  })
 }
 
 function buildLaunchdJobName(label: string) {
@@ -267,7 +324,9 @@ export async function GET() {
         return a.name.localeCompare(b.name, 'de-CH')
       })
 
-    return NextResponse.json({ jobs: normalized }, { headers: noStoreHeaders })
+    const withChannelLabels = await resolveDiscordChannelLabels(normalized)
+
+    return NextResponse.json({ jobs: withChannelLabels }, { headers: noStoreHeaders })
   } catch (error) {
     const message = error instanceof Error ? error.message : 'OpenClaw cron list failed'
     return NextResponse.json({ error: `Cron-Jobs konnten nicht geladen werden: ${message}` }, { status: 500, headers: noStoreHeaders })
