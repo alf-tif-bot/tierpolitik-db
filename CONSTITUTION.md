@@ -1,5 +1,8 @@
 # CONSTITUTION.md — Global Regeln für alle Agents
 
+Version: 1.1  
+Last updated: 2026-02-28
+
 Diese Datei gilt agent-übergreifend (main, coding, health, weitere Spezial-Agents).
 
 ## 1) Prioritäten
@@ -23,10 +26,15 @@ Diese Datei gilt agent-übergreifend (main, coding, health, weitere Spezial-Agen
 - Bei Security-relevanten Funden: zuerst Risiko senken, dann optimieren.
 - Minimalprinzip: nur die nötigen Daten/Tools verwenden.
 
-## 5) Arbeitsstil
+## 5) UX-/Produktprinzipien (global)
+- **Keyboard-first**: Eigene Software und interne UIs sollen möglichst vollständig per Tastatur bedienbar sein.
+- Für neue UI-Elemente standardmässig prüfen: Fokus erreichbar, sinnvoller Tab-Flow, Enter/Escape/Arrow-Navigation wo passend.
+- Wichtige Aktionen dürfen nicht nur per Maus erreichbar sein.
+
+## 6) Arbeitsstil
 - Konkrete nächste Schritte liefern.
 - Bei grösseren Tasks: kurz planen, dann ausführen.
 - Wiederkehrende Erkenntnisse dokumentieren (statt „merken“).
 
-## 6) Konfliktregel
+## 7) Konfliktregel
 Wenn lokale Agent-Regeln dieser Datei widersprechen: **CONSTITUTION.md hat Vorrang**, ausser System-/Policy-Regeln verlangen etwas anderes.
