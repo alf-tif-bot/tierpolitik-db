@@ -3602,8 +3602,8 @@ export default function ClientBoard() {
     const dayCount = weeklyJobColumns.length
     if (!dayCount) return
 
-    for (let hop = 1; hop <= dayCount; hop += 1) {
-      const targetDay = (dayIdx + step * hop + dayCount) % dayCount
+    let targetDay = dayIdx + step
+    while (targetDay >= 0 && targetDay < dayCount) {
       const sameRow = document.querySelector<HTMLButtonElement>(`[data-nav="cron-card"][data-day-idx="${targetDay}"][data-job-idx="${jobIdx}"]`)
       if (sameRow) {
         sameRow.focus()
@@ -3615,7 +3615,11 @@ export default function ClientBoard() {
         dayCards[Math.min(jobIdx, dayCards.length - 1)]?.focus()
         return
       }
+
+      targetDay += step
     }
+
+    // edge reached: stay where you are (no wrap)
   }
 
   async function fixCronJob(job: CronJob) {
@@ -3743,6 +3747,9 @@ export default function ClientBoard() {
   }))
 
   const hiddenDisabledCronJobsCount = cronJobs.filter((job) => !job.enabled).length
+  const activeCronJobsCount = calendarSourceJobs.length
+  const visibleCronBaseJobsCount = new Set(calendarJobs.map((job) => (job.id.includes('@') ? job.id.split('@')[0] : job.id))).size
+  const hiddenOutsideWeekCronJobsCount = Math.max(0, activeCronJobsCount - visibleCronBaseJobsCount)
   const modelByAgentId = useMemo(() => {
     const map = new Map<string, string>()
     for (const agent of agentsSummary) {
@@ -4570,9 +4577,17 @@ export default function ClientBoard() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10, gap: 10, flexWrap: 'wrap' }}>
               <div style={{ fontSize: 13, opacity: 0.8 }}>
                 OpenClaw Cron-Jobs mit nächster Ausführung in der aktuellen Woche.
+                <span style={{ marginLeft: 8, opacity: 0.72 }}>
+                  Sichtbar: {visibleCronBaseJobsCount}/{activeCronJobsCount} aktive Jobs
+                </span>
+                {hiddenOutsideWeekCronJobsCount > 0 && (
+                  <span style={{ marginLeft: 8, opacity: 0.72 }}>
+                    ({hiddenOutsideWeekCronJobsCount} laufen ausserhalb dieser Woche)
+                  </span>
+                )}
                 {hiddenDisabledCronJobsCount > 0 && (
                   <span style={{ marginLeft: 8, opacity: 0.72 }}>
-                    {hiddenDisabledCronJobsCount} deaktivierte Jobs ausgeblendet.
+                    · {hiddenDisabledCronJobsCount} deaktivierte Jobs ausgeblendet
                   </span>
                 )}
               </div>
