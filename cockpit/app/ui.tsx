@@ -4148,7 +4148,8 @@ export default function ClientBoard() {
             {sidebarDateLabel}
           </a>
         </div>
-        <div style={{ fontSize: 12, opacity: 0.75, marginBottom: 10 }}>Cockpit · Übersicht · Prioritäten</div>
+        <div style={{ fontSize: 12, opacity: 0.75, marginBottom: 2 }}>Cockpit · Übersicht · Prioritäten</div>
+        <div style={{ fontSize: 10, opacity: 0.5, marginBottom: 8 }}>ui: e4f0b83</div>
         {(Object.keys(sectionMeta) as Section[]).map((s) => (
           <button
             key={s}
