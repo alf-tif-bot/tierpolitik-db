@@ -3785,6 +3785,19 @@ export default function ClientBoard() {
       : null
 
   useEffect(() => {
+    if (!selectedCronJob) return
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return
+      event.preventDefault()
+      setSelectedCronJob(null)
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [selectedCronJob])
+
+  useEffect(() => {
     canSaveFilePreviewRef.current = canSaveFilePreview
   }, [canSaveFilePreview])
 
