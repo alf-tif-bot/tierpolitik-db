@@ -206,7 +206,7 @@ async function resolveDiscordChannelLabels(jobs: CronJobView[]) {
   const channelIds = [...new Set(
     jobs
       .filter((job) => job.deliveryChannel === 'discord')
-      .map((job) => String(job.deliveryTo || '').trim())
+      .map((job) => String(job.deliveryTo || '').trim().replace(/^channel:/i, '').replace(/^user:/i, ''))
       .filter((id) => /^\d{8,}$/.test(id)),
   )]
 
@@ -236,7 +236,7 @@ async function resolveDiscordChannelLabels(jobs: CronJobView[]) {
 
   return jobs.map((job) => {
     if (job.deliveryChannel !== 'discord') return job
-    const target = String(job.deliveryTo || '').trim()
+    const target = String(job.deliveryTo || '').trim().replace(/^channel:/i, '').replace(/^user:/i, '')
     if (!target) return job
     const label = labels.get(target)
     if (!label) return job
