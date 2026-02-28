@@ -619,6 +619,52 @@ async function postJson(path,payload){
   return data || { ok: true }
 }
 
+
+let activeRowIndex = 0;
+
+function allRows(){
+  return [...document.querySelectorAll('tbody tr[data-id]')].filter((r)=>r.style.display !== 'none')
+}
+
+function setActiveRow(index){
+  const rows = allRows()
+  if (!rows.length) return
+  activeRowIndex = Math.max(0, Math.min(index, rows.length - 1))
+  rows.forEach((r,i)=>{
+    r.style.outline = i === activeRowIndex ? '2px solid #60a5fa' : ''
+    r.style.outlineOffset = i === activeRowIndex ? '-2px' : ''
+  })
+  rows[activeRowIndex].scrollIntoView({ block: 'nearest' })
+}
+
+function currentRow(){
+  const rows = allRows()
+  if (!rows.length) return null
+  if (activeRowIndex >= rows.length) activeRowIndex = rows.length - 1
+  return rows[activeRowIndex]
+}
+
+function actCurrent(action){
+  const row = currentRow()
+  if (!row) return
+  const id = row.getAttribute('data-id')
+  if (!id) return
+  if (action === 'approve') return setDecision(null, id, 'approved')
+  if (action === 'reject') return setDecision(null, id, 'rejected')
+  if (action === 'fastlane') return toggleFastlaneTag(null, id)
+}
+
+function keyboardHandler(e){
+  const tag = (e.target && e.target.tagName || '').toLowerCase()
+  if (tag === 'input' || tag === 'textarea' || e.metaKey || e.ctrlKey || e.altKey) return
+
+  if (e.key === 'j') { e.preventDefault(); setActiveRow(activeRowIndex + 1); return }
+  if (e.key === 'k' || e.key === 'l') { e.preventDefault(); setActiveRow(activeRowIndex - 1); return }
+  if (e.key === 'a') { e.preventDefault(); actCurrent('approve'); return }
+  if (e.key === 'r') { e.preventDefault(); actCurrent('reject'); return }
+  if (e.key === 'f') { e.preventDefault(); actCurrent('fastlane'); return }
+}
+
 function updateStatusSummary(){
   const stats = { queued: 0, approved: 0, published: 0 }
   let visibleRows = 0
@@ -743,7 +789,7 @@ async function setDecision(btn,id,status){
   const card = document.querySelector('.fastlane-card[data-id="' + id + '"]');
   if (card) card.style.display = 'none'
   updateStatusSummary();
-  if (statusEl) statusEl.textContent = storage === 'server' ? 'In DB gespeichert.' : 'Lokal gespeichert.';
+  if (statusEl) statusEl.textContent = storage === 'server' ? 'In DB gespeichert. (Shortcuts: j/k bzw. j/l, a=approve, r=reject, f=fastlane)' : 'Lokal gespeichert.';
   if (btn) btn.disabled = false;
 }
 
@@ -829,7 +875,8 @@ function exportDecisions(){
 }
 
 for (const id of Object.keys(readFastlaneTags())) renderFastlaneTagButton(id)
-loadReviewItemsFromDb().finally(()=>{ hideDecidedRows(); });
+document.addEventListener('keydown', keyboardHandler)
+loadReviewItemsFromDb().finally(()=>{ hideDecidedRows(); setActiveRow(0); });
 </script>
 </body>
 </html>`
