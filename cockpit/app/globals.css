@@ -43,6 +43,24 @@ input:focus, select:focus, textarea:focus, button:focus {
   box-shadow: 0 0 0 2px rgba(255,255,255,.06);
 }
 
+/* Strong keyboard focus visibility */
+:focus-visible {
+  outline: 2px solid #7fb0ff;
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+[data-nav="section-item"]:focus-visible,
+[data-nav="cron-card"]:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  border-color: #7fb0ff !important;
+  box-shadow: 0 0 0 3px rgba(127,176,255,.35), 0 0 0 1px rgba(127,176,255,.8) inset !important;
+  background: #2d2d2d !important;
+}
+
 .cockpit-shell {
   max-width: 1380px !important;
   grid-template-columns: 240px 1fr !important;
