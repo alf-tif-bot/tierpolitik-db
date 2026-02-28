@@ -279,6 +279,7 @@ const reviewItems = [...hardGrouped.values()]
   })
 
 const sourceMap = new Map((db.sources || []).map((s) => [s.id, s.label]))
+const SOURCE_LABELS_OBJ = Object.fromEntries([...sourceMap.entries()])
 
 const esc = (v = '') => String(v).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
 // Status-Summen werden clientseitig aus den aktuell sichtbaren Zeilen berechnet.
@@ -548,6 +549,54 @@ const uiKey='tierpolitik.review.ui';
 const fastlaneTagKey='tierpolitik.review.fastlaneTags';
 const initialFastlaneTags=${JSON.stringify(fastlaneTags)};
 const API_BASE=(window.__REVIEW_API_BASE__||'/.netlify/functions').replace(/\\/$/,'');
+const SOURCE_LABELS=${JSON.stringify(SOURCE_LABELS_OBJ)};
+const escHtml=(v)=>String(v??'').replace(/[&<>\"']/g,(c)=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+const normalizeStatus=(s='')=>{ const x=String(s||'').toLowerCase(); return (x==='new'||x==='queued'||x==='approved'||x==='rejected'||x==='published')?x:'queued'; };
+const shortSummary=(item)=>String(item.summary || item.body || '').replace(/\s+/g,' ').trim().slice(0,220);
+const humanize=(reason='')=>String(reason||'').replace(/\s*·\s*/g,' | ').replace(/stance=/gi,'Haltung: ').replace(/keyword-match=/gi,'Keywords: ').replace(/signal-match=/gi,'Signal: ').replace(/source-signal=/gi,'Quelle: ').replace(/no-tier-signal/gi,'kein Tierbezug').trim() || '-';
+
+function renderRowsFromItems(items){
+  const tbody=document.querySelector('tbody');
+  if(!tbody) return;
+  if(!Array.isArray(items) || !items.length){
+    tbody.innerHTML='<tr><td colspan="8">Keine Einträge.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = items.map((item)=>{
+    const id = item.id || ((item.sourceId||'') + ':' + (item.externalId||''));
+    const st = normalizeStatus(item.status);
+    const pending = (st==='queued'||st==='new');
+    const pendingBadge = pending ? '<strong class="pending">offen</strong>' : '<span class="historic">historisch</span>';
+    const score = Number(item.score||0);
+    const sourceLabel = SOURCE_LABELS[item.sourceId] || item.sourceId || 'Quelle';
+    const sourceUrl = item.sourceUrl || '';
+    const link = sourceUrl ? '<a class="orig-link" href="' + escHtml(sourceUrl) + '" target="_blank" rel="noopener noreferrer">Original-Vorstoss öffnen</a>' : '<span class="muted">kein gültiger Link</span>';
+    return '<tr data-id="' + escHtml(id) + '" data-status="' + escHtml(st) + '" data-fastlane-tagged="0">'
+      + '<td><strong>' + escHtml(item.title||'') + '</strong><br><small>' + escHtml(shortSummary(item)) + '</small><br>' + link + '</td>'
+      + '<td>Crawler</td>'
+      + '<td><div>' + escHtml(sourceLabel) + '</div><small class="muted">' + escHtml(item.sourceId||'') + '</small></td>'
+      + '<td>' + score.toFixed(2) + '</td>'
+      + '<td>' + escHtml((item.matchedKeywords||[]).join(', ')) + '</td>'
+      + '<td>' + escHtml(st) + ' (' + pendingBadge + ')</td>'
+      + '<td><small>' + escHtml(humanize(item.reviewReason||'')) + '</small></td>'
+      + '<td><button onclick="setDecision(this,\'' + escHtml(id) + '\',\'approved\')">Approve</button>'
+      + '<button onclick="setDecision(this,\'' + escHtml(id) + '\',\'rejected\')">Reject</button>'
+      + '<button class="tag-btn" data-tag-btn="' + escHtml(id) + '" onclick="toggleFastlaneTag(this,\'' + escHtml(id) + '\')">☆ Fastlane</button></td>'
+      + '</tr>';
+  }).join('');
+}
+
+async function loadReviewItemsFromDb(){
+  try{
+    const includeDecided = showDecided ? '&includeDecided=true' : '';
+    const res=await fetch(API_BASE + '/review-items?limit=1000' + includeDecided,{headers:{accept:'application/json'}});
+    if(!res.ok) return;
+    const data=await res.json().catch(()=>null);
+    if(!data?.ok || !Array.isArray(data.items)) return;
+    renderRowsFromItems(data.items);
+  }catch{}
+}
+
 const read=()=>JSON.parse(localStorage.getItem(key)||'{}');
 const write=(v)=>localStorage.setItem(key,JSON.stringify(v,null,2));
 const readFastlaneTags=()=>{
@@ -803,7 +852,7 @@ function exportDecisions(){
 }
 
 for (const id of Object.keys(readFastlaneTags())) renderFastlaneTagButton(id)
-hideDecidedRows();
+loadReviewItemsFromDb().finally(()=>{ hideDecidedRows(); });
 </script>
 </body>
 </html>`
