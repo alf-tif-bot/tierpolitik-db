@@ -240,7 +240,7 @@ async function resolveDiscordChannelLabels(jobs: CronJobView[]) {
     if (!target) return job
     const label = labels.get(target)
     if (!label) return job
-    return { ...job, deliveryTargetLabel: `${label} (${target})` }
+    return { ...job, deliveryTargetLabel: label }
   })
 }
 
