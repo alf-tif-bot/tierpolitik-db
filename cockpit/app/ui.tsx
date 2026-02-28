@@ -4758,9 +4758,6 @@ export default function ClientBoard() {
                   </div>
 
                   <div style={{ marginTop: 10, fontSize: 12, opacity: 0.82 }}>
-                    <div><strong>Job-ID:</strong> <code>{selectedCronJob.job.id}</code></div>
-                    {selectedCronJob.job.deliveryTo && <div><strong>Delivery-Ziel:</strong> <code>{selectedCronJob.job.deliveryTo}</code></div>}
-                    {selectedCronJob.job.payloadKind && <div><strong>Payload:</strong> {selectedCronJob.job.payloadKind}</div>}
                     {selectedCronJob.job.lastError && (
                       <div style={{ marginTop: 6, padding: 8, borderRadius: 8, border: '1px solid #7f1d1d', background: '#2b1111', color: '#fecaca' }}>
                         <strong>Letzter Fehler:</strong> {selectedCronJob.job.lastError}
