@@ -3748,8 +3748,8 @@ export default function ClientBoard() {
 
   const hiddenDisabledCronJobsCount = cronJobs.filter((job) => !job.enabled).length
   const activeCronJobsCount = calendarSourceJobs.length
-  const visibleCronBaseJobsCount = new Set(calendarJobs.map((job) => (job.id.includes('@') ? job.id.split('@')[0] : job.id))).size
-  const hiddenOutsideWeekCronJobsCount = Math.max(0, activeCronJobsCount - visibleCronBaseJobsCount)
+  const weeklyVisibleCronJobsCount = new Set(calendarJobs.map((job) => (job.id.includes('@') ? job.id.split('@')[0] : job.id))).size
+  const outsideWeekCronJobsCount = Math.max(0, activeCronJobsCount - weeklyVisibleCronJobsCount)
   const modelByAgentId = useMemo(() => {
     const map = new Map<string, string>()
     for (const agent of agentsSummary) {
@@ -4578,11 +4578,14 @@ export default function ClientBoard() {
               <div style={{ fontSize: 13, opacity: 0.8 }}>
                 OpenClaw Cron-Jobs mit nächster Ausführung in der aktuellen Woche.
                 <span style={{ marginLeft: 8, opacity: 0.72 }}>
-                  Sichtbar: {visibleCronBaseJobsCount}/{activeCronJobsCount} aktive Jobs
+                  Aktive Jobs gesamt: {activeCronJobsCount}
                 </span>
-                {hiddenOutsideWeekCronJobsCount > 0 && (
+                <span style={{ marginLeft: 8, opacity: 0.72 }}>
+                  · Davon diese Woche mit Run: {weeklyVisibleCronJobsCount}
+                </span>
+                {outsideWeekCronJobsCount > 0 && (
                   <span style={{ marginLeft: 8, opacity: 0.72 }}>
-                    ({hiddenOutsideWeekCronJobsCount} laufen ausserhalb dieser Woche)
+                    ({outsideWeekCronJobsCount} ausserhalb dieser Woche)
                   </span>
                 )}
                 {hiddenDisabledCronJobsCount > 0 && (
