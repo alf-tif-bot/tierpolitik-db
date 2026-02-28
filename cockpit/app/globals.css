@@ -1,0 +1,60 @@
+:root {
+  --bg-0: #090b10;
+  --bg-1: #0f131a;
+  --panel: #121822;
+  --panel-2: #151c28;
+  --text: #f5f7fb;
+  --muted: #9aa7bd;
+  --line: #263042;
+  --accent: #6ea8ff;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  background:
+    radial-gradient(1100px 700px at 8% -10%, rgba(80,120,255,.22), transparent 55%),
+    radial-gradient(900px 600px at 100% 0%, rgba(0,220,255,.10), transparent 45%),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 100%);
+  color: var(--text);
+}
+
+button, select, input, textarea {
+  font: inherit;
+}
+
+button {
+  border: 1px solid #334155;
+  background: linear-gradient(180deg, #1b2432 0%, #131a25 100%);
+  color: #e6edf8;
+  border-radius: 10px;
+  padding: 7px 11px;
+  transition: .15s ease;
+}
+button:hover { border-color: #4f6585; transform: translateY(-1px); }
+button:disabled { opacity: .55; transform: none; }
+
+input, select, textarea {
+  border: 1px solid #334155;
+  background: #0f1520;
+  color: #e7eefb;
+  border-radius: 10px;
+  padding: 7px 10px;
+}
+input:focus, select:focus, textarea:focus, button:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(110,168,255,.2);
+}
+
+/* Quick "shiny minimalist" pass on existing inline panels */
+[style*="background: '#1f1f1f'"],
+[style*="background:'#1f1f1f'"],
+[style*="background: '#202020'"],
+[style*="background:'#202020'"],
+[style*="background: '#181818'"],
+[style*="background:'#181818'"] {
+  background: linear-gradient(180deg, rgba(22,29,42,.95) 0%, rgba(17,23,34,.95) 100%) !important;
+  border-color: #2c3950 !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.03), 0 8px 24px rgba(0,0,0,.28);
+}
