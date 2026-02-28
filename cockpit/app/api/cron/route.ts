@@ -443,12 +443,14 @@ export async function GET() {
       const raw = rawById.get(job.id)
       if (!raw) return job
       const latest = await readLatestRunRecord(job.id)
+      const isSecurity = inferCronType(raw) === 'Security'
       const report = await ensureCronRunReport(raw, latest)
       return {
         ...job,
-        lastRunReportPath: report?.relPath || null,
-        lastRunSummary: typeof latest?.summary === 'string' ? latest.summary : null,
+        lastRunReportPath: isSecurity ? null : (report?.relPath || null),
+        lastRunSummary: isSecurity ? null : (typeof latest?.summary === 'string' ? latest.summary : null),
         lastRunModel: typeof latest?.model === 'string' ? latest.model : null,
+        lastError: isSecurity ? null : job.lastError,
       }
     }))
 
