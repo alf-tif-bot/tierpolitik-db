@@ -1,6 +1,6 @@
 import { execFile } from 'node:child_process'
 import { existsSync } from 'node:fs'
-import { readdir, readFile } from 'node:fs/promises'
+import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import os from 'node:os'
 import path from 'node:path'
 import { promisify } from 'node:util'
@@ -52,6 +52,20 @@ type CronJobRaw = {
 
 type CronJobsFile = {
   jobs?: CronJobRaw[]
+}
+
+type CronRunRecord = {
+  ts?: number
+  jobId?: string
+  status?: string
+  summary?: string
+  error?: string
+  runAtMs?: number
+  durationMs?: number
+  nextRunAtMs?: number
+  model?: string
+  provider?: string
+  sessionKey?: string
 }
 
 type CronJobView = ReturnType<typeof toJobView>
@@ -177,6 +191,9 @@ function toJobView(job: CronJobRaw) {
     consecutiveErrors: typeof job.state?.consecutiveErrors === 'number' ? job.state.consecutiveErrors : null,
     lastDelivered: typeof job.state?.lastDelivered === 'boolean' ? job.state.lastDelivered : null,
     lastDeliveryStatus: typeof job.state?.lastDeliveryStatus === 'string' ? job.state.lastDeliveryStatus : null,
+    lastRunReportPath: null as string | null,
+    lastRunSummary: null as string | null,
+    lastRunModel: null as string | null,
   }
 }
 
@@ -282,6 +299,65 @@ function parseLaunchdStartCalendarInterval(plist: string) {
   return { hour, minute, expr }
 }
 
+async function readLatestRunRecord(jobId: string): Promise<CronRunRecord | null> {
+  try {
+    const runFile = path.join(os.homedir(), '.openclaw', 'cron', 'runs', `${jobId}.jsonl`)
+    const raw = await readFile(runFile, 'utf8')
+    const lines = raw.split('\n').map((line) => line.trim()).filter(Boolean)
+    for (let i = lines.length - 1; i >= 0; i -= 1) {
+      const parsed = JSON.parse(lines[i]) as CronRunRecord
+      if (parsed && parsed.jobId === jobId) return parsed
+    }
+    return null
+  } catch {
+    return null
+  }
+}
+
+function sanitizeFilePart(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9-_]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 80) || 'job'
+}
+
+async function ensureCronRunReport(job: CronJobRaw, latest: CronRunRecord | null) {
+  if (!job.id || !latest || typeof latest.runAtMs !== 'number') return null
+
+  const runsRoot = path.join(process.cwd(), 'data', 'cron-runs')
+  const jobSlug = sanitizeFilePart(String(job.name || job.id))
+  const jobDir = path.join(runsRoot, `${jobSlug}--${job.id}`)
+  await mkdir(jobDir, { recursive: true })
+
+  const stamp = new Date(latest.runAtMs).toISOString().replace(/[:]/g, '-').replace(/\.\d{3}Z$/, 'Z')
+  const fileName = `${stamp}.md`
+  const absPath = path.join(jobDir, fileName)
+
+  const content = [
+    `# Cron Run Report`,
+    ``,
+    `- Job: ${job.name || 'Ohne Namen'}`,
+    `- Job-ID: ${job.id}`,
+    `- Status: ${latest.status || 'unknown'}`,
+    `- Run at: ${new Date(latest.runAtMs).toLocaleString('de-CH')}`,
+    `- Duration: ${typeof latest.durationMs === 'number' ? `${latest.durationMs} ms` : '–'}`,
+    `- Model: ${latest.model || '–'}`,
+    `- Provider: ${latest.provider || '–'}`,
+    latest.sessionKey ? `- Session: ${latest.sessionKey}` : `- Session: –`,
+    ``,
+    `## Summary`,
+    latest.summary || '_Keine Summary verfügbar._',
+    ``,
+    latest.error ? `## Error\n${latest.error}\n` : '',
+  ].join('\n')
+
+  await writeFile(absPath, content, 'utf8')
+
+  const relPath = path.relative(process.cwd(), absPath).split(path.sep).join('/')
+  return { absPath, relPath }
+}
+
 async function buildLaunchdMirrorJobs(): Promise<CronJobRaw[]> {
   if (process.platform !== 'darwin') return [] as CronJobRaw[]
 
@@ -356,7 +432,26 @@ export async function GET() {
         return a.name.localeCompare(b.name, 'de-CH')
       })
 
-    const withChannelLabels = await resolveDiscordChannelLabels(normalized)
+    const rawById = new Map<string, CronJobRaw>()
+    for (const job of mergedJobs) {
+      if (!job?.id) continue
+      rawById.set(String(job.id), job)
+    }
+
+    const withReports = await Promise.all(normalized.map(async (job) => {
+      const raw = rawById.get(job.id)
+      if (!raw) return job
+      const latest = await readLatestRunRecord(job.id)
+      const report = await ensureCronRunReport(raw, latest)
+      return {
+        ...job,
+        lastRunReportPath: report?.relPath || null,
+        lastRunSummary: typeof latest?.summary === 'string' ? latest.summary : null,
+        lastRunModel: typeof latest?.model === 'string' ? latest.model : null,
+      }
+    }))
+
+    const withChannelLabels = await resolveDiscordChannelLabels(withReports)
 
     return NextResponse.json({ jobs: withChannelLabels }, { headers: noStoreHeaders })
   } catch (error) {

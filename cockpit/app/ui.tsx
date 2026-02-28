@@ -87,6 +87,9 @@ type CronJob = {
   consecutiveErrors?: number | null
   lastDelivered?: boolean | null
   lastDeliveryStatus?: string | null
+  lastRunReportPath?: string | null
+  lastRunSummary?: string | null
+  lastRunModel?: string | null
 }
 
 type AgentSummary = {
@@ -4748,9 +4751,21 @@ export default function ClientBoard() {
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Typ:</strong> {selectedCronJob.job.cronType || 'General'}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Quelle:</strong> {selectedCronJob.job.source === 'launchd' ? 'System-Job (launchd)' : (selectedCronJob.job.source || 'openclaw')}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Agent:</strong> {selectedCronJob.job.agentId || (selectedCronJob.job.source === 'launchd' ? 'System-Task' : '–')}</div>
-                    <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>LLM-Modell:</strong> {selectedCronJob.job.agentId ? (modelByAgentId.get(selectedCronJob.job.agentId) || 'unbekannt') : '–'}</div>
+                    <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>LLM-Modell:</strong> {selectedCronJob.job.agentId ? (modelByAgentId.get(selectedCronJob.job.agentId) || selectedCronJob.job.lastRunModel || 'unbekannt') : (selectedCronJob.job.lastRunModel || '–')}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Nächster Run:</strong> {formatCronDateTime(selectedCronJob.job.nextRunAtMs)}</div>
-                    <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Letzter Run:</strong> {selectedCronJob.job.source === 'launchd' && !selectedCronJob.job.lastRunAtMs ? 'nicht im Cockpit-Feed verfügbar' : formatCronDateTime(selectedCronJob.job.lastRunAtMs)}</div>
+                    <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}>
+                      <strong>Letzter Run:</strong> {selectedCronJob.job.source === 'launchd' && !selectedCronJob.job.lastRunAtMs ? 'nicht im Cockpit-Feed verfügbar' : formatCronDateTime(selectedCronJob.job.lastRunAtMs)}
+                      {selectedCronJob.job.lastRunReportPath && (
+                        <button
+                          type="button"
+                          onClick={() => { void openFilePreview('cron-run-report.md', selectedCronJob.job.lastRunReportPath || '') }}
+                          style={{ ...polishedButtonStyle, marginLeft: 8, padding: '3px 8px', fontSize: 11 }}
+                          title="Run-Report öffnen"
+                        >
+                          Report öffnen
+                        </button>
+                      )}
+                    </div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Letzte Dauer:</strong> {formatCronDuration(selectedCronJob.job.lastDurationMs)}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Intervall:</strong> {selectedCronJob.job.scheduleLabel}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Delivery:</strong> {selectedCronJob.job.deliveryMode || '–'} {selectedCronJob.job.deliveryChannel ? `· ${selectedCronJob.job.deliveryChannel}` : ''}</div>
@@ -4759,6 +4774,11 @@ export default function ClientBoard() {
                   </div>
 
                   <div style={{ marginTop: 10, fontSize: 12, opacity: 0.82 }}>
+                    {selectedCronJob.job.lastRunSummary && (
+                      <div style={{ marginTop: 6, padding: 8, borderRadius: 8, border: '1px solid #2f2f2f', background: '#1b1b1b', color: '#e5e7eb' }}>
+                        <strong>Letzte Summary:</strong> {selectedCronJob.job.lastRunSummary.slice(0, 320)}{selectedCronJob.job.lastRunSummary.length > 320 ? '…' : ''}
+                      </div>
+                    )}
                     {selectedCronJob.job.lastError && (
                       <div style={{ marginTop: 6, padding: 8, borderRadius: 8, border: '1px solid #7f1d1d', background: '#2b1111', color: '#fecaca' }}>
                         <strong>Letzter Fehler:</strong> {selectedCronJob.job.lastError}
