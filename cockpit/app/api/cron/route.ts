@@ -62,14 +62,29 @@ function formatSchedule(job: CronJobRaw) {
 
   if (schedule.kind === 'every' && typeof schedule.everyMs === 'number') {
     const minutes = Math.round(schedule.everyMs / 60_000)
-    if (minutes < 60) return `every ${minutes}m`
+    if (minutes < 60) return `alle ${minutes} Min.`
 
     const hours = Number((schedule.everyMs / 3_600_000).toFixed(2))
-    return `every ${hours}h`
+    return `alle ${hours} Std.`
   }
 
   if (schedule.kind === 'cron' && schedule.expr) {
-    return schedule.tz ? `cron ${schedule.expr} @ ${schedule.tz}` : `cron ${schedule.expr}`
+    const parts = schedule.expr.trim().split(/\s+/)
+    if (parts.length === 5) {
+      const [m, h, dom, mon, dow] = parts
+      if (/^\d{1,2}$/.test(m) && /^\d{1,2}$/.test(h) && dom === '*' && mon === '*' && dow === '*') {
+        return `täglich ${h.padStart(2, '0')}:${m.padStart(2, '0')}`
+      }
+      if (/^\d{1,2}$/.test(m) && /^\d{1,2}$/.test(h) && dom === '*' && mon === '*' && /^\d$/.test(dow)) {
+        const days = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']
+        const label = days[Number(dow)] || `Tag ${dow}`
+        return `wöchentlich ${label} ${h.padStart(2, '0')}:${m.padStart(2, '0')}`
+      }
+      if (/^\d{1,2}$/.test(m) && /^\d{1,2}$/.test(h) && /^\d{1,2}$/.test(dom) && mon === '*' && dow === '*') {
+        return `monatlich am ${dom}. um ${h.padStart(2, '0')}:${m.padStart(2, '0')}`
+      }
+    }
+    return `cron ${schedule.expr}`
   }
 
   return 'unbekannt'
