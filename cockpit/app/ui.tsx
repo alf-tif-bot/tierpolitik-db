@@ -3557,6 +3557,29 @@ export default function ClientBoard() {
     return cronPalette[hash % cronPalette.length]
   }
 
+  function simplifyCronJobName(name: string) {
+    const raw = (name || '').trim()
+    const lower = raw.toLowerCase()
+
+    if (!raw) return 'Cron Job'
+    if (lower.includes('github') && lower.includes('backup')) return 'GitHub Backup'
+    if (lower.includes('backup')) return 'Backup'
+    if (lower.includes('heartbeat')) return 'Heartbeat'
+    if (lower.includes('radar')) return 'Radar Sync'
+    if (lower.includes('newsletter')) return 'Newsletter'
+    if (lower.includes('cockpit') && lower.includes('heal')) return 'Cockpit Self-Heal'
+    if (lower.includes('gateway') && lower.includes('restart')) return 'Gateway Restart'
+
+    return raw
+      .replace(/[_-]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .replace(/\bcron\b/gi, '')
+      .replace(/\bjob\b/gi, '')
+      .replace(/\bopenclaw\b/gi, '')
+      .trim()
+      .replace(/\b\w/g, (m) => m.toUpperCase()) || 'Cron Job'
+  }
+
   function formatCronDateTime(ms?: number | null) {
     if (typeof ms !== 'number' || !Number.isFinite(ms)) return '–'
     return new Date(ms).toLocaleString('de-CH', {
@@ -4766,7 +4789,7 @@ export default function ClientBoard() {
                             title="Cron-Details öffnen"
                             style={{ border: '1px solid #3a3a3a', borderLeft: `4px solid ${sourceColor}`, background: '#181818', borderRadius: 8, padding: 6, textAlign: 'left', color: '#f5f5f5', cursor: 'pointer' }}
                           >
-                            <div style={{ fontSize: 12, fontWeight: 600, lineHeight: 1.3 }}>{job.name}</div>
+                            <div style={{ fontSize: 12, fontWeight: 600, lineHeight: 1.3 }}>{simplifyCronJobName(job.name)}</div>
                             <div style={{ fontSize: 11, opacity: 0.78 }}>
                               {job.nextRunAtMs ? new Date(job.nextRunAtMs).toLocaleTimeString('de-CH', { hour: '2-digit', minute: '2-digit' }) : 'ohne Zeit'} · {job.cronType || 'General'}
                             </div>
@@ -4791,7 +4814,7 @@ export default function ClientBoard() {
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', gap: 12 }}>
                     <div>
                       <div style={{ fontSize: 12, opacity: 0.72 }}>Cron-Details</div>
-                      <h3 style={{ margin: '4px 0 2px 0' }}>{selectedCronJob.job.name}</h3>
+                      <h3 style={{ margin: '4px 0 2px 0' }}>{simplifyCronJobName(selectedCronJob.job.name)}</h3>
                       <div style={{ fontSize: 12, opacity: 0.78 }}>
                         Geplanter Slot: {formatCronDateTime(selectedCronJob.runAtMs)}
                       </div>
@@ -4875,7 +4898,7 @@ export default function ClientBoard() {
                           <button
                             type="button"
                             style={{ ...polishedButtonStyle, padding: '3px 8px', fontSize: 11 }}
-                            onClick={() => setCronSummaryModal({ title: `${selectedCronJob.job.name} · Letztes Ergebnis`, text: beautifyCronSummary(selectedCronJob.job.lastRunSummary || '') })}
+                            onClick={() => setCronSummaryModal({ title: `${simplifyCronJobName(selectedCronJob.job.name)} · Letztes Ergebnis`, text: beautifyCronSummary(selectedCronJob.job.lastRunSummary || '') })}
                           >
                             Vollansicht
                           </button>
