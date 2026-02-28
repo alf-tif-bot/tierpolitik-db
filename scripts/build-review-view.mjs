@@ -549,10 +549,15 @@ const fastlaneTagKey='tierpolitik.review.fastlaneTags';
 const initialFastlaneTags=${JSON.stringify(fastlaneTags)};
 const API_BASE=(window.__REVIEW_API_BASE__||'/.netlify/functions').replace(/\\/$/,'');
 const SOURCE_LABELS=${JSON.stringify(SOURCE_LABELS_OBJ)};
-const escHtml=(v)=>String(v??'').replace(/[&<>\"']/g,(c)=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+const escHtml=(v)=>String(v??'')
+  .replaceAll('&','&amp;')
+  .replaceAll('<','&lt;')
+  .replaceAll('>','&gt;')
+  .replaceAll('"','&quot;')
+  .replaceAll("'",'&#39;');
 const normalizeStatus=(s='')=>{ const x=String(s||'').toLowerCase(); return (x==='new'||x==='queued'||x==='approved'||x==='rejected'||x==='published')?x:'queued'; };
-const shortSummary=(item)=>String(item.summary || item.body || '').replace(/\s+/g,' ').trim().slice(0,220);
-const humanize=(reason='')=>String(reason||'').replace(/\s*·\s*/g,' | ').replace(/stance=/gi,'Haltung: ').replace(/keyword-match=/gi,'Keywords: ').replace(/signal-match=/gi,'Signal: ').replace(/source-signal=/gi,'Quelle: ').replace(/no-tier-signal/gi,'kein Tierbezug').trim() || '-';
+const shortSummary=(item)=>{ const raw=String(item.summary || item.body || '').replaceAll('\\n',' ').replaceAll('\\t',' '); return raw.replace(/ +/g,' ').trim().slice(0,220); };
+const humanize=(reason='')=>String(reason||'').split('·').join(' | ').replace(/stance=/gi,'Haltung: ').replace(/keyword-match=/gi,'Keywords: ').replace(/signal-match=/gi,'Signal: ').replace(/source-signal=/gi,'Quelle: ').replace(/no-tier-signal/gi,'kein Tierbezug').trim() || '-';
 
 function renderRowsFromItems(items){
   const tbody=document.querySelector('tbody');
