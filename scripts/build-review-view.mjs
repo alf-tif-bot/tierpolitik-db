@@ -538,7 +538,7 @@ const html = `<!doctype html>
           <th>Aktion</th>
         </tr>
       </thead>
-      <tbody>${rows || '<tr><td colspan="8">Keine Einträge.</td></tr>'}</tbody>
+      <tbody><tr><td colspan="8">Lade aktuelle Review-Daten…</td></tr></tbody>
     </table>
   </main>
 <script>
@@ -547,6 +547,7 @@ const fastlaneTagKey='tierpolitik.review.fastlaneTags';
 const initialFastlaneTags=${JSON.stringify(fastlaneTags)};
 const API_BASE=(window.__REVIEW_API_BASE__||'/.netlify/functions').replace(/\\/$/,'');
 const SOURCE_LABELS=${JSON.stringify(SOURCE_LABELS_OBJ)};
+const FALLBACK_ROWS_HTML=${JSON.stringify(rows || '<tr><td colspan="8">Keine Einträge.</td></tr>')};
 const escHtml=(v)=>String(v??'')
   .replaceAll('&','&amp;')
   .replaceAll('<','&lt;')
@@ -591,11 +592,14 @@ function renderRowsFromItems(items){
 async function loadReviewItemsFromDb(){
   try{
     const res=await fetch(API_BASE + '/review-items?limit=1000',{headers:{accept:'application/json'}});
-    if(!res.ok) return;
+    if(!res.ok) throw new Error('HTTP ' + res.status);
     const data=await res.json().catch(()=>null);
-    if(!data?.ok || !Array.isArray(data.items)) return;
+    if(!data?.ok || !Array.isArray(data.items)) throw new Error('invalid payload');
     renderRowsFromItems(data.items);
-  }catch{}
+  }catch{
+    const tbody=document.querySelector('tbody');
+    if (tbody) tbody.innerHTML = FALLBACK_ROWS_HTML;
+  }
 }
 
 const read=()=>JSON.parse(localStorage.getItem(key)||'{}');
