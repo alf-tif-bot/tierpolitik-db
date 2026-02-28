@@ -520,8 +520,6 @@ const html = `<!doctype html>
     <p>Diese Ansicht zeigt strikt nur <strong>offene</strong> Einträge (queued/new). Bereits bearbeitete Einträge findest du unter <a href="/review-history.html">Review-History</a>. Wenn ein Vorstoss in mehreren Sprachen vorliegt, wird bevorzugt die <strong>deutsche Version</strong> angezeigt.</p>
     <p class="status" id="status-summary">Status-Summen (sichtbar): queued=0, approved=0, published=0</p>
     <nav class="links"><a href="/">Zur App</a><a href="/user-input.html">User-Input</a><a href="/review-history.html">Review-History</a></nav>
-    <p class="export"><button onclick="exportDecisions()">Entscheidungen exportieren</button> <button onclick="importDecisionsPrompt()">Entscheidungen importieren</button> <button onclick="syncLocalDecisions()">Lokale Entscheidungen synchronisieren</button> <button onclick="resetLocalReviewState()">Lokale Entscheidungen zurücksetzen</button></p>
-    <input id="import-decisions-input" type="file" accept="application/json" style="display:none" onchange="importDecisionsFile(event)" />
     <p id="decision-status" class="muted" aria-live="polite"></p>
     ${fastLaneRows ? `<section class="fastlane-wrap">
       <h2>⚡ Fast-Lane</h2>
