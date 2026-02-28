@@ -1458,6 +1458,8 @@ export default function ClientBoard() {
   const [selectedCronJob, setSelectedCronJob] = useState<{ job: CronJob; runAtMs: number | null } | null>(null)
   const [cronFixPendingJobId, setCronFixPendingJobId] = useState<string | null>(null)
   const [cronRunPendingJobId, setCronRunPendingJobId] = useState<string | null>(null)
+  const [cronPausePendingJobId, setCronPausePendingJobId] = useState<string | null>(null)
+  const [cronDeletePendingJobId, setCronDeletePendingJobId] = useState<string | null>(null)
   const [cronSummaryModal, setCronSummaryModal] = useState<{ title: string; text: string } | null>(null)
   const [agentsSummary, setAgentsSummary] = useState<AgentSummary[]>([])
   const [agentsLoading, setAgentsLoading] = useState(false)
@@ -3770,6 +3772,61 @@ export default function ClientBoard() {
     }
   }
 
+  async function pauseCronJob(job: CronJob) {
+    if (!job?.id || cronPausePendingJobId || job.source === 'launchd') return
+    setCronPausePendingJobId(job.id)
+    setCronError(null)
+
+    try {
+      const res = await fetchWithTimeout('/api/cron/control', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ jobId: job.id, action: 'pause' }),
+      }, 120_000)
+
+      if (!res.ok) {
+        const payload = await res.json().catch(() => ({})) as { error?: string }
+        throw new Error(payload?.error || 'Pause fehlgeschlagen')
+      }
+
+      await loadCronJobs()
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Pause fehlgeschlagen'
+      setCronError(`Cron-Pause fehlgeschlagen: ${message}`)
+    } finally {
+      setCronPausePendingJobId(null)
+    }
+  }
+
+  async function deleteCronJob(job: CronJob) {
+    if (!job?.id || cronDeletePendingJobId || job.source === 'launchd') return
+    if (typeof window !== 'undefined' && !window.confirm(`Cron-Job wirklich löschen?\n\n${simplifyCronJobName(job.name)}`)) return
+
+    setCronDeletePendingJobId(job.id)
+    setCronError(null)
+
+    try {
+      const res = await fetchWithTimeout('/api/cron/control', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ jobId: job.id, action: 'delete' }),
+      }, 120_000)
+
+      if (!res.ok) {
+        const payload = await res.json().catch(() => ({})) as { error?: string }
+        throw new Error(payload?.error || 'Delete fehlgeschlagen')
+      }
+
+      setSelectedCronJob(null)
+      await loadCronJobs()
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Delete fehlgeschlagen'
+      setCronError(`Cron-Delete fehlgeschlagen: ${message}`)
+    } finally {
+      setCronDeletePendingJobId(null)
+    }
+  }
+
   const startOfWindow = (() => {
     const start = new Date(nowTick)
     start.setHours(0, 0, 0, 0)
@@ -4840,6 +4897,24 @@ export default function ClientBoard() {
                           {cronFixPendingJobId === selectedCronJob.job.id ? 'Fix läuft…' : 'Fix Error'}
                         </button>
                       )}
+                      <button
+                        type="button"
+                        onClick={() => { void pauseCronJob(selectedCronJob.job) }}
+                        disabled={selectedCronJob.job.source === 'launchd' || cronPausePendingJobId === selectedCronJob.job.id || selectedCronJob.job.enabled === false}
+                        style={{ ...polishedButtonStyle, opacity: selectedCronJob.job.source === 'launchd' ? 0.55 : 1, cursor: selectedCronJob.job.source === 'launchd' ? 'not-allowed' : 'pointer' }}
+                        title={selectedCronJob.job.source === 'launchd' ? 'Bei System-Jobs nicht verfügbar' : 'Cron-Job pausieren (disable)'}
+                      >
+                        {cronPausePendingJobId === selectedCronJob.job.id ? 'Pausiert…' : (selectedCronJob.job.enabled === false ? 'Pausiert' : 'Pause')}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => { void deleteCronJob(selectedCronJob.job) }}
+                        disabled={selectedCronJob.job.source === 'launchd' || cronDeletePendingJobId === selectedCronJob.job.id}
+                        style={{ ...polishedButtonStyle, borderColor: '#7f1d1d', color: '#fecaca', opacity: selectedCronJob.job.source === 'launchd' ? 0.55 : 1, cursor: selectedCronJob.job.source === 'launchd' ? 'not-allowed' : 'pointer' }}
+                        title={selectedCronJob.job.source === 'launchd' ? 'Bei System-Jobs nicht verfügbar' : 'Cron-Job löschen'}
+                      >
+                        {cronDeletePendingJobId === selectedCronJob.job.id ? 'Lösche…' : 'Delete'}
+                      </button>
                       <button type="button" onClick={() => setSelectedCronJob(null)} style={polishedButtonStyle}>Schliessen</button>
                     </div>
                   </div>
