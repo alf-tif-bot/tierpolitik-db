@@ -26,6 +26,10 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: 'jobId missing' }, { status: 400, headers: noStoreHeaders })
     }
 
+    if (jobId.startsWith('launchd:')) {
+      return NextResponse.json({ ok: false, error: 'Test-Run ist nur für OpenClaw-Cronjobs verfügbar (nicht für launchd/System-Jobs).' }, { status: 400, headers: noStoreHeaders })
+    }
+
     const { stdout, stderr } = await execFileAsync('openclaw', ['cron', 'run', jobId], {
       env: runtimeEnv(),
       timeout: 300_000,

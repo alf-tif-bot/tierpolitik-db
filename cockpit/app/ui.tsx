@@ -4773,9 +4773,9 @@ export default function ClientBoard() {
                       <button
                         type="button"
                         onClick={() => { void runCronJobNow(selectedCronJob.job) }}
-                        disabled={cronRunPendingJobId === selectedCronJob.job.id}
-                        style={polishedButtonStyle}
-                        title="Job sofort testweise ausführen"
+                        disabled={selectedCronJob.job.source === 'launchd' || cronRunPendingJobId === selectedCronJob.job.id}
+                        style={{ ...polishedButtonStyle, opacity: selectedCronJob.job.source === 'launchd' ? 0.55 : 1, cursor: selectedCronJob.job.source === 'launchd' ? 'not-allowed' : 'pointer' }}
+                        title={selectedCronJob.job.source === 'launchd' ? 'Bei System-Jobs nicht verfügbar' : 'Job sofort testweise ausführen'}
                       >
                         {cronRunPendingJobId === selectedCronJob.job.id ? 'Test läuft…' : 'Test-Run'}
                       </button>
