@@ -3636,7 +3636,7 @@ export default function ClientBoard() {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ jobId: job.id }),
-      }, boardRequestTimeoutMs)
+      }, 300_000)
 
       if (!res.ok) {
         const payload = await res.json().catch(() => ({})) as { error?: string }
@@ -3667,7 +3667,7 @@ export default function ClientBoard() {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ jobId: job.id }),
-      }, boardRequestTimeoutMs)
+      }, 300_000)
 
       if (!res.ok) {
         const payload = await res.json().catch(() => ({})) as { error?: string }

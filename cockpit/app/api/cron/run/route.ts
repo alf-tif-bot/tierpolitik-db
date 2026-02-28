@@ -28,9 +28,9 @@ export async function POST(req: Request) {
 
     const { stdout, stderr } = await execFileAsync('openclaw', ['cron', 'run', jobId], {
       env: runtimeEnv(),
-      timeout: 45_000,
+      timeout: 300_000,
       windowsHide: true,
-      maxBuffer: 2 * 1024 * 1024,
+      maxBuffer: 4 * 1024 * 1024,
     })
 
     return NextResponse.json({ ok: true, jobId, stdout, stderr }, { headers: noStoreHeaders })

@@ -31,9 +31,9 @@ function runtimeEnv() {
 async function runOpenclaw(args: string[]) {
   const { stdout, stderr } = await execFileAsync('openclaw', args, {
     env: runtimeEnv(),
-    timeout: 45_000,
+    timeout: 300_000,
     windowsHide: true,
-    maxBuffer: 2 * 1024 * 1024,
+    maxBuffer: 4 * 1024 * 1024,
   })
   return { stdout, stderr }
 }
