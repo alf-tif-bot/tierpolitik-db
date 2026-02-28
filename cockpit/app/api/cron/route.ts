@@ -15,8 +15,22 @@ const noStoreHeaders = {
 type CronJobRaw = {
   id?: string
   name?: string
+  agentId?: string
   enabled?: boolean
   source?: 'openclaw' | 'launchd'
+  createdAtMs?: number
+  updatedAtMs?: number
+  sessionTarget?: string
+  wakeMode?: string
+  payload?: {
+    kind?: string
+    message?: string
+  }
+  delivery?: {
+    mode?: string
+    channel?: string
+    to?: string
+  }
   schedule?: {
     kind?: 'every' | 'cron'
     everyMs?: number
@@ -27,6 +41,12 @@ type CronJobRaw = {
     nextRunAtMs?: number
     lastRunAtMs?: number
     lastStatus?: string
+    lastRunStatus?: string
+    lastDurationMs?: number
+    lastError?: string
+    consecutiveErrors?: number
+    lastDelivered?: boolean
+    lastDeliveryStatus?: string
   }
 }
 
@@ -95,13 +115,33 @@ function toJobView(job: CronJobRaw) {
   return {
     id: String(job.id || ''),
     name: String(job.name || 'Ohne Namen'),
+    agentId: typeof job.agentId === 'string' ? job.agentId : null,
     enabled: job.enabled !== false,
     scheduleLabel: formatSchedule(job),
+    scheduleKind: job.schedule?.kind || null,
+    scheduleExpr: typeof job.schedule?.expr === 'string' ? job.schedule.expr : null,
+    scheduleTz: typeof job.schedule?.tz === 'string' ? job.schedule.tz : null,
+    scheduleEveryMs: typeof job.schedule?.everyMs === 'number' ? job.schedule.everyMs : null,
     status: String(job.state?.lastStatus || 'idle'),
     source: job.source === 'launchd' ? 'launchd' : 'openclaw',
+    sessionTarget: typeof job.sessionTarget === 'string' ? job.sessionTarget : null,
+    wakeMode: typeof job.wakeMode === 'string' ? job.wakeMode : null,
+    payloadKind: typeof job.payload?.kind === 'string' ? job.payload.kind : null,
+    payloadMessage: typeof job.payload?.message === 'string' ? job.payload.message : null,
+    deliveryMode: typeof job.delivery?.mode === 'string' ? job.delivery.mode : null,
+    deliveryChannel: typeof job.delivery?.channel === 'string' ? job.delivery.channel : null,
+    deliveryTo: typeof job.delivery?.to === 'string' ? job.delivery.to : null,
+    createdAtMs: typeof job.createdAtMs === 'number' ? job.createdAtMs : null,
+    updatedAtMs: typeof job.updatedAtMs === 'number' ? job.updatedAtMs : null,
     nextRunAtMs,
     nextRunAtIso: nextRunAtMs ? new Date(nextRunAtMs).toISOString() : null,
     lastRunAtMs: typeof job.state?.lastRunAtMs === 'number' ? job.state.lastRunAtMs : null,
+    lastRunStatus: typeof job.state?.lastRunStatus === 'string' ? job.state.lastRunStatus : null,
+    lastDurationMs: typeof job.state?.lastDurationMs === 'number' ? job.state.lastDurationMs : null,
+    lastError: typeof job.state?.lastError === 'string' ? job.state.lastError : null,
+    consecutiveErrors: typeof job.state?.consecutiveErrors === 'number' ? job.state.consecutiveErrors : null,
+    lastDelivered: typeof job.state?.lastDelivered === 'boolean' ? job.state.lastDelivered : null,
+    lastDeliveryStatus: typeof job.state?.lastDeliveryStatus === 'string' ? job.state.lastDeliveryStatus : null,
   }
 }
 
