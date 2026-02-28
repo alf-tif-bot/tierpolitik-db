@@ -2990,16 +2990,24 @@ export default function ClientBoard() {
   ])
 
   const visible = useMemo(() => (filter === 'all' ? tasks : tasks.filter((t) => t.assignee === filter)), [tasks, filter])
-  const sidebarDateLabel = useMemo(
-    () =>
-      new Date(nowTick).toLocaleDateString('de-CH', {
-        weekday: 'short',
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-      }),
-    [nowTick],
-  )
+  const sidebarDateLabel = useMemo(() => {
+    const d = new Date(nowTick)
+    const months = [
+      'JANUAR',
+      'FEBRUAR',
+      'MÄRZ',
+      'APRIL',
+      'MAI',
+      'JUNI',
+      'JULI',
+      'AUGUST',
+      'SEPTEMBER',
+      'OKTOBER',
+      'NOVEMBER',
+      'DEZEMBER',
+    ]
+    return `${String(d.getDate()).padStart(2, '0')}. ${months[d.getMonth()]}`
+  }, [nowTick])
 
   const rankedOpenTasks = useMemo(() => {
     const nowMs = nowTick
@@ -4048,7 +4056,13 @@ export default function ClientBoard() {
       <aside style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 12, padding: 10, height: 'fit-content' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 }}>
           <div style={{ fontWeight: 700 }}>Tobi</div>
-          <div style={{ fontSize: 11, opacity: 0.72, padding: '3px 8px', borderRadius: 999, border: '1px solid #3a3a3a', background: '#151515' }}>{sidebarDateLabel}</div>
+          <button
+            onClick={() => setSection('calendar')}
+            title="Zum Kalender"
+            style={{ fontSize: 11, opacity: 0.9, padding: '3px 8px', borderRadius: 999, border: '1px solid #3a3a3a', background: '#151515' }}
+          >
+            {sidebarDateLabel}
+          </button>
         </div>
         <div style={{ fontSize: 12, opacity: 0.75, marginBottom: 10 }}>Cockpit · Übersicht · Prioritäten</div>
         {(Object.keys(sectionMeta) as Section[]).map((s) => (
