@@ -2990,6 +2990,16 @@ export default function ClientBoard() {
   ])
 
   const visible = useMemo(() => (filter === 'all' ? tasks : tasks.filter((t) => t.assignee === filter)), [tasks, filter])
+  const sidebarDateLabel = useMemo(
+    () =>
+      new Date(nowTick).toLocaleDateString('de-CH', {
+        weekday: 'short',
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      }),
+    [nowTick],
+  )
 
   const rankedOpenTasks = useMemo(() => {
     const nowMs = nowTick
@@ -4036,8 +4046,11 @@ export default function ClientBoard() {
   return (
     <main className="cockpit-shell" suppressHydrationWarning style={{ maxWidth: 1280, margin: '0 auto', padding: 20, display: 'grid', gridTemplateColumns: '220px 1fr', gap: 16 }}>
       <aside style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 12, padding: 10, height: 'fit-content' }}>
-        <div style={{ fontWeight: 700, marginBottom: 2 }}>Cockpit</div>
-        <div style={{ fontSize: 12, opacity: 0.75, marginBottom: 10 }}>Übersicht · Prioritäten · Entscheidungen</div>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 }}>
+          <div style={{ fontWeight: 700 }}>Tobi</div>
+          <div style={{ fontSize: 11, opacity: 0.72, padding: '3px 8px', borderRadius: 999, border: '1px solid #3a3a3a', background: '#151515' }}>{sidebarDateLabel}</div>
+        </div>
+        <div style={{ fontSize: 12, opacity: 0.75, marginBottom: 10 }}>Cockpit · Übersicht · Prioritäten</div>
         {(Object.keys(sectionMeta) as Section[]).map((s) => (
           <button
             key={s}
