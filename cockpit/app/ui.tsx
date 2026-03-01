@@ -3594,25 +3594,46 @@ export default function ClientBoard() {
   }
 
   function cronPurposeSummary(job: CronJob) {
+    const targetLabel = String(job.deliveryTargetLabel || '').trim()
+    const targetChannel = targetLabel && !targetLabel.startsWith('#') ? `#${targetLabel}` : targetLabel
+
+    const simplify = (text: string) => text
+      .replace(/\d{17,20}/g, targetChannel || 'Discord-Channel')
+      .replace(/\/Users\/[^\s]+/g, 'lokaler Pfad')
+      .replace(/[0-9a-f]{8}-[0-9a-f-]{27,}/gi, 'Job-ID')
+      .replace(/\s+/g, ' ')
+      .trim()
+
+    const name = String(job.name || '').toLowerCase()
+
+    if (name.includes('crawler') && name.includes('zh') && name.includes('daily')) {
+      return `Aktualisiert den ZH-Crawler und publiziert 1× täglich den Stand${targetChannel ? ` in ${targetChannel}` : ''}.`
+    }
+    if (name.includes('crawler') && name.includes('zh') && name.includes('weekly')) {
+      return 'Führt 1× pro Woche den vollständigen ZH-Import durch und erstellt einen Qualitätsbericht.'
+    }
+    if (name.includes('crawler') && name.includes('zh')) {
+      return `Verbessert stündlich die ZH-Crawler-Trefferqualität${targetChannel ? ` und meldet Updates in ${targetChannel}` : ''}.`
+    }
+    if (name.includes('heartbeat')) return 'Prüft regelmässig den Agent-Zustand und meldet Auffälligkeiten.'
+    if (name.includes('health')) return 'Führt einen täglichen System- und Sicherheits-Check aus.'
+    if (name.includes('stadtrat')) return 'Verarbeitet neue Stadtrat-Trigger und synchronisiert sie ins System.'
+
     const payload = String(job.payloadMessage || '').trim()
     if (payload) {
       const firstLine = payload.split('\n').map((line) => line.trim()).find(Boolean) || ''
-      if (firstLine) return firstLine.slice(0, 140)
+      if (firstLine) return simplify(firstLine).slice(0, 180)
     }
-
-    const name = String(job.name || '').toLowerCase()
-    if (name.includes('crawler') && name.includes('zh') && name.includes('daily')) return 'Publiziert täglich den ZH-Crawler-Stand (Commit/Push/Deploy).'
-    if (name.includes('crawler') && name.includes('zh')) return 'Sammelt/scoret ZH-Vorstösse zur Qualitätsverbesserung.'
-    if (name.includes('crawler') && name.includes('weekly')) return 'Wöchentlicher ZH-Full-Import (Kantonsrat-Quelle) mit Review-Update.'
-    if (name.includes('heartbeat')) return 'Prüft regelmässig den Agent-Status und meldet Auffälligkeiten.'
-    if (name.includes('health')) return 'Täglicher Health-Check mit Sicherheits-/Systemstatus.'
-    if (name.includes('stadtrat')) return 'Verarbeitet Stadtrat-Trigger und synchronisiert neue Einträge.'
 
     const type = String(job.cronType || '').trim()
     if (type) return `${type} · ${job.enabled ? 'aktiv' : 'pausiert'}`
 
+    const label = String(job.scheduleLabel || '').trim()
+    if (label) return `Schedule: ${label}`
+
     return 'Keine Beschreibung hinterlegt.'
   }
+
 
   function formatCronDayMonth(ms?: number | null) {
     if (typeof ms !== 'number' || !Number.isFinite(ms)) return '–'
