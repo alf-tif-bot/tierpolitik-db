@@ -74,6 +74,7 @@ Things like:
   - Tobi markiert Vorstösse mit 👍, wenn Tierbezug vorhanden
   - Bei 👍: Entwurfstext + Bild (Stil: pencil sketch) erstellen
   - **Pflicht-Check vor Posting:** Ersteinreichende vs. Unterstützende aus Originaldokument wortgetreu prüfen (keine Schätzung)
+  - **Source of truth für Einreichende/Unterstützende:** immer direkt aus dem Stadtrat-Geschäftslink (Tabelle "Eingereicht von") entnehmen.
   - Danach auf TIF-Website veröffentlichen
 - Bei neuen Vorschlägen immer gegen diese Liste prüfen.
 - Keine identischen oder sehr ähnlichen Vorschläge erneut bringen; stattdessen klar differenzieren (anderer Hebel, Ebene, Instrument oder Zielgruppe).
