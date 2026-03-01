@@ -3593,6 +3593,22 @@ export default function ClientBoard() {
     })
   }
 
+  function cronPurposeSummary(job: CronJob) {
+    const payload = String(job.payloadMessage || '').trim()
+    if (payload) {
+      const firstLine = payload.split('\n').map((line) => line.trim()).find(Boolean) || ''
+      return firstLine.slice(0, 140)
+    }
+
+    const type = String(job.cronType || '').trim()
+    if (type) return `${type} · ${job.enabled ? 'aktiv' : 'pausiert'}`
+
+    const label = String(job.scheduleLabel || '').trim()
+    if (label) return `Schedule: ${label}`
+
+    return 'Keine Beschreibung hinterlegt.'
+  }
+
   function formatCronDayMonth(ms?: number | null) {
     if (typeof ms !== 'number' || !Number.isFinite(ms)) return '–'
     const d = new Date(ms)
@@ -4871,8 +4887,8 @@ export default function ClientBoard() {
                     <div>
                       <div style={{ fontSize: 12, opacity: 0.72 }}>Cron-Details</div>
                       <h3 style={{ margin: '4px 0 2px 0' }}>{simplifyCronJobName(selectedCronJob.job.name)}</h3>
-                      <div style={{ fontSize: 12, opacity: 0.78 }}>
-                        Geplanter Slot: {formatCronDateTime(selectedCronJob.runAtMs)}
+                      <div style={{ fontSize: 12, opacity: 0.86 }}>
+                        {cronPurposeSummary(selectedCronJob.job)}
                       </div>
                     </div>
                     <div style={{ display: 'flex', gap: 8 }}>
