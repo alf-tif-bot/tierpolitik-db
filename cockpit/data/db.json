@@ -55,11 +55,11 @@
     {
       "id": "task_mission_005",
       "title": "Morgenbrief-Template anhand Tagesrealität nachschärfen",
-      "status": "doing",
+      "status": "done",
       "priority": "med",
       "assignee": "Beide",
       "createdAt": "2026-02-15T19:19:00.000Z",
-      "updatedAt": "2026-02-15T19:45:24.294Z",
+      "updatedAt": "2026-02-27T18:40:17.775Z",
       "area": "medien",
       "tocAxis": "weltbild",
       "impact": "med",

@@ -45,3 +45,7 @@ Diese Datei gilt agent-übergreifend (main, coding, health, weitere Spezial-Agen
 
 ## 8) Konfliktregel
 Wenn lokale Agent-Regeln dieser Datei widersprechen: **CONSTITUTION.md hat Vorrang**, ausser System-/Policy-Regeln verlangen etwas anderes.
+
+## Shell-Ausgabe-Format
+- Wenn Shell-Kommandos gewünscht sind, liefere standardmässig copy-paste-fähige Befehlsblöcke ohne Kommentarzeilen.
+- Erklärungen stehen separat vor/nach dem Befehlsblock, nie im Befehlsblock selbst.

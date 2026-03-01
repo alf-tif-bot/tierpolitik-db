@@ -34,4 +34,4 @@ if ! ls .next/static/chunks/app/page-*.js >/dev/null 2>&1; then
   exit 1
 fi
 
-exec "$NODE_BIN" "$ROOT/node_modules/next/dist/bin/next" start --hostname 0.0.0.0 --port 3001
+exec "$NODE_BIN" "$ROOT/node_modules/next/dist/bin/next" start --hostname 0.0.0.0 --port 3002

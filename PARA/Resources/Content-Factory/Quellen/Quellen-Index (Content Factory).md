@@ -2,10 +2,11 @@
 
 Ablage für wiederkehrende Quellen inkl. Tags und Wiki-Links.
 
-- [[Animal Welfare Foundation]] · Grade: A · Kategorien: allgemein, kampagne, politik
-- [[animalrights.nl]] · Grade: B · Kategorien: video
-- [[Charity Digital]] · Grade: B · Kategorien: fundraising
-- [[Food & Wine]] · Grade: B · Kategorien: rezept
+- [[Animal Welfare Foundation]] · Grade: A · Kategorien: kampagne, politik
+- [[Babushahi.com]] · Grade: B · Kategorien: missstand
 - [[interpharma.ch]] · Grade: B · Kategorien: politik
-- [[Schwäbische.de]] · Grade: B · Kategorien: fundraising
-- [[Yabiladi.com]] · Grade: B · Kategorien: kampagne
+- [[Kronen Zeitung]] · Grade: B · Kategorien: fundraising
+- [[schwaebische.de]] · Grade: B · Kategorien: fundraising
+- [[The Bali Sun]] · Grade: B · Kategorien: missstand
+- [[The Guardian]] · Grade: B · Kategorien: rezept
+- [[vegan-news.de]] · Grade: B · Kategorien: video
