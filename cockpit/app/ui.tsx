@@ -3565,12 +3565,12 @@ export default function ClientBoard() {
 
     if (!raw) return 'Cron Job'
     if (lower.includes('github') && lower.includes('backup')) return 'GitHub Backup'
-    if (lower.includes('backup')) return 'Backup'
-    if (lower.includes('heartbeat')) return 'Heartbeat'
-    if (lower.includes('radar')) return 'Radar Sync'
-    if (lower.includes('newsletter')) return 'Newsletter'
-    if (lower.includes('cockpit') && lower.includes('heal')) return 'Cockpit Self-Heal'
-    if (lower.includes('gateway') && lower.includes('restart')) return 'Gateway Restart'
+    if (lower.includes('backup')) return 'Backup (GitHub)'
+    if (lower.includes('heartbeat')) return 'System-Heartbeat'
+    if (lower.includes('radar')) return 'Radar-Synchronisierung'
+    if (lower.includes('newsletter')) return 'Newsletter-Pipeline'
+    if (lower.includes('cockpit') && lower.includes('heal')) return 'Cockpit Selbstheilung'
+    if (lower.includes('gateway') && lower.includes('restart')) return 'Gateway Neustart'
 
     return raw
       .replace(/[_-]+/g, ' ')
@@ -4913,21 +4913,7 @@ export default function ClientBoard() {
                     <div>
                       <div style={{ fontSize: 12, opacity: 0.72 }}>Cron-Details</div>
                       <h3 style={{ margin: '4px 0 2px 0' }}>{simplifyCronJobName(selectedCronJob.job.name)}</h3>
-                      <div
-                        style={{
-                          marginTop: 6,
-                          fontSize: 13,
-                          lineHeight: 1.45,
-                          color: '#e2e8f0',
-                          background: '#1b2433',
-                          border: '1px solid #334155',
-                          borderRadius: 8,
-                          padding: '8px 10px',
-                          maxWidth: 560,
-                          whiteSpace: 'normal',
-                          wordBreak: 'break-word',
-                        }}
-                      >
+                      <div style={{ marginTop: 6, fontSize: 13, lineHeight: 1.5, color: '#e2e8f0', maxWidth: 680 }}>
                         {cronPurposeSummary(selectedCronJob.job)}
                       </div>
                     </div>
