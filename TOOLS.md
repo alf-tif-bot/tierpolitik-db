@@ -77,6 +77,11 @@ Things like:
 - Bei neuen Vorschlägen immer gegen diese Liste prüfen.
 - Keine identischen oder sehr ähnlichen Vorschläge erneut bringen; stattdessen klar differenzieren (anderer Hebel, Ebene, Instrument oder Zielgruppe).
 
+## Abkürzungsverzeichnis
+
+- **CJ / cj** = **Cronjob**
+- **some** = social media
+
 ## Why Separate?
 
 Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
