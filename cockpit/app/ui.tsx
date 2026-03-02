@@ -3880,6 +3880,26 @@ export default function ClientBoard() {
     return 'Keine Beschreibung hinterlegt.'
   }
 
+  function cronActionDetails(job: CronJob) {
+    const payload = String(job.payloadMessage || '').trim()
+    const delivery = [job.deliveryMode, job.deliveryChannel, job.deliveryTargetLabel || job.deliveryTo].filter(Boolean).join(' · ')
+
+    if (payload) {
+      return payload
+        .replace(/\s+/g, ' ')
+        .replace(/\b\d{17,20}\b/g, job.deliveryTargetLabel || 'Channel-ID')
+        .trim()
+    }
+
+    const bits: string[] = []
+    if (job.agentId) bits.push(`Agent: ${job.agentId}`)
+    if (job.cronType) bits.push(`Typ: ${job.cronType}`)
+    if (job.scheduleLabel) bits.push(`Intervall: ${job.scheduleLabel}`)
+    if (delivery) bits.push(`Delivery: ${delivery}`)
+
+    return bits.join(' · ') || 'Keine technischen Details hinterlegt.'
+  }
+
 
   function formatCronDayMonth(ms?: number | null) {
     if (typeof ms !== 'number' || !Number.isFinite(ms)) return '–'
@@ -5144,7 +5164,8 @@ export default function ClientBoard() {
                     <div>
                       <div style={{ fontSize: 12, opacity: 0.72 }}>Cron-Details</div>
                       <h3 style={{ margin: '4px 0 2px 0' }}>{simplifyCronJobName(selectedCronJob.job.name)}</h3>
-                      <div style={{ marginTop: 6, fontSize: 13, lineHeight: 1.5, color: '#e2e8f0', maxWidth: 680 }}>
+                      <div style={{ marginTop: 6, fontSize: 12, opacity: 0.72 }}>Kurzfassung</div>
+                      <div style={{ marginTop: 2, fontSize: 13, lineHeight: 1.5, color: '#e2e8f0', maxWidth: 680 }}>
                         {cronPurposeSummary(selectedCronJob.job)}
                       </div>
                     </div>
@@ -5238,6 +5259,22 @@ export default function ClientBoard() {
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Delivery:</strong> {selectedCronJob.job.deliveryMode || '–'} {selectedCronJob.job.deliveryChannel ? `· ${selectedCronJob.job.deliveryChannel}` : ''}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Discord-Channel:</strong> {selectedCronJob.job.deliveryTargetLabel || selectedCronJob.job.deliveryTo || '–'}</div>
                     <div style={{ background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 8 }}><strong>Consecutive Errors:</strong> {typeof selectedCronJob.job.consecutiveErrors === 'number' ? selectedCronJob.job.consecutiveErrors : 0}</div>
+                    <div style={{ gridColumn: '1 / -1', background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 8, padding: 10 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
+                        <strong>Was macht der Job konkret?</strong>
+                        <button
+                          type="button"
+                          style={{ ...polishedButtonStyle, padding: '3px 8px', fontSize: 11 }}
+                          onClick={() => setCronSummaryModal({ title: `${simplifyCronJobName(selectedCronJob.job.name)} · Job-Details`, text: cronActionDetails(selectedCronJob.job) })}
+                        >
+                          Vollansicht
+                        </button>
+                      </div>
+                      <div style={{ marginTop: 6, lineHeight: 1.5, fontSize: 13, opacity: 0.9 }}>
+                        {cronActionDetails(selectedCronJob.job).slice(0, 260)}
+                        {cronActionDetails(selectedCronJob.job).length > 260 ? '…' : ''}
+                      </div>
+                    </div>
                   </div>
 
                   <div style={{ marginTop: 10, fontSize: 12, opacity: 0.82 }}>
