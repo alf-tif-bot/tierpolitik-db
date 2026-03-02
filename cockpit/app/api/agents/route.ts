@@ -65,6 +65,7 @@ const defaultEmojiMap: Record<string, string> = {
   'tif-politik': '🏛️',
   'tif-text': '✍️',
   'tif-website': '🌐',
+  webmaster: '🌐',
 }
 
 function resolveOpenClawBin() {

@@ -3,5 +3,6 @@
   "tif-medien": "Medien-Agent für Kampagnen, Messaging und Veröffentlichung",
   "tif-politik": "Politik-Agent für Vorstösse, Agenda und Stakeholder-Monitoring",
   "tif-text": "Text-Agent für Entwürfe, Ausformulierungen und Redaktionsarbeit",
-  "tif-website": "Website-Agent für Webpflege, Struktur und technische Inhalte"
+  "tif-website": "Website-Agent für Webpflege, Struktur und technische Inhalte",
+  "webmaster": "TIF Webmaster für WordPress/WPBakery Publishing, Content-Pflege und Website-Qualität"
 }
