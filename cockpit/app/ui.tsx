@@ -124,6 +124,7 @@ type FilePreviewState = {
   error?: string
   readOnly?: boolean
   renderMarkdown?: boolean
+  hidePath?: boolean
 }
 
 type KnowledgeEntry = {
@@ -1672,7 +1673,7 @@ export default function ClientBoard() {
     setFilePreview({ open: false, loading: false })
   }
 
-  async function openFilePreview(name: string, filePath: string, opts?: { readOnly?: boolean; renderMarkdown?: boolean }) {
+  async function openFilePreview(name: string, filePath: string, opts?: { readOnly?: boolean; renderMarkdown?: boolean; hidePath?: boolean }) {
     if (!canPreviewFile(filePath)) return
     if (filePreview.open && filePreview.saving) {
       setFilePreview((prev) => ({
@@ -1709,6 +1710,7 @@ export default function ClientBoard() {
         error: filePreviewOfflineLoadError,
         readOnly: !!opts?.readOnly,
         renderMarkdown: !!opts?.renderMarkdown,
+        hidePath: !!opts?.hidePath,
       })
       return
     }
@@ -1718,7 +1720,7 @@ export default function ClientBoard() {
     filePreviewAbortRef.current = abortController
     filePreviewLoadingPathRef.current = filePath
 
-    setFilePreview({ open: true, loading: true, name, path: filePath, readOnly: !!opts?.readOnly, renderMarkdown: !!opts?.renderMarkdown })
+    setFilePreview({ open: true, loading: true, name, path: filePath, readOnly: !!opts?.readOnly, renderMarkdown: !!opts?.renderMarkdown, hidePath: !!opts?.hidePath })
     try {
       const res = await fetchWithTimeout(
         `/api/files/read?path=${encodeURIComponent(filePath)}`,
@@ -1738,7 +1740,7 @@ export default function ClientBoard() {
 
       if (loadSeq !== filePreviewLoadSeq.current) return
       setFileDraft(payload.content)
-      setFilePreview({ open: true, loading: false, name, path: filePath, content: payload.content, readOnly: !!opts?.readOnly, renderMarkdown: !!opts?.renderMarkdown })
+      setFilePreview({ open: true, loading: false, name, path: filePath, content: payload.content, readOnly: !!opts?.readOnly, renderMarkdown: !!opts?.renderMarkdown, hidePath: !!opts?.hidePath })
     } catch (error) {
       if (loadSeq !== filePreviewLoadSeq.current) return
 
@@ -1751,7 +1753,7 @@ export default function ClientBoard() {
             ? error.message
             : 'Datei konnte nicht geladen werden'
 
-      setFilePreview({ open: true, loading: false, name, path: filePath, error: message, readOnly: !!opts?.readOnly, renderMarkdown: !!opts?.renderMarkdown })
+      setFilePreview({ open: true, loading: false, name, path: filePath, error: message, readOnly: !!opts?.readOnly, renderMarkdown: !!opts?.renderMarkdown, hidePath: !!opts?.hidePath })
     } finally {
       if (filePreviewAbortRef.current === abortController) {
         filePreviewAbortRef.current = null
@@ -5143,7 +5145,7 @@ export default function ClientBoard() {
                   <article key={idea.id} style={{ border: '1px solid #2f2f2f', borderRadius: 10, padding: 12, background: '#171717' }}>
                     <div style={{ fontWeight: 700, marginBottom: 4 }}>👍 {idea.title}</div>
                     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                      <button onClick={() => void openFilePreview(idea.sourceFile, idea.path, { readOnly: true, renderMarkdown: true })}>
+                      <button onClick={() => void openFilePreview(idea.title, idea.path, { readOnly: true, renderMarkdown: true, hidePath: true })}>
                         Idee öffnen
                       </button>
                       <button
@@ -5457,7 +5459,7 @@ export default function ClientBoard() {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10, gap: 10 }}>
                 <div>
                   <div style={{ fontWeight: 700 }}>{filePreview.name || 'Datei-Vorschau'}</div>
-                  <div style={{ fontSize: 11, opacity: 0.75 }}>{filePreview.path}</div>
+                  {!filePreview.hidePath && <div style={{ fontSize: 11, opacity: 0.75 }}>{filePreview.path}</div>}
                 </div>
                 <div style={{ display: 'flex', gap: 8 }}>
                   {!filePreview.readOnly && (
