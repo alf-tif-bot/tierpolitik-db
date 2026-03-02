@@ -1480,6 +1480,7 @@ export default function ClientBoard() {
   const [fundraisingIdeas, setFundraisingIdeas] = useState<FundraisingIdea[]>([])
   const [fundraisingLoading, setFundraisingLoading] = useState(false)
   const [fundraisingError, setFundraisingError] = useState<string | null>(null)
+  const [fundraisingDeletePending, setFundraisingDeletePending] = useState<string | null>(null)
 
   function isOfflineClient() {
     return typeof navigator !== 'undefined' && !navigator.onLine
@@ -1977,6 +1978,28 @@ export default function ClientBoard() {
       setFundraisingError('Fundraising-Ideen konnten nicht geladen werden.')
     } finally {
       setFundraisingLoading(false)
+    }
+  }
+
+  async function deleteFundraisingIdea(fileName: string) {
+    if (!fileName || fundraisingDeletePending) return
+    const confirmed = window.confirm(`Idee wirklich löschen?\n${fileName}`)
+    if (!confirmed) return
+
+    setFundraisingDeletePending(fileName)
+    setFundraisingError(null)
+    try {
+      const res = await fetch(`/api/fundraising?file=${encodeURIComponent(fileName)}`, { method: 'DELETE' })
+      const payload = await res.json().catch(() => ({}))
+      if (!res.ok || payload?.ok === false) {
+        throw new Error(payload?.error || 'Löschen fehlgeschlagen')
+      }
+      await loadFundraisingIdeas()
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Löschen fehlgeschlagen'
+      setFundraisingError(message)
+    } finally {
+      setFundraisingDeletePending(null)
     }
   }
 
@@ -5127,6 +5150,13 @@ export default function ClientBoard() {
                     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                       <button onClick={() => void openFilePreview(idea.sourceFile, idea.path, { readOnly: true, renderMarkdown: true })}>
                         Idee öffnen
+                      </button>
+                      <button
+                        onClick={() => void deleteFundraisingIdea(idea.sourceFile)}
+                        disabled={fundraisingDeletePending === idea.sourceFile}
+                        style={{ background: '#3a1515', borderColor: '#7f1d1d' }}
+                      >
+                        {fundraisingDeletePending === idea.sourceFile ? 'Lösche…' : 'Löschen'}
                       </button>
                     </div>
                   </article>
