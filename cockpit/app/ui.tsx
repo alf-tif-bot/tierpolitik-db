@@ -5353,7 +5353,7 @@ export default function ClientBoard() {
                       style={{ background: 'transparent', border: 'none', padding: 0, margin: 0, color: 'inherit', fontWeight: 700, textAlign: 'left', cursor: 'pointer' }}
                       title="Eintrag öffnen"
                     >
-                      {entry.date} · {entry.title}
+                      {entry.title}
                     </button>
                     {entry.excerpt ? <div style={{ marginTop: 6, opacity: 0.8, fontSize: 13 }}>{entry.excerpt}</div> : null}
                   </article>

@@ -11,6 +11,22 @@ type DiaryRow = {
   content: string
 }
 
+function formatDateCH(isoDate: string) {
+  const m = isoDate.match(/^(\d{4})-(\d{2})-(\d{2})$/)
+  if (!m) return isoDate
+  return `${m[3]}.${m[2]}.${m[1]}`
+}
+
+function pickKeywords(raw: string) {
+  const lines = raw.split(/\r?\n/).map((line) => line.trim())
+  const bullets = lines
+    .filter((line) => line.startsWith('- '))
+    .map((line) => line.replace(/^-\s+/, ''))
+    .filter(Boolean)
+
+  return bullets.slice(0, 4).join(' · ')
+}
+
 const noStoreHeaders = {
   'cache-control': 'no-store, no-cache, must-revalidate, max-age=0',
 }
@@ -32,13 +48,8 @@ export async function GET() {
       if (!raw) continue
 
       const date = file.replace(/\.md$/i, '')
-      const title = raw.match(/^#\s+(.+)$/m)?.[1]?.trim() || `Tagebuch ${date}`
-      const excerpt = raw
-        .split(/\r?\n/)
-        .map((line) => line.trim())
-        .filter((line) => line && !line.startsWith('#'))
-        .slice(0, 3)
-        .join(' · ')
+      const title = formatDateCH(date)
+      const excerpt = pickKeywords(raw)
 
       rows.push({
         id: date,
