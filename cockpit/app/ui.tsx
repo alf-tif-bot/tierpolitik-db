@@ -5212,11 +5212,12 @@ export default function ClientBoard() {
                           outline: 'none',
                           appearance: 'none',
                           WebkitAppearance: 'none',
-                          fontSize: 14,
+                          fontSize: 13,
+                          color: '#f3f4f6',
                           fontWeight: 700,
                         }}
                       >
-                        {fundraisingDeletePending === idea.sourceFile ? '…' : '×'}
+                        {fundraisingDeletePending === idea.sourceFile ? '…' : '🗑️'}
                       </button>
                     </div>
                   </article>
