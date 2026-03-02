@@ -2951,6 +2951,13 @@ export default function ClientBoard() {
           return
         }
 
+        if (key === 'arrowleft') {
+          e.preventDefault()
+          closeFilePreview()
+          window.setTimeout(() => sectionNavRefs.current[section]?.focus(), 0)
+          return
+        }
+
         if (key === 'escape') {
           e.preventDefault()
           closeFilePreview()
