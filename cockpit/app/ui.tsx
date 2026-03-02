@@ -2846,6 +2846,12 @@ export default function ClientBoard() {
       }
 
       if (isTyping) {
+        if (key === 'arrowleft' && !e.metaKey && !e.ctrlKey && !e.altKey) {
+          e.preventDefault()
+          sectionNavRefs.current[section]?.focus()
+          return
+        }
+
         if (isManualRefreshShortcut) {
           e.preventDefault()
           refreshCurrentSection({ forceRadar: true })
