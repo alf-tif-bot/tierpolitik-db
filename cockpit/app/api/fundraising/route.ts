@@ -47,7 +47,7 @@ export async function GET() {
         ideaId,
         approvedAt,
         sourceFile: file,
-        path: path.relative(process.cwd(), fullPath),
+        path: `agents/fundraisier/ideen-fundus/${file}`,
       })
     }
 
