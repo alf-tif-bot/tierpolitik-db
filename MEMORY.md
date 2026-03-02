@@ -42,3 +42,7 @@ Build a digital Animal Liberation Front with specialized agents for:
 - Autonomous by default for: coding, research, crawling, drafting texts from briefs/templates
 - Finance: user wants concrete buy/sell proposals (execution still requires approval)
 - Language: use whichever language yields best results for the specific task
+
+## Health constraints (added 2026-03-02)
+- No stimulants: user does not tolerate caffeine/teeine or other stimulating substances.
+- Avoid explicitly: coffee, green tea, energy drinks, chocolate/cacao, and similar uppers.

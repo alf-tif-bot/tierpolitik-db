@@ -35,6 +35,10 @@ Build a digital “Animal Liberation Front” powered by specialized agents.
 Default short answers unless depth is explicitly requested.
 If outputs are local-only, post usable results in chat (not just local paths).
 
+### Health / nutrition constraints
+- No caffeine/stimulants: avoid caffeine, theine/tea caffeine, and generally stimulating ingredients.
+- Explicitly avoid: coffee, green tea, energy drinks, chocolate/cacao (and similar stimulant-containing inputs).
+
 ---
 
 The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
