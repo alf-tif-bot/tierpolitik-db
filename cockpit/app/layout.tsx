@@ -4,9 +4,9 @@ import './globals.css'
 export const metadata = {
   title: 'Cockpit',
   icons: {
-    icon: '/favicon-brain-bold.svg',
-    shortcut: '/favicon-brain-bold.svg',
-    apple: '/favicon-brain-bold.svg',
+    icon: '/favicon-rocket.svg',
+    shortcut: '/favicon-rocket.svg',
+    apple: '/favicon-rocket.svg',
   },
 }
 
