@@ -1497,6 +1497,7 @@ export default function ClientBoard() {
   const [diaryLoading, setDiaryLoading] = useState(false)
   const [diaryError, setDiaryError] = useState<string | null>(null)
   const [diaryQuery, setDiaryQuery] = useState('')
+  const [diarySelectedIndex, setDiarySelectedIndex] = useState(0)
 
   function isOfflineClient() {
     return typeof navigator !== 'undefined' && !navigator.onLine
@@ -2290,6 +2291,7 @@ export default function ClientBoard() {
       void loadFundraisingIdeas()
     } else if (section === 'diary') {
       setBoardError(null)
+      setDiarySelectedIndex(0)
       void loadDiaryEntries()
     } else {
       const entityType = sectionMeta[section].entityType!
@@ -3009,6 +3011,31 @@ export default function ClientBoard() {
         }
       }
 
+      if (section === 'diary' && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        const q = diaryQuery.trim().toLowerCase()
+        const diaryVisible = !q
+          ? diaryEntries
+          : diaryEntries.filter((entry) => `${entry.title}\n${entry.excerpt}\n${entry.content}`.toLowerCase().includes(q))
+
+        if (key === 'j' || key === 'arrowdown') {
+          e.preventDefault()
+          setDiarySelectedIndex((prev) => Math.min(prev + 1, Math.max(0, diaryVisible.length - 1)))
+          return
+        }
+        if (key === 'k' || key === 'arrowup') {
+          e.preventDefault()
+          setDiarySelectedIndex((prev) => Math.max(prev - 1, 0))
+          return
+        }
+        if (key === 'enter') {
+          const entry = diaryVisible[diarySelectedIndex]
+          if (!entry) return
+          e.preventDefault()
+          void openFilePreview(entry.title, entry.path, { readOnly: true, renderMarkdown: true, hidePath: true })
+          return
+        }
+      }
+
       if (isManualRefreshShortcut) {
         e.preventDefault()
         refreshCurrentSection({ forceRadar: true })
@@ -3159,6 +3186,9 @@ export default function ClientBoard() {
     fundraisingIdeas,
     fundraisingSelectedIndex,
     fundraisingDeletePending,
+    diaryEntries,
+    diaryQuery,
+    diarySelectedIndex,
   ])
 
   const visible = useMemo(() => (filter === 'all' ? tasks : tasks.filter((t) => t.assignee === filter)), [tasks, filter])
@@ -3232,6 +3262,14 @@ export default function ClientBoard() {
       return haystack.includes(q)
     })
   }, [diaryEntries, diaryQuery])
+
+  useEffect(() => {
+    if (visibleDiaryEntries.length === 0) {
+      setDiarySelectedIndex(0)
+      return
+    }
+    setDiarySelectedIndex((prev) => Math.max(0, Math.min(prev, visibleDiaryEntries.length - 1)))
+  }, [visibleDiaryEntries])
 
   useEffect(() => {
     topTaskShortcutCandidateRef.current = topTaskShortcutCandidate
@@ -5308,8 +5346,8 @@ export default function ClientBoard() {
               ) : visibleDiaryEntries.length === 0 ? (
                 <div style={{ opacity: 0.75 }}>Keine Einträge gefunden.</div>
               ) : (
-                visibleDiaryEntries.map((entry) => (
-                  <article key={entry.id} style={{ border: '1px solid #2f2f2f', borderRadius: 12, padding: 12, background: 'linear-gradient(180deg, #1b1b1b 0%, #171717 100%)', boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}>
+                visibleDiaryEntries.map((entry, idx) => (
+                  <article key={entry.id} style={{ border: idx === diarySelectedIndex ? '1px solid #6aa2ff' : '1px solid #2f2f2f', borderRadius: 12, padding: 12, background: idx === diarySelectedIndex ? 'linear-gradient(180deg, #1a2230 0%, #171d28 100%)' : 'linear-gradient(180deg, #1b1b1b 0%, #171717 100%)', boxShadow: idx === diarySelectedIndex ? '0 6px 18px rgba(106,162,255,0.20)' : '0 4px 12px rgba(0,0,0,0.2)' }}>
                     <button
                       onClick={() => void openFilePreview(entry.title, entry.path, { readOnly: true, renderMarkdown: true, hidePath: true })}
                       style={{ background: 'transparent', border: 'none', padding: 0, margin: 0, color: 'inherit', fontWeight: 700, textAlign: 'left', cursor: 'pointer' }}
