@@ -5107,9 +5107,6 @@ export default function ClientBoard() {
           </>
         ) : section === 'fundraising' ? (
           <>
-            <div style={{ marginBottom: 12, fontSize: 13, opacity: 0.85 }}>
-              Hier siehst du alle Fundraising-Ideen mit 👍 (gespeicherte Approvals aus dem Fundraisier-Workflow).
-            </div>
             <div style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
               <button onClick={() => void loadFundraisingIdeas()} disabled={fundraisingLoading}>
                 {fundraisingLoading ? 'Lade…' : 'Aktualisieren'}
@@ -5127,9 +5124,6 @@ export default function ClientBoard() {
                 fundraisingIdeas.map((idea) => (
                   <article key={idea.id} style={{ border: '1px solid #2f2f2f', borderRadius: 10, padding: 12, background: '#171717' }}>
                     <div style={{ fontWeight: 700, marginBottom: 4 }}>👍 {idea.title}</div>
-                    <div style={{ fontSize: 12, opacity: 0.78, marginBottom: 8 }}>
-                      Idea-ID: {idea.ideaId || '–'}{idea.approvedAt ? ` · Approved: ${idea.approvedAt}` : ''}
-                    </div>
                     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                       <button onClick={() => void openFilePreview(idea.sourceFile, idea.path, { readOnly: true, renderMarkdown: true })}>
                         Idee öffnen
