@@ -5143,10 +5143,13 @@ export default function ClientBoard() {
               ) : (
                 fundraisingIdeas.map((idea) => (
                   <article key={idea.id} style={{ border: '1px solid #2f2f2f', borderRadius: 10, padding: 12, background: '#171717' }}>
-                    <div style={{ fontWeight: 700, marginBottom: 4 }}>{idea.title}</div>
-                    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                      <button onClick={() => void openFilePreview(idea.title, idea.path, { readOnly: true, renderMarkdown: true, hidePath: true })}>
-                        Idee öffnen
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
+                      <button
+                        onClick={() => void openFilePreview(idea.title, idea.path, { readOnly: true, renderMarkdown: true, hidePath: true })}
+                        style={{ background: 'transparent', border: 'none', padding: 0, margin: 0, color: 'inherit', fontWeight: 700, textAlign: 'left', cursor: 'pointer' }}
+                        title="Idee öffnen"
+                      >
+                        {idea.title}
                       </button>
                       <button
                         onClick={() => void deleteFundraisingIdea(idea.sourceFile)}
