@@ -99,6 +99,32 @@ function classifyStatus(bootstrapPending: boolean | undefined, lastActiveAgeMs: 
   return 'sleeping' as const
 }
 
+function formatLastWorkedOn(recent?: { key?: string; kind?: string; updatedAt?: number }) {
+  if (!recent?.kind) return 'kein Session-Kontext'
+
+  const kindLabel = recent.kind === 'direct'
+    ? 'Direktchat'
+    : recent.kind === 'group'
+      ? 'Gruppenchat'
+      : recent.kind === 'cron'
+        ? 'Cronjob'
+        : recent.kind === 'slash'
+          ? 'Slash-Befehl'
+          : recent.kind
+
+  let context = ''
+  const key = String(recent.key || '')
+  if (key.includes(':discord:channel:')) {
+    const channelId = key.split(':discord:channel:')[1]?.split(':')[0]
+    if (channelId) context = ` in Discord #${channelId}`
+  } else if (key.includes(':telegram:')) {
+    context = ' in Telegram'
+  }
+
+  const when = typeof recent.updatedAt === 'number' ? formatAge(Date.now() - recent.updatedAt) : 'unbekannt'
+  return `${kindLabel}${context} · ${when}`
+}
+
 async function loadPurposeOverrides(): Promise<PurposeMap> {
   const purposeFile = path.join(process.cwd(), 'data', 'agent-purposes.json')
 
@@ -189,7 +215,7 @@ export async function GET() {
           heartbeat: heartbeat?.enabled ? heartbeat.every || 'aktiv' : 'disabled',
           lastActiveLabel: formatAge(agent.lastActiveAgeMs),
           sessionsCount: typeof agent.sessionsCount === 'number' ? agent.sessionsCount : 0,
-          lastWorkedOn: recent?.kind ? `${recent.kind}${recent.updatedAt ? ` · ${formatAge(Date.now() - recent.updatedAt)}` : ''}` : 'kein Session-Kontext',
+          lastWorkedOn: formatLastWorkedOn(recent),
           lastSessionKey: recent?.key || undefined,
         }
       })
