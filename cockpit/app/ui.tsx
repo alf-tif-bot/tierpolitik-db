@@ -3018,9 +3018,15 @@ export default function ClientBoard() {
       if (selectedCronJob) return
       if (e.metaKey || e.ctrlKey || e.altKey) return
 
+      const activeEl = document.activeElement as HTMLElement | null
+      const activeNav = activeEl?.getAttribute('data-nav') || ''
+      const isSidebarNavFocused = activeNav === 'section-item'
+
       if (key === 'arrowup' || key === 'arrowdown') {
         e.preventDefault()
-        if (section === 'calendar') {
+        if (isSidebarNavFocused) {
+          focusSidebarSection(key === 'arrowdown' ? 1 : -1)
+        } else if (section === 'calendar') {
           focusCalendarCardVertical(key === 'arrowdown' ? 1 : -1)
         } else {
           focusSidebarSection(key === 'arrowdown' ? 1 : -1)
@@ -3028,7 +3034,15 @@ export default function ClientBoard() {
         return
       }
 
-      if ((key === 'arrowleft' || key === 'arrowright') && section === 'calendar') {
+      if (key === 'arrowleft') {
+        if (!isSidebarNavFocused) {
+          e.preventDefault()
+          sectionNavRefs.current[section]?.focus()
+          return
+        }
+      }
+
+      if ((key === 'arrowleft' || key === 'arrowright') && section === 'calendar' && !isSidebarNavFocused) {
         e.preventDefault()
         focusCalendarCardHorizontal(key === 'arrowright' ? 1 : -1)
         return
