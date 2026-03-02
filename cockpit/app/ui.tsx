@@ -217,7 +217,7 @@ function radarFollowupDeadlineIso(urgency: RadarItem['urgency']) {
   return dueAt.toISOString()
 }
 
-const sectionOrder: Section[] = ['radar', 'tasks', 'calendar', 'agents', 'content', 'projects', 'docs', 'memory', 'people', 'office', 'health', 'recipes', 'fundraising', 'diary', 'files']
+const sectionOrder: Section[] = ['tasks', 'calendar', 'agents', 'content', 'projects', 'docs', 'memory', 'people', 'office', 'health', 'recipes', 'fundraising', 'diary', 'files']
 
 const sectionMeta: Record<Section, { label: string; hint?: string; entityType?: EntityType }> = {
   radar: { label: 'Radar', hint: 'Signale & Entscheide' },
@@ -4459,7 +4459,7 @@ export default function ClientBoard() {
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: 8 }}>
           <div style={{ fontWeight: 700 }}>Cockpit 🚀</div>
         </div>
-        {(Object.keys(sectionMeta) as Section[]).map((s) => (
+        {sectionOrder.map((s) => (
           <button
             key={s}
             ref={(el) => { sectionNavRefs.current[s] = el }}
