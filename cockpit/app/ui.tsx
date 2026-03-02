@@ -4360,8 +4360,8 @@ export default function ClientBoard() {
   )
 
   return (
-    <main className="cockpit-shell" suppressHydrationWarning style={{ maxWidth: 1280, margin: '0 auto', padding: 20, display: 'grid', gridTemplateColumns: '220px 1fr', gap: 16 }}>
-      <aside style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 12, padding: 10, height: 'fit-content' }}>
+    <main className="cockpit-shell" suppressHydrationWarning style={{ maxWidth: 1320, margin: '0 auto', padding: 20, display: 'grid', gridTemplateColumns: '236px 1fr', gap: 16 }}>
+      <aside style={{ background: 'linear-gradient(180deg, #1f1f1f 0%, #181818 100%)', border: '1px solid #343434', borderRadius: 14, padding: 10, height: 'fit-content', boxShadow: '0 8px 24px rgba(0,0,0,0.25)' }}>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: 8 }}>
           <div style={{ fontWeight: 700 }}>Cockpit 🚀</div>
         </div>
@@ -4372,7 +4372,7 @@ export default function ClientBoard() {
             data-nav="section-item"
             data-section={s}
             onClick={() => setSection(s)}
-            style={{ width: '100%', textAlign: 'left', marginBottom: 6, background: section === s ? '#2a2a2a' : '#181818', color: '#f5f5f5', border: '1px solid #3a3a3a', borderRadius: 8, padding: '8px 10px' }}
+            style={{ width: '100%', textAlign: 'left', marginBottom: 6, background: section === s ? 'linear-gradient(180deg, #2e3d56 0%, #243246 100%)' : '#181818', color: '#f5f5f5', border: section === s ? '1px solid #46618a' : '1px solid #3a3a3a', borderRadius: 10, padding: '9px 10px', boxShadow: section === s ? '0 4px 12px rgba(70,97,138,0.28)' : 'none' }}
           >
             <div style={{ fontWeight: 600 }}>{sectionMeta[s].label}</div>
             {sectionMeta[s].hint && <div style={{ fontSize: 11, opacity: 0.7 }}>{sectionMeta[s].hint}</div>}
@@ -4380,8 +4380,8 @@ export default function ClientBoard() {
         ))}
       </aside>
 
-      <section>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, marginBottom: 2 }}>
+      <section style={{ background: 'linear-gradient(180deg, #1b1b1b 0%, #171717 100%)', border: '1px solid #2f2f2f', borderRadius: 14, padding: 14, boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, marginBottom: 6 }}>
           <h1 style={{ margin: 0 }}>{sectionMeta[section].label}</h1>
         </div>
         {(section === 'content') && (
@@ -5245,7 +5245,7 @@ export default function ClientBoard() {
                 <div style={{ opacity: 0.75 }} />
               ) : (
                 fundraisingIdeas.map((idea, idx) => (
-                  <article key={idea.id} style={{ border: idx === fundraisingSelectedIndex ? '1px solid #6aa2ff' : '1px solid #2f2f2f', borderRadius: 10, padding: 12, background: idx === fundraisingSelectedIndex ? '#1a2230' : '#171717' }}>
+                  <article key={idea.id} style={{ border: idx === fundraisingSelectedIndex ? '1px solid #6aa2ff' : '1px solid #2f2f2f', borderRadius: 12, padding: 12, background: idx === fundraisingSelectedIndex ? 'linear-gradient(180deg, #1a2230 0%, #171d28 100%)' : 'linear-gradient(180deg, #1a1a1a 0%, #171717 100%)', boxShadow: idx === fundraisingSelectedIndex ? '0 6px 18px rgba(106,162,255,0.20)' : '0 4px 12px rgba(0,0,0,0.2)' }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
                       <button
                         onClick={() => void openFilePreview(idea.title, idea.path, { readOnly: true, renderMarkdown: true, hidePath: true })}
@@ -5298,7 +5298,7 @@ export default function ClientBoard() {
                 value={diaryQuery}
                 onChange={(e) => setDiaryQuery(e.target.value)}
                 placeholder="Tagebuch durchsuchen (Text, Dateien, Links)"
-                style={{ flex: 1, minWidth: 260 }}
+                style={{ flex: 1, minWidth: 260, background: '#121212', border: '1px solid #3a3a3a', borderRadius: 10, padding: '10px 12px', color: '#f3f4f6' }}
               />
             </div>
             {diaryError && <div style={{ marginBottom: 10, color: '#ffb4b4', fontSize: 13 }}>{diaryError}</div>}
@@ -5309,7 +5309,7 @@ export default function ClientBoard() {
                 <div style={{ opacity: 0.75 }}>Keine Einträge gefunden.</div>
               ) : (
                 visibleDiaryEntries.map((entry) => (
-                  <article key={entry.id} style={{ border: '1px solid #2f2f2f', borderRadius: 10, padding: 12, background: '#171717' }}>
+                  <article key={entry.id} style={{ border: '1px solid #2f2f2f', borderRadius: 12, padding: 12, background: 'linear-gradient(180deg, #1b1b1b 0%, #171717 100%)', boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}>
                     <button
                       onClick={() => void openFilePreview(entry.title, entry.path, { readOnly: true, renderMarkdown: true, hidePath: true })}
                       style={{ background: 'transparent', border: 'none', padding: 0, margin: 0, color: 'inherit', fontWeight: 700, textAlign: 'left', cursor: 'pointer' }}
