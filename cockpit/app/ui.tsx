@@ -3026,6 +3026,12 @@ export default function ClientBoard() {
           ? diaryEntries
           : diaryEntries.filter((entry) => `${entry.title}\n${entry.excerpt}\n${entry.content}`.toLowerCase().includes(q))
 
+        if (key === 'arrowleft') {
+          e.preventDefault()
+          sectionNavRefs.current[section]?.focus()
+          return
+        }
+
         if (key === 'j' || key === 'arrowdown') {
           e.preventDefault()
           setDiarySelectedIndex((prev) => Math.min(prev + 1, Math.max(0, diaryVisible.length - 1)))
