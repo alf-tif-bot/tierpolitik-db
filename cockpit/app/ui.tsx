@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-type Section = 'radar' | 'tasks' | 'calendar' | 'agents' | 'projects' | 'content' | 'memory' | 'docs' | 'people' | 'office' | 'health' | 'recipes' | 'files'
+type Section = 'radar' | 'tasks' | 'calendar' | 'agents' | 'projects' | 'content' | 'memory' | 'docs' | 'people' | 'office' | 'health' | 'recipes' | 'fundraising' | 'files'
 type EntityType = 'project' | 'content' | 'client' | 'memory' | 'doc' | 'person' | 'office'
 
 type Task = {
@@ -105,6 +105,15 @@ type AgentSummary = {
   lastSessionKey?: string
 }
 
+type FundraisingIdea = {
+  id: string
+  title: string
+  ideaId?: string
+  approvedAt?: string
+  sourceFile: string
+  path: string
+}
+
 type FilePreviewState = {
   open: boolean
   name?: string
@@ -195,7 +204,7 @@ function radarFollowupDeadlineIso(urgency: RadarItem['urgency']) {
   return dueAt.toISOString()
 }
 
-const sectionOrder: Section[] = ['radar', 'tasks', 'calendar', 'agents', 'content', 'projects', 'docs', 'memory', 'people', 'office', 'health', 'recipes', 'files']
+const sectionOrder: Section[] = ['radar', 'tasks', 'calendar', 'agents', 'content', 'projects', 'docs', 'memory', 'people', 'office', 'health', 'recipes', 'fundraising', 'files']
 
 const sectionMeta: Record<Section, { label: string; hint?: string; entityType?: EntityType }> = {
   radar: { label: 'Radar', hint: 'Signale & Entscheide' },
@@ -210,6 +219,7 @@ const sectionMeta: Record<Section, { label: string; hint?: string; entityType?: 
   office: { label: 'Archiv & Backoffice', hint: 'Ablage / Nebenaufgaben', entityType: 'office' },
   health: { label: 'Health', hint: 'Obsidian/Physio Problemzonen' },
   recipes: { label: 'Rezepte', hint: 'Sammlung + visuelle Karten' },
+  fundraising: { label: 'Fundraising 👍', hint: 'Gespeicherte Ideen mit Approval' },
   files: { label: 'Files', hint: 'Wichtige Dateien & Scripts' },
 }
 
@@ -1467,6 +1477,9 @@ export default function ClientBoard() {
   const [agentsError, setAgentsError] = useState<string | null>(null)
   const [agentsControlPending, setAgentsControlPending] = useState<string | null>(null)
   const [agentsControlError, setAgentsControlError] = useState<string | null>(null)
+  const [fundraisingIdeas, setFundraisingIdeas] = useState<FundraisingIdea[]>([])
+  const [fundraisingLoading, setFundraisingLoading] = useState(false)
+  const [fundraisingError, setFundraisingError] = useState<string | null>(null)
 
   function isOfflineClient() {
     return typeof navigator !== 'undefined' && !navigator.onLine
@@ -1948,6 +1961,25 @@ export default function ClientBoard() {
     }
   }
 
+  async function loadFundraisingIdeas() {
+    if (fundraisingLoading) return
+    if (isOfflineClient()) {
+      setFundraisingError('Offline: Fundraising-Ideen bleiben im letzten bekannten Stand sichtbar.')
+      return
+    }
+
+    setFundraisingLoading(true)
+    try {
+      const payload = await fetchJsonWithTransientRetry<{ ideas?: FundraisingIdea[] }>('/api/fundraising', boardRequestTimeoutMs)
+      setFundraisingIdeas(Array.isArray(payload?.ideas) ? payload.ideas : [])
+      setFundraisingError(null)
+    } catch {
+      setFundraisingError('Fundraising-Ideen konnten nicht geladen werden.')
+    } finally {
+      setFundraisingLoading(false)
+    }
+  }
+
   async function triggerAgentControl(action: 'heartbeat-enable' | 'heartbeat-disable' | 'gateway-restart' | 'cockpit-self-heal') {
     if (agentsControlPending) return
 
@@ -2185,6 +2217,9 @@ export default function ClientBoard() {
       void loadKnowledgeIndex()
     } else if (section === 'recipes') {
       setBoardError(null)
+    } else if (section === 'fundraising') {
+      setBoardError(null)
+      void loadFundraisingIdeas()
     } else {
       const entityType = sectionMeta[section].entityType!
       setEntities(entitiesCacheRef.current[entityType] || [])
@@ -2300,6 +2335,12 @@ export default function ClientBoard() {
 
     if (section === 'recipes') {
       setBoardError(null)
+      return
+    }
+
+    if (section === 'fundraising') {
+      setBoardError(null)
+      void loadFundraisingIdeas()
       return
     }
 
@@ -5062,6 +5103,41 @@ export default function ClientBoard() {
                   </div>
                 </div>
               </article>
+            </div>
+          </>
+        ) : section === 'fundraising' ? (
+          <>
+            <div style={{ marginBottom: 12, fontSize: 13, opacity: 0.85 }}>
+              Hier siehst du alle Fundraising-Ideen mit 👍 (gespeicherte Approvals aus dem Fundraisier-Workflow).
+            </div>
+            <div style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
+              <button onClick={() => void loadFundraisingIdeas()} disabled={fundraisingLoading}>
+                {fundraisingLoading ? 'Lade…' : 'Aktualisieren'}
+              </button>
+            </div>
+            {fundraisingError && (
+              <div style={{ marginBottom: 10, padding: '8px 10px', borderRadius: 8, border: '1px solid #7f1d1d', background: '#2b1111', color: '#fecaca' }}>
+                {fundraisingError}
+              </div>
+            )}
+            <div style={{ display: 'grid', gap: 10 }}>
+              {fundraisingIdeas.length === 0 ? (
+                <div style={{ opacity: 0.75 }}>Noch keine gespeicherten 👍-Ideen gefunden.</div>
+              ) : (
+                fundraisingIdeas.map((idea) => (
+                  <article key={idea.id} style={{ border: '1px solid #2f2f2f', borderRadius: 10, padding: 12, background: '#171717' }}>
+                    <div style={{ fontWeight: 700, marginBottom: 4 }}>👍 {idea.title}</div>
+                    <div style={{ fontSize: 12, opacity: 0.78, marginBottom: 8 }}>
+                      Idea-ID: {idea.ideaId || '–'}{idea.approvedAt ? ` · Approved: ${idea.approvedAt}` : ''}
+                    </div>
+                    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                      <button onClick={() => void openFilePreview(idea.sourceFile, idea.path, { readOnly: true, renderMarkdown: true })}>
+                        Idee öffnen
+                      </button>
+                    </div>
+                  </article>
+                ))
+              )}
             </div>
           </>
         ) : section === 'memory' ? (
