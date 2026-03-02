@@ -3057,6 +3057,7 @@ export default function ClientBoard() {
       const activeEl = document.activeElement as HTMLElement | null
       const activeNav = activeEl?.getAttribute('data-nav') || ''
       const isSidebarNavFocused = activeNav === 'section-item'
+      const isCalendarCardFocused = activeNav === 'cron-card'
 
       if (key === 'arrowup' || key === 'arrowdown') {
         e.preventDefault()
@@ -3070,6 +3071,12 @@ export default function ClientBoard() {
         return
       }
 
+      if (section === 'calendar' && isCalendarCardFocused && (key === 'arrowleft' || key === 'arrowright')) {
+        e.preventDefault()
+        focusCalendarCardHorizontal(key === 'arrowright' ? 1 : -1)
+        return
+      }
+
       if (key === 'arrowleft') {
         if (!isSidebarNavFocused) {
           e.preventDefault()
@@ -3078,7 +3085,7 @@ export default function ClientBoard() {
         }
       }
 
-      if (key === 'arrowright' && section === 'calendar' && !isSidebarNavFocused) {
+      if (key === 'arrowright' && section === 'calendar' && !isSidebarNavFocused && !isCalendarCardFocused) {
         e.preventDefault()
         focusCalendarCardHorizontal(1)
         return
