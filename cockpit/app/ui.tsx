@@ -3098,6 +3098,13 @@ export default function ClientBoard() {
         }
       }
 
+      if (key === 'arrowright' && section === 'calendar' && isSidebarNavFocused) {
+        e.preventDefault()
+        const first = document.querySelector<HTMLButtonElement>('[data-nav="cron-card"]')
+        first?.focus()
+        return
+      }
+
       if (key === 'arrowright' && section === 'calendar' && !isSidebarNavFocused && !isCalendarCardFocused) {
         e.preventDefault()
         focusCalendarCardHorizontal(1)
