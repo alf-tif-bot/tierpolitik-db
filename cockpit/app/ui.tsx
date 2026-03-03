@@ -1403,6 +1403,7 @@ export default function ClientBoard() {
   const [entities, setEntities] = useState<Entity[]>(() => cachedEntitiesByType.project || [])
   const [boardError, setBoardError] = useState<string | null>(null)
   const [taskActionPending, setTaskActionPending] = useState<Record<string, boolean>>({})
+  const [dragTaskId, setDragTaskId] = useState<string | null>(null)
   const [entityActionPending, setEntityActionPending] = useState<Record<string, boolean>>({})
   const [radar, setRadar] = useState<RadarItem[]>(() => cachedRadar?.rows || [])
   const radarRef = useRef<RadarItem[]>(cachedRadar?.rows || [])
@@ -4530,27 +4531,34 @@ export default function ClientBoard() {
         {section === 'tasks' ? (
           <>
             <div style={{ marginBottom: 10, fontSize: 12, opacity: 0.78 }}>
-              Heute v0.1 · Agenten-Todo-Liste
+              Heute v0.1 · Agent-Todo-Board (Drag & Drop)
             </div>
 
             {(() => {
-              const active = visible
-                .filter((t) => t.status !== 'done')
-                .sort((a, b) => {
-                  const rankDelta = taskExecutionRank(b, nowTick) - taskExecutionRank(a, nowTick)
-                  if (rankDelta !== 0) return rankDelta
-                  return (a.title || '').localeCompare(b.title || '', 'de-CH')
-                })
+              const all = [...visible].sort((a, b) => {
+                const rankDelta = taskExecutionRank(b, nowTick) - taskExecutionRank(a, nowTick)
+                if (rankDelta !== 0) return rankDelta
+                return (a.title || '').localeCompare(b.title || '', 'de-CH')
+              })
 
-              const order = ['main', 'tif-coding', 'tif-health', 'tif-medien', 'tif-politik', 'tif-text', 'tif-website']
-              const groups = new Map<string, Task[]>()
-              for (const task of active) {
-                const key = String(task.assignee || 'main')
-                if (!groups.has(key)) groups.set(key, [])
-                groups.get(key)!.push(task)
+              const allAgents = [...new Set([
+                ...agentsSummary.map((a) => a.id),
+                ...all.map((t) => String(t.assignee || 'main')),
+              ])]
+
+              const statusMap: Record<string, string> = {
+                open: 'Backlog',
+                doing: 'In progress',
+                waiting: 'Review',
+                done: 'Done',
               }
 
-              const assignees = [...new Set([...order.filter((id) => groups.has(id)), ...[...groups.keys()].filter((id) => !order.includes(id))])]
+              const columns = [
+                { key: 'open', label: 'Backlog' },
+                { key: 'doing', label: 'In progress' },
+                { key: 'waiting', label: 'Review' },
+                { key: 'done', label: 'Done' },
+              ] as const
 
               const agentEmoji = (id: string) => {
                 if (id.includes('coding')) return '🛠️'
@@ -4559,46 +4567,64 @@ export default function ClientBoard() {
                 if (id.includes('politik')) return '🏛️'
                 if (id.includes('text')) return '✍️'
                 if (id.includes('website')) return '🌐'
+                if (id === 'main') return '🧠'
                 return '🤖'
               }
 
-              if (assignees.length === 0) {
-                return <div style={{ fontSize: 14, opacity: 0.8 }}>Keine offenen Agent-Tasks 🎉</div>
+              const moveTo = (id: string, col: string) => {
+                const next = col === 'open' ? 'open' : col === 'doing' ? 'doing' : col === 'waiting' ? 'waiting' : 'done'
+                void move(id, next)
+              }
+
+              if (!all.length) {
+                return <div style={{ fontSize: 14, opacity: 0.8 }}>Keine Tasks gefunden.</div>
               }
 
               return (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0,1fr))', gap: 12 }}>
-                  {assignees.map((assignee) => {
-                    const items = groups.get(assignee) || []
-                    const label = assignee.replace(/^tif-/, '')
-                    return (
-                      <div key={assignee} style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 10 }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-                          <div style={{ fontWeight: 700 }}>{agentEmoji(assignee)} {label}</div>
-                          <div style={{ fontSize: 12, opacity: 0.72 }}>{items.length} offen</div>
-                        </div>
+                <div style={{ display: 'grid', gap: 12 }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                    {allAgents.map((id) => (
+                      <span key={id} style={{ border: '1px solid #3a3a3a', borderRadius: 999, padding: '4px 8px', fontSize: 12, opacity: 0.9 }}>
+                        {agentEmoji(id)} {id.replace(/^tif-/, '')}
+                      </span>
+                    ))}
+                  </div>
 
-                        <div style={{ display: 'grid', gap: 8 }}>
-                          {items.slice(0, 8).map((t) => (
-                            <div key={t.id} style={{ border: '1px solid #3a3a3a', borderRadius: 8, padding: 8, background: '#181818' }}>
-                              <div style={{ fontWeight: 600, marginBottom: 4 }}>{t.title}</div>
-                              <div style={{ fontSize: 12, opacity: 0.82 }}>
-                                {t.status.toUpperCase()} · ⚡ {t.priority} · 🎯 {t.impact || 'med'}
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(0,1fr))', gap: 12 }}>
+                    {columns.map((col) => {
+                      const items = all.filter((t) => String(t.status || 'open') === col.key)
+                      return (
+                        <div
+                          key={col.key}
+                          onDragOver={(e) => { e.preventDefault() }}
+                          onDrop={() => { if (dragTaskId) { moveTo(dragTaskId, col.key); setDragTaskId(null) } }}
+                          style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 10, minHeight: 220 }}
+                        >
+                          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
+                            <strong>{col.label}</strong>
+                            <span style={{ fontSize: 12, opacity: 0.7 }}>{items.length}</span>
+                          </div>
+
+                          <div style={{ display: 'grid', gap: 8 }}>
+                            {items.map((t) => (
+                              <div
+                                key={t.id}
+                                draggable
+                                onDragStart={() => setDragTaskId(t.id)}
+                                onDragEnd={() => setDragTaskId(null)}
+                                style={{ border: '1px solid #3a3a3a', borderRadius: 8, padding: 8, background: '#181818', cursor: 'grab', opacity: taskActionPending[t.id] ? 0.6 : 1 }}
+                              >
+                                <div style={{ fontWeight: 600, marginBottom: 4 }}>{t.title}</div>
+                                <div style={{ fontSize: 12, opacity: 0.82 }}>{agentEmoji(String(t.assignee || 'main'))} {String(t.assignee || 'main').replace(/^tif-/, '')} · ⚡ {t.priority}</div>
+                                <div style={{ marginTop: 6, fontSize: 11, opacity: 0.65 }}>{statusMap[String(t.status || 'open')] || String(t.status || '')}</div>
                               </div>
-                              <div style={{ display: 'flex', gap: 6, marginTop: 8, flexWrap: 'wrap' }}>
-                                <button style={polishedButtonStyle} disabled={!!taskActionPending[t.id]} onClick={() => move(t.id, 'doing')}>Start</button>
-                                <button style={polishedButtonStyle} disabled={!!taskActionPending[t.id]} onClick={() => move(t.id, 'waiting')}>Warten</button>
-                                <button style={polishedButtonStyle} disabled={!!taskActionPending[t.id]} onClick={() => move(t.id, 'done')}>Done</button>
-                              </div>
-                            </div>
-                          ))}
-                          {items.length > 8 && (
-                            <div style={{ fontSize: 12, opacity: 0.7 }}>+{items.length - 8} weitere Tasks</div>
-                          )}
+                            ))}
+                            {items.length === 0 && <div style={{ fontSize: 12, opacity: 0.5 }}>Leer</div>}
+                          </div>
                         </div>
-                      </div>
-                    )
-                  })}
+                      )
+                    })}
+                  </div>
                 </div>
               )
             })()}
