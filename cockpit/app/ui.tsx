@@ -4529,133 +4529,79 @@ export default function ClientBoard() {
 
         {section === 'tasks' ? (
           <>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0,1fr))', gap: 10, marginBottom: 14 }}>
-              <div style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 10 }}>
-                <div style={{ fontSize: 12, opacity: 0.8 }}>Heute-Fokus (Top 3 offen)</div>
-                <div style={{ marginTop: 6, fontSize: 13 }}>
-                  {todayFocus.length === 0 ? (
-                    <span style={{ opacity: 0.75 }}>Alles erledigt 🎉</span>
-                  ) : (
-                    todayFocus.map((t, idx) => (
-                      <div key={t.id} style={{ marginTop: idx === 0 ? 0 : 4 }}>
-                        {idx + 1}. {t.title}
-                      </div>
-                    ))
-                  )}
-                </div>
-              </div>
-              <div style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 10 }}>
-                <div style={{ fontSize: 12, opacity: 0.8 }}>Überfällig</div>
-                <div style={{ fontSize: 22, fontWeight: 700 }}>{overdueCount}</div>
-                <div style={{ fontSize: 12, opacity: 0.75 }}>Offene Tasks mit verpasster Deadline</div>
-              </div>
-              <div style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 10 }}>
-                <div style={{ fontSize: 12, opacity: 0.8 }}>Fällig in 24h</div>
-                <div style={{ fontSize: 22, fontWeight: 700 }}>{dueSoonCount}</div>
-                <div style={{ fontSize: 12, opacity: 0.75 }}>Offene Tasks mit Deadline bis morgen</div>
-              </div>
-              <div style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 10 }}>
-                <div style={{ fontSize: 12, opacity: 0.8 }}>Aktiv in Bearbeitung</div>
-                <div style={{ fontSize: 22, fontWeight: 700 }}>{visible.filter((t) => t.status === 'doing').length}</div>
-                <div style={{ fontSize: 12, opacity: 0.75 }}>Tasks im Status Doing</div>
-              </div>
+            <div style={{ marginBottom: 10, fontSize: 12, opacity: 0.78 }}>
+              Heute v0.1 · Agenten-Todo-Liste
             </div>
 
-            <div style={{ marginBottom: 8, fontSize: 12, opacity: 0.72 }}>
-              Fokusansicht: nur wichtigste Aufgaben und aktueller Bearbeitungsstand.
-            </div>
+            {(() => {
+              const active = visible
+                .filter((t) => t.status !== 'done')
+                .sort((a, b) => {
+                  const rankDelta = taskExecutionRank(b, nowTick) - taskExecutionRank(a, nowTick)
+                  if (rankDelta !== 0) return rankDelta
+                  return (a.title || '').localeCompare(b.title || '', 'de-CH')
+                })
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0,1fr))', gap: 12, marginTop: 12 }}>
-              {col('doing', 'In Arbeit')}
-              {col('open', 'Als Nächstes')}
-            </div>
+              const order = ['main', 'tif-coding', 'tif-health', 'tif-medien', 'tif-politik', 'tif-text', 'tif-website']
+              const groups = new Map<string, Task[]>()
+              for (const task of active) {
+                const key = String(task.assignee || 'main')
+                if (!groups.has(key)) groups.set(key, [])
+                groups.get(key)!.push(task)
+              }
 
-            <div style={{ marginTop: 16, background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 12 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-                <h3 style={{ margin: 0 }}>Someday / Maybe</h3>
-                <button
-                  onClick={() => void loadSomeday()}
-                  disabled={!canRefreshSomeday}
-                  title={refreshSomedayDisabledReason || 'Someday-Liste aktualisieren'}
-                >
-                  {somedayLoading ? 'Lädt…' : 'Aktualisieren'}
-                </button>
-              </div>
-              {somedayError && <div style={{ fontSize: 12, color: '#fca5a5', marginBottom: 8 }}>{somedayError}</div>}
+              const assignees = [...new Set([...order.filter((id) => groups.has(id)), ...[...groups.keys()].filter((id) => !order.includes(id))])]
 
-              {somedayTags.length > 0 && (
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 10 }}>
-                  <button
-                    style={{ fontSize: 12, padding: '4px 8px', borderRadius: 999, border: '1px solid #3a3a3a', background: somedayTagFilter === 'all' ? '#1d4ed8' : '#1f2937', color: '#fff' }}
-                    onClick={() => setSomedayTagFilter('all')}
-                  >
-                    Alle Themen
-                  </button>
-                  {somedayTags.map((tag) => (
-                    <button
-                      key={tag}
-                      style={{ fontSize: 12, padding: '4px 8px', borderRadius: 999, border: '1px solid #3a3a3a', background: somedayTagFilter === tag ? '#1d4ed8' : '#111827', color: '#e5e7eb' }}
-                      onClick={() => setSomedayTagFilter(tag)}
-                    >
-                      #{tag}
-                    </button>
-                  ))}
-                </div>
-              )}
+              const agentEmoji = (id: string) => {
+                if (id.includes('coding')) return '🛠️'
+                if (id.includes('health')) return '🩺'
+                if (id.includes('medien')) return '📣'
+                if (id.includes('politik')) return '🏛️'
+                if (id.includes('text')) return '✍️'
+                if (id.includes('website')) return '🌐'
+                return '🤖'
+              }
 
-              {visibleSomedayItems.length === 0 ? (
-                <div style={{ fontSize: 13, opacity: 0.75 }}>
-                  {somedayItems.length === 0 ? 'Keine Someday-Einträge gefunden.' : 'Keine Einträge für dieses Thema.'}
-                </div>
-              ) : (
-                <div style={{ display: 'grid', gap: 8 }}>
-                  {visibleSomedayItems.map((item) => (
-                    <div key={item.id} style={{ border: '1px solid #3a3a3a', borderRadius: 8, padding: 8 }}>
-                      <div style={{ fontWeight: 600, marginBottom: 4 }}>{item.title}</div>
-                      {item.description && <div style={{ fontSize: 12, opacity: 0.88, marginBottom: 4 }}>{item.description}</div>}
-                      <div style={{ fontSize: 12, opacity: 0.75, marginBottom: 4 }}>
-                        {item.status ? `Status: ${item.status}` : ''}
-                        {item.impact ? ` · Impact: ${item.impact}` : ''}
-                        {item.effort ? ` · Effort: ${item.effort}` : ''}
-                      </div>
-                      {item.tags && item.tags.length > 0 && (
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 6 }}>
-                          {item.tags.map((tag) => (
-                            <button
-                              key={`${item.id}-${tag}`}
-                              style={{ fontSize: 11, padding: '2px 6px', borderRadius: 999, border: '1px solid #2f2f2f', background: '#0f172a', color: '#d1d5db' }}
-                              onClick={() => setSomedayTagFilter(tag)}
-                            >
-                              #{tag}
-                            </button>
-                          ))}
+              if (assignees.length === 0) {
+                return <div style={{ fontSize: 14, opacity: 0.8 }}>Keine offenen Agent-Tasks 🎉</div>
+              }
+
+              return (
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0,1fr))', gap: 12 }}>
+                  {assignees.map((assignee) => {
+                    const items = groups.get(assignee) || []
+                    const label = assignee.replace(/^tif-/, '')
+                    return (
+                      <div key={assignee} style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 10, padding: 10 }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                          <div style={{ fontWeight: 700 }}>{agentEmoji(assignee)} {label}</div>
+                          <div style={{ fontSize: 12, opacity: 0.72 }}>{items.length} offen</div>
                         </div>
-                      )}
-                      <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-                        <button disabled={somedayBusyId === item.id} onClick={() => void promoteSomeday(item, true)}>Zur Taskliste</button>
-                        <button disabled={somedayBusyId === item.id} onClick={() => void deleteSomeday(item)}>Löschen</button>
-                        {(item.tags || []).includes('tierschutzmeldungen') && (
-                          <>
-                            <button
-                              onClick={() => setBoardError('Mock aktiv: Rückfrage an meldende Person vorbereiten (inkl. fehlende Angaben).')}
-                              title="Mock: Rückfrage-Flow"
-                            >
-                              Rückfrage senden (Mock)
-                            </button>
-                            <button
-                              onClick={() => setBoardError('Mock aktiv: Kanton + zuständiges Veterinäramt ermitteln und Meldung vorbereiten.')}
-                              title="Mock: Behörden-Flow"
-                            >
-                              Behörde informieren (Mock)
-                            </button>
-                          </>
-                        )}
+
+                        <div style={{ display: 'grid', gap: 8 }}>
+                          {items.slice(0, 8).map((t) => (
+                            <div key={t.id} style={{ border: '1px solid #3a3a3a', borderRadius: 8, padding: 8, background: '#181818' }}>
+                              <div style={{ fontWeight: 600, marginBottom: 4 }}>{t.title}</div>
+                              <div style={{ fontSize: 12, opacity: 0.82 }}>
+                                {t.status.toUpperCase()} · ⚡ {t.priority} · 🎯 {t.impact || 'med'}
+                              </div>
+                              <div style={{ display: 'flex', gap: 6, marginTop: 8, flexWrap: 'wrap' }}>
+                                <button style={polishedButtonStyle} disabled={!!taskActionPending[t.id]} onClick={() => move(t.id, 'doing')}>Start</button>
+                                <button style={polishedButtonStyle} disabled={!!taskActionPending[t.id]} onClick={() => move(t.id, 'waiting')}>Warten</button>
+                                <button style={polishedButtonStyle} disabled={!!taskActionPending[t.id]} onClick={() => move(t.id, 'done')}>Done</button>
+                              </div>
+                            </div>
+                          ))}
+                          {items.length > 8 && (
+                            <div style={{ fontSize: 12, opacity: 0.7 }}>+{items.length - 8} weitere Tasks</div>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    )
+                  })}
                 </div>
-              )}
-            </div>
+              )
+            })()}
           </>
         ) : section === 'radar' ? (
           <>
