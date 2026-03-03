@@ -5,8 +5,10 @@ import sys
 STEPS = [
     ["python", "scripts/seed_sources.py"],
     ["python", "scripts/connector_bund_curia_vista.py"],
-    ["python", "scripts/classify_rules_v1.py"],
+    ["python", "scripts/classify_rules_v2_strict.py"],
     ["python", "scripts/export_review_inbox.py"],
+    ["python", "scripts/export_home_data.py"],
+    ["python", "scripts/export_debug_stats.py"],
     ["python", "scripts/report_latest_run.py"],
 ]
 

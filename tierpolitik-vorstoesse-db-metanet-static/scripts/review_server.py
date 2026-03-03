@@ -16,6 +16,7 @@ def refresh_exports():
     cmds = [
         [py, str(ROOT / 'scripts' / 'export_review_inbox.py')],
         [py, str(ROOT / 'scripts' / 'export_home_data.py')],
+        [py, str(ROOT / 'scripts' / 'export_debug_stats.py')],
     ]
     for cmd in cmds:
         subprocess.run(cmd, cwd=str(ROOT), check=False)

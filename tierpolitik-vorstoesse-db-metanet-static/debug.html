@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tierpolitik Monitor – Debug</title>
+  <style>
+    body{font-family:Arial,sans-serif;background:#0f172a;color:#e2e8f0;margin:0;padding:16px}
+    .wrap{max-width:1200px;margin:0 auto}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+    .card{background:#111827;border:1px solid #334155;border-radius:8px;padding:10px}
+    table{width:100%;border-collapse:collapse;background:#111827;margin-top:10px}
+    th,td{border:1px solid #334155;padding:6px;text-align:left}
+    th{background:#1f2937}
+    a{color:#93c5fd}
+    h2{margin-top:24px}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Debug – Tierpolitik Monitor</h1>
+  <p><a href="/">Home</a> · <a href="/review.html">Review</a></p>
+  <div id="cards" class="cards"></div>
+
+  <h2>Nach Quelle</h2>
+  <table><thead><tr><th>Source</th><th>Total</th><th>Yes</th><th>Unsure</th><th>Queued</th><th>Home visible</th></tr></thead><tbody id="bySource"></tbody></table>
+
+  <h2>Nach Kanton</h2>
+  <table><thead><tr><th>Kanton</th><th>Total</th><th>Yes</th><th>Home Yes</th></tr></thead><tbody id="byCanton"></tbody></table>
+
+  <h2>Nach Gemeinde (Top)</h2>
+  <table><thead><tr><th>Gemeinde</th><th>Total</th><th>Yes</th><th>Home Yes</th></tr></thead><tbody id="byMunicipality"></tbody></table>
+</div>
+<script>
+function td(v){return `<td>${v ?? ''}</td>`}
+fetch('/data/debug-stats.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
+  const cards=[
+    ['Items total',d.items_total],
+    ['Home visible',d.items_home_visible],
+    ['Home yes',d.items_home_yes],
+    ['Review queue',d.review_queue],
+  ];
+  document.getElementById('cards').innerHTML = cards.map(([k,v])=>`<div class="card"><div>${k}</div><div style="font-size:24px;font-weight:700">${v}</div></div>`).join('');
+
+  document.getElementById('bySource').innerHTML=(d.by_source||[]).map(r=>`<tr>${td(r.source_key)}${td(r.total)}${td(r.yes)}${td(r.unsure)}${td(r.queued)}${td(r.home_visible)}</tr>`).join('');
+  document.getElementById('byCanton').innerHTML=(d.by_canton||[]).map(r=>`<tr>${td(r.canton)}${td(r.total)}${td(r.yes)}${td(r.home_yes)}</tr>`).join('');
+  document.getElementById('byMunicipality').innerHTML=(d.by_municipality_top||[]).map(r=>`<tr>${td(r.municipality)}${td(r.total)}${td(r.yes)}${td(r.home_yes)}</tr>`).join('');
+}).catch(err=>{
+  document.getElementById('cards').innerHTML = `<div class="card">Fehler beim Laden von /data/debug-stats.json: ${err}</div>`;
+});
+</script>
+</body>
+</html>
