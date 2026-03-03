@@ -14,6 +14,7 @@
     button{margin-right:6px}
     .yes{color:#86efac}.unsure{color:#fde68a}.no{color:#fca5a5}
     .row-done{opacity:.45}
+    .row-selected{outline:2px solid #60a5fa;outline-offset:-2px}
   </style>
 </head>
 <body>
@@ -33,20 +34,44 @@
   </table>
 </div>
 <script>
-const state={items:[],decisions:{},showDone:false};
+const state={items:[],decisions:{},showDone:false,selected:0};
 const rows=document.getElementById('rows');
 const key='tpm.review.decisions.v1';
 state.decisions=JSON.parse(localStorage.getItem(key)||'{}');
 
 function save(){localStorage.setItem(key,JSON.stringify(state.decisions));}
 function decision(id){return state.decisions[id]||'queued'}
+function visibleItems(){
+  return state.items.filter(it=> state.showDone ? true : decision(it.id)==='queued');
+}
+
+async function applyDecision(id,val){
+  try{
+    const res=await fetch('/api/review-decision',{
+      method:'POST',
+      headers:{'content-type':'application/json'},
+      body:JSON.stringify({id,decision:val})
+    });
+    if(!res.ok) throw new Error('API failed');
+    state.decisions[id]=val;
+    save();
+    render();
+  }catch(e){
+    alert('Speichern in Neon fehlgeschlagen. Läuft der review_server.py?');
+  }
+}
+
 function render(){
   rows.innerHTML='';
-  for(const it of state.items){
+  const vis=visibleItems();
+  if(state.selected>=vis.length) state.selected=Math.max(0, vis.length-1);
+
+  for(let i=0;i<vis.length;i++){
+    const it=vis[i];
     const d=decision(it.id);
-    if(!state.showDone && d!=='queued') continue;
     const tr=document.createElement('tr');
-    if(d!=='queued') tr.className='row-done';
+    if(d!=='queued') tr.classList.add('row-done');
+    if(i===state.selected) tr.classList.add('row-selected');
     tr.innerHTML=`
       <td><strong>${it.title||'(ohne Titel)'}</strong><br><small>${it.summary||''}</small><br><a target="_blank" href="${it.url||'#'}">Original</a></td>
       <td>${it.source_key}<br><small>${it.external_id}</small></td>
@@ -55,31 +80,19 @@ function render(){
       <td>
         <button data-id="${it.id}" data-v="approved">Approve</button>
         <button data-id="${it.id}" data-v="rejected">Reject</button>
-        <button data-id="${it.id}" data-v="queued">Reset</button>
       </td>`;
     rows.appendChild(tr);
   }
-  rows.querySelectorAll('button[data-id]').forEach(b=>b.onclick=async()=>{
-    const id=b.dataset.id, val=b.dataset.v;
-    try{
-      const res=await fetch('/api/review-decision',{
-        method:'POST',
-        headers:{'content-type':'application/json'},
-        body:JSON.stringify({id,decision:val})
-      });
-      if(!res.ok) throw new Error('API failed');
-      state.decisions[id]=val;
-      save();
-      render();
-    }catch(e){
-      alert('Speichern in Neon fehlgeschlagen. Läuft der review_server.py?');
-    }
-  });
+
+  rows.querySelectorAll('button[data-id]').forEach(b=>b.onclick=()=>applyDecision(b.dataset.id,b.dataset.v));
+
+  const selectedRow=rows.querySelector('.row-selected');
+  if(selectedRow) selectedRow.scrollIntoView({block:'nearest'});
 }
 
 const toggleBtn=document.getElementById('toggleDoneBtn');
 function updateToggleBtn(){toggleBtn.textContent = state.showDone ? 'Bearbeitete ausblenden' : 'Bearbeitete anzeigen';}
-toggleBtn.onclick=()=>{state.showDone=!state.showDone;updateToggleBtn();render();};
+toggleBtn.onclick=()=>{state.showDone=!state.showDone;state.selected=0;updateToggleBtn();render();};
 document.getElementById('exportBtn').onclick=()=>{
   const payload=Object.entries(state.decisions).map(([id,decision])=>({id,decision,ts:new Date().toISOString()}));
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
@@ -87,8 +100,32 @@ document.getElementById('exportBtn').onclick=()=>{
   a.href=URL.createObjectURL(blob);a.download='review-decisions-db.json';a.click();URL.revokeObjectURL(a.href);
 };
 
+document.addEventListener('keydown', async (e)=>{
+  const vis=visibleItems();
+  if(!vis.length) return;
+
+  if(e.key==='ArrowDown'){
+    e.preventDefault();
+    state.selected=Math.min(vis.length-1, state.selected+1);
+    render();
+  } else if(e.key==='ArrowUp'){
+    e.preventDefault();
+    state.selected=Math.max(0, state.selected-1);
+    render();
+  } else if(e.key==='a' || e.key==='A'){
+    e.preventDefault();
+    await applyDecision(vis[state.selected].id,'approved');
+  } else if(e.key==='d' || e.key==='D'){
+    e.preventDefault();
+    await applyDecision(vis[state.selected].id,'rejected');
+  }
+});
+
 updateToggleBtn();
-fetch('/data/review-inbox.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{state.items=Array.isArray(data)?data:[];render();}).catch(()=>{state.items=[];render();});
+fetch('/data/review-inbox.json',{cache:'no-store'})
+  .then(r=>r.json())
+  .then(data=>{state.items=Array.isArray(data)?data:[]; state.selected=0; render();})
+  .catch(()=>{state.items=[]; render();});
 </script>
 </body>
 </html>
