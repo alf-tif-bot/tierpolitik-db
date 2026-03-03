@@ -14,7 +14,6 @@ CORE_PATTERNS = [
     r"\blegehenn\w*\b", r"\bhuhn\w*\b", r"\bhuehn\w*\b", r"\bgefluegel\w*\b", r"\bpoulet\w*\b", r"\btrut\w*\b", r"\btruthahn\w*\b",
     r"\bschwein\w*\b", r"\brind\w*\b", r"\bkalb\w*\b", r"\bzieg\w*\b", r"\bschaf\b|\bschaefe\w*\b",
     r"\bfischzucht\w*\b", r"\baquakultur\w*\b", r"\bwildtier\w*\b", r"\bjagd\w*\b",
-    r"\bwolf\w*\b", r"\bbiber\w*\b", r"\bfuchs\w*\b", r"\breh\w*\b", r"\bhirsch\w*\b",
     r"\bveterinae?r\w*\b", r"\btierarznei\w*\b", r"\btierseuch\w*\b",
 ]
 
@@ -62,8 +61,9 @@ def classify_text(text: str, pos_tokens: set[str], neg_tokens: set[str]):
     pos_score = len(toks & pos_tokens)
     neg_score = len(toks & neg_tokens)
 
+    # learned positives bleiben vorsichtig -> unsure (kein automatisches yes)
     if pos_score >= 5 and neg_score == 0:
-        return "yes", 0.76, f"learned:+{pos_score}/-{neg_score}"
+        return "unsure", 0.62, f"learned:+{pos_score}/-{neg_score}"
     if neg_score >= 5 and pos_score == 0:
         return "no", 0.76, f"learned:+{pos_score}/-{neg_score}"
 
