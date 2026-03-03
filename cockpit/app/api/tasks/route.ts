@@ -113,7 +113,16 @@ export async function POST(req: NextRequest) {
   const sameTitleTasks = listTasks().filter((task) => normalizeTitle(task.title) === normalizedTitle)
   const existingOpen = sameTitleTasks.find((task) => task.status !== 'done')
   if (existingOpen) {
-    return jsonNoStore({ ...existingOpen, duplicate: true }, { status: 200 })
+    const updated = patchTask(existingOpen.id, {
+      status,
+      priority,
+      assignee,
+      impact,
+      area,
+      deadline,
+      tocAxis,
+    })
+    return jsonNoStore({ ...updated, duplicate: true, updated: true }, { status: 200 })
   }
 
   const latestDone = sameTitleTasks.find((task) => task.status === 'done')

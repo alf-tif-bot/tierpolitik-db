@@ -3567,7 +3567,8 @@ export default function ClientBoard() {
       const body = await res.json().catch(() => null)
       const createdTask = (body?.task ?? body) as Task | null
       if (!res.ok || !createdTask || typeof createdTask.id !== 'string') {
-        throw new Error(body?.error || 'Task konnte nicht erstellt werden')
+        const detail = body?.error ? `: ${body.error}` : ''
+        throw new Error(`Task konnte nicht erstellt werden (${res.status})${detail}`)
       }
       setTasks((prev) => [createdTask, ...prev])
       setTaskDraft({ title: '', assignee: input.assignee || 'tif-website', status: input.status || 'doing' })
