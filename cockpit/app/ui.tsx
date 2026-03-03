@@ -4602,7 +4602,7 @@ export default function ClientBoard() {
                           {item.tags.map((tag) => (
                             <button
                               key={`${item.id}-${tag}`}
-                              style={{ fontSize: 11, padding: '2px 6px', borderRadius: 999, border: '1px solid #334155', background: '#0f172a', color: '#d1d5db' }}
+                              style={{ fontSize: 11, padding: '2px 6px', borderRadius: 999, border: '1px solid #2f2f2f', background: '#0f172a', color: '#d1d5db' }}
                               onClick={() => setSomedayTagFilter(tag)}
                             >
                               #{tag}
@@ -5128,7 +5128,7 @@ export default function ClientBoard() {
               >
                 <div
                   onClick={(event) => event.stopPropagation()}
-                  style={{ width: 'min(860px, 100%)', maxHeight: '88vh', overflowY: 'auto', background: 'linear-gradient(180deg, #0f172a 0%, #111827 100%)', border: '1px solid #334155', borderRadius: 14, padding: 16, boxShadow: '0 20px 50px rgba(0,0,0,0.45)' }}
+                  style={{ width: 'min(860px, 100%)', maxHeight: '88vh', overflowY: 'auto', background: '#141414', border: '1px solid #2f2f2f', borderRadius: 14, padding: 16, boxShadow: '0 20px 50px rgba(0,0,0,0.45)' }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', gap: 12 }}>
                     <div>
@@ -5533,7 +5533,7 @@ export default function ClientBoard() {
                       <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
                         {detail?.status && <span style={{ fontSize: 11, padding: '3px 8px', borderRadius: 999, border: '1px solid #7f1d1d', color: '#fecaca' }}>Status: {detail.status}</span>}
                         {detail?.priority && <span style={{ fontSize: 11, padding: '3px 8px', borderRadius: 999, border: '1px solid #92400e', color: '#fde68a' }}>Prio: {detail.priority}</span>}
-                        {detail?.side && <span style={{ fontSize: 11, padding: '3px 8px', borderRadius: 999, border: '1px solid #1d4ed8', color: '#d1d5db' }}>Seite: {detail.side}</span>}
+                        {detail?.side && <span style={{ fontSize: 11, padding: '3px 8px', borderRadius: 999, border: '1px solid #4b5563', color: '#d1d5db' }}>Seite: {detail.side}</span>}
                       </div>
                     </div>
 
