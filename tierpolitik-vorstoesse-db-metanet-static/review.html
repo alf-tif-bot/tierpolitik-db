@@ -22,7 +22,7 @@
   <p>Quelle: <code>/data/review-inbox.json</code> · Entscheidungen bleiben lokal im Browser bis Export.</p>
   <p>
     <button id="exportBtn">Entscheidungen exportieren</button>
-    <button id="toggleDoneBtn">Bearbeitete ausblenden</button>
+    <button id="toggleDoneBtn">Bearbeitete anzeigen</button>
     <a href="/review.html">altes /review</a>
   </p>
   <table>
@@ -33,7 +33,7 @@
   </table>
 </div>
 <script>
-const state={items:[],decisions:{},showDone:true};
+const state={items:[],decisions:{},showDone:false};
 const rows=document.getElementById('rows');
 const key='tpm.review.decisions.v1';
 state.decisions=JSON.parse(localStorage.getItem(key)||'{}');
@@ -62,7 +62,9 @@ function render(){
   rows.querySelectorAll('button[data-id]').forEach(b=>b.onclick=()=>{state.decisions[b.dataset.id]=b.dataset.v;save();render();});
 }
 
-document.getElementById('toggleDoneBtn').onclick=()=>{state.showDone=!state.showDone;render();};
+const toggleBtn=document.getElementById('toggleDoneBtn');
+function updateToggleBtn(){toggleBtn.textContent = state.showDone ? 'Bearbeitete ausblenden' : 'Bearbeitete anzeigen';}
+toggleBtn.onclick=()=>{state.showDone=!state.showDone;updateToggleBtn();render();};
 document.getElementById('exportBtn').onclick=()=>{
   const payload=Object.entries(state.decisions).map(([id,decision])=>({id,decision,ts:new Date().toISOString()}));
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
@@ -70,6 +72,7 @@ document.getElementById('exportBtn').onclick=()=>{
   a.href=URL.createObjectURL(blob);a.download='review-decisions-db.json';a.click();URL.revokeObjectURL(a.href);
 };
 
+updateToggleBtn();
 fetch('/data/review-inbox.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{state.items=Array.isArray(data)?data:[];render();}).catch(()=>{state.items=[];render();});
 </script>
 </body>
