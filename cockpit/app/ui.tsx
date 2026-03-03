@@ -5229,9 +5229,9 @@ export default function ClientBoard() {
                     <div style={{ background: '#162132', border: '1px solid #2f4564', borderRadius: 8, padding: 8 }}><strong>Delivery:</strong> {selectedCronJob.job.deliveryMode || '–'} {selectedCronJob.job.deliveryChannel ? `· ${selectedCronJob.job.deliveryChannel}` : ''}</div>
                     <div style={{ background: '#162132', border: '1px solid #2f4564', borderRadius: 8, padding: 8 }}><strong>Discord-Channel:</strong> {selectedCronJob.job.deliveryTargetLabel || selectedCronJob.job.deliveryTo || '–'}</div>
                     <div style={{ background: '#162132', border: '1px solid #2f4564', borderRadius: 8, padding: 8 }}><strong>Consecutive Errors:</strong> {typeof selectedCronJob.job.consecutiveErrors === 'number' ? selectedCronJob.job.consecutiveErrors : 0}</div>
-                    <div style={{ gridColumn: '1 / -1', background: 'linear-gradient(180deg, #1d2b40 0%, #162235 100%)', border: '1px solid #36557a', borderRadius: 10, padding: 12 }}>
+                    <div style={{ gridColumn: '1 / -1', background: '#1b1b1b', border: '1px solid #2f2f2f', borderRadius: 10, padding: 12 }}>
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
-                        <strong style={{ color: '#dbeafe' }}>Was macht der Job konkret?</strong>
+                        <strong>Was macht der Job konkret?</strong>
                         <button
                           type="button"
                           style={{ ...polishedButtonStyle, padding: '3px 8px', fontSize: 11 }}
@@ -5252,7 +5252,7 @@ export default function ClientBoard() {
 
                   <div style={{ marginTop: 10, fontSize: 12, opacity: 0.82 }}>
                     {selectedCronJob.job.lastRunSummary && (
-                      <div style={{ marginTop: 6, padding: 12, borderRadius: 10, border: '1px solid #2c3e50', background: 'linear-gradient(180deg, #132234 0%, #0f1a29 100%)', color: '#dbeafe' }}>
+                      <div style={{ marginTop: 6, padding: 12, borderRadius: 10, border: '1px solid #2c3e50', background: '#1b1b1b', color: '#e5e7eb' }}>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6, marginBottom: 6 }}>
                           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                             <span aria-hidden>📝</span>
