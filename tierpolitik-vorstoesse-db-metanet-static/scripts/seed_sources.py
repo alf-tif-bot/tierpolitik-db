@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+import os
+
+import psycopg
+from dotenv import load_dotenv
+
+SQL = """
+insert into politics_monitor.pm_sources
+(source_key, name, level, country, canton, parser_type, base_url, list_url, is_active, run_interval_minutes)
+values
+('ch-bund-curia-vista','Bund – Curia Vista (Parlament.ch)','bund','CH',null,'html_list','https://www.parlament.ch','https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista',true,1440),
+('ch-be-grosser-rat','Kanton Bern – Grosser Rat Vorstösse','kanton','CH','BE','html_list','https://www.gr-be.ch','https://www.gr-be.ch/de/start/geschaefte/geschaefte-suchen.html',true,1440),
+('ch-bern-stadtrat','Stadt Bern – Stadtrat Vorstösse','gemeinde','CH','BE','html_list','https://stadtrat.bern.ch','https://stadtrat.bern.ch/de/geschaefte/suche',true,1440)
+on conflict (source_key) do update set
+  name = excluded.name,
+  level = excluded.level,
+  country = excluded.country,
+  canton = excluded.canton,
+  parser_type = excluded.parser_type,
+  base_url = excluded.base_url,
+  list_url = excluded.list_url,
+  is_active = excluded.is_active,
+  run_interval_minutes = excluded.run_interval_minutes,
+  updated_at = now();
+"""
+
+
+def main():
+    load_dotenv('.env')
+    db_url = os.environ.get('DATABASE_URL')
+    if not db_url:
+        raise SystemExit('DATABASE_URL fehlt in .env')
+
+    with psycopg.connect(db_url) as conn, conn.cursor() as cur:
+        cur.execute(SQL)
+        cur.execute("select id, source_key, name, level, parser_type, is_active from politics_monitor.pm_sources order by id")
+        rows = cur.fetchall()
+        conn.commit()
+
+    for row in rows:
+        print(row)
+
+
+if __name__ == '__main__':
+    main()
