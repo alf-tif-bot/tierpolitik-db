@@ -1,0 +1,22 @@
+[
+  {
+    "id": "ch-police-portal",
+    "name": "Police.be.ch Medienmitteilungen (Suche Stallbrand)",
+    "type": "web_search",
+    "url": "https://www.police.be.ch/",
+    "query_hint": "Stallbrand"
+  },
+  {
+    "id": "ch-feuerwehrverband-news",
+    "name": "Schweizer Feuerwehr-News (allgemein, für Brandereignisse)",
+    "type": "web",
+    "url": "https://www.swissfire.ch/"
+  },
+  {
+    "id": "ch-srf-search",
+    "name": "SRF Suche (Stallbrand Schweiz)",
+    "type": "web_search",
+    "url": "https://www.srf.ch/suche?q=Stallbrand%20Schweiz",
+    "query_hint": "Stallbrand Schweiz"
+  }
+]
