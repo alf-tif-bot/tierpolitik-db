@@ -13,7 +13,7 @@ CORE_PATTERNS = [
     r"\bschlacht\w*\b", r"\bschlachthof\w*\b", r"\btierversuch\w*\b", r"\bversuchstier\w*\b", r"\bpelz\w*\b",
     r"\blegehenn\w*\b", r"\bhuhn\w*\b", r"\bhuehn\w*\b", r"\bgefluegel\w*\b", r"\bpoulet\w*\b", r"\btrut\w*\b", r"\btruthahn\w*\b",
     r"\bschwein\w*\b", r"\brind\w*\b", r"\bkalb\w*\b", r"\bzieg\w*\b", r"\bschaf\b|\bschaefe\w*\b",
-    r"\bfischzucht\w*\b", r"\baquakultur\w*\b", r"\bwildtier\w*\b", r"\bjagd\w*\b",
+    r"\bfischzucht\w*\b", r"\baquakultur\w*\b", r"\bwildtier\w*\b", r"\bjagd\w*\b", r"\bfuchsjagd\w*\b",
     r"\bveterinae?r\w*\b", r"\btierarznei\w*\b", r"\btierseuch\w*\b",
 ]
 

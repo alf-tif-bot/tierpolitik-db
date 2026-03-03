@@ -25,9 +25,13 @@ def fetch_business(limit: int = DEFAULT_LIMIT) -> list[dict]:
     with urllib.request.urlopen(url, timeout=30) as resp:
         payload = json.loads(resp.read().decode("utf-8", "ignore"))
     data = payload.get("d", [])
-    if not isinstance(data, list):
-        return []
-    return data
+    if isinstance(data, list):
+        return data
+    if isinstance(data, dict):
+        results = data.get("results", [])
+        if isinstance(results, list):
+            return results
+    return []
 
 
 def parse_date(value: str | None):
