@@ -1523,10 +1523,34 @@ export default function ClientBoard() {
   const [diaryError, setDiaryError] = useState<string | null>(null)
   const [diaryQuery, setDiaryQuery] = useState('')
   const [diarySelectedIndex, setDiarySelectedIndex] = useState(0)
+  const [cockpitIp, setCockpitIp] = useState('lade…')
 
   function isOfflineClient() {
     return typeof navigator !== 'undefined' && !navigator.onLine
   }
+
+  useEffect(() => {
+    let cancelled = false
+
+    async function loadCockpitIp() {
+      try {
+        const payload = await fetchJsonWithTransientRetry<{ ips?: string[]; hostname?: string }>('/api/ip', boardRequestTimeoutMs)
+        if (cancelled) return
+        const ips = Array.isArray(payload?.ips) ? payload.ips.filter((v) => typeof v === 'string' && v.trim().length > 0) : []
+        const host = typeof payload?.hostname === 'string' ? payload.hostname : ''
+        setCockpitIp(ips.length ? ips.join(' · ') : host || 'nicht verfügbar')
+      } catch {
+        if (!cancelled) setCockpitIp('nicht verfügbar')
+      }
+    }
+
+    void loadCockpitIp()
+    const timer = window.setInterval(() => { void loadCockpitIp() }, 60_000)
+    return () => {
+      cancelled = true
+      window.clearInterval(timer)
+    }
+  }, [])
 
   async function loadSomeday() {
     if (somedayLoadingRef.current) return
@@ -4532,6 +4556,9 @@ export default function ClientBoard() {
       <aside style={{ background: 'transparent', border: 'none', borderRadius: 0, padding: 6, height: 'fit-content' }}>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: 8 }}>
           <div style={{ fontWeight: 700 }}>Cockpit 🚀</div>
+        </div>
+        <div style={{ marginBottom: 10, padding: '6px 8px', borderRadius: 8, border: '1px solid #2f3f56', background: '#101826', color: '#b7d4ff', fontSize: 12, fontWeight: 700 }}>
+          IP: {cockpitIp}
         </div>
         {sectionOrder.map((s) => (
           <button
