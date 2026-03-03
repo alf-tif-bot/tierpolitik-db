@@ -3,6 +3,7 @@ import json
 import os
 from datetime import date
 from pathlib import Path
+import re
 
 import psycopg
 from dotenv import load_dotenv
@@ -14,6 +15,42 @@ def iso_or_today(d):
     if d:
         return d.isoformat()
     return date.today().isoformat()
+
+
+def infer_business_number(external_id: str, title: str | None, body: str | None, raw_blob: str | None, source_url: str | None) -> str:
+    t = (title or '')
+    b = (body or '')
+    rb = (raw_blob or '')
+
+    # CH Curia style in title: 26.3018 / 22.3980
+    m = re.search(r"\b(\d{2}\.\d{4})\b", t)
+    if m:
+        return m.group(1)
+
+    # CH Curia style in raw JSON payload
+    m = re.search(r'"BusinessShortNumber"\s*:\s*"(\d{2}\.\d{4})"', rb)
+    if m:
+        return m.group(1)
+
+    # ZH/BE style: 2024/123
+    m = re.search(r"\b(20\d{2}/\d{1,5})\b", t)
+    if m:
+        return m.group(1)
+    m = re.search(r"\b(20\d{2}/\d{1,5})\b", b)
+    if m:
+        return m.group(1)
+
+    # ZH XML raw payload: <...GRNr>2020/302</...GRNr>
+    m = re.search(r">(20\d{2}/\d{1,5})<", rb)
+    if m:
+        return m.group(1)
+
+    su = (source_url or '')
+    m = re.search(r'[?&]guid=([a-f0-9]{8,40})', su, re.I)
+    if m:
+        return f"BE-{m.group(1)[:8]}"
+
+    return str(external_id)
 
 
 def map_type(item_type: str | None) -> str:
@@ -46,7 +83,14 @@ def main():
             """
             select i.external_id, i.title, i.body, i.item_type, i.status, i.submitted_at,
                    i.updated_at::date, i.source_url, i.canton, i.municipality,
-                   coalesce(c.label,'no') as label, c.reason, s.name as source_name, i.persons
+                   coalesce(c.label,'no') as label, c.reason, s.name as source_name, i.persons,
+                   (
+                     select coalesce(r.raw_payload->>'xml', r.raw_payload::text)
+                     from politics_monitor.pm_items_raw r
+                     where r.source_id=i.source_id and r.external_id=i.external_id
+                     order by r.fetched_at desc
+                     limit 1
+                   ) as raw_blob
             from politics_monitor.pm_items i
             join politics_monitor.pm_sources s on s.id = i.source_id
             left join politics_monitor.pm_classification c on c.item_id = i.id
@@ -61,19 +105,20 @@ def main():
 
     out = []
     for r in rows:
-        ext, title, body, item_type, status, sub_date, upd_date, url, canton, municipality, label, reason, source_name, persons = r
+        ext, title, body, item_type, status, sub_date, upd_date, url, canton, municipality, label, reason, source_name, persons, raw_blob = r
         submitters = []
         if persons:
             submitters = [{'name': p, 'rolle': 'Einreichend', 'partei': 'Unbekannt'} for p in persons[:8]]
         else:
             submitters = [{'name': source_name or 'Unbekannt', 'rolle': 'Quelle', 'partei': 'Unbekannt'}]
 
+        gnr = infer_business_number(str(ext), title, body, raw_blob, url)
         out.append({
             'id': f'vp-{str(ext).lower()}',
             'titel': title or f'Vorstoss {ext}',
             'typ': map_type(item_type),
             'kurzbeschreibung': (body or title or '')[:700] or 'Kein Beschreibungstext verfügbar.',
-            'geschaeftsnummer': str(ext),
+            'geschaeftsnummer': gnr,
             'ebene': 'Gemeinde' if municipality else ('Kanton' if canton else 'Bund'),
             'kanton': canton,
             'regionGemeinde': municipality,
