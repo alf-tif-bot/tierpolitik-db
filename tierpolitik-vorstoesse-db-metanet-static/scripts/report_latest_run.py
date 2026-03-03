@@ -53,13 +53,33 @@ def main():
         )
         rows = cur.fetchall()
 
+        cur.execute(
+            """
+            select i.external_id, i.title, c.label, c.confidence, i.source_url
+            from politics_monitor.pm_items i
+            join politics_monitor.pm_classification c on c.item_id = i.id
+            where c.label = 'yes'
+            order by i.last_seen_at desc
+            limit 10
+            """
+        )
+        yes_rows = cur.fetchall()
+
     print('\nlatest_items:')
     if not rows:
         print('(none)')
+    else:
+        for idx, row in enumerate(rows, 1):
+            print(f"{idx}. {row[0]} | {row[1]} | {row[2] or '-'} | {row[3] or '-'}")
+            print(f"   {row[4] or '-'}")
+
+    print('\nanimal_related_yes:')
+    if not yes_rows:
+        print('(none)')
         return
 
-    for idx, row in enumerate(rows, 1):
-        print(f"{idx}. {row[0]} | {row[1]} | {row[2] or '-'} | {row[3] or '-'}")
+    for idx, row in enumerate(yes_rows, 1):
+        print(f"{idx}. {row[0]} | {row[1]} | label={row[2]} | confidence={row[3]}")
         print(f"   {row[4] or '-'}")
 
 
