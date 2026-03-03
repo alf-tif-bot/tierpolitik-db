@@ -5085,8 +5085,8 @@ export default function ClientBoard() {
             )}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, minmax(0,1fr))', gap: 10, marginBottom: 16 }}>
               {weeklyJobColumns.map((day, dayIdx) => (
-                <div key={day.label} style={{ background: `linear-gradient(180deg, rgba(37,99,235,0.14) 0%, rgba(31,41,55,0.92) 70%)`, border: '1px solid #35507a', borderRadius: 12, padding: 10, minHeight: 190, boxShadow: '0 6px 18px rgba(0,0,0,0.22)' }}>
-                  <div style={{ fontSize: 12, color: '#bfdbfe', letterSpacing: 0.2 }}>{day.dateLabel}</div>
+                <div key={day.label} style={{ background: '#1f1f1f', border: '1px solid #343434', borderRadius: 12, padding: 10, minHeight: 190 }}>
+                  <div style={{ fontSize: 12, opacity: 0.75 }}>{day.dateLabel}</div>
                   <div style={{ fontWeight: 800, marginBottom: 10, color: '#eff6ff', fontSize: 14 }}>{day.label}</div>
                   {day.jobs.length === 0 ? (
                     <div style={{ fontSize: 12, color: '#93c5fd' }}>Keine Jobs</div>
@@ -5106,10 +5106,10 @@ export default function ClientBoard() {
                               setSelectedCronJob({ job: baseJob, runAtMs: job.nextRunAtMs ?? null })
                             }}
                             title="Cron-Details öffnen"
-                            style={{ border: '1px solid #4b6b98', borderLeft: `5px solid ${sourceColor}`, background: 'linear-gradient(180deg, #1b2533 0%, #141c27 100%)', borderRadius: 10, padding: 8, textAlign: 'left', color: '#f8fafc', cursor: 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.25)' }}
+                            style={{ border: `1px solid ${sourceColor}66`, borderLeft: `5px solid ${sourceColor}`, background: `linear-gradient(180deg, ${sourceColor}22 0%, rgba(20,24,31,0.95) 100%)`, borderRadius: 10, padding: 8, textAlign: 'left', color: '#f8fafc', cursor: 'pointer', boxShadow: `0 4px 10px ${sourceColor}22` }}
                           >
                             <div style={{ fontSize: 12, fontWeight: 700, lineHeight: 1.35, color: '#e2e8f0' }}>{simplifyCronJobName(job.name)}</div>
-                            <div style={{ fontSize: 11, color: '#93c5fd' }}>
+                            <div style={{ fontSize: 11, opacity: 0.82 }}>
                               {job.nextRunAtMs ? new Date(job.nextRunAtMs).toLocaleTimeString('de-CH', { hour: '2-digit', minute: '2-digit' }) : 'ohne Zeit'} · {job.cronType || 'General'}
                             </div>
                           </button>
