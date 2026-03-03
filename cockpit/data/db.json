@@ -3,11 +3,11 @@
     {
       "id": "task_mission_001",
       "title": "Mission-Control v1 stabilisieren (Task-Flow + Verantwortlichkeiten)",
-      "status": "doing",
+      "status": "done",
       "priority": "high",
       "assignee": "ALF",
       "createdAt": "2026-02-15T19:15:00.000Z",
-      "updatedAt": "2026-02-15T19:15:00.000Z",
+      "updatedAt": "2026-03-03T21:50:39.810Z",
       "area": "ops",
       "tocAxis": "wertschoepfung",
       "impact": "med",
@@ -116,15 +116,16 @@
     {
       "id": "task_stallbraende_001",
       "title": "Projekt-Setup: Stallbrände Schweiz (Scope, Definitionen, Quellen) festlegen",
-      "status": "open",
+      "status": "in_progress",
       "priority": "high",
       "assignee": "ALF",
       "createdAt": "2026-02-16T10:39:00.000Z",
-      "updatedAt": "2026-02-16T10:39:00.000Z",
+      "updatedAt": "2026-03-03T22:13:05.793961Z",
       "area": "politik",
       "tocAxis": "repraesentation",
       "impact": "high",
-      "deadline": null
+      "deadline": null,
+      "notes": "Setup v0 erstellt: Scope, Definitionen, Mindestfelder, Qualitätsregeln, Quellenpriorität. Pfad: PARA/Projects/Stallbraende-Schweiz/docs/SETUP.v0.md"
     },
     {
       "id": "task_stallbraende_002",
@@ -151,6 +152,17 @@
       "tocAxis": "wertschoepfung",
       "impact": "high",
       "deadline": null
+    },
+    {
+      "id": "task_mmb5amjz_gvoce",
+      "title": "tester 2",
+      "priority": "med",
+      "assignee": "Beide",
+      "impact": "med",
+      "area": "ops",
+      "status": "open",
+      "createdAt": "2026-03-03T21:54:03.311Z",
+      "updatedAt": "2026-03-03T21:54:03.311Z"
     }
   ],
   "entities": [
