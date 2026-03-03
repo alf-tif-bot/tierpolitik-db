@@ -1,0 +1,11 @@
+LLM-Modell: 5.3-codex Nächster Run: Di., 03.03., 09:00
+
+Daily TIF Media Processing - Job-Details Schliessen
+
+Verarbeite Gmail alf.tif.bot@gmail.com auf neue TIF-Medienberichte (insb. Google Alerts), iziere, lege pro neuem
+
+Treffer einen Medienartikel-ENTWURF auf https;//tierimfokus.ch/in-den-medien/ an (WP-Zugang aus
+/Users/alf/.openclaw/workspace/secrets/wp-tif.env). Speichere das Ergebnis als JSON nach /Users/alf/.openclaw/workspace/tmp/tif-
+media-daily-last.json mit Feldern: checkedCount, newRelevantCount, draftsCreated (array mit title, url), blockers (array). Wenn nichts
+Neues: trotzdem JSON schreiben mit newRelevantCount=0.
+
