@@ -3951,7 +3951,7 @@ export default function ClientBoard() {
       return { fg: '#fecaca', bg: '#2b1111', border: '#7f1d1d', label: 'Error' }
     }
     if (s === 'running' || s === 'working') {
-      return { fg: '#bfdbfe', bg: '#10233d', border: '#1e3a8a', label: 'Running' }
+      return { fg: '#e5e7eb', bg: '#1f2937', border: '#374151', label: 'Running' }
     }
     return { fg: '#e5e7eb', bg: '#1b1b1b', border: '#3f3f46', label: status || 'Unknown' }
   }
@@ -4573,7 +4573,7 @@ export default function ClientBoard() {
                   {somedayTags.map((tag) => (
                     <button
                       key={tag}
-                      style={{ fontSize: 12, padding: '4px 8px', borderRadius: 999, border: '1px solid #3a3a3a', background: somedayTagFilter === tag ? '#1d4ed8' : '#111827', color: '#dbeafe' }}
+                      style={{ fontSize: 12, padding: '4px 8px', borderRadius: 999, border: '1px solid #3a3a3a', background: somedayTagFilter === tag ? '#1d4ed8' : '#111827', color: '#e5e7eb' }}
                       onClick={() => setSomedayTagFilter(tag)}
                     >
                       #{tag}
@@ -4602,7 +4602,7 @@ export default function ClientBoard() {
                           {item.tags.map((tag) => (
                             <button
                               key={`${item.id}-${tag}`}
-                              style={{ fontSize: 11, padding: '2px 6px', borderRadius: 999, border: '1px solid #334155', background: '#0f172a', color: '#bfdbfe' }}
+                              style={{ fontSize: 11, padding: '2px 6px', borderRadius: 999, border: '1px solid #334155', background: '#0f172a', color: '#d1d5db' }}
                               onClick={() => setSomedayTagFilter(tag)}
                             >
                               #{tag}
@@ -4668,7 +4668,7 @@ export default function ClientBoard() {
               </div>
             )}
             {radarDeferredDecision && (
-              <div style={{ marginBottom: 10, padding: '8px 10px', borderRadius: 8, border: '1px solid #1d4ed8', background: '#0f1b33', color: '#bfdbfe', fontSize: 13, display: 'flex', justifyContent: 'space-between', gap: 10, alignItems: 'center' }}>
+              <div style={{ marginBottom: 10, padding: '8px 10px', borderRadius: 8, border: '1px solid #374151', background: '#1f2937', color: '#e5e7eb', fontSize: 13, display: 'flex', justifyContent: 'space-between', gap: 10, alignItems: 'center' }}>
                 <span>
                   Ausstehende Aktion: <strong>{radarDeferredDecision.status}</strong> für <strong>{radarDeferredDecision.title}</strong>. Wird nach dem Refresh automatisch ausgeführt.
                 </span>
@@ -5533,7 +5533,7 @@ export default function ClientBoard() {
                       <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
                         {detail?.status && <span style={{ fontSize: 11, padding: '3px 8px', borderRadius: 999, border: '1px solid #7f1d1d', color: '#fecaca' }}>Status: {detail.status}</span>}
                         {detail?.priority && <span style={{ fontSize: 11, padding: '3px 8px', borderRadius: 999, border: '1px solid #92400e', color: '#fde68a' }}>Prio: {detail.priority}</span>}
-                        {detail?.side && <span style={{ fontSize: 11, padding: '3px 8px', borderRadius: 999, border: '1px solid #1d4ed8', color: '#bfdbfe' }}>Seite: {detail.side}</span>}
+                        {detail?.side && <span style={{ fontSize: 11, padding: '3px 8px', borderRadius: 999, border: '1px solid #1d4ed8', color: '#d1d5db' }}>Seite: {detail.side}</span>}
                       </div>
                     </div>
 
