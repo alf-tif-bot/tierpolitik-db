@@ -4491,7 +4491,7 @@ export default function ClientBoard() {
 
   return (
     <main className="cockpit-shell" suppressHydrationWarning style={{ maxWidth: 1320, margin: '0 auto', padding: 20, display: 'grid', gridTemplateColumns: '236px 1fr', gap: 16 }}>
-      <aside style={{ background: '#181818', border: '1px solid #2f2f2f', borderRadius: 14, padding: 10, height: 'fit-content' }}>
+      <aside style={{ background: 'transparent', border: 'none', borderRadius: 0, padding: 6, height: 'fit-content' }}>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: 8 }}>
           <div style={{ fontWeight: 700 }}>Cockpit 🚀</div>
         </div>
@@ -4502,10 +4502,10 @@ export default function ClientBoard() {
             data-nav="section-item"
             data-section={s}
             onClick={() => setSection(s)}
-            style={{ width: '100%', textAlign: 'left', marginBottom: 6, background: section === s ? '#262626' : '#181818', color: '#f5f5f5', border: section === s ? '1px solid #4b5563' : '1px solid #3a3a3a', borderRadius: 10, padding: '9px 10px' }}
+            style={{ width: '100%', textAlign: 'left', marginBottom: 2, background: 'transparent', color: '#f5f5f5', border: 'none', borderRadius: 0, padding: '8px 6px', opacity: section === s ? 1 : 0.9 }}
           >
-            <div style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: 8 }}>
-              <span style={{ color: '#ffffff' }}>{sectionEmoji[s] || '•'}</span>
+            <div style={{ fontWeight: section === s ? 700 : 500, display: 'flex', alignItems: 'center', gap: 8, borderLeft: section === s ? '2px solid #d1d5db' : '2px solid transparent', paddingLeft: 8 }}>
+              <span style={{ color: '#ffffff', filter: 'grayscale(100%) brightness(1.6)' }}>{sectionEmoji[s] || '•'}</span>
               <span>{sectionMeta[s].label}</span>
             </div>
           </button>
