@@ -51,7 +51,7 @@ def main():
             join politics_monitor.pm_sources s on s.id = i.source_id
             left join politics_monitor.pm_classification c on c.item_id = i.id
             where i.home_visible = true
-              and coalesce(c.label,'no') in ('yes','unsure')
+              and coalesce(c.label,'no') = 'yes'
             order by i.submitted_at desc nulls last, i.updated_at desc
             limit %s
             """,
