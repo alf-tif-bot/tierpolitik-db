@@ -128,6 +128,7 @@ def main():
                         insert into politics_monitor.pm_items_raw
                         (run_id, source_id, external_id, fetched_at, raw_payload, raw_hash)
                         values (%s, %s, %s, %s, %s::jsonb, %s)
+                        on conflict (source_id, external_id, fetched_at) do nothing
                         """,
                         (run_id, source_id, external_id, now, raw_payload, raw_hash),
                     )
