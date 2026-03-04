@@ -1,16 +1,16 @@
 {
-  "items_total": 25477,
-  "items_home_visible": 25474,
+  "items_total": 26977,
+  "items_home_visible": 26974,
   "items_home_yes": 49,
   "review_queue": 139,
   "labels": [
     {
       "label": "none",
-      "count": 18050
+      "count": 19518
     },
     {
       "label": "no",
-      "count": 7259
+      "count": 7291
     },
     {
       "label": "unsure",
@@ -40,11 +40,11 @@
     },
     {
       "source_key": "ch-ag-grosser-rat",
-      "total": 2008,
-      "home_visible": 2008,
+      "total": 3508,
+      "home_visible": 3508,
       "yes": 9,
       "unsure": 2,
-      "queued": 2008
+      "queued": 3508
     },
     {
       "source_key": "ch-be-grosser-rat-ogd",
@@ -102,7 +102,7 @@
     },
     {
       "canton": "AG",
-      "total": 2008,
+      "total": 3508,
       "yes": 9,
       "home_yes": 9
     },
@@ -134,7 +134,7 @@
     },
     {
       "municipality": "(none)",
-      "total": 10899,
+      "total": 12399,
       "yes": 33,
       "home_yes": 32
     }
@@ -175,7 +175,7 @@
     "by_canton": [
       {
         "canton": "AG",
-        "total": 2008,
+        "total": 3508,
         "oldest_year": 2019,
         "newest_year": 2020,
         "target_min_year": 2000,
