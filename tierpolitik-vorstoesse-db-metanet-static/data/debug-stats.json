@@ -376,5 +376,32 @@
     "newest_year": 2026,
     "covered_years_back": 26,
     "target_years_back": 26
+  },
+  "municipality_progress": {
+    "covered": 1,
+    "target": 2000
+  },
+  "project_progress": {
+    "ratio": 0.3847,
+    "percent": 38.5,
+    "weights": {
+      "cantons": 0.45,
+      "years": 0.35,
+      "municipalities": 0.2
+    },
+    "components": {
+      "cantons": {
+        "fulfilled": 2,
+        "target": 26
+      },
+      "years": {
+        "covered_years_back": 26,
+        "target_years_back": 26
+      },
+      "municipalities": {
+        "covered": 1,
+        "target": 2000
+      }
+    }
   }
 }

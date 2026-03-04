@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 
 OUT = Path('data/debug-stats.json')
 CANTONS_26 = ['AG','AI','AR','BE','BL','BS','FR','GE','GL','GR','JU','LU','NE','NW','OW','SG','SH','SO','SZ','TG','TI','UR','VD','VS','ZG','ZH']
+TARGET_MUNICIPALITIES = int(os.environ.get('TPM_TARGET_MUNICIPALITIES', '2000'))
 
 
 def main():
@@ -164,6 +165,32 @@ def main():
             'newest_year': observed_max,
             'covered_years_back': span_done,
             'target_years_back': span_total,
+        }
+
+        cur.execute("""
+            select count(distinct municipality)
+            from politics_monitor.pm_items
+            where municipality is not null and municipality <> '' and municipality <> '(none)'
+        """)
+        municipalities_covered = cur.fetchone()[0] or 0
+        payload['municipality_progress'] = {
+            'covered': municipalities_covered,
+            'target': TARGET_MUNICIPALITIES,
+        }
+
+        canton_ratio = (len(fulfilled) / 26.0)
+        year_ratio = (span_done / max(1, span_total))
+        municipality_ratio = (municipalities_covered / max(1, TARGET_MUNICIPALITIES))
+        project_ratio = (0.45 * canton_ratio) + (0.35 * year_ratio) + (0.20 * municipality_ratio)
+        payload['project_progress'] = {
+            'ratio': round(project_ratio, 4),
+            'percent': round(project_ratio * 100, 1),
+            'weights': {'cantons': 0.45, 'years': 0.35, 'municipalities': 0.20},
+            'components': {
+                'cantons': {'fulfilled': len(fulfilled), 'target': 26},
+                'years': {'covered_years_back': span_done, 'target_years_back': span_total},
+                'municipalities': {'covered': municipalities_covered, 'target': TARGET_MUNICIPALITIES},
+            },
         }
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
