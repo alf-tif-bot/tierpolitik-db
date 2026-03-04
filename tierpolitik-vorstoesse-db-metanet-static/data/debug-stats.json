@@ -1,24 +1,24 @@
 {
-  "items_total": 23977,
-  "items_home_visible": 23974,
-  "items_home_yes": 40,
-  "review_queue": 128,
+  "items_total": 25477,
+  "items_home_visible": 25474,
+  "items_home_yes": 49,
+  "review_queue": 139,
   "labels": [
     {
       "label": "none",
-      "count": 16950
+      "count": 18050
     },
     {
       "label": "no",
-      "count": 6870
+      "count": 7259
     },
     {
       "label": "unsure",
-      "count": 116
+      "count": 118
     },
     {
       "label": "yes",
-      "count": 41
+      "count": 50
     }
   ],
   "by_source": [
@@ -39,6 +39,14 @@
       "queued": 6067
     },
     {
+      "source_key": "ch-ag-grosser-rat",
+      "total": 2008,
+      "home_visible": 2008,
+      "yes": 9,
+      "unsure": 2,
+      "queued": 2008
+    },
+    {
       "source_key": "ch-be-grosser-rat-ogd",
       "total": 1715,
       "home_visible": 1715,
@@ -53,14 +61,6 @@
       "yes": 6,
       "unsure": 8,
       "queued": 1010
-    },
-    {
-      "source_key": "ch-ag-grosser-rat",
-      "total": 508,
-      "home_visible": 508,
-      "yes": 0,
-      "unsure": 0,
-      "queued": 508
     },
     {
       "source_key": "ch-bs-grosser-rat-neu",
@@ -101,6 +101,12 @@
       "home_yes": 0
     },
     {
+      "canton": "AG",
+      "total": 2008,
+      "yes": 9,
+      "home_yes": 9
+    },
+    {
       "canton": "BE",
       "total": 1716,
       "yes": 17,
@@ -111,12 +117,6 @@
       "total": 1011,
       "yes": 6,
       "home_yes": 6
-    },
-    {
-      "canton": "AG",
-      "total": 508,
-      "yes": 0,
-      "home_yes": 0
     },
     {
       "canton": "BS",
@@ -134,9 +134,9 @@
     },
     {
       "municipality": "(none)",
-      "total": 9399,
-      "yes": 24,
-      "home_yes": 23
+      "total": 10899,
+      "yes": 33,
+      "home_yes": 32
     }
   ],
   "canton_progress": {
@@ -175,9 +175,9 @@
     "by_canton": [
       {
         "canton": "AG",
-        "total": 508,
-        "oldest_year": null,
-        "newest_year": null,
+        "total": 2008,
+        "oldest_year": 2019,
+        "newest_year": 2020,
         "target_min_year": 2000,
         "fulfilled": false
       },
