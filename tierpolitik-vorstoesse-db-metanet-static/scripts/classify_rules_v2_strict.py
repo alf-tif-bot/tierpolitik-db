@@ -61,9 +61,9 @@ def classify_text(text: str, pos_tokens: set[str], neg_tokens: set[str]):
     pos_score = len(toks & pos_tokens)
     neg_score = len(toks & neg_tokens)
 
-    # learned positives bleiben vorsichtig -> unsure (kein automatisches yes)
-    if pos_score >= 5 and neg_score == 0:
-        return "unsure", 0.62, f"learned:+{pos_score}/-{neg_score}"
+    # Learned negatives dürfen klar auf "no" gehen.
+    # Learned positives werden NICHT mehr als "unsure" promoted,
+    # da dies in ZH viele themenfremde False Positives erzeugt hat.
     if neg_score >= 5 and pos_score == 0:
         return "no", 0.76, f"learned:+{pos_score}/-{neg_score}"
 
@@ -116,15 +116,32 @@ def main():
         pos_tokens = raw_pos - raw_neg
         neg_tokens = raw_neg - raw_pos
 
-        cur.execute(
-            """
-            select i.id, i.title, i.body, i.item_type
-            from politics_monitor.pm_items i
-            order by i.last_seen_at desc
-            limit %s
-            """,
-            (limit,),
-        )
+        only_learned = os.environ.get('TPM_CLASSIFY_ONLY_LEARNED', '').strip() in ('1','true','yes')
+
+        if only_learned:
+            cur.execute(
+                """
+                select i.id, i.title, i.body, i.item_type
+                from politics_monitor.pm_items i
+                join politics_monitor.pm_classification c on c.item_id = i.id
+                where c.label = 'unsure'
+                  and c.reason like 'learned:%%'
+                order by i.last_seen_at desc
+                limit %s
+                """,
+                (limit,),
+            )
+        else:
+            cur.execute(
+                """
+                select i.id, i.title, i.body, i.item_type
+                from politics_monitor.pm_items i
+                order by i.last_seen_at desc
+                limit %s
+                """,
+                (limit,),
+            )
+
         rows = cur.fetchall()
 
         yes = unsure = no = 0
