@@ -5,6 +5,9 @@ import sys
 STEPS = [
     ["python", "scripts/seed_sources.py"],
     ["python", "scripts/connector_bund_curia_vista.py"],
+    ["python", "scripts/connector_be_grosser_rat_ogd.py"],
+    ["python", "scripts/connector_zh_gemeinderat.py"],
+    ["python", "scripts/connector_bs_grosser_rat.py"],
     ["python", "scripts/classify_rules_v2_strict.py"],
     ["python", "scripts/export_review_inbox.py"],
     ["python", "scripts/export_home_data.py"],

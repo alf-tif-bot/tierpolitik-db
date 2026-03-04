@@ -4,7 +4,8 @@ import os
 import re
 import json
 from datetime import datetime, timezone
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
+from html import unescape
 
 import psycopg
 from dotenv import load_dotenv
@@ -13,19 +14,54 @@ SOURCE_KEY = 'ch-bs-grosser-rat-neu'
 URL = 'https://www.grosserrat.bs.ch/ratsbetrieb/neue-vorstoesse'
 
 
+ROW_RE = re.compile(
+    r'<tr>\s*'
+    r'<td[^>]*headers="th_geschno"[^>]*>\s*(.*?)\s*</td>\s*'
+    r'<td[^>]*headers="th_titel"[^>]*>\s*(.*?)\s*</td>',
+    re.I | re.S,
+)
+HREF_RE = re.compile(r'href="(/ratsbetrieb/geschaefte/(\d+))"', re.I)
+NR_RE = re.compile(r'(\d{2}\.\d{4})')
+TAG_RE = re.compile(r'<[^>]+>')
+
+
+def clean_html(text: str) -> str:
+    return re.sub(r'\s+', ' ', unescape(TAG_RE.sub(' ', text))).strip()
+
+
 def parse_items(html: str):
-    # pattern: [26.5025](/ratsbetrieb/geschaefte/200114321) <text title>
-    pattern = re.compile(r'\[(\d{2}\.\d{4})\]\((/ratsbetrieb/geschaefte/\d+)\)\s*\n\s*([^\n]+)', re.M)
     out = []
-    for m in pattern.finditer(html):
-        nr, rel, title = m.group(1), m.group(2), m.group(3).strip()
-        url = f"https://www.grosserrat.bs.ch{rel}"
-        # rough submitter extraction: first words after type until 'betreffend'
+    for td_nr, td_title in ROW_RE.findall(html):
+        m_href = HREF_RE.search(td_nr)
+        if not m_href:
+            continue
+        rel = m_href.group(1)
+        ext_id = m_href.group(2)
+        nr_text = clean_html(td_nr)
+        m_nr = NR_RE.search(nr_text)
+        nr = m_nr.group(1) if m_nr else None
+        title = clean_html(td_title)
+        if not title:
+            continue
+
         submitter = None
-        mm = re.search(r'(?:Anzug|Motion|Interpellation(?:\s+Nr\.\s*\d+)?|Schriftliche Anfrage|Budgetpostulat(?:\s+\d{4})?)\s+(.+?)\s+betreffend', title, re.I)
+        mm = re.search(
+            r'(?:Anzug|Motion|Interpellation(?:\s+Nr\.\s*\d+)?|Schriftliche Anfrage|Budgetpostulat(?:\s+\d{4})?)\s+(.+?)\s+betreffend',
+            title,
+            re.I,
+        )
         if mm:
             submitter = mm.group(1).strip()
-        out.append({'nr': nr, 'external_id': rel.split('/')[-1], 'title': title, 'url': url, 'submitter': submitter})
+
+        out.append(
+            {
+                'nr': nr,
+                'external_id': ext_id,
+                'title': title,
+                'url': f'https://www.grosserrat.bs.ch{rel}',
+                'submitter': submitter,
+            }
+        )
     return out
 
 
@@ -35,7 +71,8 @@ def main():
     if not db:
         raise SystemExit('DATABASE_URL fehlt in .env')
 
-    html = urlopen(URL, timeout=60).read().decode('utf-8', 'ignore')
+    req = Request(URL, headers={'User-Agent': 'Mozilla/5.0 TierpolitikMonitor/1.0'})
+    html = urlopen(req, timeout=60).read().decode('utf-8', 'ignore')
     items = parse_items(html)
 
     with psycopg.connect(db) as conn:
@@ -57,9 +94,9 @@ def main():
                     fetched += 1
                     ext = it['external_id']
                     persons = [it['submitter']] if it.get('submitter') else None
-                    body = f"Geschäftsnummer: {it['nr']}"
+                    body = f"Geschäftsnummer: {it['nr']}" if it.get('nr') else None
 
-                    raw_payload = str(it)
+                    raw_payload = json.dumps(it, ensure_ascii=False)
                     raw_hash = hashlib.sha256(raw_payload.encode('utf-8')).hexdigest()
                     cur.execute(
                         """
@@ -67,7 +104,7 @@ def main():
                         (run_id, source_id, external_id, fetched_at, raw_payload, raw_hash)
                         values (%s,%s,%s,%s,%s::jsonb,%s)
                         """,
-                        (run_id, source_id, ext, now, json.dumps(it, ensure_ascii=False), raw_hash),
+                        (run_id, source_id, ext, now, raw_payload, raw_hash),
                     )
 
                     cur.execute(

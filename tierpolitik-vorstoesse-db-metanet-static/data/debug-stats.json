@@ -1,6 +1,6 @@
 {
-  "items_total": 6422,
-  "items_home_visible": 6419,
+  "items_total": 6516,
+  "items_home_visible": 6513,
   "items_home_yes": 40,
   "review_queue": 129,
   "labels": [
@@ -11,6 +11,10 @@
     {
       "label": "unsure",
       "count": 117
+    },
+    {
+      "label": "none",
+      "count": 94
     },
     {
       "label": "yes",
@@ -41,6 +45,14 @@
       "yes": 6,
       "unsure": 8,
       "queued": 999
+    },
+    {
+      "source_key": "ch-bs-grosser-rat-neu",
+      "total": 94,
+      "home_visible": 94,
+      "yes": 0,
+      "unsure": 0,
+      "queued": 94
     },
     {
       "source_key": "ch-zh-legacy-import",
@@ -77,6 +89,12 @@
       "total": 1000,
       "yes": 6,
       "home_yes": 6
+    },
+    {
+      "canton": "BS",
+      "total": 94,
+      "yes": 0,
+      "home_yes": 0
     }
   ],
   "by_municipality_top": [
@@ -88,9 +106,51 @@
     },
     {
       "municipality": "(none)",
-      "total": 2719,
+      "total": 2813,
       "yes": 24,
       "home_yes": 23
     }
-  ]
+  ],
+  "canton_progress": {
+    "covered": 3,
+    "target": 26,
+    "covered_cantons": [
+      "BE",
+      "BS",
+      "ZH"
+    ],
+    "missing_cantons": [
+      "AG",
+      "AI",
+      "AR",
+      "BL",
+      "FR",
+      "GE",
+      "GL",
+      "GR",
+      "JU",
+      "LU",
+      "NE",
+      "NW",
+      "OW",
+      "SG",
+      "SH",
+      "SO",
+      "SZ",
+      "TG",
+      "TI",
+      "UR",
+      "VD",
+      "VS",
+      "ZG"
+    ]
+  },
+  "year_progress": {
+    "current_year": 2026,
+    "target_min_year": 2000,
+    "oldest_year": 2020,
+    "newest_year": 2025,
+    "covered_years_back": 6,
+    "target_years_back": 26
+  }
 }

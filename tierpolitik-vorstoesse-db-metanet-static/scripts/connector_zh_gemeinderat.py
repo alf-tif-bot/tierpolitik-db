@@ -70,7 +70,12 @@ def main():
                     body = "\n".join(body_parts) or None
                     persons = []
                     for key in ['Erstunterzeichner', 'Mitunterzeichner']:
-                        v = (it.get(key) or '').strip()
+                        raw_persons = it.get(key)
+                        if isinstance(raw_persons, dict):
+                            vals = [str(v).strip() for v in raw_persons.values() if str(v).strip()]
+                            v = ', '.join(vals)
+                        else:
+                            v = str(raw_persons or '').strip()
                         if v:
                             persons.extend([p.strip() for p in v.replace(';', ',').split(',') if p.strip()])
                     persons = list(dict.fromkeys(persons))[:30] if persons else None

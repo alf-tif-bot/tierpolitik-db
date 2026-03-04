@@ -9,6 +9,10 @@
     .wrap{max-width:1200px;margin:0 auto}
     .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
     .card{background:#111827;border:1px solid #334155;border-radius:8px;padding:10px}
+    .progress-wrap{display:grid;gap:10px;margin-top:12px}
+    .progress{background:#111827;border:1px solid #334155;border-radius:8px;padding:10px}
+    .bar{height:14px;background:#0b1220;border-radius:999px;overflow:hidden;border:1px solid #334155}
+    .bar > span{display:block;height:100%;background:linear-gradient(90deg,#22c55e,#84cc16)}
     table{width:100%;border-collapse:collapse;background:#111827;margin-top:10px}
     th,td{border:1px solid #334155;padding:6px;text-align:left}
     th{background:#1f2937}
@@ -22,6 +26,10 @@
   <p><a href="/">Home</a> · <a href="/review.html">Review</a></p>
   <div id="health" class="card" style="margin-bottom:10px"></div>
   <div id="cards" class="cards"></div>
+  <div class="progress-wrap">
+    <div class="progress" id="cantonProgress"></div>
+    <div class="progress" id="yearProgress"></div>
+  </div>
 
   <h2>Nach Quelle</h2>
   <table><thead><tr><th>Source</th><th>Total</th><th>Yes</th><th>Unsure</th><th>Queued</th><th>Home visible</th></tr></thead><tbody id="bySource"></tbody></table>
@@ -70,6 +78,30 @@ fetch('/data/debug-stats.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
     ['BE yes',beYes],
   ];
   document.getElementById('cards').innerHTML = cards.map(([k,v])=>`<div class="card"><div>${k}</div><div style="font-size:24px;font-weight:700">${v}</div></div>`).join('');
+
+  const cp = d.canton_progress || {covered:0,target:26,covered_cantons:[],missing_cantons:[]};
+  const cpPct = Math.max(0, Math.min(100, Math.round((cp.covered / Math.max(1, cp.target)) * 100)));
+  document.getElementById('cantonProgress').innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+      <strong>Kantons-Abdeckung</strong>
+      <span>${cp.covered}/${cp.target} (${cpPct}%)</span>
+    </div>
+    <div class="bar"><span style="width:${cpPct}%"></span></div>
+    <div style="margin-top:6px;font-size:12px;opacity:.85">Fehlend: ${(cp.missing_cantons||[]).join(', ') || '—'}</div>
+  `;
+
+  const yp = d.year_progress || {};
+  const ypDone = yp.covered_years_back || 0;
+  const ypTarget = yp.target_years_back || 1;
+  const ypPct = Math.max(0, Math.min(100, Math.round((ypDone / Math.max(1, ypTarget)) * 100)));
+  document.getElementById('yearProgress').innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+      <strong>Zeit-Abdeckung (rückwärts)</strong>
+      <span>ältestes Jahr: ${yp.oldest_year ?? '—'} · Ziel: ${yp.target_min_year ?? '—'} · ${ypPct}%</span>
+    </div>
+    <div class="bar"><span style="width:${ypPct}%"></span></div>
+    <div style="margin-top:6px;font-size:12px;opacity:.85">Visualisiert rückwärts von heute bis Zieljahr.</div>
+  `;
 
   document.getElementById('bySource').innerHTML=(d.by_source||[]).map(r=>`<tr>${td(r.source_key)}${td(r.total)}${td(r.yes)}${td(r.unsure)}${td(r.queued)}${td(r.home_visible)}</tr>`).join('');
   document.getElementById('byCanton').innerHTML=(d.by_canton||[]).map(r=>`<tr>${td(r.canton)}${td(r.total)}${td(r.yes)}${td(r.home_yes)}</tr>`).join('');

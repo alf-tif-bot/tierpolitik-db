@@ -7,6 +7,7 @@ import psycopg
 from dotenv import load_dotenv
 
 OUT = Path('data/debug-stats.json')
+CANTONS_26 = ['AG','AI','AR','BE','BL','BS','FR','GE','GL','GR','JU','LU','NE','NW','OW','SG','SH','SO','SZ','TG','TI','UR','VD','VS','ZG','ZH']
 
 
 def main():
@@ -103,6 +104,44 @@ def main():
             {'municipality': r[0], 'total': r[1], 'yes': r[2], 'home_yes': r[3]}
             for r in cur.fetchall()
         ]
+
+        cur.execute("""
+            select upper(canton) as canton, count(*)
+            from politics_monitor.pm_items
+            where canton is not null and canton <> ''
+            group by upper(canton)
+        """)
+        counts = {r[0]: r[1] for r in cur.fetchall()}
+        covered = [c for c in CANTONS_26 if counts.get(c, 0) > 0]
+        payload['canton_progress'] = {
+            'covered': len(covered),
+            'target': 26,
+            'covered_cantons': covered,
+            'missing_cantons': [c for c in CANTONS_26 if c not in covered],
+        }
+
+        cur.execute("""
+            select min(extract(year from submitted_at))::int,
+                   max(extract(year from submitted_at))::int
+            from politics_monitor.pm_items
+            where submitted_at is not null
+        """)
+        min_year, max_year = cur.fetchone()
+        import datetime as _dt
+        current_year = _dt.datetime.now(_dt.timezone.utc).year
+        target_year = int(os.environ.get('TPM_YEAR_TARGET_MIN', '2000'))
+        observed_min = min_year if min_year is not None else current_year
+        observed_max = max_year if max_year is not None else current_year
+        span_total = max(1, current_year - target_year)
+        span_done = max(0, min(span_total, current_year - observed_min))
+        payload['year_progress'] = {
+            'current_year': current_year,
+            'target_min_year': target_year,
+            'oldest_year': observed_min,
+            'newest_year': observed_max,
+            'covered_years_back': span_done,
+            'target_years_back': span_total,
+        }
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
