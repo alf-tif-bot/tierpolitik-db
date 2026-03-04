@@ -1,16 +1,16 @@
 {
-  "items_total": 17401,
-  "items_home_visible": 17398,
+  "items_total": 17582,
+  "items_home_visible": 17579,
   "items_home_yes": 40,
   "review_queue": 127,
   "labels": [
     {
       "label": "none",
-      "count": 10885
+      "count": 10855
     },
     {
       "label": "no",
-      "count": 6360
+      "count": 6571
     },
     {
       "label": "unsure",
@@ -45,6 +45,14 @@
       "yes": 6,
       "unsure": 8,
       "queued": 1010
+    },
+    {
+      "source_key": "ch-bl-landrat-talus",
+      "total": 181,
+      "home_visible": 181,
+      "yes": 0,
+      "unsure": 0,
+      "queued": 181
     },
     {
       "source_key": "ch-bs-grosser-rat-neu",
@@ -91,6 +99,12 @@
       "home_yes": 6
     },
     {
+      "canton": "BL",
+      "total": 181,
+      "yes": 0,
+      "home_yes": 0
+    },
+    {
       "canton": "BS",
       "total": 94,
       "yes": 0,
@@ -106,16 +120,17 @@
     },
     {
       "municipality": "(none)",
-      "total": 2824,
+      "total": 3005,
       "yes": 24,
       "home_yes": 23
     }
   ],
   "canton_progress": {
-    "covered": 3,
+    "covered": 4,
     "target": 26,
     "covered_cantons": [
       "BE",
+      "BL",
       "BS",
       "ZH"
     ],
@@ -123,7 +138,6 @@
       "AG",
       "AI",
       "AR",
-      "BL",
       "FR",
       "GE",
       "GL",
