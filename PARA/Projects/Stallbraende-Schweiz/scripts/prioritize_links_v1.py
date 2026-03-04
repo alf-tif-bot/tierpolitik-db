@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,8 +18,8 @@ TRUST_BONUS = {
     'ch-nzz-search': 5,
 }
 
-BAD_DOMAIN = ('abo.nzz.ch', 'spiele.nzz.ch', 'shop.swissfire.ch')
-GOOD_HINTS = ('medien', 'mitteilung', 'news', 'aktuell', 'polizei', 'brand', 'feuer')
+BAD_DOMAIN = ('abo.nzz.ch', 'spiele.nzz.ch', 'shop.swissfire.ch', 'medien.srf.ch')
+GOOD_HINTS = ('medien', 'mitteilung', 'news', 'aktuell', 'polizei', 'brand', 'feuer', 'einsatz')
 
 rows=[]
 for line in INP.read_text(encoding='utf-8').splitlines():
@@ -39,6 +40,18 @@ for line in INP.read_text(encoding='utf-8').splitlines():
         score += 15
     if '/search' in link or '/suche' in link:
         score -= 10
+
+    POS_KW = ('stall','brand','feuerwehr','einsatz','polizei','mitteilung')
+    NEG_KW = ('iran','ukraine','krieg','israel','gaza','flugzeugtraeger','newsletter','radio','podcast')
+    if any(k in link for k in POS_KW):
+        score += 20
+    if any(k in link for k in NEG_KW):
+        score -= 35
+    # article-ish path bonus / generic hub penalty
+    if re.search(r'/news/[a-z0-9-]+/[a-z0-9-]+', link):
+        score += 10
+    if link.rstrip('/') in ('https://www.srf.ch/news','https://www.swissfire.ch','https://www.nzz.ch/suche?q=stallbrand'):
+        score -= 20
 
     r['priority_score']=score
     rows.append(r)
