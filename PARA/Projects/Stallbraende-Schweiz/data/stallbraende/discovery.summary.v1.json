@@ -1,35 +1,35 @@
 {
-  "total_links": 338,
+  "total_links": 430,
   "by_source": {
     "ch-20min-search": 135,
     "ch-nzz-search": 86,
     "ch-srf-search": 69,
     "ch-swissfire": 44,
-    "ch-be-police-news": 1,
-    "ch-zh-police-news": 1,
-    "ch-lu-police-news": 1,
-    "ch-ag-police-news": 1
+    "ch-ag-police-news": 37,
+    "ch-lu-police-news": 29,
+    "ch-be-police-news": 17,
+    "ch-zh-police-news": 13
   },
   "top_domains": {
     "www.20min.ch": 109,
     "www.nzz.ch": 62,
     "www.srf.ch": 56,
     "www.swissfire.ch": 39,
+    "www.ag.ch": 34,
+    "polizei.lu.ch": 16,
     "spiele.nzz.ch": 13,
+    "www.stadt-zuerich.ch": 12,
+    "www.police.be.ch": 11,
     "abo.nzz.ch": 6,
-    "(none)": 4,
+    "www.linkedin.com": 4,
+    "www.instagram.com": 4,
+    "www.youtube.com": 3,
+    "www.lu.ch": 3,
+    "www.facebook.com": 3,
+    "news.lu.ch": 2,
+    "www.tiktok.com": 2,
     "shop.swissfire.ch": 2,
-    "www.facebook.com": 2,
-    "www.instagram.com": 2,
     "advertising.20min.ch": 2,
-    "20min.ch": 2,
-    "app.usercentrics.eu": 1,
-    "www.radioswissclassic.ch": 1,
-    "www.radioswissjazz.ch": 1,
-    "www.radioswisspop.ch": 1,
-    "jobs.srf.ch": 1,
-    "medien.srf.ch": 1,
-    "www.playsuisse.ch": 1,
-    "www.srgssr.ch": 1
+    "20min.ch": 2
   }
 }
