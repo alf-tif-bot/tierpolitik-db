@@ -11,6 +11,7 @@ OUT = ROOT / 'data' / 'stallbraende' / 'articles.extracted.v1.jsonl'
 
 URL_HINT = re.compile(r'(medien|news|aktuell|mitteilung|meldung|polizei|ratsbetrieb|geschaeft)', re.I)
 KEYWORD = re.compile(r'(stallbrand|stall\s*brand|brand in .*stall|stall brannte|brand eines stalles|gefluegelstall|huehnerstall|hühnerstall|schweinestall|rinderstall|kuhstall|viehstall|scheunenbrand)', re.I)
+URL_KEYWORD = re.compile(r'(stallbrand|stall-vollbrand|stallbrand-feuerwehr|masthuehner-verenden|kaelber-verenden|gefluegelstall|huehnerstall|schweinestall|rinderstall|bauernhof-brand)', re.I)
 TITLE_RE = re.compile(r'<title[^>]*>(.*?)</title>', re.I | re.S)
 
 
@@ -38,8 +39,6 @@ def main():
         link=rec.get('link')
         if not link:
             continue
-        if not URL_HINT.search(link):
-            continue
         links.append(rec)
 
     # cap to keep heartbeat runtime stable
@@ -55,7 +54,9 @@ def main():
         title_m=TITLE_RE.search(html)
         title=re.sub(r'\s+',' ',title_m.group(1)).strip() if title_m else None
         txt=clean_text(html)
-        hit=bool(KEYWORD.search((title or '')+' '+txt))
+        url_hit = bool(URL_KEYWORD.search(url))
+        text_hit = bool(KEYWORD.search((title or '')+' '+txt))
+        hit = url_hit or text_hit
         if not hit:
             continue
         rows.append({
@@ -64,7 +65,7 @@ def main():
             'fetched_at': now,
             'title': title,
             'snippet': txt[:800],
-            'candidate_reason': 'article_keyword_match_v1'
+            'candidate_reason': 'url_keyword_match_v1' if url_hit and not text_hit else ('url_and_text_keyword_match_v1' if url_hit and text_hit else 'article_keyword_match_v1')
         })
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
