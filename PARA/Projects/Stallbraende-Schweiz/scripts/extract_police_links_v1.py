@@ -4,6 +4,7 @@ import re
 from pathlib import Path
 from urllib.parse import urljoin
 from urllib.request import Request, urlopen
+from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / 'data' / 'stallbraende' / 'sources.v0.json'
@@ -14,7 +15,8 @@ HREF = re.compile(r'href=["\']([^"\']+)["\']', re.I)
 
 ALLOW_PATTERNS = {
   'ch-be-police-news': [
-      re.compile(r'/de/start/themen/news/medienmitteilungen/[^\s?#]+', re.I),
+      re.compile(r'/de/start/themen/news/medienmitteilungen(?:/[^\s?#]+)?$', re.I),
+      re.compile(r'/de/start\.html\?newsid=[0-9a-f-]+', re.I),
   ],
   'ch-zh-police-news': [
       re.compile(r'/de/aktuell/medienmitteilungen/[^\s?#]+', re.I),
@@ -34,11 +36,77 @@ BLOCK = re.compile(
     re.I,
 )
 HUB_HINT = re.compile(r'(archiv|archive|medienmitteilungen(\.html)?$|/jahr/|/news/)', re.I)
+SITEMAP_HINT = re.compile(r'(medienmitteilungen|mitteilungsarchiv|/news/|/aktuell/|newsid=)', re.I)
+YEAR_QS = re.compile(r'([?&](?:year|jahr)=)(\d{4})', re.I)
+
+SITEMAP_SEEDS = {
+    'ch-be-police-news': ['https://www.police.be.ch/sitemap.xml'],
+    'ch-ag-police-news': ['https://www.ag.ch/sitemap.xml'],
+    'ch-zh-police-news': ['https://www.stadt-zuerich.ch/misc/de/mitteilungsarchiv.gsitemap.xml'],
+    'ch-lu-police-news': ['https://polizei.lu.ch/xmlsitemap'],
+}
 
 
 def fetch(url: str) -> str:
     req = Request(url, headers={'User-Agent': 'Mozilla/5.0 StallbraendeMonitor/0.6'})
     return urlopen(req, timeout=30).read().decode('utf-8', 'ignore')
+
+
+def fetch_bytes(url: str) -> bytes:
+    req = Request(url, headers={'User-Agent': 'Mozilla/5.0 StallbraendeMonitor/0.6'})
+    return urlopen(req, timeout=30).read()
+
+
+def looks_current_enough(u: str) -> bool:
+    m = YEAR_QS.search(u)
+    if not m:
+        return True
+    try:
+        return int(m.group(2)) >= 2020
+    except Exception:
+        return True
+
+
+def sitemap_urls(seed_url: str, max_urls: int = 1200):
+    out = []
+    queue = [seed_url]
+    seen = set()
+
+    while queue and len(out) < max_urls:
+        cur = queue.pop(0)
+        if cur in seen:
+            continue
+        seen.add(cur)
+
+        try:
+            raw = fetch_bytes(cur)
+        except Exception:
+            continue
+
+        try:
+            root = ET.fromstring(raw)
+        except Exception:
+            continue
+
+        tag = root.tag.lower()
+        # sitemap index
+        if tag.endswith('sitemapindex'):
+            for loc in root.findall('.//{*}loc'):
+                if loc.text and loc.text.strip():
+                    queue.append(loc.text.strip())
+            continue
+
+        # urlset
+        for loc in root.findall('.//{*}loc'):
+            if not loc.text:
+                continue
+            u = loc.text.strip()
+            if u:
+                out.append(u)
+            if len(out) >= max_urls:
+                break
+
+    return out
 
 
 def allowed(source_id: str, full_url: str) -> bool:
@@ -104,11 +172,30 @@ def main():
             for full in extract_links(hub, hub_html):
                 if not allowed(sid, full):
                     continue
+                if not looks_current_enough(full):
+                    continue
                 key = (sid, full)
                 if key in seen:
                     continue
                 seen.add(key)
                 rows.append({'source_id': sid, 'base_url': base, 'link': full, 'discovered_via': hub})
+
+        # Pass 3: sitemap fallback for JS-heavy pages (BE/AG/LU/ZH)
+        for sm in SITEMAP_SEEDS.get(sid, []):
+            for full in sitemap_urls(sm):
+                if not SITEMAP_HINT.search(full):
+                    continue
+                if not allowed(sid, full):
+                    continue
+                if not looks_current_enough(full):
+                    continue
+                if BLOCK.search(full):
+                    continue
+                key = (sid, full)
+                if key in seen:
+                    continue
+                seen.add(key)
+                rows.append({'source_id': sid, 'base_url': base, 'link': full, 'discovered_via': sm, 'source': 'sitemap'})
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with OUT.open('w', encoding='utf-8') as f:
