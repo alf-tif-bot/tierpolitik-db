@@ -13,6 +13,7 @@ MONTHS = {
 
 RE_NUM = re.compile(r'\b(\d{1,2})\.(\d{1,2})\.(\d{4})\b')
 RE_DE = re.compile(r'\b(\d{1,2})\.\s*(januar|februar|maerz|märz|april|mai|juni|juli|august|september|oktober|november|dezember)\s*(\d{4})\b', re.I)
+RE_YEAR = re.compile(r'\b(19\d{2}|20\d{2})\b')
 
 
 def parse_dt(text: str):
@@ -35,6 +36,12 @@ def parse_dt(text: str):
                 return date(y, mon, d)
             except Exception:
                 return None
+
+    years = [int(y) for y in RE_YEAR.findall(text)]
+    years = [y for y in years if 1900 <= y <= 2026]
+    if years:
+        # conservative fallback: oldest referenced year in title
+        return date(min(years), 1, 1)
     return None
 
 
