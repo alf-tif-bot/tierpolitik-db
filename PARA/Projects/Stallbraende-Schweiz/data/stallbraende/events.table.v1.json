@@ -1,0 +1,79 @@
+[
+  {
+    "url": "https://www.20min.ch/story/waedenswil-zh-grosse-rauchwolke-bei-zuerichsee-feuerwehr-vor-ort-103438276",
+    "title": "Brand in Wädenswil ZH: Feuerwehr kämpft gegen Stallfeuer - 20 Minuten",
+    "canton": null,
+    "animals": [],
+    "counts": [],
+    "confidence": "low"
+  },
+  {
+    "url": "https://www.20min.ch/story/riom-gr-haus-und-stallbrand-feuerwehr-der-ems-chemie-kam-zu-hilfe-103294778",
+    "title": "Brand in Riom: Polizei sucht Zeugen - 20 Minuten",
+    "canton": null,
+    "animals": [],
+    "counts": [],
+    "confidence": "low"
+  },
+  {
+    "url": "https://www.20min.ch/story/ramsen-sh-17-000-masthuehner-verenden-bei-stall-vollbrand-103394417",
+    "title": "Ramsen SH: 17&#x27;000 Masthühner verenden bei Stallbrand - 20 Minuten",
+    "canton": null,
+    "animals": [
+      "masthühner"
+    ],
+    "counts": [
+      {
+        "count": 0,
+        "animal": "masthühner"
+      }
+    ],
+    "confidence": "medium"
+  },
+  {
+    "url": "https://www.20min.ch/story/duedingen-fr-15-kaelber-verenden-bei-brand-auf-bauernhof-103404011",
+    "title": "Düdingen FR: Stallbrand fordert das Leben von 15 Kälbern - 20 Minuten",
+    "canton": null,
+    "animals": [
+      "kälber"
+    ],
+    "counts": [
+      {
+        "count": 15,
+        "animal": "kälber"
+      }
+    ],
+    "confidence": "medium"
+  },
+  {
+    "url": "https://www.20min.ch/story/wangen-sz-200-legehennen-in-brand-verendet-andere-tiere-wurden-gerettet-103397470",
+    "title": "Brand in Wangen: 200 Legehennen verenden, andere Tiere gerettet - 20 Minuten",
+    "canton": null,
+    "animals": [
+      "legehennen"
+    ],
+    "counts": [
+      {
+        "count": 200,
+        "animal": "legehennen"
+      }
+    ],
+    "confidence": "medium"
+  },
+  {
+    "url": "https://www.20min.ch/story/detligen-be-2-schweine-und-21-ferkel-sterben-in-den-flammen-103493303",
+    "title": "Brand in Detligen: Zwei Schweine und 21 Ferkel sterben in Stallfeuer - 20 Minuten",
+    "canton": null,
+    "animals": [
+      "schweine",
+      "ferkel"
+    ],
+    "counts": [
+      {
+        "count": 21,
+        "animal": "ferkel"
+      }
+    ],
+    "confidence": "medium"
+  }
+]
