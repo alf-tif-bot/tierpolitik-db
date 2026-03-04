@@ -1,24 +1,24 @@
 {
-  "items_total": 6516,
-  "items_home_visible": 6513,
+  "items_total": 6527,
+  "items_home_visible": 6524,
   "items_home_yes": 40,
-  "review_queue": 129,
+  "review_queue": 127,
   "labels": [
     {
       "label": "no",
-      "count": 6264
+      "count": 6360
     },
     {
       "label": "unsure",
-      "count": 117
-    },
-    {
-      "label": "none",
-      "count": 94
+      "count": 115
     },
     {
       "label": "yes",
       "count": 41
+    },
+    {
+      "label": "none",
+      "count": 11
     }
   ],
   "by_source": [
@@ -27,7 +27,7 @@
       "total": 3703,
       "home_visible": 3703,
       "yes": 17,
-      "unsure": 95,
+      "unsure": 93,
       "queued": 3667
     },
     {
@@ -40,11 +40,11 @@
     },
     {
       "source_key": "ch-bund-curia-vista",
-      "total": 1000,
-      "home_visible": 1000,
+      "total": 1011,
+      "home_visible": 1011,
       "yes": 6,
       "unsure": 8,
-      "queued": 999
+      "queued": 1010
     },
     {
       "source_key": "ch-bs-grosser-rat-neu",
@@ -86,7 +86,7 @@
     },
     {
       "canton": "(none)",
-      "total": 1000,
+      "total": 1011,
       "yes": 6,
       "home_yes": 6
     },
@@ -106,7 +106,7 @@
     },
     {
       "municipality": "(none)",
-      "total": 2813,
+      "total": 2824,
       "yes": 24,
       "home_yes": 23
     }

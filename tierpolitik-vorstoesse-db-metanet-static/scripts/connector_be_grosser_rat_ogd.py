@@ -2,14 +2,30 @@
 import hashlib
 import json
 import os
+import time
 from datetime import datetime, timezone
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 
 import psycopg
 from dotenv import load_dotenv
 
 SOURCE_KEY = 'ch-be-grosser-rat-ogd'
 URL_GESCHAEFT = 'https://ogd.parl.apps.be.ch/data/geschaeft.json'
+
+
+def fetch_json_with_retry(url: str, retries: int = 3, delay_sec: float = 2.0):
+    last_err = None
+    for attempt in range(retries):
+        try:
+            req = Request(url, headers={'User-Agent': 'Mozilla/5.0 TierpolitikMonitor/1.0'})
+            raw = urlopen(req, timeout=120).read().decode('utf-8', 'ignore')
+            return json.loads(raw)
+        except Exception as e:
+            last_err = e
+            if attempt < retries - 1:
+                time.sleep(delay_sec * (attempt + 1))
+                continue
+            raise last_err
 
 
 def parse_date(v: str | None):
@@ -37,7 +53,7 @@ def main():
 
     min_year = int(os.environ.get('TPM_BE_MIN_YEAR', '2020'))
 
-    data = json.loads(urlopen(URL_GESCHAEFT, timeout=120).read().decode('utf-8', 'ignore')).get('data', [])
+    data = fetch_json_with_retry(URL_GESCHAEFT).get('data', [])
 
     with psycopg.connect(db) as conn:
         with conn.cursor() as cur:
