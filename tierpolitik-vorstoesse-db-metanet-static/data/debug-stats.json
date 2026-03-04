@@ -176,8 +176,8 @@
       {
         "canton": "AG",
         "total": 5931,
-        "oldest_year": 1997,
-        "newest_year": 2020,
+        "oldest_year": 1968,
+        "newest_year": 2026,
         "target_min_year": 2000,
         "fulfilled": true
       },
@@ -386,7 +386,7 @@
   "year_progress": {
     "current_year": 2026,
     "target_min_year": 2000,
-    "oldest_year": 1983,
+    "oldest_year": 1968,
     "newest_year": 2026,
     "covered_years_back": 26,
     "target_years_back": 26
