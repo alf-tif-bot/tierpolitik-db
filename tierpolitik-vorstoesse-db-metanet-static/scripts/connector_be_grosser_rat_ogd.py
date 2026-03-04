@@ -51,7 +51,7 @@ def main():
     if not db:
         raise SystemExit('DATABASE_URL fehlt in .env')
 
-    min_year = int(os.environ.get('TPM_BE_MIN_YEAR', '2020'))
+    min_year = int(os.environ.get('TPM_BE_MIN_YEAR', '2000'))
 
     data = fetch_json_with_retry(URL_GESCHAEFT).get('data', [])
 

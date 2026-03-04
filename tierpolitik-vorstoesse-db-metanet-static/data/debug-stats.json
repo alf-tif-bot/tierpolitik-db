@@ -1,24 +1,24 @@
 {
-  "items_total": 29401,
-  "items_home_visible": 29398,
-  "items_home_yes": 51,
-  "review_queue": 142,
+  "items_total": 31096,
+  "items_home_visible": 31093,
+  "items_home_yes": 52,
+  "review_queue": 145,
   "labels": [
     {
       "label": "none",
-      "count": 21857
+      "count": 23392
     },
     {
       "label": "no",
-      "count": 7373
+      "count": 7530
     },
     {
       "label": "unsure",
-      "count": 119
+      "count": 121
     },
     {
       "label": "yes",
-      "count": 52
+      "count": 53
     }
   ],
   "by_source": [
@@ -48,11 +48,11 @@
     },
     {
       "source_key": "ch-be-grosser-rat-ogd",
-      "total": 1715,
-      "home_visible": 1715,
-      "yes": 16,
-      "unsure": 14,
-      "queued": 1715
+      "total": 3410,
+      "home_visible": 3410,
+      "yes": 17,
+      "unsure": 16,
+      "queued": 3410
     },
     {
       "source_key": "ch-bund-curia-vista",
@@ -108,9 +108,9 @@
     },
     {
       "canton": "BE",
-      "total": 1716,
-      "yes": 17,
-      "home_yes": 17
+      "total": 3411,
+      "yes": 18,
+      "home_yes": 18
     },
     {
       "canton": "(none)",
@@ -128,9 +128,9 @@
   "by_municipality_top": [
     {
       "municipality": "(none)",
-      "total": 14822,
-      "yes": 35,
-      "home_yes": 34
+      "total": 16517,
+      "yes": 36,
+      "home_yes": 35
     },
     {
       "municipality": "Zürich",
@@ -199,8 +199,8 @@
       },
       {
         "canton": "BE",
-        "total": 1716,
-        "oldest_year": 2020,
+        "total": 3411,
+        "oldest_year": 2012,
         "newest_year": 2025,
         "target_min_year": 2000,
         "fulfilled": false
