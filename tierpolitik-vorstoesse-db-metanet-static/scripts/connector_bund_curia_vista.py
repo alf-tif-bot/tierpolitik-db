@@ -2,6 +2,7 @@
 import hashlib
 import json
 import os
+import time
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -24,10 +25,19 @@ def fetch_business_page(skip: int, top: int) -> list[dict]:
     }
     query = urllib.parse.urlencode(params, safe=" $'=()")
     url = f"https://ws.parlament.ch/odata.svc/Business?{query}"
-    # Be tolerant to occasional slow responses on the OData endpoint.
-    # (We also avoid holding an idle DB transaction open; see autocommit below.)
-    with urllib.request.urlopen(url, timeout=120) as resp:
-        payload = json.loads(resp.read().decode("utf-8", "ignore"))
+    # Be tolerant to occasional slow responses / transient 5xx on the OData endpoint.
+    last_err = None
+    for attempt in range(4):
+        try:
+            with urllib.request.urlopen(url, timeout=120) as resp:
+                payload = json.loads(resp.read().decode("utf-8", "ignore"))
+            break
+        except Exception as e:
+            last_err = e
+            if attempt < 3:
+                time.sleep(1.5 * (attempt + 1))
+                continue
+            raise last_err
     data = payload.get("d", [])
     if isinstance(data, list):
         return data
