@@ -29,6 +29,7 @@
   <div class="progress-wrap">
     <div class="progress" id="cantonProgress"></div>
     <div class="progress" id="yearProgress"></div>
+    <div class="progress" id="cantonGrid"></div>
   </div>
 
   <h2>Nach Quelle</h2>
@@ -79,16 +80,33 @@ fetch('/data/debug-stats.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
   ];
   document.getElementById('cards').innerHTML = cards.map(([k,v])=>`<div class="card"><div>${k}</div><div style="font-size:24px;font-weight:700">${v}</div></div>`).join('');
 
-  const cp = d.canton_progress || {covered:0,target:26,covered_cantons:[],missing_cantons:[]};
-  const cpPct = Math.max(0, Math.min(100, Math.round((cp.covered / Math.max(1, cp.target)) * 100)));
+  const cp = d.canton_progress || {fulfilled:0,target:26,fulfilled_cantons:[],missing_cantons:[],by_canton:[]};
+  const cpPct = Math.max(0, Math.min(100, Math.round((cp.fulfilled / Math.max(1, cp.target)) * 100)));
   document.getElementById('cantonProgress').innerHTML = `
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-      <strong>Kantons-Abdeckung</strong>
-      <span>${cp.covered}/${cp.target} (${cpPct}%)</span>
+      <strong>Kantone erfüllt bis ${cp.by_canton?.[0]?.target_min_year ?? 2000}</strong>
+      <span>${cp.fulfilled}/${cp.target} (${cpPct}%)</span>
     </div>
     <div class="bar"><span style="width:${cpPct}%"></span></div>
     <div style="margin-top:6px;font-size:12px;opacity:.85">Fehlend: ${(cp.missing_cantons||[]).join(', ') || '—'}</div>
   `;
+
+  const cantonBars = (cp.by_canton||[]).map(r=>{
+    const ok = !!r.fulfilled;
+    const pct = ok ? 100 : 6;
+    const color = ok ? 'linear-gradient(90deg,#22c55e,#84cc16)' : 'linear-gradient(90deg,#334155,#475569)';
+    const label = ok ? `✅ erfüllt (ältestes ${r.oldest_year})` : `⏳ offen (ältestes ${r.oldest_year ?? '—'})`;
+    return `
+      <div style="margin-bottom:8px">
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px">
+          <strong>${r.canton}</strong>
+          <span>${label} · Items: ${r.total ?? 0}</span>
+        </div>
+        <div class="bar"><span style="width:${pct}%;background:${color}"></span></div>
+      </div>
+    `;
+  }).join('');
+  document.getElementById('cantonGrid').innerHTML = `<strong>Fortschritt je Kanton (Kriterium: Daten bis Jahr 2000)</strong><div style="margin-top:8px">${cantonBars}</div>`;
 
   const yp = d.year_progress || {};
   const ypDone = yp.covered_years_back || 0;

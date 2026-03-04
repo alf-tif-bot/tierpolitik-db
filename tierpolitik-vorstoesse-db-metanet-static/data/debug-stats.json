@@ -126,18 +126,18 @@
     }
   ],
   "canton_progress": {
-    "covered": 4,
+    "fulfilled": 2,
     "target": 26,
-    "covered_cantons": [
-      "BE",
+    "fulfilled_cantons": [
       "BL",
-      "BS",
       "ZH"
     ],
     "missing_cantons": [
       "AG",
       "AI",
       "AR",
+      "BE",
+      "BS",
       "FR",
       "GE",
       "GL",
@@ -157,6 +157,216 @@
       "VD",
       "VS",
       "ZG"
+    ],
+    "by_canton": [
+      {
+        "canton": "AG",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "AI",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "AR",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "BE",
+        "total": 1716,
+        "oldest_year": 2020,
+        "newest_year": 2025,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "BL",
+        "total": 6067,
+        "oldest_year": 1983,
+        "newest_year": 2026,
+        "target_min_year": 2000,
+        "fulfilled": true
+      },
+      {
+        "canton": "BS",
+        "total": 94,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "FR",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "GE",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "GL",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "GR",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "JU",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "LU",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "NE",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "NW",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "OW",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "SG",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "SH",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "SO",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "SZ",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "TG",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "TI",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "UR",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "VD",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "VS",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "ZG",
+        "total": 0,
+        "oldest_year": null,
+        "newest_year": null,
+        "target_min_year": 2000,
+        "fulfilled": false
+      },
+      {
+        "canton": "ZH",
+        "total": 14581,
+        "oldest_year": 2000,
+        "newest_year": 2026,
+        "target_min_year": 2000,
+        "fulfilled": true
+      }
     ]
   },
   "year_progress": {

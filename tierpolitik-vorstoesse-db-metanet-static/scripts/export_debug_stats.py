@@ -105,19 +105,43 @@ def main():
             for r in cur.fetchall()
         ]
 
+        target_year = int(os.environ.get('TPM_YEAR_TARGET_MIN', '2000'))
+
         cur.execute("""
-            select upper(canton) as canton, count(*)
+            select upper(canton) as canton,
+                   count(*) as total,
+                   min(extract(year from submitted_at))::int as oldest_year,
+                   max(extract(year from submitted_at))::int as newest_year
             from politics_monitor.pm_items
             where canton is not null and canton <> ''
             group by upper(canton)
         """)
-        counts = {r[0]: r[1] for r in cur.fetchall()}
-        covered = [c for c in CANTONS_26 if counts.get(c, 0) > 0]
+        canton_rows = {r[0]: {'total': r[1], 'oldest_year': r[2], 'newest_year': r[3]} for r in cur.fetchall()}
+
+        by_canton_progress = []
+        fulfilled = []
+        for c in CANTONS_26:
+            total = canton_rows.get(c, {}).get('total', 0)
+            oldest = canton_rows.get(c, {}).get('oldest_year')
+            newest = canton_rows.get(c, {}).get('newest_year')
+            is_fulfilled = bool(total > 0 and oldest is not None and oldest <= target_year)
+            if is_fulfilled:
+                fulfilled.append(c)
+            by_canton_progress.append({
+                'canton': c,
+                'total': total,
+                'oldest_year': oldest,
+                'newest_year': newest,
+                'target_min_year': target_year,
+                'fulfilled': is_fulfilled,
+            })
+
         payload['canton_progress'] = {
-            'covered': len(covered),
+            'fulfilled': len(fulfilled),
             'target': 26,
-            'covered_cantons': covered,
-            'missing_cantons': [c for c in CANTONS_26 if c not in covered],
+            'fulfilled_cantons': fulfilled,
+            'missing_cantons': [c for c in CANTONS_26 if c not in fulfilled],
+            'by_canton': by_canton_progress,
         }
 
         cur.execute("""
@@ -129,7 +153,6 @@ def main():
         min_year, max_year = cur.fetchone()
         import datetime as _dt
         current_year = _dt.datetime.now(_dt.timezone.utc).year
-        target_year = int(os.environ.get('TPM_YEAR_TARGET_MIN', '2000'))
         observed_min = min_year if min_year is not None else current_year
         observed_max = max_year if max_year is not None else current_year
         span_total = max(1, current_year - target_year)
