@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import json
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parents[1]
 INP = ROOT / 'data' / 'stallbraende' / 'events.table.v1.json'
@@ -17,7 +17,7 @@ for r in rows:
 lines = []
 lines.append('# Stallbrände Schweiz — Events Report v1')
 lines.append('')
-lines.append(f'_Generated: {datetime.utcnow().isoformat()}Z_')
+lines.append(f'_Generated: {datetime.now(timezone.utc).isoformat()}_')
 lines.append('')
 lines.append(f'- Kandidaten total: **{len(rows)}**')
 lines.append(f"- Kantone: {', '.join(f'{k}({v})' for k,v in sorted(by_canton.items()))}")
