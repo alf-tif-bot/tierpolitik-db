@@ -24,7 +24,9 @@ def fetch_business_page(skip: int, top: int) -> list[dict]:
     }
     query = urllib.parse.urlencode(params, safe=" $'=()")
     url = f"https://ws.parlament.ch/odata.svc/Business?{query}"
-    with urllib.request.urlopen(url, timeout=30) as resp:
+    # Be tolerant to occasional slow responses on the OData endpoint.
+    # (We also avoid holding an idle DB transaction open; see autocommit below.)
+    with urllib.request.urlopen(url, timeout=120) as resp:
         payload = json.loads(resp.read().decode("utf-8", "ignore"))
     data = payload.get("d", [])
     if isinstance(data, list):
@@ -73,7 +75,8 @@ def main():
     page_size = int(os.environ.get("TPM_CH_PAGE_SIZE", str(DEFAULT_PAGE_SIZE)))
     max_rows = int(os.environ.get("TPM_CH_MAX_ROWS", str(DEFAULT_MAX_ROWS)))
 
-    with psycopg.connect(db_url) as conn:
+    # Use autocommit so long-running HTTP fetches don't keep an idle DB transaction open
+    with psycopg.connect(db_url, autocommit=True) as conn:
         with conn.cursor() as cur:
             cur.execute(
                 "select id from politics_monitor.pm_sources where source_key = %s",
