@@ -10,7 +10,7 @@ INP = ROOT / 'data' / 'stallbraende' / 'links.discovered.v1.jsonl'
 OUT = ROOT / 'data' / 'stallbraende' / 'articles.extracted.v1.jsonl'
 
 URL_HINT = re.compile(r'(medien|news|aktuell|mitteilung|meldung|polizei|ratsbetrieb|geschaeft)', re.I)
-KEYWORD = re.compile(r'(stallbrand|brand in .*stall|stall brannte|gefluegelstall|huehnerstall|schweinestall|rinderstall)', re.I)
+KEYWORD = re.compile(r'(stallbrand|stall\s*brand|brand in .*stall|stall brannte|brand eines stalles|gefluegelstall|huehnerstall|hühnerstall|schweinestall|rinderstall|kuhstall|viehstall|scheunenbrand)', re.I)
 TITLE_RE = re.compile(r'<title[^>]*>(.*?)</title>', re.I | re.S)
 
 
@@ -43,7 +43,7 @@ def main():
         links.append(rec)
 
     # cap to keep heartbeat runtime stable
-    links=links[:220]
+    links=links[:420]
 
     for rec in links:
         url=rec['link']
@@ -63,7 +63,7 @@ def main():
             'source_id': rec.get('source_id'),
             'fetched_at': now,
             'title': title,
-            'snippet': txt[:500],
+            'snippet': txt[:800],
             'candidate_reason': 'article_keyword_match_v1'
         })
 
