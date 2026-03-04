@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-INP = ROOT / 'data' / 'stallbraende' / 'articles.filtered.v1.jsonl'
+INP = ROOT / 'data' / 'stallbraende' / 'articles.merged.v1.jsonl'
 OUT = ROOT / 'data' / 'stallbraende' / 'events.table.v1.json'
 
 CANTON_RE = re.compile(r'\b([a-zäöü]+)\s+([A-Z]{2})\b')
