@@ -1,20 +1,20 @@
 {
-  "items_total": 18626,
-  "items_home_visible": 18623,
+  "items_total": 18923,
+  "items_home_visible": 18920,
   "items_home_yes": 40,
-  "review_queue": 127,
+  "review_queue": 128,
   "labels": [
     {
       "label": "none",
-      "count": 11899
+      "count": 11896
     },
     {
       "label": "no",
-      "count": 6571
+      "count": 6870
     },
     {
       "label": "unsure",
-      "count": 115
+      "count": 116
     },
     {
       "label": "yes",
@@ -24,11 +24,11 @@
   "by_source": [
     {
       "source_key": "ch-zh-gemeinderat-api",
-      "total": 14577,
-      "home_visible": 14577,
+      "total": 14578,
+      "home_visible": 14578,
       "yes": 17,
       "unsure": 93,
-      "queued": 14541
+      "queued": 14542
     },
     {
       "source_key": "ch-be-grosser-rat-ogd",
@@ -40,11 +40,11 @@
     },
     {
       "source_key": "ch-bl-landrat-talus",
-      "total": 1225,
-      "home_visible": 1225,
+      "total": 1521,
+      "home_visible": 1521,
       "yes": 0,
-      "unsure": 0,
-      "queued": 1225
+      "unsure": 1,
+      "queued": 1521
     },
     {
       "source_key": "ch-bund-curia-vista",
@@ -82,7 +82,7 @@
   "by_canton": [
     {
       "canton": "ZH",
-      "total": 14580,
+      "total": 14581,
       "yes": 18,
       "home_yes": 17
     },
@@ -94,7 +94,7 @@
     },
     {
       "canton": "BL",
-      "total": 1225,
+      "total": 1521,
       "yes": 0,
       "home_yes": 0
     },
@@ -114,13 +114,13 @@
   "by_municipality_top": [
     {
       "municipality": "Zürich",
-      "total": 14577,
+      "total": 14578,
       "yes": 17,
       "home_yes": 17
     },
     {
       "municipality": "(none)",
-      "total": 4049,
+      "total": 4345,
       "yes": 24,
       "home_yes": 23
     }
