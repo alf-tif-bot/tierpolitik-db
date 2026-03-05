@@ -1,24 +1,24 @@
 {
-  "items_total": 31096,
-  "items_home_visible": 31093,
-  "items_home_yes": 52,
-  "review_queue": 145,
+  "items_total": 32684,
+  "items_home_visible": 32681,
+  "items_home_yes": 79,
+  "review_queue": 118,
   "labels": [
     {
       "label": "none",
-      "count": 23392
+      "count": 19352
     },
     {
       "label": "no",
-      "count": 7530
-    },
-    {
-      "label": "unsure",
-      "count": 121
+      "count": 13186
     },
     {
       "label": "yes",
-      "count": 53
+      "count": 80
+    },
+    {
+      "label": "unsure",
+      "count": 66
     }
   ],
   "by_source": [
@@ -27,23 +27,23 @@
       "total": 14579,
       "home_visible": 14579,
       "yes": 17,
-      "unsure": 93,
+      "unsure": 10,
       "queued": 14543
     },
     {
       "source_key": "ch-bl-landrat-talus",
       "total": 6067,
       "home_visible": 6067,
-      "yes": 0,
-      "unsure": 1,
+      "yes": 3,
+      "unsure": 10,
       "queued": 6067
     },
     {
       "source_key": "ch-ag-grosser-rat",
       "total": 5931,
       "home_visible": 5931,
-      "yes": 11,
-      "unsure": 3,
+      "yes": 19,
+      "unsure": 20,
       "queued": 5931
     },
     {
@@ -51,16 +51,16 @@
       "total": 3410,
       "home_visible": 3410,
       "yes": 17,
-      "unsure": 16,
+      "unsure": 15,
       "queued": 3410
     },
     {
       "source_key": "ch-bund-curia-vista",
-      "total": 1011,
-      "home_visible": 1011,
-      "yes": 6,
-      "unsure": 8,
-      "queued": 1010
+      "total": 2599,
+      "home_visible": 2599,
+      "yes": 22,
+      "unsure": 11,
+      "queued": 2598
     },
     {
       "source_key": "ch-bs-grosser-rat-neu",
@@ -97,14 +97,14 @@
     {
       "canton": "BL",
       "total": 6067,
-      "yes": 0,
-      "home_yes": 0
+      "yes": 3,
+      "home_yes": 3
     },
     {
       "canton": "AG",
       "total": 5931,
-      "yes": 11,
-      "home_yes": 11
+      "yes": 19,
+      "home_yes": 19
     },
     {
       "canton": "BE",
@@ -114,9 +114,9 @@
     },
     {
       "canton": "(none)",
-      "total": 1011,
-      "yes": 6,
-      "home_yes": 6
+      "total": 2599,
+      "yes": 22,
+      "home_yes": 22
     },
     {
       "canton": "BS",
@@ -128,9 +128,9 @@
   "by_municipality_top": [
     {
       "municipality": "(none)",
-      "total": 16517,
-      "yes": 36,
-      "home_yes": 35
+      "total": 18105,
+      "yes": 63,
+      "home_yes": 62
     },
     {
       "municipality": "Zürich",
@@ -172,6 +172,37 @@
       "VS",
       "ZG"
     ],
+    "fulfilled_available": 4,
+    "fulfilled_available_cantons": [
+      "AG",
+      "BE",
+      "BL",
+      "ZH"
+    ],
+    "missing_available_cantons": [
+      "AI",
+      "AR",
+      "BS",
+      "FR",
+      "GE",
+      "GL",
+      "GR",
+      "JU",
+      "LU",
+      "NE",
+      "NW",
+      "OW",
+      "SG",
+      "SH",
+      "SO",
+      "SZ",
+      "TG",
+      "TI",
+      "UR",
+      "VD",
+      "VS",
+      "ZG"
+    ],
     "by_canton": [
       {
         "canton": "AG",
@@ -179,7 +210,9 @@
         "oldest_year": 1968,
         "newest_year": 2026,
         "target_min_year": 2000,
-        "fulfilled": true
+        "available_min_year": null,
+        "fulfilled": true,
+        "fulfilled_available": true
       },
       {
         "canton": "AI",
@@ -187,7 +220,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "AR",
@@ -195,7 +230,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "BE",
@@ -203,7 +240,9 @@
         "oldest_year": 2012,
         "newest_year": 2025,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": 2012,
+        "fulfilled": false,
+        "fulfilled_available": true
       },
       {
         "canton": "BL",
@@ -211,7 +250,9 @@
         "oldest_year": 1983,
         "newest_year": 2026,
         "target_min_year": 2000,
-        "fulfilled": true
+        "available_min_year": null,
+        "fulfilled": true,
+        "fulfilled_available": true
       },
       {
         "canton": "BS",
@@ -219,7 +260,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "FR",
@@ -227,7 +270,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "GE",
@@ -235,7 +280,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "GL",
@@ -243,7 +290,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "GR",
@@ -251,7 +300,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "JU",
@@ -259,7 +310,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "LU",
@@ -267,7 +320,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "NE",
@@ -275,7 +330,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "NW",
@@ -283,7 +340,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "OW",
@@ -291,7 +350,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "SG",
@@ -299,7 +360,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "SH",
@@ -307,7 +370,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "SO",
@@ -315,7 +380,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "SZ",
@@ -323,7 +390,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "TG",
@@ -331,7 +400,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "TI",
@@ -339,7 +410,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "UR",
@@ -347,7 +420,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "VD",
@@ -355,7 +430,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "VS",
@@ -363,7 +440,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "ZG",
@@ -371,7 +450,9 @@
         "oldest_year": null,
         "newest_year": null,
         "target_min_year": 2000,
-        "fulfilled": false
+        "available_min_year": null,
+        "fulfilled": false,
+        "fulfilled_available": false
       },
       {
         "canton": "ZH",
@@ -379,7 +460,9 @@
         "oldest_year": 2000,
         "newest_year": 2026,
         "target_min_year": 2000,
-        "fulfilled": true
+        "available_min_year": null,
+        "fulfilled": true,
+        "fulfilled_available": true
       }
     ]
   },

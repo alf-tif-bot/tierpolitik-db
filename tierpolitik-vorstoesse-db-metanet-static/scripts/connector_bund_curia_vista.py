@@ -67,9 +67,13 @@ def parse_date(value: str | None):
     if not value:
         return None
     try:
-        # OData format like /Date(1743465600000+0100)/
+        # OData format variants:
+        # /Date(1743465600000+0100)/
+        # /Date(1750204800000)/
         if value.startswith("/Date("):
-            ms = int(value.split("(", 1)[1].split("+", 1)[0].split("-", 1)[0].rstrip(")"))
+            core = value.split("(", 1)[1].split(")", 1)[0]
+            core = core.split("+", 1)[0].split("-", 1)[0]
+            ms = int(core)
             return datetime.fromtimestamp(ms / 1000, tz=timezone.utc).date()
         return datetime.fromisoformat(value[:10]).date()
     except Exception:

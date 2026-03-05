@@ -10,25 +10,25 @@
     "id": "ch-be-police-news",
     "name": "Kantonspolizei Bern – News",
     "type": "web",
-    "url": "https://www.police.be.ch/de/start/medienmitteilungen.html"
+    "url": "https://www.police.be.ch/de/start/themen/news/medienmitteilungen.html"
   },
   {
     "id": "ch-zh-police-news",
     "name": "Stadtpolizei Zürich – Medien",
     "type": "web",
-    "url": "https://www.stadt-zuerich.ch/pd/de/index/stadtpolizei_zuerich/medien.html"
+    "url": "https://www.stadt-zuerich.ch/de/aktuell/medienmitteilungen.html"
   },
   {
     "id": "ch-lu-police-news",
     "name": "Polizei Luzern – Medienmitteilungen",
     "type": "web",
-    "url": "https://polizei.lu.ch/aktuelles/medienmitteilungen"
+    "url": "https://polizei.lu.ch/dienstleistungen/medienmitteilungen"
   },
   {
     "id": "ch-ag-police-news",
     "name": "Kantonspolizei Aargau – Medienmitteilungen",
     "type": "web",
-    "url": "https://www.ag.ch/de/verwaltung/dvi/kantonspolizei/medien"
+    "url": "https://www.ag.ch/de/themen/sicherheit/kantonspolizei/medienmitteilungen"
   },
   {
     "id": "ch-swissfire",

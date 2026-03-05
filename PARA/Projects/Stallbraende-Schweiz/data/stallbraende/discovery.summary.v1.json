@@ -1,20 +1,19 @@
 {
-  "total_links": 430,
+  "total_links": 387,
   "by_source": {
     "ch-20min-search": 135,
     "ch-nzz-search": 86,
     "ch-srf-search": 69,
-    "ch-swissfire": 44,
     "ch-ag-police-news": 37,
     "ch-lu-police-news": 29,
     "ch-be-police-news": 17,
-    "ch-zh-police-news": 13
+    "ch-zh-police-news": 13,
+    "ch-swissfire": 1
   },
   "top_domains": {
     "www.20min.ch": 109,
     "www.nzz.ch": 62,
     "www.srf.ch": 56,
-    "www.swissfire.ch": 39,
     "www.ag.ch": 34,
     "polizei.lu.ch": 16,
     "spiele.nzz.ch": 13,
@@ -22,14 +21,15 @@
     "www.police.be.ch": 11,
     "abo.nzz.ch": 6,
     "www.linkedin.com": 4,
-    "www.instagram.com": 4,
-    "www.youtube.com": 3,
+    "www.instagram.com": 3,
     "www.lu.ch": 3,
-    "www.facebook.com": 3,
+    "www.youtube.com": 2,
     "news.lu.ch": 2,
     "www.tiktok.com": 2,
-    "shop.swissfire.ch": 2,
+    "www.facebook.com": 2,
     "advertising.20min.ch": 2,
-    "20min.ch": 2
+    "20min.ch": 2,
+    "app.usercentrics.eu": 1,
+    "www.radioswissclassic.ch": 1
   }
 }

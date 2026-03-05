@@ -133,6 +133,19 @@ def extract_links(base_url: str, html: str):
         yield full
 
 
+
+def extra_archive_seeds(source_id: str):
+    years = list(range(2020, 2027))
+    if source_id == 'ch-be-police-news':
+        return [f'https://www.police.be.ch/de/start/themen/news/medienmitteilungen.html?year={y}' for y in years]
+    if source_id == 'ch-zh-police-news':
+        return [f'https://www.stadt-zuerich.ch/misc/de/mitteilungsarchiv.html?year={y}' for y in years]
+    if source_id == 'ch-lu-police-news':
+        return [f'https://polizei.lu.ch/dienstleistungen/medienmitteilungen?year={y}' for y in years]
+    if source_id == 'ch-ag-police-news':
+        return [f'https://www.ag.ch/de/themen/sicherheit/kantonspolizei/medienmitteilungen?year={y}' for y in years]
+    return []
+
 def main():
     sources = json.loads(SRC.read_text(encoding='utf-8'))
     rows = []
@@ -179,6 +192,23 @@ def main():
                     continue
                 seen.add(key)
                 rows.append({'source_id': sid, 'base_url': base, 'link': full, 'discovered_via': hub})
+
+        # Pass 2.5: year-iterated archive seeds (2020+), best-effort
+        for seed in extra_archive_seeds(sid):
+            try:
+                y_html = fetch(seed)
+            except Exception:
+                continue
+            for full in extract_links(seed, y_html):
+                if not allowed(sid, full):
+                    continue
+                if not looks_current_enough(full):
+                    continue
+                key = (sid, full)
+                if key in seen:
+                    continue
+                seen.add(key)
+                rows.append({'source_id': sid, 'base_url': base, 'link': full, 'discovered_via': seed, 'source': 'year_seed'})
 
         # Pass 3: sitemap fallback for JS-heavy pages (BE/AG/LU/ZH)
         for sm in SITEMAP_SEEDS.get(sid, []):

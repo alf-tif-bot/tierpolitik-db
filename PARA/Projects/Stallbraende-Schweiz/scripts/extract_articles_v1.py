@@ -10,7 +10,7 @@ INP = ROOT / 'data' / 'stallbraende' / 'links.filtered.v1.jsonl'
 OUT = ROOT / 'data' / 'stallbraende' / 'articles.extracted.v1.jsonl'
 
 URL_HINT = re.compile(r'(medien|news|aktuell|mitteilung|meldung|polizei|ratsbetrieb|geschaeft)', re.I)
-KEYWORD = re.compile(r'(stallbrand|stall\s*brand|brand in .*stall|stall brannte|brand eines stalles|gefluegelstall|huehnerstall|hühnerstall|schweinestall|rinderstall|kuhstall|viehstall|scheunenbrand)', re.I)
+KEYWORD = re.compile(r'(stallbrand|stall\s*brand|brand in .*stall|stall brannte|brand eines stalles|gefluegelstall|huehnerstall|hühnerstall|schweinestall|rinderstall|kuhstall|viehstall|scheunenbrand|brand.*(bauernhof|landwirtschaftsbetrieb|oekonomiegebaeude|ökonomiegebäude|scheune)|feuer.*(bauernhof|landwirtschaftsbetrieb|oekonomiegebaeude|ökonomiegebäude|scheune))', re.I)
 URL_KEYWORD = re.compile(r'(stallbrand|stall-vollbrand|stallbrand-feuerwehr|masthuehner-verenden|kaelber-verenden|gefluegelstall|huehnerstall|schweinestall|rinderstall|bauernhof-brand)', re.I)
 TITLE_RE = re.compile(r'<title[^>]*>(.*?)</title>', re.I | re.S)
 

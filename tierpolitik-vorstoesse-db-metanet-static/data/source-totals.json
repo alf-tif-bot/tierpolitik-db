@@ -1,0 +1,42 @@
+{
+  "ch-zh-gemeinderat-api": {
+    "total": 14579,
+    "oldest_year": 2000,
+    "newest_year": 2026
+  },
+  "ch-bl-landrat-talus": {
+    "total": 6067,
+    "oldest_year": 1983,
+    "newest_year": 2026
+  },
+  "ch-ag-grosser-rat": {
+    "total": 5931,
+    "oldest_year": 1968,
+    "newest_year": 2026
+  },
+  "ch-be-grosser-rat-ogd": {
+    "total": 3410,
+    "oldest_year": 2012,
+    "newest_year": 2025
+  },
+  "ch-bund-curia-vista": {
+    "total": 2399,
+    "oldest_year": null,
+    "newest_year": null
+  },
+  "ch-bs-grosser-rat-neu": {
+    "total": 94,
+    "oldest_year": null,
+    "newest_year": null
+  },
+  "ch-zh-legacy-import": {
+    "total": 3,
+    "oldest_year": null,
+    "newest_year": null
+  },
+  "ch-be-legacy-rss": {
+    "total": 1,
+    "oldest_year": null,
+    "newest_year": null
+  }
+}
